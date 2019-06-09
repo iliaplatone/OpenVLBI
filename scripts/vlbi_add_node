@@ -1,0 +1,11 @@
+#!/bin/bash
+
+[ $# -lt 2 ] && echo "usage: $0 host port" && exit 22
+
+host=$1
+port=$2
+fifo=/tmp/INDI.fifo
+
+echo "adding node $host:$port"
+echo start *@$host:$port > $fifo
+sleep 4

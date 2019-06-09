@@ -1,0 +1,3 @@
+#!/bin/bash
+fifo=/tmp/OpenVLBI.fifo
+[ -e "$fifo" ] && echo ${@-1} > $fifo

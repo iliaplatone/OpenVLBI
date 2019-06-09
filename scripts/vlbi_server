@@ -1,0 +1,52 @@
+#!/bin/bash
+
+INDIfifo=/tmp/INDI.fifo
+VLBIfifo=/tmp/VLBI.fifo
+pidfile=/tmp/vlbi_server.pid
+
+function start() {
+	[ -e $pidfile ] && return;
+	mkfifo $INDIfifo 2>/dev/null
+	mkfifo $VLBIfifo 2>/dev/null
+	indiserver -f $INDIfifo -p 7624 2>/dev/null 1>/dev/null &
+	sleep 3;
+	vlbi_client_indi localhost 7624 $VLBIfifo & echo "OpenVLBI started succesfully"
+	touch $pidfile;
+	sleep 10;
+	exit 0;
+}
+
+function stop() {
+	fuser -n file -k -9 $VLBIfifo 2>/dev/null 1>/dev/null || true;
+	sleep 3;
+	fuser -n file -k -9 $INDIfifo 2>/dev/null 1>/dev/null || true;
+	rm $pidfile $INDIfifo 2>/dev/null && echo "OpenVLBI stopped succesfully"
+	sleep 3;
+	exit 0;
+}
+
+function restart() {
+	stop;
+	start;
+	exit 0;
+}
+
+case "$1" in
+	start|stop|restart)
+		$1 &
+		sleep 10
+		;;
+	add|del)
+		[ -e $INDIfifo ] && [ "$1"=="add" ] && [ "$2"=="node" ] && echo "start $3" > $INDIfifo
+		[ -e $INDIfifo ] && [ "$1"=="del" ] && [ "$2"=="node" ] && echo "stop $3" > $INDIfifo
+		[ -e $VLBIfifo ] && [ "$1"=="del" ] && echo $@ > $VLBIfifo
+		[ -e $VLBIfifo ] && [ "$1"=="add" ] && echo $@ > $VLBIfifo
+		;;
+	set|get)
+		[ -e $VLBIfifo ] && echo $@ > $VLBIfifo
+		;;
+	*)
+		echo "usage $0 [start|stop|restart|set|get|add|del [arg [value]]]";
+		exit 22;
+		;;
+esac
