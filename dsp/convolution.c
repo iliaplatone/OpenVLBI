@@ -20,7 +20,7 @@
 
 void dsp_convolution_convolution(dsp_stream_p stream, dsp_stream_p matrix) {
     double *tmp = calloc(sizeof(double), stream->len);
-    for(int y = 0; y < matrix->len; y++)
+    for(int y = matrix->len - 1; y >= 0; y--)
     {
         double value = 0;
         int* pos = dsp_stream_get_position(matrix, y);
