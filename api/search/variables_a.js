@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['target',['target',['../structdsp__stream__t.html#a6ed19c9f01e0485ece8c612cd18f529f',1,'dsp_stream_t']]],
-  ['thread',['thread',['../structdsp__stream__t.html#ae7a5ff8cbb6b9fe3d5cf1725617f9d0c',1,'dsp_stream_t']]]
+  ['parent',['parent',['../structdsp__stream__t.html#a40dc327cb0be8479a2d9af06a6996fe7',1,'dsp_stream_t']]],
+  ['port',['Port',['../class_v_l_b_i_client.html#a71fc0a45255afcf9f82ec4ebfae67b92',1,'VLBIClient']]]
 ];

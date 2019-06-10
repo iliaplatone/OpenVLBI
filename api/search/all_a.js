@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['one_5fmicrosecond_5fticks',['ONE_MICROSECOND_TICKS',['../group___v_l_b_i___defines.html#ga287b1981081608aa35278af80c06885d',1,'vlbi.h']]],
-  ['one_5fmillisecond_5fticks',['ONE_MILLISECOND_TICKS',['../group___v_l_b_i___defines.html#gaec3ed40c02c74885e9ca1b3d9bd14661',1,'vlbi.h']]],
-  ['one_5fsecond_5fticks',['ONE_SECOND_TICKS',['../group___v_l_b_i___defines.html#ga1f2ffe7431ba5b3dff680049c808f85f',1,'vlbi.h']]]
+  ['max',['Max',['../group___d_s_p___defines.html#ga4886a8f966a69949cefc46a6a3468006',1,'dsp.h']]],
+  ['max_5fthreads',['max_threads',['../class_v_l_b_i_baseline.html#a86f63f7606daf736fd41cee5684e07e0',1,'VLBIBaseline']]],
+  ['min',['Min',['../group___d_s_p___defines.html#ga9e04209162ea72f9985338596262b657',1,'dsp.h']]]
 ];
