@@ -1,4 +1,4 @@
-# Interferometric correlator client application suite
+# Interferometric correlator clients application suite
 libvlbi is an open source library for correlating single dimensional streams and obtain an image from them.
 this repository contains the sources for building the library and a client application which correlates using the library streams captured from INDI servers by adding them using the vlbi_server script.
 
