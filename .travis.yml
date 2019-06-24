@@ -1,0 +1,21 @@
+compiler:
+ - gcc
+
+language: cpp
+sudo: required
+dist: xenial
+
+matrix:
+  include:
+    - os: linux
+
+branches:
+  only:
+    - master
+    - unstable
+
+install:
+    - scripts/build.sh 
+
+script:
+    - scripts/test.sh 
