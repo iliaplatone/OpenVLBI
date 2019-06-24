@@ -32,8 +32,6 @@ before_install:
     - eval "${MATRIX_EVAL}"
 install:
     - echo Building everything
-    - mkdir -p build
-    - sudo apt-get install build-essential libindi-dev libnova-dev libcfitsio-dev
     - bash scripts/build.sh 
 
 script:
