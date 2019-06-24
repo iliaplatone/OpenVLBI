@@ -92,7 +92,7 @@ typedef struct timespec timespec_t;
 #define sin2cos(s) cos(asin(s))
 #define cos2sin(c) sin(acos(c))
 
-#define VLBI_VERSION_STRING "%VLBI_VERSION_STRING%"
+#define VLBI_VERSION_STRING "@VLBI_VERSION_STRING@"
 #ifndef SPEED_MEAN
 #define SPEED_MEAN LIGHTSPEED
 #endif

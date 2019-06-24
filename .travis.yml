@@ -1,21 +1,41 @@
 compiler:
  - gcc
 
+git:
+ submodules: false
+
 language: cpp
 sudo: required
 dist: xenial
 
+os: 
+ - linux
+
 matrix:
   include:
     - os: linux
+      addons:
+        apt:
+          packages:
+            - g++-5
+          sources: &sources
+            - ubuntu-toolchain-r-test
+      env:
+        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 
 branches:
   only:
     - master
     - unstable
 
+before_install:
+    - eval "${MATRIX_EVAL}"
 install:
-    - scripts/build.sh
+    - echo Building everything
+    - mkdir -p build
+    - sudo apt-get install build-essential libindi-dev libnova-dev 
+libcfitsio-dev
+    - cd build && cmake ../ && sudo make install 
 
 script:
-    - scripts/test.sh 4 
+    - bash scripts/test.sh 4
