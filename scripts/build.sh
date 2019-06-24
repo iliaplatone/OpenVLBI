@@ -7,5 +7,5 @@ mkdir -p build
 pushd build
 cmake ..
 make
-make install
+sudo make install
 popd
