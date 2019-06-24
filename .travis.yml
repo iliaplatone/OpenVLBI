@@ -15,7 +15,7 @@ branches:
     - unstable
 
 install:
-    - scripts/build.sh 
+    - scripts/build.sh
 
 script:
-    - scripts/test.sh 
+    - scripts/test.sh 4 
