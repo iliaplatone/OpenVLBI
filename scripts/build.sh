@@ -5,7 +5,7 @@ sudo apt-get install indi-full libnova-dev libindi-dev libpthread-stubs0-dev lib
 
 mkdir -p build
 pushd build
-cmake .. -DCMAKE_INSTALL_PATH=/usr
+cmake -DCMAKE_INSTALL_PATH=/usr ..
 make
 sudo make install
 popd
