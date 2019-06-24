@@ -7,5 +7,5 @@ mkdir -p build
 pushd -DCMAKE_INSTALL_PATH=/usr build
 cmake -..
 make
-make install
+sudo make install
 popd
