@@ -33,8 +33,7 @@ before_install:
 install:
     - echo Building everything
     - mkdir -p build
-    - sudo apt-get install build-essential libindi-dev libnova-dev 
-libcfitsio-dev
+    - sudo apt-get install build-essential libindi-dev libnova-dev libcfitsio-dev
     - cd build && cmake ../ && sudo make install 
 
 script:
