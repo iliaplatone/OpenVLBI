@@ -445,6 +445,14 @@ int main(int argc, char** argv)
             }
         }
         else if(!strcmp(cmd, "get")) {
+            if(!strcmp(arg, "coordinate")) {
+		    if(!strcmp(arg, "ra")) {
+                        fprintf(stdout, "%02.05lf", Ra);
+		    }
+		    if(!strcmp(arg, "dec")) {
+                        fprintf(stdout, "%02.05lf", Dec);
+		    }
+	    }
             if(!strcmp(arg, "observation")) {
                 double coords[] =  { Ra, Dec };
                 uv = vlbi_get_uv_plot_astro(client->GetContext(), (vlbi_func2_t)correlation_func, 0, w, h, coords, Freq, SampleRate);
@@ -482,7 +490,7 @@ int main(int argc, char** argv)
                 else if(!strcmp(value, "raw")) {
                     if (uv != NULL) {
                         unsigned char* base64 = (unsigned char*)malloc(uv->len * 4 / 3 + 4);
-                        to64frombits(base64, (unsigned char*)fft->buf, fft->len);
+                        to64frombits(base64, (unsigned char*)uv->buf, uv->len);
                         fwrite(base64, 1, uv->len * 4 / 3 + 4, stdout);
                         free(base64);
                         dsp_stream_free(uv);
