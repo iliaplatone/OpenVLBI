@@ -32,7 +32,7 @@ vlbi_server set target 5.34,16.34
 sleep 2
 vlbi_server set exposure 0.5
 sleep 2
-vlbi_server get observation raw
+vlbi_server get observation fft
 sleep 10
 vlbi_server stop
 sleep 10
