@@ -48,6 +48,30 @@ void VLBIClient::AbortCapture()
     }
 }
 
+void VLBIClient::SetExposure(double seconds)
+{
+    if(!isServerConnected())
+        return;
+    std::vector<INDI::BaseDevice*> devices;
+    getDevices(devices, INDI::BaseDevice::DETECTOR_INTERFACE);
+    for(INDI::BaseDevice* dev : devices) {
+        dev->setMediator(this);
+        this->sendNewNumber(dev->getDeviceName(), "CCD_EXPOSURE", "CCD_EXPOSURE_VALUE", seconds);
+    }
+}
+
+void VLBIClient::AbortExposure()
+{
+    if(!isServerConnected())
+        return;
+    std::vector<INDI::BaseDevice*> devices;
+    getDevices(devices, INDI::BaseDevice::CCD_INTERFACE);
+    for(INDI::BaseDevice* dev : devices) {
+        dev->setMediator(this);
+        this->sendNewSwitch(dev->getDeviceName(), "ABORT", "CCD_ABORT_EXPOSURE");
+    }
+}
+
 void VLBIClient::SetFrequency(double centerfrequency)
 {
     if(!isServerConnected())
@@ -265,6 +289,12 @@ void VLBIClient::newNumber(INumberVectorProperty *nvp) {
         fprintf(stdout, "Capture left: %lf.\n", nvp->np[0].value);
         if(nvp->np[0].value < 1.0) {
             fprintf(stdout, "Capture complete.\n");
+        }
+    }
+    if(!strcmp(nvp->name, "DETECTOR_EXPOSURE")) {
+        fprintf(stdout, "Exposure left: %lf.\n", nvp->np[0].value);
+        if(nvp->np[0].value < 1.0) {
+            fprintf(stdout, "Exposure complete.\n");
         }
     }
     if(!strcmp(nvp->name, "EQUATORIAL_EOD_COORDS")) {
