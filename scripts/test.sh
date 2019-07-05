@@ -30,7 +30,7 @@ vlbi_server set tracking on
 sleep 2
 vlbi_server set target 5.34,16.34
 sleep 2
-vlbi_server set capture 1
+vlbi_server set exposure 0.5
 sleep 2
 vlbi_server get observation raw
 sleep 10
