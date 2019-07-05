@@ -41,6 +41,8 @@ public:
     bool StopServer();
     void SetCapture(double seconds);
     void AbortCapture();
+    void SetExposure(double seconds);
+    void AbortExposure();
     void SetFrequency(double centerfrequency);
     void SetSampleRate(double samplingfrequency);
     void SetBadwidth(double bandwidth);
