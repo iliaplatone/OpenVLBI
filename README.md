@@ -115,6 +115,8 @@ set samplerate value:numeric - set detectors sampling rate
 set target ra,dec:numeric,numeric - set telescopes celestial target
 set parking state:string - set telescopes parking state (on, off)
 set tracking state:string - set telescopes tracking state (on, off)
+set capture value:numeric - set detectors capture time in seconds
+set exposure value:numeric - set ccd cameras exposure time in seconds
 set connection state:string - set nodes connection state (on, off)
 get observation type:string - get UV plot observation (raw, fft, mdl) for raw observation, frequency transformed observation and FFT of the raw observation added with the comparison model
 ```
