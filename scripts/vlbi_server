@@ -1,14 +1,15 @@
 #!/bin/bash
 
-INDIfifo=/tmp/INDI.fifo
+client = $(strtoupper $1)
+Clientfifo=/tmp/$client.fifo
 VLBIfifo=/tmp/VLBI.fifo
 pidfile=/tmp/vlbi_server.pid
 
 function start() {
 	[ -e $pidfile ] && return;
-	mkfifo $INDIfifo 2>/dev/null
+	mkfifo $Clientfifo 2>/dev/null
 	mkfifo $VLBIfifo 2>/dev/null
-	indiserver -f $INDIfifo -p 7624 2>/dev/null 1>/dev/null &
+	indiserver -f $Clientfifo -p 7624 2>/dev/null 1>/dev/null &
 	sleep 3;
 	vlbi_client_indi localhost 7624 $VLBIfifo & echo "OpenVLBI started succesfully"
 	touch $pidfile;
@@ -19,8 +20,8 @@ function start() {
 function stop() {
 	fuser -n file -k -9 $VLBIfifo 2>/dev/null 1>/dev/null || true;
 	sleep 3;
-	fuser -n file -k -9 $INDIfifo 2>/dev/null 1>/dev/null || true;
-	rm $pidfile $INDIfifo 2>/dev/null && echo "OpenVLBI stopped succesfully"
+	fuser -n file -k -9 $Clientfifo 2>/dev/null 1>/dev/null || true;
+	rm $pidfile $Clientfifo 2>/dev/null && echo "OpenVLBI stopped succesfully"
 	sleep 3;
 	exit 0;
 }
@@ -37,8 +38,9 @@ case "$1" in
 		sleep 10
 		;;
 	add|del)
-		[ -e $INDIfifo ] && [ "$1"=="add" ] && [ "$2"=="node" ] && echo "start $3" > $INDIfifo
-		[ -e $INDIfifo ] && [ "$1"=="del" ] && [ "$2"=="node" ] && echo "stop $3" > $INDIfifo
+		
+		[ -e "$Clientfifo" ] && [ "$1"=="add" ] && [ "$2"=="node" ] && echo "start $3" > $Clientfifo
+		[ -e "$Clientfifo" ] && [ "$1"=="del" ] && [ "$2"=="node" ] && echo "stop $3" > $Clientfifo
 		[ -e $VLBIfifo ] && [ "$1"=="del" ] && echo $@ > $VLBIfifo
 		[ -e $VLBIfifo ] && [ "$1"=="add" ] && echo $@ > $VLBIfifo
 		;;
