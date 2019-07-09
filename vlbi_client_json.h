@@ -39,12 +39,6 @@ public:
     virtual void SetBadwidth(double bandwidth);
     virtual void SetGain(double gain);
     virtual void SetBPS(int BPS);
-    inline void CreateContext() { context = vlbi_init(); }
-    inline void FreeContext() { vlbi_exit(context); }
-    inline void SetContext(vlbi_context ctx) { context = ctx; }
-    inline vlbi_context GetContext() { return context; }
-    inline char* GetDFT() { return vlbi_get_plot_dft(response->samplerate, response->frequency, response->bandwidth); }
-    inline char* GetRAW() { return response->plot; }
 
 private:
     json_response* response;
