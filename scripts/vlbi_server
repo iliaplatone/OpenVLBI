@@ -1,6 +1,5 @@
 #!/bin/bash
-
-client = $(strtoupper $1)
+client=$( strtoup $1 )
 Clientfifo=/tmp/$client.fifo
 VLBIfifo=/tmp/VLBI.fifo
 pidfile=/tmp/vlbi_server.pid
@@ -9,7 +8,13 @@ function start() {
 	[ -e $pidfile ] && return;
 	mkfifo $Clientfifo 2>/dev/null
 	mkfifo $VLBIfifo 2>/dev/null
-	indiserver -f $Clientfifo -p 7624 2>/dev/null 1>/dev/null &
+	case $client in
+		INDI)
+			indiserver -f $Clientfifo -p 7624 2>/dev/null 1>/dev/null &
+		;;
+		*)
+		;;
+	esac
 	sleep 3;
 	vlbi_client_indi localhost 7624 $VLBIfifo & echo "OpenVLBI started succesfully"
 	touch $pidfile;
