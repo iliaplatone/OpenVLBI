@@ -31,8 +31,21 @@ public:
     inline void FreeContext() { vlbi_exit(context); }
     inline void SetContext(vlbi_context ctx) { context = ctx; }
     inline vlbi_context* GetContext() { return context; }
-    inline char* GetDFT(int u, int v, bool earth_tide_observation) { return vlbi_get_plot_dft(context, correlation_delegate, earth_tide_observation, u, v, new double[] { ra, dec }, frequency, samplerate); }
-    inline char* GetRAW(int u, int v) { return return vlbi_get_plot_raw(context, correlation_delegate, earth_tide_observation, u, v, new double[] { ra, dec }, frequency, samplerate); }
+    inline char* GetDFT(int u, int v) {
+        dsp_stream *fft = vlbi_get_fft_estimation(plot);
+        char *base64 = (char*)malloc(fft->len * 4 / 3 + 4);
+        to64frombits(fft->buf, base64, fft->len);
+        return base64;
+    }
+    inline char* GetRAW(int u, int v, bool earth_tide_observation) { 
+        if(earth_tide_observation)
+            plot = vlbi_get_uv_plot_earth_tide(context, correlation_delegate, earth_tide_observation, u, v, new double[] { ra, dec }, frequency, samplerate);
+        else
+            plot = vlbi_get_uv_plot_moving_baseline(context, correlation_delegate, earth_tide_observation, u, v, new double[] { ra, dec }, frequency, samplerate);
+        char *base64 = (char*)malloc(plot->len * 4 / 3 + 4);
+        to64frombits(plot->buf, base64, plot->len);
+        return base64;
+    }
 
 private:
     double frequency;
@@ -42,6 +55,7 @@ private:
     double BPS;
     double ra;
     double dec;
+    dsp_stream_p *plot;
     vlbi_context context;
 };
 #endif // _VLBI_CLIENT_H
