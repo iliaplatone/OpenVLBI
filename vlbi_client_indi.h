@@ -15,9 +15,10 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include <vlbi.h>
+#include <vlbi_client.h>
 
 
-class VLBIClient : private INDI::BaseClient
+class VLBIClient_INDI : private INDI::BaseClient, public VLBIClient
 {
 public:
     VLBIClient(char *address, int port);
@@ -56,7 +57,6 @@ public:
     void Tracking(bool on);
 
 private:
-    vlbi_context context;
     char* Address;
     char* Savedir;
     int Port;
