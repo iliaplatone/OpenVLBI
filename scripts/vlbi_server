@@ -1,16 +1,16 @@
 #!/bin/bash
-client=$( strtoup $1 )
-Clientfifo=/tmp/$client.fifo
+client=$( tr [a-z] [A-Z] <<< $1 )
+
 VLBIfifo=/tmp/VLBI.fifo
 pidfile=/tmp/vlbi_server.pid
 
 function start() {
 	[ -e $pidfile ] && return;
-	mkfifo $Clientfifo 2>/dev/null
+	mkfifo $VLBIfifo 2>/dev/null
 	mkfifo $VLBIfifo 2>/dev/null
 	case $client in
 		INDI)
-			indiserver -f $Clientfifo -p 7624 2>/dev/null 1>/dev/null &
+			indiserver -f $VLBIfifo -p 7624 2>/dev/null 1>/dev/null &
 		;;
 		*)
 		;;
@@ -25,8 +25,8 @@ function start() {
 function stop() {
 	fuser -n file -k -9 $VLBIfifo 2>/dev/null 1>/dev/null || true;
 	sleep 3;
-	fuser -n file -k -9 $Clientfifo 2>/dev/null 1>/dev/null || true;
-	rm $pidfile $Clientfifo 2>/dev/null && echo "OpenVLBI stopped succesfully"
+	fuser -n file -k -9 $VLBIfifo 2>/dev/null 1>/dev/null || true;
+	rm $pidfile $VLBIfifo 2>/dev/null && echo "OpenVLBI stopped succesfully"
 	sleep 3;
 	exit 0;
 }
@@ -44,10 +44,10 @@ case "$1" in
 		;;
 	add|del)
 		
-		[ -e "$Clientfifo" ] && [ "$1"=="add" ] && [ "$2"=="node" ] && echo "start $3" > $Clientfifo
-		[ -e "$Clientfifo" ] && [ "$1"=="del" ] && [ "$2"=="node" ] && echo "stop $3" > $Clientfifo
-		[ -e $VLBIfifo ] && [ "$1"=="del" ] && echo $@ > $VLBIfifo
-		[ -e $VLBIfifo ] && [ "$1"=="add" ] && echo $@ > $VLBIfifo
+		[ -e "$VLBIfifo" ] && [ "$2"=="add" ] && [ "$3"=="node" ] && echo "start $4" > $VLBIfifo
+		[ -e "$VLBIfifo" ] && [ "$2"=="del" ] && [ "$3"=="node" ] && echo "stop $4" > $VLBIfifo
+		[ -e $VLBIfifo ] && [ "$2"=="del" ] && echo $@ > $VLBIfifo
+		[ -e $VLBIfifo ] && [ "$2"=="add" ] && echo $@ > $VLBIfifo
 		;;
 	set|get)
 		[ -e $VLBIfifo ] && echo $@ > $VLBIfifo
