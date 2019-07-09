@@ -1,3 +1,5 @@
+#ifndef _VLBI_CLIENT_H
+#define _VLBI_CLIENT_H
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -30,3 +32,4 @@ public:
 private:
     vlbi_context context;
 };
+#endif // _VLBI_CLIENT_H
