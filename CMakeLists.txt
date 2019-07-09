@@ -2,9 +2,14 @@ cmake_minimum_required(VERSION 2.6)
 
 PROJECT(OpenVLBI C CXX)
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
+
+OPTION(WITH_INDI_CLIENT, On)
+
 include(GNUInstallDirs)
 include(ExternalProject)
+if(WITH_INDI_CLIENT)
 find_package(INDI REQUIRED)
+endif(WITH_INDI_CLIENT)
 find_package(INDICLIENT REQUIRED)
 find_package(CFITSIO REQUIRED)
 find_package(ZLIB REQUIRED)
@@ -13,6 +18,8 @@ find_package(Threads REQUIRED)
 set (VLBI_VERSION_MAJOR 1)
 set (VLBI_VERSION_MINOR 3)
 set (VLBI_VERSION_STRING "${VLBI_VERSION_MAJOR}.${VLBI_VERSION_MINOR}.0")
+
+
 
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake_modules/")
@@ -30,7 +37,6 @@ include_directories( ${CMAKE_CURRENT_BINARY_DIR})
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/vlbi)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/dsp)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR})
-include_directories( ${INDI_INCLUDE_DIR})
 
 include(CMakeCommon)
 
@@ -68,11 +74,16 @@ execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DI
 add_library(vlbi SHARED ${dsp_C_SRC} ${vlbi_C_SRCS} ${vlbi_CXX_SRCS})
 set_target_properties(vlbi PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
 target_link_libraries(vlbi ${M_LIB} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+
+
+if(WITH_INDI_CLIENT)
+include_directories( ${INDI_INCLUDE_DIR})
 add_executable(vlbi_client_indi vlbi_client_indi.cpp)
 target_link_libraries(vlbi_client_indi vlbi ${CMAKE_THREAD_LIBS_INIT} ${INDICLIENT_LIBRARIES} ${INDI_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
+install(TARGETS vlbi_client_indi RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+endif(WITH_INDI_CLIENT)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dsp.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
 install(TARGETS vlbi LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
-install(TARGETS vlbi_client_indi RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 install(PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/scripts/vlbi_server DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
