@@ -127,7 +127,7 @@ void vlbi_add_stream(void *ctx, dsp_stream_p Stream) {
     nodes->Add(new VLBINode(stream));
 }
 
-dsp_stream_p vlbi_get_uv_plot_astro(vlbi_context ctx, vlbi_func2_t correlation_func, int m, int u, int v, double *target, double freq, double sr)
+dsp_stream_p vlbi_get_uv_plot_earth_tide(vlbi_context ctx, vlbi_func2_t correlation_func, int m, int u, int v, double *target, double freq, double sr)
 {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     BaselineCollection *baselines = new BaselineCollection(nodes, correlation_func, m, u, v);
