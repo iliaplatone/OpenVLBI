@@ -77,10 +77,12 @@ target_link_libraries(vlbi ${M_LIB} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
 
 if(WITH_INDI_CLIENT)
 find_package(INDI REQUIRED)
+if(INDICLIENT_LIBRARIES)
 include_directories( ${INDI_INCLUDE_DIR})
 add_executable(vlbi_client_indi vlbi_client_indi.cpp)
 target_link_libraries(vlbi_client_indi vlbi ${CMAKE_THREAD_LIBS_INIT} ${INDICLIENT_LIBRARIES} ${INDI_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
 install(TARGETS vlbi_client_indi RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+endif(INDICLIENT_LIBRARIES)
 endif(WITH_INDI_CLIENT)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
