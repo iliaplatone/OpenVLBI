@@ -334,6 +334,9 @@ void VLBIClient_INDI::Run(char* cmd, char* arg, char* value) {
                 Disconnect();
             }
         }
+        else if(!strcmp(arg, "target")) {
+            GoTo(Ra, Dec);
+        }
         else if(!strcmp(arg, "tracking")) {
             if(!strcmp(value, "on")) {
                 Tracking(true);

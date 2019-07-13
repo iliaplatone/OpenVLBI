@@ -12,7 +12,7 @@ typedef struct _vlbi_context {
 void sighandler(int signum)
 {
     signal(signum, SIG_IGN);
-    client->~VLBIClient_INDI();
+    client->~VLBIClient();
     signal(signum, sighandler);
     exit(0);
 }
@@ -68,7 +68,6 @@ int main(int argc, char** argv)
                 char* dec = strtok(NULL, ",");
                 Ra = (double)atof(ra);
                 Dec = (double)atof(dec);
-                client->GoTo(Ra, Dec);
             }
             else if(!strcmp(arg, "frequency")) {
                 Freq = (double)atof(value);
@@ -121,15 +120,15 @@ int main(int argc, char** argv)
             if(!strcmp(arg, "observation")) {
                 double coords[] =  { Ra, Dec };
                 if(!strcmp(value, "fft")) {
-                    unsigned char* base64 = client->Plot(w, h, false, true, coords, Freq, Sample);
-                    if(len<fwrite(base64, 1, strlen(base64), stdout))continue;
+                    unsigned char* base64 = client->Plot(w, h, false, true);
+                    fwrite(base64, 1, strlen((char*)base64), stdout);
                     free(base64);
                 }
                 else if(!strcmp(value, "mdl")) {
                 }
                 else if(!strcmp(value, "raw")) {
-                    unsigned char* base64 = client->Plot(w, h, false, false, coords, Freq, Sample);
-                    if(len<fwrite(base64, 1, strlen(base64), stdout))continue;
+                    unsigned char* base64 = client->Plot(w, h, false, false);
+                    fwrite(base64, 1, strlen((char*)base64), stdout);
                     free(base64);
                 }
             }

@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <signal.h>
 #include <base64.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -27,6 +28,7 @@ public:
     virtual void SetBadwidth(double bandwidth);
     virtual void SetGain(double gain);
     virtual void SetBPS(int BPS);
+    virtual void Run(char *cmd, char *arg, char *value);
     inline void SetTarget(double Ra, double Dec) { ra = Ra; dec = Dec; }
     inline void CreateContext() { context = vlbi_init(); }
     inline void FreeContext() { vlbi_exit(context); }
