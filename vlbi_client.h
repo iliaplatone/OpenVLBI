@@ -23,12 +23,12 @@ public:
     VLBIClient();
     ~VLBIClient();
 
-    virtual void SetFrequency(double centerfrequency);
-    virtual void SetSampleRate(double samplerate);
-    virtual void SetBadwidth(double bandwidth);
-    virtual void SetGain(double gain);
-    virtual void SetBPS(int BPS);
-    virtual void Run(char *cmd, char *arg, char *value);
+    virtual inline void SetFrequency(double centerfrequency) { }
+    virtual inline void SetSampleRate(double samplerate) { }
+    virtual inline void SetBadwidth(double bandwidth) { }
+    virtual inline void SetGain(double gain) { }
+    virtual inline void SetBPS(int BPS) { }
+    virtual inline void Run(char *cmd, char *arg, char *value) { }
     inline void SetTarget(double Ra, double Dec) { ra = Ra; dec = Dec; }
     inline void CreateContext() { context = vlbi_init(); }
     inline void FreeContext() { vlbi_exit(context); }
