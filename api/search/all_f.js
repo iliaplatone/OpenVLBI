@@ -38,7 +38,7 @@ var searchData=
   ['vlbi_5fget_5fuv_5fcoords',['vlbi_get_uv_coords',['../group___v_l_b_i___internal.html#ga6f6bd30dcf961461871d46635b906f29',1,'vlbi.h']]],
   ['vlbi_5fget_5fuv_5fcoords_5fvector',['vlbi_get_uv_coords_vector',['../group___v_l_b_i___internal.html#ga515d8aa4d41d2e0403b5599ed35553b6',1,'vlbi.h']]],
   ['vlbi_5fget_5fuv_5fplot_5fearth_5ftide',['vlbi_get_uv_plot_earth_tide',['../group___v_l_b_i___functions.html#ga0bc0e3aa2abfe46c2ef73fd8336359af',1,'vlbi.h']]],
-  ['vlbi_5fget_5fuv_5fplot_5fmoving_5fbaseline',['vlbi_get_uv_plot_moving_baseline',['../group___v_l_b_i___functions.html#gac6aaecd51bfee64766e406ab0a72b62f',1,'vlbi.h']]],
+  ['vlbi_5fget_5fuv_5fplot_5fmoving_5fbaseline',['vlbi_get_uv_plot_moving_baseline',['../group___v_l_b_i___functions.html#gabddd6dd8b8bcb17a2a12d5ad21649861',1,'vlbi.h']]],
   ['vlbi_5fget_5fversion',['vlbi_get_version',['../group___v_l_b_i___functions.html#ga79a6e4befc2d91b2f36ab1e5d79ccef8',1,'vlbi.h']]],
   ['vlbi_5finit',['vlbi_init',['../group___v_l_b_i___functions.html#ga7af54a4c1922c260e74c8a5f2fcb89d9',1,'vlbi.h']]],
   ['vlbi_20internal_20functions',['VLBI internal functions',['../group___v_l_b_i___internal.html',1,'']]],
