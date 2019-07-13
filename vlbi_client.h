@@ -38,7 +38,7 @@ public:
         if(earth_tide_observation)
             plot = vlbi_get_uv_plot_earth_tide(context, correlation_func, 1, u, v, new double[2] { ra, dec }, frequency, samplerate);
         else
-            plot = vlbi_get_uv_plot_moving_baseline(context, correlation_func, u, v, new double[2] { ra, dec }, frequency, samplerate);
+            plot = vlbi_get_uv_plot_moving_baseline(context, correlation_func, 1, u, v, new double[2] { ra, dec }, frequency, samplerate);
 	if(dft) {
             dsp_stream *plot = vlbi_get_fft_estimate(plot);
 	}
