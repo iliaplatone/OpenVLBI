@@ -8,7 +8,6 @@ OPTION(WITH_INDI_CLIENT "Add INDI client for OpenVLBI" On)
 include(GNUInstallDirs)
 include(ExternalProject)
 
-find_package(INDICLIENT REQUIRED)
 find_package(CFITSIO REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(Threads REQUIRED)
