@@ -20,8 +20,8 @@ static double* correlation_func(double d1, double d2)
 class VLBIClient
 {
 public:
-    VLBIClient();
-    ~VLBIClient();
+    VLBIClient() { }
+    ~VLBIClient() { }
 
     virtual inline void SetFrequency(double centerfrequency) { }
     virtual inline void SetSampleRate(double samplerate) { }
