@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
 PROJECT(OpenVLBI C CXX)
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 
-OPTION(WITH_INDI_CLIENT, On)
+OPTION(WITH_INDI_CLIENT "Add INDI client for OpenVLBI" On)
 
 include(GNUInstallDirs)
 include(ExternalProject)
