@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Open source Very Long Baseline Interferometry: vlbi.h File Reference</title>
+<title>Open source Very Long Baseline Interferometry: build/vlbi.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -57,6 +57,10 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4fef79e7177ba769987a8da36c892c5f.html">build</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -77,7 +81,7 @@ Macros</h2></td></tr>
 <tr class="separator:ga6b79ba2acd2b99945571763dea41d42c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga58f9af438635a2e70be97e316236193f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___defines.html#ga58f9af438635a2e70be97e316236193f">cos2sin</a>(c)&#160;&#160;&#160;sin(acos(c))</td></tr>
 <tr class="separator:ga58f9af438635a2e70be97e316236193f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga772d9e3c584fc2504133b4466442a8db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___defines.html#ga772d9e3c584fc2504133b4466442a8db">VLBI_VERSION_STRING</a>&#160;&#160;&#160;&quot;%VLBI_VERSION_STRING%&quot;</td></tr>
+<tr class="memitem:ga772d9e3c584fc2504133b4466442a8db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___defines.html#ga772d9e3c584fc2504133b4466442a8db">VLBI_VERSION_STRING</a>&#160;&#160;&#160;&quot;1.4.0&quot;</td></tr>
 <tr class="separator:ga772d9e3c584fc2504133b4466442a8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga47ef2092d906b4caf3ed9f6885bdac3a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___defines.html#ga47ef2092d906b4caf3ed9f6885bdac3a">SPEED_MEAN</a>&#160;&#160;&#160;<a class="el" href="group___v_l_b_i___defines.html#gadb62b9aad32043fd8f39af9289dbb1c3">LIGHTSPEED</a></td></tr>
 <tr class="separator:ga47ef2092d906b4caf3ed9f6885bdac3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,9 +156,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga71c49241bd6102390159df84a23e3957"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga71c49241bd6102390159df84a23e3957">vlbi_add_stream</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, <a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> Stream)</td></tr>
 <tr class="memdesc:ga71c49241bd6102390159df84a23e3957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a stream into the current libVLBI context.  <a href="group___v_l_b_i___functions.html#ga71c49241bd6102390159df84a23e3957">More...</a><br /></td></tr>
 <tr class="separator:ga71c49241bd6102390159df84a23e3957"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2883db5df071e3a35441256bc386926c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga2883db5df071e3a35441256bc386926c">vlbi_get_uv_plot_astro</a> (void *ctx, <a class="el" href="group___v_l_b_i___types.html#gaed579df41de73b8b625931b047b314bb">vlbi_func2_t</a> correlation_func, int m, int u, int v, double *target, double freq, double sr)</td></tr>
-<tr class="memdesc:ga2883db5df071e3a35441256bc386926c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.  <a href="group___v_l_b_i___functions.html#ga2883db5df071e3a35441256bc386926c">More...</a><br /></td></tr>
-<tr class="separator:ga2883db5df071e3a35441256bc386926c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0bc0e3aa2abfe46c2ef73fd8336359af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga0bc0e3aa2abfe46c2ef73fd8336359af">vlbi_get_uv_plot_earth_tide</a> (void *ctx, <a class="el" href="group___v_l_b_i___types.html#gaed579df41de73b8b625931b047b314bb">vlbi_func2_t</a> correlation_func, int m, int u, int v, double *target, double freq, double sr)</td></tr>
+<tr class="memdesc:ga0bc0e3aa2abfe46c2ef73fd8336359af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.  <a href="group___v_l_b_i___functions.html#ga0bc0e3aa2abfe46c2ef73fd8336359af">More...</a><br /></td></tr>
+<tr class="separator:ga0bc0e3aa2abfe46c2ef73fd8336359af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac6aaecd51bfee64766e406ab0a72b62f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gac6aaecd51bfee64766e406ab0a72b62f">vlbi_get_uv_plot_moving_baseline</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, <a class="el" href="group___v_l_b_i___types.html#gaed579df41de73b8b625931b047b314bb">vlbi_func2_t</a> correlation_func, int u, int v, double *target, double freq, double sr)</td></tr>
 <tr class="memdesc:gac6aaecd51bfee64766e406ab0a72b62f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.  <a href="group___v_l_b_i___functions.html#gac6aaecd51bfee64766e406ab0a72b62f">More...</a><br /></td></tr>
 <tr class="separator:gac6aaecd51bfee64766e406ab0a72b62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -273,7 +277,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 10 2019 15:19:14 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jul 14 2019 03:16:20 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

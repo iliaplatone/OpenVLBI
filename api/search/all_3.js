@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['defrag',['Defrag',['../class_v_l_b_i_collection.html#ac2511ed42ee0685660cc43fd52fe4f2d',1,'VLBICollection']]],
   ['dims',['dims',['../structdsp__point__t.html#abeb3de4b1edf8a454ea5a3d8685bbdb5',1,'dsp_point_t::dims()'],['../structdsp__stream__t.html#a9be4e4bb4b6130bee801b2612238b1a9',1,'dsp_stream_t::dims()']]],
-  ['disconnect',['Disconnect',['../class_v_l_b_i_client.html#adb217eed4e9ade9ae23433c08d849495',1,'VLBIClient']]],
   ['dll_5fexport',['DLL_EXPORT',['../dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b',1,'dsp.h']]],
   ['digital_20signal_20processing_20api',['Digital Signal Processing API',['../group___d_s_p.html',1,'']]],
   ['dsp_2eh',['dsp.h',['../dsp_8h.html',1,'']]],
@@ -34,7 +32,6 @@ var searchData=
   ['dsp_5fcomplex_5ft',['dsp_complex_t',['../structdsp__complex__t.html',1,'']]],
   ['dsp_20api_20convolution_20and_20cross_2dcorrelation_20functions',['DSP API Convolution and cross-correlation functions',['../group__dsp___convolution.html',1,'']]],
   ['dsp_5fconvolution_5fconvolution',['dsp_convolution_convolution',['../group__dsp___convolution.html#ga5af3473b67ee328eb2498fb02d758025',1,'dsp.h']]],
-  ['dsp_5fcorrelation_5fdelegate',['dsp_correlation_delegate',['../class_v_l_b_i_baseline.html#a8b869f9bbbeae5c44d8da007bd2c63eb',1,'VLBIBaseline']]],
   ['dsp_20api_20defines',['DSP API defines',['../group___d_s_p___defines.html',1,'']]],
   ['dsp_20api_20stream_20type_20management_20functions',['DSP API Stream type management functions',['../group__dsp___d_s_p_stream.html',1,'']]],
   ['dsp_5ffilter_5fbandpass',['dsp_filter_bandpass',['../group__dsp___filters.html#gaa390fcb1605268431d7981e8c00a7879',1,'dsp.h']]],

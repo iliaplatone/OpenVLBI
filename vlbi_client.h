@@ -3,16 +3,17 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include <fitsio.h>
 #include <base64.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include <vlbi.h>
 
-double correlation_delegate(double value1, double value2)
+static double* correlation_func(double d1, double d2)
 {
-    return value1 * value2;
+    static double res = 0;
+    res = d1 * d2;
+    return &res;
 }
 
 class VLBIClient
@@ -20,9 +21,9 @@ class VLBIClient
 public:
     VLBIClient();
     ~VLBIClient();
-    
+
     virtual void SetFrequency(double centerfrequency);
-    virtual void SetSampleRate(double samplingfrequency);
+    virtual void SetSampleRate(double samplerate);
     virtual void SetBadwidth(double bandwidth);
     virtual void SetGain(double gain);
     virtual void SetBPS(int BPS);
@@ -30,36 +31,31 @@ public:
     inline void CreateContext() { context = vlbi_init(); }
     inline void FreeContext() { vlbi_exit(context); }
     inline void SetContext(vlbi_context ctx) { context = ctx; }
-    inline vlbi_context* GetContext() { return context; }
-    inline char* GetDFT(int u, int v, bool earth_tide_observation) {
+    inline vlbi_context GetContext() { return context; }
+    inline unsigned char* Plot(int u, int v, bool dft, bool earth_tide_observation) {
         if(earth_tide_observation)
-            plot = vlbi_get_uv_plot_earth_tide(context, correlation_delegate, earth_tide_observation, u, v, new double[] { ra, dec }, frequency, samplerate);
+            plot = vlbi_get_uv_plot_earth_tide(context, correlation_func, 1, u, v, new double[2] { ra, dec }, frequency, samplerate);
         else
-            plot = vlbi_get_uv_plot_moving_baseline(context, correlation_delegate, earth_tide_observation, u, v, new double[] { ra, dec }, frequency, samplerate);
-        dsp_stream *fft = vlbi_get_fft_estimation(plot);
-        char *base64 = (char*)malloc(fft->len * 4 / 3 + 4);
-        to64frombits(fft->buf, base64, fft->len);
-        return base64;
-    }
-    inline char* GetRAW(int u, int v, bool earth_tide_observation) { 
-        if(earth_tide_observation)
-            plot = vlbi_get_uv_plot_earth_tide(context, correlation_delegate, earth_tide_observation, u, v, new double[] { ra, dec }, frequency, samplerate);
-        else
-            plot = vlbi_get_uv_plot_moving_baseline(context, correlation_delegate, earth_tide_observation, u, v, new double[] { ra, dec }, frequency, samplerate);
-        char *base64 = (char*)malloc(plot->len * 4 / 3 + 4);
-        to64frombits(plot->buf, base64, plot->len);
+            plot = vlbi_get_uv_plot_moving_baseline(context, correlation_func, u, v, new double[2] { ra, dec }, frequency, samplerate);
+	if(dft) {
+            dsp_stream *plot = vlbi_get_fft_estimate(plot);
+	}
+        unsigned char *base64 = (unsigned char*)malloc(plot->len * 4 / 3 + 4);
+        unsigned char *buf = (unsigned char*)malloc(plot->len);
+	dsp_buffer_copy(plot->buf, buf, plot->len);
+        to64frombits(buf, base64, plot->len);
         return base64;
     }
 
 private:
     double frequency;
-    double samplingfrequency;
+    double samplerate;
     double bandwidth;
     double gain;
     double BPS;
     double ra;
     double dec;
-    dsp_stream_p *plot;
+    dsp_stream_p plot;
     vlbi_context context;
 };
 #endif // _VLBI_CLIENT_H

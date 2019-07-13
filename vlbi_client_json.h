@@ -1,11 +1,3 @@
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <base64.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/ioctl.h>
-#include <vlbi.h>
 #include <vlbi_client.h>
 
 typedef struct json_response {

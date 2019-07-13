@@ -2,17 +2,30 @@
 #include "vlbi_client_indi.h"
 
 VLBIClient *client;
+int is_running = 1;
+
+typedef struct _vlbi_context {
+    vlbi_context ctx;
+    char* name;
+} *_vlbi_context_p, _vlbi_context_t;
+
+void sighandler(int signum)
+{
+    signal(signum, SIG_IGN);
+    client->~VLBIClient_INDI();
+    signal(signum, sighandler);
+    exit(0);
+}
+
+#define TXT_LEN
 
 int main(int argc, char** argv)
 {
     double Ra,Dec,Freq,SampleRate,BPS,Gain,Bandwidth;
     FILE* ifile = stdin;
-    if(argc > 2) {
-        if(!strcmp(argv[0], "indi"))
-            client = new VLBIClient_INDI(argv[1], strtol(argv[2], NULL, 10));
-        else
-            client = new VLBIClient_JSON();
-        if(argc > 3) {
+    if(argc > 1) {
+        client = new VLBIClient_INDI(argv[1], strtol(argv[2], NULL, 10));
+        if(argc > 2) {
             ifile = fopen(argv[3], "r+");
         }
     } else {
@@ -46,30 +59,6 @@ int main(int argc, char** argv)
                     client->SetContext(contexts[i]->ctx);
                 }
             }
-            else if(!strcmp(arg, "connection")) {
-                if(!strcmp(value, "on")) {
-                    client->Connect();
-                }
-                if(!strcmp(value, "off")) {
-                    client->Disconnect();
-                }
-            }
-            else if(!strcmp(arg, "tracking")) {
-                if(!strcmp(value, "on")) {
-                    client->Tracking(true);
-                }
-                if(!strcmp(value, "off")) {
-                    client->Tracking(false);
-                }
-            }
-            else if(!strcmp(arg, "parking")) {
-                if(!strcmp(value, "on")) {
-                    client->Park();
-                }
-                if(!strcmp(value, "off")) {
-                    client->Unpark();
-                }
-            }
             else if(!strcmp(arg, "resolution")) {
                 w = (int)strtol(strtok(value, "x"), NULL, 10);
                 h = (int)strtol(NULL, NULL, 10);
@@ -101,10 +90,6 @@ int main(int argc, char** argv)
                 Bandwidth = (double)atof(value);
                 client->SetBadwidth((double)atof(value));
             }
-            else if(!strcmp(arg, "capture")) {
-                double duration = (double)atof(value);
-                client->SetCapture(duration);
-            }
             else if(!strcmp(arg, "model")) {
                 dsp_stream_free(model);
                 model = dsp_stream_new();
@@ -133,62 +118,27 @@ int main(int argc, char** argv)
             }
         }
         else if(!strcmp(cmd, "get")) {
-            if(!strcmp(arg, "coordinate")) {
-		    if(!strcmp(arg, "ra")) {
-                        fprintf(stdout, "%02.05lf", Ra);
-		    }
-		    if(!strcmp(arg, "dec")) {
-                        fprintf(stdout, "%02.05lf", Dec);
-		    }
-	    }
             if(!strcmp(arg, "observation")) {
                 double coords[] =  { Ra, Dec };
-                uv = vlbi_get_uv_plot_astro(client->GetContext(), (vlbi_func2_t)correlation_func, 0, w, h, coords, Freq, SampleRate);
                 if(!strcmp(value, "fft")) {
-                    if (uv != NULL) {
-                        dsp_stream_p fft = vlbi_get_fft_estimate(uv);
-                        if (fft != NULL) {
-                            unsigned int len = fft->len * 4 / 3 + 4;
-                            unsigned char* base64 = (unsigned char*)malloc(len);
-                            to64frombits(base64, (unsigned char*)fft->buf, fft->len);
-                            if(len<fwrite(base64, 1, len, stdout))continue;
-                            free(base64);
-                            dsp_stream_free(fft);
-                        }
-                        dsp_stream_free(uv);
-                    }
+                    unsigned char* base64 = client->Plot(w, h, false, true, coords, Freq, Sample);
+                    if(len<fwrite(base64, 1, strlen(base64), stdout))continue;
+                    free(base64);
                 }
                 else if(!strcmp(value, "mdl")) {
-                    if (uv != NULL && model != NULL) {
-                        dsp_stream_p fft = vlbi_apply_model(uv, model);
-                        if (fft != NULL) {
-                            dsp_stream_p res = vlbi_get_fft_estimate(fft);
-                            if (res != NULL) {
-                                unsigned char* base64 = (unsigned char*)malloc(fft->len * 4 / 3 + 4);
-                                to64frombits(base64, (unsigned char*)fft->buf, fft->len);
-                                fwrite(base64, 1, uv->len * 4 / 3 + 4, stdout);
-                                free(base64);
-                                dsp_stream_free(res);
-                            }
-                            dsp_stream_free(fft);
-                        }
-                        dsp_stream_free(uv);
-                    }
                 }
                 else if(!strcmp(value, "raw")) {
-                    if (uv != NULL) {
-                        unsigned char* base64 = (unsigned char*)malloc(uv->len * 4 / 3 + 4);
-                        to64frombits(base64, (unsigned char*)uv->buf, uv->len);
-                        fwrite(base64, 1, uv->len * 4 / 3 + 4, stdout);
-                        free(base64);
-                        dsp_stream_free(uv);
-                    }
+                    unsigned char* base64 = client->Plot(w, h, false, false, coords, Freq, Sample);
+                    if(len<fwrite(base64, 1, strlen(base64), stdout))continue;
+                    free(base64);
                 }
             }
         }
         else {
-            fprintf(stderr, "commands: \nadd\n\tcontext name\n\tset\n\tconnection [on|off]\n\tcontext name\n\tparking [on|off]\n\ttracking [on|off]\n\ttarget ra,dec\n\tfrequency freq\n\tsamplerate freq\n\tbandwidth freq\n\tbitspersample bps\n\tgain value\n\tcapture time\n\tmodel name\nget\n\tobservation [fft|mdl|raw]");
+            fprintf(stderr, "commands: \nadd\n\tGetContext() name\n\tset\n\tconnection [on|off]\n\tGetContext() name\n\tparking [on|off]\n\ttracking [on|off]\n\ttarget ra,dec\n\tfrequency freq\n\tsamplerate freq\n\tbandwidth freq\n\tbitspersample bps\n\tgain value\n\tcapture time\n\tmodel name\nget\n\tobservation [fft|mdl|raw]");
         }
+	client->Run(cmd, arg, value);
     }
     return 0;
 }
+

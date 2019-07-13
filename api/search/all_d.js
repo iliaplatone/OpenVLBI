@@ -1,8 +1,13 @@
 var searchData=
 [
-  ['parent',['parent',['../structdsp__stream__t.html#a40dc327cb0be8479a2d9af06a6996fe7',1,'dsp_stream_t']]],
-  ['park',['Park',['../class_v_l_b_i_client.html#a7cf3b3b9962a5d18157d5fbc3c57404f',1,'VLBIClient']]],
-  ['parsec',['PARSEC',['../group___v_l_b_i___defines.html#gae57a4c58450b7b417b5e456171208170',1,'vlbi.h']]],
-  ['pi',['PI',['../group___v_l_b_i___defines.html#ga598a3330b3c21701223ee0ca14316eca',1,'vlbi.h']]],
-  ['port',['Port',['../class_v_l_b_i_client.html#a71fc0a45255afcf9f82ec4ebfae67b92',1,'VLBIClient']]]
+  ['samplerate',['samplerate',['../structdsp__stream__t.html#a04bc4a7d413e7a229c53a665e792783a',1,'dsp_stream_t']]],
+  ['sidereal_5fday',['SIDEREAL_DAY',['../group___v_l_b_i___defines.html#gae76e361688d56175e386e0be1ebb744a',1,'vlbi.h']]],
+  ['sin2cos',['sin2cos',['../group___v_l_b_i___defines.html#ga6b79ba2acd2b99945571763dea41d42c',1,'vlbi.h']]],
+  ['sizes',['sizes',['../structdsp__stream__t.html#a463d2fd45653ca521ee84f48068b6da5',1,'dsp_stream_t']]],
+  ['solar_5fday',['SOLAR_DAY',['../group___v_l_b_i___defines.html#ga902dfb312bb1d1d3766f03f3f6412044',1,'vlbi.h']]],
+  ['speed_5fmean',['SPEED_MEAN',['../group___v_l_b_i___defines.html#ga47ef2092d906b4caf3ed9f6885bdac3a',1,'vlbi.h']]],
+  ['star_5fcount',['star_count',['../structdsp__stream__t.html#a219d7a6e288fa11aee4eaaba59f930a5',1,'dsp_stream_t']]],
+  ['stars',['stars',['../structdsp__stream__t.html#acd117f69e56bac6bf358528bc796c666',1,'dsp_stream_t']]],
+  ['start',['start',['../structdsp__region__t.html#a3d10923a10d3ba5deab4be86d088ae81',1,'dsp_region_t']]],
+  ['starttimeutc',['starttimeutc',['../structdsp__stream__t.html#a692b42650d2d2c3be4a48c9e9be18764',1,'dsp_stream_t']]]
 ];

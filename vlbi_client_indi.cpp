@@ -6,8 +6,9 @@
 #include <fitsio2.h>
 #include "vlbi_client_indi.h"
 
-VLBIClient::VLBIClient(char *address, int port)
+VLBIClient_INDI::VLBIClient_INDI(char *address, int port)
 	: INDI::BaseClient()
+	, VLBIClient()
 {
     Address = (char*)malloc(strlen(address));
     Port = port;
@@ -16,15 +17,15 @@ VLBIClient::VLBIClient(char *address, int port)
     connectServer();
 }
 
-VLBIClient::~VLBIClient()
+VLBIClient_INDI::~VLBIClient_INDI()
 {
     disconnectServer();
-    if(context != NULL) {
-        vlbi_exit(context);
+    if(GetContext() != NULL) {
+        vlbi_exit(GetContext());
     }
 }
 
-void VLBIClient::SetCapture(double seconds)
+void VLBIClient_INDI::SetCapture(double seconds)
 {
     if(!isServerConnected())
         return;
@@ -36,7 +37,7 @@ void VLBIClient::SetCapture(double seconds)
     }
 }
 
-void VLBIClient::AbortCapture()
+void VLBIClient_INDI::AbortCapture()
 {
     if(!isServerConnected())
         return;
@@ -48,7 +49,7 @@ void VLBIClient::AbortCapture()
     }
 }
 
-void VLBIClient::SetExposure(double seconds)
+void VLBIClient_INDI::SetExposure(double seconds)
 {
     if(!isServerConnected())
         return;
@@ -60,7 +61,7 @@ void VLBIClient::SetExposure(double seconds)
     }
 }
 
-void VLBIClient::AbortExposure()
+void VLBIClient_INDI::AbortExposure()
 {
     if(!isServerConnected())
         return;
@@ -72,7 +73,7 @@ void VLBIClient::AbortExposure()
     }
 }
 
-void VLBIClient::SetFrequency(double centerfrequency)
+void VLBIClient_INDI::SetFrequency(double centerfrequency)
 {
     if(!isServerConnected())
         return;
@@ -84,7 +85,7 @@ void VLBIClient::SetFrequency(double centerfrequency)
     }
 }
 
-void VLBIClient::SetSampleRate(double samplingfrequency)
+void VLBIClient_INDI::SetSampleRate(double samplingfrequency)
 {
     if(!isServerConnected())
         return;
@@ -96,7 +97,7 @@ void VLBIClient::SetSampleRate(double samplingfrequency)
     }
 }
 
-void VLBIClient::SetBadwidth(double bandwidth)
+void VLBIClient_INDI::SetBadwidth(double bandwidth)
 {
     if(!isServerConnected())
         return;
@@ -108,7 +109,7 @@ void VLBIClient::SetBadwidth(double bandwidth)
     }
 }
 
-void VLBIClient::SetGain(double gain)
+void VLBIClient_INDI::SetGain(double gain)
 {
     if(!isServerConnected())
         return;
@@ -120,7 +121,7 @@ void VLBIClient::SetGain(double gain)
     }
 }
 
-void VLBIClient::SetBPS(int BPS)
+void VLBIClient_INDI::SetBPS(int BPS)
 {
     if(!isServerConnected())
         return;
@@ -132,7 +133,7 @@ void VLBIClient::SetBPS(int BPS)
     }
 }
 
-void VLBIClient::GoTo(double Ra, double Dec)
+void VLBIClient_INDI::GoTo(double Ra, double Dec)
 {
     if(!isServerConnected())
         return;
@@ -145,7 +146,7 @@ void VLBIClient::GoTo(double Ra, double Dec)
     }
 }
 
-void VLBIClient::Connect()
+void VLBIClient_INDI::Connect()
 {
     if(!isServerConnected())
         return;
@@ -157,7 +158,7 @@ void VLBIClient::Connect()
     }
 }
 
-void VLBIClient::Disconnect()
+void VLBIClient_INDI::Disconnect()
 {
     if(!isServerConnected())
         return;
@@ -169,7 +170,7 @@ void VLBIClient::Disconnect()
     }
 }
 
-void VLBIClient::Tracking(bool on)
+void VLBIClient_INDI::Tracking(bool on)
 {
     if(!isServerConnected())
         return;
@@ -178,15 +179,15 @@ void VLBIClient::Tracking(bool on)
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
         if(dev->getDriverInterface() & (INDI::BaseDevice::TELESCOPE_INTERFACE | INDI::BaseDevice::DOME_INTERFACE)) {
-            if(on)
-                this->sendNewSwitch(dev->getDeviceName(), "TELESCOPE_TRACK_STATE", "TRACK_ON");
-            else
-                this->sendNewSwitch(dev->getDeviceName(), "TELESCOPE_TRACK_STATE", "TRACK_OFF");
+        if(on)
+       this->sendNewSwitch(dev->getDeviceName(), "TELESCOPE_TRACK_STATE", "TRACK_ON");
+        else
+       this->sendNewSwitch(dev->getDeviceName(), "TELESCOPE_TRACK_STATE", "TRACK_OFF");
         }
     }
 }
 
-void VLBIClient::Park()
+void VLBIClient_INDI::Park()
 {
     if(!isServerConnected())
         return;
@@ -195,11 +196,11 @@ void VLBIClient::Park()
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
         if(dev->getDriverInterface() & (INDI::BaseDevice::TELESCOPE_INTERFACE | INDI::BaseDevice::DOME_INTERFACE))
-            this->sendNewSwitch(dev->getDeviceName(), "TELESCOPE_PARK", "PARK");
+        this->sendNewSwitch(dev->getDeviceName(), "TELESCOPE_PARK", "PARK");
     }
 }
 
-void VLBIClient::Unpark()
+void VLBIClient_INDI::Unpark()
 {
     if(!isServerConnected())
         return;
@@ -208,30 +209,30 @@ void VLBIClient::Unpark()
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
         if(dev->getDriverInterface() & (INDI::BaseDevice::TELESCOPE_INTERFACE | INDI::BaseDevice::DOME_INTERFACE))
-            this->sendNewSwitch(dev->getDeviceName(), "TELESCOPE_PARK", "UNPARK");
+       this->sendNewSwitch(dev->getDeviceName(), "TELESCOPE_PARK", "UNPARK");
     }
 }
 
-void VLBIClient::newDevice(INDI::BaseDevice *dev) {
+void VLBIClient_INDI::newDevice(INDI::BaseDevice *dev) {
     INDI_UNUSED(dev);
 }
 
-void VLBIClient::removeDevice(INDI::BaseDevice *dp) {
+void VLBIClient_INDI::removeDevice(INDI::BaseDevice *dp) {
     INDI_UNUSED(dp);
 }
 
-void VLBIClient::newProperty(INDI::Property *property) {
+void VLBIClient_INDI::newProperty(INDI::Property *property) {
     this->setBLOBMode(B_ONLY, property->getDeviceName());
     INDI_UNUSED(property);
 }
 
-void VLBIClient::removeProperty(INDI::Property *property) {
+void VLBIClient_INDI::removeProperty(INDI::Property *property) {
     INDI_UNUSED(property);
 }
 
-void VLBIClient::newBLOB(IBLOB *bp) {
+void VLBIClient_INDI::newBLOB(IBLOB *bp) {
     if(!strcmp(bp->label, "CONTINUUM")) {
-        if(context != NULL) {
+        if(GetContext() != NULL) {
             int status = 0;
             while (status == 0) {
                 size_t len = (bp->bloblen-4) * 3/4;
@@ -260,20 +261,19 @@ void VLBIClient::newBLOB(IBLOB *bp) {
                 dsp_stream_add_dim(node, len-offset);
                 dsp_stream_set_buffer(node, (void*)((char*)buf+offset), node->len);
                 node->starttimeutc = vlbi_time_mktimespec(Y, M, D, H, m, floor(s), (s - floor(s))*1000000000.0);
-                vlbi_add_stream(context, node);
+                vlbi_add_stream(GetContext(), node);
                 return;
             }
             char errstr[120];
             fits_get_errstatus(status, errstr);
-            fprintf(stdout, "error adding stream: %s.\n", errstr);
         } else {
-            fprintf(stdout, "context null.\n");
+            fprintf(stdout, "Context null.\n");
             INDI_UNUSED(bp);
         }
     }
 }
 
-void VLBIClient::newSwitch(ISwitchVectorProperty *svp) {
+void VLBIClient_INDI::newSwitch(ISwitchVectorProperty *svp) {
     if(!strcmp(svp->name, "CONNECTION")) {
         if(svp->sp[0].s == ISS_ON) {
             fprintf(stdout, "Device %s connected.\n", svp->device);
@@ -284,7 +284,7 @@ void VLBIClient::newSwitch(ISwitchVectorProperty *svp) {
     }
 }
 
-void VLBIClient::newNumber(INumberVectorProperty *nvp) {
+void VLBIClient_INDI::newNumber(INumberVectorProperty *nvp) {
     if(!strcmp(nvp->name, "DETECTOR_CAPTURE")) {
         fprintf(stdout, "Capture left: %lf.\n", nvp->np[0].value);
         if(nvp->np[0].value < 1.0) {
@@ -302,235 +302,77 @@ void VLBIClient::newNumber(INumberVectorProperty *nvp) {
     }
 }
 
-void VLBIClient::newText(ITextVectorProperty *tvp) {
+void VLBIClient_INDI::newText(ITextVectorProperty *tvp) {
     INDI_UNUSED(tvp);
 }
 
-void VLBIClient::newLight(ILightVectorProperty *lvp) {
+void VLBIClient_INDI::newLight(ILightVectorProperty *lvp) {
     INDI_UNUSED(lvp);
 }
 
-void VLBIClient::newMessage(INDI::BaseDevice *dp, int messageID) {
+void VLBIClient_INDI::newMessage(INDI::BaseDevice *dp, int messageID) {
     INDI_UNUSED(dp);
     INDI_UNUSED(messageID);
 }
 
-void VLBIClient::serverConnected() {
+void VLBIClient_INDI::serverConnected() {
     fprintf(stdout, "Connected to server\n");
 }
 
-void VLBIClient::serverDisconnected(int exit_code) {
+void VLBIClient_INDI::serverDisconnected(int exit_code) {
     fprintf(stdout, "Disconnected from server\n");
     INDI_UNUSED(exit_code);
 }
 
-VLBIClient *client;
-int is_running = 1;
-
-void sighandler(int signum)
-{
-    signal(signum, SIG_IGN);
-    client->~VLBIClient();
-    signal(signum, sighandler);
-    exit(0);
-}
-
-static double* correlation_func(double d1, double d2)
-{
-    static double res = 0;
-    res = d1 * d2;
-    return &res;
-}
-
-#define TXT_LEN
-typedef struct _vlbi_context {
-    vlbi_context ctx;
-    char* name;
-} *_vlbi_context_p, _vlbi_context_t;
-
-int main(int argc, char** argv)
-{
-    double Ra,Dec,Freq,SampleRate,BPS,Gain,Bandwidth;
-    FILE* ifile = stdin;
-    if(argc > 1) {
-        client = new VLBIClient(argv[1], strtol(argv[2], NULL, 10));
-        if(argc > 2) {
-            ifile = fopen(argv[3], "r+");
-        }
-    } else {
-        fprintf(stderr, "usage: %s hostname port [command_file]\n", argv[0]);
-        return -22;
-    }
-    Ra = Dec = Freq = SampleRate = BPS = Gain = Bandwidth = 0;
-    _vlbi_context_p* contexts = (_vlbi_context_p*)malloc(sizeof(_vlbi_context_p));
-    int num_contexts = 0;
-    int w = 128, h = 128;
-    dsp_stream_p model = dsp_stream_new();
-
-    dsp_stream_p uv = NULL;
-    dsp_stream_p fft = NULL;
-
-    char cmd[150], arg[150], value[150];
-    signal(SIGINT, sighandler);
-    signal(SIGKILL, sighandler);
-    signal(SIGILL, sighandler);
-    signal(SIGSTOP, sighandler);
-    signal(SIGQUIT, sighandler);
-    while (is_running) {
-        if(fscanf(ifile, "%s %s %s", cmd, arg, value) != 3)break;
-        if(!strcmp(cmd, "set")) {
-            if(!strcmp(arg, "context")) {
-                int i = 0;
-                while(strncmp(contexts[i]->name, value, strlen(value)) != 0 && i < num_contexts) {
-                    i++;
-                }
-                if(i > 0 && !strcmp(contexts[i]->name, value)) {
-                    client->SetContext(contexts[i]->ctx);
-                }
+void VLBIClient_INDI::Run(char* cmd, char* arg, char* value) {
+    if(!strcmp(cmd, "set")) {
+        if(!strcmp(arg, "connection")) {
+            if(!strcmp(value, "on")) {
+                Connect();
             }
-            else if(!strcmp(arg, "connection")) {
-                if(!strcmp(value, "on")) {
-                    client->Connect();
-                }
-                if(!strcmp(value, "off")) {
-                    client->Disconnect();
-                }
-            }
-            else if(!strcmp(arg, "tracking")) {
-                if(!strcmp(value, "on")) {
-                    client->Tracking(true);
-                }
-                if(!strcmp(value, "off")) {
-                    client->Tracking(false);
-                }
-            }
-            else if(!strcmp(arg, "parking")) {
-                if(!strcmp(value, "on")) {
-                    client->Park();
-                }
-                if(!strcmp(value, "off")) {
-                    client->Unpark();
-                }
-            }
-            else if(!strcmp(arg, "resolution")) {
-                w = (int)strtol(strtok(value, "x"), NULL, 10);
-                h = (int)strtol(NULL, NULL, 10);
-            }
-            else if(!strcmp(arg, "target")) {
-                char* ra = strtok(value, ",");
-                char* dec = strtok(NULL, ",");
-                Ra = (double)atof(ra);
-                Dec = (double)atof(dec);
-                client->GoTo(Ra, Dec);
-            }
-            else if(!strcmp(arg, "frequency")) {
-                Freq = (double)atof(value);
-                client->SetFrequency((double)atof(value));
-            }
-            else if(!strcmp(arg, "samplerate")) {
-                SampleRate = (double)atof(value);
-                client->SetSampleRate((double)atof(value));
-            }
-            else if(!strcmp(arg, "bitspersample")) {
-                BPS = (double)atof(value);
-                client->SetBPS((double)atof(value));
-            }
-            else if(!strcmp(arg, "gain")) {
-                Gain = (double)atof(value);
-                client->SetGain((double)atof(value));
-            }
-            else if(!strcmp(arg, "bandwidth")) {
-                Bandwidth = (double)atof(value);
-                client->SetBadwidth((double)atof(value));
-            }
-            else if(!strcmp(arg, "capture")) {
-                double duration = (double)atof(value);
-                client->SetCapture(duration);
-            }
-            else if(!strcmp(arg, "model")) {
-                dsp_stream_free(model);
-                model = dsp_stream_new();
-                fitsfile* f;
-                int status = 0;
-                fits_open_image(&f, value, 1, &status);
-                long long offset = f->Fptr->datastart;
-                fits_close_file(f, &status);
-                FILE *file = fopen(value, "r");
-                fseek(file, 0, SEEK_END);
-                unsigned int len = ftell(file)-offset;
-                dsp_stream_add_dim(model, len);
-                fseek(file, offset, SEEK_SET);
-                len = fread(model->buf, 1, len, file);
-                fclose(file);
+            if(!strcmp(value, "off")) {
+                Disconnect();
             }
         }
-        else if(!strcmp(cmd, "add")) {
-            if(!strcmp(arg, "context")) {
-                contexts = (_vlbi_context_p*)realloc(contexts, sizeof(_vlbi_context_p)*(num_contexts+1));
-                contexts[num_contexts] = (_vlbi_context_p)malloc(sizeof(_vlbi_context_t));
-                contexts[num_contexts]->ctx = vlbi_init();
-                contexts[num_contexts]->name = (char*)malloc(strlen(value));
-                strcpy(contexts[num_contexts]->name, value);
-                num_contexts++;
+        else if(!strcmp(arg, "tracking")) {
+            if(!strcmp(value, "on")) {
+                Tracking(true);
+            }
+            if(!strcmp(value, "off")) {
+                Tracking(false);
             }
         }
-        else if(!strcmp(cmd, "get")) {
-            if(!strcmp(arg, "coordinate")) {
-		    if(!strcmp(arg, "ra")) {
-                        fprintf(stdout, "%02.05lf", Ra);
-		    }
-		    if(!strcmp(arg, "dec")) {
-                        fprintf(stdout, "%02.05lf", Dec);
-		    }
-	    }
-            if(!strcmp(arg, "observation")) {
-                double coords[] =  { Ra, Dec };
-                uv = vlbi_get_uv_plot_astro(client->GetContext(), (vlbi_func2_t)correlation_func, 0, w, h, coords, Freq, SampleRate);
-                if(!strcmp(value, "fft")) {
-                    if (uv != NULL) {
-                        dsp_stream_p fft = vlbi_get_fft_estimate(uv);
-                        if (fft != NULL) {
-                            unsigned int len = fft->len * 4 / 3 + 4;
-                            unsigned char* base64 = (unsigned char*)malloc(len);
-                            to64frombits(base64, (unsigned char*)fft->buf, fft->len);
-                            if(len<fwrite(base64, 1, len, stdout))continue;
-                            free(base64);
-                            dsp_stream_free(fft);
-                        }
-                        dsp_stream_free(uv);
-                    }
-                }
-                else if(!strcmp(value, "mdl")) {
-                    if (uv != NULL && model != NULL) {
-                        dsp_stream_p fft = vlbi_apply_model(uv, model);
-                        if (fft != NULL) {
-                            dsp_stream_p res = vlbi_get_fft_estimate(fft);
-                            if (res != NULL) {
-                                unsigned char* base64 = (unsigned char*)malloc(fft->len * 4 / 3 + 4);
-                                to64frombits(base64, (unsigned char*)fft->buf, fft->len);
-                                fwrite(base64, 1, uv->len * 4 / 3 + 4, stdout);
-                                free(base64);
-                                dsp_stream_free(res);
-                            }
-                            dsp_stream_free(fft);
-                        }
-                        dsp_stream_free(uv);
-                    }
-                }
-                else if(!strcmp(value, "raw")) {
-                    if (uv != NULL) {
-                        unsigned char* base64 = (unsigned char*)malloc(uv->len * 4 / 3 + 4);
-                        to64frombits(base64, (unsigned char*)uv->buf, uv->len);
-                        fwrite(base64, 1, uv->len * 4 / 3 + 4, stdout);
-                        free(base64);
-                        dsp_stream_free(uv);
-                    }
-                }
+        else if(!strcmp(arg, "parking")) {
+            if(!strcmp(value, "on")) {
+               Park();
+            }
+            if(!strcmp(value, "off")) {
+                Unpark();
             }
         }
-        else {
-            fprintf(stderr, "commands: \nadd\n\tcontext name\n\tset\n\tconnection [on|off]\n\tcontext name\n\tparking [on|off]\n\ttracking [on|off]\n\ttarget ra,dec\n\tfrequency freq\n\tsamplerate freq\n\tbandwidth freq\n\tbitspersample bps\n\tgain value\n\tcapture time\n\tmodel name\nget\n\tobservation [fft|mdl|raw]");
+        else if(!strcmp(arg, "target")) {
+            char* ra = strtok(value, ",");
+            char* dec = strtok(NULL, ",");
+            Ra = (double)atof(ra);
+            Dec = (double)atof(dec);
+            GoTo(Ra, Dec);
+        }
+        else if(!strcmp(arg, "capture")) {
+            double duration = (double)atof(value);
+            SetCapture(duration);
         }
     }
-    return 0;
+    else if(!strcmp(cmd, "get")) {
+        if(!strcmp(arg, "coordinate")) {
+            if(!strcmp(arg, "ra")) {
+                fprintf(stdout, "%02.05lf", Ra);
+            }
+            if(!strcmp(arg, "dec")) {
+                fprintf(stdout, "%02.05lf", Dec);
+            }
+        }
+    }
+    else {
+        fprintf(stderr, "commands: \nadd\n\tcontext name\n\tset\n\tconnection [on|off]\n\tGetContext() name\n\tparking [on|off]\n\ttracking [on|off]\n\ttarget ra,dec\n\tfrequency freq\n\tsamplerate freq\n\tbandwidth freq\n\tbitspersample bps\n\tgain value\n\tcapture time\n\tmodel name\nget\n\tobservation [fft|mdl|raw]");
+    }
 }

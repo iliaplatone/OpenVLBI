@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['imaginary',['imaginary',['../structdsp__complex__t.html#a4fc593a973c29e96fc3a1e350b592a3a',1,'dsp_complex_t']]]
+  ['lambda',['lambda',['../structdsp__stream__t.html#a2437685e554f87b20a9a27d85f2ed18f',1,'dsp_stream_t']]],
+  ['len',['len',['../structdsp__region__t.html#abc3a9cc8d50f83aadfd7918cfe55400a',1,'dsp_region_t::len()'],['../structdsp__stream__t.html#ae70fe5a0900517af50bcd7f4747dc0b9',1,'dsp_stream_t::len()']]],
+  ['location',['location',['../structdsp__stream__t.html#ae407ab1cd95cc3a1f33430f6ac9f92e0',1,'dsp_stream_t']]]
 ];

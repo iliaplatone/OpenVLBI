@@ -1,6 +1,3 @@
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
 #include <indiapi.h>
 #include <indicom.h>
 #include <defaultdevice.h>
@@ -10,19 +7,14 @@
 #include <inditelescope.h>
 #include <baseclient.h>
 #include <fitsio.h>
-#include <base64.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/ioctl.h>
-#include <vlbi.h>
 #include <vlbi_client.h>
 
 
 class VLBIClient_INDI : private INDI::BaseClient, public VLBIClient
 {
 public:
-    VLBIClient(char *address, int port);
-    ~VLBIClient();
+    VLBIClient_INDI(char *address, int port);
+    ~VLBIClient_INDI();
 
     void newDevice(INDI::BaseDevice *dp);
     void removeDevice(INDI::BaseDevice *dp);
@@ -49,15 +41,15 @@ public:
     void SetBadwidth(double bandwidth);
     void SetGain(double gain);
     void SetBPS(int BPS);
-    inline void SetContext(vlbi_context ctx) { context = ctx; }
-    inline vlbi_context GetContext() { return context; }
     void GoTo(double Ra, double Dec);
     void Park();
     void Unpark();
     void Tracking(bool on);
+    void Run(char* cmd, char* arg, char* value);
 
 private:
     char* Address;
     char* Savedir;
+    double Ra, Dec;
     int Port;
 };
