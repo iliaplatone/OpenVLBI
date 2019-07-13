@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 2.6)
 PROJECT(OpenVLBI C CXX)
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 
-OPTION(WITH_INDI_CLIENT "Add INDI client for OpenVLBI" On)
-
 include(GNUInstallDirs)
 include(ExternalProject)
 
@@ -80,11 +78,11 @@ install(PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/scripts/vlbi_server DESTINATION ${C
 
 if(WITH_INDI_CLIENT)
 find_package(INDI REQUIRED)
-if(INDICLIENT_LIBRARIES)
+if(INDI_LIBRARIES)
 include_directories( ${INDI_INCLUDE_DIR})
-add_executable(vlbi_client_indi vlbi_client_indi.cpp vlbi_client.cpp)
+add_executable(vlbi_client_indi ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client_indi.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp)
 target_link_libraries(vlbi_client_indi vlbi ${CMAKE_THREAD_LIBS_INIT} ${INDICLIENT_LIBRARIES} ${INDI_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
 install(TARGETS vlbi_client_indi RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-endif(INDICLIENT_LIBRARIES)
+endif(INDI_LIBRARIES)
 endif(WITH_INDI_CLIENT)
 
