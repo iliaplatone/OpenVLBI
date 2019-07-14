@@ -43,11 +43,10 @@ case "$1" in
 		sleep 10
 		;;
 	add|del)
-		
-		[ -e "$VLBIfifo" ] && [ "$2"=="add" ] && [ "$3"=="node" ] && echo "start $4" > $VLBIfifo
-		[ -e "$VLBIfifo" ] && [ "$2"=="del" ] && [ "$3"=="node" ] && echo "stop $4" > $VLBIfifo
-		[ -e $VLBIfifo ] && [ "$2"=="del" ] && echo $@ > $VLBIfifo
-		[ -e $VLBIfifo ] && [ "$2"=="add" ] && echo $@ > $VLBIfifo
+		[ -e "$VLBIfifo" ] && [ "$1"=="add" ] && [ "$2"=="node" ] && echo "start $3" > $VLBIfifo
+		[ -e "$VLBIfifo" ] && [ "$1"=="del" ] && [ "$2"=="node" ] && echo "stop $3" > $VLBIfifo
+		[ -e $VLBIfifo ] && [ "$1"=="del" ] && echo $@ > $VLBIfifo
+		[ -e $VLBIfifo ] && [ "$1"=="add" ] && echo $@ > $VLBIfifo
 		;;
 	set|get)
 		[ -e $VLBIfifo ] && echo $@ > $VLBIfifo

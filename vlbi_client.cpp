@@ -48,7 +48,7 @@ int main(int argc, char** argv)
     signal(SIGSTOP, sighandler);
     signal(SIGQUIT, sighandler);
     while (is_running) {
-        if(fscanf(ifile, "%s %s %s", cmd, arg, value) != 3)break;
+        if(fscanf(ifile, "%s %s %s", cmd, arg, value) != 3)continue;
         if(!strcmp(cmd, "set")) {
             if(!strcmp(arg, "context")) {
                 int i = 0;
@@ -134,7 +134,7 @@ int main(int argc, char** argv)
             }
         }
         else {
-            fprintf(stderr, "commands: \nadd\n\tGetContext() name\n\tset\n\tconnection [on|off]\n\tGetContext() name\n\tparking [on|off]\n\ttracking [on|off]\n\ttarget ra,dec\n\tfrequency freq\n\tsamplerate freq\n\tbandwidth freq\n\tbitspersample bps\n\tgain value\n\tcapture time\n\tmodel name\nget\n\tobservation [fft|mdl|raw]");
+            fprintf(stderr, "commands: \nadd\n\tcontext name\n\tset\n\tconnection [on|off]\n\tGetContext() name\n\tparking [on|off]\n\ttracking [on|off]\n\ttarget ra,dec\n\tfrequency freq\n\tsamplerate freq\n\tbandwidth freq\n\tbitspersample bps\n\tgain value\n\tcapture time\n\tmodel name\nget\n\tobservation [fft|mdl|raw]");
         }
 	client->Run(cmd, arg, value);
     }
