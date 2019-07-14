@@ -1,5 +1,5 @@
 #!/bin/bash
-client=$( tr [a-z] [A-Z] <<< $2 )
+client=$( echo $2 | tr [a-z] [A-Z] )
 
 VLBIfifo=/tmp/VLBI.fifo
 pidfile=/tmp/vlbi_server.pid
