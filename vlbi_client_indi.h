@@ -1,3 +1,6 @@
+#ifndef _VLBI_CLIENT_INDI_H
+#define _VLBI_CLIENT_INDI_H
+
 #include <indiapi.h>
 #include <indicom.h>
 #include <defaultdevice.h>
@@ -53,3 +56,5 @@ private:
     double Ra, Dec;
     int Port;
 };
+
+#endif

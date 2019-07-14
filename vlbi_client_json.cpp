@@ -1,45 +1,39 @@
-#include <vlbi_client.h>
-#include <json-glib.h>
-
-public VLBIClient_JSON::VLBIClient_JSON()
-  : VLBIClient()
-{
-    CreateContext();
-}
-
-public VLBIClient_JSON::~VLBIClient_JSON()
-{
-    FreeContext();
-}
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <signal.h>
+#include <vlbi.h>
+#include <vlbi_client_json.h>
 
 void VLBIClient_JSON::AddNode(char* node)
 {
-    int len = strlen(buf) * 3 / 4;
-    JsonNode node = json_from_string (node);
-    dsp_stream *stream = malloc(sizeof(dsp_stream));
-    char *base64 = json_node_get_string (node);
-    char *buf = malloc(len);
-    buf = from64tobits_fast(buf, base64, strlen(buf));
+    json_object* obj = json_object_new_string (node);
+    dsp_stream_p stream = dsp_stream_new();
+    dsp_stream_add_dim(stream, len);
+    char *base64 = obj->c_string.ptr;
+    int len = obj->c_string.str.len * 3 / 4;
+    char *buf = (char*)malloc(len);
+    buf = from64tobits_fast(buf, base64, obj->c_string.str.len);
     dsp_stream_set_buffer(stream, buf, len);
 }
 
 void VLBIClient_JSON::SetFrequency(double centerfrequency)
 {
-    response->frequency = json_node_set_double(response->frequency, stream->frequency);
+    response.frequency->c_double = stream->frequency;
 }
 
 void VLBIClient_JSON::SetSampleRate(double samplingfrequency)
 {
-    response->samplerate = json_node_set_double(response->samplerate, stream->samplerate);
+    response.samplerate->c_double = samplingfrequency;
 }
 
 void VLBIClient_JSON::SetBadwidth(double bandwidth)
 {
-    response->bandwidth = json_node_set_double(response->bandwidth, stream->bandwidth);
+    response.bandwidth->c_double = bandwidth;
 }
 
 void VLBIClient_JSON::SetBPS(int BPS)
 {
-    response->bitspersample = json_node_set_double(response->bitspersample, stream->bitspersample);
+    response.samplerate->c_double = BPS;
 }
 

@@ -24,9 +24,9 @@ int main(int argc, char** argv)
     double Ra,Dec,Freq,SampleRate,BPS,Gain,Bandwidth;
     FILE* ifile = stdin;
     if(argc > 1) {
-        client = new VLBIClient_INDI(argv[1], strtol(argv[2], NULL, 10));
+        ifile = fopen(argv[1], "r+");
         if(argc > 2) {
-            ifile = fopen(argv[3], "r+");
+            client = new VLBIClient_INDI(argv[2], strtol(argv[3], NULL, 10));
         }
     } else {
         fprintf(stderr, "usage: %s hostname port [command_file]\n", argv[0]);

@@ -11,7 +11,7 @@ function start() {
 		INDI)
 			indiserver -f $VLBIfifo -p 7624 2>/dev/null 1>/dev/null &
 			sleep 3;
-			vlbi_client_indi localhost 7624 $VLBIfifo & echo "OpenVLBI started succesfully"
+			vlbi_client_indi $VLBIfifo localhost 7624 & echo "OpenVLBI started succesfully"
 		;;
 		*)
 		;;
