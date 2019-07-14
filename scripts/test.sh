@@ -6,7 +6,7 @@ set -x -e
 port=8000
 sudo killall indiserver -9 2>/dev/null || true
 sudo killall vlbi_client_indi -9 2>/dev/null || true
-vlbi_server start
+vlbi_server start INDI
 sleep 10
 p=0
 while (( $p<$1 )); do
