@@ -139,7 +139,7 @@ int main(int argc, char** argv)
         }
         else {
             if(!client->Run(cmd, arg, value))
-                fprintf(stderr, "-ERR");
+                fprintf(stderr, "-ERR\n");
         }
     }
     return 0;

@@ -4,9 +4,13 @@
 set -x -e
 
 port=8000
-sudo killall indiserver -9 2>/dev/null || true
+
 sudo killall vlbi_client_indi -9 2>/dev/null || true
-vlbi_server start INDI
+sleep 2
+sudo killall indiserver -9 2>/dev/null || true
+rm -f /tmp/INDIfifo
+mkfifo /tmp/INDIfifo
+indiserver -f /tmp/INDIfifo -p 7624 2>/dev/null 1>/dev/null &
 sleep 10
 p=0
 while (( $p<$1 )); do
@@ -14,15 +18,17 @@ while (( $p<$1 )); do
 	current_port=$(( $port+$p ))
 	indiserver -p $current_port indi_simulator_ccd indi_simulator_telescope indi_simulator_dome indi_simulator_gps 2>/dev/null 1>/dev/null &
 	sleep 2
-	vlbi_server add node "localhost:$current_port"
+	echo "start localhost:$current_port" > /tmp/INDIfifo
 	p=$(( $p+1 ))
 done
 sleep 2
-vlbi_server set connection on
+vlbi_server start INDI
 sleep 2
 vlbi_server add context test
 sleep 2
 vlbi_server set context test
+sleep 2
+vlbi_server set connection on
 sleep 2
 vlbi_server set parking off
 sleep 2

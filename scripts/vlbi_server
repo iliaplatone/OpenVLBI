@@ -9,8 +9,6 @@ function start() {
 	mkfifo $VLBIfifo 2>/dev/null
 	case $client in
 		INDI)
-			indiserver -f $VLBIfifo -p 7624 2>/dev/null 1>/dev/null &
-			sleep 3;
 			vlbi_client_indi $VLBIfifo localhost 7624 & echo "OpenVLBI started succesfully"
 		;;
 		*)
@@ -42,13 +40,11 @@ case "$1" in
 		sleep 10
 		;;
 	add|del)
-		[ -e "$VLBIfifo" ] && [ "$1"=="add" ] && [ "$2"=="node" ] && echo "start $3" > $VLBIfifo
-		[ -e "$VLBIfifo" ] && [ "$1"=="del" ] && [ "$2"=="node" ] && echo "stop $3" > $VLBIfifo
-		[ -e "$VLBIfifo" ] && [ "$1"=="add" ] && [ "$2"!="node" ] && echo $@ > $VLBIfifo
-		[ -e "$VLBIfifo" ] && [ "$1"=="del" ] && [ "$2"=="node" ] && echo $@ > $VLBIfifo
+		[ -e "$VLBIfifo" ] && [ "$1"=="add" ] && echo $@ > $VLBIfifo
+		[ -e "$VLBIfifo" ] && [ "$1"=="del" ] && echo $@ > $VLBIfifo
 		;;
 	set|get)
-		[ -e $VLBIfifo ] && echo $@ > $VLBIfifo
+		[ -e $VLBIfifo ] && echo $1 $2 > $VLBIfifo
 		;;
 	*)
 		echo "usage $0 [start|stop|restart|set|get|add|del [arg [value]]]";
