@@ -41,7 +41,7 @@ public:
         else
             plot = vlbi_get_uv_plot_moving_baseline(context, correlation_func, 1, u, v, new double[2] { ra, dec }, frequency, samplerate);
 	if(dft) {
-            dsp_stream *plot = vlbi_get_fft_estimate(plot);
+            plot = vlbi_get_fft_estimate(plot);
 	}
         unsigned char *base64 = (unsigned char*)malloc(plot->len * 4 / 3 + 4);
         unsigned char *buf = (unsigned char*)malloc(plot->len);
