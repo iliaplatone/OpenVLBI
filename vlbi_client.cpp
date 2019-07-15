@@ -138,7 +138,8 @@ int main(int argc, char** argv)
             }
         }
         else {
-            client->Run(cmd, arg, value);
+            if(!client->Run(cmd, arg, value))
+                fprintf(stderr, "-ERR");
         }
     }
     return 0;

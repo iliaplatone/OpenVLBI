@@ -324,7 +324,7 @@ void VLBIClient_INDI::serverDisconnected(int exit_code) {
     INDI_UNUSED(exit_code);
 }
 
-void VLBIClient_INDI::Run(char* cmd, char* arg, char* value) {
+bool VLBIClient_INDI::Run(char* cmd, char* arg, char* value) {
     if(!strcmp(cmd, "set")) {
         if(!strcmp(arg, "connection")) {
             if(!strcmp(value, "on")) {
@@ -376,6 +376,7 @@ void VLBIClient_INDI::Run(char* cmd, char* arg, char* value) {
         }
     }
     else {
-        fprintf(stderr, "commands: \nadd\n\tcontext name\nset\n\tconnection [on|off]\n\tcontext name\n\tparking [on|off]\n\ttracking [on|off]\n\ttarget ra,dec\n\tfrequency freq\n\tsamplerate freq\n\tbandwidth freq\n\tbitspersample bps\n\tgain value\n\tcapture time\n\tmodel name\nget\n\tobservation [fft|mdl|raw]");
+        return false;
     }
+    return true;
 }

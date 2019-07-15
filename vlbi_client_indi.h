@@ -48,7 +48,7 @@ public:
     void Park();
     void Unpark();
     void Tracking(bool on);
-    void Run(char* cmd, char* arg, char* value);
+    bool Run(char* cmd, char* arg, char* value);
 
 private:
     char* Address;
