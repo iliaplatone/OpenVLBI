@@ -9,18 +9,14 @@ include(ExternalProject)
 find_package(CFITSIO REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(Threads REQUIRED)
-OPTION(WITH_INDI_CLIENT "Add INDI client for OpenVLBI" ON)
-OPTION(WITH_JSON_CLIENT "Add JSON client for OpenVLBI" ON)
+option(WITH_INDI_CLIENT "Add INDI client for OpenVLBI" ON)
 
 set (VLBI_VERSION_MAJOR 1)
 set (VLBI_VERSION_MINOR 4)
 set (VLBI_VERSION_STRING "${VLBI_VERSION_MAJOR}.${VLBI_VERSION_MINOR}.0")
 
-
-
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake_modules/")
-
 
 add_definitions(-Wall -O3 -g)
 
@@ -81,19 +77,9 @@ if(WITH_INDI_CLIENT)
 find_package(INDI REQUIRED)
 if(INDI_LIBRARIES)
 include_directories( ${INDI_INCLUDE_DIR})
+add_definitions(-DINDI_CLIENT)
 add_executable(vlbi_client_indi ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client_indi.cpp)
 target_link_libraries(vlbi_client_indi vlbi indiclient ${INDI_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
 install(TARGETS vlbi_client_indi RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(INDI_LIBRARIES)
 endif(WITH_INDI_CLIENT)
-
-if(WITH_JSON_CLIENT)
-find_package(JSON-C REQUIRED)
-if(JSON_C_LIBRARIES)
-include_directories( ${JSON_C_INCLUDE_DIR})
-add_executable(vlbi_client_json ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client_json.cpp)
-target_link_libraries(vlbi_client_json vlbi ${CMAKE_THREAD_LIBS_INIT} ${JSON_C_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
-install(TARGETS vlbi_client_json RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-endif(JSON_C_LIBRARIES)
-endif(WITH_JSON_CLIENT)
-

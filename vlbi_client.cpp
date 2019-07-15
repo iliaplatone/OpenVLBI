@@ -1,5 +1,7 @@
 #include "vlbi_client.h"
+#ifdef INDI_CLIENT
 #include "vlbi_client_indi.h"
+#endif
 
 VLBIClient *client;
 int is_running = 1;
@@ -26,7 +28,9 @@ int main(int argc, char** argv)
     if(argc > 1) {
         ifile = fopen(argv[1], "r+");
         if(argc > 2) {
+#ifdef INDI_CLIENT
             client = new VLBIClient_INDI(argv[2], strtol(argv[3], NULL, 10));
+#endif
         }
     } else {
         fprintf(stderr, "usage: %s hostname port [command_file]\n", argv[0]);

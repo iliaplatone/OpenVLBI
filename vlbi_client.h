@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/ioctl.h>
+#include <fitsio.h>
 #include <vlbi.h>
 
 static double* correlation_func(double d1, double d2)
