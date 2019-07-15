@@ -88,7 +88,7 @@ endif(INDI_LIBRARIES)
 endif(WITH_INDI_CLIENT)
 
 if(WITH_JSON_CLIENT)
-find_package(JSON_C REQUIRED)
+find_package(JSON-C REQUIRED)
 if(JSON_C_LIBRARIES)
 include_directories( ${JSON_C_INCLUDE_DIR})
 add_executable(vlbi_client_json ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client_json.cpp)

@@ -7,12 +7,12 @@
 
 void VLBIClient_JSON::AddNode(char* node)
 {
-    json_object* obj = json_object_new_string (node);
-    dsp_stream_p stream = dsp_stream_new();
-    dsp_stream_add_dim(stream, len);
+    json_object* obj = json_tokener_parse(node);
     char *base64 = obj->c_string.ptr;
     int len = obj->c_string.str.len * 3 / 4;
     char *buf = (char*)malloc(len);
+    dsp_stream_p stream = dsp_stream_new();
+    dsp_stream_add_dim(stream, len);
     buf = from64tobits_fast(buf, base64, obj->c_string.str.len);
     dsp_stream_set_buffer(stream, buf, len);
 }

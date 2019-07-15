@@ -3,20 +3,19 @@
 
 #include <vlbi_client.h>
 #include <json.h>
-#include <json_c_version.h>
 
 struct json_response {
     json_object *name;
-    json_object *plot;
-    json_object *capturetime;
-    json_object *start_capture;
-    json_object *samplerate;
-    json_object *frequency;
-    json_object *bandwidth;
-    json_object *gain;
-    json_object *depth;
-    json_object *ra;
-    json_object *dec;
+    struct json_object *plot;
+    struct json_object *capturetime;
+    struct json_object *start_capture;
+    struct json_object *samplerate;
+    struct json_object *frequency;
+    struct json_object *bandwidth;
+    struct json_object *gain;
+    struct json_object *depth;
+    struct json_object *ra;
+    struct json_object *dec;
 };
 
 class VLBIClient_JSON : public VLBIClient
@@ -38,7 +37,7 @@ public:
     response.dec = json_object_new_object();
 }
 
-    VLBIClient_JSON() {}
+    ~VLBIClient_JSON() {}
 
     void AddNode(char* node);
     void DelNode(char* name);
