@@ -1,6 +1,6 @@
 Package: openvlbi
 Version: VERSION
-Architecture: armhf
+Architecture: ARCH
 Maintainer: Ilia Platone <info@iliaplatone.com>
 Installed-Size: XXX		
 Depends: libc6(>=1.28), libstdc++6(>=1.28), libindi1(>=1.7)

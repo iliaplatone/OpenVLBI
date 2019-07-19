@@ -2,12 +2,13 @@
 	user=1000
 	deb=$1
 	version=$2
-	arch=$DEB_BUILD_ARCH
+	arch=$(dpkg-architecture | grep "DEB_BUILD_ARCH=")
 	size=$(sudo du -sk ${deb}/ | sed -e "s:${deb}/::")
 	mkdir -p ${deb}/DEBIAN
 	sudo chown $user:$user ${deb} -R
 	sed -e "s:VERSION:$version:g" control.${deb} > ${deb}/DEBIAN/control
 	sudo sed -i "s/XXX/$size/g" ${deb}/DEBIAN/control
+	sudo sed -i "s/ARCH/$arch/g" ${deb}/DEBIAN/control
 	find ${deb}/ | while read line; do md5sum $line; done 2>/dev/null > ${deb}/DEBIAN/md5sums
 	sed -i "s:${deb}/::g" ${deb}/DEBIAN/md5sums
 	sed -i "/DEBIAN/d" ${deb}/DEBIAN/md5sums
