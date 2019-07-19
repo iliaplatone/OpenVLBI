@@ -2,7 +2,8 @@
 	user=1000
 	deb=$1
 	version=$2
-	arch=$(dpkg-architecture | grep "DEB_BUILD_ARCH=")
+	export $(dpkg-architecture | grep "DEB_BUILD_ARCH=")
+	arch=$DEB_BUILD_ARCH
 	size=$(sudo du -sk ${deb}/ | sed -e "s:${deb}/::")
 	mkdir -p ${deb}/DEBIAN
 	sudo chown $user:$user ${deb} -R
