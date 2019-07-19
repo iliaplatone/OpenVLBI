@@ -26,7 +26,6 @@
 	sudo chmod 755 ${deb}/sbin/* || true
 	sudo chmod 755 ${deb}/usr/bin/* || true
 	sudo chmod 755 ${deb}/usr/sbin/* || true
-	sudo chmod 700 ${deb}/usr/share/inova || true
 	sudo chmod 755 ${deb}/usr/share/applications/* || true
 	sudo chmod 755 ${deb}/DEBIAN/*inst || true
 	sudo chown root:root ${deb} -R || true
