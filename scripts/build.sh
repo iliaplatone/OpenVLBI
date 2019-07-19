@@ -11,6 +11,6 @@ sudo make install
 popd
 
 pushd debian
-./build.deb.sh openvlbi 1.4.0 $(uname -m)
+sudo ./build.deb.sh openvlbi 1.4.0 $(uname -m)
 sudo dpkg -i packages/openvlbi_1.4.0_$(uname -m).deb
 popd
