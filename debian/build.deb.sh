@@ -1,8 +1,9 @@
 #!/bin/bash
+	env $(dpkg-architecture)
 	user=1000
 	deb=$1
 	version=$2
-	arch=$3
+	arch=$DEB_BUILD_ARCH
 	size=$(sudo du -sk ${deb}/ | sed -e "s:${deb}/::")
 	mkdir -p ${deb}/DEBIAN
 	sudo chown $user:$user ${deb} -R

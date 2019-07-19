@@ -1,4 +1,5 @@
 #!/bin/bash
+version=1.4.0
 sudo add-apt-repository ppa:~mutlaqja -y
 sudo apt-get -qq update
 sudo apt-get install indi-full libnova-dev libindi-dev libpthread-stubs0-dev libcfitsio-dev zlib1g-dev cmake dpkg-dev
@@ -11,6 +12,6 @@ sudo make install
 popd
 
 pushd debian
-sudo ./build.deb.sh openvlbi 1.4.0 $(uname -m)
-sudo dpkg -i packages/openvlbi_1.4.0_$(uname -m).deb
+sudo ./build.deb.sh openvlbi $version
+sudo dpkg -i packages/openvlbi_$version.deb
 popd
