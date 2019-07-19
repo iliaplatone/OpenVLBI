@@ -15,13 +15,6 @@
 	echo "Setting permissions..."
 	sudo chown root:root ${deb} -R || true
 	sudo chmod 755 ${deb} -R || true
-	sudo chmod 600 ${deb}/var/spool/ -R || true
-	sudo chmod 700 ${deb}/lib/modules -R || true
-	sudo chmod 600 ${deb}/etc/sudoers || true
-	sudo chmod 755 ${deb}/etc/network/*.d/* || true
-	sudo chmod 755 ${deb}/etc/NetworkManager/dispatcher.d/*.d/* || true
-	sudo chmod 600 ${deb}/etc/NetworkManager/system-connections/* || true
-	sudo chmod 440 ${deb}/etc/sudoers || true
 	sudo chmod 755 ${deb}/bin/* || true
 	sudo chmod 755 ${deb}/sbin/* || true
 	sudo chmod 755 ${deb}/usr/bin/* || true
