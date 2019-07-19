@@ -1,5 +1,4 @@
 #!/bin/bash
-	env $(dpkg-architecture)
 	user=1000
 	deb=$1
 	version=$2
