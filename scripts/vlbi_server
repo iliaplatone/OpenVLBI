@@ -1,34 +1,43 @@
-#!/bin/bash
+#!/bin/sh
 
 INDIfifo=/tmp/INDI.fifo
 VLBIfifo=/tmp/VLBI.fifo
+fifo=/tmp/OpenVLBI.fifo
 pidfile=/tmp/vlbi_server.pid
 
-function start() {
+start() {
 	[ -e $pidfile ] && return;
 	mkfifo $INDIfifo 2>/dev/null
 	mkfifo $VLBIfifo 2>/dev/null
+	mkfifo $fifo 2>/dev/null
 	indiserver -f $INDIfifo -p 7624 2>/dev/null 1>/dev/null &
 	sleep 3;
-	vlbi_client_indi localhost 7624 $VLBIfifo & echo "OpenVLBI started succesfully"
+	vlbi_client_indi localhost 7624 $VLBIfifo > $fifo & echo "OpenVLBI started succesfully"
 	touch $pidfile;
 	sleep 10;
 	exit 0;
 }
 
-function stop() {
+stop() {
 	fuser -n file -k -9 $VLBIfifo 2>/dev/null 1>/dev/null || true;
 	sleep 3;
 	fuser -n file -k -9 $INDIfifo 2>/dev/null 1>/dev/null || true;
-	rm $pidfile $INDIfifo 2>/dev/null && echo "OpenVLBI stopped succesfully"
+	rm $pidfile $INDIfifo $VLBIfifo $fifo 2>/dev/null && echo "OpenVLBI stopped succesfully"
 	sleep 3;
 	exit 0;
 }
 
-function restart() {
+restart() {
 	stop;
 	start;
 	exit 0;
+}
+
+run_command() {
+	[ -e $VLBIfifo ] && echo $@ > $VLBIfifo
+	sleep 4
+	read -d '+' -s ret < $fifo
+	return $ret
 }
 
 case "$1" in
@@ -37,16 +46,20 @@ case "$1" in
 		sleep 10
 		;;
 	add|del)
-		[ -e $INDIfifo ] && [ "$1"=="add" ] && [ "$2"=="node" ] && echo "start $3" > $INDIfifo
-		[ -e $INDIfifo ] && [ "$1"=="del" ] && [ "$2"=="node" ] && echo "stop $3" > $INDIfifo
-		[ -e $VLBIfifo ] && [ "$1"=="del" ] && echo $@ > $VLBIfifo
-		[ -e $VLBIfifo ] && [ "$1"=="add" ] && echo $@ > $VLBIfifo
+		[ -e $INDIfifo ] && [ "$2"=="node" ] && echo "start $3" > $INDIfifo
+		[ -e $INDIfifo ] && [ "$2"=="node" ] && echo "stop $3" > $INDIfifo
+		[ "$2"!="node" ] && run_command $@
+		[ "$2"!="node" ] && run_command $@
 		;;
 	set|get)
-		[ -e $VLBIfifo ] && echo $@ > $VLBIfifo
+		run_command $@
+		;;
+	png|jpeg|bmp|tiff)
+		run_command set resolution $3
+		run_command get observation $2 | base64 -d -i | convert -colorspace gray8 -size $3 raw:- $1:-
 		;;
 	*)
-		echo "usage $0 [start|stop|restart|set|get|add|del [arg [value]]]";
+		echo "usage $0 [start|stop|restart|set|get|add|del|png [arg [value]]]";
 		exit 22;
 		;;
 esac
