@@ -11,7 +11,7 @@ p=0
 while (( $p<$1 )); do
 	set -x -e
 	current_port=$(( $port+$p ))
-	indiserver -p $current_port indi_simulator_detector indi_simulator_telescope indi_simulator_dome indi_simulator_gps 2>/dev/null 1>/dev/null &
+	indiserver -p $current_port indi_simulator_test indi_simulator_telescope indi_simulator_dome indi_simulator_gps 2>/dev/null 1>/dev/null &
 	sleep 2
 	vlbi_server add node "localhost:$current_port"
 	p=$(( $p+1 ))
