@@ -37,7 +37,7 @@ run_command() {
 	[ -e $VLBIfifo ] && echo $@ > $VLBIfifo
 	sleep 4
 	read -d '+' -s ret < $fifo
-	return $ret
+	echo $ret
 }
 
 case "$1" in
