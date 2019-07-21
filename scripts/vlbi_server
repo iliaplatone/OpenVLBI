@@ -36,8 +36,8 @@ restart() {
 run_command() {
 	[ -e $VLBIfifo ] && echo $@ > $VLBIfifo
 	sleep 4
-	read -d '+' -s ret < $fifo
-	echo $ret
+	read -d '+' -ers ret < $fifo
+	ret $ret
 }
 
 case "$1" in
@@ -52,7 +52,7 @@ case "$1" in
 		[ "$2"!="node" ] && run_command $@
 		;;
 	set|get)
-		run_command $@
+		echo run_command $@
 		;;
 	png|jpeg|bmp|tiff)
 		run_command set resolution $3

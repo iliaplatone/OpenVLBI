@@ -377,7 +377,7 @@ int main(int argc, char** argv)
     signal(SIGSTOP, sighandler);
     signal(SIGQUIT, sighandler);
     while (is_running) {
-        if(fscanf(ifile, "%s %s %s", cmd, arg, value) != 3)break;
+        if(fscanf(ifile, "%s %s %s", cmd, arg, value) != 3) continue;
         if(!strcmp(cmd, "set")) {
             if(!strcmp(arg, "context")) {
                 int i = 0;
