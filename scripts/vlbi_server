@@ -49,7 +49,7 @@ case "$1" in
 	add|del)
 		[ -e $INDIfifo ] && [ "$2"=="node" ] && echo "start $3" > $INDIfifo
 		[ -e $INDIfifo ] && [ "$2"=="node" ] && echo "stop $3" > $INDIfifo
-		[ "$2"!="node" ] && run_command $1 $2 $3
+		run_command $1 $2 $3
 		exit 0;
 		;;
 	set|get)
