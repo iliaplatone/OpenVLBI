@@ -10,7 +10,7 @@ p=0
 while (( $p<$1 )); do
 	set -x -e
 	sleep 2
-	vlbi_server add node $(( $RANDOM%360 )),$(( $RANDOM%90 )),$(( $RANDOM%4000 )),$(sudo dd if=/dev/urandom bs=$((8*$5)) count=$2 | base64),$(date +%Y/%m/%d-%H:%M:%S)
+	vlbi_server add node $(( $RANDOM%360 )),$(( $RANDOM%90 )),$(( $RANDOM%4000 )),$(sudo dd if=/dev/urandom bs=$((8*$5)) count=$2 | base64 | tr -d '\n'),$(date +%Y/%m/%d-%H:%M:%S)
 	p=$(( $p+1 ))
 done
 sleep 2
