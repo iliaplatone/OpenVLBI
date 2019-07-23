@@ -10,14 +10,14 @@ static double* correlation_func(double d1, double d2)
 VLBIClient::VLBIClient()
 {
 	Ra = 0;
-	Dec = 0;
-	Freq = 1420000000;
-	SampleRate = 100000000;
-	BPS = 8;
-	Gain = 1;
-	Bandwidth = 10000;
-	w = 128;
-	h = 128;
+       	Dec = 0;
+        Freq = 1420000000;
+        SampleRate = 100000000;
+        BPS = 8;
+        Gain = 1;
+        Bandwidth = 10000;
+        w = 128;
+        h = 128
 	num_contexts = 0;
 	contexts = (_vlbi_context_p*)malloc(sizeof(_vlbi_context_p));
 	model = dsp_stream_new();

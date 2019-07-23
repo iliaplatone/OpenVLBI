@@ -1,7 +1,5 @@
 #include "vlbi_client_indi.h"
 
-VLBIClient_INDI* client = new VLBIClient_INDI();
-
 VLBIClient_INDI::VLBIClient_INDI()
 	: INDI::BaseClient()
 {
@@ -375,3 +373,5 @@ void VLBIClient_INDI::Parse(char* cmd, char* arg, char* value)
             }
         }
 }
+
+VLBIClient_INDI* client = new VLBIClient_INDI();
