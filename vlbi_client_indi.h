@@ -14,14 +14,14 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/ioctl.h>
-#include <vlbi.h>
+#include "vlbi_client.h"
 
 
-class VLBIClient : private INDI::BaseClient
+class VLBIClient_INDI : private INDI::BaseClient, public VLBIClient
 {
 public:
-    VLBIClient(char *address, int port);
-    ~VLBIClient();
+    VLBIClient_INDI();
+    ~VLBIClient_INDI();
 
     void newDevice(INDI::BaseDevice *dp);
     void removeDevice(INDI::BaseDevice *dp);
@@ -49,16 +49,17 @@ public:
     void SetBadwidth(double bandwidth);
     void SetGain(double gain);
     void SetBPS(int BPS);
-    inline void SetContext(vlbi_context ctx) { context = ctx; }
-    inline vlbi_context GetContext() { return context; }
     void GoTo(double Ra, double Dec);
     void Park();
     void Unpark();
     void Tracking(bool on);
 
+    int Init(int argc, char** argv);
+    void Parse(char* cmd, char* arg, char* value);
+
 private:
-    vlbi_context context;
     char* Address;
     char* Savedir;
+    double duration;
     int Port;
 };
