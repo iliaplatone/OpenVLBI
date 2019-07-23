@@ -17,7 +17,7 @@ VLBIClient::VLBIClient()
         Gain = 1;
         Bandwidth = 10000;
         w = 128;
-        h = 128
+        h = 128;
 	num_contexts = 0;
 	contexts = (_vlbi_context_p*)malloc(sizeof(_vlbi_context_p));
 	model = dsp_stream_new();
