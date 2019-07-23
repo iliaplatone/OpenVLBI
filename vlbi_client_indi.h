@@ -1,6 +1,4 @@
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
+#include "vlbi_client.h"
 #include <indiapi.h>
 #include <indicom.h>
 #include <defaultdevice.h>
@@ -10,12 +8,6 @@
 #include <inditelescope.h>
 #include <baseclient.h>
 #include <fitsio.h>
-#include <base64.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/ioctl.h>
-#include "vlbi_client.h"
-
 
 class VLBIClient_INDI : private INDI::BaseClient, public VLBIClient
 {

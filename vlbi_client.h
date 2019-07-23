@@ -1,12 +1,18 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include <base64.h>
+#include "vlbi/base64.h"
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/ioctl.h>
+#include <signal.h>
 #include <vlbi.h>
 
+
+typedef struct _vlbi_context {
+    vlbi_context ctx;
+    char* name;
+} *_vlbi_context_p, _vlbi_context_t;
 
 class VLBIClient
 {
@@ -30,5 +36,10 @@ public:
     int w;
     int h;
 private:
+    int num_contexts;
     vlbi_context context;
+    _vlbi_context_p* contexts;
+    dsp_stream_p model;
+    dsp_stream_p uv;
+    dsp_stream_p fft;
 };

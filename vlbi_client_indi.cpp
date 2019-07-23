@@ -1,8 +1,3 @@
-﻿#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <signal.h>
-#include <vlbi.h>
 #include "vlbi_client_indi.h"
 
 VLBIClient_INDI* client = new VLBIClient_INDI();

@@ -1,9 +1,3 @@
-﻿#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <signal.h>
-#include <vlbi.h>
-#include <fitsio2.h>
 #include "vlbi_client.h"
 
 static double* correlation_func(double d1, double d2)
@@ -14,17 +8,21 @@ static double* correlation_func(double d1, double d2)
 }
 
 VLBIClient::VLBIClient()
-	: Ra = 0,
-          Dec = 0,
-          Freq = 1420000000,
-          SampleRate = 100000000,
-          BPS = 8,
-          Gain = 1,
-          Bandwidth = 10000,
-          w = 128,
-          h = 128
-
 {
+	Ra = 0;
+	Dec = 0;
+	Freq = 1420000000;
+	SampleRate = 100000000;
+	BPS = 8;
+	Gain = 1;
+	Bandwidth = 10000;
+	w = 128;
+	h = 128;
+	num_contexts = 0;
+	contexts = (_vlbi_context_p*)malloc(sizeof(_vlbi_context_p));
+	model = dsp_stream_new();
+	uv = dsp_stream_new();
+	fft = dsp_stream_new();
 }
 
 VLBIClient::~VLBIClient()
@@ -37,12 +35,12 @@ VLBIClient::~VLBIClient()
 void VLBIClient::AddNode(double lat, double lon, double el, double *buf, double len, timespec starttime)
 {
 	dsp_stream_p node = dsp_stream_new();
-	node->location[0] = atol(lat);
-	node->location[1] = atol(lon);
-	node->location[2] = atol(el);
+	node->location[0] = lat;
+	node->location[1] = lon;
+	node->location[2] = el;
 	node->location[2] = vlbi_calc_elevation_coarse(node->location[2], node->location[0]);
-	node->target[0] = atol(Ra);
-	node->target[1] = atol(Dec);
+	node->target[0] = Ra;
+	node->target[1] = Dec;
 	dsp_stream_add_dim(node, len);
 	dsp_stream_set_buffer(node, (void*)(buf), node->len);
 	node->starttimeutc = starttime;
@@ -64,8 +62,8 @@ void VLBIClient::Parse(char* cmd, char* arg, char* value)
             else if(!strcmp(arg, "resolution")) {
                 char* W = strtok(value, ",");
                 char* H = strtok(NULL, ",");
-                w = (double)strtol(W);
-                h = (double)strtol(H);
+                w = (double)strtol(W, NULL, 10);
+                h = (double)strtol(H, NULL, 10);
             }
             else if(!strcmp(arg, "target")) {
                 char* ra = strtok(value, ",");
@@ -86,20 +84,6 @@ void VLBIClient::Parse(char* cmd, char* arg, char* value)
                 Bandwidth = (double)atof(value);
             }
             else if(!strcmp(arg, "model")) {
-                dsp_stream_free(model);
-                model = dsp_stream_new();
-                fitsfile* f;
-                int status = 0;
-                fits_open_image(&f, value, 1, &status);
-                long long offset = f->Fptr->datastart;
-                fits_close_file(f, &status);
-                FILE *file = fopen(value, "r");
-                fseek(file, 0, SEEK_END);
-                unsigned int len = ftell(file)-offset;
-                dsp_stream_add_dim(model, len);
-                fseek(file, offset, SEEK_SET);
-                len = fread(model->buf, 1, len, file);
-                fclose(file);
             }
         }
         else if(!strcmp(cmd, "add")) {
@@ -120,9 +104,9 @@ void VLBIClient::Parse(char* cmd, char* arg, char* value)
 		k = strtok(NULL, ",");
 		el = (double)atof(k);
 		k = strtok(NULL, ",");
-		int len = strlen(k)*3/2;
+		int len = strlen(k)*3;
 		buf = (double*)malloc(len);
-		buf = (double*)from64_fast(k, buf, strlen(k), len*8);
+		buf = (double*)from64tobits_fast(k, (char*)buf, strlen(k));
 		k = strtok(NULL, "/");
 		Y = (double)atof(k);
 		k = strtok(NULL, "/");
@@ -157,7 +141,7 @@ void VLBIClient::Parse(char* cmd, char* arg, char* value)
                             unsigned int len = fft->len * 4 / 3 + 4;
                             unsigned char* base64 = (unsigned char*)malloc(len);
                             to64frombits(base64, (unsigned char*)fft->buf, fft->len);
-                            if(len<fwrite(base64, 1, len, stdout))continue;
+                            if(len<fwrite(base64, 1, len, stdout))return;
                             free(base64);
                             dsp_stream_free(fft);
                         }
@@ -205,21 +189,9 @@ void sighandler(int signum)
     exit(0);
 }
 
-#define TXT_LEN
-typedef struct _vlbi_context {
-    vlbi_context ctx;
-    char* name;
-} *_vlbi_context_p, _vlbi_context_t;
-
 int main(int argc, char** argv)
 {
     FILE* ifile = stdin;
-    _vlbi_context_p* contexts = (_vlbi_context_p*)malloc(sizeof(_vlbi_context_p));
-    int num_contexts = 0;
-    dsp_stream_p model = dsp_stream_new();
-
-    dsp_stream_p uv = NULL;
-    dsp_stream_p fft = NULL;
 
     char cmd[150], arg[150], value[150];
     signal(SIGINT, sighandler);
