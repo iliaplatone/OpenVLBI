@@ -7,12 +7,16 @@ pidfile=/tmp/vlbi_server.pid
 
 start() {
 	[ -e $pidfile ] && return;
-	mkfifo $INDIfifo 2>/dev/null
 	mkfifo $VLBIfifo 2>/dev/null
 	mkfifo $fifo 2>/dev/null
-	indiserver -f $INDIfifo -p 7624 2>/dev/null 1>/dev/null &
 	sleep 3;
-	vlbi_client_indi localhost 7624 $VLBIfifo > $fifo & echo "OpenVLBI started succesfully"
+	if [ "$1"=="indi" ]; then
+		mkfifo $INDIfifo 2>/dev/null
+		indiserver -f $INDIfifo -p 7624 2>/dev/null 1>/dev/null &
+		vlbi_client_indi localhost 7624 < $VLBIfifo > $fifo & echo "OpenVLBI started succesfully"
+	elif [ "$1"=="indi" ]; then
+		vlbi_client_dummy < $VLBIfifo > $fifo & echo "OpenVLBI started succesfully"
+	fi
 	touch $pidfile;
 	sleep 10;
 	exit 0;
