@@ -1,19 +1,18 @@
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <base64.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/ioctl.h>
+#ifndef VLBI_CLIENT_DUMMY_H
+#define VLBI_CLIENT_DUMMY_H
+
 #include "vlbi_client.h"
 
+using namespace VLBI;
 
-class VLBIClient_DUMMY : public VLBIClient
+class DUMMYClient : public VLBI::Client
 {
 public:
-    VLBIClient_DUMMY();
-    ~VLBIClient_DUMMY();
+    DUMMYClient();
+    ~DUMMYClient();
 
-    int Init(int argc, char** argv) { return 0; }
-    void Parse(char* cmd, char* arg, char* value) { VLBIClient::Parse(cmd, arg, value); }
+    int Init(int argc, char** argv);
+    void Parse(char* cmd, char* arg, char* value);
 };
+
+#endif //VLBI_CLIENT_DUMMY_H

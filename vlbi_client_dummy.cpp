@@ -6,13 +6,22 @@
 #include <fitsio2.h>
 #include "vlbi_client_dummy.h"
 
-VLBIClient_DUMMY::VLBIClient_DUMMY()
-	:VLBIClient()
+DUMMYClient::DUMMYClient()
 {
 }
 
-VLBIClient_DUMMY::~VLBIClient_DUMMY()
+DUMMYClient::~DUMMYClient()
 {
 }
 
-VLBIClient_DUMMY *client;
+int DUMMYClient::Init(int argc, char** argv)
+{
+	return VLBI::Client::Init(argc, argv);
+}
+
+void DUMMYClient::Parse(char* cmd, char* arg, char* value)
+{
+	VLBI::Client::Parse(cmd, arg, value);
+}
+
+DUMMYClient *client;

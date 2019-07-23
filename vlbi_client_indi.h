@@ -1,3 +1,6 @@
+#ifndef VLBI_CLIENT_INDI_H
+#define VLBI_CLIENT_INDI_H
+
 #include "vlbi_client.h"
 #include <indiapi.h>
 #include <indicom.h>
@@ -9,11 +12,13 @@
 #include <baseclient.h>
 #include <fitsio.h>
 
-class VLBIClient_INDI : private INDI::BaseClient, public VLBIClient
+using namespace VLBI;
+
+class INDIClient : private INDI::BaseClient, public VLBI::Client
 {
 public:
-    VLBIClient_INDI();
-    ~VLBIClient_INDI();
+    INDIClient();
+    ~INDIClient();
 
     void newDevice(INDI::BaseDevice *dp);
     void removeDevice(INDI::BaseDevice *dp);
@@ -40,7 +45,7 @@ public:
     void SetSampleRate(double samplingfrequency);
     void SetBadwidth(double bandwidth);
     void SetGain(double gain);
-    void SetBPS(int BPS);
+    void SetBps(int Bps);
     void GoTo(double Ra, double Dec);
     void Park();
     void Unpark();
@@ -55,3 +60,4 @@ private:
     double duration;
     int Port;
 };
+#endif //VLBI_CLIENT_INDI_H

@@ -7,13 +7,13 @@ static double* correlation_func(double d1, double d2)
     return &res;
 }
 
-VLBIClient::VLBIClient()
+VLBI::Client::Client()
 {
-	Ra = 0;
+	Ra=0;
        	Dec = 0;
         Freq = 1420000000;
         SampleRate = 100000000;
-        BPS = 8;
+        Bps = 8;
         Gain = 1;
         Bandwidth = 10000;
         w = 128;
@@ -25,14 +25,14 @@ VLBIClient::VLBIClient()
 	fft = dsp_stream_new();
 }
 
-VLBIClient::~VLBIClient()
+VLBI::Client::~Client()
 {
     if(context != NULL) {
         vlbi_exit(context);
     }
 }
 
-void VLBIClient::AddNode(double lat, double lon, double el, double *buf, double len, timespec starttime)
+void VLBI::Client::AddNode(double lat, double lon, double el, double *buf, double len, timespec starttime)
 {
 	dsp_stream_p node = dsp_stream_new();
 	node->location[0] = lat;
@@ -47,7 +47,7 @@ void VLBIClient::AddNode(double lat, double lon, double el, double *buf, double 
 	vlbi_add_stream(context, node);
 }
 
-void VLBIClient::Parse(char* cmd, char* arg, char* value)
+void VLBI::Client::Parse(char* cmd, char* arg, char* value)
 {
         if(!strcmp(cmd, "set")) {
             if(!strcmp(arg, "context")) {
@@ -78,7 +78,7 @@ void VLBIClient::Parse(char* cmd, char* arg, char* value)
                 SampleRate = (double)atof(value);
             }
             else if(!strcmp(arg, "bitspersample")) {
-                BPS = (double)atof(value);
+                Bps = (double)atof(value);
             }
             else if(!strcmp(arg, "bandwidth")) {
                 Bandwidth = (double)atof(value);
@@ -178,13 +178,13 @@ void VLBIClient::Parse(char* cmd, char* arg, char* value)
         }
 }
 
-extern VLBIClient *client;
+extern VLBI::Client *client;
 int is_running = 1;
 
 void sighandler(int signum)
 {
     signal(signum, SIG_IGN);
-    client->~VLBIClient();
+    client->~Client();
     signal(signum, sighandler);
     exit(0);
 }

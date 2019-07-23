@@ -1,11 +1,11 @@
 #include "vlbi_client_indi.h"
 
-VLBIClient_INDI::VLBIClient_INDI()
+INDIClient::INDIClient()
 	: INDI::BaseClient()
 {
 }
 
-int VLBIClient_INDI::Init(int argc, char** argv)
+int INDIClient::Init(int argc, char** argv)
 {
     if(argc > 1) {
         Address = argv[1];
@@ -19,7 +19,7 @@ int VLBIClient_INDI::Init(int argc, char** argv)
     return 0;
 }
 
-VLBIClient_INDI::~VLBIClient_INDI()
+INDIClient::~INDIClient()
 {
     disconnectServer();
     if(GetContext() != NULL) {
@@ -27,7 +27,7 @@ VLBIClient_INDI::~VLBIClient_INDI()
     }
 }
 
-void VLBIClient_INDI::SetCapture(double seconds)
+void INDIClient::SetCapture(double seconds)
 {
     if(!isServerConnected())
         return;
@@ -39,7 +39,7 @@ void VLBIClient_INDI::SetCapture(double seconds)
     }
 }
 
-void VLBIClient_INDI::AbortCapture()
+void INDIClient::AbortCapture()
 {
     if(!isServerConnected())
         return;
@@ -51,7 +51,7 @@ void VLBIClient_INDI::AbortCapture()
     }
 }
 
-void VLBIClient_INDI::SetExposure(double seconds)
+void INDIClient::SetExposure(double seconds)
 {
     if(!isServerConnected())
         return;
@@ -63,7 +63,7 @@ void VLBIClient_INDI::SetExposure(double seconds)
     }
 }
 
-void VLBIClient_INDI::AbortExposure()
+void INDIClient::AbortExposure()
 {
     if(!isServerConnected())
         return;
@@ -75,7 +75,7 @@ void VLBIClient_INDI::AbortExposure()
     }
 }
 
-void VLBIClient_INDI::SetFrequency(double centerfrequency)
+void INDIClient::SetFrequency(double centerfrequency)
 {
     if(!isServerConnected())
         return;
@@ -87,7 +87,7 @@ void VLBIClient_INDI::SetFrequency(double centerfrequency)
     }
 }
 
-void VLBIClient_INDI::SetSampleRate(double samplingfrequency)
+void INDIClient::SetSampleRate(double samplingfrequency)
 {
     if(!isServerConnected())
         return;
@@ -99,7 +99,7 @@ void VLBIClient_INDI::SetSampleRate(double samplingfrequency)
     }
 }
 
-void VLBIClient_INDI::SetBadwidth(double bandwidth)
+void INDIClient::SetBadwidth(double bandwidth)
 {
     if(!isServerConnected())
         return;
@@ -111,7 +111,7 @@ void VLBIClient_INDI::SetBadwidth(double bandwidth)
     }
 }
 
-void VLBIClient_INDI::SetGain(double gain)
+void INDIClient::SetGain(double gain)
 {
     if(!isServerConnected())
         return;
@@ -123,7 +123,7 @@ void VLBIClient_INDI::SetGain(double gain)
     }
 }
 
-void VLBIClient_INDI::SetBPS(int BPS)
+void INDIClient::SetBps(int Bps)
 {
     if(!isServerConnected())
         return;
@@ -131,11 +131,11 @@ void VLBIClient_INDI::SetBPS(int BPS)
     getDevices(devices, INDI::BaseDevice::DETECTOR_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
-        this->sendNewNumber(dev->getDeviceName(), "DETECTOR_SETTINGS", "DETECTOR_BPS", BPS);
+        this->sendNewNumber(dev->getDeviceName(), "DETECTOR_SETTINGS", "DETECTOR_Bps", Bps);
     }
 }
 
-void VLBIClient_INDI::GoTo(double Ra, double Dec)
+void INDIClient::GoTo(double Ra, double Dec)
 {
     if(!isServerConnected())
         return;
@@ -148,7 +148,7 @@ void VLBIClient_INDI::GoTo(double Ra, double Dec)
     }
 }
 
-void VLBIClient_INDI::Connect()
+void INDIClient::Connect()
 {
     if(!isServerConnected())
         return;
@@ -160,7 +160,7 @@ void VLBIClient_INDI::Connect()
     }
 }
 
-void VLBIClient_INDI::Disconnect()
+void INDIClient::Disconnect()
 {
     if(!isServerConnected())
         return;
@@ -172,7 +172,7 @@ void VLBIClient_INDI::Disconnect()
     }
 }
 
-void VLBIClient_INDI::Tracking(bool on)
+void INDIClient::Tracking(bool on)
 {
     if(!isServerConnected())
         return;
@@ -189,7 +189,7 @@ void VLBIClient_INDI::Tracking(bool on)
     }
 }
 
-void VLBIClient_INDI::Park()
+void INDIClient::Park()
 {
     if(!isServerConnected())
         return;
@@ -202,7 +202,7 @@ void VLBIClient_INDI::Park()
     }
 }
 
-void VLBIClient_INDI::Unpark()
+void INDIClient::Unpark()
 {
     if(!isServerConnected())
         return;
@@ -215,24 +215,24 @@ void VLBIClient_INDI::Unpark()
     }
 }
 
-void VLBIClient_INDI::newDevice(INDI::BaseDevice *dev) {
+void INDIClient::newDevice(INDI::BaseDevice *dev) {
     INDI_UNUSED(dev);
 }
 
-void VLBIClient_INDI::removeDevice(INDI::BaseDevice *dp) {
+void INDIClient::removeDevice(INDI::BaseDevice *dp) {
     INDI_UNUSED(dp);
 }
 
-void VLBIClient_INDI::newProperty(INDI::Property *property) {
+void INDIClient::newProperty(INDI::Property *property) {
     this->setBLOBMode(B_ONLY, property->getDeviceName());
     INDI_UNUSED(property);
 }
 
-void VLBIClient_INDI::removeProperty(INDI::Property *property) {
+void INDIClient::removeProperty(INDI::Property *property) {
     INDI_UNUSED(property);
 }
 
-void VLBIClient_INDI::newBLOB(IBLOB *bp) {
+void INDIClient::newBLOB(IBLOB *bp) {
     if(!strcmp(bp->label, "CONTINUUM")) {
         if(GetContext() != NULL) {
             int status = 0;
@@ -271,7 +271,7 @@ void VLBIClient_INDI::newBLOB(IBLOB *bp) {
     }
 }
 
-void VLBIClient_INDI::newSwitch(ISwitchVectorProperty *svp) {
+void INDIClient::newSwitch(ISwitchVectorProperty *svp) {
     if(!strcmp(svp->name, "CONNECTION")) {
         if(svp->sp[0].s == ISS_ON) {
             fprintf(stdout, "Device %s connected.\n", svp->device);
@@ -282,7 +282,7 @@ void VLBIClient_INDI::newSwitch(ISwitchVectorProperty *svp) {
     }
 }
 
-void VLBIClient_INDI::newNumber(INumberVectorProperty *nvp) {
+void INDIClient::newNumber(INumberVectorProperty *nvp) {
     if(!strcmp(nvp->name, "DETECTOR_CAPTURE")) {
         fprintf(stdout, "Capture left: %lf.\n", nvp->np[0].value);
         if(nvp->np[0].value < 1.0) {
@@ -300,31 +300,31 @@ void VLBIClient_INDI::newNumber(INumberVectorProperty *nvp) {
     }
 }
 
-void VLBIClient_INDI::newText(ITextVectorProperty *tvp) {
+void INDIClient::newText(ITextVectorProperty *tvp) {
     INDI_UNUSED(tvp);
 }
 
-void VLBIClient_INDI::newLight(ILightVectorProperty *lvp) {
+void INDIClient::newLight(ILightVectorProperty *lvp) {
     INDI_UNUSED(lvp);
 }
 
-void VLBIClient_INDI::newMessage(INDI::BaseDevice *dp, int messageID) {
+void INDIClient::newMessage(INDI::BaseDevice *dp, int messageID) {
     INDI_UNUSED(dp);
     INDI_UNUSED(messageID);
 }
 
-void VLBIClient_INDI::serverConnected() {
+void INDIClient::serverConnected() {
     fprintf(stdout, "Connected to server\n");
 }
 
-void VLBIClient_INDI::serverDisconnected(int exit_code) {
+void INDIClient::serverDisconnected(int exit_code) {
     fprintf(stdout, "Disconnected from server\n");
     INDI_UNUSED(exit_code);
 }
 
-void VLBIClient_INDI::Parse(char* cmd, char* arg, char* value)
+void INDIClient::Parse(char* cmd, char* arg, char* value)
 {
-    VLBIClient::Parse(cmd, arg, value);
+    VLBI::Client::Parse(cmd, arg, value);
     if(!strcmp(cmd, "set")) {
             if(!strcmp(arg, "connection")) {
                 if(!strcmp(value, "on")) {
@@ -360,7 +360,7 @@ void VLBIClient_INDI::Parse(char* cmd, char* arg, char* value)
                 SetSampleRate(SampleRate);
             }
             else if(!strcmp(arg, "bitspersample")) {
-                SetBPS(BPS);
+                SetBps(Bps);
             }
             else if(!strcmp(arg, "gain")) {
                 SetGain(Gain);
@@ -374,4 +374,4 @@ void VLBIClient_INDI::Parse(char* cmd, char* arg, char* value)
         }
 }
 
-VLBIClient_INDI* client = new VLBIClient_INDI();
+INDIClient* client = new INDIClient();
