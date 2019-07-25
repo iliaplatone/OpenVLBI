@@ -9,21 +9,17 @@ freq=$3
 bw=$4
 sr=$5
 
-p=0
+export VLBI_OUTPUT_FILE=/tmp/vlbi.log
 vlbi_server stop
-sleep 2
 vlbi_server start dummy
-sleep 2
+tail -f /tmp/vlbi.log &
 vlbi_server add context test
-sleep 2
 vlbi_server set context test
-sleep 2
 vlbi_server set frequency $freq
-sleep 2
 vlbi_server set bandwidth $bw
-sleep 2
 vlbi_server set samplerate $sr
-sleep 2
+
+p=0
 while (( $p<$num_nodes )); do
 	set -x -e
 	tmpimg=/tmp/$$.tmp
