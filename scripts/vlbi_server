@@ -45,8 +45,9 @@ restart() {
 }
 
 run_command() {
+	echo "" > $ofifo
 	echo $1 $2 $3 >> $ififo
-	while read -s -d '+' ret < $ofifo; do echo $ret; sleep 1; done
+	tr -d '+' < $ofifo
 	return 0;
 }
 
