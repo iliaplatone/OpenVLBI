@@ -1,6 +1,6 @@
 #!/bin/bash
 
-(( $#<1 )) && echo "usage: $0 num_nodes duration freq bw sr" && exit 22
+(( $#<5 )) && echo "usage: $0 num_nodes duration freq bw sr" && exit 22
 set -x -e
 tmpimg=/tmp/$$
 
@@ -10,9 +10,13 @@ p=0
 while (( $p<$1 )); do
 	set -x -e
 	sleep 2
-	vlbi_server add node $(( $RANDOM%360 )),$(( $RANDOM%90 )),$(( $RANDOM%4000 )),$(sudo dd if=/dev/urandom bs=$((8*$5)) count=$2 | base64 | tr -d '\n'),$(date +%Y/%m/%d-%H:%M:%S)
+	tmpimg=/tmp/$$
+	sudo dd if=/dev/urandom bs=$((8*$5)) count=$2 2>/dev/null | base64 > $tmpimg
+	vlbi_server add node $(( $RANDOM%360 )),$(( $RANDOM%90 )),$(( $RANDOM%4000 )),$tmpimg,$(date +%Y/%m/%d-%H:%M:%S).$RANDOM$RANDOM
+	rm $tmpimg
 	p=$(( $p+1 ))
 done
+	tmpimg=/tmp/$$
 sleep 2
 vlbi_server set connection on
 sleep 2

@@ -104,9 +104,16 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
 		k = strtok(NULL, ",");
 		el = (double)atof(k);
 		k = strtok(NULL, ",");
+		FILE *tmp = fopen(k, "r");
+		fseek(tmp, 0, SEEK_END);
+		int buflen = ftell(tmp);
+		rewind(tmp);
+		char *data = (char*)malloc(buflen);
+		fread(data, 1, buflen, tmp);
+		fclose(tmp);
 		int len = strlen(k)*3;
 		buf = (double*)malloc(len);
-		buf = (double*)from64tobits_fast(k, (char*)buf, strlen(k));
+		buf = (double*)from64tobits_fast(k, (char*)buf, buflen);
 		k = strtok(NULL, "/");
 		Y = (double)atof(k);
 		k = strtok(NULL, "/");

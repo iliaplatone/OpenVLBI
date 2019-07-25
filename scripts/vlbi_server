@@ -14,7 +14,7 @@ start() {
 		mkfifo $INDIfifo 2>/dev/null
 		indiserver -f $INDIfifo -p 7624 2>/dev/null 1>/dev/null &
 		vlbi_client_indi localhost 7624 < $VLBIfifo > $fifo & echo "OpenVLBI started succesfully"
-	elif [ "$1"=="indi" ]; then
+	elif [ "$1"=="dummy" ]; then
 		vlbi_client_dummy < $VLBIfifo > $fifo & echo "OpenVLBI started succesfully"
 	fi
 	touch $pidfile;
@@ -40,7 +40,7 @@ restart() {
 run_command() {
 	[ -e $VLBIfifo ] && echo $@ > $VLBIfifo
 	sleep 4
-	read -d '+' -ers ret < $fifo
+	read -ers -d '+' ret < $fifo
 	echo $ret
 	return 0;
 }
@@ -62,7 +62,7 @@ case "$1" in
 		;;
 	png|jpeg|bmp|tiff)
 		run_command set resolution $3
-		run_command get observation $2 | base64 -d -i | convert -colorspace gray8 -size $3 raw:- $1:-
+		run_command get observation $2 | base64 -d -i | convert -colorspace gray8 -depth=64 -define "quantum_type: float" -size $3 raw:- -depth=32 -colorspace RGB $1:-
 		exit 0;
 		;;
 	*)

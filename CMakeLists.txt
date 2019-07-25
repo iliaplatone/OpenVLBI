@@ -19,15 +19,7 @@ set (VLBI_VERSION_STRING "${VLBI_VERSION_MAJOR}.${VLBI_VERSION_MINOR}.0")
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake_modules/")
 
-add_definitions(-Wall -O3 -g -fstack-protector)
-
-if(CMAKE_SYSTEM_PROCESSOR=="armv7l")
-add_definitions(-march=armv7l)
-elseif(CMAKE_SYSTEM_PROCESSOR=="armv6")
-add_definitions(-march=armv6t)
-elseif(CMAKE_SYSTEM_PROCESSOR=="armv5")
-add_definitions(-march=armv5te)
-endif(CMAKE_SYSTEM_PROCESSOR="armv5")
+add_definitions(-Wall -O3 -g -fstack-protector -march=armv7)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/README.md" README )
 string(REPLACE "\n#" "\n\n\\page " README "${README}" )
@@ -102,7 +94,7 @@ endif(WITH_DUMMY_CLIENT)
 
 if(WITH_JSON_CLIENT)
 add_executable(vlbi_client_json ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client_json.cpp)
-target_link_libraries(vlbi_client_json openvlbi ${M_LIB} ${ZLIB_LIBRARY})
+target_link_libraries(vlbi_client_json openvlbi)
 install(TARGETS vlbi_client_json RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(WITH_JSON_CLIENT)
 
