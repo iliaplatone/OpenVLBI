@@ -42,6 +42,7 @@ restart() {
 }
 
 run_command() {
+	[ ! -e $fifo ] && return -2
 	echo $1 $2 $3'+' >> $fifo
 	read -d '+' ret < $fifo >/dev/null
 	read -d '+' ret < $fifo
@@ -49,26 +50,23 @@ run_command() {
 	return 0;
 }
 
+indi_command() {
+	[ ! -e $INDIfifo ] && return -2
+	echo $@ >> $INDIfifo
+	return 0;
+}
+
 case "$1" in
-	start|stop|restart)
-		$1 $2
-		sleep 10
-		;;
-	add|del)
-		[ -e $INDfifo ] && [ "$2"=="node" ] && echo "start $3" >> $INDfifo
-		[ -e $INDfifo ] && [ "$2"=="node" ] && echo "stop $3" >> $INDfifo
-		[ -e $fifo ] && run_command $1 $2 $3
-		;;
-	set|get)
-		[ -e $fifo ] && run_command $1 $2 $3
+	start|stop|restart|add|del|set|get)
+		run_command $@
 		;;
 	png|jpeg|bmp|tiff)
 		tmpfile=/tmp/$$.tmp
-		[ -e $fifo ] && run_command set resolution $3
-		[ -e $fifo ] && run_command get observation $3 | base64 -d -i | convert -format GRAY -depth 64 -define "quantum:format=float" -size $3 raw:- -format $( tr -s [a-Z] [A-Z] <<< "$1" ) $tmpfile
+		run_command set resolution $3
+		run_command get observation $3 | base64 -d -i | convert -format GRAY -depth 64 -define "quantum:format=float" -size $3 raw:- -format $( tr -s [a-Z] [A-Z] <<< "$1" ) $tmpfile
 		[ -e $tmpfile ] && cat $tmpfile && rm -f $tmpfile
 		;;
 	*)
-		echo "usage $0 [start|stop|restart|set|get|add|del|png [arg [value]]]";
+		echo "usage $0 [start|stop|restart|set|get|add|del|png|jpeg|bmp|tiff [arg [value]]]";
 		;;
 esac
