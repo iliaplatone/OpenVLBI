@@ -1,26 +1,23 @@
 #!/bin/bash
 
-INDIfifo=/tmp/INDIfifo
-ififo=/tmp/iVLBI.fifo
-ofifo=/tmp/oVLBI.fifo
-[ -n "$VLBI_INPUT_FILE" ] && ififo=$VLBI_INPUT_FILE
-[ -n "$VLBI_OUTPUT_FILE" ] && ofifo=$VLBI_OUTPUT_FILE
+INDfifo=/tmp/INDIfifo
+fifo=/tmp/OpenVLBI.fifo
+[ -n "$VLBI_FIFO_FILE" ] && fifo=$VLBI_FIFO_FILE
 pidfile=/tmp/vlbi_server.pid
 
 start() {
 	[ -e $pidfile ] && return;
 	touch $pidfile;
-	touch $ififo 2>/dev/null
-	touch $ofifo 2>/dev/null
+	touch $fifo 2>/dev/null
 	sleep 3;
 	case "$1" in
 		indi)
 		mkfifo $INDIfifo 2>/dev/null
 		indiserver -f $INDIfifo -p 7624 2>/dev/null 1>/dev/null &
-		vlbi_client_indi localhost 7624 < $ififo > $ofifo &
+		vlbi_client_indi localhost 7624 < $fifo > $fifo &
 		;;
 		*)
-		vlbi_client_dummy < $ififo > $ofifo &
+		vlbi_client_dummy < $fifo > $fifo &
 		;;
 	esac
 	echo "OpenVLBI started succesfully"
@@ -30,9 +27,9 @@ start() {
 
 stop() {
 	[ ! -e $pidfile ] && return;
-	fuser -n file -k -9 $ififo 2>/dev/null 1>/dev/null || true;
-	fuser -n file -k -9 $INDIfifo 2>/dev/null 1>/dev/null || true;
-	rm -f $pidfile $INDIfifo $ififo $ofifo 2>/dev/null && echo "OpenVLBI stopped succesfully"
+	fuser -n file -k -9 $fifo 2>/dev/null 1>/dev/null || true;
+	fuser -n file -k -9 $INDfifo 2>/dev/null 1>/dev/null || true;
+	rm -f $pidfile $INDfifo $fifo $fifo 2>/dev/null && echo "OpenVLBI stopped succesfully"
 	sleep 3;
 	exit 0;
 }
@@ -45,9 +42,10 @@ restart() {
 }
 
 run_command() {
-	echo "" > $ofifo
-	echo $1 $2 $3 >> $ififo
-	tr -d '+' < $ofifo
+	echo $1 $2 $3'+' >> $fifo
+	read -d '+' ret < $fifo >/dev/null
+	read -d '+' ret < $fifo
+	echo $ret
 	return 0;
 }
 
@@ -57,17 +55,17 @@ case "$1" in
 		sleep 10
 		;;
 	add|del)
-		[ -e $INDIfifo ] && [ "$2"=="node" ] && echo "start $3" >> $INDIfifo
-		[ -e $INDIfifo ] && [ "$2"=="node" ] && echo "stop $3" >> $INDIfifo
-		[ ! -e $INDIfifo ] && [ -e $ififo ] && [ -e $ofifo ] && run_command $1 $2 $3
+		[ -e $INDfifo ] && [ "$2"=="node" ] && echo "start $3" >> $INDfifo
+		[ -e $INDfifo ] && [ "$2"=="node" ] && echo "stop $3" >> $INDfifo
+		[ ! -e $INDfifo ] && [ -e $fifo ] && run_command $1 $2 $3
 		;;
 	set|get)
-		[ -e $ififo ] && [ -e $ofifo ] && run_command $1 $2 $3
+		[ -e $fifo ] && run_command $1 $2 $3
 		;;
 	png|jpeg|bmp|tiff)
 		tmpfile=/tmp/$$.tmp
-		[ -e $ififo ] && [ -e $ofifo ] && run_command set resolution $3
-		[ -e $ififo ] && [ -e $ofifo ] && run_command get observation $3 | base64 -d -i | convert -format GRAY -depth 64 -define "quantum:format=float" -size $3 raw:- -format $( tr -s [a-Z] [A-Z] <<< "$1" ) $tmpfile
+		[ -e $fifo ] && run_command set resolution $3
+		[ -e $fifo ] && run_command get observation $3 | base64 -d -i | convert -format GRAY -depth 64 -define "quantum:format=float" -size $3 raw:- -format $( tr -s [a-Z] [A-Z] <<< "$1" ) $tmpfile
 		[ -e $tmpfile ] && cat $tmpfile && rm -f $tmpfile
 		;;
 	*)
