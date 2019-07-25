@@ -8,7 +8,7 @@ pidfile=/tmp/vlbi_server.pid
 start() {
 	[ -e $pidfile ] && return;
 	touch $pidfile;
-	touch $fifo 2>/dev/null
+	mkfifo $fifo 2>/dev/null
 	sleep 3;
 	case "$1" in
 		indi)
