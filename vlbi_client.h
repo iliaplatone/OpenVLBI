@@ -10,12 +10,24 @@
 #include <sys/ioctl.h>
 #include <signal.h>
 #include <vlbi.h>
+#include <vlbi/instancecollection.h>
 
 namespace VLBI {
-typedef struct _vlbi_context {
-    vlbi_context ctx;
-    char* name;
-} *_vlbi_context_p, _vlbi_context_t;
+
+#define DFT 1
+#define GEODETIC_COORDS 2
+#define EARTH_TIDE 4
+
+enum plot_type_t {
+	moving_base_raw_abs,
+	moving_base_dft_abs,
+	moving_base_raw_geo=0,
+	moving_base_dft_geo,
+	earth_tide_raw_abs,
+	earth_tide_dft_abs,
+	earth_tide_raw_geo,
+	earth_tide_dft_geo,
+};
 
 class Client
 {
@@ -28,6 +40,7 @@ public:
     virtual int Init(int argc, char** argv) { return 0; };
     virtual void Parse(char* cmd, char* arg, char* value);
     void AddNode(double lat, double lon, double el, double *buf, double len, timespec starttime);
+    dsp_stream_p GetPlot(int u, int v, plot_type_t type);
 
     double Ra;
     double Dec;
@@ -39,12 +52,11 @@ public:
     int w;
     int h;
 private:
-    int num_contexts;
     vlbi_context context;
-    _vlbi_context_p* contexts;
     dsp_stream_p model;
     dsp_stream_p uv;
     dsp_stream_p fft;
+    InstanceCollection *contexts;
 };
 };
 

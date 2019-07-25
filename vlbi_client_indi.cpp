@@ -2,6 +2,7 @@
 
 INDIClient::INDIClient()
 	: INDI::BaseClient()
+	, VLBI::Client::Client()
 {
 }
 
@@ -22,9 +23,7 @@ int INDIClient::Init(int argc, char** argv)
 INDIClient::~INDIClient()
 {
     disconnectServer();
-    if(GetContext() != NULL) {
-        vlbi_exit(GetContext());
-    }
+    VLBI::Client::~Client();
 }
 
 void INDIClient::SetCapture(double seconds)

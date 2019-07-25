@@ -15,40 +15,24 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-#ifndef _COLLECTION_H
-#define _COLLECTION_H
+#ifndef _INSTANCECOLLECTION_H
+#define _INSTANCECOLLECTION_H
 
-#include <vlbi.h>
-#include <cstdio>
-#include <cstdlib>
-#include <cstdint>
+#include "collection.h"
 
-struct VLBIElement {
-	long item;
-	char name[32];
-};
-
-class VLBICollection
+class InstanceCollection : public VLBICollection
 {
 public:
-	VLBICollection();
-	~VLBICollection();
-	void Add(void* element, const char *name = "");
-	void* Get(const char *name);
-	void Remove(const char* name);
-	void Remove(void* element);
+	InstanceCollection();
+	~InstanceCollection();
+	void Add(vlbi_context element, const char *name = "");
+	vlbi_context Get(const char* name);
+	void Remove(const char* element);
+	void Remove(vlbi_context name);
 	void RemoveAt(int index);
-	void* At(int index);
-	bool Contains(void* element);
-	bool Contains(const char* name);
-	int IndexOf(void* element);
-
-	int Count;
-
-private:
-	void Defrag();
-	VLBIElement* Items;
-	ssize_t S;
+	vlbi_context  At(int index);
+	bool Contains(vlbi_context element);
+    int IndexOf(vlbi_context element);
 };
 
-#endif //_COLLECTION_H
+#endif //_INSTANCECOLLECTION_H

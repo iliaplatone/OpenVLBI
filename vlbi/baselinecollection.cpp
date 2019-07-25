@@ -48,11 +48,21 @@ BaselineCollection::~BaselineCollection()
     }
 }
 
-void BaselineCollection::Add(VLBIBaseline *element)
+void BaselineCollection::Add(VLBIBaseline * element, const char *name)
 {
     element->getStream()->parent = Stream;
-    VLBICollection::Add(element);
+    VLBICollection::Add(element, name);
     fprintf(stderr, "added baseline %s\n", (char*)element->getStream()->arg);
+}
+
+void BaselineCollection::Remove(const char* name)
+{
+    VLBICollection::Remove(name);
+}
+
+VLBIBaseline * BaselineCollection::Get(const char* name)
+{
+    return (VLBIBaseline *)VLBICollection::Get(name);
 }
 
 void BaselineCollection::Remove(VLBIBaseline *element)

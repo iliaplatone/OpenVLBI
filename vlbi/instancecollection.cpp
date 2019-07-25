@@ -18,54 +18,52 @@
 
 #include <cstdio>
 #include <cstdlib>
-#include "node.h"
-#include "nodecollection.h"
+#include "instancecollection.h"
 
-NodeCollection::NodeCollection() : VLBICollection::VLBICollection()
+InstanceCollection::InstanceCollection() : VLBICollection::VLBICollection()
 {
 }
 
-NodeCollection::~NodeCollection()
+InstanceCollection::~InstanceCollection()
 {
 }
 
-void NodeCollection::Add(VLBINode * element, const char *name)
+void InstanceCollection::Add(vlbi_context element, const char *name)
 {
     VLBICollection::Add(element, name);
-    fprintf(stderr, "added node %s\n", (char*)element->getStream()->arg);
 }
 
-void NodeCollection::Remove(const char* name)
+void InstanceCollection::Remove(const char* name)
 {
     VLBICollection::Remove(name);
 }
 
-VLBINode * NodeCollection::Get(const char* name)
+vlbi_context InstanceCollection::Get(const char* name)
 {
-    return (VLBINode *)VLBICollection::Get(name);
+    return VLBICollection::Get(name);
 }
 
-void NodeCollection::Remove(VLBINode *element)
+void InstanceCollection::Remove(vlbi_context element)
 {
     VLBICollection::Remove(element);
 }
 
-void NodeCollection::RemoveAt(int index)
+void InstanceCollection::RemoveAt(int index)
 {
 	VLBICollection::RemoveAt(index);
 }
 
-VLBINode * NodeCollection::At(int index)
+vlbi_context  InstanceCollection::At(int index)
 {
-	return (VLBINode *)(VLBICollection::At(index));
+	return (vlbi_context )(VLBICollection::At(index));
 }
 
-bool NodeCollection::Contains(VLBINode *element)
+bool InstanceCollection::Contains(vlbi_context element)
 {
     return VLBICollection::Contains(element);
 }
 
-int NodeCollection::IndexOf(VLBINode *element)
+int InstanceCollection::IndexOf(vlbi_context element)
 {
     return VLBICollection::IndexOf(element);
 }

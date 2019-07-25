@@ -7,11 +7,13 @@
 #include "vlbi_client_dummy.h"
 
 DUMMYClient::DUMMYClient()
+	: VLBI::Client::Client()
 {
 }
 
 DUMMYClient::~DUMMYClient()
 {
+	VLBI::Client::~Client();
 }
 
 int DUMMYClient::Init(int argc, char** argv)
@@ -22,6 +24,7 @@ int DUMMYClient::Init(int argc, char** argv)
 void DUMMYClient::Parse(char* cmd, char* arg, char* value)
 {
 	VLBI::Client::Parse(cmd, arg, value);
+        putchar('+');
 }
 
-DUMMYClient *client;
+DUMMYClient *client = new DUMMYClient();

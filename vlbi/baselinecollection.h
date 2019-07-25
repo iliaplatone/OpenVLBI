@@ -27,9 +27,11 @@ class BaselineCollection : public VLBICollection
 public:
     BaselineCollection(NodeCollection *nodes, vlbi_func2_t correlation_func, bool m = false, double u = 128.0, double v = 128.0);
     ~BaselineCollection();
-    void Add(VLBIBaseline *element);
+    void Add(VLBIBaseline *element, const char *name = "");
     void Remove(VLBIBaseline *element);
-	void RemoveAt(int index);
+    void RemoveAt(int index);
+    VLBIBaseline *Get(const char* name);
+    void Remove(const char* element);
     VLBIBaseline * At(int index);
     bool Contains(VLBIBaseline *element);
     int IndexOf(VLBIBaseline *element);
