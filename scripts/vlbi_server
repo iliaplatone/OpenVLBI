@@ -45,10 +45,10 @@ restart() {
 }
 
 run_command() {
-	echo $1 $2 $3 > $ififo
-	read -ers ret < $ofifo
+	echo "" > $ofifo
+	echo $1 $2 $3 >> $ififo
+	read -ers -d '+' ret < $ofifo
 	echo $ret
-	sleep 2
 	return 0;
 }
 
@@ -58,8 +58,8 @@ case "$1" in
 		sleep 10
 		;;
 	add|del)
-		[ -e $INDIfifo ] && [ "$2"=="node" ] && echo "start $3" > $INDIfifo
-		[ -e $INDIfifo ] && [ "$2"=="node" ] && echo "stop $3" > $INDIfifo
+		[ -e $INDIfifo ] && [ "$2"=="node" ] && echo "start $3" >> $INDIfifo
+		[ -e $INDIfifo ] && [ "$2"=="node" ] && echo "stop $3" >> $INDIfifo
 		[ ! -e $INDIfifo ] && [ -e $ififo ] && [ -e $ofifo ] && run_command $1 $2 $3
 		;;
 	set|get)
@@ -68,7 +68,7 @@ case "$1" in
 	png|jpeg|bmp|tiff)
 		tmpfile=/tmp/$$.tmp
 		[ -e $ififo ] && [ -e $ofifo ] && run_command set resolution $3
-		[ -e $ififo ] && [ -e $ofifo ] && run_command get observation $3 | base64 -d -i | convert -format GRAY -depth 64 -define "quantum:format=float" -size $3 raw:- -format $1 $tmpfile
+		[ -e $ififo ] && [ -e $ofifo ] && run_command get observation $3 | base64 -d -i | convert -format GRAY -depth 64 -define "quantum:format=float" -size $3 raw:- -format $( tr -s [a-Z] [A-Z] <<< $1 ) $tmpfile
 		[ -e $tmpfile ] && cat $tmpfile && rm -f $tmpfile
 		;;
 	*)

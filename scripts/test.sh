@@ -9,10 +9,8 @@ freq=$3
 bw=$4
 sr=$5
 
-export VLBI_OUTPUT_FILE=/tmp/vlbi.log
 vlbi_server stop
 vlbi_server start dummy
-tail -f /tmp/vlbi.log &
 vlbi_server add context test
 vlbi_server set context test
 vlbi_server set frequency $freq
@@ -29,10 +27,8 @@ while (( $p<$num_nodes )); do
 	p=$(( $p+1 ))
 done
 
-tmpimg=/tmp/$$.tmp
-sleep 2
-vlbi_server get observation earth_tide_dft_geo > $tmpimg
-sleep 2
+vlbi_server get observation earth_tide_dft_geo
+#tmpimg=/tmp/$$.tmp
 #vlbi_server tiff earth_tide_dft_geo 128x128 > $tmpimg
 #file $tmpimg
 #rm $tmpimg
