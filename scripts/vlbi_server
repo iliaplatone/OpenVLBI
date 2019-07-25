@@ -44,15 +44,8 @@ restart() {
 run_command() {
 	[ ! -e $fifo ] && return -2
 	echo $1 $2 $3'+' >> $fifo
-	read -d '+' ret < $fifo >/dev/null
-	read -d '+' ret < $fifo
-	echo $ret
-	return 0;
-}
-
-indi_command() {
-	[ ! -e $INDIfifo ] && return -2
-	echo $@ >> $INDIfifo
+	cat $fifo | tr -d '+'
+	cat $fifo | tr -d '+'
 	return 0;
 }
 
