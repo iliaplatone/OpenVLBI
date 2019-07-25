@@ -10,10 +10,10 @@ pidfile=/tmp/vlbi_server.pid
 start() {
 	[ -e $pidfile ] && return;
 	touch $pidfile;
-	mkfifo $ififo 2>/dev/null
-	mkfifo $ofifo 2>/dev/null
+	touch $ififo 2>/dev/null
+	touch $ofifo 2>/dev/null
 	sleep 3;
-	case $1 in
+	case "$1" in
 		indi)
 		mkfifo $INDIfifo 2>/dev/null
 		indiserver -f $INDIfifo -p 7624 2>/dev/null 1>/dev/null &
@@ -46,8 +46,7 @@ restart() {
 
 run_command() {
 	echo $1 $2 $3 >> $ififo
-	while read -s -d '+' ret < $ofifo; do sleep 1; done
-	echo $ret
+	while read -s -d '+' ret < $ofifo; do echo $ret; sleep 1; done
 	return 0;
 }
 
@@ -67,11 +66,10 @@ case "$1" in
 	png|jpeg|bmp|tiff)
 		tmpfile=/tmp/$$.tmp
 		[ -e $ififo ] && [ -e $ofifo ] && run_command set resolution $3
-		[ -e $ififo ] && [ -e $ofifo ] && run_command get observation $3 | base64 -d -i | convert -format GRAY -depth 64 -define "quantum:format=float" -size $3 raw:- -format $( tr -s [a-Z] [A-Z] <<< $1 ) $tmpfile
+		[ -e $ififo ] && [ -e $ofifo ] && run_command get observation $3 | base64 -d -i | convert -format GRAY -depth 64 -define "quantum:format=float" -size $3 raw:- -format $( tr -s [a-Z] [A-Z] <<< "$1" ) $tmpfile
 		[ -e $tmpfile ] && cat $tmpfile && rm -f $tmpfile
 		;;
 	*)
 		echo "usage $0 [start|stop|restart|set|get|add|del|png [arg [value]]]";
-		exit 22;
 		;;
 esac
