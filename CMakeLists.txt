@@ -19,7 +19,7 @@ set (VLBI_VERSION_STRING "${VLBI_VERSION_MAJOR}.${VLBI_VERSION_MINOR}.0")
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake_modules/")
 
-add_definitions(-Wall -O3 -g -fstack-protector -march=armv7)
+add_definitions(-Wall -O3 -g -fstack-protector)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/README.md" README )
 string(REPLACE "\n#" "\n\n\\page " README "${README}" )
