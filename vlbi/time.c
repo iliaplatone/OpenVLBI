@@ -1,20 +1,20 @@
-/*
- *   libDSPAU - a digital signal processing library for astronomy usage
- *   Copyright (C) 2017  Ilia Platone <info@iliaplatone.com>
- *
- *   This program is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
- *
- *   This program is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+/*  OpenVLBI - Open Source Very Long Baseline Interferometry
+    Copyright © 2017-2019  Ilia Platone
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 #include <vlbi.h>
 #define ratio (max - min) / (mx - mn + 1)
@@ -84,9 +84,19 @@ timespec_t vlbi_time_J2000time_to_timespec(double secs)
     return ret;
 }
 
-timespec_t vlbi_time_string_to_utc(char *s)
+timespec_t vlbi_time_string_to_utc(char *time)
 {
-	timespec_t time;
-	///TODO
-	return time;
+	char* k = strtok(time, "/");
+        double Y = (double)atof(k);
+        k = strtok(NULL, "/");
+        double M = (double)atof(k);
+        k = strtok(NULL, "/");
+        double D = (double)atof(k);
+        k = strtok(time+11, ":");
+        double H = (double)atof(k);
+        k = strtok(NULL, ":");
+        double m = (double)atof(k);
+        k = strtok(NULL, ":");
+        double s = (double)atof(k);
+        return vlbi_time_mktimespec(Y, M, D, H, m, floor(s), (s-floor(s))*100000000.0);
 }

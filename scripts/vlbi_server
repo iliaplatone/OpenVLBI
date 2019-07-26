@@ -1,65 +1,57 @@
 #!/bin/bash
 
-INDfifo=/tmp/INDIfifo
-fifo=/tmp/OpenVLBI.fifo
+fifo=/tmp/openvlbi.fifo
+out=/tmp/openvlbi.out
 [ -n "$VLBI_FIFO_FILE" ] && fifo=$VLBI_FIFO_FILE
 pidfile=/tmp/vlbi_server.pid
+lockfile=/tmp/vlbi_server.lock
+ret=""
 
 start() {
 	[ -e $pidfile ] && return;
-	touch $pidfile;
+        version=$1
+	[ -n "$version" ] || version=dummy
+	echo 0>$pidfile;
 	mkfifo $fifo 2>/dev/null
+	touch $out 2>/dev/null
 	sleep 3;
-	case "$1" in
-		indi)
-		mkfifo $INDIfifo 2>/dev/null
-		indiserver -f $INDIfifo -p 7624 2>/dev/null 1>/dev/null &
-		vlbi_client_indi localhost 7624 < $fifo > $fifo &
-		;;
-		*)
-		vlbi_client_dummy < $fifo > $fifo &
-		;;
-	esac
-	echo "OpenVLBI started succesfully"
-	sleep 10;
-	exit 0;
+	vlbi_client_$version $lockfile ${@-1} < $fifo > $out &
+	echo "OpenVLBI started successfully"
+	sleep 2;
 }
 
 stop() {
-	[ ! -e $pidfile ] && return;
+	[ -e $pidfile ] || return;
 	fuser -n file -k -9 $fifo 2>/dev/null 1>/dev/null || true;
-	fuser -n file -k -9 $INDfifo 2>/dev/null 1>/dev/null || true;
-	rm -f $pidfile $INDfifo $fifo $fifo 2>/dev/null && echo "OpenVLBI stopped succesfully"
-	sleep 3;
-	exit 0;
-}
-
-restart() {
-	stop;
-	sleep 10
-	start;
-	exit 0;
+	rm -f $pidfile $fifo $out 2>/dev/null
+	echo "OpenVLBI stopped successfully"
+	sleep 2;
 }
 
 run_command() {
-	[ ! -e $fifo ] && return -2
-	echo $1 $2 $3'+' >> $fifo
-	cat $fifo | tr -d '+'
-	cat $fifo | tr -d '+'
-	return 0;
+	chars=$(du -b $out)
+	echo $1 $2 $3 > $fifo
+	sleep 2
+	while [ -e $lockfile ]; do sleep 1; done
+	tail -c-$chars $out
 }
 
 case "$1" in
-	start|stop|restart|add|del|set|get)
-		run_command $@
+	start|stop)
+		$@
+		exit 0
 		;;
-	png|jpeg|bmp|tiff)
-		tmpfile=/tmp/$$.tmp
-		run_command set resolution $3
-		run_command get observation $3 | base64 -d -i | convert -format GRAY -depth 64 -define "quantum:format=float" -size $3 raw:- -format $( tr -s [a-Z] [A-Z] <<< "$1" ) $tmpfile
-		[ -e $tmpfile ] && cat $tmpfile && rm -f $tmpfile
+	add|del|set)
+		run_command $@
+		exit 0
+		;;
+	get)
+		[ "$1"=="plot" ] && run_command $@ | base64 && exit 0
+		run_command $@
+		exit 0
 		;;
 	*)
-		echo "usage $0 [start|stop|restart|set|get|add|del|png|jpeg|bmp|tiff [arg [value]]]";
+		echo "usage $0 [start|stop|restart|set|get|add|del [arg [value ...]]";
+		exit -22
 		;;
 esac

@@ -24,7 +24,6 @@ int DUMMYClient::Init(int argc, char** argv)
 void DUMMYClient::Parse(char* cmd, char* arg, char* value)
 {
 	VLBI::Client::Parse(cmd, arg, value);
-        putchar('+');
 }
 
 DUMMYClient *client = new DUMMYClient();

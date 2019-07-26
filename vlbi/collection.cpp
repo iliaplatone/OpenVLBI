@@ -1,5 +1,5 @@
 /*  OpenVLBI - Open Source Very Long Baseline Interferometry
-    Copyright (C) 2017  Ilia Platone
+    Copyright © 2017-2019  Ilia Platone
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
 */
 
 #include "collection.h"
-
 
 VLBICollection::VLBICollection()
 {
@@ -58,7 +57,7 @@ void VLBICollection::Remove(void* el)
 
 void VLBICollection::Remove(const char* name)
 {
-    if(!Contains(name))
+    if(!ContainsKey(name))
 		return;
 	for(int i = 0; i < Count; i++)
 	{
@@ -111,7 +110,7 @@ int VLBICollection::IndexOf(void* el)
 	return ret;
 }
 
-bool VLBICollection::Contains(const char* el)
+bool VLBICollection::ContainsKey(const char* el)
 {
 	bool ret = false;
 	for(int i = 0; i < Count; i++)
@@ -119,6 +118,7 @@ bool VLBICollection::Contains(const char* el)
 		if(!strcmp(el, Items[i].name))
 		{
 			ret = true;
+			break;
 		}
 	}
 	return ret;

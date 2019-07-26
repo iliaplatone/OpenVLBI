@@ -1,5 +1,8 @@
 #include "vlbi_client.h"
 
+static int is_running = 1;
+char lockfile[150];
+
 static double* correlation_func(double d1, double d2)
 {
     static double res = 0;
@@ -9,6 +12,7 @@ static double* correlation_func(double d1, double d2)
 
 VLBI::Client::Client()
 {
+	f = stdout;
 	Ra=0;
        	Dec = 0;
         Freq = 1420000000;
@@ -31,7 +35,7 @@ VLBI::Client::~Client()
     }
 }
 
-void VLBI::Client::AddNode(double lat, double lon, double el, double *buf, double len, timespec starttime)
+void VLBI::Client::AddNode(double lat, double lon, double el, double *buf, int len, timespec starttime)
 {
 	dsp_stream_p node = dsp_stream_new();
 	node->location[0] = lat;
@@ -40,9 +44,9 @@ void VLBI::Client::AddNode(double lat, double lon, double el, double *buf, doubl
 	node->location[2] = vlbi_calc_elevation_coarse(node->location[2], node->location[0]);
 	node->target[0] = Ra;
 	node->target[1] = Dec;
-	dsp_stream_add_dim(node, len);
-	dsp_stream_set_buffer(node, (void*)(buf), node->len);
 	node->starttimeutc = starttime;
+	dsp_stream_add_dim(node, len);
+	dsp_stream_set_buffer(node, (void*)(buf), len);
 	vlbi_add_stream(context, node);
 }
 
@@ -54,10 +58,10 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, plot_type_t type)
 	bool dft = ((type&DFT)!=0);
 	double coords[3] = { Ra, Dec };
 	if(earth_tide)
-		plot = vlbi_get_uv_plot_earth_tide(GetContext(), (vlbi_func2_t)correlation_func, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
+		plot = vlbi_get_uv_plot_earth_tide(context, (vlbi_func2_t)correlation_func, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
 	else
-		plot = vlbi_get_uv_plot_earth_tide(GetContext(), (vlbi_func2_t)correlation_func, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
-	if(dft)
+		plot = vlbi_get_uv_plot_moving_baseline(context, (vlbi_func2_t)correlation_func, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
+	if(dft && plot != NULL)
 		plot = vlbi_get_fft_estimate(plot);
 	return plot;
 }
@@ -66,13 +70,13 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
 {
         if(!strcmp(cmd, "set")) {
             if(!strcmp(arg, "context")) {
-                if(contexts->Contains(value)) {
+                if(contexts->ContainsKey(value)) {
                     SetContext(contexts->Get(value));
                 }
             }
             else if(!strcmp(arg, "resolution")) {
-                char* W = strtok(value, ",");
-                char* H = strtok(NULL, ",");
+                char* W = strtok(value, "x");
+                char* H = strtok(NULL, "x");
                 w = (double)strtol(W, NULL, 10);
                 h = (double)strtol(H, NULL, 10);
             }
@@ -99,12 +103,13 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         }
         else if(!strcmp(cmd, "add")) {
             if(!strcmp(arg, "context")) {
-                if(!contexts->Contains(value)) {
+                if(!contexts->ContainsKey(value)) {
                     contexts->Add(vlbi_init(), value);
                 }
             }
-            if(!strcmp(arg, "node")) {
-		double lat, lon, el, *buf, Y, M, D, H, m, s;
+            else if(!strcmp(arg, "node")) {
+		fprintf(stdout, "adding node");
+		double lat, lon, el;
 		char* k = strtok(value, ",");
 		lat = (double)atof(k);
 		k = strtok(NULL, ",");
@@ -114,133 +119,56 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
 		k = strtok(NULL, ",");
 		FILE *tmp = fopen(k, "r");
 		fseek(tmp, 0, SEEK_END);
-		int buflen = ftell(tmp);
-		rewind(tmp);
-		char *data = (char*)malloc(buflen);
-		fread(data, 1, buflen, tmp);
+		int ilen = ftell(tmp);
+		int olen = ilen*3/4;
+		fseek(tmp, 0, SEEK_SET);
+		char *base64 = (char*)malloc(ilen);
+		double *buf = (double*)malloc(olen);
+		fread(base64, 1, ilen, tmp);
 		fclose(tmp);
-		int len = strlen(k)*3;
-		buf = (double*)malloc(len);
-		buf = (double*)from64tobits_fast(k, (char*)buf, buflen);
-		k = strtok(NULL, "/");
-		Y = (double)atof(k);
-		k = strtok(NULL, "/");
-		M = (double)atof(k);
-		k = strtok(NULL, "/");
-		D = (double)atof(k);
-		k = strtok(NULL, "-");
-		H = (double)atof(k);
-		k = strtok(NULL, ":");
-		m = (double)atof(k);
-		k = strtok(NULL, ":");
-		s = (double)atof(k);
-		AddNode(lat, lon, el, buf, len, vlbi_time_mktimespec(Y, M, D, H, m, floor(s), (s - floor(s))*1000000000.0));
+		from64tobits((char*)buf, (char*)base64);
+		k = strtok(NULL, ",");
+		AddNode(lat, lon, el, buf, olen/8, vlbi_time_string_to_utc(k));
             }
         }
         else if(!strcmp(cmd, "get")) {
-            if(!strcmp(arg, "coordinate")) {
-		    if(!strcmp(arg, "ra")) {
-                        fprintf(stdout, "%02.05lf", Ra);
-		    }
-		    if(!strcmp(arg, "dec")) {
-                        fprintf(stdout, "%02.05lf", Dec);
-		    }
-	    }
             if(!strcmp(arg, "observation")) {
+		plot_type_t type = earth_tide_dft_geo;
                 if(!strcmp(value, "earth_tide_raw_geo")) {
-                    dsp_stream_p plot = GetPlot(w, h, earth_tide_raw_geo);
-                    if (plot != NULL) {
-                        unsigned int len = plot->len * 32 / 3 + 4;
-                        unsigned char* base64 = (unsigned char*)malloc(len);
-                        to64frombits(base64, (unsigned char*)plot->buf, plot->len);
-                        fprintf(stdout, "%s", base64);
-                        free(base64);
-                        dsp_stream_free(plot);
-                    }
+                    type = earth_tide_dft_geo;
                 }
-                if(!strcmp(value, "earth_tide_dft_geo")) {
-                    dsp_stream_p plot = GetPlot(w, h, earth_tide_dft_geo);
-                    if (plot != NULL) {
-                        unsigned int len = plot->len * 32 / 3 + 4;
-                        unsigned char* base64 = (unsigned char*)malloc(len);
-                        to64frombits(base64, (unsigned char*)plot->buf, plot->len);
-                        fprintf(stdout, "%s", base64);
-                        free(base64);
-                        dsp_stream_free(plot);
-                    }
+                else if(!strcmp(value, "earth_tide_dft_geo")) {
+                    type = earth_tide_dft_geo;
                 }
-                if(!strcmp(value, "earth_tide_raw_abs")) {
-                    dsp_stream_p plot = GetPlot(w, h, earth_tide_raw_abs);
-                    if (plot != NULL) {
-                        unsigned int len = plot->len * 32 / 3 + 4;
-                        unsigned char* base64 = (unsigned char*)malloc(len);
-                        to64frombits(base64, (unsigned char*)plot->buf, plot->len);
-                        fprintf(stdout, "%s", base64);
-                        free(base64);
-                        dsp_stream_free(plot);
-                    }
+                else if(!strcmp(value, "earth_tide_raw_abs")) {
+                    type = earth_tide_raw_abs;
                 }
-                if(!strcmp(value, "earth_tide_dft_abs")) {
-                    dsp_stream_p plot = GetPlot(w, h, earth_tide_dft_abs);
-                    if (plot != NULL) {
-                        unsigned int len = plot->len * 32 / 3 + 4;
-                        unsigned char* base64 = (unsigned char*)malloc(len);
-                        to64frombits(base64, (unsigned char*)plot->buf, plot->len);
-                        fprintf(stdout, "%s", base64);
-                        free(base64);
-                        dsp_stream_free(plot);
-                    }
+                else if(!strcmp(value, "earth_tide_dft_abs")) {
+                    type = earth_tide_dft_abs;
                 }
-                if(!strcmp(value, "moving_base_raw_geo")) {
-                    dsp_stream_p plot = GetPlot(w, h, moving_base_raw_geo);
-                    if (plot != NULL) {
-                        unsigned int len = plot->len * 32 / 3 + 4;
-                        unsigned char* base64 = (unsigned char*)malloc(len);
-                        to64frombits(base64, (unsigned char*)plot->buf, plot->len);
-                        fprintf(stdout, "%s", base64);
-                        free(base64);
-                        dsp_stream_free(plot);
-                    }
+                else if(!strcmp(value, "moving_base_raw_geo")) {
+                    type = moving_base_raw_geo;
                 }
-                if(!strcmp(value, "moving_base_dft_geo")) {
-                    dsp_stream_p plot = GetPlot(w, h, moving_base_dft_geo);
-                    if (plot != NULL) {
-                        unsigned int len = plot->len * 32 / 3 + 4;
-                        unsigned char* base64 = (unsigned char*)malloc(len);
-                        to64frombits(base64, (unsigned char*)plot->buf, plot->len);
-                        fprintf(stdout, "%s", base64);
-                        free(base64);
-                        dsp_stream_free(plot);
-                    }
+                else if(!strcmp(value, "moving_base_dft_geo")) {
+                    type = moving_base_dft_geo;
                 }
-                if(!strcmp(value,  "moving_base_raw_abs")) {
-                    dsp_stream_p plot = GetPlot(w, h, moving_base_raw_abs);
-                    if (plot != NULL) {
-                        unsigned int len = plot->len * 32 / 3 + 4;
-                        unsigned char* base64 = (unsigned char*)malloc(len);
-                        to64frombits(base64, (unsigned char*)plot->buf, plot->len);
-                        fprintf(stdout, "%s", base64);
-                        free(base64);
-                        dsp_stream_free(plot);
-                    }
+                else if(!strcmp(value,  "moving_base_raw_abs")) {
+                    type = moving_base_raw_abs;
                 }
-                if(!strcmp(value, "moving_base_dft_abs")) {
-                    dsp_stream_p plot = GetPlot(w, h, moving_base_dft_abs);
-                    if (plot != NULL) {
-                        unsigned int len = plot->len * 32 / 3 + 4;
-                        unsigned char* base64 = (unsigned char*)malloc(len);
-                        to64frombits(base64, (unsigned char*)plot->buf, plot->len);
-                        fprintf(stdout, "%s", base64);
-                        free(base64);
-                        dsp_stream_free(plot);
-                    }
+                else if(!strcmp(value, "moving_base_dft_abs")) {
+                    type = moving_base_dft_abs;
+                }
+                dsp_stream_p plot = GetPlot(w, h, type);
+                if (plot != NULL) {
+                    fwrite(plot->buf, 8, plot->len, f);
+                    dsp_stream_free(plot);
                 }
             }
         }
+	putchar('+');
 }
 
 extern VLBI::Client *client;
-int is_running = 1;
 
 static void sighandler(int signum)
 {
@@ -252,17 +180,19 @@ static void sighandler(int signum)
 
 int main(int argc, char** argv)
 {
-    char cmd[150], arg[150], value[150];
+    char cmd[32], arg[32], value[4032];
+    strcpy(lockfile, argv[1]);
     signal(SIGINT, sighandler);
     signal(SIGKILL, sighandler);
     signal(SIGILL, sighandler);
     signal(SIGSTOP, sighandler);
     signal(SIGQUIT, sighandler);
+    char c = 0;
     while (is_running) {
         if(3 != fscanf(stdin, "%s %s %s", cmd, arg, value)) continue;
+        creat(lockfile, 700);
 	client->Parse(cmd, arg, value);
+        unlink(lockfile);
     }
     return 0;
 }
-
-

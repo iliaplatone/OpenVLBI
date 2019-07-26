@@ -1,5 +1,5 @@
 /*  OpenVLBI - Open Source Very Long Baseline Interferometry
-    Copyright (C) 2017  Ilia Platone
+    Copyright © 2017-2019  Ilia Platone
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -61,6 +61,11 @@ vlbi_context  InstanceCollection::At(int index)
 bool InstanceCollection::Contains(vlbi_context element)
 {
     return VLBICollection::Contains(element);
+}
+
+bool InstanceCollection::ContainsKey(const char* element)
+{
+    return VLBICollection::ContainsKey(element);
 }
 
 int InstanceCollection::IndexOf(vlbi_context element)

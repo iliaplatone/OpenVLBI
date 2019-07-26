@@ -262,9 +262,7 @@ void INDIClient::newBLOB(IBLOB *bp) {
             }
             char errstr[120];
             fits_get_errstatus(status, errstr);
-            fprintf(stdout, "error adding stream: %s.\n", errstr);
         } else {
-            fprintf(stdout, "context null.\n");
             INDI_UNUSED(bp);
         }
     }
@@ -273,29 +271,29 @@ void INDIClient::newBLOB(IBLOB *bp) {
 void INDIClient::newSwitch(ISwitchVectorProperty *svp) {
     if(!strcmp(svp->name, "CONNECTION")) {
         if(svp->sp[0].s == ISS_ON) {
-            fprintf(stdout, "Device %s connected.\n", svp->device);
+            fprintf(stderr, "Device %s connected.\n", svp->device);
         }
         if(svp->sp[0].s == ISS_OFF) {
-            fprintf(stdout, "Device %s disconnected.\n", svp->device);
+            fprintf(stderr, "Device %s disconnected.\n", svp->device);
         }
     }
 }
 
 void INDIClient::newNumber(INumberVectorProperty *nvp) {
     if(!strcmp(nvp->name, "DETECTOR_CAPTURE")) {
-        fprintf(stdout, "Capture left: %lf.\n", nvp->np[0].value);
+        fprintf(stderr, "Capture left: %lf.\n", nvp->np[0].value);
         if(nvp->np[0].value < 1.0) {
-            fprintf(stdout, "Capture complete.\n");
+            fprintf(stderr, "Capture complete.\n");
         }
     }
     if(!strcmp(nvp->name, "DETECTOR_EXPOSURE")) {
-        fprintf(stdout, "Exposure left: %lf.\n", nvp->np[0].value);
+        fprintf(stderr, "Exposure left: %lf.\n", nvp->np[0].value);
         if(nvp->np[0].value < 1.0) {
-            fprintf(stdout, "Exposure complete.\n");
+            fprintf(stderr, "Exposure complete.\n");
         }
     }
     if(!strcmp(nvp->name, "EQUATORIAL_EOD_COORDS")) {
-        fprintf(stdout, "Current coordinates: RA:%lf DEC:%lf.\n", nvp->np[0].value, nvp->np[1].value);
+        fprintf(stderr, "Current coordinates: RA:%lf DEC:%lf.\n", nvp->np[0].value, nvp->np[1].value);
     }
 }
 
@@ -313,17 +311,16 @@ void INDIClient::newMessage(INDI::BaseDevice *dp, int messageID) {
 }
 
 void INDIClient::serverConnected() {
-    fprintf(stdout, "Connected to server\n");
+    fprintf(stderr, "Connected to server\n");
 }
 
 void INDIClient::serverDisconnected(int exit_code) {
-    fprintf(stdout, "Disconnected from server\n");
+    fprintf(stderr, "Disconnected from server\n");
     INDI_UNUSED(exit_code);
 }
 
 void INDIClient::Parse(char* cmd, char* arg, char* value)
 {
-    VLBI::Client::Parse(cmd, arg, value);
     if(!strcmp(cmd, "set")) {
             if(!strcmp(arg, "connection")) {
                 if(!strcmp(value, "on")) {
@@ -371,6 +368,7 @@ void INDIClient::Parse(char* cmd, char* arg, char* value)
                 SetCapture(duration);
             }
         }
+    VLBI::Client::Parse(cmd, arg, value);
 }
 
 INDIClient* client = new INDIClient();

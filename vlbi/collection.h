@@ -1,5 +1,5 @@
 /*  OpenVLBI - Open Source Very Long Baseline Interferometry
-    Copyright (C) 2017  Ilia Platone
+    Copyright © 2017-2019  Ilia Platone
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,6 +15,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
+
 #ifndef _COLLECTION_H
 #define _COLLECTION_H
 
@@ -40,7 +41,7 @@ public:
 	void RemoveAt(int index);
 	void* At(int index);
 	bool Contains(void* element);
-	bool Contains(const char* name);
+	bool ContainsKey(const char* name);
 	int IndexOf(void* element);
 
 	int Count;
