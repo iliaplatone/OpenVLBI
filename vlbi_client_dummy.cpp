@@ -13,7 +13,6 @@ DUMMYClient::DUMMYClient()
 
 DUMMYClient::~DUMMYClient()
 {
-	VLBI::Client::~Client();
 }
 
 int DUMMYClient::Init(int argc, char** argv)

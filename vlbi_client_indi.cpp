@@ -23,7 +23,6 @@ int INDIClient::Init(int argc, char** argv)
 INDIClient::~INDIClient()
 {
     disconnectServer();
-    VLBI::Client::~Client();
 }
 
 void INDIClient::SetCapture(double seconds)
