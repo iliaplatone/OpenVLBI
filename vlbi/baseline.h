@@ -27,11 +27,11 @@
 class VLBIBaseline
 {
 public:
-    VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, vlbi_func2_t correlation_func, bool m=false);
+    VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m=false);
     ~VLBIBaseline();
 
-    double *Correlate(double timeoffset);
-    double *Correlate(int index);
+    double Correlate(double timeoffset);
+    double Correlate(int index);
     double getUVSize();
     double *getUVCoords(double timeoffset);
     double *getUVCoords();

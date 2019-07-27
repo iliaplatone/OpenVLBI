@@ -23,7 +23,7 @@
 #include "baselinecollection.h"
 
 
-BaselineCollection::BaselineCollection(NodeCollection *nodes, vlbi_func2_t correlation_func, bool m, double u, double v) : VLBICollection::VLBICollection()
+BaselineCollection::BaselineCollection(NodeCollection *nodes, bool m, double u, double v) : VLBICollection::VLBICollection()
 {
     Stream = dsp_stream_new();
     dsp_stream_add_dim(Stream, u);
@@ -36,7 +36,7 @@ BaselineCollection::BaselineCollection(NodeCollection *nodes, vlbi_func2_t corre
         {
             dsp_stream_p node1 = nodes->At(i)->getStream();
             dsp_stream_p node2 = nodes->At(l)->getStream();
-            this->Add(new VLBIBaseline(node1, node2, correlation_func, m));
+            this->Add(new VLBIBaseline(node1, node2, m));
         }
     }
 }

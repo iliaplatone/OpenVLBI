@@ -18,7 +18,7 @@
 
 #include <vlbi.h>
 
-int vlbi_find_peak(dsp_t* in, int len)
+int vlbi_find_peak(double* in, int len)
 {
 	double max = DBL_MIN;
 	int pos = 0;

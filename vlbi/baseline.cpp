@@ -18,9 +18,8 @@
 
 #include "baseline.h"
 
-VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, vlbi_func2_t correlation_func, bool m)
+VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m)
 {
-    dsp_correlation_delegate = correlation_func;
     Stream = dsp_stream_new();
     Stream->arg = calloc(150, 1);
     sprintf((char*)Stream->arg, "%s_%s", (char*)node1->arg, (char*)node2->arg);
@@ -48,23 +47,23 @@ VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, vlbi_func2_t 
     Name = (char*)Stream->arg;
 }
 
-double* VLBIBaseline::Correlate(double J2000_Offset_Time)
+double VLBIBaseline::Correlate(double J2000_Offset_Time)
 {
-    double* ret = 0;
+    double ret = 0;
     double delay = vlbi_calc_baseline_delay(first->location, second->location, Stream->target, J2000_Offset_Time);
     double idx0 = (((J2000_Offset_Time - starttime) + timediff + delay) * first->samplerate);
     double idx1 = ((J2000_Offset_Time - starttime) * second->samplerate);
     if(idx0 > 0 && idx0 < first->len && idx1 > 0 && idx1 < second->len) {
-        ret = (double*)dsp_correlation_delegate(first->buf[(int)idx0], second->buf[(int)idx1]);
+        ret = first->buf[(int)idx0] * second->buf[second->len-1-(int)idx1];
     }
     return ret;
 }
 
-double* VLBIBaseline::Correlate(int index)
+double VLBIBaseline::Correlate(int index)
 {
-    double* ret = 0;
+    double ret = 0;
     if(index > 0 && index < first->len && index < second->len) {
-        ret = (double*)dsp_correlation_delegate(first->buf[index], second->buf[index]);
+        ret = first->buf[index] * second->buf[index];
     }
     return ret;
 }

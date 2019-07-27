@@ -3,13 +3,6 @@
 static int is_running = 1;
 char lockfile[150];
 
-static double* correlation_func(double d1, double d2)
-{
-    static double res = 0;
-    res = d1 * d2;
-    return &res;
-}
-
 VLBI::Client::Client()
 {
 	f = stdout;
@@ -58,9 +51,9 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, plot_type_t type)
 	bool dft = ((type&DFT)!=0);
 	double coords[3] = { Ra, Dec };
 	if(earth_tide)
-		plot = vlbi_get_uv_plot_earth_tide(context, (vlbi_func2_t)correlation_func, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
+		plot = vlbi_get_uv_plot_earth_tide(context, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
 	else
-		plot = vlbi_get_uv_plot_moving_baseline(context, (vlbi_func2_t)correlation_func, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
+		plot = vlbi_get_uv_plot_moving_baseline(context, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
 	if(dft && plot != NULL)
 		plot = vlbi_get_fft_estimate(plot);
 	return plot;

@@ -8,6 +8,7 @@ include(ExternalProject)
 
 find_package(CFITSIO REQUIRED)
 find_package(ZLIB REQUIRED)
+find_package(FFTW3 REQUIRED)
 find_package(Threads REQUIRED)
 option(WITH_INDI_CLIENT "Add INDI client for OpenVLBI" ON)
 option(WITH_DUMMY_CLIENT "Add dummy client for OpenVLBI" ON)
@@ -19,7 +20,7 @@ set (VLBI_VERSION_STRING "${VLBI_VERSION_MAJOR}.${VLBI_VERSION_MINOR}.0")
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake_modules/")
 
-add_definitions(-Wall -O3 -g -fstack-protector)
+add_definitions(-Wall -O3 -g -fstack-protector -Wno-unused-parameter)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/README.md" README )
 string(REPLACE "\n#" "\n\n\\page " README "${README}" )
@@ -68,7 +69,7 @@ SET(dsp_C_SRC
 execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(openvlbi SHARED ${dsp_C_SRC} ${vlbi_C_SRCS} ${vlbi_CXX_SRCS})
 set_target_properties(openvlbi PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
-target_link_libraries(openvlbi ${M_LIB} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(openvlbi ${FFTW_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dsp.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)

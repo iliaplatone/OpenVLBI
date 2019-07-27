@@ -61,7 +61,7 @@ extern "C" {
 */
 /*@{*/
 
-typedef dsp_t*(* vlbi_func2_t)(dsp_t, dsp_t);
+typedef double*(* vlbi_func2_t)(double, double);
 typedef void* vlbi_context;
 typedef struct timespec timespec_t;
 /*@}*/
@@ -219,7 +219,7 @@ DLL_EXPORT void vlbi_add_stream(vlbi_context ctx, dsp_stream_p Stream);
 * @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
 * @return The libVLBI stream structure containing the Fourier transform of the object observed
 */
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_earth_tide(void *ctx, vlbi_func2_t correlation_func, int m, int u, int v, double *target, double freq, double sr);
+DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_earth_tide(void *ctx, int m, int u, int v, double *target, double freq, double sr);
 
 /**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
@@ -232,7 +232,7 @@ DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_earth_tide(void *ctx, vlbi_func2_t corr
 * @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
 * @return The libVLBI stream structure containing the Fourier transform of the object observed
 */
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, vlbi_func2_t correlation_func, int m, int u, int v, double *target, double freq, double sr);
+DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u, int v, double *target, double freq, double sr);
 
 /**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.

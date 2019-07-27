@@ -26,7 +26,7 @@
 class BaselineCollection : public VLBICollection
 {
 public:
-    BaselineCollection(NodeCollection *nodes, vlbi_func2_t correlation_func, bool m = false, double u = 128.0, double v = 128.0);
+    BaselineCollection(NodeCollection *nodes, bool m = false, double u = 128.0, double v = 128.0);
     ~BaselineCollection();
     void Add(VLBIBaseline *element, const char *name = "");
     void Remove(VLBIBaseline *element);

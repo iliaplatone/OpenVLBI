@@ -30,41 +30,39 @@ static NodeCollection *vlbi_nodes = new NodeCollection();
 typedef struct _vlbi_thread_t {
     void *(*__start_routine) (void *);
     void* arg;
+    int m;
     int* thread_cnt;
     pthread_t th;
 }vlbi_thread_t;
 
-char* vlbi_get_version() { return VLBI_VERSION_STRING; }
+char* vlbi_get_version() { return (char*)VLBI_VERSION_STRING; }
 
-static void vlbi_wait_threads(int n, int *thread_cnt)
+static void vlbi_wait_threads(int *thread_cnt)
 {
-    int nt = *thread_cnt;
-    while(nt > n) {
-        nt = *thread_cnt;
-        fprintf(stderr, "running threads: %d\n", nt);
-        usleep(100000);
-    }
+    while(*thread_cnt > 0);
 }
 
 static void* vlbi_thread_func(void* arg)
 {
     vlbi_thread_t *t = (vlbi_thread_t*)arg;
     t->__start_routine(t->arg);
-    int nt = *t->thread_cnt;
-    *t->thread_cnt = nt - 1;
+    *t->thread_cnt &= t->m;
     free(t);
     return NULL;
 }
 
-static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int* thread_cnt)
+static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int *thread_cnt, int n)
 {
-    int nt = *thread_cnt;
-    *thread_cnt = nt + 1;
+    unsigned short nt = (1<<(n%16));
     vlbi_thread_t *t = (vlbi_thread_t *)malloc(sizeof(vlbi_thread_t));
-    t->arg = arg;
-    t->thread_cnt = thread_cnt;
+    if(*thread_cnt>=0xffff)
+        vlbi_wait_threads(thread_cnt);
+    *thread_cnt |= nt;
     t->__start_routine = __start_routine;
-    pthread_create(&t->th, NULL, vlbi_thread_func, t);
+    t->arg = arg;
+    t->m = ~nt;
+    t->thread_cnt = thread_cnt;
+    pthread_create(&t->th, NULL, &vlbi_thread_func, t);
 }
 
 static void* correlate_astro(void* arg)
@@ -88,9 +86,9 @@ static void* correlate_astro(void* arg)
         V += v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
-            dsp_t* c = b->Correlate(time);
-            parent->buf[idx] += *c;
-            parent->buf[parent->len - idx - 1] += *c;
+            double c = b->Correlate(time);
+            parent->buf[idx] += c;
+            parent->buf[parent->len - idx - 1] += c;
         }
     }
 
@@ -115,13 +113,12 @@ static void* correlate_moving_baseline(void* arg)
         V += v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
-            dsp_t* c = b->Correlate(i);
-            parent->buf[idx] += *c;
-            parent->buf[parent->len - idx - 1] += *c;
+            double c = b->Correlate(i);
+            parent->buf[idx] += c;
+            parent->buf[parent->len - idx - 1] += c;
         }
     }
-
-   return NULL;
+    return NULL;
 }
 
 void* vlbi_init()
@@ -145,10 +142,10 @@ void vlbi_add_stream(void *ctx, dsp_stream_p Stream) {
     nodes->Add(new VLBINode(stream));
 }
 
-dsp_stream_p vlbi_get_uv_plot_earth_tide(vlbi_context ctx, vlbi_func2_t correlation_func, int m, int u, int v, double *target, double freq, double sr)
+dsp_stream_p vlbi_get_uv_plot_earth_tide(vlbi_context ctx, int m, int u, int v, double *target, double freq, double sr)
 {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    BaselineCollection *baselines = new BaselineCollection(nodes, correlation_func, m, u, v);
+    BaselineCollection *baselines = new BaselineCollection(nodes, m, u, v);
     baselines->SetFrequency(freq);
     baselines->SetSampleRate(sr);
     baselines->SetTarget(target);
@@ -157,16 +154,16 @@ dsp_stream_p vlbi_get_uv_plot_earth_tide(vlbi_context ctx, vlbi_func2_t correlat
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
-        vlbi_start_thread(correlate_astro, b, &parent->child_count);
+        vlbi_start_thread(correlate_astro, b, &parent->child_count, i);
     }
-    vlbi_wait_threads(0, &parent->child_count);
+    vlbi_wait_threads(&parent->child_count);
     return parent;
 }
 
-dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, vlbi_func2_t correlation_func, int m, int u, int v, double *target, double freq, double sr)
+dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u, int v, double *target, double freq, double sr)
 {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    BaselineCollection *baselines = new BaselineCollection(nodes, correlation_func, m, u, v);
+    BaselineCollection *baselines = new BaselineCollection(nodes, m, u, v);
     baselines->SetFrequency(freq);
     baselines->SetSampleRate(sr);
     baselines->SetTarget(target);
@@ -175,9 +172,9 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, vlbi_func2_t correlatio
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
-        vlbi_start_thread(correlate_moving_baseline, b, &parent->child_count);
+        vlbi_start_thread(correlate_moving_baseline, b, &parent->child_count, i);
     }
-    vlbi_wait_threads(0, &parent->child_count);
+    vlbi_wait_threads(&parent->child_count);
     return parent;
 }
 
@@ -193,6 +190,7 @@ dsp_stream_p vlbi_get_fft_estimate(dsp_stream_p uv)
 dsp_stream_p vlbi_apply_model(dsp_stream_p uv, dsp_stream_p model)
 {
     dsp_stream_p fft = dsp_stream_copy(uv);
+    dsp_fourier_dft_magnitude(fft);
     dsp_fourier_dft_magnitude(model);
     dsp_buffer_shift(model);
     for(int i= 0; i < model->len; i++) {
@@ -202,5 +200,6 @@ dsp_stream_p vlbi_apply_model(dsp_stream_p uv, dsp_stream_p model)
             fft->buf[i] *= model->buf[i];
     }
     dsp_buffer_stretch(fft->buf, fft->len, 0.0, 1.0);
+    dsp_fourier_dft_magnitude(fft);
     return fft;
 }
