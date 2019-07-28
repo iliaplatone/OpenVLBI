@@ -46,15 +46,15 @@ void VLBI::Client::AddNode(double lat, double lon, double el, double *buf, int l
 dsp_stream_p VLBI::Client::GetPlot(int u, int v, plot_type_t type)
 {
 	dsp_stream_p plot;
-	bool earth_tide = ((type&EARTH_TIDE)?true:false);
-	bool geodetic_coords = ((type&GEODETIC_COORDS)?true:false);
-	bool dft = ((type&DFT)?true:false);
+	bool earth_tide = ((type&EARTH_TIDE)==EARTH_TIDE)?true:false;
+	bool geodetic_coords = ((type&GEODETIC_COORDS)==GEODETIC_COORDS)?true:false;
+	bool dft = ((type&DFT)==DFT)?true:false;
 	double coords[3] = { Ra, Dec };
 	if(earth_tide)
 		plot = vlbi_get_uv_plot_earth_tide(context, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
 	else
 		plot = vlbi_get_uv_plot_moving_baseline(context, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
-	if(dft && plot != NULL)
+	if(dft && (plot != NULL))
 		plot = vlbi_get_fft_estimate(plot);
 	return plot;
 }
@@ -119,7 +119,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
 		double *buf = (double*)malloc(olen);
 		fread(base64, 1, ilen, tmp);
 		fclose(tmp);
-		from64tobits((char*)buf, (char*)base64);
+		from64tobits_fast((char*)buf, (char*)base64, ilen);
 		k = strtok(NULL, ",");
 		AddNode(lat, lon, el, buf, olen/8, vlbi_time_string_to_utc(k));
             }
@@ -153,11 +153,11 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
                 }
                 dsp_stream_p plot = GetPlot(w, h, type);
                 if (plot != NULL) {
-                    /*int olen = plot->len*sizeof(double)*4/3+4;
+                    int olen = plot->len*sizeof(double)*4/3+4;
                     char* base64 = (char*)malloc(olen);
-                    base64_frombits(base64, (char*)plot->buf, plot->len*sizeof(double));
+                    to64frombits((unsigned char*)base64, (unsigned char*)plot->buf, plot->len*sizeof(double));
                     fwrite(base64, 1, olen, f);
-                    dsp_stream_free(base64);*/
+                    free(base64);
                     dsp_stream_free(plot);
                 }
             }
