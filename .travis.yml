@@ -35,4 +35,4 @@ install:
     - bash scripts/build.sh 
 
 script:
-    - bash scripts/test.sh 32 20 14200000 10000 2048
+    - bash scripts/test.sh 5 20 14200000 10000 2048
