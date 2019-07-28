@@ -184,11 +184,11 @@ int main(int argc, char** argv)
     signal(SIGILL, sighandler);
     signal(SIGSTOP, sighandler);
     signal(SIGQUIT, sighandler);
-    char c = 0;
     while (is_running) {
         if(3 != fscanf(stdin, "%s %s %s", cmd, arg, value)) continue;
         creat(lockfile, 700);
 	client->Parse(cmd, arg, value);
+	usleep(2000000);
         unlink(lockfile);
     }
     return 0;

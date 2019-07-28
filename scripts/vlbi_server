@@ -11,10 +11,10 @@ start() {
 	[ -e $pidfile ] && return;
         version=$1
 	[ -n "$version" ] || version=dummy
-	echo 0>$pidfile;
 	mkfifo $fifo 2>/dev/null
 	touch $out 2>/dev/null
 	vlbi_client_$version $lockfile ${@-1} < $fifo > $out &
+	tail -f $out >/dev/null &echo $!>$pidfile
 	echo "OpenVLBI started successfully"
 	sleep 2;
 }
@@ -22,6 +22,7 @@ start() {
 stop() {
 	[ -e $pidfile ] || return;
 	fuser -n file -k -9 $fifo 2>/dev/null 1>/dev/null || true;
+	kill -9 < $pidfile 2>/dev/null 1>/dev/null || true;
 	rm -f $pidfile $fifo $out 2>/dev/null
 	echo "OpenVLBI stopped successfully"
 	sleep 2;
@@ -29,10 +30,10 @@ stop() {
 
 run_command() {
 	cnt=$(( $(wc -c $out | cut -d ' ' -f 1)+1 ))
-	tail -c6$cnt -f $out&pid=$!
 	echo $1 $2 $3 > $fifo
+	sleep 2
 	while [ -e $lockfile ]; do sleep 1; done
-	kill -9 $pid
+	tail -c+$cnt $out
 }
 
 case "$1" in
