@@ -25,6 +25,9 @@
 #include <nodecollection.h>
 #include <baselinecollection.h>
 
+#define MAX_THREADS 8
+#define THREADS_MASK ((2<<MAX_THREADS)-1)
+
 static NodeCollection *vlbi_nodes = new NodeCollection();
 
 typedef struct _vlbi_thread_t {
@@ -55,12 +58,12 @@ static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int 
 {
     unsigned short nt = (1<<(n%16));
     vlbi_thread_t *t = (vlbi_thread_t *)malloc(sizeof(vlbi_thread_t));
-    if(*thread_cnt>=0xffff)
+    if(*thread_cnt>=THREADS_MASK)
         vlbi_wait_threads(thread_cnt);
     *thread_cnt |= nt;
     t->__start_routine = __start_routine;
     t->arg = arg;
-    t->m = ~nt;
+    t->m = (nt^THREADS_MASK);
     t->thread_cnt = thread_cnt;
     pthread_create(&t->th, NULL, &vlbi_thread_func, t);
 }
