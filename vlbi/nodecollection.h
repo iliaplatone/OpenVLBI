@@ -31,7 +31,7 @@ public:
 	void Remove(VLBINode *element);
 	void RemoveAt(int index);
         VLBINode *Get(const char* name);
-        void Remove(const char* element);
+        void RemoveKey(const char* element);
 	VLBINode * At(int index);
 	bool Contains(VLBINode *element);
 	bool ContainsKey(const char* element);

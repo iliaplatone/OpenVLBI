@@ -28,7 +28,7 @@ public:
 	~InstanceCollection();
 	void Add(vlbi_context element, const char *name = "");
 	vlbi_context Get(const char* name);
-	void Remove(const char* element);
+	void RemoveKey(const char* element);
 	void Remove(vlbi_context name);
 	void RemoveAt(int index);
 	vlbi_context  At(int index);

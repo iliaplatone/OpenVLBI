@@ -36,7 +36,7 @@ public:
 	~VLBICollection();
 	void Add(void* element, const char *name = "");
 	void* Get(const char *name);
-	void Remove(const char* name);
+	void RemoveKey(const char* name);
 	void Remove(void* element);
 	void RemoveAt(int index);
 	void* At(int index);

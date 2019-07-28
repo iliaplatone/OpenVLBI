@@ -54,9 +54,9 @@ void BaselineCollection::Add(VLBIBaseline * element, const char *name)
     VLBICollection::Add(element, name);
 }
 
-void BaselineCollection::Remove(const char* name)
+void BaselineCollection::RemoveKey(const char* name)
 {
-    VLBICollection::Remove(name);
+    VLBICollection::RemoveKey(name);
 }
 
 VLBIBaseline * BaselineCollection::Get(const char* name)

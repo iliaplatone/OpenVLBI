@@ -33,9 +33,9 @@ void InstanceCollection::Add(vlbi_context element, const char *name)
     VLBICollection::Add(element, name);
 }
 
-void InstanceCollection::Remove(const char* name)
+void InstanceCollection::RemoveKey(const char* name)
 {
-    VLBICollection::Remove(name);
+    VLBICollection::RemoveKey(name);
 }
 
 vlbi_context InstanceCollection::Get(const char* name)

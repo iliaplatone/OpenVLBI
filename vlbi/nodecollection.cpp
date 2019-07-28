@@ -34,9 +34,9 @@ void NodeCollection::Add(VLBINode * element, const char *name)
     VLBICollection::Add(element, name);
 }
 
-void NodeCollection::Remove(const char* name)
+void NodeCollection::RemoveKey(const char* name)
 {
-    VLBICollection::Remove(name);
+    VLBICollection::RemoveKey(name);
 }
 
 VLBINode * NodeCollection::Get(const char* name)
