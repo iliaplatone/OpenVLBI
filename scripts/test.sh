@@ -30,5 +30,8 @@ done
 vlbi_server set target $(( $RANDOM%24 )).$RANDOM,$(( $RANDOM%90 )).$RANDOM
 vlbi_server set resolution 128x128
 vlbi_server get observation earth_tide_raw_geo
-#vlbi_server stop
+vlbi_server get observation earth_tide_dft_geo
+vlbi_server get observation earth_tide_raw_geo | convert -depth 64 -define "quantum.size=float" -size 128x128 raw:- png:- | file -
+vlbi_server get observation earth_tide_dft_geo | convert -depth 64 -define "quantum.size=float" -size 128x128 raw:- png:- | file -
+vlbi_server stop
 sleep 10

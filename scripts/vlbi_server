@@ -1,7 +1,7 @@
 #!/bin/bash
 
 fifo=/tmp/openvlbi.fifo
-out=/tmp/openvlbi.out
+out=/tmp/openvlbi.log
 [ -n "$VLBI_FIFO_FILE" ] && fifo=$VLBI_FIFO_FILE
 pidfile=/tmp/vlbi_server.pid
 lockfile=/tmp/vlbi_server.lock
@@ -14,7 +14,6 @@ start() {
 	echo 0>$pidfile;
 	mkfifo $fifo 2>/dev/null
 	touch $out 2>/dev/null
-	sleep 3;
 	vlbi_client_$version $lockfile ${@-1} < $fifo > $out &
 	echo "OpenVLBI started successfully"
 	sleep 2;
@@ -30,10 +29,10 @@ stop() {
 
 run_command() {
 	chars=$(wc -c $out | cut -d ' ' -f 1)
+	tail -f $out &pid=$!
 	echo $1 $2 $3 > $fifo
-	sleep 2
 	while [ -e $lockfile ]; do sleep 1; done
-	tail -c-$chars $out
+	kill -9 $pid
 }
 
 case "$1" in
