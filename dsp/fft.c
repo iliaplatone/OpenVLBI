@@ -61,7 +61,7 @@ dsp_complex* dsp_fourier_dft(dsp_stream_p stream)
         dft[x].real = stream->buf[x];
         dft[x].imaginary = stream->buf[x];
     }
-    fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, (complex*)dft, (complex*)out, -1, FFTW_ESTIMATE);
+    fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, (fftw_complex*)dft, (fftw_complex*)out, -1, FFTW_ESTIMATE);
     fftw_execute(plan);
     free(plan);
     free(dft);
@@ -76,7 +76,7 @@ dsp_complex* dsp_fourier_idft(dsp_stream_p stream)
         dft[x].real = stream->buf[x];
         dft[x].imaginary = stream->buf[x];
     }
-    fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, (complex*)dft, (complex*)out, 1, FFTW_ESTIMATE);
+    fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, (fftw_complex*)dft, (fftw_complex*)out, 1, FFTW_ESTIMATE);
     fftw_execute(plan);
     free(plan);
     free(dft);

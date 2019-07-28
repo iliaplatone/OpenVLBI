@@ -30,5 +30,5 @@ done
 vlbi_server set target $(( $RANDOM%24 )).$RANDOM,$(( $RANDOM%90 )).$RANDOM
 vlbi_server set resolution 128x128
 vlbi_server get observation earth_tide_raw_geo
-vlbi_server stop
+#vlbi_server stop
 sleep 10
