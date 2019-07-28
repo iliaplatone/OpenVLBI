@@ -28,7 +28,7 @@ stop() {
 }
 
 run_command() {
-	cnt=$(wc -c $out | cut -d ' ' -f 1)
+	cnt=$(( $(wc -c $out | cut -d ' ' -f 1)+1 ))
 	tail -c6$cnt -f $out&pid=$!
 	echo $1 $2 $3 > $fifo
 	while [ -e $lockfile ]; do sleep 1; done
