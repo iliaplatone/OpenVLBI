@@ -52,7 +52,6 @@ void BaselineCollection::Add(VLBIBaseline * element, const char *name)
 {
     element->getStream()->parent = Stream;
     VLBICollection::Add(element, name);
-    fprintf(stderr, "added baseline %s\n", (char*)element->getStream()->arg);
 }
 
 void BaselineCollection::Remove(const char* name)

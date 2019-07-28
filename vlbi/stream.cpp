@@ -26,7 +26,7 @@
 #include <baselinecollection.h>
 
 #define MAX_THREADS 8
-#define THREADS_MASK ((2<<MAX_THREADS)-1)
+#define THREADS_MASK ((1<<MAX_THREADS)-1)
 
 static NodeCollection *vlbi_nodes = new NodeCollection();
 
@@ -42,29 +42,36 @@ char* vlbi_get_version() { return (char*)VLBI_VERSION_STRING; }
 
 static void vlbi_wait_threads(int *thread_cnt)
 {
-    while(*thread_cnt > 0);
+    while(((int)*thread_cnt) > 0) {
+        usleep(100000);
+	int nt = 0;
+        for (int t = 0; t < MAX_THREADS; t++)
+		nt += (((int)*thread_cnt)&(1 << t))>>t;
+    }
 }
 
 static void* vlbi_thread_func(void* arg)
 {
     vlbi_thread_t *t = (vlbi_thread_t*)arg;
     t->__start_routine(t->arg);
-    *t->thread_cnt &= t->m;
+    *t->thread_cnt = (((int)(*t->thread_cnt))&t->m);
     free(t);
     return NULL;
 }
 
 static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int *thread_cnt, int n)
 {
-    unsigned short nt = (1<<(n%16));
+    unsigned short nt = (1<<(n%MAX_THREADS));
     vlbi_thread_t *t = (vlbi_thread_t *)malloc(sizeof(vlbi_thread_t));
-    if(*thread_cnt>=THREADS_MASK)
-        vlbi_wait_threads(thread_cnt);
-    *thread_cnt |= nt;
     t->__start_routine = __start_routine;
     t->arg = arg;
     t->m = (nt^THREADS_MASK);
     t->thread_cnt = thread_cnt;
+
+    usleep(100000);
+    if(((int)(*t->thread_cnt))==THREADS_MASK)
+        vlbi_wait_threads(t->thread_cnt);
+    *t->thread_cnt = (((int)(*t->thread_cnt))|nt);
     pthread_create(&t->th, NULL, &vlbi_thread_func, t);
 }
 
@@ -79,6 +86,7 @@ static void* correlate_astro(void* arg)
     double st = vlbi_time_timespec_to_J2000time(s->starttimeutc);
     double et = st + s->len * tao;
     for(double time = st; time < et; time += tao) {
+        fprintf(stderr, "\r%.3f%%", (time-st)*100.0/(et-st-tao));
         double *uvcoords = b->getUVCoords(time);
         if(uvcoords == NULL)
             continue;
@@ -90,12 +98,10 @@ static void* correlate_astro(void* arg)
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
             double c = b->Correlate(time);
-            parent->buf[idx] += c;
             parent->buf[parent->len - idx - 1] += c;
         }
     }
-
-   return NULL;
+    return NULL;
 }
 
 static void* correlate_moving_baseline(void* arg)
@@ -106,6 +112,7 @@ static void* correlate_moving_baseline(void* arg)
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     for(double i = 0; i < s->len; i++) {
+        fprintf(stderr, "\r%.3f%%", i*100.0/(s->len-1));
         double *uvcoords = b->getUVCoords(i);
         if(uvcoords == NULL)
             continue;
@@ -154,12 +161,15 @@ dsp_stream_p vlbi_get_uv_plot_earth_tide(vlbi_context ctx, int m, int u, int v, 
     baselines->SetTarget(target);
     dsp_stream_p parent = baselines->getStream();
     parent->child_count = 0;
+    fprintf(stderr, "%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
+    fprintf(stderr, "\n");
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
         vlbi_start_thread(correlate_astro, b, &parent->child_count, i);
     }
     vlbi_wait_threads(&parent->child_count);
+    fprintf(stderr, "\nearth tide plotting completed\n");
     return parent;
 }
 
@@ -172,12 +182,14 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u, int v, do
     baselines->SetTarget(target);
     dsp_stream_p parent = baselines->getStream();
     parent->child_count = 0;
+    fprintf(stderr, "%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
         vlbi_start_thread(correlate_moving_baseline, b, &parent->child_count, i);
     }
     vlbi_wait_threads(&parent->child_count);
+    fprintf(stderr, "\nmoving baselines plotting completed\n");
     return parent;
 }
 

@@ -19,9 +19,9 @@ namespace VLBI {
 #define EARTH_TIDE 4
 
 enum plot_type_t {
-	moving_base_raw_abs,
+	moving_base_raw_abs=0,
 	moving_base_dft_abs,
-	moving_base_raw_geo=0,
+	moving_base_raw_geo,
 	moving_base_dft_geo,
 	earth_tide_raw_abs,
 	earth_tide_dft_abs,

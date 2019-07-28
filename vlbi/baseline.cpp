@@ -128,13 +128,11 @@ void VLBIBaseline::setTarget(double *target)
 void VLBIBaseline::setWaveLength(double wavelength)
 {
     Stream->lambda = wavelength;
-    fprintf(stderr, "Lambda: %.04lf\n", Stream->lambda);
 }
 
 void VLBIBaseline::setSampleRate(double samplerate)
 {
     Stream->samplerate = samplerate;
-    fprintf(stderr, "Sample rate: %.04lf\n", Stream->samplerate);
 }
 
 VLBIBaseline::~VLBIBaseline()

@@ -46,9 +46,9 @@ void VLBI::Client::AddNode(double lat, double lon, double el, double *buf, int l
 dsp_stream_p VLBI::Client::GetPlot(int u, int v, plot_type_t type)
 {
 	dsp_stream_p plot;
-	bool earth_tide = ((type&EARTH_TIDE)!=0);
-	bool geodetic_coords = ((type&GEODETIC_COORDS)!=0);
-	bool dft = ((type&DFT)!=0);
+	bool earth_tide = ((type&EARTH_TIDE)?true:false);
+	bool geodetic_coords = ((type&GEODETIC_COORDS)?true:false);
+	bool dft = ((type&DFT)?true:false);
 	double coords[3] = { Ra, Dec };
 	if(earth_tide)
 		plot = vlbi_get_uv_plot_earth_tide(context, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
@@ -153,7 +153,11 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
                 }
                 dsp_stream_p plot = GetPlot(w, h, type);
                 if (plot != NULL) {
-                    fwrite(plot->buf, 8, plot->len, f);
+                    /*int olen = plot->len*sizeof(double)*4/3+4;
+                    char* base64 = (char*)malloc(olen);
+                    base64_frombits(base64, (char*)plot->buf, plot->len*sizeof(double));
+                    fwrite(base64, 1, olen, f);
+                    dsp_stream_free(base64);*/
                     dsp_stream_free(plot);
                 }
             }

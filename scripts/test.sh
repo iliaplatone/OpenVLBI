@@ -22,7 +22,7 @@ while (( $p<$num_nodes )); do
 	set -x -e
 	tmpimg=/tmp/$RANDOM.tmp
 	sudo dd if=/dev/urandom bs=$((8*$sr)) count=$duration 2>/dev/null | base64 > $tmpimg
-	vlbi_server add node $(( $RANDOM%10 )).$RANDOM,$(( $RANDOM%5+35 )).$RANDOM,$(( $RANDOM%400 )).$RANDOM,$tmpimg,$(date +%Y/%m/%d-%H:%M:%S).$RANDOM$RANDOM
+	vlbi_server add node 0.003$RANDOM,35.003$(( $RANDOM )),3$(( $RANDOM%10 )).$RANDOM,$tmpimg,$(date +%Y/%m/%d-%H:%M:%S).$RANDOM$RANDOM
 	rm $tmpimg
 	p=$(( $p+1 ))
 done

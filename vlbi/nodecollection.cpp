@@ -32,7 +32,6 @@ NodeCollection::~NodeCollection()
 void NodeCollection::Add(VLBINode * element, const char *name)
 {
     VLBICollection::Add(element, name);
-    fprintf(stderr, "added node %s\n", (char*)element->getStream()->arg);
 }
 
 void NodeCollection::Remove(const char* name)
