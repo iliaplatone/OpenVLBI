@@ -144,13 +144,18 @@ void vlbi_exit(void* ctx)
     nodes = nullptr;
 }
 
-void vlbi_add_stream(void *ctx, dsp_stream_p Stream) {
+void vlbi_add_stream(void *ctx, dsp_stream_p Stream, char* name) {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p stream = dsp_stream_copy(Stream);
     int na = ('Z' - 'A');
     stream->arg = calloc(150, 1);
     sprintf((char*)stream->arg, "%c%c", (nodes->Count % na) + 'A', ((nodes->Count / na) % 10) + '0');
-    nodes->Add(new VLBINode(stream));
+    nodes->Add(new VLBINode(stream), name);
+}
+
+void vlbi_del_stream(void *ctx, char* name) {
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    nodes->Remove(name);
 }
 
 dsp_stream_p vlbi_get_uv_plot_earth_tide(vlbi_context ctx, int m, int u, int v, double *target, double freq, double sr)

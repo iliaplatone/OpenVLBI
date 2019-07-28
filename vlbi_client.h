@@ -39,7 +39,8 @@ public:
     inline vlbi_context GetContext() { return context; }
     virtual int Init(int argc, char** argv) { return 0; };
     virtual void Parse(char* cmd, char* arg, char* value);
-    void AddNode(double lat, double lon, double el, double *buf, int len, timespec starttime);
+    void AddNode(char *name, double lat, double lon, double el, double *buf, int len, timespec starttime);
+    void DelNode(char *name);
     dsp_stream_p GetPlot(int u, int v, plot_type_t type);
     void SetFifo(FILE* fifo) { f = fifo; }
 

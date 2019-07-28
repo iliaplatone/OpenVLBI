@@ -28,7 +28,7 @@ VLBI::Client::~Client()
     }
 }
 
-void VLBI::Client::AddNode(double lat, double lon, double el, double *buf, int len, timespec starttime)
+void VLBI::Client::AddNode(char *name, double lat, double lon, double el, double *buf, int len, timespec starttime)
 {
 	dsp_stream_p node = dsp_stream_new();
 	node->location[0] = lat;
@@ -40,7 +40,12 @@ void VLBI::Client::AddNode(double lat, double lon, double el, double *buf, int l
 	node->starttimeutc = starttime;
 	dsp_stream_add_dim(node, len);
 	dsp_stream_set_buffer(node, (void*)(buf), len);
-	vlbi_add_stream(context, node);
+	vlbi_add_stream(context, node, name);
+}
+
+void VLBI::Client::DelNode(char *name)
+{
+	vlbi_del_stream(context, name);
 }
 
 dsp_stream_p VLBI::Client::GetPlot(int u, int v, plot_type_t type)
@@ -96,15 +101,26 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             else if(!strcmp(arg, "model")) {
             }
         }
-        else if(!strcmp(cmd, "add")) {
+        else if(!strcmp(cmd, "del")) {
+            if(!strcmp(arg, "node")) {
+                DelNode(value);
+            }
+            else if(!strcmp(arg, "context")) {
+                contexts->Remove(value);
+            }
+	}
+	else if(!strcmp(cmd, "add")) {
             if(!strcmp(arg, "context")) {
                 if(!contexts->ContainsKey(value)) {
                     contexts->Add(vlbi_init(), value);
                 }
             }
             else if(!strcmp(arg, "node")) {
+		char name[32];
 		double lat, lon, el;
 		char* k = strtok(value, ",");
+		strcpy(name, k);
+		k = strtok(NULL, ",");
 		lat = (double)atof(k);
 		k = strtok(NULL, ",");
 		lon = (double)atof(k);
@@ -122,7 +138,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
 		fclose(tmp);
 		from64tobits_fast((char*)buf, (char*)base64, ilen);
 		k = strtok(NULL, ",");
-		AddNode(lat, lon, el, buf, olen/8, vlbi_time_string_to_utc(k));
+		AddNode(name, lat, lon, el, buf, olen/8, vlbi_time_string_to_utc(k));
             }
         }
         else if(!strcmp(cmd, "get")) {

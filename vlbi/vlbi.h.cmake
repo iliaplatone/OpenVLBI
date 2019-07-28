@@ -205,8 +205,16 @@ DLL_EXPORT void vlbi_exit(vlbi_context ctx);
 * @brief Add a stream into the current libVLBI context.
 * @param ctx The libVLBI context
 * @param Stream The libVLBI stream to add
+* @param name A friendly name of this stream
 */
-DLL_EXPORT void vlbi_add_stream(vlbi_context ctx, dsp_stream_p Stream);
+DLL_EXPORT void vlbi_add_stream(vlbi_context ctx, dsp_stream_p Stream, char* name);
+
+/**
+* @brief Remove a stream from the current libVLBI context.
+* @param ctx The libVLBI context
+* @param name The friendly name of the stream to be removed
+*/
+DLL_EXPORT void vlbi_del_stream(vlbi_context ctx, char* name);
 
 /**
 * @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.

@@ -256,7 +256,7 @@ void INDIClient::newBLOB(IBLOB *bp) {
 		len = (len-offset)*abs(strtol(wordsize, NULL, 10)) / 8;
 		double* dbuf = (double*)malloc(len*sizeof(double));
 		dsp_buffer_copy(buf, dbuf, len);
-		AddNode(atof(lat), atof(lon), atof(el), dbuf, len, vlbi_time_mktimespec(Y, M, D, H, m, floor(s), (s - floor(s))*1000000000.0));
+		AddNode(bp->name, atof(lat), atof(lon), atof(el), dbuf, len, vlbi_time_mktimespec(Y, M, D, H, m, floor(s), (s - floor(s))*1000000000.0));
                 return;
             }
             char errstr[120];
