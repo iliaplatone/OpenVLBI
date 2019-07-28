@@ -29,6 +29,7 @@ stop() {
 }
 
 run_command() {
+	[ -e $pidfile ] || echo "OpenVLBI server not running" && return;
 	cnt=$(( $(wc -c $out | cut -d ' ' -f 1)+1 ))
 	echo $1 $2 $3 > $fifo
 	sleep 2

@@ -30,7 +30,7 @@ done
 
 vlbi_server set target 18.23,38.25
 vlbi_server set resolution $size
-#vlbi_server get observation earth_tide_raw_geo
-#vlbi_server get observation earth_tide_dft_geo
-#vlbi_server stop
+vlbi_server get observation earth_tide_raw_geo
+vlbi_server get observation earth_tide_dft_geo
+vlbi_server stop
 sleep 10
