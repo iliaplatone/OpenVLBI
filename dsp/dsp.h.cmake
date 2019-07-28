@@ -193,6 +193,14 @@ typedef struct dsp_stream_t
 DLL_EXPORT dsp_complex* dsp_fourier_dft(dsp_stream_p stream);
 
 /**
+* \brief Perform an inverse discrete Fourier Transform of a dsp_stream
+* \param stream the input stream.
+* \return the output stream if successfull elaboration. NULL if an
+* error is encountered.
+*/
+DLL_EXPORT dsp_complex* dsp_fourier_idft(dsp_stream_p stream);
+
+/**
 * \brief Obtain a complex number's magnitude
 * \param n the input complex.
 * \return the magnitude of the given number

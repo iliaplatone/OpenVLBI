@@ -55,13 +55,28 @@ double* dsp_fourier_complex_array_get_phase(dsp_complex* in, int len)
 
 dsp_complex* dsp_fourier_dft(dsp_stream_p stream)
 {
-    dsp_complex* dft = calloc(sizeof(dsp_complex*), stream->len);
-    dsp_complex* out = calloc(sizeof(dsp_complex*), stream->len);
+    dsp_complex* dft = calloc(sizeof(dsp_complex), stream->len);
+    dsp_complex* out = calloc(sizeof(dsp_complex), stream->len);
     for(int x = 0; x < stream->len; x++) {
         dft[x].real = stream->buf[x];
         dft[x].imaginary = stream->buf[x];
     }
-    fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, dft, out, -1, FFTW_ESTIMATE);
+    fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, (complex*)dft, (complex*)out, -1, FFTW_ESTIMATE);
+    fftw_execute(plan);
+    free(plan);
+    free(dft);
+    return (dsp_complex*)out;
+}
+
+dsp_complex* dsp_fourier_idft(dsp_stream_p stream)
+{
+    dsp_complex* dft = calloc(sizeof(dsp_complex), stream->len);
+    dsp_complex* out = calloc(sizeof(dsp_complex), stream->len);
+    for(int x = 0; x < stream->len; x++) {
+        dft[x].real = stream->buf[x];
+        dft[x].imaginary = stream->buf[x];
+    }
+    fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, (complex*)dft, (complex*)out, 1, FFTW_ESTIMATE);
     fftw_execute(plan);
     free(plan);
     free(dft);
