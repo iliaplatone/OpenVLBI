@@ -48,6 +48,7 @@ static void vlbi_wait_threads(int *thread_cnt)
         for (int t = 0; t < MAX_THREADS; t++)
 		nt += (((int)*thread_cnt)&(1 << t))>>t;
     }
+    fprintf(stderr, "\n");
 }
 
 static void* vlbi_thread_func(void* arg)
