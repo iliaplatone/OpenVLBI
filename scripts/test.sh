@@ -1,13 +1,14 @@
 #!/bin/bash
 
-(( $#<5 )) && echo "usage: $0 num_nodes duration freq bw sr" && exit 22
+(( $#<5 )) && echo "usage: $0 uv_size num_nodes duration freq bw sr" && exit 22
 set -x -e
 
-num_nodes=$1
-duration=$2
-freq=$3
-bw=$4
-sr=$5
+size=$1
+num_nodes=$2
+duration=$3
+freq=$4
+bw=$5
+sr=$6
 
 vlbi_server stop
 vlbi_server start dummy
@@ -28,10 +29,7 @@ while (( $p<$num_nodes )); do
 done
 
 vlbi_server set target $(( $RANDOM%24 )).$RANDOM,$(( $RANDOM%90 )).$RANDOM
-vlbi_server set resolution 128x128
-vlbi_server get observation earth_tide_raw_geo
-vlbi_server get observation earth_tide_dft_geo
-vlbi_server get observation earth_tide_raw_geo | base64 -d -i | convert -format GRAY -depth 64 -define "quantum:format=float" -size 128x128 raw:- png:- | file -
-vlbi_server get observation earth_tide_dft_geo | base64 -d -i | convert -format GRAY -depth 64 -define "quantum:format=float" -size 128x128 raw:- png:- | file -
+vlbi_server set resolution $size
+vlbi_server get observation earth_tide_raw_geo | base64 -d -i | convert -size $size -depth 64 -define 'quantum:format=float' gray:- png:- | file -
 vlbi_server stop
 sleep 10

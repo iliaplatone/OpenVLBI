@@ -103,7 +103,6 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
                 }
             }
             else if(!strcmp(arg, "node")) {
-		fprintf(stdout, "adding node");
 		double lat, lon, el;
 		char* k = strtok(value, ",");
 		lat = (double)atof(k);
@@ -164,7 +163,6 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
                 }
             }
         }
-	putchar('+');
 }
 
 extern VLBI::Client *client;

@@ -28,8 +28,8 @@ stop() {
 }
 
 run_command() {
-	chars=$(wc -c $out | cut -d ' ' -f 1)
-	tail -f $out &pid=$!
+	cnt=$(wc -c $out | cut -d ' ' -f 1)
+	tail -c6$cnt -f $out&pid=$!
 	echo $1 $2 $3 > $fifo
 	while [ -e $lockfile ]; do sleep 1; done
 	kill -9 $pid
@@ -40,12 +40,7 @@ case "$1" in
 		$@
 		exit 0
 		;;
-	add|del|set)
-		run_command $@
-		exit 0
-		;;
-	get)
-		[ "$1"=="plot" ] && run_command $@ | base64 && exit 0
+	add|del|set|get|set)
 		run_command $@
 		exit 0
 		;;
