@@ -30,8 +30,11 @@ done
 
 vlbi_server set target $(( $RANDOM%24 )).$RANDOM,$(( $RANDOM%90 )).$RANDOM
 vlbi_server set resolution $size
+vlbi_server get observation earth_tide_raw_geo
+vlbi_server get observation earth_tide_dft_geo
 tmpimg=/tmp/$RANDOM.tmp
 vlbi_server get observation earth_tide_raw_geo | base64 -d -i > $tmpimg.raw
+tmpimg=/tmp/$RANDOM.tmp
 vlbi_server get observation earth_tide_dft_geo | base64 -d -i > $tmpimg.raw
 test "$(wc -c $tmpimg.raw | cut -d ' ' -f 1)"=="$(( $(tr -s 'x' '*' <<< $size)*8 ))" && echo "size correct"
 vlbi_server stop
