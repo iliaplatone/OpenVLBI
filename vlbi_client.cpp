@@ -50,12 +50,14 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, plot_type_t type)
 	bool geodetic_coords = ((type&GEODETIC_COORDS)==GEODETIC_COORDS)?true:false;
 	bool dft = ((type&DFT)==DFT)?true:false;
 	double coords[3] = { Ra, Dec };
-	if(earth_tide)
+	if(earth_tide) {
 		plot = vlbi_get_uv_plot_earth_tide(context, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
-	else
+	} else {
 		plot = vlbi_get_uv_plot_moving_baseline(context, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
-	if(dft && (plot != NULL))
+	}
+	if(dft && (plot != NULL)) {
 		plot = vlbi_get_fft_estimate(plot);
+	}
 	return plot;
 }
 

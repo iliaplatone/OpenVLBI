@@ -17,6 +17,7 @@
  */
 
 #include "dsp.h"
+#include <fftw3.h>
 
 double dsp_fourier_complex_get_magnitude(dsp_complex n)
 {
@@ -55,33 +56,26 @@ double* dsp_fourier_complex_array_get_phase(dsp_complex* in, int len)
 dsp_complex* dsp_fourier_dft(dsp_stream_p stream)
 {
     dsp_complex* dft = calloc(sizeof(dsp_complex*), stream->len);
+    dsp_complex* out = calloc(sizeof(dsp_complex*), stream->len);
     for(int x = 0; x < stream->len; x++) {
         dft[x].real = stream->buf[x];
         dft[x].imaginary = stream->buf[x];
     }
-    int dim = -1;
-    double k = (double)stream->len;
-    double j = M_PI * 2 / k;
-    while (dim++ < stream->dims - 1) {
-        int size = (dim < 0 ? 1 : stream->sizes[dim]);
-        for(int l = 0; l < k; l+=size) {
-            for(int i = 0; i < k; i+=size) {
-                double s = sin(i * j) * k;
-                double c = cos(i * j) * k;
-		dft[i].real += s * stream->buf[l];
-		dft[i].imaginary += c * stream->buf[l];
-	    }
-        }
-    }
-    return dft;
+    fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, dft, out, -1, FFTW_ESTIMATE);
+    fftw_execute(plan);
+    free(plan);
+    free(dft);
+    return (dsp_complex*)out;
 }
 
 void dsp_fourier_dft_magnitude(dsp_stream_p stream)
 {
     dsp_complex* dft = dsp_fourier_dft(stream);
     double* mag = dsp_fourier_complex_array_get_magnitude(dft, stream->len);
-    dsp_buffer_stretch(mag, stream->len, mn, mx);
     free(dft);
+    double mn = dsp_stats_min(mag, stream->len);
+    double mx = dsp_stats_max(mag, stream->len);
+    dsp_buffer_stretch(mag, stream->len, mn, mx);
     dsp_buffer_copy(mag, stream->buf, stream->len);
     free(mag);
 }
@@ -90,8 +84,10 @@ void dsp_fourier_dft_phase(dsp_stream_p stream)
 {
     dsp_complex* dft = dsp_fourier_dft(stream);
     double* phi = dsp_fourier_complex_array_get_phase(dft, stream->len);
-    dsp_buffer_stretch(phi, stream->len, mn, mx);
     free(dft);
+    double mn = dsp_stats_min(phi, stream->len);
+    double mx = dsp_stats_max(phi, stream->len);
+    dsp_buffer_stretch(phi, stream->len, mn, mx);
     dsp_buffer_copy(phi, stream->buf, stream->len);
     free(phi);
 }

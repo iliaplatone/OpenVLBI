@@ -303,14 +303,14 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 * \param len the length in elements of the buffer.
 * \return the minimum value.
 */
-#define dsp_stats_min(buf, len)\
+#define dsp_stats_min(__buf, __len)\
 ({\
-    int i;\
-    __typeof__(buf[0]) min = (__typeof__(buf[0]))buf[0];\
-    for(i = 0; i < len; i++) {\
-        min = Min(buf[i], min);\
+    int __i;\
+    __typeof__(__buf[0]) __min = (__typeof__(__buf[0]))__buf[0];\
+    for(__i = 0; __i < __len; __i++) {\
+        __min = Min(__buf[__i], __min);\
     }\
-    min;\
+    __min;\
     })
 
 /**
@@ -319,14 +319,14 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 * \param len the length in elements of the buffer.
 * \return the maximum value.
 */
-#define dsp_stats_max(buf, len)\
+#define dsp_stats_max(__buf, __len)\
 ({\
-    int i;\
-    __typeof__(buf[0]) max = (__typeof__(buf[0]))buf[0];\
-    for(i = 0; i < len; i++) {\
-        max = Max(buf[i], max);\
+    int __i;\
+    __typeof__(__buf[0]) __max = (__typeof__(__buf[0]))__buf[0];\
+    for(__i = 0; __i < __len; __i++) {\
+        __max = Max(__buf[__i], __max);\
     }\
-    max;\
+    __max;\
     })
 
 /**
@@ -335,11 +335,11 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 * \param len the length in elements of the buffer.
 * \return the middle value.
 */
-#define dsp_stats_mid(buf, len)\
+#define dsp_stats_mid(__buf, __len)\
 ({\
-    int i;\
-    __typeof__(buf[0]) min = dsp_stats_min(buf, len);\
-    (__typeof__(buf[0]))(min - dsp_stats_max(buf, len)) / 2.0 + min);\
+    int __i;\
+    __typeof__(__buf[0]) __min = dsp_stats_min(__buf, __len);\
+    (__typeof__(__buf[0]))(__min - dsp_stats_max(__buf, __len)) / 2.0 + __min);\
 })
 
 /**
@@ -348,14 +348,14 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 * \param len the length in elements of the buffer.
 * \return the position index of the minimum value.
 */
-#define dsp_stats_minimum_index(buf, len)\
+#define dsp_stats_minimum_index(__buf, __len)\
 ({\
-    int i;\
-    __typeof__(buf[0]) min = dsp_stats_min(buf, len);\
-    for(i = 0; i < len; i++) {\
-        if(buf[i] == min) break;\
+    int __i;\
+    __typeof__(__buf[0]) __min = dsp_stats_min(__buf, __len);\
+    for(__i = 0; __i < __len; __i++) {\
+        if(__buf[__i] == __min) break;\
     }\
-    i;\
+    __i;\
     })
 
 /**
@@ -364,14 +364,14 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 * \param len the length in elements of the buffer.
 * \return the position index of the maximum value.
 */
-#define dsp_stats_maximum_index(buf, len)\
+#define dsp_stats_maximum_index(__buf, __len)\
 ({\
-    int i;\
-    __typeof__(buf[0]) max = dsp_stats_max(buf, len);\
-    for(i = 0; i < len; i++) {\
-        if(buf[i] == max) break;\
+    int __i;\
+    __typeof__(__buf[0]) __max = dsp_stats_max(__buf, __len);\
+    for(__i = 0; __i < __len; __i++) {\
+        if(__buf[__i] == __max) break;\
     }\
-    i;\
+    __i;\
     })
 
 /**
@@ -380,15 +380,15 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 * \param len the length in elements of the buffer.
 * \return the mean value of the stream.
 */
-#define dsp_stats_mean(buf, len)\
+#define dsp_stats_mean(__buf, __len)\
 ({\
-    int i;\
-    __typeof__(buf[0]) mean = 0;\
-    for(i = 0; i < len; i++) {\
-        mean += buf[i];\
+    int __i;\
+    __typeof__(__buf[0]) __mean = 0;\
+    for(__i = 0; __i < __len; __i++) {\
+        __mean += __buf[__i];\
     }\
-    mean /= len;\
-    mean;\
+    __mean /= __len;\
+    __mean;\
     })
 
 /**
@@ -398,15 +398,15 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 * \param val the value to count.
 * \return the count of the value of the stream.
 */
-#define dsp_stats_val_count(buf, len, val) \
+#define dsp_stats_val_count(__buf, __len, __val) \
 ({\
-    int x;\
-    int count = 0;\
-    for(x = 0; x < len; x++) {\
-        if(buf[x] == val)\
-            count ++;\
+    int __x;\
+    int __count = 0;\
+    for(__x = 0; __x < __len; __x++) {\
+        if(__buf[__x] == __val)\
+            __count ++;\
     }\
-    count;\
+    __count;\
     })
 
 /**
@@ -416,13 +416,13 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 * \param len the length in elements of the buffer.
 * \return the sum of the subtraction of each element of both streams
 */
-#define dsp_stats_compare(in1, in2, len)\
+#define dsp_stats_compare(__in1, __in2, __len)\
 ({\
-    __typeof__(in1[0]) out = 0;\
-    for(int i = 0; i < len; i++) {\
-        out += in1[i] - (__typeof__(in1[0]))in2[i];\
+    __typeof__(__in1[0]) __out = 0;\
+    for(int __i = 0; __i < __len; __i++) {\
+        __out += __in1[__i] - (__typeof__(__in1[0]))__in2[__i];\
     }\
-    out;\
+    __out;\
     })
 
 /**
@@ -460,18 +460,18 @@ DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
 * \param max the desired maximum value.
 */
 
-#define dsp_buffer_stretch(buf, len, min, max)\
+#define dsp_buffer_stretch(__buf, __len, __min, __max)\
 ({\
-    int k;\
-    __typeof__(buf[0]) mn = dsp_stats_min(buf, len);\
-    __typeof__(buf[0]) mx = dsp_stats_max(buf, len);\
-    double oratio = (max - min);\
-    double iratio = (mx - mn);\
-    if(iratio == 0.0) iratio = 1;\
-    for(k = 0; k < len; k++) {\
-        buf[k] -= mn;\
-        buf[k] = (__typeof__(buf[0]))((double)buf[k] * oratio / iratio);\
-        buf[k] += (__typeof__(buf[0]))min;\
+    int __k;\
+    __typeof__(__buf[0]) __mn = dsp_stats_min(__buf, __len);\
+    __typeof__(__buf[0]) __mx = dsp_stats_max(__buf, __len);\
+    double __oratio = (__max - __min);\
+    double __iratio = (__mx - __mn);\
+    if(__iratio == 0.0) __iratio = 1;\
+    for(__k = 0; __k < __len; __k++) {\
+        __buf[__k] -= __mn;\
+        __buf[__k] = (__typeof__(__buf[0]))((double)__buf[__k] * __oratio / __iratio);\
+        __buf[__k] += (__typeof__(__buf[0]))__min;\
     }\
 })
 
@@ -482,11 +482,11 @@ DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
 * \param min the clamping minimum value.
 * \param max the clamping maximum value.
 */
-#define dsp_buffer_normalize(buf, len, min, max)\
+#define dsp_buffer_normalize(__buf, __len, __min, __max)\
 ({\
-        int k;\
-    for(k = 0; k < len; k++) {\
-        buf[k] = (buf[k] < min ? min : (buf[k] > max ? max : buf[k]));\
+    int __k;\
+    for(__k = 0; __k < __len; __k++) {\
+        __buf[__k] = (__buf[__k] < __min ? __min : (__buf[__k] > __max ? __max : __buf[__k]));\
         }\
 })
 
@@ -623,18 +623,18 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, double* deviation, doubl
 * \param len the length of the first input stream.
 */
 #ifndef dsp_buffer_reverse
-#define dsp_buffer_reverse(buf, len) \
+#define dsp_buffer_reverse(__buf, __len) \
     ({ \
-        int i = (len - 1) / 2; \
-        int j = i + 1; \
-        __typeof__(buf[0]) _x; \
-        while(i >= 0) \
+        int __i = (__len - 1) / 2; \
+        int __j = __i + 1; \
+        __typeof__(__buf[0]) ___x; \
+        while(__i >= 0) \
         { \
-          _x = buf[j]; \
-          buf[i] = buf[j]; \
-          buf[j] = _x; \
-          i--; \
-          j++; \
+          ___x = __buf[__j]; \
+          __buf[__i] = __buf[__j]; \
+          __buf[__j] = ___x; \
+          __i--; \
+          __j++; \
         } \
     })
 #endif
@@ -648,11 +648,11 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, double* deviation, doubl
 * \param len the length of the first input stream.
 */
 #ifndef dsp_buffer_copy
-#define dsp_buffer_copy(in, out, len) \
+#define dsp_buffer_copy(__in, __out, __len) \
     ({ \
-        int k; \
-        for(k = 0; k < len; k++) { \
-        ((__typeof__ (out[0])*)out)[k] = (__typeof__ (out[0]))((__typeof__ (in[0])*)in)[k]; \
+        int __k; \
+        for(__k = 0; __k < __len; __k++) { \
+        ((__typeof__ (__out[0])*)__out)[__k] = (__typeof__ (__out[0]))((__typeof__ (__in[0])*)__in)[__k]; \
         } \
     })
 #endif

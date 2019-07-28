@@ -86,7 +86,7 @@ static void* correlate_astro(void* arg)
     double st = vlbi_time_timespec_to_J2000time(s->starttimeutc);
     double et = st + s->len * tao;
     for(double time = st; time < et; time += tao) {
-        fprintf(stderr, "\r%.3f%%", (time-st)*100.0/(et-st-tao));
+        fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
         double *uvcoords = b->getUVCoords(time);
         if(uvcoords == NULL)
             continue;
@@ -112,7 +112,7 @@ static void* correlate_moving_baseline(void* arg)
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     for(double i = 0; i < s->len; i++) {
-        fprintf(stderr, "\r%.3f%%", i*100.0/(s->len-1));
+        fprintf(stderr, "\r%.3f%%   ", i*100.0/(s->len-1));
         double *uvcoords = b->getUVCoords(i);
         if(uvcoords == NULL)
             continue;
