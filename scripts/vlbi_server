@@ -1,48 +1,50 @@
 #!/bin/bash
 
 fifo=/tmp/openvlbi.fifo
-out=/tmp/openvlbi.log
+log=/tmp/openvlbi.log
 [ -n "$VLBI_FIFO_FILE" ] && fifo=$VLBI_FIFO_FILE
 pidfile=/tmp/vlbi_server.pid
 lockfile=/tmp/vlbi_server.lock
-ret=""
 
 start() {
 	[ -e $pidfile ] && return;
         version=$1
 	[ -n "$version" ] || version=dummy
 	mkfifo $fifo 2>/dev/null
-	touch $out 2>/dev/null
-	vlbi_client_$version $lockfile ${@-1} < $fifo > $out &
-	tail -f $out >/dev/null &echo $!>$pidfile
+	touch $log 2>/dev/null
+	sleep 2
+	((vlbi_client_$version $lockfile ${@-2} < $fifo > $log& tail -f $log > /dev/null)&pid=$!
+	while [ -e $pidfile ]; do sleep 1; done; kill -9 $pid)&
 	echo "OpenVLBI started successfully"
 	sleep 2;
 }
 
 stop() {
 	[ -e $pidfile ] || return;
-	fuser -n file -k -9 $fifo 2>/dev/null 1>/dev/null || true;
-	kill -9 < $pidfile 2>/dev/null 1>/dev/null || true;
-	rm -f $pidfile $fifo $out 2>/dev/null
+	rm -f $pidfile $fifo $log 2>/dev/null
 	echo "OpenVLBI stopped successfully"
 	sleep 2;
 }
 
 run_command() {
-	[ -e $pidfile ] || echo "OpenVLBI server not running" && return;
-	cnt=$(( $(wc -c $out | cut -d ' ' -f 1)+1 ))
+	[ -e $pidfile ] || ( echo "OpenVLBI server not running"; return; )
+	cnt=$(wc -c $log|cut -d ' ' -f 1)
 	echo $1 $2 $3 > $fifo
 	sleep 2
 	while [ -e $lockfile ]; do sleep 1; done
-	tail -c+$cnt $out
+	tail -c+$cnt $log
 }
 
 case "$1" in
-	start|stop)
+	start)
+		$@ | printf - >> $pidfile
+		exit 0
+		;;
+	stop)
 		$@
 		exit 0
 		;;
-	add|del|set|get|set)
+	add|del|set|get)
 		run_command $@
 		exit 0
 		;;

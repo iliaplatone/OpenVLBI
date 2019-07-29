@@ -32,7 +32,7 @@ public:
     void Remove(VLBIBaseline *element);
     void RemoveAt(int index);
     VLBIBaseline *Get(const char* name);
-    void Remove(const char* element);
+    void RemoveKey(const char* element);
     VLBIBaseline * At(int index);
     bool Contains(VLBIBaseline *element);
     bool ContainsKey(const char *element);

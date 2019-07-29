@@ -23,14 +23,14 @@ while (( $p<$num_nodes )); do
 	set -x -e
 	tmpimg=/tmp/$RANDOM.tmp
 	sudo dd if=/dev/urandom bs=$((8*$sr)) count=$duration 2>/dev/null | base64 > $tmpimg
-	vlbi_server add node node$p,13.003$RANDOM,35.003$(( $RANDOM )),3$(( $RANDOM%10 )).$RANDOM,$tmpimg,2019/07/28-22:27:57.$RANDOM$RANDOM
+	vlbi_server add node node$p,$(( $RANDOM % 1000 )).$RANDOM,$(( $RANDOM % 1000 )).$RANDOM,$(( $RANDOM % 1000 )).$RANDOM,$tmpimg,$( date +%Y/%m/%d-%H:%M:%S ).$RANDOM$RANDOM
 	rm $tmpimg
 	p=$(( $p+1 ))
 done
 
-vlbi_server set target 18.23,38.25
+vlbi_server set target 8.23,38.25
 vlbi_server set resolution $size
-vlbi_server get observation earth_tide_raw_geo
-vlbi_server get observation earth_tide_dft_geo
-vlbi_server stop
+#vlbi_server get observation earth_tide_raw_abs
+#vlbi_server get observation earth_tide_dft_abs
+#vlbi_server stop
 sleep 10

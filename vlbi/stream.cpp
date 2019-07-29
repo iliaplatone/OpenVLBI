@@ -155,7 +155,7 @@ void vlbi_add_stream(void *ctx, dsp_stream_p Stream, char* name) {
 
 void vlbi_del_stream(void *ctx, char* name) {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    nodes->Remove(name);
+    nodes->RemoveKey(name);
 }
 
 dsp_stream_p vlbi_get_uv_plot_earth_tide(vlbi_context ctx, int m, int u, int v, double *target, double freq, double sr)

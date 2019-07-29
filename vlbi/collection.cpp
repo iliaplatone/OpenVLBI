@@ -55,7 +55,7 @@ void VLBICollection::Remove(void* el)
 	Defrag();
 }
 
-void VLBICollection::Remove(const char* name)
+void VLBICollection::RemoveKey(const char* name)
 {
     if(!ContainsKey(name))
 		return;

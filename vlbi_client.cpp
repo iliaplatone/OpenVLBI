@@ -68,117 +68,117 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, plot_type_t type)
 
 void VLBI::Client::Parse(char* cmd, char* arg, char* value)
 {
-        if(!strcmp(cmd, "set")) {
-            if(!strcmp(arg, "context")) {
-                if(contexts->ContainsKey(value)) {
-                    SetContext(contexts->Get(value));
-                }
-            }
-            else if(!strcmp(arg, "resolution")) {
-                char* W = strtok(value, "x");
-                char* H = strtok(NULL, "x");
-                w = (double)strtol(W, NULL, 10);
-                h = (double)strtol(H, NULL, 10);
-            }
-            else if(!strcmp(arg, "target")) {
-                char* ra = strtok(value, ",");
-                char* dec = strtok(NULL, ",");
-                Ra = (double)atof(ra);
-                Dec = (double)atof(dec);
-            }
-            else if(!strcmp(arg, "frequency")) {
-                Freq = (double)atof(value);
-            }
-            else if(!strcmp(arg, "samplerate")) {
-                SampleRate = (double)atof(value);
-            }
-            else if(!strcmp(arg, "bitspersample")) {
-                Bps = (double)atof(value);
-            }
-            else if(!strcmp(arg, "bandwidth")) {
-                Bandwidth = (double)atof(value);
-            }
-            else if(!strcmp(arg, "model")) {
+    if(!strcmp(cmd, "set")) {
+        if(!strcmp(arg, "context")) {
+            if(contexts->ContainsKey(value)) {
+                SetContext(contexts->Get(value));
             }
         }
-        else if(!strcmp(cmd, "del")) {
-            if(!strcmp(arg, "node")) {
-                DelNode(value);
+        else if(!strcmp(arg, "resolution")) {
+            char* W = strtok(value, "x");
+            char* H = strtok(NULL, "x");
+            w = (double)strtol(W, NULL, 10);
+            h = (double)strtol(H, NULL, 10);
+        }
+        else if(!strcmp(arg, "target")) {
+            char* ra = strtok(value, ",");
+            char* dec = strtok(NULL, ",");
+            Ra = (double)atof(ra);
+            Dec = (double)atof(dec);
+        }
+        else if(!strcmp(arg, "frequency")) {
+            Freq = (double)atof(value);
+        }
+        else if(!strcmp(arg, "samplerate")) {
+            SampleRate = (double)atof(value);
+        }
+        else if(!strcmp(arg, "bitspersample")) {
+            Bps = (double)atof(value);
+        }
+        else if(!strcmp(arg, "bandwidth")) {
+            Bandwidth = (double)atof(value);
+        }
+        else if(!strcmp(arg, "model")) {
+        }
+    }
+    else if(!strcmp(cmd, "get")) {
+        if(!strcmp(arg, "observation")) {
+            plot_type_t type = earth_tide_dft_geo;
+            if(!strcmp(value, "earth_tide_raw_geo")) {
+                type = earth_tide_dft_geo;
             }
-            else if(!strcmp(arg, "context")) {
-                contexts->Remove(value);
+            else if(!strcmp(value, "earth_tide_dft_geo")) {
+                type = earth_tide_dft_geo;
             }
-	}
-	else if(!strcmp(cmd, "add")) {
-            if(!strcmp(arg, "context")) {
-                if(!contexts->ContainsKey(value)) {
-                    contexts->Add(vlbi_init(), value);
-                }
+            else if(!strcmp(value, "earth_tide_raw_abs")) {
+                type = earth_tide_raw_abs;
             }
-            else if(!strcmp(arg, "node")) {
-		char name[32];
-		double lat, lon, el;
-		char* k = strtok(value, ",");
-		strcpy(name, k);
-		k = strtok(NULL, ",");
-		lat = (double)atof(k);
-		k = strtok(NULL, ",");
-		lon = (double)atof(k);
-		k = strtok(NULL, ",");
-		el = (double)atof(k);
-		k = strtok(NULL, ",");
-		FILE *tmp = fopen(k, "r");
-		fseek(tmp, 0, SEEK_END);
-		int ilen = ftell(tmp);
-		int olen = ilen*3/4;
-		fseek(tmp, 0, SEEK_SET);
-		char *base64 = (char*)malloc(ilen);
-		double *buf = (double*)malloc(olen);
-		fread(base64, 1, ilen, tmp);
-		fclose(tmp);
-		from64tobits_fast((char*)buf, (char*)base64, ilen);
-		k = strtok(NULL, ",");
-		AddNode(name, lat, lon, el, buf, olen/8, vlbi_time_string_to_utc(k));
+            else if(!strcmp(value, "earth_tide_dft_abs")) {
+                type = earth_tide_dft_abs;
+            }
+            else if(!strcmp(value, "moving_base_raw_geo")) {
+                type = moving_base_raw_geo;
+            }
+            else if(!strcmp(value, "moving_base_dft_geo")) {
+                type = moving_base_dft_geo;
+            }
+            else if(!strcmp(value,  "moving_base_raw_abs")) {
+                type = moving_base_raw_abs;
+            }
+            else if(!strcmp(value, "moving_base_dft_abs")) {
+                type = moving_base_dft_abs;
+            }
+            dsp_stream_p plot = GetPlot(w, h, type);
+            if (plot != NULL) {
+                int olen = plot->len*sizeof(double)*4/3+4;
+                char* base64 = (char*)malloc(olen);
+                to64frombits((unsigned char*)base64, (unsigned char*)plot->buf, plot->len*sizeof(double));
+                fwrite(base64, 1, olen, f);
+                free(base64);
+                dsp_stream_free(plot);
             }
         }
-        else if(!strcmp(cmd, "get")) {
-            if(!strcmp(arg, "observation")) {
-		plot_type_t type = earth_tide_dft_geo;
-                if(!strcmp(value, "earth_tide_raw_geo")) {
-                    type = earth_tide_dft_geo;
-                }
-                else if(!strcmp(value, "earth_tide_dft_geo")) {
-                    type = earth_tide_dft_geo;
-                }
-                else if(!strcmp(value, "earth_tide_raw_abs")) {
-                    type = earth_tide_raw_abs;
-                }
-                else if(!strcmp(value, "earth_tide_dft_abs")) {
-                    type = earth_tide_dft_abs;
-                }
-                else if(!strcmp(value, "moving_base_raw_geo")) {
-                    type = moving_base_raw_geo;
-                }
-                else if(!strcmp(value, "moving_base_dft_geo")) {
-                    type = moving_base_dft_geo;
-                }
-                else if(!strcmp(value,  "moving_base_raw_abs")) {
-                    type = moving_base_raw_abs;
-                }
-                else if(!strcmp(value, "moving_base_dft_abs")) {
-                    type = moving_base_dft_abs;
-                }
-                dsp_stream_p plot = GetPlot(w, h, type);
-                if (plot != NULL) {
-                    int olen = plot->len*sizeof(double)*4/3+4;
-                    char* base64 = (char*)malloc(olen);
-                    to64frombits((unsigned char*)base64, (unsigned char*)plot->buf, plot->len*sizeof(double));
-                    fwrite(base64, 1, olen, f);
-                    free(base64);
-                    dsp_stream_free(plot);
-                }
+    }
+    else if(!strcmp(cmd, "add")) {
+        if(!strcmp(arg, "context")) {
+            if(!contexts->ContainsKey(value)) {
+                contexts->Add(vlbi_init(), value);
             }
         }
+        else if(!strcmp(arg, "node")) {
+            char name[32];
+            double lat, lon, el;
+            char* k = strtok(value, ",");
+            strcpy(name, k);
+            k = strtok(NULL, ",");
+            lat = (double)atof(k);
+            k = strtok(NULL, ",");
+            lon = (double)atof(k);
+            k = strtok(NULL, ",");
+            el = (double)atof(k);
+            k = strtok(NULL, ",");
+            FILE *tmp = fopen(k, "r");
+            fseek(tmp, 0, SEEK_END);
+            int ilen = ftell(tmp);
+            int olen = ilen*3/4;
+            fseek(tmp, 0, SEEK_SET);
+            char *base64 = (char*)malloc(ilen);
+            double *buf = (double*)malloc(olen);
+            fread(base64, 1, ilen, tmp);
+            fclose(tmp);
+            from64tobits_fast((char*)buf, (char*)base64, ilen);
+            k = strtok(NULL, ",");
+            AddNode(name, lat, lon, el, buf, olen/8, vlbi_time_string_to_utc(k));
+        }
+    }
+/*    else if(!strcmp(cmd, "del")) {
+        if(!strcmp(arg, "node")) {
+            DelNode(value);
+        }
+        else if(!strcmp(arg, "context")) {
+            contexts->RemoveKey(value);
+        }
+    }*/
 }
 
 extern VLBI::Client *client;
