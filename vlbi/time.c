@@ -79,24 +79,25 @@ timespec_t vlbi_time_J2000time_to_timespec(double secs)
     j2000_tm.tm_yday = 0;
     j2000_tm.tm_isdst = 0;
     j2000 = mktime(&j2000_tm);
-    ret.tv_sec = secs + j2000;
-    ret.tv_nsec = ((long)(secs * 1000000000.0)) % 1000000000;
+    secs = secs + j2000;
+    ret.tv_sec = secs;
+    ret.tv_nsec = ((long)(secs  * 1000000000.0)) % 1000000000;
     return ret;
 }
 
 timespec_t vlbi_time_string_to_utc(char *time)
 {
 	char* k = strtok(time, "/");
-        double Y = (double)atof(k);
+        int Y = (int)strtol(k, NULL, 10);
         k = strtok(NULL, "/");
-        double M = (double)atof(k);
+        int M = (int)strtol(k, NULL, 10);
         k = strtok(NULL, "/");
-        double D = (double)atof(k);
+        int D = (int)strtol(k, NULL, 10);
 
-        k = strtok(time+11, ":");
-        double H = (double)atof(k);
+        k = strtok(time+12, ":");
+        int H = (int)strtol(k, NULL, 10);
         k = strtok(NULL, ":");
-        double m = (double)atof(k);
+        int m = (int)strtol(k, NULL, 10);
         k = strtok(NULL, ":");
         double s = (double)atof(k);
         return vlbi_time_mktimespec(Y, M, D, H, m, floor(s), (s-floor(s))*100000000.0);

@@ -76,7 +76,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned lo
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;
-	node->starttimeutc = starttime;
+	memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
 	vlbi_add_stream(context, node, name);
 }
 

@@ -23,15 +23,9 @@ VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m)
     Stream = dsp_stream_new();
     Stream->arg = calloc(150, 1);
     sprintf((char*)Stream->arg, "%s_%s", (char*)node1->arg, (char*)node2->arg);
-    if(!m)
-        baseline_m = vlbi_calc_baseline_m(node1->location, node2->location);
-    else
-        baseline_m = vlbi_calc_baseline_m_xyz(node1->location, node2->location);
-    baseline_center = vlbi_calc_baseline_center(node1->location, node2->location);
-    baseline_rad = vlbi_calc_baseline_rad(node1->location, node2->location);
     double starttime1 = vlbi_time_timespec_to_J2000time(node1->starttimeutc);
     double starttime2 = vlbi_time_timespec_to_J2000time(node2->starttimeutc);
-    starttime = vlbi_time_J2000time_to_lst(Max(starttime1, starttime2), baseline_center[1]);
+    starttime = Max(starttime1, starttime2);
     Stream->starttimeutc = vlbi_time_J2000time_to_timespec(starttime);
     Stream->len = Max(node1->len, node2->len);
     timediff = 0;
@@ -44,6 +38,12 @@ VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m)
         second = node1;
         timediff = starttime1 - starttime2;
     }
+    if(!m)
+        baseline_m = vlbi_calc_baseline_m(node1->location, node2->location);
+    else
+        baseline_m = vlbi_calc_baseline_m_xyz(node1->location, node2->location);
+    baseline_center = vlbi_calc_baseline_center(node1->location, node2->location);
+    baseline_rad = vlbi_calc_baseline_rad(node1->location, node2->location);
     Name = (char*)Stream->arg;
 }
 
@@ -74,9 +74,9 @@ double VLBIBaseline::getUVSize()
     return res;
 }
 
-double *VLBIBaseline::getUVCoords(double lst)
+double *VLBIBaseline::getUVCoords(double J2000_Offset_Time)
 {
-    double ha = lst - starttime;
+    double ha = J2000_Offset_Time - starttime;
     ha *= SIDEREAL_DAY / SOLAR_DAY;
     ha *= PI * 2 / SIDEREAL_DAY;
     ha += HA;
@@ -84,7 +84,6 @@ double *VLBIBaseline::getUVCoords(double lst)
         ha += 2 * PI;
     while(ha >= 2 * PI)
         ha -= 2 * PI;
-    fprintf(stderr, "\nHA: %.03lf\n", ha);
     if(ha <= (PI / 2) || ha >= (PI * 3 / 2))
         return NULL;
     double dec = Stream->target[1];
@@ -97,7 +96,7 @@ double *VLBIBaseline::getUVCoords()
     return vlbi_get_uv_coords(baseline_m, Stream->lambda);
 }
 
-double *VLBIBaseline::getUVCoordsVector(int index)
+double *VLBIBaseline::getUVCoords(int index)
 {
     return vlbi_get_uv_coords_vector(baseline_m, Stream->lambda, (double*)(&Stream->target[index * 3]));
 }
