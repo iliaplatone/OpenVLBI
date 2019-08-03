@@ -2,7 +2,7 @@
 version=1.5.0
 sudo add-apt-repository ppa:~mutlaqja -y
 sudo apt-get -qq update
-sudo apt-get install indi-full libnova-dev libindi-dev libpthread-stubs0-dev libcfitsio-dev zlib1g-dev cmake dpkg-dev imagemagick libfftw3-dev
+sudo apt-get install -y --force-yes indi-full libnova-dev libindi-dev libpthread-stubs0-dev libcfitsio-dev zlib1g-dev cmake dpkg-dev imagemagick libfftw3-dev
 
 mkdir -p build
 pushd build

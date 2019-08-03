@@ -1,55 +1,37 @@
 #!/bin/bash
 
-fifo=/tmp/openvlbi.fifo
-log=/tmp/openvlbi.log
-[ -n "$VLBI_FIFO_FILE" ] && fifo=$VLBI_FIFO_FILE
-pidfile=/tmp/vlbi_server.pid
+script=/tmp/vlbi_default
+[ -n "$VLBI_script_FILE" ] && script=$VLBI_script_FILE
 lockfile=/tmp/vlbi_server.lock
 
-start() {
-	[ -e $pidfile ] && return;
-        version=$1
-	[ -n "$version" ] || version=dummy
-	mkfifo $fifo 2>/dev/null
-	touch $log 2>/dev/null
-	sleep 2
-	((vlbi_client_$version $lockfile ${@-2} < $fifo > $log& tail -f $log > /dev/null)&pid=$!
-	while [ -e $pidfile ]; do sleep 1; done; kill -9 $pid)&
-	echo "OpenVLBI started successfully"
-	sleep 2;
-}
-
-stop() {
-	[ -e $pidfile ] || return;
-	rm -f $pidfile $fifo $log 2>/dev/null
-	echo "OpenVLBI stopped successfully"
-	sleep 2;
-}
-
-run_command() {
-	[ -e $pidfile ] || ( echo "OpenVLBI server not running"; return; )
-	cnt=$(wc -c $log|cut -d ' ' -f 1)
-	echo $1 $2 $3 > $fifo
-	sleep 2
-	while [ -e $lockfile ]; do sleep 1; done
-	tail -c+$cnt $log
+run_script() {
+	cat ([ -n $1 ] && $1 || $script) | vlbi_client_([ -n $2 ] && $2 || dummy) $lockfile
 }
 
 case "$1" in
-	start)
-		$@ | printf - >> $pidfile
-		exit 0
-		;;
-	stop)
-		$@
-		exit 0
+	exec)
+		run_script $@
+		exit $?
 		;;
 	add|del|set|get)
-		run_command $@
+		echo $@ >> $script
 		exit 0
 		;;
+	script)
+		case "$2" in
+		add)
+			touch $3
+			;;
+		del)
+			rm $3
+			;;
+		set)
+			script=$3
+			;;
+		*)
+			;;
 	*)
-		echo "usage $0 [start|stop|restart|set|get|add|del [arg [value ...]]";
+		echo "usage $0 [exec|set|get|add|del|script [arg [value ...]]";
 		exit -22
 		;;
 esac

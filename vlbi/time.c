@@ -92,6 +92,7 @@ timespec_t vlbi_time_string_to_utc(char *time)
         double M = (double)atof(k);
         k = strtok(NULL, "/");
         double D = (double)atof(k);
+
         k = strtok(time+11, ":");
         double H = (double)atof(k);
         k = strtok(NULL, ":");

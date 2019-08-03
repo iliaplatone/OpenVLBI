@@ -99,6 +99,7 @@ static void* correlate_astro(void* arg)
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
             double c = b->Correlate(time);
+            parent->buf[idx] += c;
             parent->buf[parent->len - idx - 1] += c;
         }
     }

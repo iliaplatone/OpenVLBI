@@ -28,7 +28,7 @@ class BaselineCollection : public VLBICollection
 public:
     BaselineCollection(NodeCollection *nodes, bool m = false, double u = 128.0, double v = 128.0);
     ~BaselineCollection();
-    void Add(VLBIBaseline *element, const char *name = "");
+    void Add(VLBIBaseline *element);
     void Remove(VLBIBaseline *element);
     void RemoveAt(int index);
     VLBIBaseline *Get(const char* name);

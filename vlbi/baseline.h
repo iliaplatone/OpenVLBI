@@ -35,7 +35,7 @@ public:
     double getUVSize();
     double *getUVCoords(double timeoffset);
     double *getUVCoords();
-    double *getUVCoords(int index);
+    double *getUVCoordsVector(int index);
     double *getProjection(double timeoffset);
     double *getBaselineM();
     double *getBaselineCenter();

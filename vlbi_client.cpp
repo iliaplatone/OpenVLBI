@@ -1,7 +1,7 @@
 #include "vlbi_client.h"
 
 static int is_running = 1;
-char lockfile[150];
+char lockfile[150] = "/tmp/openvlbi.lock";
 
 VLBI::Client::Client()
 {
@@ -28,18 +28,81 @@ VLBI::Client::~Client()
     }
 }
 
-void VLBI::Client::AddNode(char *name, double lat, double lon, double el, double *buf, int len, timespec starttime)
+void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned char *buf, int len, timespec starttime)
 {
 	dsp_stream_p node = dsp_stream_new();
-	node->location[0] = lat;
-	node->location[1] = lon;
-	node->location[2] = el;
-	node->location[2] = vlbi_calc_elevation_coarse(node->location[2], node->location[0]);
-	node->target[0] = Ra;
-	node->target[1] = Dec;
-	node->starttimeutc = starttime;
 	dsp_stream_add_dim(node, len);
-	dsp_stream_set_buffer(node, (void*)(buf), len);
+	dsp_stream_alloc_buffer(node, len);
+	dsp_buffer_copy(buf, node->buf, len);
+	node->location[0] = x;
+	node->location[1] = y;
+	node->location[2] = z;
+	node->starttimeutc = starttime;
+	vlbi_add_stream(context, node, name);
+}
+
+void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned short int *buf, int len, timespec starttime)
+{
+	dsp_stream_p node = dsp_stream_new();
+	dsp_stream_add_dim(node, len);
+	dsp_stream_alloc_buffer(node, len);
+	dsp_buffer_copy(buf, node->buf, len);
+	node->location[0] = x;
+	node->location[1] = y;
+	node->location[2] = z;
+	node->starttimeutc = starttime;
+	vlbi_add_stream(context, node, name);
+}
+
+void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned int *buf, int len, timespec starttime)
+{
+	dsp_stream_p node = dsp_stream_new();
+	dsp_stream_add_dim(node, len);
+	dsp_stream_alloc_buffer(node, len);
+	dsp_buffer_copy(buf, node->buf, len);
+	node->location[0] = x;
+	node->location[1] = y;
+	node->location[2] = z;
+	node->starttimeutc = starttime;
+	vlbi_add_stream(context, node, name);
+}
+
+void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned long int *buf, int len, timespec starttime)
+{
+	dsp_stream_p node = dsp_stream_new();
+	dsp_stream_add_dim(node, len);
+	dsp_stream_alloc_buffer(node, len);
+	dsp_buffer_copy(buf, node->buf, len);
+	node->location[0] = x;
+	node->location[1] = y;
+	node->location[2] = z;
+	node->starttimeutc = starttime;
+	vlbi_add_stream(context, node, name);
+}
+
+void VLBI::Client::AddNode(char *name, double x, double y, double z, float *buf, int len, timespec starttime)
+{
+	dsp_stream_p node = dsp_stream_new();
+	dsp_stream_add_dim(node, len);
+	dsp_stream_alloc_buffer(node, len);
+	dsp_buffer_copy(buf, node->buf, len);
+	node->location[0] = x;
+	node->location[1] = y;
+	node->location[2] = z;
+	node->starttimeutc = starttime;
+	vlbi_add_stream(context, node, name);
+}
+
+void VLBI::Client::AddNode(char *name, double x, double y, double z, double *buf, int len, timespec starttime)
+{
+	dsp_stream_p node = dsp_stream_new();
+	dsp_stream_add_dim(node, len);
+	dsp_stream_alloc_buffer(node, len);
+	dsp_buffer_copy(buf, node->buf, len);
+	node->location[0] = x;
+	node->location[1] = y;
+	node->location[2] = z;
+	node->starttimeutc = starttime;
 	vlbi_add_stream(context, node, name);
 }
 
@@ -52,13 +115,13 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, plot_type_t type)
 {
 	dsp_stream_p plot;
 	bool earth_tide = ((type&EARTH_TIDE)==EARTH_TIDE)?true:false;
-	bool geodetic_coords = ((type&GEODETIC_COORDS)==GEODETIC_COORDS)?true:false;
+	bool geocentric_coords = ((type&GEOCENTRIC_COORDS)==GEOCENTRIC_COORDS)?true:false;
 	bool dft = ((type&DFT)==DFT)?true:false;
 	double coords[3] = { Ra, Dec };
 	if(earth_tide) {
-		plot = vlbi_get_uv_plot_earth_tide(context, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
+		plot = vlbi_get_uv_plot_earth_tide(context, (geocentric_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
 	} else {
-		plot = vlbi_get_uv_plot_moving_baseline(context, (geodetic_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
+		plot = vlbi_get_uv_plot_moving_baseline(context, (geocentric_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
 	}
 	if(dft && (plot != NULL)) {
 		plot = vlbi_get_fft_estimate(plot);
@@ -130,9 +193,10 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             }
             dsp_stream_p plot = GetPlot(w, h, type);
             if (plot != NULL) {
-                int olen = plot->len*sizeof(double)*4/3+4;
+                int ilen = plot->len*sizeof(double);
+                int olen = ilen*4/3+4;
                 char* base64 = (char*)malloc(olen);
-                to64frombits((unsigned char*)base64, (unsigned char*)plot->buf, plot->len*sizeof(double));
+                to64frombits((unsigned char*)base64, (unsigned char*)plot->buf, ilen);
                 fwrite(base64, 1, olen, f);
                 free(base64);
                 dsp_stream_free(plot);
@@ -163,22 +227,22 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             int olen = ilen*3/4;
             fseek(tmp, 0, SEEK_SET);
             char *base64 = (char*)malloc(ilen);
-            double *buf = (double*)malloc(olen);
+            unsigned char *buf = (unsigned char*)malloc(olen);
             fread(base64, 1, ilen, tmp);
             fclose(tmp);
             from64tobits_fast((char*)buf, (char*)base64, ilen);
             k = strtok(NULL, ",");
-            AddNode(name, lat, lon, el, buf, olen/8, vlbi_time_string_to_utc(k));
+            AddNode(name, lat, lon, el, buf, olen, vlbi_time_string_to_utc(k));
         }
     }
-/*    else if(!strcmp(cmd, "del")) {
+    else if(!strcmp(cmd, "del")) {
         if(!strcmp(arg, "node")) {
             DelNode(value);
         }
         else if(!strcmp(arg, "context")) {
             contexts->RemoveKey(value);
         }
-    }*/
+    }
 }
 
 extern VLBI::Client *client;
@@ -194,18 +258,14 @@ static void sighandler(int signum)
 int main(int argc, char** argv)
 {
     char cmd[32], arg[32], value[4032];
-    strcpy(lockfile, argv[1]);
     signal(SIGINT, sighandler);
     signal(SIGKILL, sighandler);
     signal(SIGILL, sighandler);
     signal(SIGSTOP, sighandler);
     signal(SIGQUIT, sighandler);
     while (is_running) {
-        if(3 != fscanf(stdin, "%s %s %s", cmd, arg, value)) continue;
-        creat(lockfile, 700);
+        if(3 != fscanf(stdin, "%s %s %s", cmd, arg, value)) { if (!strcmp(cmd, "quit")) is_running=0; continue; }
 	client->Parse(cmd, arg, value);
-	usleep(2000000);
-        unlink(lockfile);
     }
     return 0;
 }
