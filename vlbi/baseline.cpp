@@ -84,7 +84,7 @@ double *VLBIBaseline::getUVCoords(double J2000_Offset_Time)
         ha += 2 * PI;
     while(ha >= 2 * PI)
         ha -= 2 * PI;
-    if(ha <= (PI / 2) || ha >= (PI * 3 / 2))
+    if(ha >= (PI / 2) && ha <= (PI * 3 / 2))
         return NULL;
     double dec = Stream->target[1];
     dec *= PI / 180.0;

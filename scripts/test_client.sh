@@ -26,6 +26,6 @@ done
 echo set target $radec
 echo set resolution $size
 echo get observation earth_tide_raw_geo
-#echo get observation earth_tide_dft_geo
+echo get observation earth_tide_dft_geo
 echo quit
 )
