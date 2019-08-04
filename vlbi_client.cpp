@@ -87,6 +87,7 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type)
 	if((type&DFT) && (plot != NULL)) {
 		plot = vlbi_get_fft_estimate(plot);
 	}
+	dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
 	return plot;
 }
 

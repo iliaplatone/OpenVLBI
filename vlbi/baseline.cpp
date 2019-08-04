@@ -43,6 +43,8 @@ VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m)
         baseline_m = vlbi_calc_baseline_m_xyz(node1->location, node2->location);
     baseline_center = vlbi_calc_baseline_center(node1->location, node2->location);
     baseline_rad = vlbi_calc_baseline_rad(node1->location, node2->location);
+    dsp_buffer_stretch(first->buf, first->len, 0.0, 1.0);
+    dsp_buffer_stretch(second->buf, second->len, 0.0, 1.0);
     Name = (char*)Stream->arg;
 }
 
