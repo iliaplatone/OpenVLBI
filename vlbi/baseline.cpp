@@ -51,8 +51,8 @@ double VLBIBaseline::Correlate(double J2000_Offset_Time)
 {
     double ret = 0;
     double delay = vlbi_calc_baseline_delay(first->location, second->location, Stream->target, J2000_Offset_Time);
-    double idx = (((J2000_Offset_Time - starttime) + timediff + delay) * first->samplerate);
-    for(int x = second->len - idx - 1; x >= idx; x--) {
+    int idx = (int)(first->len - 1 - (((J2000_Offset_Time - starttime) + timediff + delay) * first->samplerate));
+    for(int x = 0; x < second->len; x++) {
         ret += first->buf[idx] * second->buf[x];
     }
     return ret / second->len;
@@ -61,7 +61,8 @@ double VLBIBaseline::Correlate(double J2000_Offset_Time)
 double VLBIBaseline::Correlate(int idx)
 {
     double ret = 0;
-    for(int x = second->len - idx - 1; x >= idx; x--) {
+    idx = first->len - 1 - idx;
+    for(int x = 0; x < second->len; x++) {
         ret += first->buf[idx] * second->buf[x];
     }
     return ret / second->len;
