@@ -160,7 +160,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             SampleRate = (double)atof(value);
         }
         else if(!strcmp(arg, "bitspersample")) {
-            Bps = (double)atof(value);
+            Bps = (int)strtol(value, NULL, 10);
         }
         else if(!strcmp(arg, "bandwidth")) {
             Bandwidth = (double)atof(value);
@@ -241,7 +241,29 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             fclose(tmp);
             from64tobits_fast((char*)buf, (char*)base64, ilen);
             k = strtok(NULL, ",");
-            AddNode(name, lat, lon, el, buf, olen, vlbi_time_string_to_utc(k));
+            switch(Bps) {
+                case 8:
+                    AddNode(name, lat, lon, el, (unsigned char*)buf, olen, vlbi_time_string_to_utc(k));
+                    break;
+                case 16:
+                    AddNode(name, lat, lon, el, (unsigned short int*)buf, olen, vlbi_time_string_to_utc(k));
+                    break;
+                case 32:
+                    AddNode(name, lat, lon, el, (unsigned int*)buf, olen, vlbi_time_string_to_utc(k));
+                    break;
+                case 64:
+                    AddNode(name, lat, lon, el, (unsigned long int*)buf, olen, vlbi_time_string_to_utc(k));
+                    break;
+                case -32:
+                    AddNode(name, lat, lon, el, (float*)buf, olen, vlbi_time_string_to_utc(k));
+                    break;
+                case -64:
+                    AddNode(name, lat, lon, el, (double*)buf, olen, vlbi_time_string_to_utc(k));
+                    break;
+                default:
+                    fprintf(stderr, "No compatible bits per sample value");
+                    break;
+            }
         }
     }
     else if(!strcmp(cmd, "del")) {

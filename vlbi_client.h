@@ -51,7 +51,7 @@ public:
     double Dec;
     double Freq;
     double SampleRate;
-    double Bps;
+    int Bps;
     double Gain;
     double Bandwidth;
     int w;
