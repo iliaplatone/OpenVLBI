@@ -12,16 +12,15 @@ echo add context test
 echo set context test
 echo set frequency $freq
 echo set bandwidth $bw
-echo set bps 8
+echo set bitspersample 8
 echo set samplerate $sr
 
 p=0
 tmpimg=/tmp/node.tmp
-echo '' > $tmpimg
 while [ $duration -gt 0 ]; do
-	scripts/sine.sh 16 triwave | base64 >> $tmpimg
+	scripts/sine.sh 16 triwave
 	duration=$(( $duration-1 ))
-done
+done | base64 > $tmpimg
 while (( $p<$num_nodes )); do
 	echo add node node$p,13.0027$RANDOM,44.0027$RANDOM,100.$RANDOM,$tmpimg,$time
 	p=$(( $p+1 ))
