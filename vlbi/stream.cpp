@@ -81,7 +81,7 @@ static void* fillplane_earth_tide(void* arg)
 {
     VLBIBaseline *b = (VLBIBaseline*)arg;
     dsp_stream_p s = b->getStream();
-    dsp_stream_p parent = dsp_stream_copy((dsp_stream_p)s->parent);
+    dsp_stream_p parent = (dsp_stream_p)s->parent;
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     double tao = 1.0 / parent->samplerate;
@@ -99,13 +99,11 @@ static void* fillplane_earth_tide(void* arg)
         V += v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
-            double c = b->Correlate(time);
+            double c = b->Correlate(st+et-time);
             parent->buf[idx] += c;
             parent->buf[parent->len - idx - 1] += c;
         }
     }
-    dsp_buffer_stretch(parent->buf, parent->len, 0.0, 1.0);
-    dsp_buffer_sum(((dsp_stream_p)s->parent), parent->buf, parent->len);
     return NULL;
 }
 
@@ -128,7 +126,7 @@ static void* fillplane_moving_baseline(void* arg)
         V += v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
-            double c = b->Correlate(i);
+            double c = b->Correlate(s->len-i);
             parent->buf[idx] += c;
             parent->buf[parent->len - idx - 1] += c;
         }
@@ -208,9 +206,9 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u, int v, do
 dsp_stream_p vlbi_get_fft_estimate(dsp_stream_p uv)
 {
     dsp_stream_p fft = dsp_stream_copy(uv);
-    dsp_buffer_stretch(fft->buf, fft->len, 0.0, 1.0);
     dsp_fourier_idft_magnitude(fft);
     dsp_buffer_shift(fft);
+    dsp_buffer_stretch(fft->buf, fft->len, 0.0, 1.0);
     return fft;
 }
 

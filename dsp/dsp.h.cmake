@@ -36,6 +36,7 @@ extern "C" {
 #include <time.h>
 #include <assert.h>
 #include <pthread.h>
+#include <fftw3.h>
 
 
 /**
@@ -96,13 +97,7 @@ typedef struct dsp_point_t
 * \sa dsp_fourier_dft
 * \sa dsp_fourier_complex_to_magnitude
 */
-typedef struct dsp_complex_t
-{
-/// Real part of the complex number
-    double real;
-/// Imaginary part of the complex number
-    double imaginary;
-} dsp_complex;
+typedef fftw_complex dsp_complex;
 
 /**
 * \brief Delimits a region in a single dimension of a buffer

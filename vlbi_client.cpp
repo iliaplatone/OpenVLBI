@@ -82,11 +82,10 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type)
 	} else {
 		plot = vlbi_get_uv_plot_moving_baseline(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
 	}
-	dsp_buffer_stretch(plot->buf, plot->len, 0.0, 1.0);
 	if((type&DFT) && (plot != NULL)) {
 		plot = vlbi_get_fft_estimate(plot);
 	}
-	dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
+	dsp_buffer_stretch(plot->buf, plot->len, -255.0, 255.0);
 	return plot;
 }
 
