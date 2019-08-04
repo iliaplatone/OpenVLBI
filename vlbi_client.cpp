@@ -236,29 +236,29 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             int olen = ilen*3/4;
             fseek(tmp, 0, SEEK_SET);
             char *base64 = (char*)malloc(ilen);
-            unsigned char *buf = (unsigned char*)malloc(olen);
+            void *buf = malloc(olen);
             fread(base64, 1, ilen, tmp);
             fclose(tmp);
             from64tobits_fast((char*)buf, (char*)base64, ilen);
             k = strtok(NULL, ",");
             switch(Bps) {
                 case 8:
-                    AddNode(name, lat, lon, el, (unsigned char*)buf, olen, vlbi_time_string_to_utc(k));
+                    AddNode(name, lat, lon, el, (unsigned char*)buf, olen/sizeof(unsigned char), vlbi_time_string_to_utc(k));
                     break;
                 case 16:
-                    AddNode(name, lat, lon, el, (unsigned short int*)buf, olen, vlbi_time_string_to_utc(k));
+                    AddNode(name, lat, lon, el, (unsigned short int*)buf, olen/sizeof(unsigned short int), vlbi_time_string_to_utc(k));
                     break;
                 case 32:
-                    AddNode(name, lat, lon, el, (unsigned int*)buf, olen, vlbi_time_string_to_utc(k));
+                    AddNode(name, lat, lon, el, (unsigned int*)buf, olen/sizeof(unsigned int), vlbi_time_string_to_utc(k));
                     break;
                 case 64:
-                    AddNode(name, lat, lon, el, (unsigned long int*)buf, olen, vlbi_time_string_to_utc(k));
+                    AddNode(name, lat, lon, el, (unsigned long int*)buf, olen/sizeof(unsigned long int), vlbi_time_string_to_utc(k));
                     break;
                 case -32:
-                    AddNode(name, lat, lon, el, (float*)buf, olen, vlbi_time_string_to_utc(k));
+                    AddNode(name, lat, lon, el, (float*)buf, olen/sizeof(float), vlbi_time_string_to_utc(k));
                     break;
                 case -64:
-                    AddNode(name, lat, lon, el, (double*)buf, olen, vlbi_time_string_to_utc(k));
+                    AddNode(name, lat, lon, el, (double*)buf, olen/sizeof(double), vlbi_time_string_to_utc(k));
                     break;
                 default:
                     fprintf(stderr, "No compatible bits per sample value");
