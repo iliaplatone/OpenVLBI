@@ -17,7 +17,7 @@ echo set samplerate $sr
 
 p=0
 tmpimg=/tmp/$RANDOM.tmp
-sudo dd if=/dev/urandom bs=$sr count=$duration 2>/dev/null | base64 > $tmpimg
+sudo dd if=/dev/urandom bs=$(( 8*$sr )) count=$duration 2>/dev/null | base64 > $tmpimg
 while (( $p<$num_nodes )); do
 	echo add node node$p,13.0027$RANDOM,44.0027$RANDOM,100.$RANDOM,$tmpimg,$time
 	p=$(( $p+1 ))
