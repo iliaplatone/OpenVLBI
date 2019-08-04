@@ -1,7 +1,6 @@
 #include "vlbi_client.h"
 
 static int is_running = 1;
-char lockfile[150] = "/tmp/openvlbi.lock";
 
 VLBI::Client::Client()
 {
@@ -28,83 +27,41 @@ VLBI::Client::~Client()
     }
 }
 
-void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned char *buf, int len, timespec starttime)
+void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, int bytelen, timespec starttime)
 {
 	dsp_stream_p node = dsp_stream_new();
+	int len = bytelen*8/Bps;
 	dsp_stream_add_dim(node, len);
 	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
-	node->location[0] = x;
-	node->location[1] = y;
-	node->location[2] = z;
-	node->starttimeutc = starttime;
-	vlbi_add_stream(context, node, name);
-}
-
-void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned short int *buf, int len, timespec starttime)
-{
-	dsp_stream_p node = dsp_stream_new();
-	dsp_stream_add_dim(node, len);
-	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
-	node->location[0] = x;
-	node->location[1] = y;
-	node->location[2] = z;
-	node->starttimeutc = starttime;
-	vlbi_add_stream(context, node, name);
-}
-
-void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned int *buf, int len, timespec starttime)
-{
-	dsp_stream_p node = dsp_stream_new();
-	dsp_stream_add_dim(node, len);
-	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
-	node->location[0] = x;
-	node->location[1] = y;
-	node->location[2] = z;
-	node->starttimeutc = starttime;
-	vlbi_add_stream(context, node, name);
-}
-
-void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned long int *buf, int len, timespec starttime)
-{
-	dsp_stream_p node = dsp_stream_new();
-	dsp_stream_add_dim(node, len);
-	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
-	node->location[0] = x;
-	node->location[1] = y;
-	node->location[2] = z;
-	memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
-	vlbi_add_stream(context, node, name);
-}
-
-void VLBI::Client::AddNode(char *name, double x, double y, double z, float *buf, int len, timespec starttime)
-{
-	dsp_stream_p node = dsp_stream_new();
-	dsp_stream_add_dim(node, len);
-	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
-	node->location[0] = x;
-	node->location[1] = y;
-	node->location[2] = z;
-	node->starttimeutc = starttime;
-	vlbi_add_stream(context, node, name);
-}
-
-void VLBI::Client::AddNode(char *name, double x, double y, double z, double *buf, int len, timespec starttime)
-{
-	dsp_stream_p node = dsp_stream_new();
-	dsp_stream_add_dim(node, len);
-	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
+	unsigned short int* _bufu16 = (unsigned short int*)buf;
+	unsigned int* _bufu32 = (unsigned int*)buf;
+	unsigned long int* _bufu64 = (unsigned long int*)buf;
+	float* _buff32 = (float*)buf;
+	double* _buff64 = (double*)buf;
+	unsigned char* _bufu8 = (unsigned char*)buf;
+	switch(Bps) {
+		case 16:
+		dsp_buffer_copy(_bufu16, node->buf, len);
+		break;
+		case 32:
+		dsp_buffer_copy(_bufu32, node->buf, len);
+		break;
+		case 64:
+		dsp_buffer_copy(_bufu64, node->buf, len);
+		break;
+		case -32:
+		dsp_buffer_copy(_buff32, node->buf, len);
+		break;
+		case -64:
+		dsp_buffer_copy(_buff64, node->buf, len);
+		break;
+		case 8:
+		dsp_buffer_copy(_bufu8, node->buf, len);
+		break;
+		default:
+		break;
+	}
+	z = vlbi_calc_elevation_coarse(z, x);
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;
@@ -160,7 +117,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             SampleRate = (double)atof(value);
         }
         else if(!strcmp(arg, "bitspersample")) {
-            Bps = (int)strtol(value, NULL, 10);
+            Bps = (int)atof(value);
         }
         else if(!strcmp(arg, "bandwidth")) {
             Bandwidth = (double)atof(value);
@@ -219,7 +176,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             }
         }
         else if(!strcmp(arg, "node")) {
-            char name[32];
+            char name[32], file[150], date[64];
             double lat, lon, el;
             char* k = strtok(value, ",");
             strcpy(name, k);
@@ -230,39 +187,13 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             k = strtok(NULL, ",");
             el = (double)atof(k);
             k = strtok(NULL, ",");
-            FILE *tmp = fopen(k, "r");
-            fseek(tmp, 0, SEEK_END);
-            int ilen = ftell(tmp);
-            int olen = ilen*3/4;
-            fseek(tmp, 0, SEEK_SET);
-            char *base64 = (char*)malloc(ilen);
-            void *buf = malloc(olen);
-            fread(base64, 1, ilen, tmp);
-            fclose(tmp);
-            from64tobits_fast((char*)buf, (char*)base64, ilen);
+            strcpy(file, k);
             k = strtok(NULL, ",");
-            switch(Bps) {
-                case 8:
-                    AddNode(name, lat, lon, el, (unsigned char*)buf, olen/sizeof(unsigned char), vlbi_time_string_to_utc(k));
-                    break;
-                case 16:
-                    AddNode(name, lat, lon, el, (unsigned short int*)buf, olen/sizeof(unsigned short int), vlbi_time_string_to_utc(k));
-                    break;
-                case 32:
-                    AddNode(name, lat, lon, el, (unsigned int*)buf, olen/sizeof(unsigned int), vlbi_time_string_to_utc(k));
-                    break;
-                case 64:
-                    AddNode(name, lat, lon, el, (unsigned long int*)buf, olen/sizeof(unsigned long int), vlbi_time_string_to_utc(k));
-                    break;
-                case -32:
-                    AddNode(name, lat, lon, el, (float*)buf, olen/sizeof(float), vlbi_time_string_to_utc(k));
-                    break;
-                case -64:
-                    AddNode(name, lat, lon, el, (double*)buf, olen/sizeof(double), vlbi_time_string_to_utc(k));
-                    break;
-                default:
-                    fprintf(stderr, "No compatible bits per sample value");
-                    break;
+            strcpy(date, k);
+            void *buf = malloc(1);
+            int len = vlbi_b64readfile(file, buf);
+            if(len > 0) {
+                AddNode(name, lat, lon, el, buf, len, vlbi_time_string_to_utc(date));
             }
         }
     }

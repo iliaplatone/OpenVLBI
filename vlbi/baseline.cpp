@@ -32,12 +32,11 @@ VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m)
     if(starttime1 < starttime2) {
         first = node1;
         second = node2;
-        timediff = starttime2 - starttime1;
     } else {
         first = node2;
         second = node1;
-        timediff = starttime1 - starttime2;
     }
+    timediff = fabs(starttime1 - starttime2);
     if(!m)
         baseline_m = vlbi_calc_baseline_m(node1->location, node2->location);
     else

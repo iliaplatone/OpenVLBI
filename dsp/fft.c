@@ -59,7 +59,7 @@ dsp_complex* dsp_fourier_dft(dsp_stream_p stream)
     dsp_complex* out = calloc(sizeof(dsp_complex), stream->len);
     for(int x = 0; x < stream->len; x++) {
         dft[x].real = stream->buf[x];
-        dft[x].imaginary = stream->buf[x];
+        dft[x].imaginary = 0;
     }
     fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, (fftw_complex*)dft, (fftw_complex*)out, -1, FFTW_ESTIMATE);
     fftw_execute(plan);

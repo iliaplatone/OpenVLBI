@@ -24,6 +24,7 @@
 #include <pthread.h>
 #include <nodecollection.h>
 #include <baselinecollection.h>
+#include <base64.h>
 
 #define MAX_THREADS 8
 #define THREADS_MASK ((1<<MAX_THREADS)-1)
@@ -98,7 +99,7 @@ static void* correlate_astro(void* arg)
         V += v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
-            double c = b->Correlate(et-tao-time);
+            double c = b->Correlate((st+et)-time-tao);
             parent->buf[idx] += c;
             parent->buf[parent->len - idx - 1] += c;
         }
@@ -125,7 +126,7 @@ static void* correlate_moving_baseline(void* arg)
         V += v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
-            double c = b->Correlate(s->len - 1 - i);
+            double c = b->Correlate(s->len-1-i);
             parent->buf[idx] += c;
             parent->buf[parent->len - idx - 1] += c;
         }
@@ -204,7 +205,7 @@ dsp_stream_p vlbi_get_fft_estimate(dsp_stream_p uv)
 {
     dsp_stream_p fft = dsp_stream_copy(uv);
     dsp_buffer_stretch(fft->buf, fft->len, 0.0, 1.0);
-    dsp_fourier_dft_magnitude(fft);
+    dsp_fourier_idft_magnitude(fft);
     dsp_buffer_shift(fft);
     return fft;
 }
@@ -224,4 +225,22 @@ dsp_stream_p vlbi_apply_model(dsp_stream_p uv, dsp_stream_p model)
     dsp_buffer_stretch(fft->buf, fft->len, 0.0, 1.0);
     dsp_fourier_dft_magnitude(fft);
     return fft;
+}
+
+int vlbi_b64readfile(char *file, void* buf)
+{
+    FILE *tmp = fopen(file, "r");
+    if(tmp != NULL) {
+        fseek(tmp, 0, SEEK_END);
+        int ilen = ftell(tmp);
+        int len = ilen*3/4;
+        rewind(tmp);
+        char *base64 = (char*)malloc(ilen);
+        buf = realloc(buf, len);
+        fread(base64, 1, ilen, tmp);
+        fclose(tmp);
+        from64tobits_fast((char*)buf, (char*)base64, ilen);
+        return len;
+    }
+    return -1;
 }
