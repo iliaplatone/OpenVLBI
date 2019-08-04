@@ -98,7 +98,7 @@ static void* correlate_astro(void* arg)
         V += v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
-            double c = b->Correlate(time);
+            double c = b->Correlate(et-tao-time);
             parent->buf[idx] += c;
             parent->buf[parent->len - idx - 1] += c;
         }
@@ -125,7 +125,7 @@ static void* correlate_moving_baseline(void* arg)
         V += v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
-            double c = b->Correlate(i);
+            double c = b->Correlate(s->len - 1 - i);
             parent->buf[idx] += c;
             parent->buf[parent->len - idx - 1] += c;
         }
