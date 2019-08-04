@@ -11,7 +11,6 @@ VLBI::Client::Client()
         SampleRate = 100000000;
         Bps = 8;
         Gain = 1;
-        Bandwidth = 10000;
         w = 128;
         h = 128;
 	contexts = new InstanceCollection();
@@ -65,7 +64,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, 
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;
-	node->starttimeutc = starttime;
+	memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
 	vlbi_add_stream(context, node, name);
 }
 
@@ -119,9 +118,6 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         }
         else if(!strcmp(arg, "bitspersample")) {
             Bps = (int)atof(value);
-        }
-        else if(!strcmp(arg, "bandwidth")) {
-            Bandwidth = (double)atof(value);
         }
         else if(!strcmp(arg, "model")) {
         }

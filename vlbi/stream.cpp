@@ -77,7 +77,7 @@ static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int 
     pthread_create(&t->th, NULL, &vlbi_thread_func, t);
 }
 
-static void* correlate_astro(void* arg)
+static void* fillplane_earth_tide(void* arg)
 {
     VLBIBaseline *b = (VLBIBaseline*)arg;
     dsp_stream_p s = b->getStream();
@@ -109,11 +109,11 @@ static void* correlate_astro(void* arg)
     return NULL;
 }
 
-static void* correlate_moving_baseline(void* arg)
+static void* fillplane_moving_baseline(void* arg)
 {
     VLBIBaseline *b = (VLBIBaseline*)arg;
     dsp_stream_p s = b->getStream();
-    dsp_stream_p parent = dsp_stream_copy((dsp_stream_p)s->parent);
+    dsp_stream_p parent = (dsp_stream_p)s->parent;
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     for(double i = 0; i < s->len; i++) {
@@ -133,8 +133,6 @@ static void* correlate_moving_baseline(void* arg)
             parent->buf[parent->len - idx - 1] += c;
         }
     }
-    dsp_buffer_stretch(parent->buf, parent->len, 0.0, 1.0);
-    dsp_buffer_sum(((dsp_stream_p)s->parent), parent->buf, parent->len);
     return NULL;
 }
 
@@ -178,7 +176,7 @@ dsp_stream_p vlbi_get_uv_plot_earth_tide(vlbi_context ctx, int m, int u, int v, 
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
-        vlbi_start_thread(correlate_astro, b, &parent->child_count, i);
+        vlbi_start_thread(fillplane_earth_tide, b, &parent->child_count, i);
     }
     vlbi_wait_threads(&parent->child_count);
     dsp_buffer_stretch(parent->buf, parent->len, 0.0, 1.0);
@@ -199,7 +197,7 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u, int v, do
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
-        vlbi_start_thread(correlate_moving_baseline, b, &parent->child_count, i);
+        vlbi_start_thread(fillplane_moving_baseline, b, &parent->child_count, i);
     }
     vlbi_wait_threads(&parent->child_count);
     dsp_buffer_stretch(parent->buf, parent->len, 0.0, 1.0);

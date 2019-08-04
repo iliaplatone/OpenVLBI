@@ -318,7 +318,8 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 /*@{*/
 
 /**
-* \brief Gets the minimum value of the input stream
+* \brief Gets the 
+minimum value of the input stream
 * \param buf the input buffer
 * \param len the length in elements of the buffer.
 * \return the minimum value.
@@ -473,7 +474,8 @@ DLL_EXPORT void dsp_buffer_shift(dsp_stream_p stream);
 DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
 
 /**
-* \brief Stretch minimum and maximum values of the input stream
+* \brief 
+Stretch minimum and maximum values of the input stream
 * \param buf the input buffer
 * \param len the length in elements of the buffer.
 * \param min the desired minimum value.

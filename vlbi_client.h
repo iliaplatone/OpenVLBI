@@ -48,7 +48,6 @@ public:
     double SampleRate;
     int Bps;
     double Gain;
-    double Bandwidth;
     int w;
     int h;
 private:

@@ -57,6 +57,7 @@ public:
 private:
     char* Address;
     char* Savedir;
+    double Bandwidth;
     double duration;
     int Port;
 };
