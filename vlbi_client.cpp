@@ -34,6 +34,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned ch
 	dsp_stream_add_dim(node, len);
 	dsp_stream_alloc_buffer(node, len);
 	dsp_buffer_copy(buf, node->buf, len);
+	z = vlbi_calc_elevation_coarse(z, y);
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;
@@ -47,6 +48,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned sh
 	dsp_stream_add_dim(node, len);
 	dsp_stream_alloc_buffer(node, len);
 	dsp_buffer_copy(buf, node->buf, len);
+	z = vlbi_calc_elevation_coarse(z, y);
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;
@@ -60,6 +62,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned in
 	dsp_stream_add_dim(node, len);
 	dsp_stream_alloc_buffer(node, len);
 	dsp_buffer_copy(buf, node->buf, len);
+	z = vlbi_calc_elevation_coarse(z, y);
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;
@@ -73,6 +76,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned lo
 	dsp_stream_add_dim(node, len);
 	dsp_stream_alloc_buffer(node, len);
 	dsp_buffer_copy(buf, node->buf, len);
+	z = vlbi_calc_elevation_coarse(z, y);
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;
@@ -86,6 +90,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, float *buf,
 	dsp_stream_add_dim(node, len);
 	dsp_stream_alloc_buffer(node, len);
 	dsp_buffer_copy(buf, node->buf, len);
+	z = vlbi_calc_elevation_coarse(z, y);
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;
@@ -99,6 +104,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, double *buf
 	dsp_stream_add_dim(node, len);
 	dsp_stream_alloc_buffer(node, len);
 	dsp_buffer_copy(buf, node->buf, len);
+	z = vlbi_calc_elevation_coarse(z, y);
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;
@@ -111,19 +117,17 @@ void VLBI::Client::DelNode(char *name)
 	vlbi_del_stream(context, name);
 }
 
-dsp_stream_p VLBI::Client::GetPlot(int u, int v, plot_type_t type)
+dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type)
 {
 	dsp_stream_p plot;
-	bool earth_tide = ((type&EARTH_TIDE)==EARTH_TIDE)?true:false;
-	bool geocentric_coords = ((type&GEOCENTRIC_COORDS)==GEOCENTRIC_COORDS)?true:false;
-	bool dft = ((type&DFT)==DFT)?true:false;
 	double coords[3] = { Ra, Dec };
-	if(earth_tide) {
-		plot = vlbi_get_uv_plot_earth_tide(context, (geocentric_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
+	if(type&EARTH_TIDE) {
+		plot = vlbi_get_uv_plot_earth_tide(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
 	} else {
-		plot = vlbi_get_uv_plot_moving_baseline(context, (geocentric_coords ? 0 : 1), u, v, coords, Freq, SampleRate);
+		plot = vlbi_get_uv_plot_moving_baseline(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
 	}
-	if(dft && (plot != NULL)) {
+	dsp_buffer_stretch(plot->buf, plot->len, 0.0, 1.0);
+	if((type&DFT) && (plot != NULL)) {
 		plot = vlbi_get_fft_estimate(plot);
 	}
 	return plot;
@@ -166,33 +170,38 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
     }
     else if(!strcmp(cmd, "get")) {
         if(!strcmp(arg, "observation")) {
-            plot_type_t type = earth_tide_dft_geo;
+            int type = 0;
             if(!strcmp(value, "earth_tide_raw_geo")) {
-                type = earth_tide_dft_geo;
+                type |= GEOCENTRIC_COORDS;
+                type |= EARTH_TIDE;
             }
             else if(!strcmp(value, "earth_tide_dft_geo")) {
-                type = earth_tide_dft_geo;
+                type |= GEOCENTRIC_COORDS;
+                type |= DFT;
+                type |= EARTH_TIDE;
             }
             else if(!strcmp(value, "earth_tide_raw_abs")) {
-                type = earth_tide_raw_abs;
+                type |= EARTH_TIDE;
             }
             else if(!strcmp(value, "earth_tide_dft_abs")) {
-                type = earth_tide_dft_abs;
+                type |= DFT;
+                type |= EARTH_TIDE;
             }
             else if(!strcmp(value, "moving_base_raw_geo")) {
-                type = moving_base_raw_geo;
+                type |= GEOCENTRIC_COORDS;
             }
             else if(!strcmp(value, "moving_base_dft_geo")) {
-                type = moving_base_dft_geo;
+                type |= DFT;
+                type |= GEOCENTRIC_COORDS;
             }
             else if(!strcmp(value,  "moving_base_raw_abs")) {
-                type = moving_base_raw_abs;
             }
             else if(!strcmp(value, "moving_base_dft_abs")) {
-                type = moving_base_dft_abs;
+                type |= DFT;
             }
             dsp_stream_p plot = GetPlot(w, h, type);
             if (plot != NULL) {
+                dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
                 int ilen = plot->len*sizeof(double);
                 int olen = ilen*4/3+4;
                 char* base64 = (char*)malloc(olen);

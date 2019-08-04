@@ -18,16 +18,14 @@ namespace VLBI {
 #define GEOCENTRIC_COORDS 2
 #define EARTH_TIDE 4
 
-enum plot_type_t {
-	moving_base_raw_abs=0,
-	moving_base_dft_abs,
-	moving_base_raw_geo,
-	moving_base_dft_geo,
-	earth_tide_raw_abs,
-	earth_tide_dft_abs,
-	earth_tide_raw_geo,
-	earth_tide_dft_geo,
-};
+#define moving_base_raw_abs 0
+#define moving_base_dft_abs (DFT)
+#define moving_base_raw_geo (GEOCENTRIC_COORDS)
+#define moving_base_dft_geo (DFT|GEOCENTRIC_COORDS)
+#define earth_tide_raw_abs (EARTH_TIDE)
+#define earth_tide_dft_abs (EARTH_TIDE|DFT)
+#define earth_tide_raw_geo (EARTH_TIDE|GEOCENTRIC_COORDS)
+#define earth_tide_dft_geo (EARTH_TIDE|DFT|GEOCENTRIC_COORDS)
 
 class Client
 {
@@ -46,7 +44,7 @@ public:
     void AddNode(char *name, double lat, double lon, double el, float *buf, int len, timespec starttime);
     void AddNode(char *name, double lat, double lon, double el, double *buf, int len, timespec starttime);
     void DelNode(char *name);
-    dsp_stream_p GetPlot(int u, int v, plot_type_t type);
+    dsp_stream_p GetPlot(int u, int v, int type);
     void SetFifo(FILE* fifo) { f = fifo; }
 
     double Ra;

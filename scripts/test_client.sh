@@ -16,9 +16,9 @@ echo set bandwidth $bw
 echo set samplerate $sr
 
 p=0
+tmpimg=/tmp/$RANDOM.tmp
+sudo dd if=/dev/urandom bs=$sr count=$duration 2>/dev/null | base64 > $tmpimg
 while (( $p<$num_nodes )); do
-	tmpimg=/tmp/$RANDOM.tmp
-	sudo dd if=/dev/urandom bs=$sr count=$duration 2>/dev/null | base64 > $tmpimg
 	echo add node node$p,13.0027$RANDOM,44.0027$RANDOM,100.$RANDOM,$tmpimg,$time
 	p=$(( $p+1 ))
 done

@@ -36,7 +36,9 @@ BaselineCollection::BaselineCollection(NodeCollection *nodes, bool m, double u, 
         {
             dsp_stream_p node1 = nodes->At(i)->getStream();
             dsp_stream_p node2 = nodes->At(l)->getStream();
-            this->Add(new VLBIBaseline(node1, node2, m));
+            VLBIBaseline *b = new VLBIBaseline(node1, node2, m);
+            b->getStream()->parent = Stream;
+            this->Add(b);
         }
     }
 }
