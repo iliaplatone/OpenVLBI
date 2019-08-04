@@ -35,4 +35,4 @@ install:
     - bash scripts/build.sh 
 
 script:
-    - bash scripts/test_client.sh 128x128 5 7200 8000000000 10000 10 18.46,38.16 2019/09/01-00:11:26.$RANDOM$RANDOM | vlbi_client_dummy 
+    - bash scripts/test_client.sh 128x128 5 3600 8000000000 10000 10 18.46,38.16 2019/09/01-00:11:26.$RANDOM$RANDOM | vlbi_client_dummy 
