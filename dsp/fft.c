@@ -106,3 +106,27 @@ void dsp_fourier_dft_phase(dsp_stream_p stream)
     dsp_buffer_copy(phi, stream->buf, stream->len);
     free(phi);
 }
+
+void dsp_fourier_idft_magnitude(dsp_stream_p stream)
+{
+    dsp_complex* dft = dsp_fourier_idft(stream);
+    double* mag = dsp_fourier_complex_array_get_magnitude(dft, stream->len);
+    free(dft);
+    double mn = dsp_stats_min(mag, stream->len);
+    double mx = dsp_stats_max(mag, stream->len);
+    dsp_buffer_stretch(mag, stream->len, mn, mx);
+    dsp_buffer_copy(mag, stream->buf, stream->len);
+    free(mag);
+}
+
+void dsp_fourier_idft_phase(dsp_stream_p stream)
+{
+    dsp_complex* dft = dsp_fourier_idft(stream);
+    double* phi = dsp_fourier_complex_array_get_phase(dft, stream->len);
+    free(dft);
+    double mn = dsp_stats_min(phi, stream->len);
+    double mx = dsp_stats_max(phi, stream->len);
+    dsp_buffer_stretch(phi, stream->len, mn, mx);
+    dsp_buffer_copy(phi, stream->buf, stream->len);
+    free(phi);
+}

@@ -204,7 +204,7 @@ dsp_stream_p vlbi_get_fft_estimate(dsp_stream_p uv)
 {
     dsp_stream_p fft = dsp_stream_copy(uv);
     dsp_buffer_stretch(fft->buf, fft->len, 0.0, 1.0);
-    dsp_fourier_dft_magnitude(fft);
+    dsp_fourier_idft_magnitude(fft);
     dsp_buffer_shift(fft);
     return fft;
 }
@@ -212,8 +212,8 @@ dsp_stream_p vlbi_get_fft_estimate(dsp_stream_p uv)
 dsp_stream_p vlbi_apply_model(dsp_stream_p uv, dsp_stream_p model)
 {
     dsp_stream_p fft = dsp_stream_copy(uv);
-    dsp_fourier_dft_magnitude(fft);
-    dsp_fourier_dft_magnitude(model);
+    dsp_fourier_idft_magnitude(fft);
+    dsp_fourier_idft_magnitude(model);
     dsp_buffer_shift(model);
     for(int i= 0; i < model->len; i++) {
         if(uv->buf[i] == 0)
@@ -222,6 +222,6 @@ dsp_stream_p vlbi_apply_model(dsp_stream_p uv, dsp_stream_p model)
             fft->buf[i] *= model->buf[i];
     }
     dsp_buffer_stretch(fft->buf, fft->len, 0.0, 1.0);
-    dsp_fourier_dft_magnitude(fft);
+    dsp_fourier_idft_magnitude(fft);
     return fft;
 }

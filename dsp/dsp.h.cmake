@@ -242,6 +242,18 @@ DLL_EXPORT void dsp_fourier_dft_magnitude(dsp_stream_p stream);
 */
 DLL_EXPORT void dsp_fourier_dft_phase(dsp_stream_p stream);
 
+/**
+* \brief Perform a discrete inverse Fourier Transform of a dsp_stream and obtain the complex magnitudes
+* \param stream the input stream.
+*/
+DLL_EXPORT void dsp_fourier_idft_magnitude(dsp_stream_p stream);
+
+/**
+* \brief Perform a discrete inverse Fourier Transform of a dsp_stream and obtain the complex phases
+* \param stream the input stream.
+*/
+DLL_EXPORT void dsp_fourier_idft_phase(dsp_stream_p stream);
+
 /*@}*/
 /**
  * \defgroup dsp_Filters DSP API Linear buffer filtering functions
