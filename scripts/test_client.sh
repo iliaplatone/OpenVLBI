@@ -18,7 +18,7 @@ echo set samplerate $sr
 p=0
 tmpimg=/tmp/node.tmp
 while [ $duration -gt 0 ]; do
-	scripts/sine.sh 16 triwave
+	scripts/sine.sh 127 triwave
 	duration=$(( $duration-1 ))
 done | base64 > $tmpimg
 while (( $p<$num_nodes )); do
