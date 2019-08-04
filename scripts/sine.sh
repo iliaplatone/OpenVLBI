@@ -5,7 +5,7 @@ type=$2
 i=0
 
 while [ $i -lt 256 ]; do
-printf \\x$(
+printf \\$(
 if [ "$type"=="triwave" ]; then
     if [ $i -lt 128 ]; then
         printf "%02X" "$(( $i*${MAX_PWM}/128 ))"
@@ -17,6 +17,6 @@ elif [ "$type"=="sinewave" ]; then
 elif [ "$type"=="quadwave" ]; then
     printf "%02X" $(echo "x = (sqrt(s($i*3.1415/256))*${MAX_PWM})+127; scale = 0; x / 1" | bc -l)
 fi
-)
+)x
 i=$(( $i+1 ))
 done
