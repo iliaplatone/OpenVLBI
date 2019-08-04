@@ -3,12 +3,11 @@
 size=$1
 num_nodes=$2
 freq=$4
-bw=$5
-sr=$6
-radec=$7
-duration=sr*$3/256
-time=$8
-(
+sr=$5
+radec=$6
+duration=$(( $sr*$3/256 ))
+time=$7
+
 echo add context test
 echo set context test
 echo set frequency $freq
@@ -17,10 +16,10 @@ echo set bps 8
 echo set samplerate $sr
 
 p=0
-tmpimg=/tmp/$RANDOM.tmp
+tmpimg=/tmp/node.tmp
 echo '' > $tmpimg
 while [ $duration -gt 0 ]; do
-	scrips/sine.sh 16 triwave | base64 >> $tmpimg
+	scripts/sine.sh 16 triwave | base64 >> $tmpimg
 	duration=$(( $duration-1 ))
 done
 while (( $p<$num_nodes )); do
@@ -32,6 +31,4 @@ rm -f $tmpimg
 echo set target $radec
 echo set resolution $size
 echo get observation earth_tide_raw_geo
-echo get observation earth_tide_dft_geo
 echo quit
-)
