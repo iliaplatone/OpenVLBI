@@ -22,6 +22,7 @@ while (( $p<$num_nodes )); do
 	echo add node node$p,13.0027$RANDOM,44.0027$RANDOM,100.$RANDOM,$tmpimg,$time
 	p=$(( $p+1 ))
 done
+rm -f $tmpimg
 
 echo set target $radec
 echo set resolution $size
