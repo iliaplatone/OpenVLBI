@@ -60,7 +60,7 @@ dsp_complex* dsp_fourier_dft(dsp_stream_p stream)
     fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, (fftw_complex*)dft, (fftw_complex*)out, FFTW_FORWARD, FFTW_ESTIMATE);
     for(int x = 0; x < stream->len; x++) {
         dft[x][0] = stream->buf[x];
-        dft[x][1] = 0;
+        dft[x][1] = stream->buf[x];
     }
     fftw_execute(plan);
     free(plan);
@@ -75,7 +75,7 @@ dsp_complex* dsp_fourier_idft(dsp_stream_p stream)
     fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, (fftw_complex*)dft, (fftw_complex*)out, FFTW_BACKWARD, FFTW_ESTIMATE);
     for(int x = 0; x < stream->len; x++) {
         dft[x][0] = stream->buf[x];
-        dft[x][1] = 0;
+        dft[x][1] = stream->buf[x];
     }
     fftw_execute(plan);
     free(plan);

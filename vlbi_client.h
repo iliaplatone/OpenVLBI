@@ -10,6 +10,7 @@
 #include <sys/ioctl.h>
 #include <signal.h>
 #include <vlbi.h>
+#include <dsp.h>
 #include <vlbi/instancecollection.h>
 
 namespace VLBI {

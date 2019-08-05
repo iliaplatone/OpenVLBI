@@ -185,7 +185,6 @@ void dsp_buffer_pow1(dsp_stream_p stream, double val)
     for(k = 0; k < stream->len; k++) {
         stream->buf[k] = pow(stream->buf[k], val);
     }
-
 }
 
 void dsp_buffer_log1(dsp_stream_p stream, double val)

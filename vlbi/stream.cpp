@@ -177,7 +177,6 @@ dsp_stream_p vlbi_get_uv_plot_earth_tide(vlbi_context ctx, int m, int u, int v, 
         vlbi_start_thread(fillplane_earth_tide, b, &parent->child_count, i);
     }
     vlbi_wait_threads(&parent->child_count);
-    dsp_buffer_stretch(parent->buf, parent->len, 0.0, 1.0);
     fprintf(stderr, "\nearth tide plotting completed\n");
     return parent;
 }
@@ -198,7 +197,6 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u, int v, do
         vlbi_start_thread(fillplane_moving_baseline, b, &parent->child_count, i);
     }
     vlbi_wait_threads(&parent->child_count);
-    dsp_buffer_stretch(parent->buf, parent->len, 0.0, 1.0);
     fprintf(stderr, "\nmoving baselines plotting completed\n");
     return parent;
 }
@@ -206,9 +204,8 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u, int v, do
 dsp_stream_p vlbi_get_fft_estimate(dsp_stream_p uv)
 {
     dsp_stream_p fft = dsp_stream_copy(uv);
-    dsp_fourier_idft_magnitude(fft);
+    dsp_fourier_dft_magnitude(fft);
     dsp_buffer_shift(fft);
-    dsp_buffer_stretch(fft->buf, fft->len, 0.0, 1.0);
     return fft;
 }
 
@@ -224,7 +221,6 @@ dsp_stream_p vlbi_apply_model(dsp_stream_p uv, dsp_stream_p model)
         else
             fft->buf[i] *= model->buf[i];
     }
-    dsp_buffer_stretch(fft->buf, fft->len, 0.0, 1.0);
     dsp_fourier_dft_magnitude(fft);
     return fft;
 }

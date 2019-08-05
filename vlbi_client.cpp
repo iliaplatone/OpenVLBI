@@ -29,7 +29,7 @@ VLBI::Client::~Client()
 void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, int bytelen, timespec starttime)
 {
 	dsp_stream_p node = dsp_stream_new();
-	int len = bytelen*8/Bps;
+	int len = bytelen*8/abs(Bps);
 	dsp_stream_add_dim(node, len);
 	dsp_stream_alloc_buffer(node, len);
 	unsigned short int* _bufu16 = (unsigned short int*)buf;
@@ -85,7 +85,6 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type)
 	if((type&DFT) && (plot != NULL)) {
 		plot = vlbi_get_fft_estimate(plot);
 	}
-	dsp_buffer_stretch(plot->buf, plot->len, -255.0, 255.0);
 	return plot;
 }
 
@@ -155,10 +154,12 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             dsp_stream_p plot = GetPlot(w, h, type);
             if (plot != NULL) {
                 dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
-                int ilen = plot->len*sizeof(double);
+                int ilen = plot->len;
                 int olen = ilen*4/3+4;
+                unsigned char* buf = (unsigned char*)malloc(plot->len);
+                dsp_buffer_copy(plot->buf, buf, plot->len);
                 char* base64 = (char*)malloc(olen);
-                to64frombits((unsigned char*)base64, (unsigned char*)plot->buf, ilen);
+                to64frombits((unsigned char*)base64, (unsigned char*)buf, ilen);
                 fwrite(base64, 1, olen, f);
                 free(base64);
                 dsp_stream_free(plot);
