@@ -97,12 +97,17 @@ static void* fillplane_earth_tide(void* arg)
         free(uvcoords);
         U += u / 2;
         V += v / 2;
-        if(U >= 0 && U < u && V >= 0 && V < v) {
-            int idx = (int)(U + V * u);
-            double c = b->Correlate(st+et-time);
-            parent->buf[idx] += c;
-            parent->buf[parent->len - idx - 1] += c;
+        int idx = (int)(U + V * u);
+        double *c = b->Correlate(st+et-time);
+        int p = 0;
+        for(int x=U; x<u-U-1; ++) {
+            for(int y=V; y<v-V-1; y++) {
+                int ptr = p++*b->second->len/sqrt(x*x+y*y);
+                if(U >= 0 && U < u && V >= 0 && V < v)
+                    parent->buf[x+y*U] = c[ptr];
+            }
         }
+        free(c);
     }
     return NULL;
 }
@@ -126,9 +131,9 @@ static void* fillplane_moving_baseline(void* arg)
         V += v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
-            double c = b->Correlate(s->len-i);
-            parent->buf[idx] += c;
-            parent->buf[parent->len - idx - 1] += c;
+//            double c = b->Correlate(s->len-i);
+  //          parent->buf[idx] += c;
+    //       parent->buf[parent->len - idx - 1] += c;
         }
     }
     return NULL;
