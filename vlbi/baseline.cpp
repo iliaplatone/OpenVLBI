@@ -50,14 +50,23 @@ double VLBIBaseline::Correlate(double J2000_Offset_Time)
 {
     double ret = 0;
     double delay = vlbi_calc_baseline_delay(first->location, second->location, Stream->target, J2000_Offset_Time);
+    int start = timediff + delay * first->samplerate;
     int idx = (int)(((J2000_Offset_Time - starttime) + timediff + delay) * first->samplerate);
-    return first->buf[idx] * second->buf[second->len - idx - 1];
+    for (int x=0; x < second->len; x++) {
+        ret += first->buf[(idx-second->len/2+x+start)%first->len] * second->buf[second->len - x - 1];
+    }
+    return ret;
 }
 
 double VLBIBaseline::Correlate(int idx)
 {
     double ret = 0;
-    return first->buf[idx] * second->buf[second->len - idx - 1];
+    double delay = vlbi_calc_baseline_delay_vector(first->location, second->location, Stream->target);
+    int start = timediff + delay * first->samplerate;
+    for (int x=0; x < second->len; x++) {
+        ret += first->buf[(idx-second->len/2+x+start)%first->len] * second->buf[second->len - x - 1];
+    }
+    return ret;
 }
 
 double VLBIBaseline::getUVSize()
