@@ -82,8 +82,8 @@ static void* fillplane_earth_tide(void* arg)
     VLBIBaseline *b = (VLBIBaseline*)arg;
     dsp_stream_p s = b->getStream();
     dsp_stream_p parent = (dsp_stream_p)s->parent;
-    int u = parent->sizes[0];
-    int v = parent->sizes[1];
+    int u = parent->sizes[0]/2;
+    int v = parent->sizes[1]/2;
     double tao = 1.0 / parent->samplerate;
     double st = vlbi_time_timespec_to_J2000time(s->starttimeutc);
     double et = st + s->len * tao;
@@ -92,19 +92,20 @@ static void* fillplane_earth_tide(void* arg)
         double *uvcoords = b->getUVCoords(time);
         if(uvcoords == NULL)
             continue;
-        int U = (int)uvcoords[0];
-        int V = (int)uvcoords[1];
+        double d = uvcoords[0]/uvcoords[1];
         free(uvcoords);
-        U += u / 2;
-        V += v / 2;
-        int idx = (int)(U + V * u);
-        double *c = b->Correlate(st+et-time);
+        int idx;
+        double *c = b->Correlate(st+et-time, &idx);
+        int startx = u-idx*d;
+        int endx = u+b->second->len-idx*d;
+        int starty = v-idx/d;
+        int endy = v+b->second->len-idx/d;
+        double ratio = b->second->len/sqrt(pow(endx-startx,2)+pow(endy-starty,2));
         int p = 0;
-        for(int x=U; x<u-U-1; x++) {
-            for(int y=V; y<v-V-1; y++) {
-                int ptr = p++*b->second->len/sqrt(x*x+y*y);
-                if(U >= 0 && U < u && V >= 0 && V < v)
-                    parent->buf[x+y*U] = c[ptr];
+        for(int x=startx; x<endx; x++) {
+            for(int y=starty; y<endy; y++) {
+                if(x >= 0 && x < 2*u && y >= 0 && y < 2*v)
+                    parent->buf[x+y*u*2] = c[(int)(p++*ratio)];
             }
         }
         free(c);

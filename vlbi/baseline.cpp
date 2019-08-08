@@ -46,12 +46,12 @@ VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m)
     Name = (char*)Stream->arg;
 }
 
-double *VLBIBaseline::Correlate(double J2000_Offset_Time)
+double *VLBIBaseline::Correlate(double J2000_Offset_Time, int *idx)
 {
-    double* ret = (double*)malloc(second->len);
     double delay = vlbi_calc_baseline_delay(first->location, second->location, Stream->target, J2000_Offset_Time);
     int start = timediff + delay * first->samplerate;
-    J2000_Offset_Time = (int)(((J2000_Offset_Time - starttime) + timediff + delay) * first->samplerate);
+    *idx = (int)(((J2000_Offset_Time - starttime) + timediff + delay) * first->samplerate);
+    double* ret = (double*)malloc(second->len);
     for (int x=0; x < second->len; x++) {
         ret[x] = first->buf[x] * second->buf[second->len - x - 1];
     }
