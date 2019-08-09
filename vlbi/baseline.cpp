@@ -36,6 +36,8 @@ VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m)
         first = node2;
         second = node1;
     }
+    dsp_fourier_dft_magnitude(first);
+    dsp_fourier_dft_magnitude(second);
     timediff = fabs(starttime1 - starttime2);
     if(!m)
         baseline_m = vlbi_calc_baseline_m(node1->location, node2->location);
@@ -46,27 +48,23 @@ VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m)
     Name = (char*)Stream->arg;
 }
 
-double *VLBIBaseline::Correlate(double J2000_Offset_Time, int *idx)
+double *VLBIBaseline::Correlate(double* buf, double J2000_Offset_Time, int *idx)
 {
     double delay = vlbi_calc_baseline_delay(first->location, second->location, Stream->target, J2000_Offset_Time);
-    int start = timediff + delay * first->samplerate;
-    *idx = (int)(((J2000_Offset_Time - starttime) + timediff + delay) * first->samplerate);
-    double* ret = (double*)malloc(second->len);
-    for (int x=0; x < second->len; x++) {
-        ret[x] = first->buf[x] * second->buf[second->len - x - 1];
+    int i = (int)(((J2000_Offset_Time - starttime) + timediff + delay) * first->samplerate);
+    for (int x=0; x < second->len-i; x++) {
+        buf[x] = first->buf[x + i] * second->buf[second->len - x - 1];
     }
-    return ret;
+    *idx = i;
+    return buf;
 }
 
-double VLBIBaseline::Correlate(int idx)
+double *VLBIBaseline::Correlate(double* buf, int idx)
 {
-    double ret = 0;
-    double delay = vlbi_calc_baseline_delay_vector(first->location, second->location, Stream->target);
-    int start = timediff + delay * first->samplerate;
     for (int x=0; x < second->len; x++) {
-        ret += first->buf[(idx-second->len/2+x+start)%first->len] * second->buf[second->len - x - 1];
+        buf[x] = first->buf[x] * second->buf[second->len - x - 1];
     }
-    return ret;
+    return buf;
 }
 
 double VLBIBaseline::getUVSize()
@@ -86,7 +84,7 @@ double *VLBIBaseline::getUVCoords(double J2000_Offset_Time)
         ha += 2 * PI;
     while(ha >= 2 * PI)
         ha -= 2 * PI;
-    if(ha >= (PI / 2) && ha <= (PI * 3 / 2))
+    if(ha < (PI / 2) || ha > (PI * 3 / 2))
         return NULL;
     double dec = Stream->target[1];
     dec *= PI / 180.0;

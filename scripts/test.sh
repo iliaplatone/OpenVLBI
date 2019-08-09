@@ -1,36 +1,29 @@
 #!/bin/bash
 
-(( $#<5 )) && echo "usage: $0 uv_size num_nodes duration freq bw sr" && exit 22
-set -x -e
+num_nodes=$1
+duration=$(( $2*$4 ))
+freq=$3
+sr=$4
+radec=$5
+lat=44
+lon=13
 
-size=$1
-num_nodes=$2
-duration=$3
-freq=$4
-bw=$5
-sr=$6
-
-vlbi_server stop
-vlbi_server start dummy
-vlbi_server add context test
-vlbi_server set context test
-vlbi_server set frequency $freq
-vlbi_server set bandwidth $bw
-vlbi_server set samplerate $sr
-
+echo add context test
+echo set context test
+echo set frequency $freq
+echo set samplerate $sr
+echo set bitspersample 8
+freq=$(echo "(0.0027/($freq*$num_nodes))" | bc -l)
 p=0
 while (( $p<$num_nodes )); do
-	set -x -e
-	tmpimg=/tmp/$RANDOM.tmp
-	sudo dd if=/dev/urandom bs=$((8*$sr)) count=$duration 2>/dev/null | base64 > $tmpimg
-	vlbi_server add node node$p,$(( $RANDOM % 1000 )).$RANDOM,$(( $RANDOM % 1000 )).$RANDOM,$(( $RANDOM % 1000 )).$RANDOM,$tmpimg,$( date +%Y/%m/%d-%H:%M:%S ).$RANDOM$RANDOM
-	rm $tmpimg
+	tmpimg=/tmp/node$p
+	scripts/sine.sh 127 sinewave $duration | base64 > $tmpimg
+	echo add node node1$p,$( echo "($lat-c(2.08132)*$p*0.3333*$freq)" | bc -l ),$( echo "($lon+s(2.08132)*$p*0.3333*$freq)" | bc -l ),100.0,$tmpimg,$( date +%Y/%m/%d-%H:%M:%S )
+	echo add node node2$p,$( echo "($lat-c(2.08132)*$p*0.6666*$freq)" | bc -l ),$( echo "($lon-s(2.08132)*$p*0.6666*$freq)" | bc -l ),100.0,$tmpimg,$( date +%Y/%m/%d-%H:%M:%S )
+	echo add node node3$p,$( echo "($lat+c(0)*$p*0.9999*$freq)" | bc -l ),$( echo "($lon+s(0)*$p*0.9999*$freq)" | bc -l ),100.0,$tmpimg,$( date +%Y/%m/%d-%H:%M:%S )
 	p=$(( $p+1 ))
 done
 
-vlbi_server set target 8.23,38.25
-vlbi_server set resolution $size
-vlbi_server get observation earth_tide_raw_abs
-vlbi_server get observation earth_tide_dft_abs | wc -c
-#vlbi_server stop
-sleep 10
+echo set target $radec
+echo get observation earth_tide_dft_geo
+echo quit

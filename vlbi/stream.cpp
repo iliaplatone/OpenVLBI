@@ -82,34 +82,36 @@ static void* fillplane_earth_tide(void* arg)
     VLBIBaseline *b = (VLBIBaseline*)arg;
     dsp_stream_p s = b->getStream();
     dsp_stream_p parent = (dsp_stream_p)s->parent;
-    int u = parent->sizes[0]/2;
-    int v = parent->sizes[1]/2;
+    int u = parent->sizes[0];
+    int v = parent->sizes[1];
     double tao = 1.0 / parent->samplerate;
     double st = vlbi_time_timespec_to_J2000time(s->starttimeutc);
     double et = st + s->len * tao;
+    double* correlation = (double*)malloc(b->second->len*sizeof(double));
     for(double time = st; time < et; time += tao) {
-        fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
         double *uvcoords = b->getUVCoords(time);
         if(uvcoords == NULL)
             continue;
-        double d = uvcoords[0]/uvcoords[1];
+        double ratio = sqrt(pow(uvcoords[0],2)+pow(uvcoords[1],2));
+        double sx = uvcoords[0];
+        double sy = uvcoords[1];
+        double ex = u-uvcoords[0];
+        double ey = v-uvcoords[1];
         free(uvcoords);
         int idx;
-        double *c = b->Correlate(st+et-time, &idx);
-        int startx = u-idx*d;
-        int endx = u+b->second->len-idx*d;
-        int starty = v-idx/d;
-        int endy = v+b->second->len-idx/d;
-        double ratio = b->second->len/sqrt(pow(endx-startx,2)+pow(endy-starty,2));
-        int p = 0;
-        for(int x=startx; x<endx; x++) {
-            for(int y=starty; y<endy; y++) {
-                if(x >= 0 && x < 2*u && y >= 0 && y < 2*v)
-                    parent->buf[x+y*u*2] = c[(int)(p++*ratio)];
-            }
+        b->Correlate(correlation, time, &idx);
+        if(correlation == NULL)
+            continue;
+        for(int p = 0; p < b->second->len-idx; p++) {
+            double ptr = p*sqrt(pow(ex-sx,2)+pow(ey-sy,2))/(b->second->len-idx);
+            int x = ptr * (ex - sx) / (ey - sy) + sx;
+            int y = ptr * (ey - sy) / (ex - sx) + sy;
+            if(x>=0&&x<u&&y>=0&&y<v)
+                parent->buf[x+y*u] += correlation[p];
         }
-        free(c);
+        fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
     }
+    free(correlation);
     return NULL;
 }
 
@@ -133,8 +135,8 @@ static void* fillplane_moving_baseline(void* arg)
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = (int)(U + V * u);
 //            double c = b->Correlate(s->len-i);
-  //          parent->buf[idx] += c;
-    //       parent->buf[parent->len - idx - 1] += c;
+//            parent->buf[idx] += c;
+//            parent->buf[parent->len - idx - 1] += c;
         }
     }
     return NULL;
