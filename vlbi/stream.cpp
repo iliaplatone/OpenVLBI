@@ -105,8 +105,9 @@ static void* fillplane_aperture_synthesis(void* arg)
             double ptr = p*ratio/len;
             int x = ptr * (ex - sx) / (ey - sy) + u/2;
             int y = ptr * (ey - sy) / (ex - sx) + v/2;
-            if(x>=0&&x<u&&y>=0&&y<v)
-                parent->buf[x+y*u] += correlation[p]*(1.0+fabs(p-(b->second->len-idx)/2));
+            if(x>=0&&x<u&&y>=0&&y<v) {
+                parent->buf[x+y*u] += correlation[p]*pow(len/2-p,3);
+            }
         }
         fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
     }
