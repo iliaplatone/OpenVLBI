@@ -21,21 +21,24 @@
 
 double vlbi_astro_get_local_hour_angle(double Lst, double Ra)
 {
-    return Lst - (Ra * 360.0 / 24.0);
+    double Ha = Ra - Lst;
+    while (Ha < 0)
+        Ha += 24.0;
+    while (Ha >= 24.0)
+        Ha -= 24.0;
+    return Ha;
 }
 
 void vlbi_astro_get_alt_az_coordinates(double Ha, double Dec, double Lat, double* Alt, double *Az)
 {
     double alt, az;
-    Ha *= M_PI / 180.0;
+    Ha *= M_PI / 12.0;
     Dec *= M_PI / 180.0;
     Lat *= M_PI / 180.0;
     alt = asin(sin(Dec) * sin(Lat) + cos(Dec) * cos(Lat) * cos(Ha));
     az = acos((sin(Dec) - sin(alt)*sin(Lat)) / (cos(alt) * cos(Lat)));
-    alt *= 180.0 / M_PI;
-    az *= 180.0 / M_PI;
     if (sin(Ha) >= 0.0)
-        az = 360 - az;
+        az = 2*M_PI - az;
     *Alt = alt;
     *Az = az;
 }

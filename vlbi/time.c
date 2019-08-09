@@ -56,12 +56,13 @@ double vlbi_time_timespec_to_J2000time(timespec_t tp)
 double vlbi_time_J2000time_to_lst(double secs_since_J2000, double Long)
 {
     double Lst = GAMMAJ2000 + 24.0 * secs_since_J2000 / SIDEREAL_DAY;
-    Lst *= 360.0 / 24.0;
+    Lst *= PI / 24.0;
     while (Lst < 0)
-        Lst += 360.0;
-    while (Lst >= 360.0)
-        Lst -= 360.0;
-    return Lst + Long;
+        Lst += PI*2;
+    while (Lst >= PI*2)
+        Lst -= PI*2;
+    Long *= PI / 180.0;
+    return (Lst + Long)*12.0/PI;
 }
 
 timespec_t vlbi_time_J2000time_to_timespec(double secs)

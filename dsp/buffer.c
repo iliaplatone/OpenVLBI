@@ -224,8 +224,29 @@ void dsp_buffer_median(dsp_stream_p stream, int size, int median)
 void dsp_buffer_deviate(dsp_stream_p stream, double* deviation, double mindeviation, double maxdeviation)
 {
     dsp_stream_p tmp = dsp_stream_copy(stream);
-    for(int k = 1; k < stream->len; k++) {
-        stream->buf[(int)Max(0, Min(stream->len, ((deviation[k] - mindeviation) * (maxdeviation - mindeviation) + mindeviation) + k))] = tmp->buf[k];
+    dsp_buffer_stretch(deviation, len, mindeviation, maxdeviation);
+    for(double k = 0, i = 0; k < stream->len; k+=deviation[i++]+1) {
+        stream->buf[(int)i] = tmp->buf[(int)k];
     }
     dsp_stream_free(tmp);
+}
+
+dsp_region dsp_buffer_peak(double* in, int len)
+{
+    double max = in[0];
+    dsp_region ret;
+    for(int i = 1; i < len; i++)
+    {
+        if(in[i] >= max)
+        {
+            ret.start = i;
+            ret.len = 0;
+            while(in[i++] >= max)
+            {
+                max = in[i];
+                ret.len++;
+            }
+        }
+    }
+    return ret;
 }

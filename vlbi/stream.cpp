@@ -83,8 +83,8 @@ static void* fillplane_aperture_synthesis(void* arg)
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     double tao = 1.0 / parent->samplerate;
-    double st = vlbi_time_timespec_to_J2000time(s->starttimeutc);
-    double et = st + s->len * tao;
+    double st = 0;
+    double et = s->len * tao;
     double* correlation = (double*)malloc(b->second->len*sizeof(double));
     for(double time = st; time < et; time += tao) {
         double *uvcoords = b->getUVCoords(time);
@@ -106,7 +106,7 @@ static void* fillplane_aperture_synthesis(void* arg)
             int x = ptr * (ex - sx) / (ey - sy) + u/2;
             int y = ptr * (ey - sy) / (ex - sx) + v/2;
             if(x>=0&&x<u&&y>=0&&y<v) {
-                parent->buf[x+y*u] += correlation[p]*pow(len/2-p,3);
+                parent->buf[x+y*u] = correlation[p];
             }
         }
         fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));

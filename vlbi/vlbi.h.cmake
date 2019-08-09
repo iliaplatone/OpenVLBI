@@ -141,7 +141,7 @@ typedef struct timespec timespec_t;
 #define ROOT2 1.41421356237309504880168872420969807856967187537694
 #endif
 #ifndef GAMMAJ2000
-#define GAMMAJ2000 (double)1.753357767
+#define GAMMAJ2000 (double)6.934166667
 #endif
 #ifndef EULER
 #define EULER (double)2.71828182845904523536028747135266249775724709369995
@@ -315,7 +315,7 @@ DLL_EXPORT double* vlbi_calc_baseline_center(double *loc1, double *loc2);
 * @param wavelength The wavelength observed.
 * @return double* The UV coordinates of the current observation.
 */
-DLL_EXPORT double* vlbi_calc_uv_coords(double ha, double dec, double *baseline, double wavelength);
+DLL_EXPORT double* vlbi_calc_uv_coords(double* coords1, double* coords2, double baseline_m, double wavelength);
 
 /**
 * @brief Return The baseline center in geographic coordinates.
