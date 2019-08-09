@@ -182,6 +182,8 @@ typedef struct timespec timespec_t;
 #ifndef LY
 #define LY (LIGHTSPEED * SOLAR_DAY * 365)
 #endif
+static unsigned long int MAX_THREADS = 48;
+inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) MAX_THREADS = value; return MAX_THREADS; }
 
 /*@}*/
 /**
@@ -227,7 +229,7 @@ DLL_EXPORT void vlbi_del_stream(vlbi_context ctx, char* name);
 * @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
 * @return The libVLBI stream structure containing the Fourier transform of the object observed
 */
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_earth_tide(void *ctx, int m, int u, int v, double *target, double freq, double sr);
+DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(void *ctx, int m, int u, int v, double *target, double freq, double sr);
 
 /**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
@@ -241,6 +243,19 @@ DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_earth_tide(void *ctx, int m, int u, int
 * @return The libVLBI stream structure containing the Fourier transform of the object observed
 */
 DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u, int v, double *target, double freq, double sr);
+
+/**
+* @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
+* @param ctx The libVLBI context
+* @param correlation_func The correlation delegate, you should use the vlbi_func2_t delegate function type for this argument.
+* @param u The U size of the resulting UV plot
+* @param v The V size of the resulting UV plot
+* @param target The target position int Ra/Dec celestial coordinates
+* @param freq The frequency observed. This parameter will scale the plot inverserly.
+* @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
+* @return The libVLBI stream structure containing the Fourier transform of the object observed
+*/
+DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_coverage(void *ctx, int m, int u, int v, double *target, double freq, double sr);
 
 /**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.

@@ -77,8 +77,11 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type)
 {
 	dsp_stream_p plot;
 	double coords[3] = { Ra, Dec };
-	if(type&EARTH_TIDE) {
-		plot = vlbi_get_uv_plot_earth_tide(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
+	if(type&UV_COVERAGE) {
+            return vlbi_get_uv_plot_coverage(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
+        }
+	if(type&APERTURE_SYNTHESIS) {
+		plot = vlbi_get_uv_plot_aperture_synthesis(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
 	} else {
 		plot = vlbi_get_uv_plot_moving_baseline(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
 	}
@@ -123,33 +126,19 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
     else if(!strcmp(cmd, "get")) {
         if(!strcmp(arg, "observation")) {
             int type = 0;
-            if(!strcmp(value, "earth_tide_raw_geo")) {
-                type |= GEOCENTRIC_COORDS;
-                type |= EARTH_TIDE;
+            char *t = strtok(value, "_");
+            if(!strcmp(t, "synthesis")) {
+                type |= APERTURE_SYNTHESIS;
             }
-            else if(!strcmp(value, "earth_tide_dft_geo")) {
-                type |= GEOCENTRIC_COORDS;
+            t = strtok(NULL, "_");
+            if(!strcmp(t, "dft")) {
                 type |= DFT;
-                type |= EARTH_TIDE;
+            } else if(!strcmp(t, "coverage")) {
+                type |= UV_COVERAGE;
             }
-            else if(!strcmp(value, "earth_tide_raw_abs")) {
-                type |= EARTH_TIDE;
-            }
-            else if(!strcmp(value, "earth_tide_dft_abs")) {
-                type |= DFT;
-                type |= EARTH_TIDE;
-            }
-            else if(!strcmp(value, "moving_base_raw_geo")) {
+            t = strtok(NULL, "_");
+            if(!strcmp(t, "geo")) {
                 type |= GEOCENTRIC_COORDS;
-            }
-            else if(!strcmp(value, "moving_base_dft_geo")) {
-                type |= DFT;
-                type |= GEOCENTRIC_COORDS;
-            }
-            else if(!strcmp(value,  "moving_base_raw_abs")) {
-            }
-            else if(!strcmp(value, "moving_base_dft_abs")) {
-                type |= DFT;
             }
             dsp_stream_p plot = GetPlot(w, h, type);
             if (plot != NULL) {
@@ -216,7 +205,17 @@ static void sighandler(int signum)
 
 int main(int argc, char** argv)
 {
-    char cmd[32], arg[32], value[4032];
+    char cmd[32], arg[32], value[4032], opt;
+    while ((opt = getopt(argc, argv, "h:")) != -1) {
+        switch (opt) {
+            case 'h':
+                vlbi_max_threads(atoi(optarg));
+                break;
+            default:
+            fprintf(stderr, "Usage: %s [-h max_threads]\n", argv[0]);
+            exit(EXIT_FAILURE);
+        }
+    }
     signal(SIGINT, sighandler);
     signal(SIGKILL, sighandler);
     signal(SIGILL, sighandler);
@@ -226,5 +225,5 @@ int main(int argc, char** argv)
         if(3 != fscanf(stdin, "%s %s %s", cmd, arg, value)) { if (!strcmp(cmd, "quit")) is_running=0; continue; }
 	client->Parse(cmd, arg, value);
     }
-    return 0;
+    return EXIT_SUCCESS;
 }

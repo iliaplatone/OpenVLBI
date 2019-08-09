@@ -19,10 +19,11 @@
 #ifndef _COLLECTION_H
 #define _COLLECTION_H
 
-#include <vlbi.h>
 #include <cstdio>
 #include <cstdlib>
 #include <cstdint>
+#include <cstring>
+#include <vlbi.h>
 
 struct VLBIElement {
 	long item;

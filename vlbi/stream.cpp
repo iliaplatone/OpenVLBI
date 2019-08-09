@@ -26,15 +26,14 @@
 #include <baselinecollection.h>
 #include <base64.h>
 
-#define MAX_THREADS 8
-#define THREADS_MASK ((1<<MAX_THREADS)-1)
+#define THREADS_MASK ((1<<vlbi_max_threads(0))-1)
 
 static NodeCollection *vlbi_nodes = new NodeCollection();
 
 typedef struct _vlbi_thread_t {
     void *(*__start_routine) (void *);
     void* arg;
-    int m;
+    unsigned long m;
     int* thread_cnt;
     pthread_t th;
 }vlbi_thread_t;
@@ -46,10 +45,9 @@ static void vlbi_wait_threads(int *thread_cnt)
     while(((int)*thread_cnt) > 0) {
         usleep(100000);
 	int nt = 0;
-        for (int t = 0; t < MAX_THREADS; t++)
+        for (int t = 0; t < vlbi_max_threads(0); t++)
 		nt += (((int)*thread_cnt)&(1 << t))>>t;
     }
-    fprintf(stderr, "\n");
 }
 
 static void* vlbi_thread_func(void* arg)
@@ -63,7 +61,7 @@ static void* vlbi_thread_func(void* arg)
 
 static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int *thread_cnt, int n)
 {
-    unsigned short nt = (1<<(n%MAX_THREADS));
+    unsigned long nt = (1<<(n%vlbi_max_threads(0)));
     vlbi_thread_t *t = (vlbi_thread_t *)malloc(sizeof(vlbi_thread_t));
     t->__start_routine = __start_routine;
     t->arg = arg;
@@ -77,7 +75,7 @@ static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int 
     pthread_create(&t->th, NULL, &vlbi_thread_func, t);
 }
 
-static void* fillplane_earth_tide(void* arg)
+static void* fillplane_aperture_synthesis(void* arg)
 {
     VLBIBaseline *b = (VLBIBaseline*)arg;
     dsp_stream_p s = b->getStream();
@@ -92,22 +90,23 @@ static void* fillplane_earth_tide(void* arg)
         double *uvcoords = b->getUVCoords(time);
         if(uvcoords == NULL)
             continue;
-        double ratio = sqrt(pow(uvcoords[0],2)+pow(uvcoords[1],2));
         double sx = uvcoords[0];
         double sy = uvcoords[1];
         double ex = u-uvcoords[0];
         double ey = v-uvcoords[1];
+        double ratio = sqrt(pow(ex-sx,2)+pow(ey-sx,2));
         free(uvcoords);
         int idx;
         b->Correlate(correlation, time, &idx);
         if(correlation == NULL)
             continue;
-        for(int p = 0; p < b->second->len-idx; p++) {
-            double ptr = p*sqrt(pow(ex-sx,2)+pow(ey-sy,2))/(b->second->len-idx);
-            int x = ptr * (ex - sx) / (ey - sy) + sx;
-            int y = ptr * (ey - sy) / (ex - sx) + sy;
+        int len = b->second->len-idx;
+        for(int p = 0; p < len; p++) {
+            double ptr = p*ratio/len;
+            int x = ptr * (ex - sx) / (ey - sy) + u/2;
+            int y = ptr * (ey - sy) / (ex - sx) + v/2;
             if(x>=0&&x<u&&y>=0&&y<v)
-                parent->buf[x+y*u] += correlation[p];
+                parent->buf[x+y*u] += correlation[p]*(1.0+fabs(p-(b->second->len-idx)/2));
         }
         fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
     }
@@ -142,6 +141,35 @@ static void* fillplane_moving_baseline(void* arg)
     return NULL;
 }
 
+static void* fillplane_coverage(void* arg)
+{
+    VLBIBaseline *b = (VLBIBaseline*)arg;
+    dsp_stream_p s = b->getStream();
+    dsp_stream_p parent = (dsp_stream_p)s->parent;
+    int u = parent->sizes[0];
+    int v = parent->sizes[1];
+    double tao = 1.0 / parent->samplerate;
+    double st = vlbi_time_timespec_to_J2000time(s->starttimeutc);
+    double et = st + s->len * tao;
+    double* correlation = (double*)malloc(b->second->len*sizeof(double));
+    for(double time = st; time < et; time += tao) {
+        double *uvcoords = b->getUVCoords(time);
+        if(uvcoords == NULL)
+            continue;
+        int U = (int)uvcoords[0];
+        int V = (int)uvcoords[1];
+        free(uvcoords);
+        U += u / 2;
+        V += v / 2;
+        if(U >= 0 && U < u && V >= 0 && V < v) {
+            int idx = (int)(U + V * u);
+            parent->buf[idx] = 1;
+            parent->buf[parent->len - idx - 1] = 1;
+        }
+    }
+    return NULL;
+}
+
 void* vlbi_init()
 {
     return new NodeCollection();
@@ -168,7 +196,7 @@ void vlbi_del_stream(void *ctx, char* name) {
     nodes->RemoveKey(name);
 }
 
-dsp_stream_p vlbi_get_uv_plot_earth_tide(vlbi_context ctx, int m, int u, int v, double *target, double freq, double sr)
+dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(vlbi_context ctx, int m, int u, int v, double *target, double freq, double sr)
 {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     BaselineCollection *baselines = new BaselineCollection(nodes, m, u, v);
@@ -182,7 +210,7 @@ dsp_stream_p vlbi_get_uv_plot_earth_tide(vlbi_context ctx, int m, int u, int v, 
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
-        vlbi_start_thread(fillplane_earth_tide, b, &parent->child_count, i);
+        vlbi_start_thread(fillplane_aperture_synthesis, b, &parent->child_count, i);
     }
     vlbi_wait_threads(&parent->child_count);
     fprintf(stderr, "\nearth tide plotting completed\n");
@@ -206,6 +234,26 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u, int v, do
     }
     vlbi_wait_threads(&parent->child_count);
     fprintf(stderr, "\nmoving baselines plotting completed\n");
+    return parent;
+}
+
+dsp_stream_p vlbi_get_uv_plot_coverage(void *ctx, int m, int u, int v, double *target, double freq, double sr)
+{
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    BaselineCollection *baselines = new BaselineCollection(nodes, m, u, v);
+    baselines->SetFrequency(freq);
+    baselines->SetSampleRate(sr);
+    baselines->SetTarget(target);
+    dsp_stream_p parent = baselines->getStream();
+    parent->child_count = 0;
+    fprintf(stderr, "%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
+    for(int i = 0; i < baselines->Count; i++)
+    {
+        VLBIBaseline *b = baselines->At(i);
+        vlbi_start_thread(fillplane_coverage, b, &parent->child_count, i);
+    }
+    vlbi_wait_threads(&parent->child_count);
+    fprintf(stderr, "\ncoverage plotting completed\n");
     return parent;
 }
 

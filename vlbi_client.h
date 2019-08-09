@@ -17,16 +17,8 @@ namespace VLBI {
 
 #define DFT 1
 #define GEOCENTRIC_COORDS 2
-#define EARTH_TIDE 4
-
-#define moving_base_raw_abs 0
-#define moving_base_dft_abs (DFT)
-#define moving_base_raw_geo (GEOCENTRIC_COORDS)
-#define moving_base_dft_geo (DFT|GEOCENTRIC_COORDS)
-#define earth_tide_raw_abs (EARTH_TIDE)
-#define earth_tide_dft_abs (EARTH_TIDE|DFT)
-#define earth_tide_raw_geo (EARTH_TIDE|GEOCENTRIC_COORDS)
-#define earth_tide_dft_geo (EARTH_TIDE|DFT|GEOCENTRIC_COORDS)
+#define APERTURE_SYNTHESIS 4
+#define UV_COVERAGE 8
 
 class Client
 {
