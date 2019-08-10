@@ -35,9 +35,8 @@ void VLBINode::setCoordinates(double lat, double lon, double el, bool osl)
     Stream->location[1] = lon;
     Stream->location[2] = el;
     if (osl) {
-        Stream->location[2] = vlbi_calc_elevation_coarse(el, lat);
+        Stream->location[2] = vlbi_estimate_elevation(el, lat);
     }
-    Stream->location = vlbi_calc_location_m(Stream->location);
 }
 
 void VLBINode::setCoordinates(double x, double y, double z)

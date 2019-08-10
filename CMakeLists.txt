@@ -44,15 +44,13 @@ set(vlbi_CXX_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/node.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/baseline.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/stream.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/sync.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/matrix.cpp
     )
 
 set(vlbi_C_SRCS
-    ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/align.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/astro.c
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/time.c
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/base64.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/matrix.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/astro.c
     )
 
 SET(dsp_C_SRC
@@ -64,6 +62,7 @@ SET(dsp_C_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/convolution.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stats.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stream.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/align.c
     )
 
 execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})

@@ -60,7 +60,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, 
 		default:
 		break;
 	}
-	z = vlbi_calc_elevation_coarse(z, x);
+	z = vlbi_estimate_elevation(z, x);
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;

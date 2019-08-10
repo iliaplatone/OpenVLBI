@@ -52,9 +52,9 @@ private:
     vlbi_func2_t dsp_correlation_delegate;
     double *baseline_rad;
     double *baseline_center;
-    double *baseline_m;
+    double *baseline;
     double HA;
-    double timediff;
+    double deltatime;
     double starttime;
     dsp_stream_p Stream;
     char *Name;
