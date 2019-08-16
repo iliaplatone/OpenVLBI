@@ -1,7 +1,6 @@
 #include "vlbi_client.h"
 
 static int is_running = 1;
-char lockfile[150] = "/tmp/openvlbi.lock";
 
 VLBI::Client::Client()
 {
@@ -12,7 +11,6 @@ VLBI::Client::Client()
         SampleRate = 100000000;
         Bps = 8;
         Gain = 1;
-        Bandwidth = 10000;
         w = 128;
         h = 128;
 	contexts = new InstanceCollection();
@@ -28,87 +26,38 @@ VLBI::Client::~Client()
     }
 }
 
-void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned char *buf, int len, timespec starttime)
+void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, int bytelen, timespec starttime)
 {
 	dsp_stream_p node = dsp_stream_new();
+	int len = bytelen*8/abs(Bps);
 	dsp_stream_add_dim(node, len);
 	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
-	node->location[0] = x;
-	node->location[1] = y;
-	node->location[2] = z;
-	node->starttimeutc = starttime;
-	vlbi_add_stream(context, node, name);
-}
-
-void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned short int *buf, int len, timespec starttime)
-{
-	dsp_stream_p node = dsp_stream_new();
-	dsp_stream_add_dim(node, len);
-	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
-	node->location[0] = x;
-	node->location[1] = y;
-	node->location[2] = z;
-	node->starttimeutc = starttime;
-	vlbi_add_stream(context, node, name);
-}
-
-void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned int *buf, int len, timespec starttime)
-{
-	dsp_stream_p node = dsp_stream_new();
-	dsp_stream_add_dim(node, len);
-	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
-	node->location[0] = x;
-	node->location[1] = y;
-	node->location[2] = z;
-	node->starttimeutc = starttime;
-	vlbi_add_stream(context, node, name);
-}
-
-void VLBI::Client::AddNode(char *name, double x, double y, double z, unsigned long int *buf, int len, timespec starttime)
-{
-	dsp_stream_p node = dsp_stream_new();
-	dsp_stream_add_dim(node, len);
-	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
+	switch(Bps) {
+		case 16:
+		dsp_buffer_copy(((unsigned short int*)buf), node->buf, len);
+		break;
+		case 32:
+		dsp_buffer_copy(((unsigned int*)buf), node->buf, len);
+		break;
+		case 64:
+		dsp_buffer_copy(((unsigned long int*)buf), node->buf, len);
+		break;
+		case -32:
+		dsp_buffer_copy(((float*)buf), node->buf, len);
+		break;
+		case -64:
+		dsp_buffer_copy(((double*)buf), node->buf, len);
+		break;
+		case 8:
+		dsp_buffer_copy(((unsigned char*)buf), node->buf, len);
+		break;
+		default:
+		break;
+	}
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;
 	memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
-	vlbi_add_stream(context, node, name);
-}
-
-void VLBI::Client::AddNode(char *name, double x, double y, double z, float *buf, int len, timespec starttime)
-{
-	dsp_stream_p node = dsp_stream_new();
-	dsp_stream_add_dim(node, len);
-	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
-	node->location[0] = x;
-	node->location[1] = y;
-	node->location[2] = z;
-	node->starttimeutc = starttime;
-	vlbi_add_stream(context, node, name);
-}
-
-void VLBI::Client::AddNode(char *name, double x, double y, double z, double *buf, int len, timespec starttime)
-{
-	dsp_stream_p node = dsp_stream_new();
-	dsp_stream_add_dim(node, len);
-	dsp_stream_alloc_buffer(node, len);
-	dsp_buffer_copy(buf, node->buf, len);
-	z = vlbi_calc_elevation_coarse(z, y);
-	node->location[0] = x;
-	node->location[1] = y;
-	node->location[2] = z;
-	node->starttimeutc = starttime;
 	vlbi_add_stream(context, node, name);
 }
 
@@ -121,12 +70,14 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type)
 {
 	dsp_stream_p plot;
 	double coords[3] = { Ra, Dec };
-	if(type&EARTH_TIDE) {
-		plot = vlbi_get_uv_plot_earth_tide(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
+	if(type&UV_COVERAGE) {
+            return vlbi_get_uv_plot_coverage(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
+        }
+	if(type&APERTURE_SYNTHESIS) {
+		plot = vlbi_get_uv_plot_aperture_synthesis(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
 	} else {
 		plot = vlbi_get_uv_plot_moving_baseline(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
 	}
-	dsp_buffer_stretch(plot->buf, plot->len, 0.0, 1.0);
 	if((type&DFT) && (plot != NULL)) {
 		plot = vlbi_get_fft_estimate(plot);
 	}
@@ -144,8 +95,8 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         else if(!strcmp(arg, "resolution")) {
             char* W = strtok(value, "x");
             char* H = strtok(NULL, "x");
-            w = (double)strtol(W, NULL, 10);
-            h = (double)strtol(H, NULL, 10);
+            w = (int)atof(W);
+            h = (int)atof(H);
         }
         else if(!strcmp(arg, "target")) {
             char* ra = strtok(value, ",");
@@ -160,10 +111,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             SampleRate = (double)atof(value);
         }
         else if(!strcmp(arg, "bitspersample")) {
-            Bps = (double)atof(value);
-        }
-        else if(!strcmp(arg, "bandwidth")) {
-            Bandwidth = (double)atof(value);
+            Bps = (int)atof(value);
         }
         else if(!strcmp(arg, "model")) {
         }
@@ -171,41 +119,29 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
     else if(!strcmp(cmd, "get")) {
         if(!strcmp(arg, "observation")) {
             int type = 0;
-            if(!strcmp(value, "earth_tide_raw_geo")) {
-                type |= GEOCENTRIC_COORDS;
-                type |= EARTH_TIDE;
+            char *t = strtok(value, "_");
+            if(!strcmp(t, "synthesis")) {
+                type |= APERTURE_SYNTHESIS;
             }
-            else if(!strcmp(value, "earth_tide_dft_geo")) {
-                type |= GEOCENTRIC_COORDS;
+            t = strtok(NULL, "_");
+            if(!strcmp(t, "dft")) {
                 type |= DFT;
-                type |= EARTH_TIDE;
+            } else if(!strcmp(t, "coverage")) {
+                type |= UV_COVERAGE;
             }
-            else if(!strcmp(value, "earth_tide_raw_abs")) {
-                type |= EARTH_TIDE;
-            }
-            else if(!strcmp(value, "earth_tide_dft_abs")) {
-                type |= DFT;
-                type |= EARTH_TIDE;
-            }
-            else if(!strcmp(value, "moving_base_raw_geo")) {
+            t = strtok(NULL, "_");
+            if(!strcmp(t, "geo")) {
                 type |= GEOCENTRIC_COORDS;
-            }
-            else if(!strcmp(value, "moving_base_dft_geo")) {
-                type |= DFT;
-                type |= GEOCENTRIC_COORDS;
-            }
-            else if(!strcmp(value,  "moving_base_raw_abs")) {
-            }
-            else if(!strcmp(value, "moving_base_dft_abs")) {
-                type |= DFT;
             }
             dsp_stream_p plot = GetPlot(w, h, type);
             if (plot != NULL) {
-                dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
-                int ilen = plot->len*sizeof(double);
+                dsp_buffer_stretch(plot->buf, plot->len, 0.0,255.0);
+                int ilen = plot->len;
                 int olen = ilen*4/3+4;
+                unsigned char* buf = (unsigned char*)malloc(plot->len);
+                dsp_buffer_copy(plot->buf, buf, plot->len);
                 char* base64 = (char*)malloc(olen);
-                to64frombits((unsigned char*)base64, (unsigned char*)plot->buf, ilen);
+                to64frombits((unsigned char*)base64, (unsigned char*)buf, ilen);
                 fwrite(base64, 1, olen, f);
                 free(base64);
                 dsp_stream_free(plot);
@@ -219,7 +155,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             }
         }
         else if(!strcmp(arg, "node")) {
-            char name[32];
+            char name[32], file[150], date[64];
             double lat, lon, el;
             char* k = strtok(value, ",");
             strcpy(name, k);
@@ -230,18 +166,14 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             k = strtok(NULL, ",");
             el = (double)atof(k);
             k = strtok(NULL, ",");
-            FILE *tmp = fopen(k, "r");
-            fseek(tmp, 0, SEEK_END);
-            int ilen = ftell(tmp);
-            int olen = ilen*3/4;
-            fseek(tmp, 0, SEEK_SET);
-            char *base64 = (char*)malloc(ilen);
-            unsigned char *buf = (unsigned char*)malloc(olen);
-            fread(base64, 1, ilen, tmp);
-            fclose(tmp);
-            from64tobits_fast((char*)buf, (char*)base64, ilen);
+            strcpy(file, k);
             k = strtok(NULL, ",");
-            AddNode(name, lat, lon, el, buf, olen, vlbi_time_string_to_utc(k));
+            strcpy(date, k);
+            void *buf = malloc(1);
+            int len = vlbi_b64readfile(file, buf);
+            if(len > 0) {
+                AddNode(name, lat, lon, el, buf, len, vlbi_time_string_to_utc(date));
+            }
         }
     }
     else if(!strcmp(cmd, "del")) {
@@ -266,7 +198,17 @@ static void sighandler(int signum)
 
 int main(int argc, char** argv)
 {
-    char cmd[32], arg[32], value[4032];
+    char cmd[32], arg[32], value[4032], opt;
+    while ((opt = getopt(argc, argv, "h:")) != -1) {
+        switch (opt) {
+            case 'h':
+                vlbi_max_threads((int)atof(optarg));
+                break;
+            default:
+            fprintf(stderr, "Usage: %s [-h max_threads]\n", argv[0]);
+            exit(EXIT_FAILURE);
+        }
+    }
     signal(SIGINT, sighandler);
     signal(SIGKILL, sighandler);
     signal(SIGILL, sighandler);
@@ -276,5 +218,5 @@ int main(int argc, char** argv)
         if(3 != fscanf(stdin, "%s %s %s", cmd, arg, value)) { if (!strcmp(cmd, "quit")) is_running=0; continue; }
 	client->Parse(cmd, arg, value);
     }
-    return 0;
+    return EXIT_SUCCESS;
 }

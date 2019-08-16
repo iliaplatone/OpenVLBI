@@ -22,8 +22,8 @@ double* dsp_stats_histogram(dsp_stream_p stream, int size)
 {
     int k;
     dsp_stream_p o = dsp_stream_copy(stream);
-    double* out = calloc(sizeof(double), size);
-    long* i = calloc(sizeof(long), o->len);
+    double* out = (double*)malloc(sizeof(double) * size);
+    long* i = (long*)malloc(sizeof(long) * o->len);
     dsp_buffer_normalize(o->buf, o->len, 0.0, size);
     dsp_buffer_copy(o->buf, i, o->len);
     dsp_buffer_copy(i, o->buf, o->len);
@@ -32,11 +32,9 @@ double* dsp_stats_histogram(dsp_stream_p stream, int size)
     }
     free(i);
     dsp_stream_free_buffer(o);
+    dsp_stream_set_buffer(o, out, size);
+    dsp_buffer_stretch(o->buf, o->len, 0, size);
     dsp_stream_free(o);
-    dsp_stream_p ret = dsp_stream_new();
-    dsp_stream_set_buffer(ret, out, size);
-    dsp_buffer_stretch(ret->buf, ret->len, 0, size);
-    dsp_stream_free(ret);
     return out;
 }
 

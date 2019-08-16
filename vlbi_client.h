@@ -10,22 +10,15 @@
 #include <sys/ioctl.h>
 #include <signal.h>
 #include <vlbi.h>
+#include <dsp.h>
 #include <vlbi/instancecollection.h>
 
 namespace VLBI {
 
 #define DFT 1
 #define GEOCENTRIC_COORDS 2
-#define EARTH_TIDE 4
-
-#define moving_base_raw_abs 0
-#define moving_base_dft_abs (DFT)
-#define moving_base_raw_geo (GEOCENTRIC_COORDS)
-#define moving_base_dft_geo (DFT|GEOCENTRIC_COORDS)
-#define earth_tide_raw_abs (EARTH_TIDE)
-#define earth_tide_dft_abs (EARTH_TIDE|DFT)
-#define earth_tide_raw_geo (EARTH_TIDE|GEOCENTRIC_COORDS)
-#define earth_tide_dft_geo (EARTH_TIDE|DFT|GEOCENTRIC_COORDS)
+#define APERTURE_SYNTHESIS 4
+#define UV_COVERAGE 8
 
 class Client
 {
@@ -37,12 +30,7 @@ public:
     inline vlbi_context GetContext() { return context; }
     virtual int Init(int argc, char** argv) { return 0; };
     virtual void Parse(char* cmd, char* arg, char* value);
-    void AddNode(char *name, double lat, double lon, double el, unsigned char *buf, int len, timespec starttime);
-    void AddNode(char *name, double lat, double lon, double el, unsigned short int *buf, int len, timespec starttime);
-    void AddNode(char *name, double lat, double lon, double el, unsigned int *buf, int len, timespec starttime);
-    void AddNode(char *name, double lat, double lon, double el, unsigned long int *buf, int len, timespec starttime);
-    void AddNode(char *name, double lat, double lon, double el, float *buf, int len, timespec starttime);
-    void AddNode(char *name, double lat, double lon, double el, double *buf, int len, timespec starttime);
+    void AddNode(char *name, double lat, double lon, double el, void *buf, int len, timespec starttime);
     void DelNode(char *name);
     dsp_stream_p GetPlot(int u, int v, int type);
     void SetFifo(FILE* fifo) { f = fifo; }
@@ -51,9 +39,8 @@ public:
     double Dec;
     double Freq;
     double SampleRate;
-    double Bps;
+    int Bps;
     double Gain;
-    double Bandwidth;
     int w;
     int h;
 private:

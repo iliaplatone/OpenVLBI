@@ -10,7 +10,7 @@ int INDIClient::Init(int argc, char** argv)
 {
     if(argc > 1) {
         Address = argv[1];
-        Port = strtol(argv[2], NULL, 10);
+        Port = atoi(argv[2]);
         setServer(Address, Port);
         connectServer();
     } else {
@@ -101,6 +101,7 @@ void INDIClient::SetBadwidth(double bandwidth)
 {
     if(!isServerConnected())
         return;
+    Bandwidth = bandwidth;
     std::vector<INDI::BaseDevice*> devices;
     getDevices(devices, INDI::BaseDevice::DETECTOR_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
@@ -321,52 +322,62 @@ void INDIClient::serverDisconnected(int exit_code) {
 void INDIClient::Parse(char* cmd, char* arg, char* value)
 {
     if(!strcmp(cmd, "set")) {
-            if(!strcmp(arg, "connection")) {
-                if(!strcmp(value, "on")) {
-                    Connect();
-                }
-                if(!strcmp(value, "off")) {
-                    Disconnect();
-                }
+        if(!strcmp(arg, "connection")) {
+            if(!strcmp(value, "on")) {
+                Connect();
             }
-            else if(!strcmp(arg, "tracking")) {
-                if(!strcmp(value, "on")) {
-                    Tracking(true);
-                }
-                if(!strcmp(value, "off")) {
-                    Tracking(false);
-                }
-            }
-            else if(!strcmp(arg, "parking")) {
-                if(!strcmp(value, "on")) {
-                    Park();
-                }
-                if(!strcmp(value, "off")) {
-                    Unpark();
-                }
-            }
-            else if(!strcmp(arg, "target")) {
-                GoTo(Ra, Dec);
-            }
-            else if(!strcmp(arg, "frequency")) {
-                SetFrequency(Freq);
-            }
-            else if(!strcmp(arg, "samplerate")) {
-                SetSampleRate(SampleRate);
-            }
-            else if(!strcmp(arg, "bitspersample")) {
-                SetBps(Bps);
-            }
-            else if(!strcmp(arg, "gain")) {
-                SetGain(Gain);
-            }
-            else if(!strcmp(arg, "bandwidth")) {
-                SetBadwidth(Bandwidth);
-            }
-            else if(!strcmp(arg, "capture")) {
-                SetCapture(duration);
+            if(!strcmp(value, "off")) {
+                Disconnect();
             }
         }
+        else if(!strcmp(arg, "tracking")) {
+            if(!strcmp(value, "on")) {
+                Tracking(true);
+            }
+            if(!strcmp(value, "off")) {
+                Tracking(false);
+            }
+        }
+        else if(!strcmp(arg, "parking")) {
+            if(!strcmp(value, "on")) {
+                Park();
+            }
+            if(!strcmp(value, "off")) {
+                Unpark();
+            }
+        }
+        else if(!strcmp(arg, "goto")) {
+            char* k = strtok(value, ",");
+            Ra = (double)atof(k);
+            k = strtok(NULL, ",");
+            Dec = (double)atof(k);
+            GoTo(Ra, Dec);
+        }
+        else if(!strcmp(arg, "frequency")) {
+            Freq = (double)atof(value);
+            SetFrequency(Freq);
+        }
+        else if(!strcmp(arg, "samplerate")) {
+            SampleRate = (double)atof(value);
+            SetSampleRate(SampleRate);
+        }
+        else if(!strcmp(arg, "bitspersample")) {
+            Bps = (double)atof(value);
+            SetBps(Bps);
+        }
+        else if(!strcmp(arg, "gain")) {
+            Gain = (double)atof(value);
+            SetGain(Gain);
+        }
+        else if(!strcmp(arg, "bandwidth")) {
+            Bandwidth = (double)atof(value);
+            SetBadwidth(Bandwidth);
+        }
+        else if(!strcmp(arg, "capture")) {
+            duration = (double)atof(value);
+            SetCapture(duration);
+        }
+    }
     VLBI::Client::Parse(cmd, arg, value);
 }
 
