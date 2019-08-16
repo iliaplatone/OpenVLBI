@@ -30,8 +30,8 @@ public:
     VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m=false);
     ~VLBIBaseline();
 
-    double* Correlate(double* buf, double timeoffset, int *idx);
-    double* Correlate(double* buf, int index);
+    double *Correlate(double* buf, double J2000Time, int *idx);
+    double *Correlate(double* buf, int idx);
     double getUVSize();
     double *getUVCoords(double timeoffset);
     double *getUVCoords();

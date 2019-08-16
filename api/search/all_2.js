@@ -6,5 +6,6 @@ var searchData=
   ['circle_5fam',['CIRCLE_AM',['../group___v_l_b_i___defines.html#ga58cbd28a4c4b9df24ef531d42791975c',1,'vlbi.h']]],
   ['circle_5fas',['CIRCLE_AS',['../group___v_l_b_i___defines.html#gadbc058ab0fb8ef81df54795c161b73c1',1,'vlbi.h']]],
   ['circle_5fdeg',['CIRCLE_DEG',['../group___v_l_b_i___defines.html#gaa2d00ecf18c1cfa875267a169acdd9cc',1,'vlbi.h']]],
-  ['cos2sin',['cos2sin',['../group___v_l_b_i___defines.html#ga58f9af438635a2e70be97e316236193f',1,'vlbi.h']]]
+  ['cos2sin',['cos2sin',['../group___v_l_b_i___defines.html#ga58f9af438635a2e70be97e316236193f',1,'vlbi.h']]],
+  ['client_20using_20indi_20libraries',['client using INDI libraries',['../_open_v_l_b_i.html',1,'']]]
 ];

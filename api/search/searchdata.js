@@ -4,10 +4,11 @@ var indexSectionsWithContent =
   1: "d",
   2: "dv",
   3: "dv",
-  4: "abcdfilprst",
+  4: "abcdfilmprst",
   5: "dtv",
   6: "d",
-  7: "dev"
+  7: "dev",
+  8: "bc"
 };
 
 var indexSectionNames =
@@ -19,7 +20,8 @@ var indexSectionNames =
   4: "variables",
   5: "typedefs",
   6: "defines",
-  7: "groups"
+  7: "groups",
+  8: "pages"
 };
 
 var indexSectionLabels =
@@ -31,6 +33,7 @@ var indexSectionLabels =
   4: "Variables",
   5: "Typedefs",
   6: "Macros",
-  7: "Modules"
+  7: "Modules",
+  8: "Pages"
 };
 

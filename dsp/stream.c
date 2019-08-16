@@ -84,7 +84,7 @@ dsp_stream_p dsp_stream_copy(dsp_stream_p stream)
     dsp_stream_alloc_buffer(dest, dest->len);
     dest->lambda = stream->lambda;
     dest->samplerate = stream->samplerate;
-    dest->starttimeutc = stream->starttimeutc;
+    memcpy(&dest->starttimeutc, &stream->starttimeutc, sizeof(struct timespec));
     memcpy(dest->target, stream->target, sizeof(double) * 3);
     memcpy(dest->location, stream->location, sizeof(double) * 3);
     memcpy(dest->buf, stream->buf, sizeof(double) * stream->len);

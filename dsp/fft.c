@@ -60,14 +60,11 @@ dsp_complex* dsp_fourier_dft(dsp_stream_p stream)
         dft[x].imaginary = 0;
     }
     int dim = 0;
-    while (dim++ < stream->dims) {
-        int size = (dim < 1 ? 1 : stream->sizes[dim-1]);
-        for(int i = size; i < stream->len; i+=size) {
-            for(int l = size; l < stream->len; l+=size) {
-                double k = (double)i / stream->len * (double)l / stream->len * M_PI * 2.0;
-                dft[i].real += sin(k) * stream->buf[l];
-                dft[i].imaginary += cos(k) * stream->buf[l];
-            }
+    for(int i = 0; i < stream->len; i++) {
+        for(int l = 0; l < stream->len; l++) {
+            double k = (double)i  * M_PI / stream->len * M_PI;
+            dft[i].real += sin(k) * stream->buf[l];
+            dft[i].imaginary += cos(k) * stream->buf[l];
         }
     }
     return dft;

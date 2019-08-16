@@ -32,35 +32,28 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, 
 	int len = bytelen*8/abs(Bps);
 	dsp_stream_add_dim(node, len);
 	dsp_stream_alloc_buffer(node, len);
-	unsigned short int* _bufu16 = (unsigned short int*)buf;
-	unsigned int* _bufu32 = (unsigned int*)buf;
-	unsigned long int* _bufu64 = (unsigned long int*)buf;
-	float* _buff32 = (float*)buf;
-	double* _buff64 = (double*)buf;
-	unsigned char* _bufu8 = (unsigned char*)buf;
 	switch(Bps) {
 		case 16:
-		dsp_buffer_copy(_bufu16, node->buf, len);
+		dsp_buffer_copy(((unsigned short int*)buf), node->buf, len);
 		break;
 		case 32:
-		dsp_buffer_copy(_bufu32, node->buf, len);
+		dsp_buffer_copy(((unsigned int*)buf), node->buf, len);
 		break;
 		case 64:
-		dsp_buffer_copy(_bufu64, node->buf, len);
+		dsp_buffer_copy(((unsigned long int*)buf), node->buf, len);
 		break;
 		case -32:
-		dsp_buffer_copy(_buff32, node->buf, len);
+		dsp_buffer_copy(((float*)buf), node->buf, len);
 		break;
 		case -64:
-		dsp_buffer_copy(_buff64, node->buf, len);
+		dsp_buffer_copy(((double*)buf), node->buf, len);
 		break;
 		case 8:
-		dsp_buffer_copy(_bufu8, node->buf, len);
+		dsp_buffer_copy(((unsigned char*)buf), node->buf, len);
 		break;
 		default:
 		break;
 	}
-	z = vlbi_estimate_elevation(z, x);
 	node->location[0] = x;
 	node->location[1] = y;
 	node->location[2] = z;
@@ -102,8 +95,8 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         else if(!strcmp(arg, "resolution")) {
             char* W = strtok(value, "x");
             char* H = strtok(NULL, "x");
-            w = (double)strtol(W, NULL, 10);
-            h = (double)strtol(H, NULL, 10);
+            w = (int)atof(W);
+            h = (int)atof(H);
         }
         else if(!strcmp(arg, "target")) {
             char* ra = strtok(value, ",");
@@ -142,7 +135,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             }
             dsp_stream_p plot = GetPlot(w, h, type);
             if (plot != NULL) {
-                dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
+                dsp_buffer_stretch(plot->buf, plot->len, 0.0,255.0);
                 int ilen = plot->len;
                 int olen = ilen*4/3+4;
                 unsigned char* buf = (unsigned char*)malloc(plot->len);
@@ -209,7 +202,7 @@ int main(int argc, char** argv)
     while ((opt = getopt(argc, argv, "h:")) != -1) {
         switch (opt) {
             case 'h':
-                vlbi_max_threads(atoi(optarg));
+                vlbi_max_threads((int)atof(optarg));
                 break;
             default:
             fprintf(stderr, "Usage: %s [-h max_threads]\n", argv[0]);

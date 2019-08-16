@@ -10,7 +10,7 @@ int INDIClient::Init(int argc, char** argv)
 {
     if(argc > 1) {
         Address = argv[1];
-        Port = strtol(argv[2], NULL, 10);
+        Port = atoi(argv[2]);
         setServer(Address, Port);
         connectServer();
     } else {
