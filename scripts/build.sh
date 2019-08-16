@@ -1,5 +1,5 @@
 #!/bin/bash
-version=1.7.0
+version=1.7.0-`lsb_release -s -i -r | tr -d '\n'`
 sudo add-apt-repository ppa:~mutlaqja -y
 sudo apt-get -qq update
 sudo apt-get install -y --force-yes indi-full libnova-dev libindi-dev libpthread-stubs0-dev libcfitsio-dev zlib1g-dev cmake dpkg-dev imagemagick libfftw3-dev

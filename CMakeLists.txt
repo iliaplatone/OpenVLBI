@@ -96,7 +96,3 @@ add_executable(vlbi_client_json ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp ${CM
 target_link_libraries(vlbi_client_json openvlbi)
 install(TARGETS vlbi_client_json RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(WITH_JSON_CLIENT)
-
-if(WITH_INDI_CLIENT OR WITH_DUMMY_CLIENT)
-install(PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/scripts/vlbi_server DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-endif(WITH_INDI_CLIENT OR WITH_DUMMY_CLIENT)
