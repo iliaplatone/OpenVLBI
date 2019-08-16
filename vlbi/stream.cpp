@@ -45,9 +45,9 @@ static void vlbi_wait_threads(int *thread_cnt)
 {
     while(((int)*thread_cnt) > 0) {
         usleep(100000);
-        int nt = 0;
+	int nt = 0;
         for (unsigned long int t = 0; t < vlbi_max_threads(0); t++)
-                nt += (((int)*thread_cnt)&(1 << t))>>t;
+		nt += (((int)*thread_cnt)&(1 << t))>>t;
     }
 }
 
@@ -84,44 +84,6 @@ static void* fillplane_aperture_synthesis(void* arg)
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     double tao = 1.0 / parent->samplerate;
-    double st = vlbi_time_timespec_to_J2000time(s->starttimeutc);
-    double et = st + s->len * tao;
-    double *correlation = (double*)malloc(sizeof(double)*s->len);
-    for(double time = st; time < et; time += tao) {
-        fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
-        double *uvcoords = b->getUVCoords(time);
-        if(uvcoords == NULL)
-            continue;
-        double sx = uvcoords[0] + u/2;
-        double sy = uvcoords[1] + v/2;
-        double ex = -uvcoords[0] + u/2;
-        double ey = -uvcoords[1] + v/2;
-        double ratio = sqrt(pow(ex-sx,2)+pow(ey-sx,2));
-        free(uvcoords);
-        int idx;
-        b->Correlate(correlation, time, &idx);
-        int len = b->first->len-idx;
-        for(int p = 0; p < len; p++) {
-            double ptr = p*ratio/len;
-            int x = ptr * (ex - sx) / (ey - sy) + u/2;
-            int y = ptr * (ey - sy) / (ex - sx) + v/2;
-            if(x>=0 && x<u && y>=0&& y<v) {
-                parent->buf[x+y*u] += correlation[p];
-            }
-        }
-    }
-    free(correlation);
-    return NULL;
-}
-
-static void* fillplane_coverage(void* arg)
-{
-    VLBIBaseline *b = (VLBIBaseline*)arg;
-    dsp_stream_p s = b->getStream();
-    dsp_stream_p parent = (dsp_stream_p)s->parent;
-    int u = parent->sizes[0];
-    int v = parent->sizes[1];
-    double tao = 1.0 / parent->samplerate;
     double st = 0;
     double et = s->len * tao;
     double* correlation = (double*)malloc(b->second->len*sizeof(double));
@@ -135,12 +97,16 @@ static void* fillplane_coverage(void* arg)
         double ey = v-uvcoords[1];
         double ratio = sqrt(pow(ex-sx,2)+pow(ey-sx,2));
         free(uvcoords);
-        U += u / 2;
-        V += v / 2;
-        if(U >= 0 && U < u && V >= 0 && V < v) {
-            int idx = (int)(U + V * u);
-            parent->buf[idx] = 1;
-            parent->buf[parent->len - idx - 1] = 1;
+        int idx;
+        b->Correlate(correlation, time, &idx);
+        int len = b->second->len-idx;
+        for(int p = 0; p < len; p++) {
+            double ptr = p*ratio/len;
+            int x = ptr * (ex - sx) / (ey - sy) + u/2;
+            int y = ptr * (ey - sy) / (ex - sx) + v/2;
+            if(x>=0&&x<u&&y>=0&&y<v) {
+                parent->buf[x+y*u] = correlation[p];
+            }
         }
         fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
     }
@@ -155,15 +121,15 @@ static void* fillplane_moving_baseline(void* arg)
     dsp_stream_p parent = (dsp_stream_p)s->parent;
     int u = parent->sizes[0];
     int v = parent->sizes[1];
-    double *correlation = (double*)malloc(sizeof(double)*s->len);
+    double* correlation = (double*)malloc(b->second->len*sizeof(double));
     for(double i = 0; i < s->len; i++) {
         double *uvcoords = b->getUVCoords(i);
         if(uvcoords == NULL)
             continue;
-        double sx = uvcoords[0] + u/2;
-        double sy = uvcoords[1] + v/2;
-        double ex = -uvcoords[0] + u/2;
-        double ey = -uvcoords[1] + v/2;
+        double sx = uvcoords[0];
+        double sy = uvcoords[1];
+        double ex = u-uvcoords[0];
+        double ey = v-uvcoords[1];
         double ratio = sqrt(pow(ex-sx,2)+pow(ey-sx,2));
         free(uvcoords);
         b->Correlate(correlation, i);
@@ -204,7 +170,6 @@ static void* fillplane_coverage(void* arg)
         parent->buf[(int)(ex+ey*u)] = 1;
         fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
     }
-    free(correlation);
     return NULL;
 }
 
@@ -251,28 +216,7 @@ dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(vlbi_context ctx, int m, int u,
         vlbi_start_thread(fillplane_aperture_synthesis, b, &parent->child_count, i);
     }
     vlbi_wait_threads(&parent->child_count);
-    fprintf(stderr, "\naperture synthesis plotting completed\n");
-    return parent;
-}
-
-dsp_stream_p vlbi_get_uv_plot_coverage(vlbi_context ctx, int m, int u, int v, double *target, double freq, double sr)
-{
-    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    BaselineCollection *baselines = new BaselineCollection(nodes, m, u, v);
-    baselines->SetFrequency(freq);
-    baselines->SetSampleRate(sr);
-    baselines->SetTarget(target);
-    dsp_stream_p parent = baselines->getStream();
-    parent->child_count = 0;
-    fprintf(stderr, "%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
-    fprintf(stderr, "\n");
-    for(int i = 0; i < baselines->Count; i++)
-    {
-        VLBIBaseline *b = baselines->At(i);
-        vlbi_start_thread(fillplane_coverage, b, &parent->child_count, i);
-    }
-    vlbi_wait_threads(&parent->child_count);
-    fprintf(stderr, "\ncoverage plotting completed\n");
+    fprintf(stderr, "\nearth tide plotting completed\n");
     return parent;
 }
 
@@ -292,7 +236,7 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u, int v, do
         vlbi_start_thread(fillplane_moving_baseline, b, &parent->child_count, i);
     }
     vlbi_wait_threads(&parent->child_count);
-    fprintf(stderr, "\nmoving baseline plotting completed\n");
+    fprintf(stderr, "\nmoving baselines plotting completed\n");
     return parent;
 }
 
@@ -357,16 +301,3 @@ int vlbi_b64readfile(char *file, void* buf)
     }
     return -1;
 }
-/*
-unsigned char* vlbi_b64writebuf(void *buf, int* len)
-{
-    if(buf != NULL) {
-        int olen = *len*4/3+4;
-        unsigned char *base64 = (unsigned char*)malloc(olen);
-        to64frombits((unsigned char*)buf, base64, *len);
-        *len = olen;
-        return base64;
-    }
-    return NULL;
-}
-*/

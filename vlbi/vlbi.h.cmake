@@ -475,8 +475,6 @@ DLL_EXPORT double vlbi_astro_calc_delta_magnitude(double mag0, double mag, doubl
 DLL_EXPORT double vlbi_astro_estimate_absolute_magnitude(double dist, double delta_mag);
 DLL_EXPORT int vlbi_b64readfile(char* filename, void* buf);
 
-DLL_EXPORT int vlbi_b64readfile(char* filename, void* buf);
-
 /*@}*/
 /*@}*/
 
