@@ -36,75 +36,112 @@ VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m)
         first = node2;
         second = node1;
     }
-    dsp_fourier_dft_magnitude(first);
-    dsp_fourier_dft_magnitude(second);
-    dsp_buffer_reverse(second->buf, second->len);
     deltatime = fabs(starttime1 - starttime2);
+    if(!m)
+        baseline = vlbi_calc_baseline_m(node1->location, node2->location);
+    else
+        baseline = vlbi_calc_baseline_m_xyz(node1->location, node2->location);
+    baseline_center = vlbi_calc_baseline_center(node1->location, node2->location);
+    baseline_rad = vlbi_calc_baseline_rad(node1->location, node2->location);
+    dsp_buffer_stretch(first->buf, first->len, 0.0, 1.0);
+    dsp_buffer_stretch(second->buf, second->len, 0.0, 1.0);
     Name = (char*)Stream->arg;
 }
 
 double *VLBIBaseline::Correlate(double* buf, double J2000_Offset_Time, int *idx)
 {
-    double* projection = getUVCoords(J2000_Offset_Time);
-    double delay = vlbi_distance_delay(projection[2]);
-    int i = (int)(((J2000_Offset_Time - starttime) + deltatime + delay) * first->samplerate);
-    dsp_stream_p s1 = dsp_stream_copy(first);
-    s1->buf = &s1->buf[i];
-    s1->len = second->len-i;
-    dsp_convolution_convolution(s1, second);
-    dsp_buffer_copy(s1->buf, buf, (second->len-i));
-    dsp_stream_free(s1);
+    double delay = vlbi_calc_baseline_delay(first->location, second->location, Stream->target, J2000_Offset_Time);
+    int i = (int)((J2000_Offset_Time - starttime) + delay * first->samplerate);
     *idx = i;
+    if(i<=0)
+       return NULL;
+    dsp_stream_p s2 = dsp_stream_copy(second);
+    dsp_stream_p s1 = dsp_stream_new();
+    dsp_stream_add_dim(s1, first->len-i);
+    dsp_stream_alloc_buffer(s1, s1->len);
+    dsp_buffer_copy(((double*)&first->buf[i]), s1->buf, s1->len);
+    dsp_fourier_dft_magnitude(s1);
+    dsp_fourier_dft_magnitude(s2);
+    dsp_buffer_reverse(s1->buf, s1->len);
+    dsp_buffer_mul(s1, s2->buf, s1->len);
+    dsp_buffer_copy(s1->buf, buf, s1->len);
+    dsp_stream_free(s1);
+    dsp_stream_free(s2);
     return buf;
 }
 
-double *VLBIBaseline::Correlate(double* buf, int idx)
+double *VLBIBaseline::Correlate(double* buf, int i)
 {
-    dsp_stream_p s1 = dsp_stream_copy(first);
-    s1->buf = &s1->buf[idx];
-    s1->len = second->len-idx;
-    dsp_convolution_convolution(s1, second);
-    dsp_buffer_copy(s1->buf, buf, (second->len-idx));
+    dsp_stream_p s2 = dsp_stream_copy(second);
+    dsp_stream_p s1 = dsp_stream_new();
+    dsp_stream_add_dim(s1, first->len-i);
+    dsp_stream_alloc_buffer(s1, s1->len);
+    dsp_buffer_copy(((double*)&first->buf[i]), s1->buf, s1->len);
+    dsp_fourier_dft_magnitude(s1);
+    dsp_fourier_dft_magnitude(s2);
+    dsp_buffer_reverse(s1->buf, s1->len);
+    dsp_buffer_mul(s1, s2->buf, s1->len);
+    dsp_buffer_copy(s1->buf, buf, s1->len);
     dsp_stream_free(s1);
+    dsp_stream_free(s2);
     return buf;
 }
 
 double VLBIBaseline::getUVSize()
 {
     double res = vlbi_estimate_resolution_zero(LIGHTSPEED / Stream->lambda);
-    baseline = vlbi_baseline_from_coordinates(first->location, second->location);
     res = vlbi_estimate_resolution(res, baseline[3]);
     return res;
 }
 
 double *VLBIBaseline::getUVCoords(double J2000_Offset_Time)
 {
-    double lst, ha, *az_coordinates_1, *az_coordinates_2;
-    az_coordinates_1 = (double*)malloc(sizeof(double)*2);
-    az_coordinates_2 = (double*)malloc(sizeof(double)*2);
+    double ha = J2000_Offset_Time - starttime;
+    ha *= SIDEREAL_DAY / SOLAR_DAY;
+    ha *= PI * 2 / SIDEREAL_DAY;
+    ha += HA;
+    while(ha < 0)
+        ha += 2 * PI;
+    while(ha >= 2 * PI)
+        ha -= 2 * PI;
+    if(ha >= (PI / 2) && ha <= (PI * 3 / 2))
+        return NULL;
+    double dec = Stream->target[1];
+    dec *= PI / 180.0;
+    return vlbi_calc_uv_coords(ha, dec, baseline, Stream->lambda);
+}
 
-    baseline = vlbi_baseline_from_coordinates(first->location, second->location);
-
-    lst = vlbi_time_J2000time_to_lst(J2000_Offset_Time + starttime, first->location[1]);
-    ha = vlbi_astro_get_local_hour_angle(lst, Stream->target[0]);
-    vlbi_astro_get_alt_az_coordinates(ha, first->target[1], first->location[0], &az_coordinates_1[0], &az_coordinates_1[1]);
-
-    lst = vlbi_time_J2000time_to_lst(J2000_Offset_Time + starttime, second->location[1]);
-    ha = vlbi_astro_get_local_hour_angle(lst, Stream->target[0]);
-    vlbi_astro_get_alt_az_coordinates(ha, second->target[1], second->location[0], &az_coordinates_2[0], &az_coordinates_2[1]);
-
-    return vlbi_calc_baseline_projection(az_coordinates_1[0]-az_coordinates_2[0], az_coordinates_1[1]-az_coordinates_2[1], baseline[3]);
+double *VLBIBaseline::getUVCoords()
+{
+    return vlbi_get_uv_coords(baseline, Stream->lambda);
 }
 
 double *VLBIBaseline::getUVCoords(int index)
 {
-    double *baseline = vlbi_baseline_from_distance(&first->location[index * 3], &second->location[index * 3]);
-    return vlbi_calc_baseline_projection(Stream->target[index * 2], Stream->target[index * 2+1], baseline[index * 4 + 3]);
+    return vlbi_get_uv_coords_vector(baseline, Stream->lambda, (double*)(&Stream->target[index * 3]));
+}
+
+double *VLBIBaseline::getBaselineRad()
+{
+    return baseline_rad;
+}
+
+double *VLBIBaseline::getBaselineM()
+{
+    return baseline;
+}
+
+double *VLBIBaseline::getBaselineCenter()
+{
+    return baseline_center;
 }
 
 void VLBIBaseline::setTarget(double *target)
 {
-    Stream->target = target;
+    memcpy(Stream->target, target, sizeof(double) * 3);
+    double lst = vlbi_time_J2000time_to_lst(starttime, second->location[1]);
+    HA = vlbi_astro_get_local_hour_angle(lst, Stream->target[0]);
+    HA *= PI / 180.0;
 }
 
 void VLBIBaseline::setWaveLength(double wavelength)

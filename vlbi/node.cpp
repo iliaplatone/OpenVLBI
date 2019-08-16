@@ -35,7 +35,7 @@ void VLBINode::setCoordinates(double lat, double lon, double el, bool osl)
     Stream->location[1] = lon;
     Stream->location[2] = el;
     if (osl) {
-        Stream->location[2] = vlbi_estimate_elevation(el, lat);
+        Stream->location[2] = vlbi_astro_estimate_geocentric_elevation(lat, el);
     }
 }
 

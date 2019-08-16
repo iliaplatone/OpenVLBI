@@ -17,11 +17,17 @@
 */
 
 #include <vlbi.h>
-#define ratio (max - min) / (mx - mn + 1)
+
+void vlbi_get_alt_az_from_ra_dec(double J2000time, double Ra, double Dec, double Lat, double Long, double* Alt, double *Az)
+{
+    double lst = vlbi_time_J2000time_to_lst(J2000time, Long);
+    double ha = vlbi_astro_get_local_hour_angle(lst, Ra);
+    vlbi_astro_get_alt_az_coordinates(ha, Dec, Lat, Alt, Az);
+}
 
 double vlbi_astro_get_local_hour_angle(double Lst, double Ra)
 {
-    double Ha = Ra - Lst;
+    double Ha = Lst - Ra;
     while (Ha < 0)
         Ha += 24.0;
     while (Ha >= 24.0)
@@ -37,8 +43,10 @@ void vlbi_astro_get_alt_az_coordinates(double Ha, double Dec, double Lat, double
     Lat *= M_PI / 180.0;
     alt = asin(sin(Dec) * sin(Lat) + cos(Dec) * cos(Lat) * cos(Ha));
     az = acos((sin(Dec) - sin(alt)*sin(Lat)) / (cos(alt) * cos(Lat)));
+    alt *= 180.0 / M_PI;
+    az *= 180.0 / M_PI;
     if (sin(Ha) >= 0.0)
-        az = 2*M_PI - az;
+        az = 360 - az;
     *Alt = alt;
     *Az = az;
 }
@@ -51,26 +59,6 @@ double vlbi_astro_estimate_geocentric_elevation(double Lat, double El)
     return El;
 }
 
-double vlbi_astro_estimate_field_rotation_rate(double Alt, double Az, double Lat)
-{
-    Alt *= M_PI / 180.0;
-    Az *= M_PI / 180.0;
-    Lat *= M_PI / 180.0;
-    double ret = cos(Lat) * cos(Az) / cos(Alt);
-    ret *= 180.0 / M_PI;
-    return ret;
-}
-
-double vlbi_astro_estimate_field_rotation(double HA, double rate)
-{
-    HA *= rate;
-    while(HA >= 360.0)
-        HA -= 360.0;
-    while(HA < 0)
-        HA += 360.0;
-    return HA;
-}
-
 double vlbi_astro_parsec2m(double parsec)
 {
     return parsec * PARSEC;
@@ -81,18 +69,17 @@ double vlbi_astro_m2au(double m)
     return m / ASTRONOMICALUNIT;
 }
 
-double vlbi_astro_calc_delta_magnitude(double mag0, double mag, double *spectrum, int spectrum_size, int lambda)
+double vlbi_astro_calc_delta_spectrum(double *spectrum0, double *spectrum, int spectrum_size)
 {
-    double delta_mag = 0;
+    double delta_spectrum = 0;
     for(int l = 0; l < spectrum_size; l++) {
-        delta_mag += spectrum[l] * (mag - mag0) / spectrum[lambda];
+        delta_spectrum += spectrum[l] - spectrum0[l];
     }
-    delta_mag /= spectrum_size;
-    return delta_mag;
+    delta_spectrum /= spectrum_size;
+    return delta_spectrum;
 }
 
-double vlbi_astro_estimate_absolute_magnitude(double delta_dist, double delta_mag)
+double vlbi_astro_estimate_absolute_magnitude(double delta_dist, double delta_spectrum, double delta_mag)
 {
-    return sqrt(delta_dist) * delta_mag;
+    return sqrt(delta_dist * delta_spectrum * delta_mag); //TODO missing correct formula
 }
-

@@ -36,7 +36,6 @@ extern "C" {
 #include <assert.h>
 #include <pthread.h>
 #include <dsp.h>
-#include <base64.h>
 
 #ifndef DLL_EXPORT
 #define DLL_EXPORT extern
@@ -142,7 +141,7 @@ typedef struct timespec timespec_t;
 #define ROOT2 1.41421356237309504880168872420969807856967187537694
 #endif
 #ifndef GAMMAJ2000
-#define GAMMAJ2000 (double)6.934166667
+#define GAMMAJ2000 (double)1.753357767
 #endif
 #ifndef EULER
 #define EULER (double)2.71828182845904523536028747135266249775724709369995
@@ -185,7 +184,6 @@ typedef struct timespec timespec_t;
 #endif
 extern unsigned long int MAX_THREADS;
 inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) MAX_THREADS = value; return MAX_THREADS; }
-
 /*@}*/
 /**
  * \defgroup VLBI_Functions Essential VLBI functions
@@ -260,19 +258,6 @@ DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u
 
 /**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
-* @param ctx The libVLBI context
-* @param correlation_func The correlation delegate, you should use the vlbi_func2_t delegate function type for this argument.
-* @param u The U size of the resulting UV plot
-* @param v The V size of the resulting UV plot
-* @param target The target position int Ra/Dec celestial coordinates
-* @param freq The frequency observed. This parameter will scale the plot inverserly.
-* @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
-* @return The libVLBI stream structure containing the Fourier transform of the object observed
-*/
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_coverage(void *ctx, int m, int u, int v, double *target, double freq, double sr);
-
-/**
-* @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
 * @param uv The Forier transform stream.
 * @return dsp_stream_p The inverse fourier transform (almost the image of the object observed)
 */
@@ -297,6 +282,121 @@ DLL_EXPORT char* vlbi_get_version();
  * \defgroup VLBI_Internal VLBI internal functions
 */
 /*@{*/
+
+/**
+* @brief Return an aproximation of the timing offset that affects the vector passed as argument.
+* @param stream1 The first stream.
+* @param stream2 The second stream.
+* @return int The calibration value.
+*/
+DLL_EXPORT int vlbi_calibrate(dsp_stream_p stream1, dsp_stream_p stream2);
+
+/**
+* @brief Return an aproximation of the timing offset that affects the vector passed as argument.
+* @param vector The vector of the wave path.
+* @return double The timing offset.
+*/
+DLL_EXPORT double vlbi_calc_delay_coarse(double* vector);
+
+/**
+* @brief Return The baseline center in geographic coordinates.
+* @param loc1 The first location.
+* @param loc2 The second location.
+* @return double* The center of the given coordinates
+*/
+DLL_EXPORT double* vlbi_calc_baseline_center(double *loc1, double *loc2);
+
+/**
+* @brief Return The baseline center in geographic coordinates.
+* @param ha The hour angle of the target.
+* @param dec The declination of the target.
+* @param baseline The current baseline in geographic coordinates.
+* @param wavelength The wavelength observed.
+* @return double* The UV coordinates of the current observation.
+*/
+DLL_EXPORT double* vlbi_calc_uv_coords(double ha, double dec, double *baseline, double wavelength);
+
+/**
+* @brief Return The baseline center in geographic coordinates.
+* @param baseline_m The current baseline in geographic coordinates.
+* @param wavelength The wavelength observed.
+* @return double* The UV coordinates of the current observation.
+*/
+DLL_EXPORT double* vlbi_get_uv_coords(double *baseline_m, double wavelength);
+
+/**
+* @brief Return The baseline center in geographic coordinates.
+* @param baseline_m The current baseline in orthogonal coordinates.
+* @param target_vector The vector of the target observed.
+* @param wavelength The wavelength observed.
+* @return double* The UV coordinates of the current observation.
+*/
+DLL_EXPORT double* vlbi_get_uv_coords_vector(double *baseline_m, double wavelength, double *target_vector);
+
+/**
+* @brief Return an aproximation of the earth-center elevation.
+* @param el The sea-level elevation.
+* @param latitude The latitude of the observer.
+* @return double The earth-center elevation.
+*/
+DLL_EXPORT double vlbi_calc_elevation_coarse(double el, double latitude);
+
+/**
+* @brief Convert geographic location into xyz location
+* @param loc The location of the observer.
+* @return double* The xyz location.
+*/
+DLL_EXPORT double* vlbi_calc_location_m(double *loc);
+
+/**
+* @brief Convert geographic baseline into geographic baseline
+* @param loc1 The 1st location of the observer.
+* @param loc2 The 2nd location of the observer.
+* @return double* The geographic baseline.
+*/
+DLL_EXPORT double* vlbi_calc_baseline_m(double *loc1, double *loc2);
+
+/**
+* @brief Convert geographic baseline into radians baseline
+* @param location1 The 1st location of the observer.
+* @param location2 The 2nd location of the observer.
+* @return double* The radians baseline.
+*/
+DLL_EXPORT double* vlbi_calc_baseline_rad(double *location1, double *location2);
+
+/**
+* @brief Convert geographic baseline into xyz baseline
+* @param loc1 The 1st location of the observer.
+* @param loc2 The 2nd location of the observer.
+* @return double* The xyz baseline.
+*/
+DLL_EXPORT double* vlbi_calc_baseline_m_xyz(double *loc1, double *loc2);
+
+/**
+* @brief Calculate the delay between the two nodes of the baseline given a target
+* @param location1 The 1st location of the observer.
+* @param location2 The 2nd location of the observer.
+* @param target The target observed.
+* @param obstime The current observation time.
+* @return double The current delay between the two nodes.
+*/
+DLL_EXPORT double vlbi_calc_baseline_delay(double *location1, double *location2, double* target, double obstime);
+
+/**
+* @brief Calculate the delay between the two nodes of the baseline given a target in orthogonal coordinates
+* @param loc1 The 1st location of the observer.
+* @param loc2 The 2nd location of the observer.
+* @param target The target observed.
+* @return double The current delay between the two nodes.
+*/
+DLL_EXPORT double vlbi_calc_baseline_delay_vector(double *loc1, double *loc2, double* target);
+
+/**
+* @brief Calculate the delay that takes to transit the given distance
+* @param distance_m The distance to convert into time delay.
+* @return double The current delay between the two nodes.
+*/
+DLL_EXPORT double vlbi_calc_delay(double distance_m);
 
 /**
 * @brief Convert radians into arcseconds
@@ -344,20 +444,6 @@ DLL_EXPORT double vlbi_estimate_snr_zero(double gain, double resolution, double 
 * error was encountered.
 */
 DLL_EXPORT double vlbi_estimate_snr(double snr, double integration);
-
-DLL_EXPORT double vlbi_estimate_elevation(double el, double latitude);
-
-DLL_EXPORT double* vlbi_convert_coordinates_to_meters(double *loc);
-
-DLL_EXPORT double vlbi_distance_delay(double distance_m);
-
-DLL_EXPORT double* vlbi_baseline_from_distance(double *loc1, double *loc2);
-
-DLL_EXPORT double* vlbi_baseline_from_coordinates(double *loc1, double *loc2);
-
-DLL_EXPORT double* vlbi_baseline_center(double *loc1, double *loc2);
-
-DLL_EXPORT double* vlbi_calc_baseline_projection(double DeltaAlt, double DeltaAz, double baseline_zero);
 
 /**
 * @brief obtain a timespec struct containing the date and time specified
@@ -472,7 +558,8 @@ DLL_EXPORT double vlbi_astro_calc_delta_magnitude(double mag0, double mag, doubl
  * @param delta_mag The difference of magnitudes
  * @return Aproximation of the absolute magnitude in Δmag
  */
-DLL_EXPORT double vlbi_astro_estimate_absolute_magnitude(double dist, double delta_mag);
+DLL_EXPORT double vlbi_astro_estimate_absolute_magnitude(double delta_dist, double delta_spectrum, double delta_mag);
+
 DLL_EXPORT int vlbi_b64readfile(char* filename, void* buf);
 
 /*@}*/
