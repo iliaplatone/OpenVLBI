@@ -35,7 +35,7 @@ dsp_convert(input_arr, stream1->in, n_elements);
 
 stream1->location[0] = Latitude;
 stream1->location[1] = Longitude;
-stream1->location[2] = vlbi_calc_elevation_coarse(Elevation);
+stream1->location[2] = vlbi_calc_elevation_coarse(Elevation); //estimate the geocentric elevation, given the on sea level elevation
 
 stream1->starttimeutc = vlbi_time_string_to_utc("2018-06-22T02:12.000154874");
 
@@ -61,7 +61,7 @@ dsp_t frequency = 60.0e+6;
 dsp_t samplerate = 100.0e+6;
 
 //obtain the UV plot of the observation
-dsp_stream uvplot = vlbi_get_uv_plot_astro(context, u, v, target, frequency, samplerate); // this will return
+dsp_stream uvplot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, target, frequency, samplerate); // this will return
 //the aproximate Fourier transform of the observation taken (the more are the streams, and more
 //accurate and precise is each stream and data, the less aproximate will be the result).
 dsp_stream image_estimation = vlbi_get_fft_estimate(uvplot); // this is the aproximation
@@ -73,7 +73,21 @@ vlbi_exit(context);
 
 ```
 
-# OpenVLBI client using INDI libraries
+# OpenVLBI clients
+
+## OpenVLBI client sample
+OpenVLBI can be tested using the built vlbi_client_dummy application, which creates a subshell or takes arguments from the standard input.
+the source files of the sample application make use of the vlbi_client.h source header, which contains a base class to be inherited in case you want to build your own client or implementation.
+the sample application can be tested using the test.sh script into the scripts/ directory of this repository:
+the command-line usage is as follows:
+bash scripts/test.sh [integration time in seconds] [type of plot]
+where [type of plot] can be synthesis or coverage by now.
+
+```
+bash scripts/test.sh 3600 synthesis
+```
+
+## OpenVLBI client using INDI libraries
 
 OpenVLBI comes with an application which uses the core library and using an INDI server which contains a number of drivers with the necessary properties
 It needs an indi server on which to connect. Such server must connect to each node to be added to the vlbi client application.
@@ -96,7 +110,9 @@ The properties used by this client are:
  - "DETECTOR_CAPTURE" to start capture
  - "DETECTOR_SETTINGS" set up frequency, bandwidth, sampling rate and depth, and gain of the detectors 
 
-The vlbi client application opens a command shell and reads from stdin.
+## OpenVLBI clients usage
+
+The vlbi client applications open a command shell and read from stdin.
 Format of commands is:
 cmd arg value:type
 where type can be string or numeric.
@@ -105,48 +121,26 @@ Here is the current command list:
 
 ```
 add context name:string - add an OpenVLBI context to the internal list
-set model name:string - new comparison model
 set context name:string - set current OpenVLBI context selecting it by name from the internal list
+add node name,latitude,longitude,elevation,datafile,observationdate:string - add a node to the internal list
+del node name:string - remove a node from the internal list
+set model name:string - new comparison model
 set freq value:numeric - set detectors frequency
 set bitspersample value:numeric - set detectors sample bit depth
-set gain value:numeric - set detectors gain
-set bandwidth value:numeric - set detectors bandwidth
 set samplerate value:numeric - set detectors sampling rate
 set target ra,dec:numeric,numeric - set telescopes celestial target
+get observation type:string - get UV plot observation (synthesis, coverage) for aperture synthesis observation or to plot the UV coverage
+```
+
+### INDI client specific commands
+```
+set gain value:numeric - set detectors gain
+set bandwidth value:numeric - set detectors bandwidth
 set parking state:string - set telescopes parking state (on, off)
 set tracking state:string - set telescopes tracking state (on, off)
 set capture value:numeric - set detectors capture time in seconds
 set exposure value:numeric - set ccd cameras exposure time in seconds
 set connection state:string - set nodes connection state (on, off)
-get observation type:string - get UV plot observation (raw, fft, mdl) for raw observation, frequency transformed observation and FFT of the raw observation added with the comparison model
-```
-# OpenVLBI server
-
-the VLBI client can be started in daemon mode using vlbi_server, which is a script that starts a local INDI server and creates two fifo files named /tmp/INDI.fifo and /tmp/OpenVLBI.fifo.
-once started, you can send the commands described above by writing those direcly on the corresponding fifo or by using the command scripts.
-an example:
-
-```
-~# vlbi_server start
-~# vlbi_add_node 127.0.0.1 7626
-~# vlbi_add_node 127.0.0.1 7627
-...
-~# vlbi_server add context obs1
-~# vlbi_server set context obs1
-~# vlbi_server set connection on
-~# vlbi_server set parking off
-~# vlbi_server set tracking off
-~# vlbi_server set target 5.75,25.44
-~# vlbi_server set frequency 24000000
-~# vlbi_server set samplerate 2000000
-~# vlbi_server set bandwidth 10000
-~# vlbi_server set bitspersample 16
-~# vlbi_server set gain 10
-~# vlbi_server set capture 10
-...
-~# vlbi_server get observation raw
-~# vlbi_server set connection off
-~# vlbi_server stop
 ```
 
 # References
