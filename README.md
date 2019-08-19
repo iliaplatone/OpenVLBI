@@ -129,7 +129,7 @@ set freq value:numeric - set detectors frequency
 set bitspersample value:numeric - set detectors sample bit depth
 set samplerate value:numeric - set detectors sampling rate
 set target ra,dec:numeric,numeric - set telescopes celestial target
-get observation type:string - get UV plot observation (synthesis, coverage) for aperture synthesis observation or to plot the UV coverage
+get observation type:string - get UV plot observation ([geo|xyz]_[synthesis|movingbase]_[raw|dft|coverage]) for aperture synthesis observation or to plot the UV coverage
 ```
 
 ### INDI client specific commands
