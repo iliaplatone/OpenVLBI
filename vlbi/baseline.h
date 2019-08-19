@@ -30,8 +30,8 @@ public:
     VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m=false);
     ~VLBIBaseline();
 
-    double *Correlate(double* buf, double J2000Time, int *idx);
-    double *Correlate(double* buf, int idx);
+    double Correlate(double J2000Time);
+    double Correlate(int i, int l);
     double getUVSize();
     double *getUVCoords(double timeoffset);
     double *getUVCoords();
@@ -47,6 +47,7 @@ public:
     int max_threads;
     dsp_stream_p first;
     dsp_stream_p second;
+    double starttime;
 
 private:
     vlbi_func2_t dsp_correlation_delegate;
@@ -55,7 +56,6 @@ private:
     double *baseline;
     double HA;
     double deltatime;
-    double starttime;
     dsp_stream_p Stream;
     char *Name;
 };

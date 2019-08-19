@@ -35,4 +35,4 @@ install:
     - bash scripts/build.sh 
 
 script:
-    - bash scripts/test.sh 60 synthesis | vlbi_client_dummy -h 16 | base64 -d -i | convert -size 128x128 -depth 8 -colorspace GRAY gray:- png:- | file -
+    - bash scripts/test.sh 3600 geo_synthesis_dft | vlbi_client_dummy -h 16 | base64 -d -i | convert -size 128x128 -depth 8 -colorspace GRAY gray:- png:- | display

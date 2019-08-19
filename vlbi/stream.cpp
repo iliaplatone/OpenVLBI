@@ -84,33 +84,23 @@ static void* fillplane_aperture_synthesis(void* arg)
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     double tao = 1.0 / parent->samplerate;
-    double st = 0;
-    double et = s->len * tao;
-    double* correlation = (double*)malloc(b->second->len*sizeof(double));
+    double st = b->starttime;
+    double et = st + s->len * tao;
     for(double time = st; time < et; time += tao) {
         double *uvcoords = b->getUVCoords(time);
         if(uvcoords == NULL)
             continue;
-        double sx = uvcoords[0];
-        double sy = uvcoords[1];
-        double ex = u-uvcoords[0];
-        double ey = v-uvcoords[1];
-        double ratio = sqrt(pow(ex-sx,2)+pow(ey-sx,2));
+        int U = uvcoords[0] + u / 2;
+        int V = uvcoords[1] + v / 2;
         free(uvcoords);
-        int idx;
-        b->Correlate(correlation, time, &idx);
-        int len = b->second->len-idx;
-        for(int p = 0; p < len; p++) {
-            double ptr = p*ratio/len;
-            int x = ptr * (ex - sx) / (ey - sy) + u/2;
-            int y = ptr * (ey - sy) / (ex - sx) + v/2;
-            if(x>=0&&x<u&&y>=0&&y<v) {
-                parent->buf[x+y*u] = correlation[p];
-            }
+        if(U >= 0 && U < u && V >= 0 && V < v) {
+            int idx = U+V*u;
+            double val = b->Correlate(time);
+            parent->buf[idx] = val;
+            parent->buf[parent->len-idx] = val;
         }
         fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
     }
-    free(correlation);
     return NULL;
 }
 
@@ -121,26 +111,18 @@ static void* fillplane_moving_baseline(void* arg)
     dsp_stream_p parent = (dsp_stream_p)s->parent;
     int u = parent->sizes[0];
     int v = parent->sizes[1];
-    double* correlation = (double*)malloc(b->second->len*sizeof(double));
-    for(double i = 0; i < s->len; i++) {
+    for(int i = 0; i < s->len; i++) {
         double *uvcoords = b->getUVCoords(i);
         if(uvcoords == NULL)
             continue;
-        double sx = uvcoords[0];
-        double sy = uvcoords[1];
-        double ex = u-uvcoords[0];
-        double ey = v-uvcoords[1];
-        double ratio = sqrt(pow(ex-sx,2)+pow(ey-sx,2));
+        int U = uvcoords[0] + u / 2;
+        int V = uvcoords[1] + v / 2;
         free(uvcoords);
-        b->Correlate(correlation, i);
-        int len = b->second->len-i;
-        for(int p = 0; p < len; p++) {
-            double ptr = p*ratio/len;
-            int x = ptr * (ex - sx) / (ey - sy) + u/2;
-            int y = ptr * (ey - sy) / (ex - sx) + v/2;
-            if(x>=0&&x<u&&y>=0&&y<v) {
-                parent->buf[x+y*u] = correlation[p];
-            }
+        if(U >= 0 && U < u && V >= 0 && V < v) {
+            int idx = U+V*u;
+            double val = b->Correlate(i, i);
+            parent->buf[idx] = val;
+            parent->buf[parent->len-idx] = val;
         }
         fprintf(stderr, "\r%.3f%%   ", i*100.0/s->len);
     }
@@ -155,19 +137,20 @@ static void* fillplane_coverage(void* arg)
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     double tao = 1.0 / parent->samplerate;
-    double st = 0;
-    double et = s->len * tao;
+    double st = b->starttime;
+    double et = st + s->len * tao;
     for(double time = st; time < et; time += tao) {
         double *uvcoords = b->getUVCoords(time);
         if(uvcoords == NULL)
             continue;
-        double sx = uvcoords[0];
-        double sy = uvcoords[1];
-        double ex = u-uvcoords[0];
-        double ey = v-uvcoords[1];
+        int U = uvcoords[0] + u / 2;
+        int V = uvcoords[1] + v / 2;
         free(uvcoords);
-        parent->buf[(int)(sx+sy*u)] = 1;
-        parent->buf[(int)(ex+ey*u)] = 1;
+        if(U >= 0 && U < u && V >= 0 && V < v) {
+            int idx = U+V*u;
+            parent->buf[idx] = 1;
+            parent->buf[parent->len-idx] = 1;
+        }
         fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
     }
     return NULL;

@@ -17,6 +17,7 @@
  */
 
 #include "dsp.h"
+#include <fftw3.h>
 
 double dsp_fourier_complex_get_magnitude(dsp_complex n)
 {
@@ -55,19 +56,16 @@ double* dsp_fourier_complex_array_get_phase(dsp_complex* in, int len)
 dsp_complex* dsp_fourier_dft(dsp_stream_p stream)
 {
     dsp_complex* dft = (dsp_complex*)malloc(sizeof(dsp_complex) * stream->len);
-    for(int x = 0; x < stream->len; x++) {
-        dft[x].real = 0;
+    dsp_complex* out = (dsp_complex*)malloc(sizeof(dsp_complex) * stream->len);
+    fftw_plan plan = fftw_plan_dft(stream->dims, stream->sizes, (fftw_complex*)dft, (fftw_complex*)out, -1, FFTW_ESTIMATE);
+    for (int x=0; x<stream->len; x++) {
+        dft[x].real = stream->buf[x];
         dft[x].imaginary = 0;
     }
-    int dim = 0;
-    for(int i = 0; i < stream->len; i++) {
-        for(int l = 0; l < stream->len; l++) {
-            double k = (double)i  * M_PI / stream->len * M_PI;
-            dft[i].real += sin(k) * stream->buf[l];
-            dft[i].imaginary += cos(k) * stream->buf[l];
-        }
-    }
-    return dft;
+    fftw_execute(plan);
+    fftw_free(plan);
+    free(dft);
+    return out;
 }
 
 void dsp_fourier_dft_magnitude(dsp_stream_p stream)

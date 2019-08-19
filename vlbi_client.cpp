@@ -120,6 +120,10 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         if(!strcmp(arg, "observation")) {
             int type = 0;
             char *t = strtok(value, "_");
+            if(!strcmp(t, "geo")) {
+                type |= GEOCENTRIC_COORDS;
+            }
+            t = strtok(NULL, "_");
             if(!strcmp(t, "synthesis")) {
                 type |= APERTURE_SYNTHESIS;
             }
@@ -129,13 +133,9 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             } else if(!strcmp(t, "coverage")) {
                 type |= UV_COVERAGE;
             }
-            t = strtok(NULL, "_");
-            if(!strcmp(t, "geo")) {
-                type |= GEOCENTRIC_COORDS;
-            }
             dsp_stream_p plot = GetPlot(w, h, type);
             if (plot != NULL) {
-                dsp_buffer_stretch(plot->buf, plot->len, 0.0,255.0);
+                dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
                 int ilen = plot->len;
                 int olen = ilen*4/3+4;
                 unsigned char* buf = (unsigned char*)malloc(plot->len);

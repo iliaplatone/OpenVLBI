@@ -1,0 +1,37 @@
+#!/bin/bash
+
+script=/tmp/vlbi_default
+[ -n "$VLBI_script_FILE" ] && script=$VLBI_script_FILE
+lockfile=/tmp/vlbi_server.lock
+
+run_script() {
+	cat ([ -n $1 ] && $1 || $script) | vlbi_client_([ -n $2 ] && $2 || dummy) $lockfile
+}
+
+case "$1" in
+	exec)
+		run_script $@
+		exit $?
+		;;
+	add|del|set|get)
+		echo $@ >> $script
+		exit 0
+		;;
+	script)
+		case "$2" in
+		add)
+			touch $3
+			;;
+		del)
+			rm $3
+			;;
+		set)
+			script=$3
+			;;
+		*)
+			;;
+	*)
+		echo "usage $0 [exec|set|get|add|del|script [arg [value ...]]";
+		exit -22
+		;;
+esac

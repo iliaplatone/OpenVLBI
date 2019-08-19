@@ -1,0 +1,9 @@
+a3ea6398efacab83772dacf996eafc68  usr/include/OpenVLBI/vlbi.h
+53ac06ec186ba6b9afa93a2b09c0fc2d  usr/include/OpenVLBI/dsp.h
+a09ff70980d11a1f87a37dda19d03d92  usr/bin/vlbi_client_dummy
+6657e2116bc8062bc2fdc20ee4890ca9  usr/bin/vlbi_client_indi
+6930cbc00332598e77349f19a2dd3951  usr/bin/vlbi_server
+619dc07f5f00c2a6ca46250562f45332  usr/lib/libopenvlbi.so.1.7.0
+619dc07f5f00c2a6ca46250562f45332  usr/lib/libopenvlbi.so.1
+619dc07f5f00c2a6ca46250562f45332  usr/lib/libopenvlbi.so
+51ad9bd308782265ab385048381445b6  usr/lib/libopenvlbi.so.1.6.0

@@ -48,43 +48,21 @@ VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m)
     Name = (char*)Stream->arg;
 }
 
-double *VLBIBaseline::Correlate(double* buf, double J2000_Offset_Time, int *idx)
+double VLBIBaseline::Correlate(double J2000_Offset_Time)
 {
     double delay = vlbi_calc_baseline_delay(first->location, second->location, Stream->target, J2000_Offset_Time);
-    int i = (int)((J2000_Offset_Time - starttime) + delay * first->samplerate);
-    *idx = i;
-    if(i<=0)
-       return NULL;
-    dsp_stream_p s2 = dsp_stream_copy(second);
-    dsp_stream_p s1 = dsp_stream_new();
-    dsp_stream_add_dim(s1, first->len-i);
-    dsp_stream_alloc_buffer(s1, s1->len);
-    dsp_buffer_copy(((double*)&first->buf[i]), s1->buf, s1->len);
-    dsp_fourier_dft_magnitude(s1);
-    dsp_fourier_dft_magnitude(s2);
-    dsp_buffer_reverse(s1->buf, s1->len);
-    dsp_buffer_mul(s1, s2->buf, s1->len);
-    dsp_buffer_copy(s1->buf, buf, s1->len);
-    dsp_stream_free(s1);
-    dsp_stream_free(s2);
-    return buf;
+    int i = (int)(((J2000_Offset_Time - starttime) + deltatime + fabs(delay)) * Stream->samplerate);
+    int l = second->len-(int)((J2000_Offset_Time - starttime) * Stream->samplerate);
+    if(i < 0 || i >= first->len || l < 0 || l >= second->len)
+       return 0.0;
+    return first->buf[i] * second->buf[l];
 }
 
-double *VLBIBaseline::Correlate(double* buf, int i)
+double VLBIBaseline::Correlate(int i, int l)
 {
-    dsp_stream_p s2 = dsp_stream_copy(second);
-    dsp_stream_p s1 = dsp_stream_new();
-    dsp_stream_add_dim(s1, first->len-i);
-    dsp_stream_alloc_buffer(s1, s1->len);
-    dsp_buffer_copy(((double*)&first->buf[i]), s1->buf, s1->len);
-    dsp_fourier_dft_magnitude(s1);
-    dsp_fourier_dft_magnitude(s2);
-    dsp_buffer_reverse(s1->buf, s1->len);
-    dsp_buffer_mul(s1, s2->buf, s1->len);
-    dsp_buffer_copy(s1->buf, buf, s1->len);
-    dsp_stream_free(s1);
-    dsp_stream_free(s2);
-    return buf;
+    if(i < 0 || i >= first->len || l < 0 || l >= second->len)
+       return 0.0;
+    return first->buf[i] * second->buf[second->len-l];
 }
 
 double VLBIBaseline::getUVSize()
@@ -96,18 +74,9 @@ double VLBIBaseline::getUVSize()
 
 double *VLBIBaseline::getUVCoords(double J2000_Offset_Time)
 {
-    double ha = J2000_Offset_Time - starttime;
-    ha *= SIDEREAL_DAY / SOLAR_DAY;
-    ha *= PI * 2 / SIDEREAL_DAY;
-    ha += HA;
-    while(ha < 0)
-        ha += 2 * PI;
-    while(ha >= 2 * PI)
-        ha -= 2 * PI;
-    if(ha >= (PI / 2) && ha <= (PI * 3 / 2))
-        return NULL;
+    double lst = vlbi_time_J2000time_to_lst(J2000_Offset_Time, baseline_center[1]);
+    double ha = vlbi_astro_get_local_hour_angle(lst, Stream->target[0]);
     double dec = Stream->target[1];
-    dec *= PI / 180.0;
     return vlbi_calc_uv_coords(ha, dec, baseline, Stream->lambda);
 }
 
