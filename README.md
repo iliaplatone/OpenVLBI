@@ -81,10 +81,10 @@ the source files of the sample application make use of the vlbi_client.h source 
 the sample application can be tested using the test.sh script into the scripts/ directory of this repository:
 the command-line usage is as follows:
 bash scripts/test.sh [integration time in seconds] [type of plot]
-where [type of plot] can be synthesis or coverage by now.
+where [type of plot] is: [geo|abs]_[movingbase|synthesis]_[raw|dft]
 
 ```
-bash scripts/test.sh 3600 synthesis
+bash scripts/test.sh 3600 geo_synthesis_dft
 ```
 
 ## OpenVLBI client using INDI libraries
