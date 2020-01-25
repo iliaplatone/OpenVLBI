@@ -95,11 +95,6 @@ double* vlbi_get_uv_coords_vector(double *baseline_m, double wavelength, double 
     return uv;
 }
 
-double vlbi_calc_elevation_coarse(double el, double latitude)
-{
-    return el + EARTHRADIUSEQUATORIAL - (EARTHRADIUSEQUATORIAL - EARTHRADIUSPOLAR) * latitude / 90.0;
-}
-
 double* vlbi_calc_location_m(double *loc)
 {
     double* tmp = (double*)calloc(sizeof(double), 3);

@@ -334,14 +334,6 @@ DLL_EXPORT double* vlbi_get_uv_coords(double *baseline_m, double wavelength);
 DLL_EXPORT double* vlbi_get_uv_coords_vector(double *baseline_m, double wavelength, double *target_vector);
 
 /**
-* @brief Return an aproximation of the earth-center elevation.
-* @param el The sea-level elevation.
-* @param latitude The latitude of the observer.
-* @return double The earth-center elevation.
-*/
-DLL_EXPORT double vlbi_calc_elevation_coarse(double el, double latitude);
-
-/**
 * @brief Convert geographic location into xyz location
 * @param loc The location of the observer.
 * @return double* The xyz location.

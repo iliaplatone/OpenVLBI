@@ -23,6 +23,7 @@ LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake_modules/")
 add_definitions(-Wall -O3 -g -fstack-protector -Wno-unused-parameter)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/README.md" README )
+string(REPLACE "[![Build Status](https://travis-ci.org/iliaplatone/OpenVLBI.svg?branch=master)](https://travis-ci.org/iliaplatone/OpenVLBI)" "" README "${README}")
 string(REPLACE "\n#" "\n\n\\page " README "${README}" )
 string(REPLACE "\n##" "\n\n\\page " README "${README}" )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dsp/dsp.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/dsp.h )
