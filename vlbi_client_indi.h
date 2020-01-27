@@ -7,7 +7,7 @@
 #include <defaultdevice.h>
 #include <baseclient.h>
 #include <indiccd.h>
-#include <indidetector.h>
+#include <indisensorinterface.h>
 #include <inditelescope.h>
 #include <baseclient.h>
 #include <fitsio.h>

@@ -31,7 +31,7 @@ public:
     ~VLBIBaseline();
 
     double Correlate(double J2000Time);
-    double Correlate(int i, int l);
+    double Correlate(int i);
     double getUVSize();
     double *getUVCoords(double timeoffset);
     double *getUVCoords();

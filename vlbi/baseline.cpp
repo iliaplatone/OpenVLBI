@@ -55,14 +55,29 @@ double VLBIBaseline::Correlate(double J2000_Offset_Time)
     int l = second->len-(int)((J2000_Offset_Time - starttime) * Stream->samplerate);
     if(i < 0 || i >= first->len || l < 0 || l >= second->len)
        return 0.0;
-    return first->buf[i] * second->buf[l];
+    double r = 0.0;
+    if(i < first->len/2) {
+        for(int x = i; x < first->len/2 + i; x++)
+            r += first->buf[x] * second->buf[l];
+    } else {
+        for(int x = l; x < first->len/2 + l; x++)
+            r += first->buf[i] * second->buf[x];
+    }
+    return r;
 }
 
-double VLBIBaseline::Correlate(int i, int l)
+double VLBIBaseline::Correlate(int i)
 {
-    if(i < 0 || i >= first->len || l < 0 || l >= second->len)
-       return 0.0;
-    return first->buf[i] * second->buf[second->len-l];
+    int l = first->len - i - 1;
+    double r = 0.0;
+    if(i < first->len/2) {
+        for(int x = i; x < first->len/2 + i; x++)
+            r += first->buf[x] * second->buf[l];
+    } else {
+        for(int x = l; x < first->len/2 + l; x++)
+            r += first->buf[i] * second->buf[x];
+    }
+    return r;
 }
 
 double VLBIBaseline::getUVSize()

@@ -120,7 +120,7 @@ static void* fillplane_moving_baseline(void* arg)
         free(uvcoords);
         if(U >= 0 && U < u && V >= 0 && V < v) {
             int idx = U+V*u;
-            double val = b->Correlate(i, i);
+            double val = b->Correlate(i);
             parent->buf[idx] = val;
             parent->buf[parent->len-idx] = val;
         }
