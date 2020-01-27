@@ -52,32 +52,22 @@ double VLBIBaseline::Correlate(double J2000_Offset_Time)
 {
     double delay = vlbi_calc_baseline_delay(first->location, second->location, Stream->target, J2000_Offset_Time);
     int i = (int)(((J2000_Offset_Time - starttime) + deltatime + fabs(delay)) * Stream->samplerate);
-    int l = second->len-(int)((J2000_Offset_Time - starttime) * Stream->samplerate);
-    if(i < 0 || i >= first->len || l < 0 || l >= second->len)
+    int l = second->len-(int)((J2000_Offset_Time - starttime) * Stream->samplerate)-1;
+    if(i < 0 || i >= first->len || l < 1 || l >= first->len)
        return 0.0;
     double r = 0.0;
-    if(i < first->len/2) {
-        for(int x = i; x < first->len/2 + i; x++)
-            r += first->buf[x] * second->buf[l];
-    } else {
-        for(int x = l; x < first->len/2 + l; x++)
-            r += first->buf[i] * second->buf[x];
-    }
-    return r;
+    for(int x = l; x >= 0; x--)
+        r += first->buf[i] * second->buf[x];
+    return r / l;
 }
 
 double VLBIBaseline::Correlate(int i)
 {
     int l = first->len - i - 1;
     double r = 0.0;
-    if(i < first->len/2) {
-        for(int x = i; x < first->len/2 + i; x++)
-            r += first->buf[x] * second->buf[l];
-    } else {
-        for(int x = l; x < first->len/2 + l; x++)
-            r += first->buf[i] * second->buf[x];
-    }
-    return r;
+    for(int x = l; x >= 0; x--)
+        r += first->buf[i] * second->buf[x];
+    return r / l;
 }
 
 double VLBIBaseline::getUVSize()

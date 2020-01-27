@@ -6,13 +6,13 @@ VLBI::Client::Client()
 {
 	f = stdout;
 	Ra=0;
-       	Dec = 0;
-        Freq = 1420000000;
-        SampleRate = 100000000;
-        Bps = 8;
-        Gain = 1;
-        w = 128;
-        h = 128;
+    Dec = 0;
+    Freq = 1420000000;
+    SampleRate = 100000000;
+    Bps = 8;
+    Gain = 1;
+    w = 128;
+    h = 128;
 	contexts = new InstanceCollection();
 	model = dsp_stream_new();
 	uv = dsp_stream_new();
