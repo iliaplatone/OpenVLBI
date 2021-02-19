@@ -15,7 +15,7 @@ sh scripts/build.sh
 
 ## Documentation
 
-You can read the API documentation at [https://iliaplatone.github.io/OpenVLBI/docs/](https://iliaplatone.github.io/OpenVLBI/docs/)
+You can read the API documentation at [https://iliaplatone.github.io/OpenVLBI/](https://iliaplatone.github.io/OpenVLBI/)
 
 ## Using libvlbi
 
