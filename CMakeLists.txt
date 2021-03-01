@@ -55,15 +55,14 @@ set(vlbi_C_SRCS
     )
 
 SET(dsp_C_SRC
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/buffer.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/convert.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/fft.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/signals.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/convolution.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stats.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/buffer.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/convolution.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/signals.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stream.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/align.c
     )
 
 execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})

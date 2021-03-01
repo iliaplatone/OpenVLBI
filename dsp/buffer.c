@@ -16,48 +16,68 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "dsp.h"
+#include <dsp.h>
+#include <setjmp.h>
+#include <signal.h>
+
+jmp_buf jump;
+
+static void segv (int sig)
+{
+  longjmp (jump, 1);
+}
+
+int dsp_buffer_check(void *x)
+{
+  volatile char c;
+  int illegal = 0;
+
+  signal (SIGSEGV, segv);
+
+  if (!setjmp (jump))
+    c = *(char *) (x);
+  else
+    illegal = 1;
+
+  signal (SIGSEGV, SIG_DFL);
+
+  return illegal;
+}
 
 void dsp_buffer_shift(dsp_stream_p stream)
 {
     if(stream->dims == 0)
         return;
-    double* out = (double*)malloc(sizeof(double) * stream->len);
-    double* tmp = (double*)malloc(sizeof(double) * stream->len);
-    memcpy(out, stream->buf, stream->len * sizeof(double));
-    for(int len = stream->sizes[0], dim = 0; dim < stream->dims; dim++) {
-        for(int y = 0; y < stream->len; y += len) {
-            int offset = len / 2;
-            memcpy(&tmp[y], &out[y + offset], sizeof(double) * offset);
-            memcpy(&out[y + offset], &out[y], sizeof(double) * offset);
-            memcpy(&out[y], &tmp[y], sizeof(double) * offset);
+    dsp_t* tmp = (dsp_t*)malloc(sizeof(dsp_t) * stream->len);
+    int x, d;
+    for(x = 0; x < stream->len/2; x++) {
+        int* pos = dsp_stream_get_position(stream, x);
+        for(d = 0; d < stream->dims; d++) {
+            if(pos[d]<stream->sizes[d] / 2) {
+                pos[d] += stream->sizes[d] / 2;
+            } else {
+                pos[d] -= stream->sizes[d] / 2;
+            }
         }
-        len *= stream->sizes[dim];
+        tmp[x] = stream->buf[dsp_stream_set_position(stream, pos)];
+        tmp[dsp_stream_set_position(stream, pos)] = stream->buf[x];
+        free(pos);
     }
+    memcpy(stream->buf, tmp, stream->len * sizeof(dsp_t));
     free(tmp);
-    memcpy(stream->buf, out, stream->len * sizeof(double));
-    free(out);
-}
-
-void dsp_buffer_clear(dsp_stream_p stream)
-{
-    int k;
-    for(k = 0; k < stream->len; k++)
-        stream->buf[k] = 0;
-
 }
 
 void dsp_buffer_removemean(dsp_stream_p stream)
 {
     int k;
 
-    double mean = dsp_stats_mean(stream->buf, stream->len);
+    dsp_t mean = dsp_stats_mean(stream->buf, stream->len);
     for(k = 0; k < stream->len; k++)
         stream->buf[k] = stream->buf[k] - mean;
 
 }
 
-void dsp_buffer_sub(dsp_stream_p stream, double* in, int inlen)
+void dsp_buffer_sub(dsp_stream_p stream, dsp_t* in, int inlen)
 {
     int len = Min(stream->len, inlen);
 
@@ -68,18 +88,40 @@ void dsp_buffer_sub(dsp_stream_p stream, double* in, int inlen)
 
 }
 
-void dsp_buffer_sum(dsp_stream_p stream, double* in, int inlen)
+void dsp_buffer_sum(dsp_stream_p stream, dsp_t* in, int inlen)
 {
     int len = Min(stream->len, inlen);
 
-	int k;
-	for(k = 0; k < len; k++) {
-        stream->buf[k] = stream->buf[k] + in[k];
-	}
+    int k;
+    for(k = 0; k < len; k++) {
+        stream->buf[k] += in[k];
+    }
 
 }
 
-void dsp_buffer_div(dsp_stream_p stream, double* in, int inlen)
+void dsp_buffer_max(dsp_stream_p stream, dsp_t* in, int inlen)
+{
+    int len = Min(stream->len, inlen);
+
+    int k;
+    for(k = 0; k < len; k++) {
+        stream->buf[k] = Max(stream->buf[k], in[k]);
+    }
+
+}
+
+void dsp_buffer_min(dsp_stream_p stream, dsp_t* in, int inlen)
+{
+    int len = Min(stream->len, inlen);
+
+    int k;
+    for(k = 0; k < len; k++) {
+        stream->buf[k] = Min(stream->buf[k], in[k]);
+    }
+
+}
+
+void dsp_buffer_div(dsp_stream_p stream, dsp_t* in, int inlen)
 {
     int len = Min(stream->len, inlen);
 
@@ -90,7 +132,7 @@ void dsp_buffer_div(dsp_stream_p stream, double* in, int inlen)
 
 }
 
-void dsp_buffer_mul(dsp_stream_p stream, double* in, int inlen)
+void dsp_buffer_mul(dsp_stream_p stream, dsp_t* in, int inlen)
 {
     int len = Min(stream->len, inlen);
 
@@ -101,7 +143,7 @@ void dsp_buffer_mul(dsp_stream_p stream, double* in, int inlen)
 
 }
 
-void dsp_buffer_pow(dsp_stream_p stream, double* in, int inlen)
+void dsp_buffer_pow(dsp_stream_p stream, dsp_t* in, int inlen)
 {
     int len = Min(stream->len, inlen);
 
@@ -112,7 +154,7 @@ void dsp_buffer_pow(dsp_stream_p stream, double* in, int inlen)
 
 }
 
-void dsp_buffer_log(dsp_stream_p stream, double* in, int inlen)
+void dsp_buffer_log(dsp_stream_p stream, dsp_t* in, int inlen)
 {
     int len = Min(stream->len, inlen);
 
@@ -123,7 +165,7 @@ void dsp_buffer_log(dsp_stream_p stream, double* in, int inlen)
 
 }
 
-void dsp_buffer_1sub(dsp_stream_p stream, double val)
+void dsp_buffer_1sub(dsp_stream_p stream, dsp_t val)
 {
     int k;
 
@@ -133,7 +175,7 @@ void dsp_buffer_1sub(dsp_stream_p stream, double val)
 
 }
 
-void dsp_buffer_sub1(dsp_stream_p stream, double val)
+void dsp_buffer_sub1(dsp_stream_p stream, dsp_t val)
 {
     int k;
 
@@ -143,7 +185,7 @@ void dsp_buffer_sub1(dsp_stream_p stream, double val)
 
 }
 
-void dsp_buffer_sum1(dsp_stream_p stream, double val)
+void dsp_buffer_sum1(dsp_stream_p stream, dsp_t val)
 {
 	int k;
 
@@ -205,32 +247,88 @@ void dsp_buffer_log1(dsp_stream_p stream, double val)
 
 static int compare( const void* a, const void* b)
 {
-     double int_a = * ( (double*) a );
-     double int_b = * ( (double*) b );
+     dsp_t int_a = * ( (dsp_t*) a );
+     dsp_t int_b = * ( (dsp_t*) b );
 
      if ( int_a == int_b ) return 0;
      else if ( int_a < int_b ) return -1;
      else return 1;
 }
 
-void dsp_buffer_median(dsp_stream_p stream, int size, int median)
+static void* dsp_buffer_median_th(void* arg)
 {
-
-	int k;
-    int mid = (size / 2) + (size % 2);
-    double* sorted = (double*)malloc(size * sizeof(double));
-    for(k = mid; k < stream->len; k++) {
-        memcpy (sorted, stream->buf + (k - mid), size * sizeof(double));
-        qsort(sorted, size, sizeof(double), compare);
-        stream->buf[k] = sorted[median];
-	}
-
+    struct {
+        int cur_th;
+        int size;
+        int median;
+        dsp_stream_p stream;
+     } *arguments = arg;
+    dsp_stream_p stream = arguments->stream;
+    dsp_stream_p in = stream->parent;
+    int cur_th = arguments->cur_th;
+    int size = arguments->size;
+    int median = arguments->median;
+    int start = cur_th * stream->len / DSP_MAX_THREADS;
+    int end = start + stream->len / DSP_MAX_THREADS;
+    end = Min(stream->len, end);
+    int x, y, dim, idx;
+    dsp_t* sorted = (dsp_t*)malloc(pow(size, stream->dims) * sizeof(dsp_t));
+    for(x = start; x < end; x++) {
+        int *pos = dsp_stream_get_position(stream, x);
+        dsp_t* buf = sorted;
+        for(dim = 0; dim < stream->dims; dim++) {
+            pos[dim] -= size / 2;
+            for(y = 0; y < size; y++, pos[dim]++) {
+                idx = dsp_stream_set_position(stream, pos);
+                if(idx >= 0 && idx < in->len)
+                    *buf++ = in->buf[idx];
+            }
+        }
+        qsort(sorted, size, sizeof(dsp_t), compare);
+        stream->buf[x] = sorted[median];
+        free(pos);
+    }
+    free(sorted);
 }
 
-void dsp_buffer_deviate(dsp_stream_p stream, double* deviation, double mindeviation, double maxdeviation)
+void dsp_buffer_median(dsp_stream_p in, int size, int median)
+{
+    start_gettime;
+    int dims = in->dims;
+    int dim, y;
+    dsp_stream_p stream = dsp_stream_copy(in);
+    dsp_buffer_set(stream->buf, stream->len, 0);
+    stream->parent = in;
+    pthread_t *th = malloc(sizeof(pthread_t)*DSP_MAX_THREADS);
+    struct {
+       int cur_th;
+       int size;
+       int median;
+       dsp_stream_p stream;
+    } thread_arguments[DSP_MAX_THREADS];
+    for(y = 0; y < DSP_MAX_THREADS; y++)
+    {
+        thread_arguments[y].cur_th = y;
+        thread_arguments[y].size = size;
+        thread_arguments[y].median = median;
+        thread_arguments[y].stream = stream;
+        pthread_create(&th[y], NULL, dsp_buffer_median_th, &thread_arguments[y]);
+    }
+    for(y = 0; y < DSP_MAX_THREADS; y++)
+        pthread_join(th[y], NULL);
+    free(th);
+    stream->parent = NULL;
+    dsp_buffer_copy(stream->buf, in->buf, stream->len);
+    dsp_stream_free_buffer(stream);
+    dsp_stream_free(stream);
+    end_gettime;
+}
+
+void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t mindeviation, dsp_t maxdeviation)
 {
     dsp_stream_p tmp = dsp_stream_copy(stream);
-    for(int k = 1; k < stream->len; k++) {
+    int k;
+    for(k = 1; k < stream->len; k++) {
         stream->buf[(int)Max(0, Min(stream->len, ((deviation[k] - mindeviation) * (maxdeviation - mindeviation) + mindeviation) + k))] = tmp->buf[k];
     }
     dsp_stream_free(tmp);

@@ -183,7 +183,7 @@ typedef struct timespec timespec_t;
 #define LY (LIGHTSPEED * SOLAR_DAY * 365)
 #endif
 extern unsigned long int MAX_THREADS;
-inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) MAX_THREADS = value; return MAX_THREADS; }
+inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) MAX_THREADS = value; DSP_MAX_THREADS = value; return MAX_THREADS; }
 /*@}*/
 /**
  * \defgroup VLBI_Functions Essential VLBI functions
