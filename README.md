@@ -1,4 +1,4 @@
-# Interferometric correlator clients application suite
+# Interferometric correlator server/client application suite
 libvlbi is an open source library for correlating single dimensional streams and obtain an image from them.
 this repository contains the sources for building the library and a client application which correlates using the library streams captured from INDI servers by adding them using the vlbi_server script.
 
@@ -145,6 +145,4 @@ set connection state:string - set nodes connection state (on, off)
 
 [[1]](https://link.springer.com/article/10.1007/s10686-018-9595-0)Optical long baseline intensity interferometry: prospects for stellar physics (Jean-Pierre Rivet, Farrokh Vakili, Olivier Lai, David Vernet, Mathilde Fouché, William Guerin, Guillaume Labeyrie, Robin Kaiser)
 
-[[2]](https://link.springer.com/article/10.1007/s11214-018-0498-1)Very Long Baseline Interferometry: Dependencies on Frequency Stability (Axel Nothnagel, Tobias Nilsson, Harald Schuh)
-
-[[3]](https://link.springer.com/content/pdf/10.1007/978-3-319-44431-4.pdf)Interferometry and synthesis in radio astronomy (AR Thompson, JM Moran, GW Swenson)
+[[2]](https://link.springer.com/content/pdf/10.1007/978-3-319-44431-4.pdf)Interferometry and synthesis in radio astronomy (AR Thompson, JM Moran, GW Swenson)
