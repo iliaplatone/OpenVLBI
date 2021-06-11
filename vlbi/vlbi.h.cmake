@@ -54,21 +54,21 @@ extern "C" {
  *
  * OpenVLBI is a free, open source set of applications for very long baseline radio interferometry.<br>
  */
-/*@{*/
+/**@{*/
 
 /**
  * \defgroup VLBI_Types VLBI types
 */
-/*@{*/
+/**@{*/
 
 typedef double*(* vlbi_func2_t)(double, double);
 typedef void* vlbi_context;
 typedef struct timespec timespec_t;
-/*@}*/
+/**@}*/
 /**
  * \defgroup VLBI_Defines VLBI defines
 */
-/*@{*/
+/**@{*/
 
 ///if max() is not present you can use this one
 #ifndef Min
@@ -184,11 +184,11 @@ typedef struct timespec timespec_t;
 #endif
 extern unsigned long int MAX_THREADS;
 inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) MAX_THREADS = value; DSP_MAX_THREADS = value; return MAX_THREADS; }
-/*@}*/
+/**@}*/
 /**
  * \defgroup VLBI_Functions Essential VLBI functions
 */
-/*@{*/
+/**@{*/
 
 /**
 * @brief Initialize a libVLBI instance.
@@ -277,11 +277,11 @@ DLL_EXPORT dsp_stream_p vlbi_apply_model(dsp_stream_p uv, dsp_stream_p model);
 DLL_EXPORT char* vlbi_get_version();
 
 
-/*@}*/
+/**@}*/
 /**
  * \defgroup VLBI_Internal VLBI internal functions
 */
-/*@{*/
+/**@{*/
 
 /**
 * @brief Return an aproximation of the timing offset that affects the vector passed as argument.
@@ -308,30 +308,13 @@ DLL_EXPORT double* vlbi_calc_baseline_center(double *loc1, double *loc2);
 
 /**
 * @brief Return The baseline center in geographic coordinates.
-* @param ha The hour angle of the target.
-* @param dec The declination of the target.
-* @param baseline The current baseline in geographic coordinates.
+* @param alt The altitude of the target.
+* @param az The azimuth of the target.
+* @param baseline The current baseline in meters.
 * @param wavelength The wavelength observed.
 * @return double* The UV coordinates of the current observation.
 */
-DLL_EXPORT double* vlbi_calc_uv_coords(double ha, double dec, double *baseline, double wavelength);
-
-/**
-* @brief Return The baseline center in geographic coordinates.
-* @param baseline_m The current baseline in geographic coordinates.
-* @param wavelength The wavelength observed.
-* @return double* The UV coordinates of the current observation.
-*/
-DLL_EXPORT double* vlbi_get_uv_coords(double *baseline_m, double wavelength);
-
-/**
-* @brief Return The baseline center in geographic coordinates.
-* @param baseline_m The current baseline in orthogonal coordinates.
-* @param target_vector The vector of the target observed.
-* @param wavelength The wavelength observed.
-* @return double* The UV coordinates of the current observation.
-*/
-DLL_EXPORT double* vlbi_get_uv_coords_vector(double *baseline_m, double wavelength, double *target_vector);
+DLL_EXPORT double* vlbi_calc_uv_coords(double alt, double az, double *baseline, double wavelength);
 
 /**
 * @brief Convert geographic location into xyz location
@@ -366,13 +349,12 @@ DLL_EXPORT double* vlbi_calc_baseline_m_xyz(double *loc1, double *loc2);
 
 /**
 * @brief Calculate the delay between the two nodes of the baseline given a target
-* @param location1 The 1st location of the observer.
-* @param location2 The 2nd location of the observer.
-* @param target The target observed.
-* @param obstime The current observation time.
+* @param alt Altitude of the target.
+* @param az Azimuth of the target.
+* @param baseline The reference baseline.
 * @return double The current delay between the two nodes.
 */
-DLL_EXPORT double vlbi_calc_baseline_delay(double *location1, double *location2, double* target, double obstime);
+DLL_EXPORT double vlbi_calc_baseline_delay(double alt, double az, double *baseline);
 
 /**
 * @brief Calculate the delay between the two nodes of the baseline given a target in orthogonal coordinates
@@ -554,8 +536,8 @@ DLL_EXPORT double vlbi_astro_estimate_absolute_magnitude(double delta_dist, doub
 
 DLL_EXPORT int vlbi_b64readfile(char* filename, void* buf);
 
-/*@}*/
-/*@}*/
+/**@}*/
+/**@}*/
 
 #ifdef __cplusplus
 }
