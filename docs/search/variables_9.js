@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['radius_330',['radius',['../structdsp__star__t.html#a26bf647c8b5c7b0b11ea35a05f088944',1,'dsp_star_t']]],
-  ['real_331',['real',['../structdsp__complex__t.html#a945260a0574f865349afef7e6522e620',1,'dsp_complex_t']]],
-  ['roi_332',['ROI',['../structdsp__stream__t.html#ae4945adcbb1cc9fef407a62d6109a312',1,'dsp_stream_t']]]
+  ['offset_394',['offset',['../structdsp__offset__t.html#aa829075218a519d7905c1ff769ba92d8',1,'dsp_offset_t::offset()'],['../structdsp__align__info__t.html#afac188d2d5726bda04185c1cdfc8c246',1,'dsp_align_info_t::offset()']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['func_323',['func',['../structdsp__stream__t.html#a9396563830da1b28c966fec3f1378dbc',1,'dsp_stream_t']]]
+  ['ex_5ftime_385',['ex_time',['../dsp_8h.html#a3a930dfc8b89877c391f0e16dacb54fe',1,'dsp.h']]]
 ];

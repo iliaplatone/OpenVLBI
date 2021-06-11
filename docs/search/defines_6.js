@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['max_379',['Max',['../dsp_8h.html#a4886a8f966a69949cefc46a6a3468006',1,'dsp.h']]],
-  ['min_380',['Min',['../dsp_8h.html#a9e04209162ea72f9985338596262b657',1,'dsp.h']]]
+  ['ts_5fgettime_461',['ts_gettime',['../dsp_8h.html#a92c1253185432a35e8e8d6066e616119',1,'dsp.h']]]
 ];

@@ -62,14 +62,1325 @@ $(function() {
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">VLBI internal functions</div>  </div>
+<div class="title">VLBI internal functions<div class="ingroups"><a class="el" href="group___v_l_b_i.html">Very Long Baseline Interferometry</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gab29441f7d9670468e4659f14edcf5ddd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gab29441f7d9670468e4659f14edcf5ddd">vlbi_calibrate</a> (<a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> stream1, <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> stream2)</td></tr>
+<tr class="memdesc:gab29441f7d9670468e4659f14edcf5ddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an aproximation of the timing offset that affects the vector passed as argument.  <a href="group___v_l_b_i___internal.html#gab29441f7d9670468e4659f14edcf5ddd">More...</a><br /></td></tr>
+<tr class="separator:gab29441f7d9670468e4659f14edcf5ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa5b0273db6b5fcb3a7b62cf5c2464ceb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gaa5b0273db6b5fcb3a7b62cf5c2464ceb">vlbi_calc_delay_coarse</a> (double *vector)</td></tr>
+<tr class="memdesc:gaa5b0273db6b5fcb3a7b62cf5c2464ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an aproximation of the timing offset that affects the vector passed as argument.  <a href="group___v_l_b_i___internal.html#gaa5b0273db6b5fcb3a7b62cf5c2464ceb">More...</a><br /></td></tr>
+<tr class="separator:gaa5b0273db6b5fcb3a7b62cf5c2464ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4759cc80d09015ac9be8c773d2a7b3f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga4759cc80d09015ac9be8c773d2a7b3f2">vlbi_calc_baseline_center</a> (double *loc1, double *loc2)</td></tr>
+<tr class="memdesc:ga4759cc80d09015ac9be8c773d2a7b3f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return The baseline center in geographic coordinates.  <a href="group___v_l_b_i___internal.html#ga4759cc80d09015ac9be8c773d2a7b3f2">More...</a><br /></td></tr>
+<tr class="separator:ga4759cc80d09015ac9be8c773d2a7b3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2fd21cb5d5ffbd727bf10276054e143c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga2fd21cb5d5ffbd727bf10276054e143c">vlbi_calc_uv_coords</a> (double alt, double az, double *baseline, double wavelength)</td></tr>
+<tr class="memdesc:ga2fd21cb5d5ffbd727bf10276054e143c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return The baseline center in geographic coordinates.  <a href="group___v_l_b_i___internal.html#ga2fd21cb5d5ffbd727bf10276054e143c">More...</a><br /></td></tr>
+<tr class="separator:ga2fd21cb5d5ffbd727bf10276054e143c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacdf0345b45c40d0fd01512202009e65e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gacdf0345b45c40d0fd01512202009e65e">vlbi_calc_location_m</a> (double *loc)</td></tr>
+<tr class="memdesc:gacdf0345b45c40d0fd01512202009e65e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert geographic location into xyz location.  <a href="group___v_l_b_i___internal.html#gacdf0345b45c40d0fd01512202009e65e">More...</a><br /></td></tr>
+<tr class="separator:gacdf0345b45c40d0fd01512202009e65e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga386eb254d35ddaf71a8956c7c05068d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga386eb254d35ddaf71a8956c7c05068d8">vlbi_calc_baseline_m</a> (double *loc1, double *loc2)</td></tr>
+<tr class="memdesc:ga386eb254d35ddaf71a8956c7c05068d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert geographic baseline into geographic baseline.  <a href="group___v_l_b_i___internal.html#ga386eb254d35ddaf71a8956c7c05068d8">More...</a><br /></td></tr>
+<tr class="separator:ga386eb254d35ddaf71a8956c7c05068d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga67b28cba350000178049fb9f460a05f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga67b28cba350000178049fb9f460a05f9">vlbi_calc_baseline_rad</a> (double *location1, double *location2)</td></tr>
+<tr class="memdesc:ga67b28cba350000178049fb9f460a05f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert geographic baseline into radians baseline.  <a href="group___v_l_b_i___internal.html#ga67b28cba350000178049fb9f460a05f9">More...</a><br /></td></tr>
+<tr class="separator:ga67b28cba350000178049fb9f460a05f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b26d2d19f628b03c0b64bde3807ead9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga3b26d2d19f628b03c0b64bde3807ead9">vlbi_calc_baseline_m_xyz</a> (double *loc1, double *loc2)</td></tr>
+<tr class="memdesc:ga3b26d2d19f628b03c0b64bde3807ead9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert geographic baseline into xyz baseline.  <a href="group___v_l_b_i___internal.html#ga3b26d2d19f628b03c0b64bde3807ead9">More...</a><br /></td></tr>
+<tr class="separator:ga3b26d2d19f628b03c0b64bde3807ead9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaefff988dc4b54b119fa4ca23164ce536"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gaefff988dc4b54b119fa4ca23164ce536">vlbi_calc_baseline_delay</a> (double alt, double az, double *baseline)</td></tr>
+<tr class="memdesc:gaefff988dc4b54b119fa4ca23164ce536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the delay between the two nodes of the baseline given a target.  <a href="group___v_l_b_i___internal.html#gaefff988dc4b54b119fa4ca23164ce536">More...</a><br /></td></tr>
+<tr class="separator:gaefff988dc4b54b119fa4ca23164ce536"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75515e772887817ae5c42a4ccdae92c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga75515e772887817ae5c42a4ccdae92c9">vlbi_calc_baseline_delay_vector</a> (double *loc1, double *loc2, double *target)</td></tr>
+<tr class="memdesc:ga75515e772887817ae5c42a4ccdae92c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the delay between the two nodes of the baseline given a target in orthogonal coordinates.  <a href="group___v_l_b_i___internal.html#ga75515e772887817ae5c42a4ccdae92c9">More...</a><br /></td></tr>
+<tr class="separator:ga75515e772887817ae5c42a4ccdae92c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8af005c906f801c718a13c74cdb602b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga8af005c906f801c718a13c74cdb602b6">vlbi_calc_delay</a> (double distance_m)</td></tr>
+<tr class="memdesc:ga8af005c906f801c718a13c74cdb602b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the delay that takes to transit the given distance.  <a href="group___v_l_b_i___internal.html#ga8af005c906f801c718a13c74cdb602b6">More...</a><br /></td></tr>
+<tr class="separator:ga8af005c906f801c718a13c74cdb602b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e0a7cd5fab6a930cc6813b2d4f6a042"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga9e0a7cd5fab6a930cc6813b2d4f6a042">vlbi_rad2as</a> (double rad)</td></tr>
+<tr class="memdesc:ga9e0a7cd5fab6a930cc6813b2d4f6a042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert radians into arcseconds.  <a href="group___v_l_b_i___internal.html#ga9e0a7cd5fab6a930cc6813b2d4f6a042">More...</a><br /></td></tr>
+<tr class="separator:ga9e0a7cd5fab6a930cc6813b2d4f6a042"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3259f2094610919104d5cd0c37bce75a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga3259f2094610919104d5cd0c37bce75a">vlbi_as2rad</a> (double as)</td></tr>
+<tr class="memdesc:ga3259f2094610919104d5cd0c37bce75a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert arcseconds into radians.  <a href="group___v_l_b_i___internal.html#ga3259f2094610919104d5cd0c37bce75a">More...</a><br /></td></tr>
+<tr class="separator:ga3259f2094610919104d5cd0c37bce75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf3d2084c904f2f147c441aeb17c784a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gaaf3d2084c904f2f147c441aeb17c784a">vlbi_estimate_resolution_zero</a> (double frequency)</td></tr>
+<tr class="memdesc:gaaf3d2084c904f2f147c441aeb17c784a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate Signal to noise ratio after a given integration time.  <a href="group___v_l_b_i___internal.html#gaaf3d2084c904f2f147c441aeb17c784a">More...</a><br /></td></tr>
+<tr class="separator:gaaf3d2084c904f2f147c441aeb17c784a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacc678d0665868a903286005944236e08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gacc678d0665868a903286005944236e08">vlbi_estimate_resolution</a> (double resolution0, double baseline)</td></tr>
+<tr class="memdesc:gacc678d0665868a903286005944236e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate Signal to noise ratio after a given integration time.  <a href="group___v_l_b_i___internal.html#gacc678d0665868a903286005944236e08">More...</a><br /></td></tr>
+<tr class="separator:gacc678d0665868a903286005944236e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70524cd0a72b7cad9b9299887bdbef06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga70524cd0a72b7cad9b9299887bdbef06">vlbi_estimate_snr_zero</a> (double gain, double resolution, double bandwidth)</td></tr>
+<tr class="memdesc:ga70524cd0a72b7cad9b9299887bdbef06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate Signal to noise ratio after a given integration time.  <a href="group___v_l_b_i___internal.html#ga70524cd0a72b7cad9b9299887bdbef06">More...</a><br /></td></tr>
+<tr class="separator:ga70524cd0a72b7cad9b9299887bdbef06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab85da100bb390977d609afdb3dbca523"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gab85da100bb390977d609afdb3dbca523">vlbi_estimate_snr</a> (double snr, double integration)</td></tr>
+<tr class="memdesc:gab85da100bb390977d609afdb3dbca523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate Signal to noise ratio after a given integration time.  <a href="group___v_l_b_i___internal.html#gab85da100bb390977d609afdb3dbca523">More...</a><br /></td></tr>
+<tr class="separator:gab85da100bb390977d609afdb3dbca523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab88f0198d9ba79c4af40f8aeb3dd858"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___v_l_b_i___types.html#gaa0b51754d79d4eac2b53e1c6ae364c43">timespec_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gaab88f0198d9ba79c4af40f8aeb3dd858">vlbi_time_mktimespec</a> (int year, int month, int dom, int hour, int minute, int second, long nanosecond)</td></tr>
+<tr class="memdesc:gaab88f0198d9ba79c4af40f8aeb3dd858"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain a timespec struct containing the date and time specified  <a href="group___v_l_b_i___internal.html#gaab88f0198d9ba79c4af40f8aeb3dd858">More...</a><br /></td></tr>
+<tr class="separator:gaab88f0198d9ba79c4af40f8aeb3dd858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab105b007126312824cf09dabc71d7a1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gab105b007126312824cf09dabc71d7a1b">vlbi_time_timespec_to_J2000time</a> (<a class="el" href="group___v_l_b_i___types.html#gaa0b51754d79d4eac2b53e1c6ae364c43">timespec_t</a> tp)</td></tr>
+<tr class="memdesc:gab105b007126312824cf09dabc71d7a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a timespec into J2000 time.  <a href="group___v_l_b_i___internal.html#gab105b007126312824cf09dabc71d7a1b">More...</a><br /></td></tr>
+<tr class="separator:gab105b007126312824cf09dabc71d7a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacaef1e8d991dc7d05e298ecb4e0c201e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gacaef1e8d991dc7d05e298ecb4e0c201e">vlbi_time_J2000time_to_lst</a> (double secs_since_J2000, double Long)</td></tr>
+<tr class="memdesc:gacaef1e8d991dc7d05e298ecb4e0c201e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the local sidereal time at an arbitrary moment and location.  <a href="group___v_l_b_i___internal.html#gacaef1e8d991dc7d05e298ecb4e0c201e">More...</a><br /></td></tr>
+<tr class="separator:gacaef1e8d991dc7d05e298ecb4e0c201e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc137a0b360978e3bef523914f84b619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___v_l_b_i___types.html#gaa0b51754d79d4eac2b53e1c6ae364c43">timespec_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gabc137a0b360978e3bef523914f84b619">vlbi_time_string_to_utc</a> (char *time)</td></tr>
+<tr class="memdesc:gabc137a0b360978e3bef523914f84b619"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain a timespec struct containing the date and time specified by a time string  <a href="group___v_l_b_i___internal.html#gabc137a0b360978e3bef523914f84b619">More...</a><br /></td></tr>
+<tr class="separator:gabc137a0b360978e3bef523914f84b619"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a725d845343f59b3a2a6ac993403529"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___v_l_b_i___types.html#gaa0b51754d79d4eac2b53e1c6ae364c43">timespec_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga1a725d845343f59b3a2a6ac993403529">vlbi_time_J2000time_to_timespec</a> (double secs_since_J2000)</td></tr>
+<tr class="memdesc:ga1a725d845343f59b3a2a6ac993403529"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain a timespec struct containing the date and time specified by a J2000 time  <a href="group___v_l_b_i___internal.html#ga1a725d845343f59b3a2a6ac993403529">More...</a><br /></td></tr>
+<tr class="separator:ga1a725d845343f59b3a2a6ac993403529"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb0b11b89a053de62e7181eb4b295680"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gacb0b11b89a053de62e7181eb4b295680">vlbi_astro_get_local_hour_angle</a> (double local_sideral_time, double ra)</td></tr>
+<tr class="memdesc:gacb0b11b89a053de62e7181eb4b295680"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_local_hour_angle Returns local hour angle of an object  <a href="group___v_l_b_i___internal.html#gacb0b11b89a053de62e7181eb4b295680">More...</a><br /></td></tr>
+<tr class="separator:gacb0b11b89a053de62e7181eb4b295680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa85a320d517878c761bec90edc9a5dbb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gaa85a320d517878c761bec90edc9a5dbb">vlbi_astro_get_alt_az_coordinates</a> (double hour_angle, double dec, double latitude, double *alt, double *az)</td></tr>
+<tr class="memdesc:gaa85a320d517878c761bec90edc9a5dbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_alt_az_coordinates Returns alt-azimuth coordinates of an object  <a href="group___v_l_b_i___internal.html#gaa85a320d517878c761bec90edc9a5dbb">More...</a><br /></td></tr>
+<tr class="separator:gaa85a320d517878c761bec90edc9a5dbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8af9dfb7d7d4fda74d2b833199a9aba7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga8af9dfb7d7d4fda74d2b833199a9aba7">vlbi_astro_estimate_geocentric_elevation</a> (double latitude, double sea_level_elevation)</td></tr>
+<tr class="memdesc:ga8af9dfb7d7d4fda74d2b833199a9aba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">estimate_geocentric_elevation Returns an estimation of the actual geocentric elevation  <a href="group___v_l_b_i___internal.html#ga8af9dfb7d7d4fda74d2b833199a9aba7">More...</a><br /></td></tr>
+<tr class="separator:ga8af9dfb7d7d4fda74d2b833199a9aba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd4faf05f672c9d2462a1f9ddbcc949e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gafd4faf05f672c9d2462a1f9ddbcc949e">vlbi_astro_estimate_field_rotation_rate</a> (double Alt, double Az, double latitude)</td></tr>
+<tr class="memdesc:gafd4faf05f672c9d2462a1f9ddbcc949e"><td class="mdescLeft">&#160;</td><td class="mdescRight">estimate_field_rotation_rate Returns an estimation of the field rotation rate of the object  <a href="group___v_l_b_i___internal.html#gafd4faf05f672c9d2462a1f9ddbcc949e">More...</a><br /></td></tr>
+<tr class="separator:gafd4faf05f672c9d2462a1f9ddbcc949e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga76d4ad11babdc35ce8d285a38dbf9a83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga76d4ad11babdc35ce8d285a38dbf9a83">vlbi_astro_estimate_field_rotation</a> (double hour_angle, double field_rotation_rate)</td></tr>
+<tr class="memdesc:ga76d4ad11babdc35ce8d285a38dbf9a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">estimate_field_rotation Returns an estimation of the field rotation rate of the object  <a href="group___v_l_b_i___internal.html#ga76d4ad11babdc35ce8d285a38dbf9a83">More...</a><br /></td></tr>
+<tr class="separator:ga76d4ad11babdc35ce8d285a38dbf9a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b505c40f281d25da9bea7eec63cc3fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga9b505c40f281d25da9bea7eec63cc3fb">vlbi_astro_parsec2m</a> (double parsec)</td></tr>
+<tr class="memdesc:ga9b505c40f281d25da9bea7eec63cc3fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">parsec2m Convert parallax arcseconds into meters  <a href="group___v_l_b_i___internal.html#ga9b505c40f281d25da9bea7eec63cc3fb">More...</a><br /></td></tr>
+<tr class="separator:ga9b505c40f281d25da9bea7eec63cc3fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b8e185cf410a4ae39067ed9730203ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga5b8e185cf410a4ae39067ed9730203ee">vlbi_astro_m2au</a> (double m)</td></tr>
+<tr class="memdesc:ga5b8e185cf410a4ae39067ed9730203ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">m2au Convert meters into astronomical units  <a href="group___v_l_b_i___internal.html#ga5b8e185cf410a4ae39067ed9730203ee">More...</a><br /></td></tr>
+<tr class="separator:ga5b8e185cf410a4ae39067ed9730203ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec81646089ec2df66dccc1580602ffe7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gaec81646089ec2df66dccc1580602ffe7">vlbi_astro_calc_delta_magnitude</a> (double mag0, double mag, double *spectrum, int spectrum_size, int lambda)</td></tr>
+<tr class="memdesc:gaec81646089ec2df66dccc1580602ffe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">calc_delta_magnitude Returns the difference of magnitudes given two spectra  <a href="group___v_l_b_i___internal.html#gaec81646089ec2df66dccc1580602ffe7">More...</a><br /></td></tr>
+<tr class="separator:gaec81646089ec2df66dccc1580602ffe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99f3301287ed298edaa60301c4e6d9ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga99f3301287ed298edaa60301c4e6d9ff">vlbi_astro_estimate_absolute_magnitude</a> (double delta_dist, double delta_spectrum, double delta_mag)</td></tr>
+<tr class="memdesc:ga99f3301287ed298edaa60301c4e6d9ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">estimate_field_rotation Returns an estimation of the field rotation rate of the object  <a href="group___v_l_b_i___internal.html#ga99f3301287ed298edaa60301c4e6d9ff">More...</a><br /></td></tr>
+<tr class="separator:ga99f3301287ed298edaa60301c4e6d9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4f2f78c81d60dd5fb85f064f47992db5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga4f2f78c81d60dd5fb85f064f47992db5">vlbi_b64readfile</a> (char *filename, void *buf)</td></tr>
+<tr class="separator:ga4f2f78c81d60dd5fb85f064f47992db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga3259f2094610919104d5cd0c37bce75a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3259f2094610919104d5cd0c37bce75a">&#9670;&nbsp;</a></span>vlbi_as2rad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_as2rad </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>as</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert arcseconds into radians. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">as</td><td>Arcseconds to convert into radians. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double The radian value corresponding to the given arcseconds </dd></dl>
+
+</div>
+</div>
+<a id="gaec81646089ec2df66dccc1580602ffe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaec81646089ec2df66dccc1580602ffe7">&#9670;&nbsp;</a></span>vlbi_astro_calc_delta_magnitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_astro_calc_delta_magnitude </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>mag0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>mag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>spectrum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>spectrum_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lambda</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>calc_delta_magnitude Returns the difference of magnitudes given two spectra </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mag0</td><td>Reference magnitude </td></tr>
+    <tr><td class="paramname">mag</td><td>Relative magnitude to normalize </td></tr>
+    <tr><td class="paramname">spectrum</td><td>The spectrum of the star </td></tr>
+    <tr><td class="paramname">spectrum_size</td><td>The size of the spectrum </td></tr>
+    <tr><td class="paramname">lambda</td><td>the index of the position into the spectrum that parameter mag refers to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the magnitude difference </dd></dl>
+
+</div>
+</div>
+<a id="ga99f3301287ed298edaa60301c4e6d9ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga99f3301287ed298edaa60301c4e6d9ff">&#9670;&nbsp;</a></span>vlbi_astro_estimate_absolute_magnitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_astro_estimate_absolute_magnitude </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>delta_dist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>delta_spectrum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>delta_mag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>estimate_field_rotation Returns an estimation of the field rotation rate of the object </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dist</td><td>The distance in parallax radiuses </td></tr>
+    <tr><td class="paramname">delta_mag</td><td>The difference of magnitudes </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Aproximation of the absolute magnitude in Δmag </dd></dl>
+
+</div>
+</div>
+<a id="ga76d4ad11babdc35ce8d285a38dbf9a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga76d4ad11babdc35ce8d285a38dbf9a83">&#9670;&nbsp;</a></span>vlbi_astro_estimate_field_rotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_astro_estimate_field_rotation </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>hour_angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>field_rotation_rate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>estimate_field_rotation Returns an estimation of the field rotation rate of the object </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hour_angle</td><td>Hour angle in hours (-12 to 12) </td></tr>
+    <tr><td class="paramname">field_rotation_rate</td><td>the field rotation rate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Aproximation of the absolute field rotation </dd></dl>
+
+</div>
+</div>
+<a id="gafd4faf05f672c9d2462a1f9ddbcc949e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafd4faf05f672c9d2462a1f9ddbcc949e">&#9670;&nbsp;</a></span>vlbi_astro_estimate_field_rotation_rate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_astro_estimate_field_rotation_rate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Alt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Az</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>latitude</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>estimate_field_rotation_rate Returns an estimation of the field rotation rate of the object </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Alt</td><td>altitude coordinate of the object </td></tr>
+    <tr><td class="paramname">Az</td><td>azimuth coordinate of the object </td></tr>
+    <tr><td class="paramname">latitude</td><td>latitude in INDI format (-90 to +90) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Aproximation of the field rotation rate </dd></dl>
+
+</div>
+</div>
+<a id="ga8af9dfb7d7d4fda74d2b833199a9aba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8af9dfb7d7d4fda74d2b833199a9aba7">&#9670;&nbsp;</a></span>vlbi_astro_estimate_geocentric_elevation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_astro_estimate_geocentric_elevation </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>latitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>sea_level_elevation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>estimate_geocentric_elevation Returns an estimation of the actual geocentric elevation </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">latitude</td><td>latitude in INDI format (-90 to +90) </td></tr>
+    <tr><td class="paramname">sea_level_elevation</td><td>sea level elevation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Aproximated geocentric elevation </dd></dl>
+
+</div>
+</div>
+<a id="gaa85a320d517878c761bec90edc9a5dbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa85a320d517878c761bec90edc9a5dbb">&#9670;&nbsp;</a></span>vlbi_astro_get_alt_az_coordinates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_astro_get_alt_az_coordinates </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>hour_angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>latitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>alt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>az</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get_alt_az_coordinates Returns alt-azimuth coordinates of an object </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hour_angle</td><td>Hour angle in hours (-12 to 12) </td></tr>
+    <tr><td class="paramname">dec</td><td>DEC of object </td></tr>
+    <tr><td class="paramname">latitude</td><td>latitude in INDI format (-90 to +90) </td></tr>
+    <tr><td class="paramname">alt</td><td>ALT of object will be returned here </td></tr>
+    <tr><td class="paramname">az</td><td>AZ of object will be returned here </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacb0b11b89a053de62e7181eb4b295680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacb0b11b89a053de62e7181eb4b295680">&#9670;&nbsp;</a></span>vlbi_astro_get_local_hour_angle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_astro_get_local_hour_angle </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>local_sideral_time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>ra</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get_local_hour_angle Returns local hour angle of an object </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">local_sideral_time</td><td>Local Sideral Time </td></tr>
+    <tr><td class="paramname">ra</td><td>RA of object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Hour angle in hours (-12 to 12) </dd></dl>
+
+</div>
+</div>
+<a id="ga5b8e185cf410a4ae39067ed9730203ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5b8e185cf410a4ae39067ed9730203ee">&#9670;&nbsp;</a></span>vlbi_astro_m2au()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_astro_m2au </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>m2au Convert meters into astronomical units </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>the distance in meters to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Estimation of the distance in astronomical units </dd></dl>
+
+</div>
+</div>
+<a id="ga9b505c40f281d25da9bea7eec63cc3fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9b505c40f281d25da9bea7eec63cc3fb">&#9670;&nbsp;</a></span>vlbi_astro_parsec2m()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_astro_parsec2m </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>parsec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parsec2m Convert parallax arcseconds into meters </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parsec</td><td>the parallax arcseconds to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Estimation of the distance in meters </dd></dl>
+
+</div>
+</div>
+<a id="ga4f2f78c81d60dd5fb85f064f47992db5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4f2f78c81d60dd5fb85f064f47992db5">&#9670;&nbsp;</a></span>vlbi_b64readfile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int vlbi_b64readfile </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga4759cc80d09015ac9be8c773d2a7b3f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4759cc80d09015ac9be8c773d2a7b3f2">&#9670;&nbsp;</a></span>vlbi_calc_baseline_center()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double* vlbi_calc_baseline_center </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>loc1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>loc2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return The baseline center in geographic coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loc1</td><td>The first location. </td></tr>
+    <tr><td class="paramname">loc2</td><td>The second location. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double* The center of the given coordinates </dd></dl>
+
+</div>
+</div>
+<a id="gaefff988dc4b54b119fa4ca23164ce536"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaefff988dc4b54b119fa4ca23164ce536">&#9670;&nbsp;</a></span>vlbi_calc_baseline_delay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_calc_baseline_delay </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>alt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>az</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>baseline</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the delay between the two nodes of the baseline given a target. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alt</td><td>Altitude of the target. </td></tr>
+    <tr><td class="paramname">az</td><td>Azimuth of the target. </td></tr>
+    <tr><td class="paramname">baseline</td><td>The reference baseline. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double The current delay between the two nodes. </dd></dl>
+
+</div>
+</div>
+<a id="ga75515e772887817ae5c42a4ccdae92c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga75515e772887817ae5c42a4ccdae92c9">&#9670;&nbsp;</a></span>vlbi_calc_baseline_delay_vector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_calc_baseline_delay_vector </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>loc1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>loc2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the delay between the two nodes of the baseline given a target in orthogonal coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loc1</td><td>The 1st location of the observer. </td></tr>
+    <tr><td class="paramname">loc2</td><td>The 2nd location of the observer. </td></tr>
+    <tr><td class="paramname">target</td><td>The target observed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double The current delay between the two nodes. </dd></dl>
+
+</div>
+</div>
+<a id="ga386eb254d35ddaf71a8956c7c05068d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga386eb254d35ddaf71a8956c7c05068d8">&#9670;&nbsp;</a></span>vlbi_calc_baseline_m()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double* vlbi_calc_baseline_m </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>loc1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>loc2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert geographic baseline into geographic baseline. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loc1</td><td>The 1st location of the observer. </td></tr>
+    <tr><td class="paramname">loc2</td><td>The 2nd location of the observer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double* The geographic baseline. </dd></dl>
+
+</div>
+</div>
+<a id="ga3b26d2d19f628b03c0b64bde3807ead9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3b26d2d19f628b03c0b64bde3807ead9">&#9670;&nbsp;</a></span>vlbi_calc_baseline_m_xyz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double* vlbi_calc_baseline_m_xyz </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>loc1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>loc2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert geographic baseline into xyz baseline. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loc1</td><td>The 1st location of the observer. </td></tr>
+    <tr><td class="paramname">loc2</td><td>The 2nd location of the observer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double* The xyz baseline. </dd></dl>
+
+</div>
+</div>
+<a id="ga67b28cba350000178049fb9f460a05f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga67b28cba350000178049fb9f460a05f9">&#9670;&nbsp;</a></span>vlbi_calc_baseline_rad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double* vlbi_calc_baseline_rad </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>location1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>location2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert geographic baseline into radians baseline. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">location1</td><td>The 1st location of the observer. </td></tr>
+    <tr><td class="paramname">location2</td><td>The 2nd location of the observer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double* The radians baseline. </dd></dl>
+
+</div>
+</div>
+<a id="ga8af005c906f801c718a13c74cdb602b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8af005c906f801c718a13c74cdb602b6">&#9670;&nbsp;</a></span>vlbi_calc_delay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_calc_delay </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>distance_m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the delay that takes to transit the given distance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distance_m</td><td>The distance to convert into time delay. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double The current delay between the two nodes. </dd></dl>
+
+</div>
+</div>
+<a id="gaa5b0273db6b5fcb3a7b62cf5c2464ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa5b0273db6b5fcb3a7b62cf5c2464ceb">&#9670;&nbsp;</a></span>vlbi_calc_delay_coarse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_calc_delay_coarse </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return an aproximation of the timing offset that affects the vector passed as argument. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>The vector of the wave path. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double The timing offset. </dd></dl>
+
+</div>
+</div>
+<a id="gacdf0345b45c40d0fd01512202009e65e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacdf0345b45c40d0fd01512202009e65e">&#9670;&nbsp;</a></span>vlbi_calc_location_m()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double* vlbi_calc_location_m </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>loc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert geographic location into xyz location. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loc</td><td>The location of the observer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double* The xyz location. </dd></dl>
+
+</div>
+</div>
+<a id="ga2fd21cb5d5ffbd727bf10276054e143c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2fd21cb5d5ffbd727bf10276054e143c">&#9670;&nbsp;</a></span>vlbi_calc_uv_coords()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double* vlbi_calc_uv_coords </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>alt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>az</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>baseline</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>wavelength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return The baseline center in geographic coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alt</td><td>The altitude of the target. </td></tr>
+    <tr><td class="paramname">az</td><td>The azimuth of the target. </td></tr>
+    <tr><td class="paramname">baseline</td><td>The current baseline in meters. </td></tr>
+    <tr><td class="paramname">wavelength</td><td>The wavelength observed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double* The UV coordinates of the current observation. </dd></dl>
+
+</div>
+</div>
+<a id="gab29441f7d9670468e4659f14edcf5ddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab29441f7d9670468e4659f14edcf5ddd">&#9670;&nbsp;</a></span>vlbi_calibrate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int vlbi_calibrate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return an aproximation of the timing offset that affects the vector passed as argument. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream1</td><td>The first stream. </td></tr>
+    <tr><td class="paramname">stream2</td><td>The second stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int The calibration value. </dd></dl>
+
+</div>
+</div>
+<a id="gacc678d0665868a903286005944236e08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacc678d0665868a903286005944236e08">&#9670;&nbsp;</a></span>vlbi_estimate_resolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_estimate_resolution </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>resolution0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>baseline</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estimate Signal to noise ratio after a given integration time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resolution0</td><td>Resolution at baseline 0 (1m). </td></tr>
+    <tr><td class="paramname">baseline</td><td>Current baseline. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double The resolution at the given baseline </dd></dl>
+
+</div>
+</div>
+<a id="gaaf3d2084c904f2f147c441aeb17c784a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaf3d2084c904f2f147c441aeb17c784a">&#9670;&nbsp;</a></span>vlbi_estimate_resolution_zero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_estimate_resolution_zero </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>frequency</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estimate Signal to noise ratio after a given integration time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frequency</td><td>Observed frequency. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double The resolution at the baseline 0 (1m) </dd></dl>
+
+</div>
+</div>
+<a id="gab85da100bb390977d609afdb3dbca523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab85da100bb390977d609afdb3dbca523">&#9670;&nbsp;</a></span>vlbi_estimate_snr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_estimate_snr </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>snr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>integration</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estimate Signal to noise ratio after a given integration time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">snr</td><td>SNR at baseline 0 (1m). </td></tr>
+    <tr><td class="paramname">integration</td><td>the integration time. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double the output buffer if successful elaboration. NULL if an error was encountered. </dd></dl>
+
+</div>
+</div>
+<a id="ga70524cd0a72b7cad9b9299887bdbef06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga70524cd0a72b7cad9b9299887bdbef06">&#9670;&nbsp;</a></span>vlbi_estimate_snr_zero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_estimate_snr_zero </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>gain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>resolution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>bandwidth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estimate Signal to noise ratio after a given integration time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gain</td><td>Gain used during this observation. </td></tr>
+    <tr><td class="paramname">resolution</td><td>the resolution at baseline 0 (1m). </td></tr>
+    <tr><td class="paramname">bandwidth</td><td>the bandwidth of the receiver or sensor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double Signal to noise ratio (SNR) at baseline 0 (1m). </dd></dl>
+
+</div>
+</div>
+<a id="ga9e0a7cd5fab6a930cc6813b2d4f6a042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9e0a7cd5fab6a930cc6813b2d4f6a042">&#9670;&nbsp;</a></span>vlbi_rad2as()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_rad2as </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>rad</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert radians into arcseconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>Radians to convert into arcseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The arcseconds value corresponding to the given radians </dd></dl>
+
+</div>
+</div>
+<a id="gacaef1e8d991dc7d05e298ecb4e0c201e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacaef1e8d991dc7d05e298ecb4e0c201e">&#9670;&nbsp;</a></span>vlbi_time_J2000time_to_lst()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_time_J2000time_to_lst </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>secs_since_J2000</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Long</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtain the local sidereal time at an arbitrary moment and location. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">secs_since_J2000</td><td>seconds since J2000. </td></tr>
+    <tr><td class="paramname">Long</td><td>the longitude. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga1a725d845343f59b3a2a6ac993403529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1a725d845343f59b3a2a6ac993403529">&#9670;&nbsp;</a></span>vlbi_time_J2000time_to_timespec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___v_l_b_i___types.html#gaa0b51754d79d4eac2b53e1c6ae364c43">timespec_t</a> vlbi_time_J2000time_to_timespec </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>secs_since_J2000</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>obtain a timespec struct containing the date and time specified by a J2000 time </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">secs_since_J2000</td><td>seconds since J2000. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the timespec struct containing the date and time specified. </dd></dl>
+
+</div>
+</div>
+<a id="gaab88f0198d9ba79c4af40f8aeb3dd858"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab88f0198d9ba79c4af40f8aeb3dd858">&#9670;&nbsp;</a></span>vlbi_time_mktimespec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___v_l_b_i___types.html#gaa0b51754d79d4eac2b53e1c6ae364c43">timespec_t</a> vlbi_time_mktimespec </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>month</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hour</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>minute</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>second</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>nanosecond</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>obtain a timespec struct containing the date and time specified </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">year</td><td>the year. </td></tr>
+    <tr><td class="paramname">month</td><td>the month. </td></tr>
+    <tr><td class="paramname">dom</td><td>the day of the month. </td></tr>
+    <tr><td class="paramname">hour</td><td>the hour. </td></tr>
+    <tr><td class="paramname">minute</td><td>minutes. </td></tr>
+    <tr><td class="paramname">second</td><td>seconds. </td></tr>
+    <tr><td class="paramname">nanosecond</td><td>nanoseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the timespec struct containing the date and time specified. </dd></dl>
+
+</div>
+</div>
+<a id="gabc137a0b360978e3bef523914f84b619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabc137a0b360978e3bef523914f84b619">&#9670;&nbsp;</a></span>vlbi_time_string_to_utc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___v_l_b_i___types.html#gaa0b51754d79d4eac2b53e1c6ae364c43">timespec_t</a> vlbi_time_string_to_utc </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>obtain a timespec struct containing the date and time specified by a time string </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>String containing the time to be converted </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the timespec struct containing the date and time specified. </dd></dl>
+
+</div>
+</div>
+<a id="gab105b007126312824cf09dabc71d7a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab105b007126312824cf09dabc71d7a1b">&#9670;&nbsp;</a></span>vlbi_time_timespec_to_J2000time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double vlbi_time_timespec_to_J2000time </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#gaa0b51754d79d4eac2b53e1c6ae364c43">timespec_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert a timespec into J2000 time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>the timespec containing date and time informations. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>seconds since J2000. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 19 2021 12:05:50 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 12 2021 01:44:25 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

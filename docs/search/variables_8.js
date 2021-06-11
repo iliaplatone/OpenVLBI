@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parent_329',['parent',['../structdsp__stream__t.html#a40dc327cb0be8479a2d9af06a6996fe7',1,'dsp_stream_t']]]
+  ['max_5fthreads_393',['MAX_THREADS',['../group___v_l_b_i___defines.html#ga5e198f8ff4faf2bafa36449b38a2d444',1,'vlbi.h']]]
 ];
