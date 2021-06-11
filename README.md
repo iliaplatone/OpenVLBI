@@ -4,20 +4,18 @@ this repository contains the sources for building the library and a client appli
 
 [![Build Status](https://travis-ci.org/iliaplatone/OpenVLBI.svg?branch=master)](https://travis-ci.org/iliaplatone/OpenVLBI)
 
-## Build libvlbi
+# Build libvlbi
 
 
 ```
 sh scripts/build.sh
 ```
 
-# Implementation
+# Documentation
 
-## Documentation
+You can read the API documentation at [https://iliaplatone.github.io/OpenVLBI/](https://iliaplatone.github.io/OpenVLBI/)
 
-You can read the API documentation at [https://iliaplatone.github.io/OpenVLBI/api/](https://iliaplatone.github.io/OpenVLBI/api/)
-
-## Using libvlbi
+# Using libvlbi
 
 You can write an application using libvlbi by linking against libvlbi.so in your gcc command line:
 ```

@@ -72,7 +72,7 @@ double VLBIBaseline::Correlate(int i)
 
 double VLBIBaseline::getUVSize()
 {
-    double res = vlbi_estimate_resolution_zero(LIGHTSPEED / Stream->lambda);
+    double res = vlbi_estimate_resolution_zero(LIGHTSPEED / Stream->wavelength);
     res = vlbi_estimate_resolution(res, baseline[3]);
     return res;
 }
@@ -82,17 +82,17 @@ double *VLBIBaseline::getUVCoords(double J2000_Offset_Time)
     double lst = vlbi_time_J2000time_to_lst(J2000_Offset_Time, baseline_center[1]);
     double ha = vlbi_astro_get_local_hour_angle(lst, Stream->target[0]);
     double dec = Stream->target[1];
-    return vlbi_calc_uv_coords(ha, dec, baseline, Stream->lambda);
+    return vlbi_calc_uv_coords(ha, dec, baseline, Stream->wavelength);
 }
 
 double *VLBIBaseline::getUVCoords()
 {
-    return vlbi_get_uv_coords(baseline, Stream->lambda);
+    return vlbi_get_uv_coords(baseline, Stream->wavelength);
 }
 
 double *VLBIBaseline::getUVCoords(int index)
 {
-    return vlbi_get_uv_coords_vector(baseline, Stream->lambda, (double*)(&Stream->target[index * 3]));
+    return vlbi_get_uv_coords_vector(baseline, Stream->wavelength, (double*)(&Stream->target[index * 3]));
 }
 
 double *VLBIBaseline::getBaselineRad()
@@ -120,7 +120,7 @@ void VLBIBaseline::setTarget(double *target)
 
 void VLBIBaseline::setWaveLength(double wavelength)
 {
-    Stream->lambda = wavelength;
+    Stream->wavelength = wavelength;
 }
 
 void VLBIBaseline::setSampleRate(double samplerate)

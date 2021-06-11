@@ -28,6 +28,7 @@
 
 #define THREADS_MASK ((1<<vlbi_max_threads(0))-1)
 unsigned long int MAX_THREADS = 48;
+int DSP_MAX_THREADS = MAX_THREADS;
 
 static NodeCollection *vlbi_nodes = new NodeCollection();
 

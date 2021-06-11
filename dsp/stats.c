@@ -16,25 +16,23 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "dsp.h"
+#include <dsp.h>
 
 double* dsp_stats_histogram(dsp_stream_p stream, int size)
 {
     int k;
-    dsp_stream_p o = dsp_stream_copy(stream);
-    double* out = (double*)malloc(sizeof(double) * size);
-    long* i = (long*)malloc(sizeof(long) * o->len);
-    dsp_buffer_normalize(o->buf, o->len, 0.0, size);
-    dsp_buffer_copy(o->buf, i, o->len);
-    dsp_buffer_copy(i, o->buf, o->len);
+    double* out = (double*)malloc(sizeof(double)*size);
+    long* tmp = (long*)malloc(sizeof(long)*stream->len);
+    dsp_buffer_copy(stream->buf, tmp, stream->len);
+    dsp_buffer_stretch(tmp, stream->len, 0, size);
+    dsp_t mx = 0;
+    dsp_t mn = size;
+    double  diff = mx - mn;
+    diff /= size;
     for(k = 0; k < size; k++) {
-        out[k] = dsp_stats_val_count(o->buf, o->len, k);
+        out[k] = (double)dsp_stats_val_count(tmp, stream->len, k);
     }
-    free(i);
-    dsp_stream_free_buffer(o);
-    dsp_stream_set_buffer(o, out, size);
-    dsp_buffer_stretch(o->buf, o->len, 0, size);
-    dsp_stream_free(o);
+    free(tmp);
     return out;
 }
 

@@ -14,7 +14,7 @@ option(WITH_INDI_CLIENT "Add INDI client for OpenVLBI" ON)
 option(WITH_DUMMY_CLIENT "Add dummy client for OpenVLBI" ON)
 
 set (VLBI_VERSION_MAJOR 1)
-set (VLBI_VERSION_MINOR 8)
+set (VLBI_VERSION_MINOR 9)
 set (VLBI_VERSION_STRING "${VLBI_VERSION_MAJOR}.${VLBI_VERSION_MINOR}.0")
 
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
@@ -24,8 +24,7 @@ add_definitions(-Wall -O3 -g -fstack-protector -Wno-unused-parameter)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/README.md" README )
 string(REPLACE "[![Build Status](https://travis-ci.org/iliaplatone/OpenVLBI.svg?branch=master)](https://travis-ci.org/iliaplatone/OpenVLBI)" "" README "${README}")
-string(REPLACE "\n#" "\n\n\\page " README "${README}" )
-string(REPLACE "\n##" "\n\n\\page " README "${README}" )
+string(REGEX REPLACE "\n\# \([a-z:A-Z:0-9]*\)" "\n\n\\page page_\1 \1" README "${README}" )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dsp/dsp.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/dsp.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/vlbi/vlbi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
@@ -55,15 +54,14 @@ set(vlbi_C_SRCS
     )
 
 SET(dsp_C_SRC
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/buffer.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/convert.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/fft.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/signals.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/convolution.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stats.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/buffer.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/convolution.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/signals.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stream.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/align.c
     )
 
 execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})

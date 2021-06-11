@@ -16,11 +16,12 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "dsp.h"
+#include <dsp.h>
 
 void dsp_signals_whitenoise(dsp_stream_p stream)
 {
-    for(int k = 0; k < stream->len; k++) {
+    int k;
+    for(k = 0; k < stream->len; k++) {
         stream->buf[k] = (rand() % 255) / 255.0;
     }
 
@@ -31,7 +32,8 @@ void dsp_signals_sinewave(dsp_stream_p stream, double samplefreq, double freq)
     freq /= samplefreq;
     double rad = 0;
     double x = 0;
-    for(int k = 0; k < stream->len; k++) {
+    int k;
+    for(k = 0; k < stream->len; k++) {
         rad += freq;
         x = rad;
         while (x > 1.0)
@@ -47,12 +49,13 @@ void dsp_signals_sawtoothwave(dsp_stream_p stream, double samplefreq, double fre
     freq /= samplefreq;
     double rad = 0;
     double x = 0;
-    for(int k = 0; k < stream->len; k++) {
+    int k;
+    for(k = 0; k < stream->len; k++) {
         rad += freq;
         x = rad;
         while (x > 1.0)
             x -= 1.0;
-        stream->buf[k] = (double)(32768+32767*x);
+        stream->buf[k] = (dsp_t)(32768+32767*x);
     }
 
 }
@@ -62,14 +65,15 @@ void dsp_signals_triwave(dsp_stream_p stream, double samplefreq, double freq)
     freq /= samplefreq;
     double rad = 0;
     double x = 0;
-    for(int k = 0; k < stream->len; k++) {
+    int k;
+    for(k = 0; k < stream->len; k++) {
         rad += freq;
         x = rad;
         while (x > 2.0)
             x -= 2.0;
         while (x > 1.0)
             x = 2.0 - x;
-        stream->buf[k] = (double)(32768+32767*x);
+        stream->buf[k] = (dsp_t)(32768+32767*x);
     }
 
 }
@@ -82,10 +86,10 @@ void dsp_modulation_frequency(dsp_stream_p stream, double samplefreq, double fre
     double mx = dsp_stats_max(stream->buf, stream->len);
     double lo = mn * bandwidth * 1.5 / samplefreq;
     double hi = mx * bandwidth * 0.5 / samplefreq;
-    double *deviation = (double*)malloc(sizeof(double) * stream->len);
+    dsp_t *deviation = (dsp_t*)malloc(sizeof(dsp_t) * stream->len);
     dsp_buffer_copy(stream->buf, deviation, stream->len);
     dsp_buffer_deviate(carrier, deviation, hi, lo);
-    memcpy(stream->buf, carrier->buf, stream->len * sizeof(double));
+    memcpy(stream->buf, carrier->buf, stream->len * sizeof(dsp_t));
     dsp_stream_free(carrier);
 
 }

@@ -29,7 +29,7 @@ BaselineCollection::BaselineCollection(NodeCollection *nodes, bool m, double u, 
     dsp_stream_add_dim(Stream, u);
     dsp_stream_add_dim(Stream, v);
     dsp_stream_alloc_buffer(Stream, Stream->len);
-    dsp_buffer_clear(Stream);
+    dsp_buffer_set(Stream->buf, Stream->len, 0);
     for(int i = 0; i < nodes->Count; i++)
     {
         for(int l = i + 1; l < nodes->Count; l++)
@@ -106,7 +106,7 @@ void BaselineCollection::SetTarget(double *target)
 
 void BaselineCollection::SetFrequency(double frequency)
 {
-    Stream->lambda = LIGHTSPEED / frequency;
+    Stream->wavelength = LIGHTSPEED / frequency;
     for(int i = 0; i < Count; i++) {
         At(i)->setWaveLength(LIGHTSPEED / frequency);
     }

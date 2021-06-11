@@ -57,42 +57,27 @@ double* vlbi_calc_haaltaz(double *location, double *target, double J2000_Offset_
     return haaltaz;
 }
 
-double* vlbi_calc_uv_coords(double ha, double dec, double *baseline, double wavelength)
+double* vlbi_calc_uv_coords(double alt, double az, double *baseline, double wavelength)
 {
     double* uv = (double*)calloc(sizeof(double), 2);
-    ha *= M_PI / 12.0;
-    dec += 90.0;
-    dec *= M_PI / 180.0;
-    uv[0] = (baseline[0] * sin(ha) + baseline[1] * cos(ha));
-    uv[1] = (-baseline[0] * sin(dec) * cos(ha) + baseline[1] * sin(dec) * sin(ha) + baseline[2] * cos(dec));
+    az *= M_PI / 180.0;
+    alt *= M_PI / 180.0;
+    uv[0] = (baseline[0] * sin(az) + baseline[1] * cos(az));
+    uv[1] = (baseline[1] * sin(alt) * sin(az) - baseline[0] * sin(alt) * cos(az) + baseline[2] * cos(alt));
     uv[0] *= AIRY / wavelength;
     uv[1] *= AIRY / wavelength;
-    return uv;
 }
 
-double* vlbi_get_uv_coords(double *baseline_m, double wavelength)
+double vlbi_calc_baseline_delay(double alt, double az, double *baseline)
 {
-    double* uv = (double*)calloc(sizeof(double), 2);
-    uv[0] = baseline_m[0];
-    uv[1] = baseline_m[1];
-    uv[0] *= AIRY / wavelength;
-    uv[1] *= AIRY / wavelength;
-    return uv;
+    alt *= M_PI / 180;
+    az *= M_PI / 180;
+    return cos(az) * baseline[1] * cos(alt) - baseline[0] * sin(az) * cos(alt) + sin(alt) * baseline[2];
 }
 
-double* vlbi_get_uv_coords_vector(double *baseline_m, double wavelength, double *target_vector)
+double vlbi_calc_delay(double distance_m)
 {
-    double* uv = (double*)calloc(sizeof(double), 2);
-    double* vector = (double*)calloc(sizeof(double), 3);
-    double hypo = sqrt(pow(target_vector[0], 2) * pow(target_vector[1], 2) * pow(target_vector[2], 2));
-    vector[0] /= hypo;
-    vector[1] /= hypo;
-    vector[2] /= hypo;
-    uv[0] = baseline_m[0] * target_vector[0] * target_vector[2];
-    uv[1] = baseline_m[1] * target_vector[1] * target_vector[2];
-    uv[0] *= AIRY / wavelength;
-    uv[1] *= AIRY / wavelength;
-    return uv;
+    return distance_m / SPEED_MEAN;
 }
 
 double* vlbi_calc_location_m(double *loc)
@@ -116,44 +101,6 @@ double* vlbi_calc_location_m(double *loc)
     location[1] = cos(tmp[0]) * cos(tmp[1]) * tmp[2];
     location[2] = sin(tmp[0]) * tmp[2];
     return location;
-}
-
-double vlbi_calc_baseline_delay(double *loc1, double *loc2, double* target, double obstime)
-{
-    double* haaltaz1 = vlbi_calc_haaltaz(loc1, target, obstime);
-    double* haaltaz2 = vlbi_calc_haaltaz(loc2, target, obstime);
-    double alt1 = haaltaz1[1];
-    alt1 *= M_PI / 180;
-    alt1 = sin(alt1) * haaltaz1[2];
-    double alt2 = haaltaz2[1];
-    alt2 *= M_PI / 180;
-    alt2 = sin(alt2) * haaltaz2[2];
-    return vlbi_calc_delay(alt1 - alt2);
-}
-
-double vlbi_calc_baseline_delay_vector(double *loc1, double *loc2, double* target)
-{
-    double* vector = (double*)calloc(sizeof(double), 3);
-    double* vector1 = (double*)calloc(sizeof(double), 3);
-    double* vector2 = (double*)calloc(sizeof(double), 3);
-    double* vector3 = (double*)calloc(sizeof(double), 3);
-    memcpy(vector1, loc1, sizeof(double) * 3);
-    memcpy(vector2, loc2, sizeof(double) * 3);
-    memcpy(vector3, target, sizeof(double) * 3);
-    double hypo = 0;
-    hypo = sqrt(pow(vector1[0], 2) + pow(vector1[1], 2) + pow(vector1[2], 2));
-    hypo = sqrt(pow(vector2[0], 2) + pow(vector2[1], 2) + pow(vector2[2], 2));
-    hypo = sqrt(pow(vector3[0], 2) + pow(vector3[1], 2) + pow(vector3[2], 2));
-    vector[0] = vector1[0] * vector2[0] * vector3[0];
-    vector[1] = vector1[1] * vector2[1] * vector3[1];
-    vector[2] = vector1[2] * vector2[2] * vector3[2];
-    hypo = sqrt(pow(vector[0], 2) + pow(vector[1], 2) + pow(vector[2], 2));
-    return vlbi_calc_delay(hypo);
-}
-
-double vlbi_calc_delay(double distance_m)
-{
-    return distance_m / SPEED_MEAN;
 }
 
 double* vlbi_calc_baseline_m_xyz(double *loc1, double *loc2)
