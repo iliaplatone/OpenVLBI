@@ -8,8 +8,9 @@ libvlbi offers functions to applications that use it to make interferometry simp
 
 The application suite is composed by a client application which opens a shell and can serve it to more other client applications.
 Client applications usually are linked to other libraries and with libvlbi, or drivers that permit the capture of the streams to be correlated by the central server.
-The central server offers a shell that connects to the various clients and 
-this repository contains the sources for building the library and a client application which correlates using the library streams captured from INDI servers by adding them using the vlbi_server script.
+The central server offers a shell that connects to the various clients and correlates using the library streams captured from INDI servers by adding them using the vlbi_server script.
+
+This repository contains the sources for building the library and a client application
 
 [![Build Status](https://travis-ci.org/iliaplatone/OpenVLBI.svg?branch=master)](https://travis-ci.org/iliaplatone/OpenVLBI)
 
