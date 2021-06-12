@@ -30,10 +30,10 @@ void INDIClient::SetCapture(double seconds)
     if(!isServerConnected())
         return;
     std::vector<INDI::BaseDevice*> devices;
-    getDevices(devices, INDI::BaseDevice::DETECTOR_INTERFACE);
+    getDevices(devices, INDI::BaseDevice::SPECTROGRAPH_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
-        this->sendNewNumber(dev->getDeviceName(), "DETECTOR_CAPTURE", "DETECTOR_CAPTURE_VALUE", seconds);
+        this->sendNewNumber(dev->getDeviceName(), "SENSOR_INTEGRATION", "SENSOR_INTEGRATION_VALUE", seconds);
     }
 }
 
@@ -42,10 +42,10 @@ void INDIClient::AbortCapture()
     if(!isServerConnected())
         return;
     std::vector<INDI::BaseDevice*> devices;
-    getDevices(devices, INDI::BaseDevice::DETECTOR_INTERFACE);
+    getDevices(devices, INDI::BaseDevice::SPECTROGRAPH_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
-        this->sendNewSwitch(dev->getDeviceName(), "ABORT", "DETECTOR_ABORT_CAPTURE");
+        this->sendNewSwitch(dev->getDeviceName(), "SENSOR_ABORT_INTEGRATION", "ABORT");
     }
 }
 
@@ -54,7 +54,7 @@ void INDIClient::SetExposure(double seconds)
     if(!isServerConnected())
         return;
     std::vector<INDI::BaseDevice*> devices;
-    getDevices(devices, INDI::BaseDevice::DETECTOR_INTERFACE);
+    getDevices(devices, INDI::BaseDevice::CCD_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
         this->sendNewNumber(dev->getDeviceName(), "CCD_EXPOSURE", "CCD_EXPOSURE_VALUE", seconds);
@@ -69,7 +69,7 @@ void INDIClient::AbortExposure()
     getDevices(devices, INDI::BaseDevice::CCD_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
-        this->sendNewSwitch(dev->getDeviceName(), "ABORT", "CCD_ABORT_EXPOSURE");
+        this->sendNewSwitch(dev->getDeviceName(), "CCD_ABORT_EXPOSURE", "ABORT");
     }
 }
 
@@ -78,10 +78,10 @@ void INDIClient::SetFrequency(double centerfrequency)
     if(!isServerConnected())
         return;
     std::vector<INDI::BaseDevice*> devices;
-    getDevices(devices, INDI::BaseDevice::DETECTOR_INTERFACE);
+    getDevices(devices, INDI::BaseDevice::SPECTROGRAPH_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
-        this->sendNewNumber(dev->getDeviceName(), "DETECTOR_SETTINGS", "DETECTOR_FREQUENCY", centerfrequency);
+        this->sendNewNumber(dev->getDeviceName(), "RECEIVER_SETTINGS", "RECEIVER_FREQUENCY", centerfrequency);
     }
 }
 
@@ -90,10 +90,10 @@ void INDIClient::SetSampleRate(double samplingfrequency)
     if(!isServerConnected())
         return;
     std::vector<INDI::BaseDevice*> devices;
-    getDevices(devices, INDI::BaseDevice::DETECTOR_INTERFACE);
+    getDevices(devices, INDI::BaseDevice::SPECTROGRAPH_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
-        this->sendNewNumber(dev->getDeviceName(), "DETECTOR_SETTINGS", "DETECTOR_SAMPLERATE", samplingfrequency);
+        this->sendNewNumber(dev->getDeviceName(), "RECEIVER_SETTINGS", "RECEIVER_SAMPLERATE", samplingfrequency);
     }
 }
 
@@ -103,10 +103,10 @@ void INDIClient::SetBadwidth(double bandwidth)
         return;
     Bandwidth = bandwidth;
     std::vector<INDI::BaseDevice*> devices;
-    getDevices(devices, INDI::BaseDevice::DETECTOR_INTERFACE);
+    getDevices(devices, INDI::BaseDevice::SPECTROGRAPH_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
-        this->sendNewNumber(dev->getDeviceName(), "DETECTOR_SETTINGS", "DETECTOR_BANDWIDTH", bandwidth);
+        this->sendNewNumber(dev->getDeviceName(), "RECEIVER_SETTINGS", "RECEIVER_BANDWIDTH", bandwidth);
     }
 }
 
@@ -115,10 +115,10 @@ void INDIClient::SetGain(double gain)
     if(!isServerConnected())
         return;
     std::vector<INDI::BaseDevice*> devices;
-    getDevices(devices, INDI::BaseDevice::DETECTOR_INTERFACE);
+    getDevices(devices, INDI::BaseDevice::SPECTROGRAPH_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
-        this->sendNewNumber(dev->getDeviceName(), "DETECTOR_SETTINGS", "DETECTOR_GAIN", gain);
+        this->sendNewNumber(dev->getDeviceName(), "RECEIVER_SETTINGS", "RECEIVER_GAIN", gain);
     }
 }
 
@@ -127,10 +127,10 @@ void INDIClient::SetBps(int Bps)
     if(!isServerConnected())
         return;
     std::vector<INDI::BaseDevice*> devices;
-    getDevices(devices, INDI::BaseDevice::DETECTOR_INTERFACE);
+    getDevices(devices, INDI::BaseDevice::SPECTROGRAPH_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
-        this->sendNewNumber(dev->getDeviceName(), "DETECTOR_SETTINGS", "DETECTOR_Bps", Bps);
+        this->sendNewNumber(dev->getDeviceName(), "RECEIVER_SETTINGS", "RECEIVER_BITSPERSAMPLE", Bps);
     }
 }
 
@@ -152,7 +152,7 @@ void INDIClient::Connect()
     if(!isServerConnected())
         return;
     std::vector<INDI::BaseDevice*> devices;
-    getDevices(devices, INDI::BaseDevice::TELESCOPE_INTERFACE | INDI::BaseDevice::DOME_INTERFACE | INDI::BaseDevice::DETECTOR_INTERFACE | INDI::BaseDevice::CCD_INTERFACE | INDI::BaseDevice::GUIDER_INTERFACE);
+    getDevices(devices, INDI::BaseDevice::TELESCOPE_INTERFACE | INDI::BaseDevice::DOME_INTERFACE | INDI::BaseDevice::SPECTROGRAPH_INTERFACE | INDI::BaseDevice::CCD_INTERFACE | INDI::BaseDevice::GUIDER_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
         this->sendNewSwitch(dev->getDeviceName(), "CONNECTION", "CONNECT");
@@ -164,7 +164,7 @@ void INDIClient::Disconnect()
     if(!isServerConnected())
         return;
     std::vector<INDI::BaseDevice*> devices;
-    getDevices(devices, INDI::BaseDevice::TELESCOPE_INTERFACE | INDI::BaseDevice::DOME_INTERFACE | INDI::BaseDevice::DETECTOR_INTERFACE | INDI::BaseDevice::CCD_INTERFACE | INDI::BaseDevice::GUIDER_INTERFACE);
+    getDevices(devices, INDI::BaseDevice::TELESCOPE_INTERFACE | INDI::BaseDevice::DOME_INTERFACE | INDI::BaseDevice::SPECTROGRAPH_INTERFACE | INDI::BaseDevice::CCD_INTERFACE | INDI::BaseDevice::GUIDER_INTERFACE);
     for(INDI::BaseDevice* dev : devices) {
         dev->setMediator(this);
         this->sendNewSwitch(dev->getDeviceName(), "CONNECTION", "DISCONNECT");
@@ -232,7 +232,7 @@ void INDIClient::removeProperty(INDI::Property *property) {
 }
 
 void INDIClient::newBLOB(IBLOB *bp) {
-    if(!strcmp(bp->label, "CONTINUUM")) {
+    if(!strcmp(bp->name, "DATA")||!strcmp(bp->name, "CCD1")) {
         if(GetContext() != NULL) {
             int status = 0;
             while (status == 0) {
@@ -280,13 +280,13 @@ void INDIClient::newSwitch(ISwitchVectorProperty *svp) {
 }
 
 void INDIClient::newNumber(INumberVectorProperty *nvp) {
-    if(!strcmp(nvp->name, "DETECTOR_CAPTURE")) {
+    if(!strcmp(nvp->name, "SENSOR_INTEGRATION")) {
         fprintf(stderr, "Capture left: %lf.\n", nvp->np[0].value);
         if(nvp->np[0].value < 1.0) {
             fprintf(stderr, "Capture complete.\n");
         }
     }
-    if(!strcmp(nvp->name, "DETECTOR_EXPOSURE")) {
+    if(!strcmp(nvp->name, "CCD_EXPOSURE")) {
         fprintf(stderr, "Exposure left: %lf.\n", nvp->np[0].value);
         if(nvp->np[0].value < 1.0) {
             fprintf(stderr, "Exposure complete.\n");
@@ -376,6 +376,16 @@ void INDIClient::Parse(char* cmd, char* arg, char* value)
         else if(!strcmp(arg, "capture")) {
             duration = (double)atof(value);
             SetCapture(duration);
+        }
+        else if(!strcmp(arg, "exposure")) {
+            duration = (double)atof(value);
+            SetExposure(duration);
+        }
+        else if(!strcmp(arg, "abort")) {
+            if(!strcmp(value, "capture"))
+                AbortCapture();
+            if(!strcmp(value, "exposure"))
+                AbortExposure();
         }
     }
     VLBI::Client::Parse(cmd, arg, value);

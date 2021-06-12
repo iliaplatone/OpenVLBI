@@ -40,6 +40,8 @@ public:
     double *getBaselineM();
     double *getBaselineCenter();
     double *getBaselineRad();
+    double getAlt(double J2000_Offset_Time);
+    double getAz(double J2000_Offset_Time);
     void setTarget(double *target);
     void setWaveLength(double wavelength);
     void setSampleRate(double samplerate);
