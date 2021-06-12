@@ -1,5 +1,14 @@
 # Interferometric correlator clients application suite
-libvlbi is an open source library for correlating single dimensional streams and obtain an image from them.
+libvlbi is an open source library and application suite for astronomical interferometry.
+
+Interferometry is a discipline that studies the beam or stream interference and the obtainability of a coherence degree between more of them.
+A 2d interference plot of a single object observation from different locations (space domain Fourier plane dependent to the location of the receivers) shows the fourier transform of the light pattern of the object observed.
+
+libvlbi offers functions to applications that use it to make interferometry simpler and faster.
+
+The application suite is composed by a client application which opens a shell and can serve it to more other client applications.
+Client applications usually are linked to other libraries and with libvlbi, or drivers that permit the capture of the streams to be correlated by the central server.
+The central server offers a shell that connects to the various clients and 
 this repository contains the sources for building the library and a client application which correlates using the library streams captured from INDI servers by adding them using the vlbi_server script.
 
 [![Build Status](https://travis-ci.org/iliaplatone/OpenVLBI.svg?branch=master)](https://travis-ci.org/iliaplatone/OpenVLBI)
@@ -145,6 +154,4 @@ set connection state:string - set nodes connection state (on, off)
 
 [[1]](https://link.springer.com/article/10.1007/s10686-018-9595-0)Optical long baseline intensity interferometry: prospects for stellar physics (Jean-Pierre Rivet, Farrokh Vakili, Olivier Lai, David Vernet, Mathilde Fouché, William Guerin, Guillaume Labeyrie, Robin Kaiser)
 
-[[2]](https://link.springer.com/article/10.1007/s11214-018-0498-1)Very Long Baseline Interferometry: Dependencies on Frequency Stability (Axel Nothnagel, Tobias Nilsson, Harald Schuh)
-
-[[3]](https://link.springer.com/content/pdf/10.1007/978-3-319-44431-4.pdf)Interferometry and synthesis in radio astronomy (AR Thompson, JM Moran, GW Swenson)
+[[2]](https://link.springer.com/content/pdf/10.1007/978-3-319-44431-4.pdf)Interferometry and synthesis in radio astronomy (AR Thompson, JM Moran, GW Swenson)

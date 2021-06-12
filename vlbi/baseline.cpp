@@ -50,7 +50,7 @@ VLBIBaseline::VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m)
 
 double VLBIBaseline::Correlate(double J2000_Offset_Time)
 {
-    double delay = vlbi_calc_baseline_delay(first->location, second->location, Stream->target, J2000_Offset_Time);
+    double delay = vlbi_calc_baseline_delay(0, 0, baseline);
     int i = (int)(((J2000_Offset_Time - starttime) + deltatime + fabs(delay)) * Stream->samplerate);
     int l = second->len-(int)((J2000_Offset_Time - starttime) * Stream->samplerate)-1;
     if(i < 0 || i >= first->len || l < 1 || l >= first->len)
@@ -85,19 +85,25 @@ double *VLBIBaseline::getUVCoords(double J2000_Offset_Time)
     return vlbi_calc_uv_coords(ha, dec, baseline, Stream->wavelength);
 }
 
-double *VLBIBaseline::getUVCoords()
-{
-    return vlbi_get_uv_coords(baseline, Stream->wavelength);
-}
-
 double *VLBIBaseline::getUVCoords(int index)
 {
-    return vlbi_get_uv_coords_vector(baseline, Stream->wavelength, (double*)(&Stream->target[index * 3]));
+
+    return NULL;
 }
 
 double *VLBIBaseline::getBaselineRad()
 {
     return baseline_rad;
+}
+
+double VLBIBaseline::getAlt(double J2000_Offset_Time)
+{
+    return 0;
+}
+
+double VLBIBaseline::getAz(double J2000_Offset_Time)
+{
+    return 0;
 }
 
 double *VLBIBaseline::getBaselineM()
