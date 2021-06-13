@@ -127,14 +127,18 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             } else if(!strcmp(t, "movingbase")) {
                 type &= ~APERTURE_SYNTHESIS;
             }
-            t = strtok(NULL, "_");
-            if(!strcmp(t, "idft")) {
-                type &= ~UV_COVERAGE;
-            } else if(!strcmp(t, "coverage")) {
-                type |= UV_COVERAGE;
-            }
             dsp_stream_p plot = GetPlot(w, h, type);
             if (plot != NULL) {
+                t = strtok(NULL, "_");
+                if(!strcmp(t, "idft")) {
+                    vlbi_get_ifft_estimate(plot);
+                } else if(!strcmp(t, "coverage")) {
+                    for(int i = 0; i < plot->len; i++)
+                    {
+                        if(plot->buf[i] != 0.0)
+                            plot->buf[i] = 1;
+                    }
+                }
                 dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
                 int ilen = plot->len;
                 int olen = ilen*4/3+4;
