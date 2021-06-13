@@ -19,29 +19,15 @@
 #include <dsp.h>
 #include "node.h"
 
-VLBINode::VLBINode(dsp_stream_p stream)
+VLBINode::VLBINode(dsp_stream_p stream, bool geographic_coordinates)
 {
     Stream = stream;
     Name = (char*)Stream->arg;
+    Geo = geographic_coordinates;
 }
 
 VLBINode::~VLBINode()
 {
-}
-
-void VLBINode::setCoordinates(double lat, double lon, double el, bool osl)
-{
-    Stream->location[0] = lat;
-    Stream->location[1] = lon;
-    Stream->location[2] = el;
-    if (osl) {
-        Stream->location[2] = vlbi_astro_estimate_geocentric_elevation(lat, el);
-    }
-}
-
-void VLBINode::setCoordinates(double x, double y, double z)
-{
-    Stream->location[0] = x;
-    Stream->location[1] = y;
-    Stream->location[2] = z;
+    dsp_stream_free_buffer(Stream);
+    dsp_stream_free(Stream);
 }

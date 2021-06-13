@@ -28,14 +28,44 @@
 class VLBINode
 {
 public:
-    VLBINode(dsp_stream_p stream);
+    VLBINode(dsp_stream_p stream, bool geographic_coordinates=true);
     ~VLBINode();
 
-    void setCoordinates(double x, double y, double z);
-    void setCoordinates(double lat, double lon, double el, bool osl);
-    dsp_stream_p getStream() { return Stream; }
+    inline char *getName() { return Name; }
+    inline dsp_stream_p getStream() { return Stream; }
+
+    inline double* getTarget() { return getStream()->target; }
+    inline double getWaveLength() { return getStream()->wavelength; }
+    inline double getSampleRate() { return getStream()->samplerate; }
+    inline double* getLocation() { return getStream()->location; }
+    inline double getStartTime() { return (double)getStream()->starttimeutc.tv_sec+((double)getStream()->starttimeutc.tv_nsec/1000000000.0); }
+
+    inline void setWaveLength(double wavelength) { getStream()->wavelength = wavelength; }
+    inline void setSampleRate(double samplerate) { getStream()->samplerate = samplerate; }
+    inline void setStartTime(double starttime) { getStream()->starttimeutc.tv_sec = floor(starttime); getStream()->starttimeutc.tv_nsec = (starttime-getStream()->starttimeutc.tv_sec)*1000000000.0; }
+
+    inline void setTarget(double horiz, double vert) { getStream()->target[0] = horiz; getStream()->target[1] = vert; }
+    inline void setTarget(double *target) { getStream()->target = target; }
+    inline void setLocation(double *coords) { getStream()->location = coords; }
+    inline void setLocation(double x_or_lat, double y_or_lon, double z_or_el)
+    {
+        if (Geo) {
+            double* location = (double*)calloc(sizeof(double), 3);
+            location[0] = x_or_lat;
+            location[1] = y_or_lon;
+            location[2] = z_or_el;
+            getStream()->location = vlbi_calc_location(location);
+            free(location);
+            getStream()->location[2] = vlbi_astro_estimate_geocentric_elevation(x_or_lat, z_or_el);
+        } else {
+            getStream()->location[0] = x_or_lat;
+            getStream()->location[1] = y_or_lon;
+            getStream()->location[2] = z_or_el;
+        }
+    }
 
 private:
+    bool Geo;
     dsp_stream_p Stream;
     char *Name;
 };

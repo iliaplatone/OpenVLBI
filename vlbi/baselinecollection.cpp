@@ -23,7 +23,7 @@
 #include "baselinecollection.h"
 
 
-BaselineCollection::BaselineCollection(NodeCollection *nodes, bool m, double u, double v) : VLBICollection::VLBICollection()
+BaselineCollection::BaselineCollection(NodeCollection *nodes, double u, double v) : VLBICollection::VLBICollection()
 {
     Stream = dsp_stream_new();
     dsp_stream_add_dim(Stream, u);
@@ -34,9 +34,9 @@ BaselineCollection::BaselineCollection(NodeCollection *nodes, bool m, double u, 
     {
         for(int l = i + 1; l < nodes->Count; l++)
         {
-            dsp_stream_p node1 = nodes->At(i)->getStream();
-            dsp_stream_p node2 = nodes->At(l)->getStream();
-            VLBIBaseline *b = new VLBIBaseline(node1, node2, m);
+            VLBINode* node1 = nodes->At(i);
+            VLBINode* node2 = nodes->At(l);
+            VLBIBaseline *b = new VLBIBaseline(node1, node2);
             b->getStream()->parent = Stream;
             this->Add(b);
         }
@@ -100,7 +100,7 @@ void BaselineCollection::SetTarget(double *target)
 {
     memcpy(Stream->target, target, sizeof(double) * 3);
     for(int i = 0; i < Count; i++) {
-        At(i)->setTarget(target);
+        At(i)->setTarget(Stream->target);
     }
 }
 

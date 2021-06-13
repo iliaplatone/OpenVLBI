@@ -277,19 +277,7 @@ DLL_EXPORT dsp_complex* dsp_fourier_dft(dsp_stream_p stream);
 * \brief Perform an inverse discrete Fourier Transform of a dsp_stream
 * \param stream the inout stream.
 */
-DLL_EXPORT dsp_complex* dsp_fourier_idft(dsp_stream_p stream);
-
-/**
-* \brief Perform a fast Fourier Transform of a dsp_stream
-* \param stream the inout stream.
-*/
-void dsp_fourier_fft(dsp_stream_p stream);
-
-/**
-* \brief Perform an inverse fast Fourier Transform of a dsp_stream
-* \param stream the inout stream.
-*/
-void dsp_fourier_ifft(dsp_stream_p stream);
+DLL_EXPORT dsp_t* dsp_fourier_idft(dsp_stream_p stream);
 
 /**
 * \brief Obtain a complex number's magnitude
@@ -320,30 +308,6 @@ DLL_EXPORT double* dsp_fourier_complex_array_get_magnitude(dsp_complex* in, int 
 * \return the array filled with the phases
 */
 DLL_EXPORT double* dsp_fourier_complex_array_get_phase(dsp_complex* in, int len);
-
-/**
-* \brief Perform a discrete Fourier Transform of a dsp_stream and obtain the complex magnitudes
-* \param stream the input stream.
-*/
-DLL_EXPORT void dsp_fourier_dft_magnitude(dsp_stream_p stream);
-
-/**
-* \brief Perform a discrete Fourier Transform of a dsp_stream and obtain the complex phases
-* \param stream the input stream.
-*/
-DLL_EXPORT void dsp_fourier_dft_phase(dsp_stream_p stream);
-
-/**
-* \brief Perform an inverse discrete Fourier Transform of a dsp_stream and obtain the complex magnitudes
-* \param stream the input stream.
-*/
-DLL_EXPORT void dsp_fourier_idft_magnitude(dsp_stream_p stream);
-
-/**
-* \brief Perform an inverse discrete Fourier Transform of a dsp_stream and obtain the complex phases
-* \param stream the input stream.
-*/
-DLL_EXPORT void dsp_fourier_idft_phase(dsp_stream_p stream);
 
 /*@}*/
 /**

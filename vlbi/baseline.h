@@ -23,43 +23,54 @@
 #include <cstdlib>
 #include <cstdint>
 #include <vlbi.h>
+#include <node.h>
 
 class VLBIBaseline
 {
 public:
-    VLBIBaseline(dsp_stream_p node1, dsp_stream_p node2, bool m=false);
+    VLBIBaseline(VLBINode *node1, VLBINode *node2);
     ~VLBIBaseline();
 
-    double Correlate(double J2000Time);
-    double Correlate(int i);
-    double getUVSize();
-    double *getUVCoords(double timeoffset);
-    double *getUVCoords();
-    double *getUVCoords(int index);
-    double *getProjection(double timeoffset);
-    double *getBaselineM();
-    double *getBaselineCenter();
-    double *getBaselineRad();
-    double getAlt(double J2000_Offset_Time);
-    double getAz(double J2000_Offset_Time);
-    void setTarget(double *target);
-    void setWaveLength(double wavelength);
-    void setSampleRate(double samplerate);
+    inline char *getName() { return Name; }
+
+    double Correlate(double time);
+    double getStartTime();
+
+    double *getBaseline();
+    double *getProjection();
+
+    inline double getX() { return baseline[0]; }
+    inline double getY() { return baseline[1]; }
+    inline double getZ() { return baseline[2]; }
+    inline double getU() { return projection[0]; }
+    inline double getV() { return projection[1]; }
+    inline double getDelay() { return projection[2]; }
+
+    inline double* getTarget() { return Target; }
+    inline double getWavelength() { return WaveLength; }
+    inline double getSamplerate() { return SampleRate; }
+
+    inline void setTarget(double horiz, double vert) { Target[0] = horiz; Target[1] = vert; getStream()->target = Target; Node1->setTarget(Target); Node2->setTarget(Target); }
+    inline void setTarget(double *target) { memcpy(Target, target, sizeof(double)*3); getStream()->target = Target; Node1->setTarget(Target); Node2->setTarget(Target); }
+    inline void setWaveLength(double wavelength) { WaveLength = wavelength; getStream()->wavelength = wavelength; Node1->setWaveLength(WaveLength); Node2->setWaveLength(WaveLength); }
+    inline void setSampleRate(double samplerate) { SampleRate = samplerate; getStream()->samplerate = samplerate; Node1->setSampleRate(SampleRate); Node2->setSampleRate(SampleRate); }
+
+    VLBINode* getNode1() { return Node1; }
+    VLBINode* getNode2() { return Node2; }
     dsp_stream_p getStream() { return Stream; }
-    int max_threads;
-    dsp_stream_p first;
-    dsp_stream_p second;
-    double starttime;
 
 private:
+    double Target[3];
+    double baseline[3];
+    double projection[3];
+    double WaveLength;
+    double SampleRate;
+    int max_threads;
+    VLBINode* Node1;
+    VLBINode* Node2;
     vlbi_func2_t dsp_correlation_delegate;
-    double *baseline_rad;
-    double *baseline_center;
-    double *baseline;
-    double HA;
-    double deltatime;
-    dsp_stream_p Stream;
     char *Name;
+    dsp_stream_p Stream;
 };
 
 #endif //_BASELINE_H

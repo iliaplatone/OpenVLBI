@@ -140,6 +140,9 @@ typedef struct timespec timespec_t;
 #ifndef ROOT2
 #define ROOT2 1.41421356237309504880168872420969807856967187537694
 #endif
+#ifndef J2000
+#define J2000 3155716800.0
+#endif
 #ifndef GAMMAJ2000
 #define GAMMAJ2000 (double)1.753357767
 #endif
@@ -208,7 +211,7 @@ DLL_EXPORT void vlbi_exit(vlbi_context ctx);
 * @param Stream The libVLBI stream to add
 * @param name A friendly name of this stream
 */
-DLL_EXPORT void vlbi_add_stream(vlbi_context ctx, dsp_stream_p Stream, char* name);
+DLL_EXPORT void vlbi_add_stream(vlbi_context ctx, dsp_stream_p Stream, char* name, int geographic_coordinates);
 
 /**
 * @brief Remove a stream from the current libVLBI context.
@@ -228,7 +231,7 @@ DLL_EXPORT void vlbi_del_stream(vlbi_context ctx, char* name);
 * @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
 * @return The libVLBI stream structure containing the Fourier transform of the object observed
 */
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(void *ctx, int m, int u, int v, double *target, double freq, double sr);
+DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(void *ctx, int u, int v, double *target, double freq, double sr);
 
 /**
 * @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.
@@ -241,7 +244,7 @@ DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(void *ctx, int m, in
 * @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
 * @return The libVLBI stream structure containing the Fourier transform of the object observed
 */
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_coverage(void *ctx, int m, int u, int v, double *target, double freq, double sr);
+DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_coverage(void *ctx, int u, int v, double *target, double freq, double sr);
 
 /**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
@@ -254,14 +257,14 @@ DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_coverage(void *ctx, int m, int u, int v
 * @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
 * @return The libVLBI stream structure containing the Fourier transform of the object observed
 */
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int m, int u, int v, double *target, double freq, double sr);
+DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int u, int v, double *target, double freq, double sr);
 
 /**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
 * @param uv The Forier transform stream.
 * @return dsp_stream_p The inverse fourier transform (almost the image of the object observed)
 */
-DLL_EXPORT dsp_stream_p vlbi_get_fft_estimate(dsp_stream_p uv);
+DLL_EXPORT dsp_stream_p vlbi_get_ifft_estimate(dsp_stream_p uv);
 
 /**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
@@ -292,13 +295,6 @@ DLL_EXPORT char* vlbi_get_version();
 DLL_EXPORT int vlbi_calibrate(dsp_stream_p stream1, dsp_stream_p stream2);
 
 /**
-* @brief Return an aproximation of the timing offset that affects the vector passed as argument.
-* @param vector The vector of the wave path.
-* @return double The timing offset.
-*/
-DLL_EXPORT double vlbi_calc_delay_coarse(double* vector);
-
-/**
 * @brief Return The baseline center in geographic coordinates.
 * @param loc1 The first location.
 * @param loc2 The second location.
@@ -307,70 +303,36 @@ DLL_EXPORT double vlbi_calc_delay_coarse(double* vector);
 DLL_EXPORT double* vlbi_calc_baseline_center(double *loc1, double *loc2);
 
 /**
-* @brief Return The baseline center in geographic coordinates.
+* @brief Return The 3d projection of the current observation.
 * @param alt The altitude of the target.
 * @param az The azimuth of the target.
 * @param baseline The current baseline in meters.
 * @param wavelength The wavelength observed.
-* @return double* The UV coordinates of the current observation.
+* @return double* The 3d projection of the current observation.
 */
-DLL_EXPORT double* vlbi_calc_uv_coords(double alt, double az, double *baseline, double wavelength);
+DLL_EXPORT double* vlbi_calc_3d_projection(double alt, double az, double baseline[3]);
+
+/**
+* @brief Return The UV coordinates of the current observation.
+* @param proj The wavelength observed.
+* @return double* The 2d coordinates of the current observation and the delay time as 3rd array element.
+*/
+DLL_EXPORT double* vlbi_calc_uv_coordinates(double *proj, double wavelength);
 
 /**
 * @brief Convert geographic location into xyz location
 * @param loc The location of the observer.
 * @return double* The xyz location.
 */
-DLL_EXPORT double* vlbi_calc_location_m(double *loc);
+DLL_EXPORT double* vlbi_calc_location(double *loc);
 
 /**
 * @brief Convert geographic baseline into geographic baseline
 * @param loc1 The 1st location of the observer.
 * @param loc2 The 2nd location of the observer.
-* @return double* The geographic baseline.
+* @return double* The baseline in meters.
 */
-DLL_EXPORT double* vlbi_calc_baseline_m(double *loc1, double *loc2);
-
-/**
-* @brief Convert geographic baseline into radians baseline
-* @param location1 The 1st location of the observer.
-* @param location2 The 2nd location of the observer.
-* @return double* The radians baseline.
-*/
-DLL_EXPORT double* vlbi_calc_baseline_rad(double *location1, double *location2);
-
-/**
-* @brief Convert geographic baseline into xyz baseline
-* @param loc1 The 1st location of the observer.
-* @param loc2 The 2nd location of the observer.
-* @return double* The xyz baseline.
-*/
-DLL_EXPORT double* vlbi_calc_baseline_m_xyz(double *loc1, double *loc2);
-
-/**
-* @brief Calculate the delay between the two nodes of the baseline given a target
-* @param alt Altitude of the target.
-* @param az Azimuth of the target.
-* @param baseline The reference baseline.
-* @return double The current delay between the two nodes.
-*/
-DLL_EXPORT double vlbi_calc_baseline_delay(double alt, double az, double *baseline);
-
-/**
-* @brief Calculate the delay between the two nodes of the baseline given a target in orthogonal coordinates
-* @param loc1 The 1st location of the observer.
-* @param loc2 The 2nd location of the observer.
-* @param target The target observed.
-* @return double The current delay between the two nodes.
-*/
-DLL_EXPORT double vlbi_calc_baseline_delay_vector(double *loc1, double *loc2, double* target);
-
-/**
-* @brief Calculate the delay that takes to transit the given distance
-* @param distance_m The distance to convert into time delay.
-* @return double The current delay between the two nodes.
-*/
-DLL_EXPORT double vlbi_calc_delay(double distance_m);
+DLL_EXPORT double* vlbi_calc_baseline(double *loc1, double *loc2);
 
 /**
 * @brief Convert radians into arcseconds

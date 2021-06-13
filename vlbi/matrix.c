@@ -57,30 +57,25 @@ double* vlbi_calc_haaltaz(double *location, double *target, double J2000_Offset_
     return haaltaz;
 }
 
-double* vlbi_calc_uv_coords(double alt, double az, double *baseline, double wavelength)
+double* vlbi_calc_3d_projection(double alt, double az, double baseline[3])
 {
-    double* uv = (double*)calloc(sizeof(double), 2);
+    double* proj = (double*)calloc(sizeof(double), 3);
     az *= M_PI / 180.0;
     alt *= M_PI / 180.0;
-    uv[0] = (baseline[0] * sin(az) + baseline[1] * cos(az));
-    uv[1] = (baseline[1] * sin(alt) * sin(az) - baseline[0] * sin(alt) * cos(az) + baseline[2] * cos(alt));
-    uv[0] *= AIRY / wavelength;
-    uv[1] *= AIRY / wavelength;
+    proj[0] = baseline[0] * sin(az) + baseline[1] * cos(az);
+    proj[1] = baseline[1] * sin(alt) * sin(az) - baseline[0] * sin(alt) * cos(az) + baseline[2] * cos(alt);
+    proj[2] = cos(az) * baseline[1] * cos(alt) - baseline[0] * sin(az) * cos(alt) + sin(alt) * baseline[2];
 }
 
-double vlbi_calc_baseline_delay(double alt, double az, double *baseline)
+double* vlbi_calc_uv_coordinates(double *proj, double wavelength)
 {
-    alt *= M_PI / 180;
-    az *= M_PI / 180;
-    return cos(az) * baseline[1] * cos(alt) - baseline[0] * sin(az) * cos(alt) + sin(alt) * baseline[2];
+    proj[0] *= AIRY / wavelength;
+    proj[1] *= AIRY / wavelength;
+    proj[2] /= LIGHTSPEED;
+    return proj;
 }
 
-double vlbi_calc_delay(double distance_m)
-{
-    return distance_m / SPEED_MEAN;
-}
-
-double* vlbi_calc_location_m(double *loc)
+double* vlbi_calc_location(double *loc)
 {
     double* tmp = (double*)calloc(sizeof(double), 3);
     double* location = (double*)calloc(sizeof(double), 3);
@@ -103,50 +98,12 @@ double* vlbi_calc_location_m(double *loc)
     return location;
 }
 
-double* vlbi_calc_baseline_m_xyz(double *loc1, double *loc2)
+double* vlbi_calc_baseline(double *loc1, double *loc2)
 {
     double* baseline = (double*)calloc(sizeof(double), 4);
     baseline[0] = loc1[0] - loc2[0];
     baseline[1] = loc1[1] - loc2[1];
     baseline[2] = loc1[2] - loc2[2];
-    baseline[3] = sqrt(pow(baseline[0], 2) + pow(baseline[1], 2) + pow(baseline[2], 2));
-    return baseline;
-}
-
-double* vlbi_calc_baseline_m(double *loc1, double *loc2)
-{
-    double* baseline = (double*)calloc(sizeof(double), 4);
-    double* location1 = vlbi_calc_location_m(loc1);
-    double* location2 = vlbi_calc_location_m(loc2);
-    baseline[0] = location1[0] - location2[0];
-    baseline[1] = location1[1] - location2[1];
-    baseline[2] = location1[2] - location2[2];
-    return baseline;
-}
-
-double* vlbi_calc_baseline_rad(double *loc1, double *loc2)
-{
-    double* baseline = (double*)calloc(sizeof(double), 4);
-    double* location1 = (double*)calloc(sizeof(double), 3);
-    double* location2 = (double*)calloc(sizeof(double), 3);
-    location1[0] = loc1[0];
-    location1[1] = loc1[1];
-    location1[2] = loc1[2];
-    location2[0] = loc2[0];
-    location2[1] = loc2[1];
-    location2[2] = loc2[2];
-    location1[0] *= M_PI / 180.0;
-    location1[1] *= M_PI / 180.0;
-    location2[0] *= M_PI / 180.0;
-    location2[1] *= M_PI / 180.0;
-    baseline[0] = location1[0] - location2[0];
-    baseline[1] = location1[1] - location2[1];
-    while(baseline[1] < -M_PI)
-        baseline[1] += 2 * M_PI;
-    while(baseline[1] >= M_PI)
-        baseline[1] -= 2 * M_PI;
-    baseline[2] = 1;
-    baseline[3] = sqrt(pow(baseline[0], 2) + pow(baseline[1], 2) + pow(baseline[2], 2)) * location1[2];
     return baseline;
 }
 

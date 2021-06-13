@@ -26,7 +26,7 @@ VLBI::Client::~Client()
     }
 }
 
-void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, int bytelen, timespec starttime)
+void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, int bytelen, timespec starttime, bool geo)
 {
 	dsp_stream_p node = dsp_stream_new();
 	int len = bytelen*8/abs(Bps);
@@ -58,7 +58,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, 
 	node->location[1] = y;
 	node->location[2] = z;
 	memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
-	vlbi_add_stream(context, node, name);
+    vlbi_add_stream(context, node, name, geo);
 }
 
 void VLBI::Client::DelNode(char *name)
@@ -71,15 +71,15 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type)
 	dsp_stream_p plot;
 	double coords[3] = { Ra, Dec };
 	if(type&UV_COVERAGE) {
-            return vlbi_get_uv_plot_coverage(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
+            return vlbi_get_uv_plot_coverage(context, u, v, coords, Freq, SampleRate);
         }
 	if(type&APERTURE_SYNTHESIS) {
-		plot = vlbi_get_uv_plot_aperture_synthesis(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
+        plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate);
 	} else {
-		plot = vlbi_get_uv_plot_moving_baseline(context, ((type&GEOCENTRIC_COORDS) ? 0 : 1), u, v, coords, Freq, SampleRate);
+        plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate);
 	}
-	if((type&DFT) && (plot != NULL)) {
-		plot = vlbi_get_fft_estimate(plot);
+    if((type&IDFT) && (plot != NULL)) {
+        plot = vlbi_get_ifft_estimate(plot);
 	}
 	return plot;
 }
@@ -120,16 +120,12 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         if(!strcmp(arg, "observation")) {
             int type = 0;
             char *t = strtok(value, "_");
-            if(!strcmp(t, "geo")) {
-                type |= GEOCENTRIC_COORDS;
-            }
-            t = strtok(NULL, "_");
             if(!strcmp(t, "synthesis")) {
                 type |= APERTURE_SYNTHESIS;
             }
             t = strtok(NULL, "_");
-            if(!strcmp(t, "dft")) {
-                type |= DFT;
+            if(!strcmp(t, "idft")) {
+                type |= IDFT;
             } else if(!strcmp(t, "coverage")) {
                 type |= UV_COVERAGE;
             }
@@ -157,8 +153,11 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         else if(!strcmp(arg, "node")) {
             char name[32], file[150], date[64];
             double lat, lon, el;
+            int geo = 0;
             char* k = strtok(value, ",");
             strcpy(name, k);
+            k = strtok(NULL, ",");
+            geo = strcmp(k, "geo") == 0 ? 1 : (strcmp(k, "rel") ? 2 : 0);
             k = strtok(NULL, ",");
             lat = (double)atof(k);
             k = strtok(NULL, ",");
@@ -171,8 +170,8 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             strcpy(date, k);
             void *buf = malloc(1);
             int len = vlbi_b64readfile(file, buf);
-            if(len > 0) {
-                AddNode(name, lat, lon, el, buf, len, vlbi_time_string_to_utc(date));
+            if(len > 0 && geo > 0) {
+                AddNode(name, lat, lon, el, buf, len, vlbi_time_string_to_utc(date), geo == 1);
             }
         }
     }
