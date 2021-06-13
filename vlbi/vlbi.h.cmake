@@ -234,19 +234,6 @@ DLL_EXPORT void vlbi_del_stream(vlbi_context ctx, char* name);
 DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(void *ctx, int u, int v, double *target, double freq, double sr);
 
 /**
-* @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.
-* @param ctx The libVLBI context
-* @param correlation_func The correlation delegate, you should use the vlbi_func2_t delegate function type for this argument.
-* @param u The U size of the resulting UV plot
-* @param v The V size of the resulting UV plot
-* @param target The target position int Ra/Dec celestial coordinates
-* @param freq The frequency observed. This parameter will scale the plot inverserly.
-* @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
-* @return The libVLBI stream structure containing the Fourier transform of the object observed
-*/
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_coverage(void *ctx, int u, int v, double *target, double freq, double sr);
-
-/**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
 * @param ctx The libVLBI context
 * @param correlation_func The correlation delegate, you should use the vlbi_func2_t delegate function type for this argument.
@@ -419,6 +406,14 @@ DLL_EXPORT timespec_t vlbi_time_string_to_utc(char* time);
 * @return the timespec struct containing the date and time specified.
 */
 DLL_EXPORT timespec_t vlbi_time_J2000time_to_timespec(double secs_since_J2000);
+
+/**
+ * @brief get_local_hour_angle Returns local hour angle of an object
+ * @param local_sideral_time Local Sideral Time
+ * @param ra RA of object
+ * @return Hour angle in hours (-12 to 12)
+ */
+DLL_EXPORT void vlbi_astro_alt_az_from_ra_dec(double J2000time, double Ra, double Dec, double Lat, double Long, double* Alt, double *Az);
 
 /**
  * @brief get_local_hour_angle Returns local hour angle of an object

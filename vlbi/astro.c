@@ -18,7 +18,7 @@
 
 #include <vlbi.h>
 
-void vlbi_get_alt_az_from_ra_dec(double J2000time, double Ra, double Dec, double Lat, double Long, double* Alt, double *Az)
+void vlbi_astro_alt_az_from_ra_dec(double J2000time, double Ra, double Dec, double Lat, double Long, double* Alt, double *Az)
 {
     double lst = vlbi_time_J2000time_to_lst(J2000time, Long);
     double ha = vlbi_astro_get_local_hour_angle(lst, Ra);

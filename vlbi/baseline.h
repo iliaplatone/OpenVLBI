@@ -34,6 +34,7 @@ public:
     inline char *getName() { return Name; }
 
     double Correlate(double time);
+    double Correlate(int idx1, int idx2);
     double getStartTime();
 
     double *getBaseline();
@@ -58,6 +59,7 @@ public:
     VLBINode* getNode1() { return Node1; }
     VLBINode* getNode2() { return Node2; }
     dsp_stream_p getStream() { return Stream; }
+    void setDelegate(vlbi_func2_t delegate) { dsp_correlation_delegate = delegate; }
 
 private:
     double Target[3];

@@ -88,6 +88,12 @@ static void* fillplane_aperture_synthesis(void* arg)
     double st = b->getStartTime();
     double et = st + s->len * tao;
     for(double time = st; time < et; time += tao) {
+        double Alt, Az;
+        double center[2];
+        center[0] = b->getNode2()->getGeographicCoordinates()[0]+b->getNode1()->getGeographicCoordinates()[0]-b->getNode2()->getGeographicCoordinates()[0];
+        center[1] = b->getNode2()->getGeographicCoordinates()[1]+b->getNode1()->getGeographicCoordinates()[1]-b->getNode2()->getGeographicCoordinates()[1];
+        vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, b->getNode2()->getGeographicCoordinates()[1]), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
+        b->setTarget(Az, Alt);
         double *uvcoords = b->getProjection();
         if(uvcoords == NULL)
             continue;
@@ -113,6 +119,15 @@ static void* fillplane_moving_baseline(void* arg)
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     for(int i = 0; i < s->len; i++) {
+        double Alt, Az;
+        double center[2];
+        int l = (int)((b->getNode2()->getStartTime()-b->getStartTime())/b->getSamplerate());
+        b->getNode1()->setLocation(i);
+        b->getNode2()->setLocation(l);
+        center[0] = b->getNode2()->getLocation()[0]+b->getNode1()->getLocation()[0]-b->getNode2()->getLocation()[0];
+        center[1] = b->getNode2()->getLocation()[1]+b->getNode1()->getLocation()[1]-b->getNode2()->getLocation()[1];
+        vlbi_astro_alt_az_from_ra_dec(b->getStartTime(), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
+        b->setTarget(Az, Alt);
         double *uvcoords = b->getProjection();
         if(uvcoords == NULL)
             continue;
@@ -126,33 +141,6 @@ static void* fillplane_moving_baseline(void* arg)
             parent->buf[parent->len-idx] = val;
         }
         fprintf(stderr, "\r%.3f%%   ", i*100.0/s->len);
-    }
-    return NULL;
-}
-
-static void* fillplane_coverage(void* arg)
-{
-    VLBIBaseline *b = (VLBIBaseline*)arg;
-    dsp_stream_p s = b->getStream();
-    dsp_stream_p parent = (dsp_stream_p)s->parent;
-    int u = parent->sizes[0];
-    int v = parent->sizes[1];
-    double tao = 1.0 / parent->samplerate;
-    double st = b->getStartTime();
-    double et = st + s->len * tao;
-    for(double time = st; time < et; time += tao) {
-        double *uvcoords = b->getProjection();
-        if(uvcoords == NULL)
-            continue;
-        int U = uvcoords[0] + u / 2;
-        int V = uvcoords[1] + v / 2;
-        free(uvcoords);
-        if(U >= 0 && U < u && V >= 0 && V < v) {
-            int idx = U+V*u;
-            parent->buf[idx] = 1;
-            parent->buf[parent->len-idx] = 1;
-        }
-        fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
     }
     return NULL;
 }
@@ -176,7 +164,6 @@ void vlbi_add_stream(void *ctx, dsp_stream_p Stream, char* name, int geo) {
     stream->arg = calloc(150, 1);
     sprintf((char*)stream->arg, "%c%c", (nodes->Count % na) + 'A', ((nodes->Count / na) % 10) + '0');
     nodes->Add(new VLBINode(stream, geo), name);
-    nodes->At(nodes->Count-1)->setLocation(Stream->location[0], Stream->location[1], Stream->location[2]);
 }
 
 void vlbi_del_stream(void *ctx, char* name) {
@@ -222,26 +209,6 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int u, int v, double *t
     }
     vlbi_wait_threads(&parent->child_count);
     fprintf(stderr, "\nmoving baselines plotting completed\n");
-    return parent;
-}
-
-dsp_stream_p vlbi_get_uv_plot_coverage(void *ctx, int u, int v, double *target, double freq, double sr)
-{
-    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    BaselineCollection *baselines = new BaselineCollection(nodes, u, v);
-    baselines->SetFrequency(freq);
-    baselines->SetSampleRate(sr);
-    baselines->SetTarget(target);
-    dsp_stream_p parent = baselines->getStream();
-    parent->child_count = 0;
-    fprintf(stderr, "%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
-    for(int i = 0; i < baselines->Count; i++)
-    {
-        VLBIBaseline *b = baselines->At(i);
-        vlbi_start_thread(fillplane_coverage, b, &parent->child_count, i);
-    }
-    vlbi_wait_threads(&parent->child_count);
-    fprintf(stderr, "\ncoverage plotting completed\n");
     return parent;
 }
 

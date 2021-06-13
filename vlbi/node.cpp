@@ -24,6 +24,8 @@ VLBINode::VLBINode(dsp_stream_p stream, bool geographic_coordinates)
     Stream = stream;
     Name = (char*)Stream->arg;
     Geo = geographic_coordinates;
+    if(Geo)
+        memcpy(Geographic, stream->location->coordinates, sizeof(double)*3);
 }
 
 VLBINode::~VLBINode()

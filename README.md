@@ -130,14 +130,14 @@ Here is the current command list:
 ```
 add context name:string - add an OpenVLBI context to the internal list
 set context name:string - set current OpenVLBI context selecting it by name from the internal list
-add node name,latitude,longitude,elevation,datafile,observationdate:string - add a node to the internal list
+add node name,[geo|xyz],latitude,longitude,elevation,datafile,observationdate:string - add a node to the internal list
 del node name:string - remove a node from the internal list
 set model name:string - new comparison model
 set freq value:numeric - set detectors frequency
 set bitspersample value:numeric - set detectors sample bit depth
 set samplerate value:numeric - set detectors sampling rate
 set target ra,dec:numeric,numeric - set telescopes celestial target
-get observation type:string - get UV plot observation ([geo|xyz]_[synthesis|movingbase]_[raw|dft|coverage]) for aperture synthesis observation or to plot the UV coverage
+get observation type:string - get UV plot observation ([synthesis|movingbase]_[raw|idft|coverage]) for aperture synthesis observation or to plot the UV coverage
 ```
 
 ### INDI client specific commands

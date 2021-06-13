@@ -54,9 +54,9 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, 
 		default:
 		break;
 	}
-	node->location[0] = x;
-	node->location[1] = y;
-	node->location[2] = z;
+    node->location->xyz.x = x;
+    node->location->xyz.y = y;
+    node->location->xyz.z = z;
 	memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
     vlbi_add_stream(context, node, name, geo);
 }
@@ -70,16 +70,18 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type)
 {
 	dsp_stream_p plot;
 	double coords[3] = { Ra, Dec };
-	if(type&UV_COVERAGE) {
-            return vlbi_get_uv_plot_coverage(context, u, v, coords, Freq, SampleRate);
+    if(type&UV_COVERAGE) {
+        if(type&APERTURE_SYNTHESIS) {
+            plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate);
+        } else {
+            plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate);
         }
-	if(type&APERTURE_SYNTHESIS) {
-        plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate);
-	} else {
-        plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate);
-	}
-    if((type&IDFT) && (plot != NULL)) {
-        plot = vlbi_get_ifft_estimate(plot);
+    } else {
+        if(type&APERTURE_SYNTHESIS) {
+            plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate);
+        } else {
+            plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate);
+        }
 	}
 	return plot;
 }
@@ -122,10 +124,12 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             char *t = strtok(value, "_");
             if(!strcmp(t, "synthesis")) {
                 type |= APERTURE_SYNTHESIS;
+            } else if(!strcmp(t, "movingbase")) {
+                type &= ~APERTURE_SYNTHESIS;
             }
             t = strtok(NULL, "_");
             if(!strcmp(t, "idft")) {
-                type |= IDFT;
+                type &= ~UV_COVERAGE;
             } else if(!strcmp(t, "coverage")) {
                 type |= UV_COVERAGE;
             }
@@ -157,7 +161,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             char* k = strtok(value, ",");
             strcpy(name, k);
             k = strtok(NULL, ",");
-            geo = strcmp(k, "geo") == 0 ? 1 : (strcmp(k, "rel") ? 2 : 0);
+            geo = strcmp(k, "geo") == 0 ? 1 : (strcmp(k, "xyz") ? 2 : 0);
             k = strtok(NULL, ",");
             lat = (double)atof(k);
             k = strtok(NULL, ",");

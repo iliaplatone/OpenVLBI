@@ -194,6 +194,19 @@ typedef struct dsp_star_t
 } dsp_star;
 
 /**
+* \brief The location type
+*/
+typedef union dsp_location_t
+{
+/// The location in xyz coordinates
+    struct { double x; double y; double z; } xyz;
+/// The location in geographic coordinates
+    struct { double lat; double lon; double el; } geographic;
+/// A 3d double array containing the location
+    double coordinates[3];
+} dsp_location;
+
+/**
 * \brief Multi-dimensional processing delegate function
 */
 typedef void *(*dsp_func_t) (void *, ...);
@@ -224,7 +237,7 @@ typedef struct dsp_stream_t
 /// Children streams count
     int child_count;
 /// Location coordinates
-    double* location;
+    dsp_location* location;
 /// Target coordinates
     double* target;
 /// Time at the beginning of the stream

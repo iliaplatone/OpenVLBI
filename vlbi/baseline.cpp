@@ -37,6 +37,11 @@ double VLBIBaseline::Correlate(double time)
     return *dsp_correlation_delegate(getNode1()->getStream()->buf[idx+(int)fmax(0, offset)], getNode2()->getStream()->buf[idx+(int)fmax(0, -offset)]);
 }
 
+double VLBIBaseline::Correlate(int idx1, int idx2)
+{
+    return *dsp_correlation_delegate(getNode1()->getStream()->buf[idx1], getNode2()->getStream()->buf[idx2]);
+}
+
 double VLBIBaseline::getStartTime()
 {
     double starttime1 = getNode1()->getStartTime();
@@ -47,7 +52,21 @@ double VLBIBaseline::getStartTime()
 
 double *VLBIBaseline::getBaseline()
 {
-    double *bl = vlbi_calc_baseline(getNode1()->getLocation(), getNode2()->getLocation());
+    dsp_location location1;
+    dsp_location location2;
+    if (getNode1()->GeographicCoordinates()) {
+        location1.geographic.lat = getNode1()->getLocation()[0];
+        location1.geographic.lon = getNode1()->getLocation()[1];
+        location1.geographic.el = vlbi_astro_estimate_geocentric_elevation(getNode1()->getLocation()[0], getNode1()->getLocation()[2]);
+        vlbi_calc_location(location1.coordinates);
+    }
+    if (getNode2()->GeographicCoordinates()) {
+        location2.geographic.lat = getNode2()->getLocation()[0];
+        location2.geographic.lon = getNode2()->getLocation()[1];
+        location2.geographic.el = vlbi_astro_estimate_geocentric_elevation(getNode2()->getLocation()[0], getNode2()->getLocation()[2]);
+        vlbi_calc_location(location2.coordinates);
+    }
+    double *bl = vlbi_calc_baseline(location1.coordinates, location2.coordinates);
     baseline[0] = bl[0];
     baseline[1] = bl[1];
     baseline[2] = bl[2];
@@ -57,7 +76,7 @@ double *VLBIBaseline::getBaseline()
 
 double *VLBIBaseline::getProjection()
 {
-    double *tmp = vlbi_calc_3d_projection(Target[1], Target[0], baseline);
+    double *tmp = vlbi_calc_3d_projection(Target[1], Target[0], getBaseline());
     double *proj = vlbi_calc_uv_coordinates(tmp, getWavelength());
     free (tmp);
     projection[0] = proj[0];
