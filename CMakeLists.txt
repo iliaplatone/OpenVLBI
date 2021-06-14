@@ -8,7 +8,7 @@ include(ExternalProject)
 
 find_package(CFITSIO REQUIRED)
 find_package(ZLIB REQUIRED)
-find_package(NOVA REQUIRED)
+find_package(Nova REQUIRED)
 find_package(FFTW3 REQUIRED)
 find_package(Threads REQUIRED)
 option(WITH_INDI_CLIENT "Add INDI client for OpenVLBI" ON)
