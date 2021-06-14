@@ -12,7 +12,7 @@ jobs:
           command: |
             sudo add-apt-repository ppa:~mutlaqja/ppa
             sudo apt-get update
-            sudo apt-get install indi-full libindi-dev
+            sudo apt-get install indi-full libindi-dev cdbs cmake
             cd ../; tar zcvf libopenvlbi_$(head -n OpenVLBI/debian/changelog | tr -d [a-z:\(:\):=:\;:\ ]).orig.tar.gz OpenVLBI; cd OpenVLBI; dpkg-buildpackage;
             sudo dpkg -i ../libopenvlbi_$(head -n 1 debian/changelog | tr -d [a-z:\(:\):=:\;:\ ]).deb
             sudo dpkg -i ../openvlbi-bin_$(head -n 1 debian/changelog | tr -d [a-z:\(:\):=:\;:\ ]).deb
