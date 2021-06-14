@@ -9,7 +9,7 @@ jobs:
       - run:
           name: build
           command: |
-             cd ../; tar zcvf libopenvlbi_$(head -n 1 OpenVLBI/debian/changelog | tr -d [a-z:\(:\):=:\;:\ ]).orig.tar.gz OpenVLBI; cd OpenVLBI; dpkg-buildpackage;
+             cd ../; tar zcvf libopenvlbi_$(head -n project/debian/changelog | tr -d [a-z:\(:\):=:\;:\ ]).orig.tar.gz OpenVLBI; cd OpenVLBI; dpkg-buildpackage;
              sudo dpkg -i ../libopenvlbi_$(head -n 1 debian/changelog | tr -d [a-z:\(:\):=:\;:\ ]).deb
              sudo dpkg -i ../openvlbi-bin_$(head -n 1 debian/changelog | tr -d [a-z:\(:\):=:\;:\ ]).deb
              ./scripts/test.sh 1000 synthesis_coverage | vlbi_client_dummy
