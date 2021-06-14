@@ -1,21 +1,9 @@
-
 #!/bin/bash
+export version=$(head -n 1 debian/changelog | tr -d [a-z:\(:\):=:\;:\ ] | tr -d '\n')
 
-arch=`dpkg --print-architecture`
-sudo add-apt-repository ppa:~mutlaqja -y
-sudo apt-get -qq update
-sudo apt-get install -y --force-yes indi-full libnova-dev libindi-dev libpthread-stubs0-dev libcfitsio-dev zlib1g-dev cmake dpkg-dev imagemagick libfftw3-dev
-
-mkdir -p build-${arch}
-pushd build-${arch}
-cmake ..
-make
-sudo make install
-popd
-
-pushd debian
-version=`grep VLBI_VERSION_STRING ../build-${arch}/vlbi.h | cut -d '"' -f2`_`lsb_release -s -i -r | tr -d '\n'`
-sudo ./build.deb.sh libopenvlbi ${version} ${arch}
-sudo ./build.deb.sh openvlbi-bin ${version} ${arch}
-sudo dpkg -i packages/libopenvlbi_${version}*.deb packages/openvlbi-bin_${version}*.deb
-popd
+sudo add-apt-repository ppa:~mutlaqja/ppa
+sudo apt-get update
+sudo apt-get install indi-full libindi-dev libfftw3-dev cdbs cmake build-essential fakeroot devscripts
+cd ../; tar zcvf libopenvlbi_$version.orig.tar.gz OpenVLBI; cd OpenVLBI; dpkg-buildpackage;
+sudo dpkg -i ../libopenvlbi_$version.deb
+sudo dpkg -i ../openvlbi-bin_$version.deb

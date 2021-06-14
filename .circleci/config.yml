@@ -10,14 +10,9 @@ jobs:
       - run:
           name: build
           command: |
-            sudo add-apt-repository ppa:~mutlaqja/ppa
-            sudo apt-get update
-            sudo apt-get install indi-full libindi-dev libfftw3-dev cdbs cmake build-essential fakeroot devscripts
-            export version=$(head -n 1 debian/changelog | tr -d [a-z:\(:\):=:\;:\ ] | tr -d '\n')
-            cd ../; tar zcvf libopenvlbi_$version.orig.tar.gz OpenVLBI; cd OpenVLBI; dpkg-buildpackage;
-            sudo dpkg -i ../libopenvlbi_$version.deb
-            sudo dpkg -i ../openvlbi-bin_$version.deb
+            ./scripts/build.sh
             ./scripts/test.sh 1000 synthesis_coverage | vlbi_client_dummy
+
 workflows:
   version: 2
   build:
