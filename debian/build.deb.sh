@@ -1,5 +1,5 @@
 #!/bin/bash
-	user=999
+	user=$UID
 	deb=$1
 	version=$2
 	arch=$3
