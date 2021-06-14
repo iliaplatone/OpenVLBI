@@ -8,8 +8,9 @@ jobs:
       - checkout
       - run:
           name: build
-          command: ./scripts/build.sh
-
+          command: |
+		./scripts/build.sh
+		./scripts/test.sh 1000 synthesis_coverage | vlbi_client_dummy
 workflows:
   version: 2
   build:

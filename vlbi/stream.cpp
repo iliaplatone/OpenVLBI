@@ -77,9 +77,20 @@ static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int 
     pthread_create(&t->th, NULL, &vlbi_thread_func, t);
 }
 
-static void* fillplane_aperture_synthesis(void* arg)
+static double* getProjection(double time, VLBINode *n1, VLBINode *n2)
 {
-    VLBIBaseline *b = (VLBIBaseline*)arg;
+    double Alt, Az;
+    double center[2];
+    VLBIBaseline *b = new VLBIBaseline(n1 ,n2);
+    center[0] = b->getNode2()->getGeographicCoordinates()[0]+b->getNode1()->getGeographicCoordinates()[0]-b->getNode2()->getGeographicCoordinates()[0];
+    center[1] = b->getNode2()->getGeographicCoordinates()[1]+b->getNode1()->getGeographicCoordinates()[1]-b->getNode2()->getGeographicCoordinates()[1];
+    vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, b->getNode2()->getGeographicCoordinates()[1]), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
+    b->setTarget(Az, Alt);
+    return b->getProjection();
+}
+
+static void fillplane_aperture_synthesis(VLBIBaseline *b, NodeCollection *nodes)
+{
     dsp_stream_p s = b->getStream();
     dsp_stream_p parent = (dsp_stream_p)s->parent;
     int u = parent->sizes[0];
@@ -88,13 +99,24 @@ static void* fillplane_aperture_synthesis(void* arg)
     double st = b->getStartTime();
     double et = st + s->len * tao;
     for(double time = st; time < et; time += tao) {
-        double Alt, Az;
-        double center[2];
-        center[0] = b->getNode2()->getGeographicCoordinates()[0]+b->getNode1()->getGeographicCoordinates()[0]-b->getNode2()->getGeographicCoordinates()[0];
-        center[1] = b->getNode2()->getGeographicCoordinates()[1]+b->getNode1()->getGeographicCoordinates()[1]-b->getNode2()->getGeographicCoordinates()[1];
-        vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, b->getNode2()->getGeographicCoordinates()[1]), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
-        b->setTarget(Az, Alt);
-        double *uvcoords = b->getProjection();
+        double* uvcoords;
+        double max_delay;
+        double delay;
+        int node1, node2;
+        for (int x = 0; x < nodes->Count; x++) {
+            for (int y = x+1; y < nodes->Count; y++) {
+                double *proj = getProjection(b->getStartTime(), nodes->At(x), nodes->At(y));
+                if(proj[2]>max_delay) {
+                    node1 = x;
+                    node2 = y;
+                    max_delay = fmax(max_delay, proj[2]);
+                }
+            }
+        }
+        uvcoords = getProjection(time, b->getNode1(), nodes->At(node1));
+        uvcoords = getProjection(time, b->getNode1(), nodes->At(node2));
+        uvcoords = getProjection(time, b->getNode2(), nodes->At(node1));
+        uvcoords = getProjection(time, b->getNode2(), nodes->At(node2));
         if(uvcoords == NULL)
             continue;
         int U = uvcoords[0] + u / 2;
@@ -108,27 +130,37 @@ static void* fillplane_aperture_synthesis(void* arg)
         }
         fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
     }
-    return NULL;
 }
 
-static void* fillplane_moving_baseline(void* arg)
+static void* fillplane_moving_baseline(VLBIBaseline *b, NodeCollection *nodes)
 {
-    VLBIBaseline *b = (VLBIBaseline*)arg;
     dsp_stream_p s = b->getStream();
     dsp_stream_p parent = (dsp_stream_p)s->parent;
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     for(int i = 0; i < s->len; i++) {
-        double Alt, Az;
-        double center[2];
         int l = (int)((b->getNode2()->getStartTime()-b->getStartTime())/b->getSamplerate());
+        double time = b->getStartTime()+(double)l/b->getSamplerate();
         b->getNode1()->setLocation(i);
         b->getNode2()->setLocation(l);
-        center[0] = b->getNode2()->getLocation()[0]+b->getNode1()->getLocation()[0]-b->getNode2()->getLocation()[0];
-        center[1] = b->getNode2()->getLocation()[1]+b->getNode1()->getLocation()[1]-b->getNode2()->getLocation()[1];
-        vlbi_astro_alt_az_from_ra_dec(b->getStartTime(), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
-        b->setTarget(Az, Alt);
-        double *uvcoords = b->getProjection();
+        double* uvcoords;
+        double max_delay;
+        double delay;
+        int node1, node2;
+        for (int x = 0; x < nodes->Count; x++) {
+            for (int y = x+1; y < nodes->Count; y++) {
+                double *proj = getProjection(time, nodes->At(x), nodes->At(y));
+                if(proj[2]>max_delay) {
+                    node1 = x;
+                    node2 = y;
+                    max_delay = fmax(max_delay, proj[2]);
+                }
+            }
+        }
+        uvcoords = getProjection(time, b->getNode1(), nodes->At(node1));
+        uvcoords = getProjection(time, b->getNode1(), nodes->At(node2));
+        uvcoords = getProjection(time, b->getNode2(), nodes->At(node1));
+        uvcoords = getProjection(time, b->getNode2(), nodes->At(node2));
         if(uvcoords == NULL)
             continue;
         int U = uvcoords[0] + u / 2;
@@ -185,9 +217,8 @@ dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(vlbi_context ctx, int u, int v,
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
-        vlbi_start_thread(fillplane_aperture_synthesis, b, &parent->child_count, i);
+        fillplane_aperture_synthesis(b, nodes);
     }
-    vlbi_wait_threads(&parent->child_count);
     fprintf(stderr, "\nearth tide plotting completed\n");
     return parent;
 }
@@ -205,7 +236,7 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int u, int v, double *t
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
-        vlbi_start_thread(fillplane_moving_baseline, b, &parent->child_count, i);
+        fillplane_moving_baseline(b, nodes);
     }
     vlbi_wait_threads(&parent->child_count);
     fprintf(stderr, "\nmoving baselines plotting completed\n");
