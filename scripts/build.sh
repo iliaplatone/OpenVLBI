@@ -1,4 +1,5 @@
 #!/bin/bash
+
 arch=`dpkg --print-architecture`
 sudo add-apt-repository ppa:~mutlaqja -y
 sudo apt-get -qq update
