@@ -16,7 +16,7 @@
 	size=$(sudo du -sk ${deb}/ | sed -e "s:${deb}/::")
 	mkdir -p ${deb}/DEBIAN
 	sudo chown $user:$user ${deb} -R
-	sed -e "s:VERSION:$version:g" control.${deb} > ${deb}/DEBIAN/control
+	sed -e "s:VERSION:$(echo $version | cut -d '_' -f 1):g" control.${deb} > ${deb}/DEBIAN/control
 	sed -i "s:ARCH:$arch:g" ${deb}/DEBIAN/control
 	sudo sed -i "s/XXX/$size/g" ${deb}/DEBIAN/control
 	find ${deb}/ | while read line; do md5sum $line; done 2>/dev/null > ${deb}/DEBIAN/md5sums
