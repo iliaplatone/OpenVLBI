@@ -1,2 +1,2 @@
-usr/include/openvlbi
-usr/lib/*/libopenvlbi*.so
+usr/include/OpenVLBI
+usr/lib/*/libopenvlbi*.so*

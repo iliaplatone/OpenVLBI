@@ -6,3 +6,4 @@ include /usr/share/cdbs/1/class/cmake.mk
 export CFLAGS := $(shell dpkg-buildflags --get CFLAGS)
 export CXXFLAGS := $(shell dpkg-buildflags --get CXXFLAGS)
 export LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS)
+export DEB_DH_MAKESHLIBS_ARG=--ignore-missing-info
