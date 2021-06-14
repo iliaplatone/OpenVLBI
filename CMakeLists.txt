@@ -28,6 +28,9 @@ string(REGEX REPLACE "\n\# \([a-z:A-Z:0-9]*\)" "\n\n\\page page_\1 \1" README "$
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dsp/dsp.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/dsp.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/vlbi/vlbi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/files.libopenvlbi.cmake ${CMAKE_CURRENT_BINARY_DIR}/files.libopenvlbi )
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/files.libopenvlbi-dev.cmake ${CMAKE_CURRENT_BINARY_DIR}/files.libopenvlbi-dev )
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/files.openvlbi-bin.cmake ${CMAKE_CURRENT_BINARY_DIR}/files.openvlbi-bin )
 
 include_directories( ${CMAKE_CURRENT_BINARY_DIR})
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/vlbi)
