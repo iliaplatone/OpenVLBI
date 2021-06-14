@@ -12,7 +12,7 @@ jobs:
           command: |
             sudo add-apt-repository ppa:~mutlaqja/ppa
             sudo apt-get update
-            sudo apt-get install indi-full libindi-dev cdbs cmake build-essential fakeroot devscripts
+            sudo apt-get install indi-full libindi-dev libfftw3-dev cdbs cmake build-essential fakeroot devscripts
             export version=$(head -n 1 debian/changelog | tr -d [a-z:\(:\):=:\;:\ ] | tr -d '\n')
             cd ../; tar zcvf libopenvlbi_$version.orig.tar.gz OpenVLBI; cd OpenVLBI; dpkg-buildpackage;
             sudo dpkg -i ../libopenvlbi_$version.deb
