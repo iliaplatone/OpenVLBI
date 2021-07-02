@@ -174,7 +174,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             k = strtok(NULL, ",");
             el = (double)atof(k);
             k = strtok(NULL, ",");
-            sprintf(file, k);
+            strcpy(file, k);
             k = strtok(NULL, ",");
             strcpy(date, k);
             void *buf = malloc(1);
