@@ -40,6 +40,7 @@ public:
     void SetTarget(double *target);
     void SetFrequency(double frequency);
     void SetSampleRate(double samplerate);
+    void SetDelegate(vlbi_func2_t delegate);
     dsp_stream_p getStream() { return Stream; }
 protected:
     dsp_stream_p Stream;

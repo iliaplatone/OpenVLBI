@@ -61,7 +61,7 @@ extern "C" {
 */
 /**@{*/
 
-typedef double*(* vlbi_func2_t)(double, double);
+typedef double(* vlbi_func2_t)(double, double);
 typedef void* vlbi_context;
 typedef struct timespec timespec_t;
 /**@}*/
@@ -69,7 +69,9 @@ typedef struct timespec timespec_t;
  * \defgroup VLBI_Defines VLBI defines
 */
 /**@{*/
-
+inline static double vlbi_default_delegate(double x, double y) {
+    return x*y;
+}
 ///if max() is not present you can use this one
 #ifndef Min
 #define Min(a,b) \
@@ -231,7 +233,7 @@ DLL_EXPORT void vlbi_del_stream(vlbi_context ctx, char* name);
 * @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
 * @return The libVLBI stream structure containing the Fourier transform of the object observed
 */
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(void *ctx, int u, int v, double *target, double freq, double sr);
+DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(void *ctx, int u, int v, double *target, double freq, double sr, vlbi_func2_t delegate);
 
 /**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
@@ -244,7 +246,7 @@ DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(void *ctx, int u, in
 * @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
 * @return The libVLBI stream structure containing the Fourier transform of the object observed
 */
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int u, int v, double *target, double freq, double sr);
+DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int u, int v, double *target, double freq, double sr, vlbi_func2_t delegate);
 
 /**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.

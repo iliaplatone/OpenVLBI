@@ -54,8 +54,8 @@ void vlbi_astro_get_alt_az_coordinates(double Ha, double Dec, double Lat, double
 double vlbi_astro_estimate_geocentric_elevation(double Lat, double El)
 {
     Lat *= M_PI / 180.0;
-    Lat = sin(Lat);
-    El += Lat * (EARTHRADIUSPOLAR - EARTHRADIUSEQUATORIAL);
+    Lat = fabs(sin(Lat));
+    El += Lat * (EARTHRADIUSPOLAR - EARTHRADIUSEQUATORIAL) + EARTHRADIUSEQUATORIAL;
     return El;
 }
 

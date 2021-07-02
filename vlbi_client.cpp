@@ -72,15 +72,15 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type)
 	double coords[3] = { Ra, Dec };
     if(type&UV_COVERAGE) {
         if(type&APERTURE_SYNTHESIS) {
-            plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate);
+            plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate, vlbi_default_delegate);
         } else {
-            plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate);
+            plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate, vlbi_default_delegate);
         }
     } else {
         if(type&APERTURE_SYNTHESIS) {
-            plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate);
+            plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate, vlbi_default_delegate);
         } else {
-            plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate);
+            plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate, vlbi_default_delegate);
         }
 	}
 	return plot;
@@ -161,11 +161,12 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         else if(!strcmp(arg, "node")) {
             char name[32], file[150], date[64];
             double lat, lon, el;
-            int geo = 0;
+            int geo = 2;
             char* k = strtok(value, ",");
             strcpy(name, k);
             k = strtok(NULL, ",");
-            geo = strcmp(k, "geo") == 0 ? 1 : (strcmp(k, "xyz") ? 2 : 0);
+            if(!strcmp(k, "geo"))
+                geo = 1;
             k = strtok(NULL, ",");
             lat = (double)atof(k);
             k = strtok(NULL, ",");
@@ -173,7 +174,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             k = strtok(NULL, ",");
             el = (double)atof(k);
             k = strtok(NULL, ",");
-            strcpy(file, k);
+            sprintf(file, k);
             k = strtok(NULL, ",");
             strcpy(date, k);
             void *buf = malloc(1);
@@ -206,12 +207,16 @@ static void sighandler(int signum)
 int main(int argc, char** argv)
 {
     char cmd[32], arg[32], value[4032], opt;
-    while ((opt = getopt(argc, argv, "h:")) != -1) {
+    FILE *input = stdin;
+    while ((opt = getopt(argc, argv, "h:f:")) != -1) {
         switch (opt) {
-            case 'h':
-                vlbi_max_threads((int)atof(optarg));
-                break;
-            default:
+        case 'h':
+            vlbi_max_threads((int)atof(optarg));
+            break;
+        case 'f':
+            input = fopen (optarg, "rb+");
+            break;
+        default:
             fprintf(stderr, "Usage: %s [-h max_threads]\n", argv[0]);
             exit(EXIT_FAILURE);
         }
@@ -222,7 +227,7 @@ int main(int argc, char** argv)
     signal(SIGSTOP, sighandler);
     signal(SIGQUIT, sighandler);
     while (is_running) {
-        if(3 != fscanf(stdin, "%s %s %s", cmd, arg, value)) { if (!strcmp(cmd, "quit")) is_running=0; continue; }
+        if(3 != fscanf(input, "%s %s %s", cmd, arg, value)) { if (!strcmp(cmd, "quit")) is_running=0; continue; }
 	client->Parse(cmd, arg, value);
     }
     return EXIT_SUCCESS;

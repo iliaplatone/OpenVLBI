@@ -82,9 +82,9 @@ static double* getProjection(double time, VLBINode *n1, VLBINode *n2)
     double Alt, Az;
     double center[2];
     VLBIBaseline *b = new VLBIBaseline(n1 ,n2);
-    center[0] = b->getNode2()->getGeographicCoordinates()[0]+b->getNode1()->getGeographicCoordinates()[0]-b->getNode2()->getGeographicCoordinates()[0];
-    center[1] = b->getNode2()->getGeographicCoordinates()[1]+b->getNode1()->getGeographicCoordinates()[1]-b->getNode2()->getGeographicCoordinates()[1];
-    vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, b->getNode2()->getGeographicCoordinates()[1]), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
+    center[0] = b->getNode2()->getGeographicLocation()[0]+b->getNode1()->getGeographicLocation()[0]-b->getNode2()->getGeographicLocation()[0];
+    center[1] = b->getNode2()->getGeographicLocation()[1]+b->getNode1()->getGeographicLocation()[1]-b->getNode2()->getGeographicLocation()[1];
+    vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, b->getNode2()->getGeographicLocation()[1]), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
     b->setTarget(Az, Alt);
     return b->getProjection();
 }
@@ -97,38 +97,46 @@ static void fillplane_aperture_synthesis(VLBIBaseline *b, NodeCollection *nodes)
     int v = parent->sizes[1];
     double tao = 1.0 / parent->samplerate;
     double st = b->getStartTime();
-    double et = st + s->len * tao;
+    double et = st + fmin(b->getNode1()->getStream()->len, b->getNode2()->getStream()->len) * tao;
     for(double time = st; time < et; time += tao) {
-        double* uvcoords;
-        double max_delay;
-        double delay;
-        int node1, node2;
+        double max_delay = 0;
+        int node1, node2, farest;
         for (int x = 0; x < nodes->Count; x++) {
             for (int y = x+1; y < nodes->Count; y++) {
                 double *proj = getProjection(b->getStartTime(), nodes->At(x), nodes->At(y));
-                if(proj[2]>max_delay) {
+                if(fabs(proj[2])>max_delay) {
                     node1 = x;
                     node2 = y;
-                    max_delay = fmax(max_delay, proj[2]);
+                    if(proj[2] < 0)
+                        farest = x;
+                    else
+                        farest = y;
+                    max_delay = fmax(max_delay, fabs(proj[2]));
                 }
             }
         }
-        uvcoords = getProjection(time, b->getNode1(), nodes->At(node1));
-        uvcoords = getProjection(time, b->getNode1(), nodes->At(node2));
-        uvcoords = getProjection(time, b->getNode2(), nodes->At(node1));
-        uvcoords = getProjection(time, b->getNode2(), nodes->At(node2));
-        if(uvcoords == NULL)
-            continue;
-        int U = uvcoords[0] + u / 2;
-        int V = uvcoords[1] + v / 2;
-        free(uvcoords);
-        if(U >= 0 && U < u && V >= 0 && V < v) {
-            int idx = U+V*u;
-            double val = b->Correlate(time);
-            parent->buf[idx] = val;
-            parent->buf[parent->len-idx] = val;
+        for (int x = 0; x < nodes->Count; x++) {
+            for (int y = x+1; y < nodes->Count; y++) {
+                double center[3];
+                double Alt, Az;
+                center[0] = b->getNode2()->getGeographicLocation()[0]+b->getNode1()->getGeographicLocation()[0]-b->getNode2()->getGeographicLocation()[0];
+                center[1] = b->getNode2()->getGeographicLocation()[1]+b->getNode1()->getGeographicLocation()[1]-b->getNode2()->getGeographicLocation()[1];
+                vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, b->getNode2()->getGeographicLocation()[1]), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
+                b->setTarget(Az, Alt);
+                double *uvcoords = b->getProjection();
+                if(uvcoords == NULL)
+                    continue;
+                int U = uvcoords[0] + u / 2;
+                int V = uvcoords[1] + v / 2;
+                if(U >= 0 && U < u && V >= 0 && V < v) {
+                    int idx = U+V*u;
+                    double val = b->Correlate(time);
+                    parent->buf[idx] = val;
+                    parent->buf[parent->len-idx] = val;
+                }
+            }
         }
-        fprintf(stderr, "\r%.3f%%   ", (time-st)*100.0/(et-st-tao));
+        fprintf(stderr, "\r%.3fs %.3f%%   ", (time-st), (time-st)*100.0/(et-st-tao));
     }
 }
 
@@ -138,43 +146,52 @@ static void* fillplane_moving_baseline(VLBIBaseline *b, NodeCollection *nodes)
     dsp_stream_p parent = (dsp_stream_p)s->parent;
     int u = parent->sizes[0];
     int v = parent->sizes[1];
-    for(int i = 0; i < s->len; i++) {
-        int l = (int)((b->getNode2()->getStartTime()-b->getStartTime())/b->getSamplerate());
-        double time = b->getStartTime()+(double)l/b->getSamplerate();
-        b->getNode1()->setLocation(i);
-        b->getNode2()->setLocation(l);
-        double* uvcoords;
-        double max_delay;
-        double delay;
-        int node1, node2;
+    double tao = 1.0 / parent->samplerate;
+    double st = b->getStartTime();
+    double et = st + fmin(b->getNode1()->getStream()->len, b->getNode2()->getStream()->len) * tao;
+    int l = 0;
+    for(double time = st; time < et; time += tao, l++) {
+        double max_delay = 0;
+        int node1, node2, farest;
+        for (int x = 0; x < nodes->Count; x++)
+            nodes->At(x)->setLocation(l);
         for (int x = 0; x < nodes->Count; x++) {
             for (int y = x+1; y < nodes->Count; y++) {
-                double *proj = getProjection(time, nodes->At(x), nodes->At(y));
-                if(proj[2]>max_delay) {
+                double *proj = getProjection(b->getStartTime(), nodes->At(x), nodes->At(y));
+                if(fabs(proj[2])>max_delay) {
                     node1 = x;
                     node2 = y;
-                    max_delay = fmax(max_delay, proj[2]);
+                    if(proj[2] < 0)
+                        farest = x;
+                    else
+                        farest = y;
+                    max_delay = fmax(max_delay, fabs(proj[2]));
                 }
             }
         }
-        uvcoords = getProjection(time, b->getNode1(), nodes->At(node1));
-        uvcoords = getProjection(time, b->getNode1(), nodes->At(node2));
-        uvcoords = getProjection(time, b->getNode2(), nodes->At(node1));
-        uvcoords = getProjection(time, b->getNode2(), nodes->At(node2));
-        if(uvcoords == NULL)
-            continue;
-        int U = uvcoords[0] + u / 2;
-        int V = uvcoords[1] + v / 2;
-        free(uvcoords);
-        if(U >= 0 && U < u && V >= 0 && V < v) {
-            int idx = U+V*u;
-            double val = b->Correlate(i);
-            parent->buf[idx] = val;
-            parent->buf[parent->len-idx] = val;
+        for (int x = 0; x < nodes->Count; x++) {
+            for (int y = x+1; y < nodes->Count; y++) {
+                double center[3];
+                double Alt, Az;
+                center[0] = b->getNode2()->getGeographicLocation()[0]+b->getNode1()->getGeographicLocation()[0]-b->getNode2()->getGeographicLocation()[0];
+                center[1] = b->getNode2()->getGeographicLocation()[1]+b->getNode1()->getGeographicLocation()[1]-b->getNode2()->getGeographicLocation()[1];
+                vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, b->getNode2()->getGeographicLocation()[1]), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
+                b->setTarget(Az, Alt);
+                double *uvcoords = b->getProjection();
+                if(uvcoords == NULL)
+                    continue;
+                int U = uvcoords[0] + u / 2;
+                int V = uvcoords[1] + v / 2;
+                if(U >= 0 && U < u && V >= 0 && V < v) {
+                    int idx = U+V*u;
+                    double val = b->Correlate(time);
+                    parent->buf[idx] = val;
+                    parent->buf[parent->len-idx] = val;
+                }
+            }
         }
-        fprintf(stderr, "\r%.3f%%   ", i*100.0/s->len);
+        fprintf(stderr, "\r%.3fs %.3f%%   ", (time-st), (time-st)*100.0/(et-st-tao));
     }
-    return NULL;
 }
 
 void* vlbi_init()
@@ -203,7 +220,7 @@ void vlbi_del_stream(void *ctx, char* name) {
     nodes->RemoveKey(name);
 }
 
-dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(vlbi_context ctx, int u, int v, double *target, double freq, double sr)
+dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(vlbi_context ctx, int u, int v, double *target, double freq, double sr, vlbi_func2_t delegate)
 {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     BaselineCollection *baselines = new BaselineCollection(nodes, u, v);
@@ -214,6 +231,7 @@ dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(vlbi_context ctx, int u, int v,
     parent->child_count = 0;
     fprintf(stderr, "%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
     fprintf(stderr, "\n");
+    baselines->SetDelegate(delegate);
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
@@ -223,7 +241,7 @@ dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(vlbi_context ctx, int u, int v,
     return parent;
 }
 
-dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int u, int v, double *target, double freq, double sr)
+dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int u, int v, double *target, double freq, double sr, vlbi_func2_t delegate)
 {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     BaselineCollection *baselines = new BaselineCollection(nodes, u, v);
@@ -233,6 +251,8 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int u, int v, double *t
     dsp_stream_p parent = baselines->getStream();
     parent->child_count = 0;
     fprintf(stderr, "%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
+    fprintf(stderr, "\n");
+    baselines->SetDelegate(delegate);
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);

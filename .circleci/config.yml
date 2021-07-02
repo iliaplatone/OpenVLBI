@@ -11,7 +11,7 @@ jobs:
           name: build
           command: |
             ./scripts/build.sh
-            ./scripts/test.sh 1000 synthesis_coverage | vlbi_client_dummy
+            pushd scripts; vlbi_client_dummy -f test.cfg; popd
 
 workflows:
   version: 2

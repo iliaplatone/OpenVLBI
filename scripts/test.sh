@@ -18,8 +18,8 @@ echo set bitspersample 8
 freq=$(echo "(12.2*299792458/($freq*$num_nodes))" | bc -l)
 p=1
 while (( $p<=$num_nodes )); do
-        tmpimg=/tmp/node$p
-        scripts/sine.sh $(( $duration*$p )) sinewave $duration | base64 > $tmpimg
+        tmpimg=node$p
+        ./sine.sh $(( $duration*$p )) sinewave $duration | base64 > $tmpimg
 	echo add node node3$p,$system,$lat,$( echo "($lat+$p*3*$freq)" | bc -l ),100.0,$tmpimg,$( date -u +%Y/%m/%d-%H:%M:%S )
 	echo add node node3$p,$system,$lat,$( echo "($lat+$p*7*$freq)" | bc -l ),100.0,$tmpimg,$( date -u +%Y/%m/%d-%H:%M:%S )
 	echo add node node3$p,$system,$( echo "($lat+$p*3*$freq)" | bc -l ),$lon,100.0,$tmpimg,$( date -u +%Y/%m/%d-%H:%M:%S )

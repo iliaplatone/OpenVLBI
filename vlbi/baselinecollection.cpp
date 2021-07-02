@@ -119,3 +119,10 @@ void BaselineCollection::SetSampleRate(double samplerate)
         At(i)->setSampleRate(samplerate);
     }
 }
+
+void BaselineCollection::SetDelegate(vlbi_func2_t delegate)
+{
+    for(int i = 0; i < Count; i++) {
+        At(i)->setDelegate(delegate);
+    }
+}

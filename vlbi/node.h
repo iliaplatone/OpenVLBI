@@ -34,12 +34,16 @@ public:
     inline char *getName() { return Name; }
     inline dsp_stream_p getStream() { return Stream; }
 
-    inline double* getGeographicCoordinates() { return Geographic; }
-
     inline double* getTarget() { return getStream()->target; }
     inline double getWaveLength() { return getStream()->wavelength; }
     inline double getSampleRate() { return getStream()->samplerate; }
     inline double* getLocation() { return Location; }
+    inline double* getGeographicLocation() {
+        GeographicLocation[0] = getLocation()[0];
+        GeographicLocation[1] = getLocation()[1];
+        GeographicLocation[2] = vlbi_astro_estimate_geocentric_elevation(getLocation()[0], getLocation()[2]);
+        return GeographicLocation;
+    }
     inline double getStartTime() { return (double)getStream()->starttimeutc.tv_sec+((double)getStream()->starttimeutc.tv_nsec/1000000000.0); }
 
     inline void setWaveLength(double wavelength) { getStream()->wavelength = wavelength; }
@@ -60,8 +64,8 @@ public:
     inline bool GeographicCoordinates() { return Geo; }
     inline void useGeographicCoordinates(bool geo) { Geo = geo; }
 private:
-    double Geographic[3];
-    double *Location;
+    double GeographicLocation[3];
+    double Location[3];
     bool Geo;
     dsp_stream_p Stream;
     char *Name;
