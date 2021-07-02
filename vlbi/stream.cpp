@@ -237,7 +237,7 @@ dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(vlbi_context ctx, int u, int v,
         VLBIBaseline *b = baselines->At(i);
         fillplane_aperture_synthesis(b, nodes);
     }
-    fprintf(stderr, "\nearth tide plotting completed\n");
+    fprintf(stderr, "\naperture synthesis plotting completed\n");
     return parent;
 }
 
