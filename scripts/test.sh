@@ -1,6 +1,6 @@
 #!/bin/bash
 
-num_nodes=4
+num_nodes=2
 freq=1420000000
 sr=1
 system=geo
@@ -18,7 +18,7 @@ echo set bitspersample 8
 freq=$(echo "(12.2*299792458/($freq*$num_nodes))" | bc -l)
 p=1
 while (( $p<=$num_nodes )); do
-        tmpimg=node$p
+        tmpimg=/tmp/node$p
         ./sine.sh $(( $duration*$p )) sinewave $duration | base64 > $tmpimg
 	echo add node node3$p,$system,$lat,$( echo "($lat+$p*3*$freq)" | bc -l ),100.0,$tmpimg,$( date -u +%Y/%m/%d-%H:%M:%S )
 	echo add node node3$p,$system,$lat,$( echo "($lat+$p*7*$freq)" | bc -l ),100.0,$tmpimg,$( date -u +%Y/%m/%d-%H:%M:%S )
