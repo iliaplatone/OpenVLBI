@@ -36,6 +36,7 @@ public:
     double Correlate(double time, double offset);
     double Correlate(int idx1, int idx2);
     double getStartTime();
+    double getEndTime();
 
     double *getBaseline();
     double *getProjection();
@@ -48,8 +49,8 @@ public:
     inline double getDelay() { return projection[2]; }
 
     inline double* getTarget() { return Target; }
-    inline double getWavelength() { return WaveLength; }
-    inline double getSamplerate() { return SampleRate; }
+    inline double getWaveLength() { return WaveLength; }
+    inline double getSampleRate() { return SampleRate; }
 
     inline void setTarget(double horiz, double vert) { Target[0] = horiz; Target[1] = vert; getStream()->target = Target; getNode1()->setTarget(Target); getNode2()->setTarget(Target); }
     inline void setTarget(double *target) { memcpy(Target, target, sizeof(double)*3); getStream()->target = Target; getNode1()->setTarget(Target); getNode2()->setTarget(Target); }

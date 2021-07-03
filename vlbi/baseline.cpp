@@ -34,8 +34,8 @@ VLBIBaseline::~VLBIBaseline()
 
 double VLBIBaseline::Correlate(double time, double offset)
 {
-    int idx = (time-getStartTime())/getSamplerate();
-    int ofs = (offset+time-getStartTime())/getSamplerate();
+    int idx = (time-getStartTime())/getSampleRate();
+    int ofs = (offset+time-getStartTime())/getSampleRate();
     if(idx > 0 && ofs > 0 && idx < getNode1()->getStream()->len && ofs < getNode2()->getStream()->len)
         return dsp_correlation_delegate(getNode1()->getStream()->buf[idx], getNode2()->getStream()->buf[ofs]);
     return 0.0;
@@ -53,7 +53,14 @@ double VLBIBaseline::getStartTime()
     double starttime1 = getNode1()->getStartTime();
     double starttime2 = getNode2()->getStartTime();
     double starttime = fmax(starttime1, starttime2);
-    return fmax(starttime, starttime+fabs(getProjection()[2]));
+    return starttime;
+}
+
+double VLBIBaseline::getEndTime()
+{
+    double tao = 1.0 / getSampleRate();
+    double endtime = getStartTime() + fmin(getNode1()->getStream()->len, getNode2()->getStream()->len) * tao;
+    return endtime;
 }
 
 double *VLBIBaseline::getBaseline()
@@ -84,7 +91,7 @@ double *VLBIBaseline::getBaseline()
 double *VLBIBaseline::getProjection()
 {
     double *tmp = vlbi_calc_3d_projection(Target[1], Target[0], getBaseline());
-    double *proj = vlbi_calc_uv_coordinates(tmp, getWavelength());
+    double *proj = vlbi_calc_uv_coordinates(tmp, getWaveLength());
     free (tmp);
     projection[0] = proj[0];
     projection[1] = proj[1];

@@ -97,12 +97,13 @@ static void* fillplane_aperture_synthesis(void *arg)
     NodeCollection *nodes = argument->nodes;
     dsp_stream_p s = b->getStream();
     dsp_stream_p parent = (dsp_stream_p)s->parent;
+    int l = 0;
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     double tao = 1.0 / parent->samplerate;
     double st = b->getStartTime();
-    double et = st + fmin(b->getNode1()->getStream()->len, b->getNode2()->getStream()->len) * tao;
-    for(double time = st; time < et; time += tao) {
+    double et = b->getEndTime();
+    for(double time = st; time < et; time += tao, l++) {
         double max_delay = 0;
         int node, farest;
         double *proj = getProjection(time, b->getNode1(), b->getNode2());
@@ -132,20 +133,22 @@ static void* fillplane_aperture_synthesis(void *arg)
                 vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, b->getNode2()->getGeographicLocation()[1]), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
                 b->setTarget(Az, Alt);
                 double *uvcoords = b->getProjection();
-                if(uvcoords == NULL)
-                    continue;
-                int U = uvcoords[0] + u / 2;
-                int V = uvcoords[1] + v / 2;
-                if(U >= 0 && U < u && V >= 0 && V < v) {
-                    int idx = U+V*u;
-                    double val = b->Correlate(time+offset, delay);
-                    parent->buf[idx] = val;
-                    parent->buf[parent->len-idx] = val;
+                if(uvcoords != NULL) {
+                    int U = uvcoords[0] + u / 2;
+                    int V = uvcoords[1] + v / 2;
+                    if(U >= 0 && U < u && V >= 0 && V < v) {
+                        int idx = U+V*u;
+                        double val = b->Correlate(time+offset, delay);
+                        parent->buf[idx] = val;
+                        parent->buf[parent->len-idx] = val;
+                    }
                 }
             }
         }
         fprintf(stderr, "\r%.3fs %.3f%%   ", (time-st), (time-st)*100.0/(et-st-tao));
+        time += tao;
     }
+    return NULL;
 }
 
 static void* fillplane_moving_baseline(void *arg)
@@ -160,7 +163,7 @@ static void* fillplane_moving_baseline(void *arg)
     int v = parent->sizes[1];
     double tao = 1.0 / parent->samplerate;
     double st = b->getStartTime();
-    double et = st + fmin(b->getNode1()->getStream()->len, b->getNode2()->getStream()->len) * tao;
+    double et = b->getEndTime();
     int l = 0;
     for(double time = st; time < et; time += tao, l++) {
         double max_delay = 0;
@@ -194,15 +197,15 @@ static void* fillplane_moving_baseline(void *arg)
                 vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, b->getNode2()->getGeographicLocation()[1]), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
                 b->setTarget(Az, Alt);
                 double *uvcoords = b->getProjection();
-                if(uvcoords == NULL)
-                    continue;
-                int U = uvcoords[0] + u / 2;
-                int V = uvcoords[1] + v / 2;
-                if(U >= 0 && U < u && V >= 0 && V < v) {
-                    int idx = U+V*u;
-                    double val = b->Correlate(time+offset, delay);
-                    parent->buf[idx] = val;
-                    parent->buf[parent->len-idx] = val;
+                if(uvcoords != NULL) {
+                    int U = uvcoords[0] + u / 2;
+                    int V = uvcoords[1] + v / 2;
+                    if(U >= 0 && U < u && V >= 0 && V < v) {
+                        int idx = U+V*u;
+                        double val = b->Correlate(time+offset, delay);
+                        parent->buf[idx] = val;
+                        parent->buf[parent->len-idx] = val;
+                    }
                 }
             }
         }

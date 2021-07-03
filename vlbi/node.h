@@ -45,7 +45,7 @@ public:
         GeographicLocation[2] = vlbi_astro_estimate_geocentric_elevation(getLocation()[0], getLocation()[2]);
         return GeographicLocation;
     }
-    inline double getStartTime() { return (double)getStream()->starttimeutc.tv_sec+((double)getStream()->starttimeutc.tv_nsec/1000000000.0); }
+    inline double getStartTime() { return (double)vlbi_time_timespec_to_J2000time(getStream()->starttimeutc); }
 
     inline void setWaveLength(double wavelength) { getStream()->wavelength = wavelength; }
     inline void setSampleRate(double samplerate) { getStream()->samplerate = samplerate; }
