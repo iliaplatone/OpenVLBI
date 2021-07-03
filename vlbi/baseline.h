@@ -33,7 +33,7 @@ public:
 
     inline char *getName() { return Name; }
 
-    double Correlate(double time);
+    double Correlate(double time, double offset);
     double Correlate(int idx1, int idx2);
     double getStartTime();
 

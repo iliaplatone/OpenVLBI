@@ -28,13 +28,14 @@
 class VLBINode
 {
 public:
-    VLBINode(dsp_stream_p stream, bool geographic_coordinates=true);
+    VLBINode(dsp_stream_p stream, int index, bool geographic_coordinates=true);
     ~VLBINode();
 
     inline char *getName() { return Name; }
     inline dsp_stream_p getStream() { return Stream; }
 
     inline double* getTarget() { return getStream()->target; }
+    inline double getIndex() { return Index; }
     inline double getWaveLength() { return getStream()->wavelength; }
     inline double getSampleRate() { return getStream()->samplerate; }
     inline double* getLocation() { return Location; }
@@ -69,6 +70,7 @@ private:
     bool Geo;
     dsp_stream_p Stream;
     char *Name;
+    int Index;
 };
 
 #endif //_NODE_H

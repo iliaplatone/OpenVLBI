@@ -89,8 +89,12 @@ static double* getProjection(double time, VLBINode *n1, VLBINode *n2)
     return b->getProjection();
 }
 
-static void fillplane_aperture_synthesis(VLBIBaseline *b, NodeCollection *nodes)
+static void* fillplane_aperture_synthesis(void *arg)
 {
+    struct args { VLBIBaseline *b; NodeCollection *nodes; };
+    args *argument = (args*)arg;
+    VLBIBaseline *b = argument->b;
+    NodeCollection *nodes = argument->nodes;
     dsp_stream_p s = b->getStream();
     dsp_stream_p parent = (dsp_stream_p)s->parent;
     int u = parent->sizes[0];
@@ -100,19 +104,23 @@ static void fillplane_aperture_synthesis(VLBIBaseline *b, NodeCollection *nodes)
     double et = st + fmin(b->getNode1()->getStream()->len, b->getNode2()->getStream()->len) * tao;
     for(double time = st; time < et; time += tao) {
         double max_delay = 0;
-        int node1, node2, farest;
+        int node, farest;
+        double *proj = getProjection(time, b->getNode1(), b->getNode2());
+        double delay = proj[2];
+        double offset = 0;
+        if(delay > 0)
+            node = b->getNode1()->getIndex();
+        else
+            node = b->getNode2()->getIndex();
         for (int x = 0; x < nodes->Count; x++) {
-            for (int y = x+1; y < nodes->Count; y++) {
-                double *proj = getProjection(b->getStartTime(), nodes->At(x), nodes->At(y));
-                if(fabs(proj[2])>max_delay) {
-                    node1 = x;
-                    node2 = y;
-                    if(proj[2] < 0)
-                        farest = x;
-                    else
-                        farest = y;
-                    max_delay = fmax(max_delay, fabs(proj[2]));
-                }
+            if(fabs(proj[2])>max_delay) {
+                double *proj = getProjection(time, nodes->At(node), nodes->At(x));
+                max_delay = fmax(max_delay, fabs(proj[2]));
+                if(proj[2] > 0)
+                    farest = x;
+                else
+                    farest = node;
+                offset = proj[2];
             }
         }
         for (int x = 0; x < nodes->Count; x++) {
@@ -130,7 +138,7 @@ static void fillplane_aperture_synthesis(VLBIBaseline *b, NodeCollection *nodes)
                 int V = uvcoords[1] + v / 2;
                 if(U >= 0 && U < u && V >= 0 && V < v) {
                     int idx = U+V*u;
-                    double val = b->Correlate(time);
+                    double val = b->Correlate(time+offset, delay);
                     parent->buf[idx] = val;
                     parent->buf[parent->len-idx] = val;
                 }
@@ -140,8 +148,12 @@ static void fillplane_aperture_synthesis(VLBIBaseline *b, NodeCollection *nodes)
     }
 }
 
-static void* fillplane_moving_baseline(VLBIBaseline *b, NodeCollection *nodes)
+static void* fillplane_moving_baseline(void *arg)
 {
+    struct args { VLBIBaseline *b; NodeCollection *nodes; };
+    args *argument = (args*)arg;
+    VLBIBaseline *b = argument->b;
+    NodeCollection *nodes = argument->nodes;
     dsp_stream_p s = b->getStream();
     dsp_stream_p parent = (dsp_stream_p)s->parent;
     int u = parent->sizes[0];
@@ -152,21 +164,25 @@ static void* fillplane_moving_baseline(VLBIBaseline *b, NodeCollection *nodes)
     int l = 0;
     for(double time = st; time < et; time += tao, l++) {
         double max_delay = 0;
-        int node1, node2, farest;
+        int node, farest;
         for (int x = 0; x < nodes->Count; x++)
             nodes->At(x)->setLocation(l);
+        double *proj = getProjection(time, b->getNode1(), b->getNode2());
+        double delay = proj[2];
+        double offset = 0;
+        if(delay > 0)
+            node = b->getNode1()->getIndex();
+        else
+            node = b->getNode2()->getIndex();
         for (int x = 0; x < nodes->Count; x++) {
-            for (int y = x+1; y < nodes->Count; y++) {
-                double *proj = getProjection(b->getStartTime(), nodes->At(x), nodes->At(y));
-                if(fabs(proj[2])>max_delay) {
-                    node1 = x;
-                    node2 = y;
-                    if(proj[2] < 0)
-                        farest = x;
-                    else
-                        farest = y;
-                    max_delay = fmax(max_delay, fabs(proj[2]));
-                }
+            if(fabs(proj[2])>max_delay) {
+                double *proj = getProjection(time, nodes->At(node), nodes->At(x));
+                max_delay = fmax(max_delay, fabs(proj[2]));
+                if(proj[2] > 0)
+                    farest = x;
+                else
+                    farest = node;
+                offset = proj[2];
             }
         }
         for (int x = 0; x < nodes->Count; x++) {
@@ -184,7 +200,7 @@ static void* fillplane_moving_baseline(VLBIBaseline *b, NodeCollection *nodes)
                 int V = uvcoords[1] + v / 2;
                 if(U >= 0 && U < u && V >= 0 && V < v) {
                     int idx = U+V*u;
-                    double val = b->Correlate(time);
+                    double val = b->Correlate(time+offset, delay);
                     parent->buf[idx] = val;
                     parent->buf[parent->len-idx] = val;
                 }
@@ -232,11 +248,17 @@ dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(vlbi_context ctx, int u, int v,
     fprintf(stderr, "%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
     fprintf(stderr, "\n");
     baselines->SetDelegate(delegate);
+    int num_threads = MAX_THREADS;
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
-        fillplane_aperture_synthesis(b, nodes);
+        struct args { VLBIBaseline *b; NodeCollection *nodes; };
+        args argument;
+        argument.b = b;
+        argument.nodes = nodes;
+        vlbi_start_thread(fillplane_aperture_synthesis, &argument, &parent->child_count, i);
     }
+    vlbi_wait_threads(&parent->child_count);
     fprintf(stderr, "\naperture synthesis plotting completed\n");
     return parent;
 }
@@ -253,10 +275,15 @@ dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int u, int v, double *t
     fprintf(stderr, "%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
     fprintf(stderr, "\n");
     baselines->SetDelegate(delegate);
+    unsigned long num_threads = MAX_THREADS;
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
-        fillplane_moving_baseline(b, nodes);
+        struct args { VLBIBaseline *b; NodeCollection *nodes; };
+        args argument;
+        argument.b = b;
+        argument.nodes = nodes;
+        vlbi_start_thread(fillplane_moving_baseline, &argument, &parent->child_count, i);
     }
     vlbi_wait_threads(&parent->child_count);
     fprintf(stderr, "\nmoving baselines plotting completed\n");

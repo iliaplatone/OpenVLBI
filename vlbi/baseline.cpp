@@ -32,15 +32,20 @@ VLBIBaseline::~VLBIBaseline()
 {
 }
 
-double VLBIBaseline::Correlate(double time)
+double VLBIBaseline::Correlate(double time, double offset)
 {
     int idx = (time-getStartTime())/getSamplerate();
-    return dsp_correlation_delegate(getNode1()->getStream()->buf[idx], getNode2()->getStream()->buf[idx]);
+    int ofs = (offset+time-getStartTime())/getSamplerate();
+    if(idx > 0 && ofs > 0 && idx < getNode1()->getStream()->len && ofs < getNode2()->getStream()->len)
+        return dsp_correlation_delegate(getNode1()->getStream()->buf[idx], getNode2()->getStream()->buf[ofs]);
+    return 0.0;
 }
 
 double VLBIBaseline::Correlate(int idx1, int idx2)
 {
-    return dsp_correlation_delegate(getNode1()->getStream()->buf[idx1], getNode2()->getStream()->buf[idx2]);
+    if(idx1 > 0 && idx2 > 0 && idx1 < getNode1()->getStream()->len && idx2 < getNode2()->getStream()->len)
+        return dsp_correlation_delegate(getNode1()->getStream()->buf[idx1], getNode2()->getStream()->buf[idx2]);
+    return 0.0;
 }
 
 double VLBIBaseline::getStartTime()

@@ -208,16 +208,16 @@ int main(int argc, char** argv)
 {
     char cmd[32], arg[32], value[4032], opt;
     FILE *input = stdin;
-    while ((opt = getopt(argc, argv, "h:f:")) != -1) {
+    while ((opt = getopt(argc, argv, "t:f:")) != -1) {
         switch (opt) {
-        case 'h':
+        case 't':
             vlbi_max_threads((int)atof(optarg));
             break;
         case 'f':
             input = fopen (optarg, "rb+");
             break;
         default:
-            fprintf(stderr, "Usage: %s [-h max_threads]\n", argv[0]);
+            fprintf(stderr, "Usage: %s [-t max_threads] [-f obs_file]\n", argv[0]);
             exit(EXIT_FAILURE);
         }
     }
