@@ -1,3 +1,5 @@
+[![CircleCi](https://circleci.com/gh/iliaplatone/OpenVLBI/tree/master.svg?style=shield)](https://circleci.com/gh/iliaplatone/OpenVLBI/?branch=master)
+
 # Interferometric correlator clients application suite
 libvlbi is an open source library and application suite for astronomical interferometry.
 
@@ -11,8 +13,6 @@ Client applications usually are linked to other libraries and with libvlbi, or d
 The central server offers a shell that connects to the various clients and correlates using the library streams captured from INDI servers by adding them using the vlbi_server script.
 
 This repository contains the sources for building the library and a client application
-
-[![Build Status](https://travis-ci.org/iliaplatone/OpenVLBI.svg?branch=master)](https://travis-ci.org/iliaplatone/OpenVLBI)
 
 # Build libvlbi
 
