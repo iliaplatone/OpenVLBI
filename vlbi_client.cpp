@@ -26,6 +26,10 @@ VLBI::Client::~Client()
     }
 }
 
+static double fillone_delegate(double x, double y) {
+    return 1.0;
+}
+
 void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, int bytelen, timespec starttime, bool geo)
 {
 	dsp_stream_p node = dsp_stream_new();
@@ -66,24 +70,12 @@ void VLBI::Client::DelNode(char *name)
 	vlbi_del_stream(context, name);
 }
 
-dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type)
+dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type, bool nodelay)
 {
 	dsp_stream_p plot;
 	double coords[3] = { Ra, Dec };
-    if(type&UV_COVERAGE) {
-        if(type&APERTURE_SYNTHESIS) {
-            plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate, vlbi_default_delegate);
-        } else {
-            plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate, vlbi_default_delegate);
-        }
-    } else {
-        if(type&APERTURE_SYNTHESIS) {
-            plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate, vlbi_default_delegate);
-        } else {
-            plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate, vlbi_default_delegate);
-        }
-	}
-	return plot;
+    plot = vlbi_get_uv_plot(context, u, v, coords, Freq, SampleRate, nodelay, (type&APERTURE_SYNTHESIS) != 0, (type&UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
+    return plot;
 }
 
 void VLBI::Client::Parse(char* cmd, char* arg, char* value)
@@ -122,23 +114,33 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         if(!strcmp(arg, "observation")) {
             int type = 0;
             char *t = strtok(value, "_");
+            bool nodelay = false;
             if(!strcmp(t, "synthesis")) {
                 type |= APERTURE_SYNTHESIS;
             } else if(!strcmp(t, "movingbase")) {
                 type &= ~APERTURE_SYNTHESIS;
+            } else {
+                return;
             }
-            dsp_stream_p plot = GetPlot(w, h, type);
+            t = strtok(NULL, "_");
+            if(!strcmp(t, "nodelay")) {
+                nodelay = true;
+            } else if(!strcmp(t, "delay")) {
+                nodelay = false;
+            } else {
+                return;
+            }
+            t = strtok(NULL, "_");
+            if(!strcmp(t, "idft")) {
+            } else if(!strcmp(t, "coverage")) {
+                type |= UV_COVERAGE;
+            } else {
+                return;
+            }
+            dsp_stream_p plot = GetPlot(w, h, type, nodelay);
             if (plot != NULL) {
-                t = strtok(NULL, "_");
-                if(!strcmp(t, "idft")) {
+                if((type & UV_COVERAGE) == 0)
                     vlbi_get_ifft_estimate(plot);
-                } else if(!strcmp(t, "coverage")) {
-                    for(int i = 0; i < plot->len; i++)
-                    {
-                        if(plot->buf[i] != 0.0)
-                            plot->buf[i] = 1;
-                    }
-                }
                 dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
                 int ilen = plot->len;
                 int olen = ilen*4/3+4;

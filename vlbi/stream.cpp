@@ -89,105 +89,45 @@ static double* getProjection(double time, VLBINode *n1, VLBINode *n2)
     return b->getProjection();
 }
 
-static void* fillplane_aperture_synthesis(void *arg)
+static void* fillplane(void *arg)
 {
-    struct args { VLBIBaseline *b; NodeCollection *nodes; };
+    struct args { VLBIBaseline *b; NodeCollection *nodes; bool moving_baseline; bool nodelay; };
     args *argument = (args*)arg;
     VLBIBaseline *b = argument->b;
+    bool moving_baseline = argument->moving_baseline;
+    bool nodelay = argument->nodelay;
     NodeCollection *nodes = argument->nodes;
     dsp_stream_p s = b->getStream();
     dsp_stream_p parent = (dsp_stream_p)s->parent;
-    int l = 0;
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     double tao = 1.0 / parent->samplerate;
     double st = b->getStartTime();
     double et = b->getEndTime();
+    int l = 0;
     for(double time = st; time < et; time += tao, l++) {
         double max_delay = 0;
-        int node, farest;
-        double *proj = getProjection(time, b->getNode1(), b->getNode2());
-        double delay = proj[2];
-        double offset = 0;
-        if(delay > 0)
-            node = b->getNode1()->getIndex();
-        else
-            node = b->getNode2()->getIndex();
-        for (int x = 0; x < nodes->Count; x++) {
-            if(fabs(proj[2])>max_delay) {
-                double *proj = getProjection(time, nodes->At(node), nodes->At(x));
-                max_delay = fmax(max_delay, fabs(proj[2]));
-                if(proj[2] > 0)
-                    farest = x;
-                else
-                    farest = node;
-                offset = proj[2];
+        int farest;
+        for (int x = 0; x < nodes->Count; x++){
+            if(moving_baseline) {
+                nodes->At(x)->setLocation(l);
+            } else {
+                nodes->At(x)->setLocation(0);
             }
         }
         for (int x = 0; x < nodes->Count; x++) {
             for (int y = x+1; y < nodes->Count; y++) {
-                double center[3];
-                double Alt, Az;
-                center[0] = b->getNode2()->getGeographicLocation()[0]+b->getNode1()->getGeographicLocation()[0]-b->getNode2()->getGeographicLocation()[0];
-                center[1] = b->getNode2()->getGeographicLocation()[1]+b->getNode1()->getGeographicLocation()[1]-b->getNode2()->getGeographicLocation()[1];
-                vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, b->getNode2()->getGeographicLocation()[1]), b->getTarget()[0], b->getTarget()[1], center[0], center[1], &Alt, &Az);
-                b->setTarget(Az, Alt);
-                double *uvcoords = b->getProjection();
-                if(uvcoords != NULL) {
-                    int U = uvcoords[0] + u / 2;
-                    int V = uvcoords[1] + v / 2;
-                    if(U >= 0 && U < u && V >= 0 && V < v) {
-                        int idx = U+V*u;
-                        double val = b->Correlate(time+offset, delay);
-                        parent->buf[idx] = val;
-                        parent->buf[parent->len-idx] = val;
-                    }
+                double *proj = getProjection(time, nodes->At(x), nodes->At(y));
+                if(fabs(proj[2])>max_delay) {
+                    max_delay = fmax(max_delay, fabs(proj[2]));
+                    if(proj[2] < 0)
+                        farest = x;
+                    else
+                        farest = y;
                 }
             }
         }
-        fprintf(stderr, "\r%.3fs %.3f%%   ", (time-st), (time-st)*100.0/(et-st-tao));
-        time += tao;
-    }
-    return NULL;
-}
-
-static void* fillplane_moving_baseline(void *arg)
-{
-    struct args { VLBIBaseline *b; NodeCollection *nodes; };
-    args *argument = (args*)arg;
-    VLBIBaseline *b = argument->b;
-    NodeCollection *nodes = argument->nodes;
-    dsp_stream_p s = b->getStream();
-    dsp_stream_p parent = (dsp_stream_p)s->parent;
-    int u = parent->sizes[0];
-    int v = parent->sizes[1];
-    double tao = 1.0 / parent->samplerate;
-    double st = b->getStartTime();
-    double et = b->getEndTime();
-    int l = 0;
-    for(double time = st; time < et; time += tao, l++) {
-        double max_delay = 0;
-        int node, farest;
-        for (int x = 0; x < nodes->Count; x++)
-            nodes->At(x)->setLocation(l);
-        double *proj = getProjection(time, b->getNode1(), b->getNode2());
-        double delay = proj[2];
-        double offset = 0;
-        if(delay > 0)
-            node = b->getNode1()->getIndex();
-        else
-            node = b->getNode2()->getIndex();
-        for (int x = 0; x < nodes->Count; x++) {
-            if(fabs(proj[2])>max_delay) {
-                double *proj = getProjection(time, nodes->At(node), nodes->At(x));
-                max_delay = fmax(max_delay, fabs(proj[2]));
-                if(proj[2] > 0)
-                    farest = x;
-                else
-                    farest = node;
-                offset = proj[2];
-            }
-        }
+        double *proj;
         for (int x = 0; x < nodes->Count; x++) {
             for (int y = x+1; y < nodes->Count; y++) {
                 double center[3];
@@ -198,11 +138,18 @@ static void* fillplane_moving_baseline(void *arg)
                 b->setTarget(Az, Alt);
                 double *uvcoords = b->getProjection();
                 if(uvcoords != NULL) {
+                    proj = getProjection(time, nodes->At(x), nodes->At(farest));
+                    double offset1 = proj[2];
+                    proj = getProjection(time, nodes->At(y), nodes->At(farest));
+                    double offset2 = proj[2];
+                    if(nodelay) {
+                        offset1 = offset2 = 0.0;
+                    }
                     int U = uvcoords[0] + u / 2;
                     int V = uvcoords[1] + v / 2;
                     if(U >= 0 && U < u && V >= 0 && V < v) {
                         int idx = U+V*u;
-                        double val = b->Correlate(time+offset, delay);
+                        double val = b->Correlate(time+offset1, time+offset2);
                         parent->buf[idx] = val;
                         parent->buf[parent->len-idx] = val;
                     }
@@ -239,7 +186,7 @@ void vlbi_del_stream(void *ctx, char* name) {
     nodes->RemoveKey(name);
 }
 
-dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(vlbi_context ctx, int u, int v, double *target, double freq, double sr, vlbi_func2_t delegate)
+dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate)
 {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     BaselineCollection *baselines = new BaselineCollection(nodes, u, v);
@@ -255,41 +202,16 @@ dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(vlbi_context ctx, int u, int v,
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
-        struct args { VLBIBaseline *b; NodeCollection *nodes; };
+        struct args { VLBIBaseline *b; NodeCollection *nodes; bool moving_baseline; bool nodelay; };
         args argument;
         argument.b = b;
         argument.nodes = nodes;
-        vlbi_start_thread(fillplane_aperture_synthesis, &argument, &parent->child_count, i);
+        argument.moving_baseline = moving_baseline;
+        argument.nodelay = nodelay;
+        vlbi_start_thread(fillplane, &argument, &parent->child_count, i);
     }
     vlbi_wait_threads(&parent->child_count);
     fprintf(stderr, "\naperture synthesis plotting completed\n");
-    return parent;
-}
-
-dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int u, int v, double *target, double freq, double sr, vlbi_func2_t delegate)
-{
-    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    BaselineCollection *baselines = new BaselineCollection(nodes, u, v);
-    baselines->SetFrequency(freq);
-    baselines->SetSampleRate(sr);
-    baselines->SetTarget(target);
-    dsp_stream_p parent = baselines->getStream();
-    parent->child_count = 0;
-    fprintf(stderr, "%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
-    fprintf(stderr, "\n");
-    baselines->SetDelegate(delegate);
-    unsigned long num_threads = MAX_THREADS;
-    for(int i = 0; i < baselines->Count; i++)
-    {
-        VLBIBaseline *b = baselines->At(i);
-        struct args { VLBIBaseline *b; NodeCollection *nodes; };
-        args argument;
-        argument.b = b;
-        argument.nodes = nodes;
-        vlbi_start_thread(fillplane_moving_baseline, &argument, &parent->child_count, i);
-    }
-    vlbi_wait_threads(&parent->child_count);
-    fprintf(stderr, "\nmoving baselines plotting completed\n");
     return parent;
 }
 
