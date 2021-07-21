@@ -132,6 +132,8 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             }
             t = strtok(NULL, "_");
             if(!strcmp(t, "idft")) {
+                type |= UV_IDFT;
+            } else if(!strcmp(t, "raw")) {
             } else if(!strcmp(t, "coverage")) {
                 type |= UV_COVERAGE;
             } else {

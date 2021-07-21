@@ -17,6 +17,7 @@ namespace VLBI {
 
 #define APERTURE_SYNTHESIS 1
 #define UV_COVERAGE 2
+#define UV_IDFT 4
 
 class Client
 {

@@ -137,7 +137,7 @@ set freq value:numeric - set detectors frequency
 set bitspersample value:numeric - set detectors sample bit depth
 set samplerate value:numeric - set detectors sampling rate
 set target ra,dec:numeric,numeric - set telescopes celestial target
-get observation type:string - get UV plot observation ([synthesis|movingbase]_[raw|idft|coverage]) for aperture synthesis observation or to plot the UV coverage
+get observation type:string - get UV plot observation ([synthesis|movingbase]_[delay|nodelay]_[raw|idft|coverage]) for aperture synthesis observation or to plot the UV coverage. delay stays for automatically calculate delays between nodes, nodelay means they are already synchronized.
 ```
 
 ### INDI client specific commands
