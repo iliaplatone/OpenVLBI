@@ -6,5 +6,8 @@ sudo add-apt-repository -y ppa:~mutlaqja/ppa
 sudo apt-get update
 sudo apt-get install -y indi-full libindi-dev libnova-dev libfftw3-dev libcfitsio-dev cdbs cmake dpkg-dev build-essential fakeroot devscripts
 dpkg-buildpackage  -b -rfakeroot -us -uc;
-sudo dpkg -i ../libopenvlbi_${version}_${arch}.deb
-sudo dpkg -i ../openvlbi-bin_${version}_${arch}.deb
+mkdir -p packages
+mv ../libopenvlbi_${version}_${arch}.deb packages/
+mv ../openvlbi-bin_${version}_${arch}.deb packages/
+sudo dpkg -i packages/libopenvlbi_${version}_${arch}.deb
+sudo dpkg -i packages/openvlbi-bin_${version}_${arch}.deb

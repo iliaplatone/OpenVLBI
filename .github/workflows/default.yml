@@ -1,0 +1,28 @@
+
+name: Linux
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+
+    steps:
+      - name: Get Sources
+        uses: actions/checkout@v2
+        with:
+          path: 'OpenVLBI'
+
+      - name: Build & Install
+        run: |
+            cd OpenVLBI
+            ./scripts/build.sh
+            cd scripts; ./test.sh 1000 synthesis_coverage | vlbi_client_dummy
+
+      - name: Debs
+        uses: actions/upload-artifact@v2
+        with:
+          name: packages
+          path: OpenVLBI/packages
