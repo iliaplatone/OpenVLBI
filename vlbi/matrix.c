@@ -38,32 +38,13 @@ double vlbi_estimate_resolution(double resolution_zero, double baseline)
     return resolution_zero / baseline;
 }
 
-double vlbi_estimate_snr_zero(double gain, double resolution, double bandwidth)
-{
-    return abs(gain * resolution * sqrt(M_PI * bandwidth));
-}
-
-double vlbi_estimate_snr(double snr_zero, double integration)
-{
-    return abs(snr_zero * sqrt(integration));
-}
-
-double* vlbi_calc_haaltaz(double *location, double *target, double J2000_Offset_Time)
-{
-    double *haaltaz = (double *)calloc(sizeof(double), 3);
-    double lst = vlbi_time_J2000time_to_lst(J2000_Offset_Time, location[1]);
-    haaltaz[0] = vlbi_astro_get_local_hour_angle(lst, target[0]);
-    vlbi_astro_get_alt_az_coordinates(haaltaz[0], target[1], location[0], &haaltaz[1], &haaltaz[2]);
-    return haaltaz;
-}
-
-double* vlbi_calc_3d_projection(double alt, double az, double baseline[3])
+double* vlbi_calc_3d_projection(double alt, double az, double *baseline)
 {
     double* proj = (double*)calloc(sizeof(double), 3);
     az *= M_PI / 180.0;
     alt *= M_PI / 180.0;
-    proj[0] = baseline[0] * sin(az) + baseline[1] * cos(az);
-    proj[1] = baseline[1] * sin(alt) * sin(az) - baseline[0] * sin(alt) * cos(az) + baseline[2] * cos(alt);
+    proj[0] = (baseline[0] * sin(az) + baseline[1] * cos(az));
+    proj[1] = (baseline[1] * sin(alt) * sin(az) - baseline[0] * sin(alt) * cos(az) + baseline[2] * cos(alt));
     proj[2] = cos(az) * baseline[1] * cos(alt) - baseline[0] * sin(az) * cos(alt) + sin(alt) * baseline[2];
     return proj;
 }
@@ -72,8 +53,8 @@ double* vlbi_calc_uv_coordinates(double *proj, double wavelength)
 {
     double* uv = (double*)calloc(sizeof(double), 3);
     uv[0] = proj[0] * AIRY / wavelength;
-    uv[1] = proj[0] * AIRY / wavelength;
-    uv[2] = proj[0] / LIGHTSPEED;
+    uv[1] = proj[1] * AIRY / wavelength;
+    uv[2] = proj[2] / LIGHTSPEED;
     return uv;
 }
 

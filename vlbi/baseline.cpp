@@ -21,15 +21,21 @@
 VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
 {
     Stream = dsp_stream_new();
+    dsp_stream_add_dim(getStream(), 1);
+    dsp_stream_alloc_buffer(getStream(), getStream()->len);
     Stream->arg = calloc(150, 1);
     sprintf((char*)Stream->arg, "%s_%s", node1->getName(), node2->getName());
     Name = (char*)Stream->arg;
     Node1 = node1;
     Node2 = node2;
+    setRelative(false);
 }
 
 VLBIBaseline::~VLBIBaseline()
 {
+     dsp_stream_free_buffer(getStream());
+     dsp_stream_free(getStream());
+     free(getName());
 }
 
 double VLBIBaseline::Correlate(double time)
@@ -77,19 +83,18 @@ double *VLBIBaseline::getBaseline()
 {
     dsp_location location1;
     dsp_location location2;
-    if (getNode1()->GeographicCoordinates()) {
-        memcpy(location1.coordinates, getNode1()->getGeographicLocation(), sizeof(double)*3);
-        vlbi_calc_location(location1.coordinates);
+    if (!isRelative()) {
+        double *coords = vlbi_calc_location(getNode1()->getGeographicLocation());
+        memcpy(location1.coordinates, coords, sizeof(double)*3);
+        free(coords);
+        coords = vlbi_calc_location(getNode2()->getGeographicLocation());
+        memcpy(location1.coordinates, coords, sizeof(double)*3);
+        free(coords);
     } else {
         memcpy(location1.coordinates, getNode1()->getLocation(), sizeof(double)*3);
-    }
-
-    if (getNode2()->GeographicCoordinates()) {
-        memcpy(location2.coordinates, getNode2()->getGeographicLocation(), sizeof(double)*3);
-        vlbi_calc_location(location2.coordinates);
-    } else {
         memcpy(location2.coordinates, getNode2()->getLocation(), sizeof(double)*3);
     }
+
     double *bl = vlbi_calc_baseline(location1.coordinates, location2.coordinates);
     baseline[0] = bl[0];
     baseline[1] = bl[1];
@@ -98,14 +103,13 @@ double *VLBIBaseline::getBaseline()
     return baseline;
 }
 
-double *VLBIBaseline::getProjection()
+void VLBIBaseline::getProjection()
 {
     double *tmp = vlbi_calc_3d_projection(Target[1], Target[0], getBaseline());
     double *proj = vlbi_calc_uv_coordinates(tmp, getWaveLength());
     free (tmp);
-    projection[0] = proj[0];
-    projection[1] = proj[1];
-    projection[2] = proj[2];
+    u = proj[0];
+    v = proj[1];
+    delay = proj[2];
     free (proj);
-    return projection;
 }

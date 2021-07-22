@@ -105,6 +105,16 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         else if(!strcmp(arg, "bitspersample")) {
             Bps = (int)atof(value);
         }
+        else if(!strcmp(arg, "location")) {
+            double lat, lon, el;
+            char *t = strtok(value, ",");
+            lat = (int)atof(t);
+            t = strtok(NULL, ",");
+            lon = (int)atof(t);
+            t = strtok(NULL, ",");
+            el = (int)atof(t);
+            vlbi_set_location(GetContext(), lat, lon, el);
+        }
         else if(!strcmp(arg, "model")) {
         }
     }
@@ -169,6 +179,11 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             k = strtok(NULL, ",");
             if(!strcmp(k, "geo"))
                 geo = 1;
+            else if(!strcmp(k, "xyz"));
+            else {
+                geo = 0;
+                return;
+            }
             k = strtok(NULL, ",");
             lat = (double)atof(k);
             k = strtok(NULL, ",");

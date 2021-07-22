@@ -52,7 +52,7 @@ public:
     inline void setStartTime(double starttime) { getStream()->starttimeutc.tv_sec = floor(starttime); getStream()->starttimeutc.tv_nsec = (starttime-getStream()->starttimeutc.tv_sec)*1000000000.0; }
 
     inline void setTarget(double horiz, double vert) { getStream()->target[0] = horiz; getStream()->target[1] = vert; }
-    inline void setTarget(double *target) { getStream()->target = target; }
+    inline void setTarget(double *target) { memcpy(getStream()->target, target, sizeof(double)*2); }
     inline void setLocation(double *coords) { setLocation(coords[0], coords[1], coords[2]); }
     inline void setLocation(dsp_location location) { setLocation(location.xyz.x, location.xyz.y, location.xyz.z); }
     inline void setLocation(int x) { setLocation(getStream()->location[x].xyz.x, getStream()->location[x].xyz.y, getStream()->location[x].xyz.z); }

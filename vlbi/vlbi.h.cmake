@@ -116,7 +116,7 @@ inline static double vlbi_default_delegate(double x, double y) {
 #define SOLAR_DAY 86400
 #endif
 #ifndef SIDEREAL_DAY
-#define SIDEREAL_DAY (SOLAR_DAY * 365.0 / 365.25)
+#define SIDEREAL_DAY 86164.0905
 #endif
 #ifndef TRACKRATE_SIDEREAL
 #define TRACKRATE_SIDEREAL ((360.0 * 3600.0) / SIDEREAL_DAY)
@@ -146,7 +146,7 @@ inline static double vlbi_default_delegate(double x, double y) {
 #define J2000 3155716800.0
 #endif
 #ifndef GAMMAJ2000
-#define GAMMAJ2000 (double)1.753357767
+#define GAMMAJ2000 (double)13.753357767
 #endif
 #ifndef EULER
 #define EULER (double)2.71828182845904523536028747135266249775724709369995
@@ -188,7 +188,7 @@ inline static double vlbi_default_delegate(double x, double y) {
 #define LY (LIGHTSPEED * SOLAR_DAY * 365)
 #endif
 extern unsigned long int MAX_THREADS;
-inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) MAX_THREADS = value; DSP_MAX_THREADS = value; return MAX_THREADS; }
+inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) { MAX_THREADS = value; DSP_MAX_THREADS = value; } return MAX_THREADS; }
 /**@}*/
 /**
  * \defgroup VLBI_Functions Essential VLBI functions
@@ -221,6 +221,15 @@ DLL_EXPORT void vlbi_add_stream(vlbi_context ctx, dsp_stream_p Stream, char* nam
 * @param name The friendly name of the stream to be removed
 */
 DLL_EXPORT void vlbi_del_stream(vlbi_context ctx, char* name);
+
+/**
+* @brief Set the location of the reference station.
+* @param ctx The libVLBI context
+* @param lat The latitude of the station
+* @param lon The longitude of the station
+* @param el The elevation of the station
+*/
+DLL_EXPORT void vlbi_set_location(void *ctx, double lat, double lon, double el);
 
 /**
 * @brief Set the buffer of a single baseline with already correlated data.
@@ -299,7 +308,7 @@ DLL_EXPORT double* vlbi_calc_baseline_center(double *loc1, double *loc2);
 * @param wavelength The wavelength observed.
 * @return double* The 3d projection of the current observation.
 */
-DLL_EXPORT double* vlbi_calc_3d_projection(double alt, double az, double baseline[3]);
+DLL_EXPORT double* vlbi_calc_3d_projection(double alt, double az, double *baseline);
 
 /**
 * @brief Return The UV coordinates of the current observation.
@@ -351,24 +360,6 @@ DLL_EXPORT double vlbi_estimate_resolution_zero(double frequency);
 * @return double The resolution at the given baseline
 */
 DLL_EXPORT double vlbi_estimate_resolution(double resolution0, double baseline);
-
-/**
-* @brief Estimate Signal to noise ratio after a given integration time
-* @param gain Gain used during this observation.
-* @param resolution the resolution at baseline 0 (1m).
-* @param bandwidth the bandwidth of the receiver or sensor.
-* @return double Signal to noise ratio (SNR) at baseline 0 (1m).
-*/
-DLL_EXPORT double vlbi_estimate_snr_zero(double gain, double resolution, double bandwidth);
-
-/**
-* @brief Estimate Signal to noise ratio after a given integration time
-* @param snr SNR at baseline 0 (1m).
-* @param integration the integration time.
-* @return double the output buffer if successful elaboration. NULL if an
-* error was encountered.
-*/
-DLL_EXPORT double vlbi_estimate_snr(double snr, double integration);
 
 /**
 * @brief obtain a timespec struct containing the date and time specified

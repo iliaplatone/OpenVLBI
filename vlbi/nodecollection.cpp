@@ -24,6 +24,7 @@
 
 NodeCollection::NodeCollection() : VLBICollection::VLBICollection()
 {
+    relative = false;
     baselines = new BaselineCollection(this);
 }
 

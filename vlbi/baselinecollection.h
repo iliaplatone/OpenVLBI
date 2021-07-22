@@ -40,17 +40,25 @@ public:
     bool ContainsKey(const char *element);
     int IndexOf(VLBIBaseline *element);
     void SetTarget(double *target);
+    void setRa(double ra);
+    void setDec(double dec);
+    inline double getRa() { return Ra; }
+    inline double getDec() { return Dec; }
     void SetFrequency(double frequency);
     void SetSampleRate(double samplerate);
     void SetDelegate(vlbi_func2_t delegate);
+    void setRelative(bool rel);
     inline dsp_stream_p getStream() { return Stream; }
     inline NodeCollection *getNodes() { return Nodes; }
     inline int getWidth() { return width; }
     inline int getHeight() { return height; }
-    inline void setWidth(int w) { width = w; int h = getHeight(); getStream()->len = 1; getStream()->dims = 0; dsp_stream_add_dim(getStream(), w); dsp_stream_add_dim(getStream(), h); dsp_stream_alloc_buffer(getStream(), getStream()->len); }
-    inline void setHeight(int h) { height = h; int w = getWidth(); getStream()->len = 1; getStream()->dims = 0; dsp_stream_add_dim(getStream(), w); dsp_stream_add_dim(getStream(), h); dsp_stream_alloc_buffer(getStream(), getStream()->len); }
+    inline void setWidth(int w) { width = w; int h = getHeight(); getStream()->len = 1; getStream()->dims = 0; dsp_stream_add_dim(getStream(), w); dsp_stream_add_dim(getStream(), h); dsp_stream_alloc_buffer(getStream(), getStream()->len); dsp_buffer_set(getStream()->buf, getStream()->len, 0); }
+    inline void setHeight(int h) { height = h; int w = getWidth(); getStream()->len = 1; getStream()->dims = 0; dsp_stream_add_dim(getStream(), w); dsp_stream_add_dim(getStream(), h); dsp_stream_alloc_buffer(getStream(), getStream()->len); dsp_buffer_set(getStream()->buf, getStream()->len, 0); }
+    inline bool isRelative() { return relative; }
 
 protected:
+    bool relative;
+    double Ra, Dec;
     NodeCollection *Nodes;
     int width;
     int height;

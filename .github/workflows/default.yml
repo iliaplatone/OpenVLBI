@@ -19,10 +19,19 @@ jobs:
         run: |
             cd OpenVLBI
             ./scripts/build.sh
-            ./scripts/test.sh 1000 synthesis_nodelay_coverage | vlbi_client_dummy
+            mkdir -p tests
+            ./scripts/test.sh 21600 $size synthesis_delay_coverage | vlbi_client_dummy -t8 | base64 -d | convert -size $size -depth 8 GRAY:- tests/synthesis_delay_coverage.png
+            ./scripts/test.sh 21600 $size synthesis_delay_raw | vlbi_client_dummy -t8 | base64 -d | convert -size $size -depth 8 GRAY:- tests/synthesis_delay_raw.png
+            ./scripts/test.sh 21600 $size synthesis_delay_idft | vlbi_client_dummy -t8 | base64 -d | convert -size $size -depth 8 GRAY:- tests/synthesis_delay_idft.png
 
       - name: Debs
         uses: actions/upload-artifact@v2
         with:
           name: packages
           path: OpenVLBI/packages
+
+      - name: Tests
+        uses: actions/upload-artifact@v2
+        with:
+          name: tests
+          path: OpenVLBI/tests

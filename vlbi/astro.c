@@ -27,7 +27,7 @@ void vlbi_astro_alt_az_from_ra_dec(double J2000time, double Ra, double Dec, doub
 
 double vlbi_astro_get_local_hour_angle(double Lst, double Ra)
 {
-    double Ha = Lst - Ra;
+    double Ha = (Lst - Ra);
     while (Ha < 0)
         Ha += 24.0;
     while (Ha >= 24.0)

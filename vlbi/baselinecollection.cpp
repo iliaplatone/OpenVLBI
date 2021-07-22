@@ -56,6 +56,9 @@ void BaselineCollection::Update()
             this->Add(b);
         }
     }
+    setRelative(isRelative());
+    setRa(getRa());
+    setDec(getDec());
 }
 
 void BaselineCollection::Add(VLBIBaseline * element)
@@ -118,11 +121,35 @@ void BaselineCollection::SetTarget(double *target)
     }
 }
 
+void BaselineCollection:: setRa(double ra)
+{
+    Ra = ra;
+    for(int i = 0; i < Count; i++) {
+        At(i)->setRa(ra);
+    }
+}
+
+void BaselineCollection:: setDec(double dec)
+{
+    Dec = dec;
+    for(int i = 0; i < Count; i++) {
+        At(i)->setDec(dec);
+    }
+}
+
 void BaselineCollection::SetFrequency(double frequency)
 {
     Stream->wavelength = LIGHTSPEED / frequency;
     for(int i = 0; i < Count; i++) {
         At(i)->setWaveLength(LIGHTSPEED / frequency);
+    }
+}
+
+void BaselineCollection::setRelative(bool rel)
+{
+    relative = rel;
+    for(int i = 0; i < Count; i++) {
+        At(i)->setRelative(rel);
     }
 }
 
