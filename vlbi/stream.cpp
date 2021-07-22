@@ -101,13 +101,14 @@ static void* fillplane(void *arg)
     dsp_stream_p parent = (dsp_stream_p)s->parent;
     int u = parent->sizes[0];
     int v = parent->sizes[1];
-    double tao = 1.0 / parent->samplerate;
     double st = b->getStartTime();
     double et = b->getEndTime();
+    double tau = 1.0/b->getSampleRate();
     int l = 0;
-    for(double time = st; time < et; time += tao, l++) {
+    int end = (int)fmin(b->getNode1()->getStream()->len, b->getNode2()->getStream()->len);
+    for(double time = st; time < et; time += tau, l++) {
         double max_delay = 0;
-        int farest;
+        int farest = 0;
         for (int x = 0; x < nodes->Count; x++){
             if(moving_baseline) {
                 nodes->At(x)->setLocation(l);
@@ -156,8 +157,9 @@ static void* fillplane(void *arg)
                 }
             }
         }
-        fprintf(stderr, "\r%.3fs %.3f%%   ", (time-st), (time-st)*100.0/(et-st-tao));
+        fprintf(stderr, "\r%.3fs %.3f%%   ", (time-st), (time-st-tau)*100.0/end);
     }
+    return NULL;
 }
 
 void* vlbi_init()
@@ -198,6 +200,8 @@ dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, do
 {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     BaselineCollection *baselines = nodes->getBaselines();
+    baselines->setWidth(u);
+    baselines->setHeight(v);
     baselines->SetFrequency(freq);
     baselines->SetSampleRate(sr);
     baselines->SetTarget(target);

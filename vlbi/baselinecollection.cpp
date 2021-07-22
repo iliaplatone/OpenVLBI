@@ -25,12 +25,14 @@
 
 BaselineCollection::BaselineCollection(NodeCollection *nodes) : VLBICollection::VLBICollection()
 {
-    Stream = dsp_stream_new();
-    dsp_stream_add_dim(Stream, 1);
-    dsp_stream_add_dim(Stream, 1);
-    dsp_stream_alloc_buffer(Stream, Stream->len);
-    dsp_buffer_set(Stream->buf, Stream->len, 0);
     Nodes = nodes;
+    Stream = dsp_stream_new();
+    dsp_stream_add_dim(getStream(), 1);
+    dsp_stream_add_dim(getStream(), 1);
+    dsp_stream_alloc_buffer(getStream(), getStream()->len);
+    setWidth(128);
+    setHeight(128);
+    dsp_buffer_set(getStream()->buf, getStream()->len, 0);
 }
 
 BaselineCollection::~BaselineCollection()
@@ -42,6 +44,7 @@ BaselineCollection::~BaselineCollection()
 
 void BaselineCollection::Update()
 {
+    this->Clear();
     for(int i = 0; i < getNodes()->Count; i++)
     {
         for(int l = i + 1; l < getNodes()->Count; l++)
@@ -64,6 +67,12 @@ void BaselineCollection::Add(VLBIBaseline * element)
 void BaselineCollection::RemoveKey(const char* name)
 {
     VLBICollection::RemoveKey(name);
+}
+
+void BaselineCollection::Clear()
+{
+    for(int i = Count-1; i >= 0; i--)
+        VLBICollection::RemoveAt(i);
 }
 
 VLBIBaseline * BaselineCollection::Get(const char* name)

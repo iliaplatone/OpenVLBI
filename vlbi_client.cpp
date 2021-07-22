@@ -30,7 +30,7 @@ static double fillone_delegate(double x, double y) {
     return 1.0;
 }
 
-void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, int bytelen, timespec starttime, bool geo)
+void VLBI::Client::AddNode(char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
 {
 	dsp_stream_p node = dsp_stream_new();
 	int len = bytelen*8/abs(Bps);
@@ -58,9 +58,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, 
 		default:
 		break;
 	}
-    node->location->xyz.x = x;
-    node->location->xyz.y = y;
-    node->location->xyz.z = z;
+    node->location = locations;
 	memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
     vlbi_add_stream(context, node, name, geo);
 }
@@ -74,7 +72,7 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type, bool nodelay)
 {
 	dsp_stream_p plot;
 	double coords[3] = { Ra, Dec };
-    plot = vlbi_get_uv_plot(context, u, v, coords, Freq, SampleRate, nodelay, (type&APERTURE_SYNTHESIS) != 0, (type&UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
+    plot = vlbi_get_uv_plot(context, u, v, coords, Freq, SampleRate, nodelay, (type&APERTURE_SYNTHESIS) == 0, (type&UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
     return plot;
 }
 
@@ -141,7 +139,7 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             }
             dsp_stream_p plot = GetPlot(w, h, type, nodelay);
             if (plot != NULL) {
-                if((type & UV_COVERAGE) == 0)
+                if((type & UV_IDFT) != 0)
                     vlbi_get_ifft_estimate(plot);
                 dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
                 int ilen = plot->len;
@@ -183,8 +181,12 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             strcpy(date, k);
             void *buf = malloc(1);
             int len = vlbi_b64readfile(file, buf);
+            dsp_location location;
+            location.geographic.lat = lat;
+            location.geographic.lon = lon;
+            location.geographic.el = el;
             if(len > 0 && geo > 0) {
-                AddNode(name, lat, lon, el, buf, len, vlbi_time_string_to_utc(date), geo == 1);
+                AddNode(name, &location, buf, len, vlbi_time_string_to_utc(date), geo == 1);
             }
         }
     }

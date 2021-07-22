@@ -128,7 +128,6 @@ void dsp_stream_del_dim(dsp_stream_p stream, int index)
     int* sizes = (int*)malloc(sizeof(int) * stream->dims);
     int dims = stream->dims;
     memcpy(sizes, stream->sizes, sizeof(int) * stream->dims);
-    free(stream->sizes);
     stream->dims = 0;
     int i;
     for(i = 0; i < dims; i++) {
@@ -136,6 +135,7 @@ void dsp_stream_del_dim(dsp_stream_p stream, int index)
             dsp_stream_add_dim(stream, abs(sizes[i]));
         }
     }
+    free(sizes);
 }
 
 void dsp_stream_add_child(dsp_stream_p stream, dsp_stream_p child)

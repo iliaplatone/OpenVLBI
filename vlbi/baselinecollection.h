@@ -34,6 +34,7 @@ public:
     void RemoveAt(int index);
     VLBIBaseline *Get(const char* name);
     void RemoveKey(const char* element);
+    void Clear();
     VLBIBaseline * At(int index);
     bool Contains(VLBIBaseline *element);
     bool ContainsKey(const char *element);
@@ -44,15 +45,15 @@ public:
     void SetDelegate(vlbi_func2_t delegate);
     inline dsp_stream_p getStream() { return Stream; }
     inline NodeCollection *getNodes() { return Nodes; }
-    inline double getWidth() { return getStream()->sizes[0]; }
-    inline double getHeight() { return getStream()->sizes[1]; }
-    inline double setWidth(double w) { getStream()->sizes[0] = w; dsp_stream_alloc_buffer(getStream(), getStream()->sizes[0] * getStream()->sizes[1]); }
-    inline double setHeight(double h) { getStream()->sizes[1] = h; dsp_stream_alloc_buffer(getStream(), getStream()->sizes[0] * getStream()->sizes[1]); }
+    inline int getWidth() { return width; }
+    inline int getHeight() { return height; }
+    inline void setWidth(int w) { width = w; int h = getHeight(); getStream()->len = 1; getStream()->dims = 0; dsp_stream_add_dim(getStream(), w); dsp_stream_add_dim(getStream(), h); dsp_stream_alloc_buffer(getStream(), getStream()->len); }
+    inline void setHeight(int h) { height = h; int w = getWidth(); getStream()->len = 1; getStream()->dims = 0; dsp_stream_add_dim(getStream(), w); dsp_stream_add_dim(getStream(), h); dsp_stream_alloc_buffer(getStream(), getStream()->len); }
 
 protected:
     NodeCollection *Nodes;
-    double width;
-    double height;
+    int width;
+    int height;
     dsp_stream_p Stream;
 };
 
