@@ -33,6 +33,7 @@ public:
 
     inline char *getName() { return Name; }
 
+    double Correlate(double time);
     double Correlate(double time1, double time2);
     double Correlate(int idx1, int idx2);
     double getStartTime();
@@ -62,7 +63,12 @@ public:
     dsp_stream_p getStream() { return Stream; }
     void setDelegate(vlbi_func2_t delegate) { dsp_correlation_delegate = delegate; }
 
+    inline bool Locked() { return locked; }
+    inline void Lock() { locked = true; }
+    inline void Unlock() { locked = false; }
+
 private:
+    bool locked;
     double Target[3];
     double baseline[3];
     double projection[3];

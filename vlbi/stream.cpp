@@ -149,7 +149,7 @@ static void* fillplane(void *arg)
                     int V = uvcoords[1] + v / 2;
                     if(U >= 0 && U < u && V >= 0 && V < v) {
                         int idx = U+V*u;
-                        double val = b->Correlate(time+offset1, time+offset2);
+                        double val = b->Locked() ? b->Correlate(time) : b->Correlate(time+offset1, time+offset2);
                         parent->buf[idx] = val;
                         parent->buf[parent->len-idx] = val;
                     }
@@ -186,10 +186,18 @@ void vlbi_del_stream(void *ctx, char* name) {
     nodes->RemoveKey(name);
 }
 
+void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer, int len) {
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    int idx = (nodes->Get(node1)->getIndex()*2-1)*nodes->Get(node1)->getIndex()/2+nodes->Get(node2)->getIndex();
+    dsp_stream_set_buffer(nodes->getBaselines()->At(idx)->getStream(), buffer, len);
+    dsp_stream_alloc_buffer(nodes->getBaselines()->At(idx)->getStream(), len);
+    nodes->getBaselines()->At(idx)->Lock();
+}
+
 dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate)
 {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    BaselineCollection *baselines = new BaselineCollection(nodes, u, v);
+    BaselineCollection *baselines = nodes->getBaselines();
     baselines->SetFrequency(freq);
     baselines->SetSampleRate(sr);
     baselines->SetTarget(target);

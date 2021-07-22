@@ -23,30 +23,35 @@
 #include "baselinecollection.h"
 
 
-BaselineCollection::BaselineCollection(NodeCollection *nodes, double u, double v) : VLBICollection::VLBICollection()
+BaselineCollection::BaselineCollection(NodeCollection *nodes) : VLBICollection::VLBICollection()
 {
     Stream = dsp_stream_new();
-    dsp_stream_add_dim(Stream, u);
-    dsp_stream_add_dim(Stream, v);
+    dsp_stream_add_dim(Stream, 1);
+    dsp_stream_add_dim(Stream, 1);
     dsp_stream_alloc_buffer(Stream, Stream->len);
     dsp_buffer_set(Stream->buf, Stream->len, 0);
-    for(int i = 0; i < nodes->Count; i++)
-    {
-        for(int l = i + 1; l < nodes->Count; l++)
-        {
-            VLBINode* node1 = nodes->At(i);
-            VLBINode* node2 = nodes->At(l);
-            VLBIBaseline *b = new VLBIBaseline(node1, node2);
-            b->getStream()->parent = Stream;
-            this->Add(b);
-        }
-    }
+    Nodes = nodes;
 }
 
 BaselineCollection::~BaselineCollection()
 {
     for(int i = 0; i < Count; i++) {
         At(i)->~VLBIBaseline();
+    }
+}
+
+void BaselineCollection::Update()
+{
+    for(int i = 0; i < getNodes()->Count; i++)
+    {
+        for(int l = i + 1; l < getNodes()->Count; l++)
+        {
+            VLBINode* node1 = getNodes()->At(i);
+            VLBINode* node2 = getNodes()->At(l);
+            VLBIBaseline *b = new VLBIBaseline(node1, node2);
+            b->getStream()->parent = Stream;
+            this->Add(b);
+        }
     }
 }
 

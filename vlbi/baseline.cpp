@@ -32,6 +32,16 @@ VLBIBaseline::~VLBIBaseline()
 {
 }
 
+double VLBIBaseline::Correlate(double time)
+{
+    if(!Locked())
+        return 0.0;
+    int idx = (time-getStartTime())/getSampleRate();
+    if(idx > 0 && idx < getStream()->len)
+        return getStream()->buf[idx];
+    return 0.0;
+}
+
 double VLBIBaseline::Correlate(double time1, double time2)
 {
     int idx1 = (time1-getStartTime())/getSampleRate();

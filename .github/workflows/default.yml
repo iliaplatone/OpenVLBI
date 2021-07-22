@@ -19,7 +19,7 @@ jobs:
         run: |
             cd OpenVLBI
             ./scripts/build.sh
-            cd scripts; ./test.sh 1000 synthesis_coverage | vlbi_client_dummy
+            ./scripts/test.sh 1000 synthesis_nodelay_coverage | vlbi_client_dummy
 
       - name: Debs
         uses: actions/upload-artifact@v2

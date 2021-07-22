@@ -223,6 +223,16 @@ DLL_EXPORT void vlbi_add_stream(vlbi_context ctx, dsp_stream_p Stream, char* nam
 DLL_EXPORT void vlbi_del_stream(vlbi_context ctx, char* name);
 
 /**
+* @brief Set the buffer of a single baseline with already correlated data.
+* @param ctx The libVLBI context
+* @param node1 The name of the first node
+* @param node1 The name of the second node
+* @param buffer The buffer with correlated data
+* @param len The length of the buffer
+*/
+DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer, int len);
+
+/**
 * @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.
 * @param ctx The libVLBI context
 * @param correlation_func The correlation delegate, you should use the vlbi_func2_t delegate function type for this argument.

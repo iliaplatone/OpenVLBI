@@ -26,8 +26,9 @@
 class BaselineCollection : public VLBICollection
 {
 public:
-    BaselineCollection(NodeCollection *nodes, double u = 128.0, double v = 128.0);
+    BaselineCollection(NodeCollection *nodes);
     ~BaselineCollection();
+    void Update();
     void Add(VLBIBaseline *element);
     void Remove(VLBIBaseline *element);
     void RemoveAt(int index);
@@ -41,8 +42,17 @@ public:
     void SetFrequency(double frequency);
     void SetSampleRate(double samplerate);
     void SetDelegate(vlbi_func2_t delegate);
-    dsp_stream_p getStream() { return Stream; }
+    inline dsp_stream_p getStream() { return Stream; }
+    inline NodeCollection *getNodes() { return Nodes; }
+    inline double getWidth() { return getStream()->sizes[0]; }
+    inline double getHeight() { return getStream()->sizes[1]; }
+    inline double setWidth(double w) { getStream()->sizes[0] = w; dsp_stream_alloc_buffer(getStream(), getStream()->sizes[0] * getStream()->sizes[1]); }
+    inline double setHeight(double h) { getStream()->sizes[1] = h; dsp_stream_alloc_buffer(getStream(), getStream()->sizes[0] * getStream()->sizes[1]); }
+
 protected:
+    NodeCollection *Nodes;
+    double width;
+    double height;
     dsp_stream_p Stream;
 };
 

@@ -133,11 +133,12 @@ set context name:string - set current OpenVLBI context selecting it by name from
 add node name,[geo|xyz],latitude,longitude,elevation,datafile,observationdate:string - add a node to the internal list
 del node name:string - remove a node from the internal list
 set model name:string - new comparison model
-set freq value:numeric - set detectors frequency
+set frequency value:numeric - set detectors frequency
 set bitspersample value:numeric - set detectors sample bit depth
 set samplerate value:numeric - set detectors sampling rate
 set target ra,dec:numeric,numeric - set telescopes celestial target
-get observation type:string - get UV plot observation ([synthesis|movingbase]_[delay|nodelay]_[raw|idft|coverage]) for aperture synthesis observation or to plot the UV coverage. delay stays for automatically calculate delays between nodes, nodelay means they are already synchronized.
+set resolution WxH:numeric,numeric - set the resolution of the output picture of the Fourier plane
+get observation type:string - get the Fourier plane observation ([synthesis|movingbase]_[delay|nodelay]_[raw|idft|coverage]) for aperture synthesis observation or to plot the UV coverage. delay stays for automatically calculate delays between nodes, nodelay means they are already synchronized.
 ```
 
 ### INDI client specific commands
