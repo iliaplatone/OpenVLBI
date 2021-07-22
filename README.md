@@ -1,4 +1,5 @@
 [![CircleCi](https://circleci.com/gh/iliaplatone/OpenVLBI/tree/master.svg?style=shield)](https://circleci.com/gh/iliaplatone/OpenVLBI/?branch=master)
+[![Linux](https://github.com/iliaplatone/OpenVLBI/actions/workflows/default.yml/badge.svg)](https://github.com/iliaplatone/OpenVLBI/actions/workflows/default.yml)
 
 # Interferometric correlator clients application suite
 libvlbi is an open source library and application suite for astronomical interferometry.
@@ -138,7 +139,7 @@ set bitspersample value:numeric - set detectors sample bit depth
 set samplerate value:numeric - set detectors sampling rate
 set target ra,dec:numeric,numeric - set telescopes celestial target
 set resolution WxH:numeric,numeric - set the resolution of the output picture of the Fourier plane
-set location latitude,longitude,elevation:numeric,numeric - set the reference station for xyz coordinates relative to this
+set location latitude,longitude,elevation:numeric,numeric - set the reference station coordinates for xyz node locations relative to this
 get observation type:string - get the Fourier plane observation ([synthesis|movingbase]_[delay|nodelay]_[raw|idft|coverage]) for aperture synthesis observation or to plot the UV coverage. delay stays for automatically calculate delays between nodes, nodelay means they are already synchronized.
 ```
 
