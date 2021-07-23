@@ -149,8 +149,12 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             }
             dsp_stream_p plot = GetPlot(w, h, type, nodelay);
             if (plot != NULL) {
-                if((type & UV_IDFT) != 0)
-                    vlbi_get_ifft_estimate(plot);
+                if((type & UV_IDFT) != 0) {
+                    dsp_stream_p idft = vlbi_get_ifft_estimate(plot);
+                    dsp_stream_free_buffer(plot);
+                    dsp_stream_free(plot);
+                    plot = idft;
+                }
                 dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
                 int ilen = plot->len;
                 int olen = ilen*4/3+4;
