@@ -38,63 +38,46 @@ double vlbi_estimate_resolution(double resolution_zero, double baseline)
     return resolution_zero / baseline;
 }
 
-double vlbi_estimate_snr_zero(double gain, double resolution, double bandwidth)
-{
-    return abs(gain * resolution * sqrt(M_PI * bandwidth));
-}
-
-double vlbi_estimate_snr(double snr_zero, double integration)
-{
-    return abs(snr_zero * sqrt(integration));
-}
-
-double* vlbi_calc_haaltaz(double *location, double *target, double J2000_Offset_Time)
-{
-    double *haaltaz = (double *)calloc(sizeof(double), 3);
-    double lst = vlbi_time_J2000time_to_lst(J2000_Offset_Time, location[1]);
-    haaltaz[0] = vlbi_astro_get_local_hour_angle(lst, target[0]);
-    vlbi_astro_get_alt_az_coordinates(haaltaz[0], target[1], location[0], &haaltaz[1], &haaltaz[2]);
-    return haaltaz;
-}
-
-double* vlbi_calc_3d_projection(double alt, double az, double baseline[3])
+double* vlbi_calc_3d_projection(double alt, double az, double *baseline)
 {
     double* proj = (double*)calloc(sizeof(double), 3);
     az *= M_PI / 180.0;
     alt *= M_PI / 180.0;
-    proj[0] = baseline[0] * sin(az) + baseline[1] * cos(az);
-    proj[1] = baseline[1] * sin(alt) * sin(az) - baseline[0] * sin(alt) * cos(az) + baseline[2] * cos(alt);
+    proj[0] = (baseline[0] * sin(az) + baseline[1] * cos(az));
+    proj[1] = (baseline[1] * sin(alt) * sin(az) - baseline[0] * sin(alt) * cos(az) + baseline[2] * cos(alt));
     proj[2] = cos(az) * baseline[1] * cos(alt) - baseline[0] * sin(az) * cos(alt) + sin(alt) * baseline[2];
+    return proj;
 }
 
 double* vlbi_calc_uv_coordinates(double *proj, double wavelength)
 {
-    proj[0] *= AIRY / wavelength;
-    proj[1] *= AIRY / wavelength;
-    proj[2] /= LIGHTSPEED;
-    return proj;
+    double* uv = (double*)calloc(sizeof(double), 3);
+    uv[0] = proj[0] * AIRY / wavelength;
+    uv[1] = proj[1] * AIRY / wavelength;
+    uv[2] = proj[2] / LIGHTSPEED;
+    return uv;
 }
 
 double* vlbi_calc_location(double *loc)
 {
-    double* tmp = (double*)calloc(sizeof(double), 3);
+    double lat, lon, el;
     double* location = (double*)calloc(sizeof(double), 3);
-    tmp[0] = loc[0] + 90.0;
-    tmp[1] = loc[1];
-    tmp[2] = loc[2];
-    tmp[0] *= M_PI / 180.0;
-    tmp[1] *= M_PI / 180.0;
-    while(tmp[0] < 0)
-        tmp[0] += 2 * M_PI;
-    while(tmp[1] < 0)
-        tmp[1] += 2 * M_PI;
-    while(tmp[0] >= 2 * M_PI)
-        tmp[0] -= 2 * M_PI;
-    while(tmp[1] >= 2 * M_PI)
-        tmp[1] -= 2 * M_PI;
-    location[0] = cos(tmp[0]) * sin(tmp[1]) * tmp[2];
-    location[1] = cos(tmp[0]) * cos(tmp[1]) * tmp[2];
-    location[2] = sin(tmp[0]) * tmp[2];
+    lat = loc[0] + 90.0;
+    lon = loc[1];
+    el = loc[2];
+    lat *= M_PI / 180.0;
+    lon *= M_PI / 180.0;
+    while(lat < 0)
+        lat += 2 * M_PI;
+    while(lon < 0)
+        lon += 2 * M_PI;
+    while(lat >= 2 * M_PI)
+        lat -= 2 * M_PI;
+    while(lon >= 2 * M_PI)
+        lon -= 2 * M_PI;
+    location[0] = cos(lat) * sin(lon) * el;
+    location[1] = cos(lat) * cos(lon) * el;
+    location[2] = sin(lat) * el;
     return location;
 }
 

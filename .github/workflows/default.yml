@@ -1,0 +1,37 @@
+
+name: Linux
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+
+    steps:
+      - name: Get Sources
+        uses: actions/checkout@v2
+        with:
+          path: 'OpenVLBI'
+
+      - name: Build & Install
+        run: |
+            cd OpenVLBI
+            ./scripts/build.sh
+            mkdir -p tests
+            ./scripts/test.sh 21600 512x512 synthesis_delay_coverage | vlbi_client_dummy -t8 | base64 -d | convert -size 512x512 -depth 8 GRAY:- tests/synthesis_delay_coverage.png
+            ./scripts/test.sh 21600 512x512 synthesis_delay_raw | vlbi_client_dummy -t8 | base64 -d | convert -size 512x512 -depth 8 GRAY:- tests/synthesis_delay_raw.png
+            ./scripts/test.sh 21600 512x512 synthesis_delay_idft | vlbi_client_dummy -t8 | base64 -d | convert -size 512x512 -depth 8 GRAY:- tests/synthesis_delay_idft.png
+
+      - name: Debs
+        uses: actions/upload-artifact@v2
+        with:
+          name: packages
+          path: OpenVLBI/packages
+
+      - name: Tests
+        uses: actions/upload-artifact@v2
+        with:
+          name: tests
+          path: OpenVLBI/tests

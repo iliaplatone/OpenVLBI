@@ -34,37 +34,53 @@ public:
     inline char *getName() { return Name; }
 
     double Correlate(double time);
+    double Correlate(double time1, double time2);
     double Correlate(int idx1, int idx2);
     double getStartTime();
+    double getEndTime();
 
     double *getBaseline();
-    double *getProjection();
+    void getProjection();
 
     inline double getX() { return baseline[0]; }
     inline double getY() { return baseline[1]; }
     inline double getZ() { return baseline[2]; }
-    inline double getU() { return projection[0]; }
-    inline double getV() { return projection[1]; }
-    inline double getDelay() { return projection[2]; }
+    inline double getU() { return u; }
+    inline double getV() { return v; }
+    inline double getDelay() { return delay; }
 
+    inline double getRa() { return Ra; }
+    inline double getDec() { return Dec; }
     inline double* getTarget() { return Target; }
-    inline double getWavelength() { return WaveLength; }
-    inline double getSamplerate() { return SampleRate; }
+    inline double getWaveLength() { return WaveLength; }
+    inline double getSampleRate() { return SampleRate; }
 
-    inline void setTarget(double horiz, double vert) { Target[0] = horiz; Target[1] = vert; getStream()->target = Target; Node1->setTarget(Target); Node2->setTarget(Target); }
-    inline void setTarget(double *target) { memcpy(Target, target, sizeof(double)*3); getStream()->target = Target; Node1->setTarget(Target); Node2->setTarget(Target); }
-    inline void setWaveLength(double wavelength) { WaveLength = wavelength; getStream()->wavelength = wavelength; Node1->setWaveLength(WaveLength); Node2->setWaveLength(WaveLength); }
-    inline void setSampleRate(double samplerate) { SampleRate = samplerate; getStream()->samplerate = samplerate; Node1->setSampleRate(SampleRate); Node2->setSampleRate(SampleRate); }
+    inline void setRa(double ra) { Ra = ra; }
+    inline void setDec(double dec) { Dec = dec; }
+    inline void setTarget(double horiz, double vert) { Target[0] = horiz; Target[1] = vert; memcpy(getStream()->target, Target, sizeof(double)*2); getNode1()->setTarget(Target); getNode2()->setTarget(Target); }
+    inline void setTarget(double *target) { memcpy(Target, target, sizeof(double)*2); memcpy(getStream()->target, Target, sizeof(double)*2); getNode1()->setTarget(Target); getNode2()->setTarget(Target); }
+    inline void setWaveLength(double wavelength) { WaveLength = wavelength; getStream()->wavelength = wavelength; getNode1()->setWaveLength(WaveLength); getNode2()->setWaveLength(WaveLength); }
+    inline void setSampleRate(double samplerate) { SampleRate = samplerate; getStream()->samplerate = samplerate; getNode1()->setSampleRate(SampleRate); getNode2()->setSampleRate(SampleRate); }
 
     VLBINode* getNode1() { return Node1; }
     VLBINode* getNode2() { return Node2; }
     dsp_stream_p getStream() { return Stream; }
     void setDelegate(vlbi_func2_t delegate) { dsp_correlation_delegate = delegate; }
 
+    inline bool Locked() { return locked; }
+    inline void Lock() { locked = true; }
+    inline void Unlock() { locked = false; }
+    inline void setRelative(bool rel) { relative = rel; }
+    inline bool isRelative() { return relative; }
+
 private:
+    bool relative;
+    bool locked;
     double Target[3];
+    double Ra;
+    double Dec;
     double baseline[3];
-    double projection[3];
+    double u, v, delay;
     double WaveLength;
     double SampleRate;
     int max_threads;

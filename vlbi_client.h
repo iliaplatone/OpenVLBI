@@ -17,6 +17,7 @@ namespace VLBI {
 
 #define APERTURE_SYNTHESIS 1
 #define UV_COVERAGE 2
+#define UV_IDFT 4
 
 class Client
 {
@@ -28,9 +29,9 @@ public:
     inline vlbi_context GetContext() { return context; }
     virtual int Init(int argc, char** argv) { return 0; };
     virtual void Parse(char* cmd, char* arg, char* value);
-    void AddNode(char *name, double lat, double lon, double el, void *buf, int len, timespec starttime, bool geo);
+    void AddNode(char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo);
     void DelNode(char *name);
-    dsp_stream_p GetPlot(int u, int v, int type);
+    dsp_stream_p GetPlot(int u, int v, int type, bool nodelay = false);
     void SetFifo(FILE* fifo) { f = fifo; }
 
     double Ra;

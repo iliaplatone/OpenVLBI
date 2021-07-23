@@ -26,7 +26,11 @@ VLBI::Client::~Client()
     }
 }
 
-void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, int bytelen, timespec starttime, bool geo)
+static double fillone_delegate(double x, double y) {
+    return 1.0;
+}
+
+void VLBI::Client::AddNode(char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
 {
 	dsp_stream_p node = dsp_stream_new();
 	int len = bytelen*8/abs(Bps);
@@ -54,9 +58,7 @@ void VLBI::Client::AddNode(char *name, double x, double y, double z, void *buf, 
 		default:
 		break;
 	}
-    node->location->xyz.x = x;
-    node->location->xyz.y = y;
-    node->location->xyz.z = z;
+    node->location = locations;
 	memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
     vlbi_add_stream(context, node, name, geo);
 }
@@ -66,24 +68,12 @@ void VLBI::Client::DelNode(char *name)
 	vlbi_del_stream(context, name);
 }
 
-dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type)
+dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type, bool nodelay)
 {
 	dsp_stream_p plot;
 	double coords[3] = { Ra, Dec };
-    if(type&UV_COVERAGE) {
-        if(type&APERTURE_SYNTHESIS) {
-            plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate);
-        } else {
-            plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate);
-        }
-    } else {
-        if(type&APERTURE_SYNTHESIS) {
-            plot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, coords, Freq, SampleRate);
-        } else {
-            plot = vlbi_get_uv_plot_moving_baseline(context, u, v, coords, Freq, SampleRate);
-        }
-	}
-	return plot;
+    plot = vlbi_get_uv_plot(context, u, v, coords, Freq, SampleRate, nodelay, (type&APERTURE_SYNTHESIS) == 0, (type&UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
+    return plot;
 }
 
 void VLBI::Client::Parse(char* cmd, char* arg, char* value)
@@ -115,6 +105,16 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         else if(!strcmp(arg, "bitspersample")) {
             Bps = (int)atof(value);
         }
+        else if(!strcmp(arg, "location")) {
+            double lat, lon, el;
+            char *t = strtok(value, ",");
+            lat = (int)atof(t);
+            t = strtok(NULL, ",");
+            lon = (int)atof(t);
+            t = strtok(NULL, ",");
+            el = (int)atof(t);
+            vlbi_set_location(GetContext(), lat, lon, el);
+        }
         else if(!strcmp(arg, "model")) {
         }
     }
@@ -122,22 +122,38 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         if(!strcmp(arg, "observation")) {
             int type = 0;
             char *t = strtok(value, "_");
+            bool nodelay = false;
             if(!strcmp(t, "synthesis")) {
                 type |= APERTURE_SYNTHESIS;
             } else if(!strcmp(t, "movingbase")) {
                 type &= ~APERTURE_SYNTHESIS;
+            } else {
+                return;
             }
-            dsp_stream_p plot = GetPlot(w, h, type);
+            t = strtok(NULL, "_");
+            if(!strcmp(t, "nodelay")) {
+                nodelay = true;
+            } else if(!strcmp(t, "delay")) {
+                nodelay = false;
+            } else {
+                return;
+            }
+            t = strtok(NULL, "_");
+            if(!strcmp(t, "idft")) {
+                type |= UV_IDFT;
+            } else if(!strcmp(t, "raw")) {
+            } else if(!strcmp(t, "coverage")) {
+                type |= UV_COVERAGE;
+            } else {
+                return;
+            }
+            dsp_stream_p plot = GetPlot(w, h, type, nodelay);
             if (plot != NULL) {
-                t = strtok(NULL, "_");
-                if(!strcmp(t, "idft")) {
-                    vlbi_get_ifft_estimate(plot);
-                } else if(!strcmp(t, "coverage")) {
-                    for(int i = 0; i < plot->len; i++)
-                    {
-                        if(plot->buf[i] != 0.0)
-                            plot->buf[i] = 1;
-                    }
+                if((type & UV_IDFT) != 0) {
+                    dsp_stream_p idft = vlbi_get_ifft_estimate(plot);
+                    dsp_stream_free_buffer(plot);
+                    dsp_stream_free(plot);
+                    plot = idft;
                 }
                 dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
                 int ilen = plot->len;
@@ -161,11 +177,17 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         else if(!strcmp(arg, "node")) {
             char name[32], file[150], date[64];
             double lat, lon, el;
-            int geo = 0;
+            int geo = 2;
             char* k = strtok(value, ",");
             strcpy(name, k);
             k = strtok(NULL, ",");
-            geo = strcmp(k, "geo") == 0 ? 1 : (strcmp(k, "xyz") ? 2 : 0);
+            if(!strcmp(k, "geo"))
+                geo = 1;
+            else if(!strcmp(k, "xyz"));
+            else {
+                geo = 0;
+                return;
+            }
             k = strtok(NULL, ",");
             lat = (double)atof(k);
             k = strtok(NULL, ",");
@@ -178,8 +200,12 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             strcpy(date, k);
             void *buf = malloc(1);
             int len = vlbi_b64readfile(file, buf);
+            dsp_location location;
+            location.geographic.lat = lat;
+            location.geographic.lon = lon;
+            location.geographic.el = el;
             if(len > 0 && geo > 0) {
-                AddNode(name, lat, lon, el, buf, len, vlbi_time_string_to_utc(date), geo == 1);
+                AddNode(name, &location, buf, len, vlbi_time_string_to_utc(date), geo == 1);
             }
         }
     }
@@ -206,13 +232,17 @@ static void sighandler(int signum)
 int main(int argc, char** argv)
 {
     char cmd[32], arg[32], value[4032], opt;
-    while ((opt = getopt(argc, argv, "h:")) != -1) {
+    FILE *input = stdin;
+    while ((opt = getopt(argc, argv, "t:f:")) != -1) {
         switch (opt) {
-            case 'h':
-                vlbi_max_threads((int)atof(optarg));
-                break;
-            default:
-            fprintf(stderr, "Usage: %s [-h max_threads]\n", argv[0]);
+        case 't':
+            vlbi_max_threads((int)atof(optarg));
+            break;
+        case 'f':
+            input = fopen (optarg, "rb+");
+            break;
+        default:
+            fprintf(stderr, "Usage: %s [-t max_threads] [-f obs_file]\n", argv[0]);
             exit(EXIT_FAILURE);
         }
     }
@@ -222,7 +252,7 @@ int main(int argc, char** argv)
     signal(SIGSTOP, sighandler);
     signal(SIGQUIT, sighandler);
     while (is_running) {
-        if(3 != fscanf(stdin, "%s %s %s", cmd, arg, value)) { if (!strcmp(cmd, "quit")) is_running=0; continue; }
+        if(3 != fscanf(input, "%s %s %s", cmd, arg, value)) { if (!strcmp(cmd, "quit")) is_running=0; continue; }
 	client->Parse(cmd, arg, value);
     }
     return EXIT_SUCCESS;

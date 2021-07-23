@@ -61,7 +61,7 @@ extern "C" {
 */
 /**@{*/
 
-typedef double*(* vlbi_func2_t)(double, double);
+typedef double(* vlbi_func2_t)(double, double);
 typedef void* vlbi_context;
 typedef struct timespec timespec_t;
 /**@}*/
@@ -69,7 +69,9 @@ typedef struct timespec timespec_t;
  * \defgroup VLBI_Defines VLBI defines
 */
 /**@{*/
-
+inline static double vlbi_default_delegate(double x, double y) {
+    return x*y;
+}
 ///if max() is not present you can use this one
 #ifndef Min
 #define Min(a,b) \
@@ -114,7 +116,7 @@ typedef struct timespec timespec_t;
 #define SOLAR_DAY 86400
 #endif
 #ifndef SIDEREAL_DAY
-#define SIDEREAL_DAY (SOLAR_DAY * 365.0 / 365.25)
+#define SIDEREAL_DAY 86164.0905
 #endif
 #ifndef TRACKRATE_SIDEREAL
 #define TRACKRATE_SIDEREAL ((360.0 * 3600.0) / SIDEREAL_DAY)
@@ -144,7 +146,7 @@ typedef struct timespec timespec_t;
 #define J2000 3155716800.0
 #endif
 #ifndef GAMMAJ2000
-#define GAMMAJ2000 (double)1.753357767
+#define GAMMAJ2000 (double)13.753357767
 #endif
 #ifndef EULER
 #define EULER (double)2.71828182845904523536028747135266249775724709369995
@@ -186,7 +188,7 @@ typedef struct timespec timespec_t;
 #define LY (LIGHTSPEED * SOLAR_DAY * 365)
 #endif
 extern unsigned long int MAX_THREADS;
-inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) MAX_THREADS = value; DSP_MAX_THREADS = value; return MAX_THREADS; }
+inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) { MAX_THREADS = value; DSP_MAX_THREADS = value; } return MAX_THREADS; }
 /**@}*/
 /**
  * \defgroup VLBI_Functions Essential VLBI functions
@@ -221,6 +223,25 @@ DLL_EXPORT void vlbi_add_stream(vlbi_context ctx, dsp_stream_p Stream, char* nam
 DLL_EXPORT void vlbi_del_stream(vlbi_context ctx, char* name);
 
 /**
+* @brief Set the location of the reference station.
+* @param ctx The libVLBI context
+* @param lat The latitude of the station
+* @param lon The longitude of the station
+* @param el The elevation of the station
+*/
+DLL_EXPORT void vlbi_set_location(void *ctx, double lat, double lon, double el);
+
+/**
+* @brief Set the buffer of a single baseline with already correlated data.
+* @param ctx The libVLBI context
+* @param node1 The name of the first node
+* @param node1 The name of the second node
+* @param buffer The buffer with correlated data
+* @param len The length of the buffer
+*/
+DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer, int len);
+
+/**
 * @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.
 * @param ctx The libVLBI context
 * @param correlation_func The correlation delegate, you should use the vlbi_func2_t delegate function type for this argument.
@@ -229,22 +250,12 @@ DLL_EXPORT void vlbi_del_stream(vlbi_context ctx, char* name);
 * @param target The target position int Ra/Dec celestial coordinates
 * @param freq The frequency observed. This parameter will scale the plot inverserly.
 * @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
+* @param nodelay 1 if no delay calculation should be done. streams entered are already synced.
+* @param moving_baseline 1 if the location field of all streams is an array containing the coordinates of the nodes on each element of the data array.
+* @param delegate The delegate function to be executed on each node stream buffer element.
 * @return The libVLBI stream structure containing the Fourier transform of the object observed
 */
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_aperture_synthesis(void *ctx, int u, int v, double *target, double freq, double sr);
-
-/**
-* @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
-* @param ctx The libVLBI context
-* @param correlation_func The correlation delegate, you should use the vlbi_func2_t delegate function type for this argument.
-* @param u The U size of the resulting UV plot
-* @param v The V size of the resulting UV plot
-* @param target The target position int Ra/Dec celestial coordinates
-* @param freq The frequency observed. This parameter will scale the plot inverserly.
-* @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
-* @return The libVLBI stream structure containing the Fourier transform of the object observed
-*/
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot_moving_baseline(void *ctx, int u, int v, double *target, double freq, double sr);
+DLL_EXPORT dsp_stream_p vlbi_get_uv_plot(void *ctx, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
 
 /**
 * @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
@@ -297,7 +308,7 @@ DLL_EXPORT double* vlbi_calc_baseline_center(double *loc1, double *loc2);
 * @param wavelength The wavelength observed.
 * @return double* The 3d projection of the current observation.
 */
-DLL_EXPORT double* vlbi_calc_3d_projection(double alt, double az, double baseline[3]);
+DLL_EXPORT double* vlbi_calc_3d_projection(double alt, double az, double *baseline);
 
 /**
 * @brief Return The UV coordinates of the current observation.
@@ -349,24 +360,6 @@ DLL_EXPORT double vlbi_estimate_resolution_zero(double frequency);
 * @return double The resolution at the given baseline
 */
 DLL_EXPORT double vlbi_estimate_resolution(double resolution0, double baseline);
-
-/**
-* @brief Estimate Signal to noise ratio after a given integration time
-* @param gain Gain used during this observation.
-* @param resolution the resolution at baseline 0 (1m).
-* @param bandwidth the bandwidth of the receiver or sensor.
-* @return double Signal to noise ratio (SNR) at baseline 0 (1m).
-*/
-DLL_EXPORT double vlbi_estimate_snr_zero(double gain, double resolution, double bandwidth);
-
-/**
-* @brief Estimate Signal to noise ratio after a given integration time
-* @param snr SNR at baseline 0 (1m).
-* @param integration the integration time.
-* @return double the output buffer if successful elaboration. NULL if an
-* error was encountered.
-*/
-DLL_EXPORT double vlbi_estimate_snr(double snr, double integration);
 
 /**
 * @brief obtain a timespec struct containing the date and time specified

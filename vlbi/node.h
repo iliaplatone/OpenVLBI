@@ -28,26 +28,31 @@
 class VLBINode
 {
 public:
-    VLBINode(dsp_stream_p stream, bool geographic_coordinates=true);
+    VLBINode(dsp_stream_p stream, int index, bool geographic_coordinates=true);
     ~VLBINode();
 
     inline char *getName() { return Name; }
     inline dsp_stream_p getStream() { return Stream; }
 
-    inline double* getGeographicCoordinates() { return Geographic; }
-
     inline double* getTarget() { return getStream()->target; }
+    inline double getIndex() { return Index; }
     inline double getWaveLength() { return getStream()->wavelength; }
     inline double getSampleRate() { return getStream()->samplerate; }
     inline double* getLocation() { return Location; }
-    inline double getStartTime() { return (double)getStream()->starttimeutc.tv_sec+((double)getStream()->starttimeutc.tv_nsec/1000000000.0); }
+    inline double* getGeographicLocation() {
+        GeographicLocation[0] = getLocation()[0];
+        GeographicLocation[1] = getLocation()[1];
+        GeographicLocation[2] = vlbi_astro_estimate_geocentric_elevation(getLocation()[0], getLocation()[2]);
+        return GeographicLocation;
+    }
+    inline double getStartTime() { return (double)vlbi_time_timespec_to_J2000time(getStream()->starttimeutc); }
 
     inline void setWaveLength(double wavelength) { getStream()->wavelength = wavelength; }
     inline void setSampleRate(double samplerate) { getStream()->samplerate = samplerate; }
     inline void setStartTime(double starttime) { getStream()->starttimeutc.tv_sec = floor(starttime); getStream()->starttimeutc.tv_nsec = (starttime-getStream()->starttimeutc.tv_sec)*1000000000.0; }
 
     inline void setTarget(double horiz, double vert) { getStream()->target[0] = horiz; getStream()->target[1] = vert; }
-    inline void setTarget(double *target) { getStream()->target = target; }
+    inline void setTarget(double *target) { memcpy(getStream()->target, target, sizeof(double)*2); }
     inline void setLocation(double *coords) { setLocation(coords[0], coords[1], coords[2]); }
     inline void setLocation(dsp_location location) { setLocation(location.xyz.x, location.xyz.y, location.xyz.z); }
     inline void setLocation(int x) { setLocation(getStream()->location[x].xyz.x, getStream()->location[x].xyz.y, getStream()->location[x].xyz.z); }
@@ -60,11 +65,12 @@ public:
     inline bool GeographicCoordinates() { return Geo; }
     inline void useGeographicCoordinates(bool geo) { Geo = geo; }
 private:
-    double Geographic[3];
-    double *Location;
+    double GeographicLocation[3];
+    double Location[3];
     bool Geo;
     dsp_stream_p Stream;
     char *Name;
+    int Index;
 };
 
 #endif //_NODE_H

@@ -53,7 +53,7 @@ dsp_stream_p dsp_stream_new()
     stream->pixel_sizes = (double*)malloc(sizeof(double) * 1);
     stream->children = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * 1);
     stream->ROI = (dsp_region*)malloc(sizeof(dsp_region) * 1);
-    stream->location = (double*)malloc(sizeof(double) * 3);
+    stream->location = (dsp_location*)malloc(sizeof(dsp_location));
     stream->target = (double*)malloc(sizeof(double) * 3);
     stream->stars = (dsp_star*)malloc(sizeof(dsp_star) * 1);
     stream->align_info.offset = (double*)malloc(sizeof(double)*1);
@@ -83,6 +83,10 @@ void dsp_stream_free(dsp_stream_p stream)
     free(stream->ROI);
     free(stream->location);
     free(stream->target);
+    free(stream->stars);
+    free(stream->align_info.offset);
+    free(stream->align_info.center);
+    free(stream->align_info.radians);
     free(stream);
 }
 
@@ -128,7 +132,6 @@ void dsp_stream_del_dim(dsp_stream_p stream, int index)
     int* sizes = (int*)malloc(sizeof(int) * stream->dims);
     int dims = stream->dims;
     memcpy(sizes, stream->sizes, sizeof(int) * stream->dims);
-    free(stream->sizes);
     stream->dims = 0;
     int i;
     for(i = 0; i < dims; i++) {
@@ -136,6 +139,7 @@ void dsp_stream_del_dim(dsp_stream_p stream, int index)
             dsp_stream_add_dim(stream, abs(sizes[i]));
         }
     }
+    free(sizes);
 }
 
 void dsp_stream_add_child(dsp_stream_p stream, dsp_stream_p child)

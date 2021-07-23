@@ -22,6 +22,8 @@
 #include "collection.h"
 #include "node.h"
 
+class BaselineCollection;
+
 class NodeCollection : public VLBICollection
 {
 public:
@@ -36,6 +38,15 @@ public:
 	bool Contains(VLBINode *element);
 	bool ContainsKey(const char* element);
     int IndexOf(VLBINode *element);
+    inline BaselineCollection* getBaselines() { return baselines; }
+    dsp_location *getLocation() { return &station; }
+    bool isRelative() { return relative; }
+    void setRelative(bool value) { relative = value; }
+
+private:
+    bool relative;
+    dsp_location station;
+    BaselineCollection *baselines;
 };
 
 #endif //_NODECOLLECTION_H

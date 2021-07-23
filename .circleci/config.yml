@@ -1,0 +1,23 @@
+version: 2
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004:202101-01
+    working_directory: ~/OpenVLBI
+    steps:
+      - checkout
+      - run:
+          name: build
+          command: |
+            ./scripts/build.sh
+            mkdir -p tests
+            ./scripts/test.sh 21600 512x512 synthesis_delay_coverage | vlbi_client_dummy -t8
+            ./scripts/test.sh 21600 512x512 synthesis_delay_raw | vlbi_client_dummy -t8
+            ./scripts/test.sh 21600 512x512 synthesis_delay_idft | vlbi_client_dummy -t8
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build

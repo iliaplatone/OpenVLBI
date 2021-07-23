@@ -20,9 +20,12 @@
 #include <cstdlib>
 #include "node.h"
 #include "nodecollection.h"
+#include "baselinecollection.h"
 
 NodeCollection::NodeCollection() : VLBICollection::VLBICollection()
 {
+    relative = false;
+    baselines = new BaselineCollection(this);
 }
 
 NodeCollection::~NodeCollection()
@@ -32,11 +35,13 @@ NodeCollection::~NodeCollection()
 void NodeCollection::Add(VLBINode * element, const char *name)
 {
     VLBICollection::Add(element, name);
+    baselines->Update();
 }
 
 void NodeCollection::RemoveKey(const char* name)
 {
     VLBICollection::RemoveKey(name);
+    baselines->Update();
 }
 
 VLBINode * NodeCollection::Get(const char* name)
@@ -47,11 +52,13 @@ VLBINode * NodeCollection::Get(const char* name)
 void NodeCollection::Remove(VLBINode *element)
 {
     VLBICollection::Remove(element);
+    baselines->Update();
 }
 
 void NodeCollection::RemoveAt(int index)
 {
 	VLBICollection::RemoveAt(index);
+    baselines->Update();
 }
 
 VLBINode * NodeCollection::At(int index)

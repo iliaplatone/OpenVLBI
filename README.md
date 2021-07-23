@@ -1,3 +1,6 @@
+[![CircleCi](https://circleci.com/gh/iliaplatone/OpenVLBI/tree/master.svg?style=shield)](https://circleci.com/gh/iliaplatone/OpenVLBI/?branch=master)
+[![Linux](https://github.com/iliaplatone/OpenVLBI/actions/workflows/default.yml/badge.svg)](https://github.com/iliaplatone/OpenVLBI/actions/workflows/default.yml)
+
 # Interferometric correlator clients application suite
 libvlbi is an open source library and application suite for astronomical interferometry.
 
@@ -11,8 +14,6 @@ Client applications usually are linked to other libraries and with libvlbi, or d
 The central server offers a shell that connects to the various clients and correlates using the library streams captured from INDI servers by adding them using the vlbi_server script.
 
 This repository contains the sources for building the library and a client application
-
-[![Build Status](https://travis-ci.org/iliaplatone/OpenVLBI.svg?branch=master)](https://travis-ci.org/iliaplatone/OpenVLBI)
 
 # Build libvlbi
 
@@ -130,14 +131,16 @@ Here is the current command list:
 ```
 add context name:string - add an OpenVLBI context to the internal list
 set context name:string - set current OpenVLBI context selecting it by name from the internal list
-add node name,[geo|xyz],latitude,longitude,elevation,datafile,observationdate:string - add a node to the internal list
+add node name,geo|xyz,latitude|x,longitude|y,elevation|z,datafile,observationdate:string - add a node to the internal list
 del node name:string - remove a node from the internal list
 set model name:string - new comparison model
-set freq value:numeric - set detectors frequency
+set frequency value:numeric - set detectors frequency
 set bitspersample value:numeric - set detectors sample bit depth
 set samplerate value:numeric - set detectors sampling rate
 set target ra,dec:numeric,numeric - set telescopes celestial target
-get observation type:string - get UV plot observation ([synthesis|movingbase]_[raw|idft|coverage]) for aperture synthesis observation or to plot the UV coverage
+set resolution WxH:numeric,numeric - set the resolution of the output picture of the Fourier plane
+set location latitude,longitude,elevation:numeric,numeric - set the reference station coordinates for xyz node locations relative to this
+get observation type:string - get the Fourier plane observation ([synthesis|movingbase]_[delay|nodelay]_[raw|idft|coverage]) for aperture synthesis observation or to plot the UV coverage. delay stays for automatically calculate delays between nodes, nodelay means they are already synchronized.
 ```
 
 ### INDI client specific commands

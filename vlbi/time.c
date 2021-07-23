@@ -49,6 +49,7 @@ double vlbi_time_timespec_to_J2000time(timespec_t tp)
     j2000_tm.tm_wday = 6;
     j2000_tm.tm_yday = 0;
     j2000_tm.tm_isdst = 0;
+    j2000_tm.tm_zone = "UTC";
     j2000 = mktime(&j2000_tm);
     return ((double)(tp.tv_sec - j2000) + (double)tp.tv_nsec / 1000000000.0);
 }
@@ -89,17 +90,17 @@ timespec_t vlbi_time_J2000time_to_timespec(double secs)
 timespec_t vlbi_time_string_to_utc(char *time)
 {
 	char* k = strtok(time, "/");
-        int Y = (int)strtol(k, NULL, 10);
-        k = strtok(NULL, "/");
-        int M = (int)strtol(k, NULL, 10);
-        k = strtok(NULL, "/");
-        int D = (int)strtol(k, NULL, 10);
+    int Y = (int)strtol(k, NULL, 10);
+    k = strtok(NULL, "/");
+    int M = (int)strtol(k, NULL, 10);
+    k = strtok(NULL, "/");
+    int D = (int)strtol(k, NULL, 10);
 
-        k = strtok(time+12, ":");
-        int H = (int)strtol(k, NULL, 10);
-        k = strtok(NULL, ":");
-        int m = (int)strtol(k, NULL, 10);
-        k = strtok(NULL, ":");
-        double s = (double)atof(k);
-        return vlbi_time_mktimespec(Y, M, D, H, m, floor(s), (s-floor(s))*100000000.0);
+    k = strtok(time+12, ":");
+    int H = (int)strtol(k, NULL, 10);
+    k = strtok(NULL, ":");
+    int m = (int)strtol(k, NULL, 10);
+    k = strtok(NULL, ":");
+    double s = (double)atof(k);
+    return vlbi_time_mktimespec(Y, M, D, H, m, floor(s), (s-floor(s))*100000000.0);
 }

@@ -1,17 +1,13 @@
 #!/bin/bash
-version=1.8.0-`lsb_release -s -i -r | tr -d '\n'`
-sudo add-apt-repository ppa:~mutlaqja -y
-sudo apt-get -qq update
-sudo apt-get install -y --force-yes indi-full libnova-dev libindi-dev libpthread-stubs0-dev libcfitsio-dev zlib1g-dev cmake dpkg-dev imagemagick libfftw3-dev
+export version=$(head -n 1 debian/changelog | tr -d [a-z:\(:\):=:\;:\ ] | tr -d '\n')
+export arch=$(dpkg --print-architecture)
 
-mkdir -p build
-pushd build
-cmake -DCMAKE_INSTALL_PREFIX=../debian/openvlbi/usr ..
-make
-sudo make install
-popd
-
-pushd debian
-sudo ./build.deb.sh openvlbi ${version}
-sudo dpkg -i packages/openvlbi_${version}*.deb
-popd
+sudo add-apt-repository -y ppa:~mutlaqja/ppa
+sudo apt-get update
+sudo apt-get install -y indi-full libindi-dev libnova-dev libfftw3-dev libcfitsio-dev cdbs cmake dpkg-dev build-essential fakeroot devscripts
+dpkg-buildpackage  -b -rfakeroot -us -uc;
+mkdir -p packages
+mv ../libopenvlbi_${version}_${arch}.deb packages/
+mv ../openvlbi-bin_${version}_${arch}.deb packages/
+sudo dpkg -i packages/libopenvlbi_${version}_${arch}.deb
+sudo dpkg -i packages/openvlbi-bin_${version}_${arch}.deb

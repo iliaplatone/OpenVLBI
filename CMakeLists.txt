@@ -8,19 +8,21 @@ include(ExternalProject)
 
 find_package(CFITSIO REQUIRED)
 find_package(ZLIB REQUIRED)
+find_package(Nova REQUIRED)
 find_package(FFTW3 REQUIRED)
 find_package(Threads REQUIRED)
 option(WITH_INDI_CLIENT "Add INDI client for OpenVLBI" ON)
 option(WITH_DUMMY_CLIENT "Add dummy client for OpenVLBI" ON)
 
 set (VLBI_VERSION_MAJOR 1)
-set (VLBI_VERSION_MINOR 10)
+set (VLBI_VERSION_MINOR 13)
 set (VLBI_VERSION_STRING "${VLBI_VERSION_MAJOR}.${VLBI_VERSION_MINOR}.0")
+set(LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake_modules/")
 
-add_definitions(-Wall -O3 -g -fstack-protector -Wno-unused-parameter)
+add_definitions(-Wall -g -fstack-protector -Wno-unused-parameter)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/README.md" README )
 string(REPLACE "[![Build Status](https://travis-ci.org/iliaplatone/OpenVLBI.svg?branch=master)](https://travis-ci.org/iliaplatone/OpenVLBI)" "" README "${README}")
@@ -71,7 +73,7 @@ target_link_libraries(openvlbi ${FFTW3_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY} ${CMA
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dsp.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
-install(TARGETS openvlbi LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+install(TARGETS openvlbi LIBRARY DESTINATION ${LIB_INSTALL_DIR})
 
 if(WITH_INDI_CLIENT)
 find_package(INDI REQUIRED)
