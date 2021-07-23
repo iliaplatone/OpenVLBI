@@ -10,7 +10,6 @@ jobs:
       - run:
           name: build
           command: |
-            cd OpenVLBI
             ./scripts/build.sh
             mkdir -p tests
             ./scripts/test.sh 21600 512x512 synthesis_delay_coverage | vlbi_client_dummy -t8 | base64 -d | convert -size 512x512 -depth 8 GRAY:- tests/synthesis_delay_coverage.png
