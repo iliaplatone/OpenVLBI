@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openvlbi_20clients_480',['OpenVLBI clients',['../page__open_v_l_b_i.html',1,'']]]
+  ['interferometric_20correlator_20clients_20application_20suite_481',['Interferometric correlator clients application suite',['../page__interferometric.html',1,'']]]
 ];

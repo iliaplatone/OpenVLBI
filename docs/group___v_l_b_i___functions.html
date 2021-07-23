@@ -83,12 +83,15 @@ Functions</h2></td></tr>
 <tr class="memitem:gac418b5f504c3fa7d73d83c63d5ea38ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gac418b5f504c3fa7d73d83c63d5ea38ce">vlbi_del_stream</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name)</td></tr>
 <tr class="memdesc:gac418b5f504c3fa7d73d83c63d5ea38ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a stream from the current libVLBI context.  <a href="group___v_l_b_i___functions.html#gac418b5f504c3fa7d73d83c63d5ea38ce">More...</a><br /></td></tr>
 <tr class="separator:gac418b5f504c3fa7d73d83c63d5ea38ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga14e22ac242e8d76db95c16a5c06cfdc5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga14e22ac242e8d76db95c16a5c06cfdc5">vlbi_get_uv_plot_aperture_synthesis</a> (void *ctx, int u, int v, double *target, double freq, double sr)</td></tr>
-<tr class="memdesc:ga14e22ac242e8d76db95c16a5c06cfdc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.  <a href="group___v_l_b_i___functions.html#ga14e22ac242e8d76db95c16a5c06cfdc5">More...</a><br /></td></tr>
-<tr class="separator:ga14e22ac242e8d76db95c16a5c06cfdc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1dc53292545b0cc9b723953b7d3ff557"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga1dc53292545b0cc9b723953b7d3ff557">vlbi_get_uv_plot_moving_baseline</a> (void *ctx, int u, int v, double *target, double freq, double sr)</td></tr>
-<tr class="memdesc:ga1dc53292545b0cc9b723953b7d3ff557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.  <a href="group___v_l_b_i___functions.html#ga1dc53292545b0cc9b723953b7d3ff557">More...</a><br /></td></tr>
-<tr class="separator:ga1dc53292545b0cc9b723953b7d3ff557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf57dbbb14efe53d31db2306389b0233c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaf57dbbb14efe53d31db2306389b0233c">vlbi_set_location</a> (void *ctx, double lat, double lon, double el)</td></tr>
+<tr class="memdesc:gaf57dbbb14efe53d31db2306389b0233c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the location of the reference station.  <a href="group___v_l_b_i___functions.html#gaf57dbbb14efe53d31db2306389b0233c">More...</a><br /></td></tr>
+<tr class="separator:gaf57dbbb14efe53d31db2306389b0233c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf234b285a6e5e7616971046673241bdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaf234b285a6e5e7616971046673241bdd">vlbi_set_baseline_buffer</a> (void *ctx, char *node1, char *node2, <a class="el" href="dsp_8h.html#a73df7c5a60ce5e6572c8c79035503a75">dsp_t</a> *buffer, int len)</td></tr>
+<tr class="memdesc:gaf234b285a6e5e7616971046673241bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the buffer of a single baseline with already correlated data.  <a href="group___v_l_b_i___functions.html#gaf234b285a6e5e7616971046673241bdd">More...</a><br /></td></tr>
+<tr class="separator:gaf234b285a6e5e7616971046673241bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga447f088ec3c35ce1e3486f70a6b5d09d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga447f088ec3c35ce1e3486f70a6b5d09d">vlbi_get_uv_plot</a> (void *ctx, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, <a class="el" href="group___v_l_b_i___types.html#ga372e6573a910d3275046540c39f3dc39">vlbi_func2_t</a> delegate)</td></tr>
+<tr class="memdesc:ga447f088ec3c35ce1e3486f70a6b5d09d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.  <a href="group___v_l_b_i___functions.html#ga447f088ec3c35ce1e3486f70a6b5d09d">More...</a><br /></td></tr>
+<tr class="separator:ga447f088ec3c35ce1e3486f70a6b5d09d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0796b9c149931dd6cc9b7233e9b13ef2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga0796b9c149931dd6cc9b7233e9b13ef2">vlbi_get_ifft_estimate</a> (<a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> uv)</td></tr>
 <tr class="memdesc:ga0796b9c149931dd6cc9b7233e9b13ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.  <a href="group___v_l_b_i___functions.html#ga0796b9c149931dd6cc9b7233e9b13ef2">More...</a><br /></td></tr>
 <tr class="separator:ga0796b9c149931dd6cc9b7233e9b13ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -278,14 +281,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga14e22ac242e8d76db95c16a5c06cfdc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga14e22ac242e8d76db95c16a5c06cfdc5">&#9670;&nbsp;</a></span>vlbi_get_uv_plot_aperture_synthesis()</h2>
+<a id="ga447f088ec3c35ce1e3486f70a6b5d09d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga447f088ec3c35ce1e3486f70a6b5d09d">&#9670;&nbsp;</a></span>vlbi_get_uv_plot()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> vlbi_get_uv_plot_aperture_synthesis </td>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> vlbi_get_uv_plot </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -318,7 +321,25 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>sr</em>&#160;</td>
+          <td class="paramname"><em>sr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nodelay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>moving_baseline</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga372e6573a910d3275046540c39f3dc39">vlbi_func2_t</a>&#160;</td>
+          <td class="paramname"><em>delegate</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -338,73 +359,9 @@ Functions</h2></td></tr>
     <tr><td class="paramname">target</td><td>The target position int Ra/Dec celestial coordinates </td></tr>
     <tr><td class="paramname">freq</td><td>The frequency observed. This parameter will scale the plot inverserly. </td></tr>
     <tr><td class="paramname">sr</td><td>The sampling rate. This parameter will be used as meter for the elements of the streams. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The libVLBI stream structure containing the Fourier transform of the object observed </dd></dl>
-
-</div>
-</div>
-<a id="ga1dc53292545b0cc9b723953b7d3ff557"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1dc53292545b0cc9b723953b7d3ff557">&#9670;&nbsp;</a></span>vlbi_get_uv_plot_moving_baseline()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> vlbi_get_uv_plot_moving_baseline </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>u</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>target</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>freq</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>sr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>The libVLBI context </td></tr>
-    <tr><td class="paramname">correlation_func</td><td>The correlation delegate, you should use the vlbi_func2_t delegate function type for this argument. </td></tr>
-    <tr><td class="paramname">u</td><td>The U size of the resulting UV plot </td></tr>
-    <tr><td class="paramname">v</td><td>The V size of the resulting UV plot </td></tr>
-    <tr><td class="paramname">target</td><td>The target position int Ra/Dec celestial coordinates </td></tr>
-    <tr><td class="paramname">freq</td><td>The frequency observed. This parameter will scale the plot inverserly. </td></tr>
-    <tr><td class="paramname">sr</td><td>The sampling rate. This parameter will be used as meter for the elements of the streams. </td></tr>
+    <tr><td class="paramname">nodelay</td><td>1 if no delay calculation should be done. streams entered are already synced. </td></tr>
+    <tr><td class="paramname">moving_baseline</td><td>1 if the location field of all streams is an array containing the coordinates of the nodes on each element of the data array. </td></tr>
+    <tr><td class="paramname">delegate</td><td>The delegate function to be executed on each node stream buffer element. </td></tr>
   </table>
   </dd>
 </dl>
@@ -452,10 +409,119 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gaf234b285a6e5e7616971046673241bdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf234b285a6e5e7616971046673241bdd">&#9670;&nbsp;</a></span>vlbi_set_baseline_buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_set_baseline_buffer </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>node1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>node2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="dsp_8h.html#a73df7c5a60ce5e6572c8c79035503a75">dsp_t</a> *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the buffer of a single baseline with already correlated data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The libVLBI context </td></tr>
+    <tr><td class="paramname">node1</td><td>The name of the first node </td></tr>
+    <tr><td class="paramname">node1</td><td>The name of the second node </td></tr>
+    <tr><td class="paramname">buffer</td><td>The buffer with correlated data </td></tr>
+    <tr><td class="paramname">len</td><td>The length of the buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf57dbbb14efe53d31db2306389b0233c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf57dbbb14efe53d31db2306389b0233c">&#9670;&nbsp;</a></span>vlbi_set_location()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_set_location </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>el</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the location of the reference station. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The libVLBI context </td></tr>
+    <tr><td class="paramname">lat</td><td>The latitude of the station </td></tr>
+    <tr><td class="paramname">lon</td><td>The longitude of the station </td></tr>
+    <tr><td class="paramname">el</td><td>The elevation of the station </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 13 2021 20:32:40 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 23 2021 14:27:24 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
