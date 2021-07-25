@@ -56,7 +56,7 @@ extern "C" {
 /*@{*/
 
 #define DSP_MAX_STARS 200
-#define dsp_t unsigned int
+#define dsp_t double
 #define dsp_t_max (((dsp_t)~0)>>(sizeof(dsp_t)*4))
 #define dsp_t_min -dsp_t_max
 
@@ -477,6 +477,22 @@ DLL_EXPORT dsp_stream_p dsp_convolution_convolution(dsp_stream_p stream1, dsp_st
     }\
     mean /= len;\
     mean;\
+    })
+
+/**
+* \brief Standard deviation of the inut stream
+* \param stream the stream on which execute
+* \return the standard deviation.
+*/
+#define dsp_stats_stddev(buf, len)\
+({\
+    double mean = dsp_stats_mean(buf, len);\
+    int x;\
+    double stddev = 0;\
+    for(x = 0; x < len; x++) {\
+        stddev += fabs(buf[x] - mean);\
+    }\
+    stddev / len;\
     })
 
 /**
