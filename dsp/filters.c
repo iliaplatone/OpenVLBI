@@ -16,7 +16,7 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <dsp.h>
+#include "dsp.h"
 
 void dsp_filter_squarelaw(dsp_stream_p stream)
 {

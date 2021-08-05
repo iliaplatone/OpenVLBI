@@ -19,12 +19,12 @@
 #include <dsp.h>
 #include "node.h"
 
-VLBINode::VLBINode(dsp_stream_p stream, int index, bool geographic_coordinates)
+VLBINode::VLBINode(dsp_stream_p stream, char* name, int index, bool geographic_coordinates)
 {
     Stream = stream;
     dsp_stream_add_dim(getStream(), 1);
     dsp_stream_alloc_buffer(getStream(), getStream()->len);
-    Name = (char*)Stream->arg;
+    Name = name;
     Index = index;
     setLocation(0);
     Geo = geographic_coordinates;
