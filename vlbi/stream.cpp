@@ -225,9 +225,6 @@ void vlbi_set_location(void *ctx, double lat, double lon, double el)
 void vlbi_add_stream(void *ctx, dsp_stream_p Stream, char* name, int geo) {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p stream = dsp_stream_copy(Stream);
-    int na = ('Z' - 'A');
-    stream->arg = calloc(150, 1);
-    sprintf((char*)stream->arg, "%c%c", (nodes->Count % na) + 'A', ((nodes->Count / na) % 10) + '0');
     nodes->Add(new VLBINode(stream, name, nodes->Count, geo == 1));
 }
 
