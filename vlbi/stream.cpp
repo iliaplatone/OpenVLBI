@@ -237,10 +237,11 @@ void vlbi_del_stream(void *ctx, char* name) {
 
 void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer, int len) {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    int idx = (nodes->Get(node1)->getIndex()*2-1)*nodes->Get(node1)->getIndex()/2+nodes->Get(node2)->getIndex();
-    dsp_stream_set_buffer(nodes->getBaselines()->At(idx)->getStream(), buffer, len);
-    dsp_stream_alloc_buffer(nodes->getBaselines()->At(idx)->getStream(), len);
-    nodes->getBaselines()->At(idx)->Lock();
+    char name[150];
+    sprintf(name, "%s_%s", node1, node2);
+    VLBIBaseline *b = nodes->getBaselines()->Get(name);
+    dsp_stream_set_buffer(b->getStream(), buffer, len);
+    b->Lock();
 }
 
 dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate)
