@@ -103,6 +103,49 @@ static double getDelay(double time, NodeCollection *nodes, VLBINode *n1, VLBINod
     return delay;
 }
 
+void vlbi_get_offsets(vlbi_context ctx, double J200Time, char* node1, char* node2, double Ra, double Dec, double *offset1, double *offset2)
+{
+    NodeCollection* nodes = (NodeCollection*)ctx;
+    char baseline[150];
+    sprintf(baseline, "%s_%s", node1, node2);
+    VLBIBaseline *b = nodes->getBaselines()->Get(baseline);
+    b->setRa(Ra);
+    b->setDec(Dec);
+    double max_delay = 0, Alt, Az;
+    double center[3];
+    int farest = 0, x, y;
+    for (x = 0; x < nodes->Count; x++) {
+        for (y = x+1; y < nodes->Count; y++) {
+            double delay = getDelay(J200Time, nodes, nodes->At(x), nodes->At(y), b->getRa(), b->getDec(), b->getWaveLength());
+            if(fabs(delay)>max_delay) {
+                max_delay = fabs(delay);
+                if(delay < 0)
+                    farest = x;
+                else
+                    farest = y;
+            }
+        }
+    }
+    if(!nodes->isRelative()) {
+        center[0] = b->getNode2()->getGeographicLocation()[0]+b->getNode1()->getGeographicLocation()[0]/2;
+        center[1] = b->getNode2()->getGeographicLocation()[1]+b->getNode1()->getGeographicLocation()[1]/2;
+        while(center[0] > 90.0)
+            center[0] -= 180.0;
+        while(center[0] < -90.0)
+            center[0] += 180.0;
+        while(center[1] > 180.0)
+            center[1] -= 360.0;
+        while(center[1] < -180.0)
+            center[1] += 360.0;
+        vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(J200Time, b->getNode2()->getGeographicLocation()[1]), b->getRa(), b->getDec(), center[0], center[1], &Alt, &Az);
+    } else {
+        vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(J200Time, nodes->getLocation()->geographic.lon), b->getRa(), b->getDec(), nodes->getLocation()->geographic.lat, nodes->getLocation()->geographic.lon, &Alt, &Az);
+    }
+    b->setTarget(Az, Alt);
+    *offset1 = getDelay(J200Time, nodes, b->getNode1(), nodes->At(farest), b->getRa(), b->getDec(), b->getWaveLength());
+    *offset2 = getDelay(J200Time, nodes, b->getNode2(), nodes->At(farest), b->getRa(), b->getDec(), b->getWaveLength());
+}
+
 static void* fillplane(void *arg)
 {
     struct args { VLBIBaseline *b; NodeCollection *nodes; bool moving_baseline; bool nodelay; };
@@ -139,41 +182,10 @@ static void* fillplane(void *arg)
                 nodes->At(x)->setLocation(0);
             }
         }
-        max_delay = 0;
-        farest = 0;
-        for (x = 0; x < nodes->Count; x++) {
-            for (y = x+1; y < nodes->Count; y++) {
-                double delay = getDelay(time, nodes, nodes->At(x), nodes->At(y), b->getRa(), b->getDec(), b->getWaveLength());
-                if(fabs(delay)>max_delay) {
-                    max_delay = fabs(delay);
-                    if(delay < 0)
-                        farest = x;
-                    else
-                        farest = y;
-                }
-            }
-        }
-        if(!nodes->isRelative()) {
-            center[0] = b->getNode2()->getGeographicLocation()[0]+b->getNode1()->getGeographicLocation()[0]/2;
-            center[1] = b->getNode2()->getGeographicLocation()[1]+b->getNode1()->getGeographicLocation()[1]/2;
-            while(center[0] > 90.0)
-                center[0] -= 180.0;
-            while(center[0] < -90.0)
-                center[0] += 180.0;
-            while(center[1] > 180.0)
-                center[1] -= 360.0;
-            while(center[1] < -180.0)
-                center[1] += 360.0;
-            vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, b->getNode2()->getGeographicLocation()[1]), b->getRa(), b->getDec(), center[0], center[1], &Alt, &Az);
-        } else {
-            vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, nodes->getLocation()->geographic.lon), b->getRa(), b->getDec(), nodes->getLocation()->geographic.lat, nodes->getLocation()->geographic.lon, &Alt, &Az);
-        }
-        offset1 = getDelay(time, nodes, b->getNode1(), nodes->At(farest), b->getRa(), b->getDec(), b->getWaveLength());
-        offset2 = getDelay(time, nodes, b->getNode2(), nodes->At(farest), b->getRa(), b->getDec(), b->getWaveLength());
+        vlbi_get_offsets((void*)nodes, time, b->getNode1()->getName(), b->getNode2()->getName(), b->getRa(), b->getDec(), &offset1, &offset2);
         if(nodelay) {
             offset1 = offset2 = 0.0;
         }
-        b->setTarget(Az, Alt);
         b->getProjection();
         int U = b->getU() + u / 2;
         int V = b->getV() + v / 2;
@@ -216,7 +228,7 @@ void vlbi_add_stream(void *ctx, dsp_stream_p Stream, char* name, int geo) {
     int na = ('Z' - 'A');
     stream->arg = calloc(150, 1);
     sprintf((char*)stream->arg, "%c%c", (nodes->Count % na) + 'A', ((nodes->Count / na) % 10) + '0');
-    nodes->Add(new VLBINode(stream, geo == 1), name);
+    nodes->Add(new VLBINode(stream, name, nodes->Count, geo == 1));
 }
 
 void vlbi_del_stream(void *ctx, char* name) {

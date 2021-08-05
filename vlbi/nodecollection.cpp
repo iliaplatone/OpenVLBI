@@ -32,9 +32,9 @@ NodeCollection::~NodeCollection()
 {
 }
 
-void NodeCollection::Add(VLBINode * element, const char *name)
+void NodeCollection::Add(VLBINode * element)
 {
-    VLBICollection::Add(element, name);
+    VLBICollection::Add(element, element->getName());
     baselines->Update();
 }
 

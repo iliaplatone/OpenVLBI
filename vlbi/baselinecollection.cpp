@@ -64,7 +64,7 @@ void BaselineCollection::Update()
 void BaselineCollection::Add(VLBIBaseline * element)
 {
     element->getStream()->parent = Stream;
-    VLBICollection::Add(element, (char*)element->getStream()->arg);
+    VLBICollection::Add(element, element->getName());
 }
 
 void BaselineCollection::RemoveKey(const char* name)
