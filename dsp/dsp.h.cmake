@@ -55,7 +55,7 @@ extern "C" {
 */
 /*@{*/
 #define DSP_MAX_STARS 200
-#define dsp_t unsigned int
+#define dsp_t double
 #define dsp_t_max (((dsp_t)~0)>>(sizeof(dsp_t)*4))
 #define dsp_t_min -dsp_t_max
 
