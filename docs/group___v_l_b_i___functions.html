@@ -89,6 +89,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaf234b285a6e5e7616971046673241bdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaf234b285a6e5e7616971046673241bdd">vlbi_set_baseline_buffer</a> (void *ctx, char *node1, char *node2, <a class="el" href="dsp_8h.html#a73df7c5a60ce5e6572c8c79035503a75">dsp_t</a> *buffer, int len)</td></tr>
 <tr class="memdesc:gaf234b285a6e5e7616971046673241bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the buffer of a single baseline with already correlated data.  <a href="group___v_l_b_i___functions.html#gaf234b285a6e5e7616971046673241bdd">More...</a><br /></td></tr>
 <tr class="separator:gaf234b285a6e5e7616971046673241bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0cef76b33739ef82614e1902f54b7eb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga0cef76b33739ef82614e1902f54b7eb8">vlbi_get_offsets</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, double J2000Time, char *node1, char *node2, double Ra, double Dec, double *offset1, double *offset2)</td></tr>
+<tr class="memdesc:ga0cef76b33739ef82614e1902f54b7eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the delays of a single baseline nodes.  <a href="group___v_l_b_i___functions.html#ga0cef76b33739ef82614e1902f54b7eb8">More...</a><br /></td></tr>
+<tr class="separator:ga0cef76b33739ef82614e1902f54b7eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga447f088ec3c35ce1e3486f70a6b5d09d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga447f088ec3c35ce1e3486f70a6b5d09d">vlbi_get_uv_plot</a> (void *ctx, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, <a class="el" href="group___v_l_b_i___types.html#ga372e6573a910d3275046540c39f3dc39">vlbi_func2_t</a> delegate)</td></tr>
 <tr class="memdesc:ga447f088ec3c35ce1e3486f70a6b5d09d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.  <a href="group___v_l_b_i___functions.html#ga447f088ec3c35ce1e3486f70a6b5d09d">More...</a><br /></td></tr>
 <tr class="separator:ga447f088ec3c35ce1e3486f70a6b5d09d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -281,6 +284,83 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga0cef76b33739ef82614e1902f54b7eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0cef76b33739ef82614e1902f54b7eb8">&#9670;&nbsp;</a></span>vlbi_get_offsets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_get_offsets </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>J2000Time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>node1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>node2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Ra</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Dec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>offset1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>offset2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the delays of a single baseline nodes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The libVLBI context </td></tr>
+    <tr><td class="paramname">J2000Time</td><td>The time of the calculation </td></tr>
+    <tr><td class="paramname">node1</td><td>The name of the first node </td></tr>
+    <tr><td class="paramname">node2</td><td>The name of the second node </td></tr>
+    <tr><td class="paramname">offset1</td><td>The output offset calculated for the first node </td></tr>
+    <tr><td class="paramname">offset2</td><td>The output offset calculated for the second node </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ga447f088ec3c35ce1e3486f70a6b5d09d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga447f088ec3c35ce1e3486f70a6b5d09d">&#9670;&nbsp;</a></span>vlbi_get_uv_plot()</h2>
 
@@ -458,7 +538,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The libVLBI context </td></tr>
     <tr><td class="paramname">node1</td><td>The name of the first node </td></tr>
-    <tr><td class="paramname">node1</td><td>The name of the second node </td></tr>
+    <tr><td class="paramname">node2</td><td>The name of the second node </td></tr>
     <tr><td class="paramname">buffer</td><td>The buffer with correlated data </td></tr>
     <tr><td class="paramname">len</td><td>The length of the buffer </td></tr>
   </table>
@@ -521,7 +601,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 23 2021 14:27:24 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 2 2021 22:00:00 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
