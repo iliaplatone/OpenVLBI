@@ -235,11 +235,22 @@ DLL_EXPORT void vlbi_set_location(void *ctx, double lat, double lon, double el);
 * @brief Set the buffer of a single baseline with already correlated data.
 * @param ctx The libVLBI context
 * @param node1 The name of the first node
-* @param node1 The name of the second node
+* @param node2 The name of the second node
 * @param buffer The buffer with correlated data
 * @param len The length of the buffer
 */
 DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer, int len);
+
+/**
+* @brief Get the delays of a single baseline nodes.
+* @param ctx The libVLBI context
+* @param J2000Time The time of the calculation
+* @param node1 The name of the first node
+* @param node2 The name of the second node
+* @param offset1 The output offset calculated for the first node
+* @param offset2 The output offset calculated for the second node
+*/
+DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1, char* node2, double Ra, double Dec, double *offset1, double *offset2);
 
 /**
 * @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.

@@ -16,7 +16,7 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <dsp.h>
+#include "dsp.h"
 
 double* dsp_stats_histogram(dsp_stream_p stream, int size)
 {

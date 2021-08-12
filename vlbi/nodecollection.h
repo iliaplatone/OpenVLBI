@@ -29,11 +29,11 @@ class NodeCollection : public VLBICollection
 public:
 	NodeCollection();
 	~NodeCollection();
-	void Add(VLBINode *element, const char* name = "");
+    void Add(VLBINode *element);
 	void Remove(VLBINode *element);
 	void RemoveAt(int index);
-        VLBINode *Get(const char* name);
-        void RemoveKey(const char* element);
+    VLBINode *Get(const char* name);
+    void RemoveKey(const char* element);
 	VLBINode * At(int index);
 	bool Contains(VLBINode *element);
 	bool ContainsKey(const char* element);

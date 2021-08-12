@@ -16,8 +16,10 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <dsp.h>
-
+#include "dsp.h"
+struct timespec ts;
+double ex_time = 0;
+int dsp_debug = 0;
 void dsp_stream_alloc_buffer(dsp_stream_p stream, int len)
 {
     if(stream->buf != NULL) {
@@ -53,13 +55,15 @@ dsp_stream_p dsp_stream_new()
     stream->pixel_sizes = (double*)malloc(sizeof(double) * 1);
     stream->children = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * 1);
     stream->ROI = (dsp_region*)malloc(sizeof(dsp_region) * 1);
-    stream->location = (dsp_location*)malloc(sizeof(dsp_location));
+    stream->location = (double*)malloc(sizeof(double) * 3);
     stream->target = (double*)malloc(sizeof(double) * 3);
     stream->stars = (dsp_star*)malloc(sizeof(dsp_star) * 1);
+    stream->triangles = (dsp_triangle*)malloc(sizeof(dsp_triangle) * 1);
     stream->align_info.offset = (double*)malloc(sizeof(double)*1);
     stream->align_info.center = (double*)malloc(sizeof(double)*1);
     stream->align_info.radians = (double*)malloc(sizeof(double)*1);
     stream->stars_count = 0;
+    stream->triangles_count = 0;
     stream->child_count = 0;
     stream->frame_number = 0;
     stream->parent = NULL;
@@ -83,10 +87,6 @@ void dsp_stream_free(dsp_stream_p stream)
     free(stream->ROI);
     free(stream->location);
     free(stream->target);
-    free(stream->stars);
-    free(stream->align_info.offset);
-    free(stream->align_info.center);
-    free(stream->align_info.radians);
     free(stream);
 }
 
@@ -100,10 +100,13 @@ dsp_stream_p dsp_stream_copy(dsp_stream_p stream)
     dest->wavelength = stream->wavelength;
     dest->samplerate = stream->samplerate;
     dest->stars_count = stream->stars_count;
+    dest->triangles_count = stream->triangles_count;
     dest->diameter = stream->diameter;
     dest->focal_ratio = stream->focal_ratio;
     dest->starttimeutc = stream->starttimeutc;
     dest->align_info = stream->align_info;
+    memcpy(dest->stars, stream->stars, sizeof(dsp_star) * stream->stars_count);
+    memcpy(dest->triangles, stream->triangles, sizeof(dsp_triangle) * stream->triangles_count);
     memcpy(dest->ROI, stream->ROI, sizeof(dsp_region) * stream->dims);
     memcpy(dest->pixel_sizes, stream->pixel_sizes, sizeof(double) * stream->dims);
     memcpy(dest->target, stream->target, sizeof(double) * 3);
@@ -132,6 +135,7 @@ void dsp_stream_del_dim(dsp_stream_p stream, int index)
     int* sizes = (int*)malloc(sizeof(int) * stream->dims);
     int dims = stream->dims;
     memcpy(sizes, stream->sizes, sizeof(int) * stream->dims);
+    free(stream->sizes);
     stream->dims = 0;
     int i;
     for(i = 0; i < dims; i++) {
@@ -139,7 +143,6 @@ void dsp_stream_del_dim(dsp_stream_p stream, int index)
             dsp_stream_add_dim(stream, abs(sizes[i]));
         }
     }
-    free(sizes);
 }
 
 void dsp_stream_add_child(dsp_stream_p stream, dsp_stream_p child)
@@ -147,7 +150,7 @@ void dsp_stream_add_child(dsp_stream_p stream, dsp_stream_p child)
     child->parent = stream;
     stream->children[stream->child_count] = child;
     stream->child_count++;
-    stream->children = realloc(stream->children, sizeof(dsp_stream_p) * (stream->child_count + 1));
+    stream->children = (dsp_stream_p*)realloc(stream->children, sizeof(dsp_stream_p) * (stream->child_count + 1));
 }
 
 void dsp_stream_del_child(dsp_stream_p stream, int index)
@@ -167,10 +170,13 @@ void dsp_stream_del_child(dsp_stream_p stream, int index)
 
 void dsp_stream_add_star(dsp_stream_p stream, dsp_star star)
 {
+    int d;
     stream->stars = (dsp_star*)realloc(stream->stars, sizeof(dsp_star)*(stream->stars_count+1));
-    stream->stars[stream->stars_count].center.dims = star.center.dims;
-    stream->stars[stream->stars_count].center.location = star.center.location;
     stream->stars[stream->stars_count].diameter = star.diameter;
+    stream->stars[stream->stars_count].center.dims = star.center.dims;
+    stream->stars[stream->stars_count].center.location = (double*)malloc(sizeof(double)*star.center.dims);
+    for(d = 0; d < star.center.dims; d++)
+        stream->stars[stream->stars_count].center.location[d] = star.center.location[d];
     stream->stars_count++;
 }
 
@@ -185,6 +191,54 @@ void dsp_stream_del_star(dsp_stream_p stream, int index)
     for(i = 0; i < stars_count; i++) {
         if(i != index) {
             dsp_stream_add_star(stream, stars[i]);
+        }
+    }
+}
+
+void dsp_stream_add_triangle(dsp_stream_p stream, dsp_triangle triangle)
+{
+    int s;
+    int d;
+    stream->triangles = (dsp_triangle*)realloc(stream->triangles, sizeof(dsp_triangle)*(stream->triangles_count+1));
+    stream->triangles[stream->triangles_count].dims = triangle.dims;
+    stream->triangles[stream->triangles_count].theta = triangle.theta;
+    stream->triangles[stream->triangles_count].ratios = (double*)malloc(sizeof(double)*triangle.dims);
+    stream->triangles[stream->triangles_count].sizes = (double*)malloc(sizeof(double)*triangle.dims);
+    stream->triangles[stream->triangles_count].stars = (dsp_star*)malloc(sizeof(dsp_star)*triangle.dims);
+    stream->triangles[stream->triangles_count].ratios[0] = 1.0;
+    triangle.index = acos(stream->triangles[stream->triangles_count].ratios[1]);
+    for (s = 0; s < triangle.dims; s++) {
+        stream->triangles[stream->triangles_count].sizes[s] = triangle.sizes[s];
+        if(s > 0) {
+            stream->triangles[stream->triangles_count].ratios[s] = fabs(triangle.sizes[s]/triangle.sizes[0]);
+            if(s > 1) {
+                triangle.index -= acos(stream->triangles[stream->triangles_count].ratios[s]);
+            }
+        }
+        stream->triangles[stream->triangles_count].stars[s].center.dims = triangle.stars[s].center.dims;
+        stream->triangles[stream->triangles_count].stars[s].diameter = triangle.stars[s].diameter;
+        stream->triangles[stream->triangles_count].stars[s].center.location = (double*)malloc(sizeof(double)*triangle.stars[s].center.dims);
+        for(d = 0; d < triangle.stars[s].center.dims; d++)
+            stream->triangles[stream->triangles_count].stars[s].center.location[d] = triangle.stars[s].center.location[d];
+    }
+    triangle.index = fabs(triangle.index)/M_PI;
+    if(triangle.index > 0.5)
+        triangle.index = 1.0 - stream->triangles[stream->triangles_count].index;
+    stream->triangles[stream->triangles_count].index = triangle.index;
+    stream->triangles_count++;
+}
+
+void dsp_stream_del_triangle(dsp_stream_p stream, int index)
+{
+    dsp_triangle* triangles = (dsp_triangle*)malloc(sizeof(dsp_triangle) * stream->triangles_count);
+    int triangles_count = stream->triangles_count;
+    memcpy(triangles, stream->triangles, sizeof(dsp_triangle*) * stream->triangles_count);
+    free(stream->triangles);
+    stream->triangles_count = 0;
+    int i;
+    for(i = 0; i < triangles_count; i++) {
+        if(i != index) {
+            dsp_stream_add_triangle(stream, triangles[i]);
         }
     }
 }
@@ -258,17 +312,18 @@ void dsp_stream_crop(dsp_stream_p in)
 void dsp_stream_traslate(dsp_stream_p in)
 {
     start_gettime;
+    pfunc;
     dsp_stream_p stream = dsp_stream_copy(in);
     int* offset = (int*)malloc(sizeof(int)*stream->dims);
-    dsp_buffer_copy(stream->align_info.offset, offset, stream->dims);
+    dsp_buffer_copy(in->align_info.offset, offset, in->dims);
     int z = dsp_stream_set_position(stream, offset);
     free(offset);
     int k = -z;
     z = Max(0, z);
     k = Max(0, k);
     int len = stream->len-z-k;
-    dsp_t *buf = &stream->buf[k];
-    dsp_t *data = &in->buf[z];
+    dsp_t *buf = &stream->buf[z];
+    dsp_t *data = &in->buf[k];
     memset(in->buf, 0, sizeof(dsp_t)*in->len);
     memcpy(data, buf, sizeof(dsp_t)*len);
     dsp_stream_free_buffer(stream);

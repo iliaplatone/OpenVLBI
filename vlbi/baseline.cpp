@@ -23,9 +23,8 @@ VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
     Stream = dsp_stream_new();
     dsp_stream_add_dim(getStream(), 1);
     dsp_stream_alloc_buffer(getStream(), getStream()->len);
-    Stream->arg = calloc(150, 1);
-    sprintf((char*)Stream->arg, "%s_%s", node1->getName(), node2->getName());
-    Name = (char*)Stream->arg;
+    Name = (char*)calloc(150, 1);
+    sprintf(Name, "%s_%s", node1->getName(), node2->getName());
     Node1 = node1;
     Node2 = node2;
     setRelative(false);
