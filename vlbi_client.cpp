@@ -239,8 +239,6 @@ static void sighandler(int signum)
 int main(int argc, char** argv)
 {
     char *cmd, *arg, *value, opt;
-    size_t len;
-    char *str = (char*)malloc(1);
     FILE *input = stdin;
     while ((opt = getopt(argc, argv, "t:f:")) != -1) {
         switch (opt) {
@@ -261,13 +259,30 @@ int main(int argc, char** argv)
     signal(SIGSTOP, sighandler);
     signal(SIGQUIT, sighandler);
     while (is_running) {
-        free(str);
+        if(feof(input))
+            break;
+        size_t len = 0;
+        char *str = nullptr;
         getdelim(&str, &len, (int)'\n', input);
+        *strrchr(str, '\n') = 0;
+        if(str == nullptr)
+            continue;
+        if (len == 0)
+            continue;
+        str[len-2] = 0;
         cmd = strtok(str, " ");
-        arg = strtok(NULL, " ");
-        value = strtok(NULL, " ");
-        if (!strcmp(cmd, "quit")) is_running=0; continue;
-        client->Parse(cmd, arg, value);
+        if (cmd == nullptr)
+            continue;
+        if (!strcmp(cmd, "quit")) break;
+        else {
+            arg = strtok(NULL, " ");
+            if (arg == nullptr)
+                continue;
+            value = strtok(NULL, " ");
+            if(value == nullptr)
+                continue;
+            client->Parse(cmd, arg, value);
+        }
     }
     return EXIT_SUCCESS;
 }
