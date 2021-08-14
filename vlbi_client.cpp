@@ -1,11 +1,12 @@
 #include "vlbi_client.h"
+#include <cstring>
 
 static int is_running = 1;
 
 VLBI::Client::Client()
 {
-	f = stdout;
-	Ra=0;
+    f = stdout;
+    Ra=0;
     Dec = 0;
     Freq = 1420000000;
     SampleRate = 100000000;
@@ -13,10 +14,10 @@ VLBI::Client::Client()
     Gain = 1;
     w = 128;
     h = 128;
-	contexts = new InstanceCollection();
-	model = dsp_stream_new();
-	uv = dsp_stream_new();
-	fft = dsp_stream_new();
+    contexts = new InstanceCollection();
+    model = dsp_stream_new();
+    uv = dsp_stream_new();
+    fft = dsp_stream_new();
 }
 
 VLBI::Client::~Client()
@@ -32,46 +33,46 @@ static double fillone_delegate(double x, double y) {
 
 void VLBI::Client::AddNode(char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
 {
-	dsp_stream_p node = dsp_stream_new();
-	int len = bytelen*8/abs(Bps);
-	dsp_stream_add_dim(node, len);
-	dsp_stream_alloc_buffer(node, len);
-	switch(Bps) {
-		case 16:
-		dsp_buffer_copy(((unsigned short int*)buf), node->buf, len);
-		break;
-		case 32:
-		dsp_buffer_copy(((unsigned int*)buf), node->buf, len);
-		break;
-		case 64:
-		dsp_buffer_copy(((unsigned long int*)buf), node->buf, len);
-		break;
-		case -32:
-		dsp_buffer_copy(((float*)buf), node->buf, len);
-		break;
-		case -64:
-		dsp_buffer_copy(((double*)buf), node->buf, len);
-		break;
-		case 8:
-		dsp_buffer_copy(((unsigned char*)buf), node->buf, len);
-		break;
-		default:
-		break;
-	}
+    dsp_stream_p node = dsp_stream_new();
+    int len = bytelen*8/abs(Bps);
+    dsp_stream_add_dim(node, len);
+    dsp_stream_alloc_buffer(node, len);
+    switch(Bps) {
+        case 16:
+        dsp_buffer_copy(((unsigned short int*)buf), node->buf, len);
+        break;
+        case 32:
+        dsp_buffer_copy(((unsigned int*)buf), node->buf, len);
+        break;
+        case 64:
+        dsp_buffer_copy(((unsigned long int*)buf), node->buf, len);
+        break;
+        case -32:
+        dsp_buffer_copy(((float*)buf), node->buf, len);
+        break;
+        case -64:
+        dsp_buffer_copy(((double*)buf), node->buf, len);
+        break;
+        case 8:
+        dsp_buffer_copy(((unsigned char*)buf), node->buf, len);
+        break;
+        default:
+        break;
+    }
     node->location = locations;
-	memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
+    memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
     vlbi_add_stream(context, node, name, geo);
 }
 
 void VLBI::Client::DelNode(char *name)
 {
-	vlbi_del_stream(context, name);
+    vlbi_del_stream(context, name);
 }
 
 dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type, bool nodelay)
 {
-	dsp_stream_p plot;
-	double coords[3] = { Ra, Dec };
+    dsp_stream_p plot;
+    double coords[3] = { Ra, Dec };
     plot = vlbi_get_uv_plot(context, u, v, coords, Freq, SampleRate, nodelay, (type&APERTURE_SYNTHESIS) == 0, (type&UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
     return plot;
 }
@@ -195,11 +196,13 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             k = strtok(NULL, ",");
             el = (double)atof(k);
             k = strtok(NULL, ",");
-            strcpy(file, k);
+            int len = strlen (k);
+            char* base64 = (char*)malloc(len);
+            char* buf = (char*)malloc(len*3/4+4);
+            strcpy(base64, k);
+            len = from64tobits_fast(buf, base64, len);
             k = strtok(NULL, ",");
             strcpy(date, k);
-            void *buf = malloc(1);
-            int len = vlbi_b64readfile(file, buf);
             dsp_location location;
             location.geographic.lat = lat;
             location.geographic.lon = lon;
@@ -214,7 +217,11 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
             DelNode(value);
         }
         else if(!strcmp(arg, "context")) {
-            contexts->RemoveKey(value);
+            if(contexts->ContainsKey(value)) {
+                vlbi_context ctx = contexts->Get(value);
+                contexts->Remove(value);
+                vlbi_exit(ctx);
+            }
         }
     }
 }
@@ -231,7 +238,9 @@ static void sighandler(int signum)
 
 int main(int argc, char** argv)
 {
-    char cmd[32], arg[32], value[4032], opt;
+    char *cmd, *arg, *value, opt;
+    size_t len;
+    char *str = (char*)malloc(1);
     FILE *input = stdin;
     while ((opt = getopt(argc, argv, "t:f:")) != -1) {
         switch (opt) {
@@ -252,8 +261,13 @@ int main(int argc, char** argv)
     signal(SIGSTOP, sighandler);
     signal(SIGQUIT, sighandler);
     while (is_running) {
-        if(3 != fscanf(input, "%s %s %s", cmd, arg, value)) { if (!strcmp(cmd, "quit")) is_running=0; continue; }
-	client->Parse(cmd, arg, value);
+        free(str);
+        getdelim(&str, &len, (int)'\n', input);
+        cmd = strtok(str, " ");
+        arg = strtok(NULL, " ");
+        value = strtok(NULL, " ");
+        if (!strcmp(cmd, "quit")) is_running=0; continue;
+        client->Parse(cmd, arg, value);
     }
     return EXIT_SUCCESS;
 }
