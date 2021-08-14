@@ -56,7 +56,7 @@ extern "C" {
 /*@{*/
 #define DSP_MAX_STARS 200
 #define dsp_t double
-#define dsp_t_max (((dsp_t)~0)>>(sizeof(dsp_t)*4))
+#define dsp_t_max (dsp_t)(((unsigned long long)~0)>>(sizeof(dsp_t)*4))
 #define dsp_t_min -dsp_t_max
 
 extern int DSP_MAX_THREADS;
@@ -306,7 +306,7 @@ DLL_EXPORT dsp_complex* dsp_fourier_dft(dsp_stream_p stream);
 * \brief Perform an inverse discrete Fourier Transform of a dsp_stream
 * \param stream the inout stream.
 */
-DLL_EXPORT dsp_complex* dsp_fourier_idft(dsp_stream_p stream);
+DLL_EXPORT void dsp_fourier_idft(dsp_stream_p stream);
 
 /**
 * \brief Perform a fast Fourier Transform of a dsp_stream
@@ -361,18 +361,6 @@ DLL_EXPORT void dsp_fourier_dft_magnitude(dsp_stream_p stream);
 * \param stream the input stream.
 */
 DLL_EXPORT void dsp_fourier_dft_phase(dsp_stream_p stream);
-
-/**
-* \brief Perform an inverse discrete Fourier Transform of a dsp_stream and obtain the complex magnitudes
-* \param stream the input stream.
-*/
-DLL_EXPORT void dsp_fourier_idft_magnitude(dsp_stream_p stream);
-
-/**
-* \brief Perform an inverse discrete Fourier Transform of a dsp_stream and obtain the complex phases
-* \param stream the input stream.
-*/
-DLL_EXPORT void dsp_fourier_idft_phase(dsp_stream_p stream);
 
 /*@}*/
 /**
