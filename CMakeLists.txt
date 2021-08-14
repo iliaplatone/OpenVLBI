@@ -91,9 +91,3 @@ add_executable(vlbi_client_dummy ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp ${C
 target_link_libraries(vlbi_client_dummy openvlbi ${M_LIB} ${ZLIB_LIBRARY})
 install(TARGETS vlbi_client_dummy RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(WITH_DUMMY_CLIENT)
-
-if(WITH_JSON_CLIENT)
-add_executable(vlbi_client_json ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client_json.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp)
-target_link_libraries(vlbi_client_json openvlbi)
-install(TARGETS vlbi_client_json RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-endif(WITH_JSON_CLIENT)
