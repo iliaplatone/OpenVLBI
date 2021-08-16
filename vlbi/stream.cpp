@@ -222,17 +222,72 @@ void vlbi_set_location(void *ctx, double lat, double lon, double el)
     nodes->getBaselines()->setRelative(true);
 }
 
-void vlbi_add_stream(void *ctx, dsp_stream_p Stream, char* name, int geo) {
+void vlbi_add_node(void *ctx, dsp_stream_p Stream, char* name, int geo) {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p stream = dsp_stream_copy(Stream);
     nodes->Add(new VLBINode(stream, name, nodes->Count, geo == 1));
 }
 
-void vlbi_del_stream(void *ctx, char* name) {
+int vlbi_get_nodes(void *ctx, vlbi_node** output) {
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(nodes->Count > 0) {
+        vlbi_node* out = (vlbi_node*)malloc(sizeof(vlbi_node)*nodes->Count);
+        for(int x = 0; x < nodes->Count; x++) {
+            out[x].GeographicLocation = nodes->At(x)->getGeographicLocation();
+            out[x].Location = nodes->At(x)->getLocation();
+            out[x].Geo = nodes->At(x)->GeographicCoordinates();
+            out[x].Stream = nodes->At(x)->getStream();
+            out[x].Name = nodes->At(x)->getName();
+            out[x].Index = nodes->At(x)->getIndex();
+        }
+        *output = out;
+    }
+    return nodes->Count;
+}
+
+void vlbi_del_node(void *ctx, char* name) {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     VLBINode* node = nodes->Get(name);
     nodes->Remove(node);
     node->~VLBINode();
+}
+
+int vlbi_get_baselines(void *ctx, vlbi_baseline** output) {
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(nodes->getBaselines()->Count > 0) {
+        vlbi_baseline* out = (vlbi_baseline*)malloc(sizeof(vlbi_baseline)*nodes->Count);
+        BaselineCollection* baselines = nodes->getBaselines();
+        for(int x = 0; x < nodes->getBaselines()->Count; x++) {
+            out[x].relative = baselines->At(x)->isRelative();
+            out[x].locked = baselines->At(x)->Locked();
+            out[x].Target = baselines->At(x)->getTarget();
+            out[x].Ra = baselines->At(x)->getRa();
+            out[x].Dec = baselines->At(x)->getDec();
+            out[x].baseline = baselines->At(x)->getBaseline();
+            out[x].u = baselines->At(x)->getU();
+            out[x].v = baselines->At(x)->getV();
+            out[x].delay = baselines->At(x)->getDelay();
+            out[x].WaveLength = baselines->At(x)->getWaveLength();
+            out[x].SampleRate = baselines->At(x)->getSampleRate();
+            out[x].Node1.GeographicLocation = baselines->At(x)->getNode1()->getGeographicLocation();
+            out[x].Node1.Location = baselines->At(x)->getNode1()->getLocation();
+            out[x].Node1.Geo = baselines->At(x)->getNode1()->GeographicCoordinates();
+            out[x].Node1.Stream = baselines->At(x)->getNode1()->getStream();
+            out[x].Node1.Name = baselines->At(x)->getNode1()->getName();
+            out[x].Node1.Index = baselines->At(x)->getNode1()->getIndex();
+            out[x].Node2.GeographicLocation = baselines->At(x)->getNode2()->getGeographicLocation();
+            out[x].Node2.Location = baselines->At(x)->getNode2()->getLocation();
+            out[x].Node2.Geo = baselines->At(x)->getNode2()->GeographicCoordinates();
+            out[x].Node2.Stream = baselines->At(x)->getNode2()->getStream();
+            out[x].Node2.Name = baselines->At(x)->getNode2()->getName();
+            out[x].Node2.Index = baselines->At(x)->getNode2()->getIndex();
+            out[x].Name = baselines->At(x)->getName();
+            out[x].Stream = baselines->At(x)->getStream();
+        }
+        *output = out;
+        return baselines->Count;
+    }
+    return 0;
 }
 
 void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer, int len) {
