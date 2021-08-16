@@ -61,6 +61,30 @@ extern "C" {
 */
 /**@{*/
 
+typedef struct {
+    double *GeographicLocation;
+    double *Location;
+    int Geo;
+    dsp_stream_p Stream;
+    char *Name;
+    int Index;
+} vlbi_node;
+
+typedef struct {
+    int relative;
+    int locked;
+    double *Target;
+    double Ra;
+    double Dec;
+    double *baseline;
+    double u, v, delay;
+    double WaveLength;
+    double SampleRate;
+    vlbi_node Node1;
+    vlbi_node Node2;
+    char *Name;
+    dsp_stream_p Stream;
+} vlbi_baseline;
 typedef double(* vlbi_func2_t)(double, double);
 typedef void* vlbi_context;
 typedef struct timespec timespec_t;
@@ -196,35 +220,51 @@ inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) { M
 /**@{*/
 
 /**
-* @brief Initialize a libVLBI instance.
-* @return The libVLBI context
+* @brief Initialize a OpenVLBI instance.
+* @return The OpenVLBI context
 */
 DLL_EXPORT vlbi_context vlbi_init();
 
 /**
-* @brief Close a libVLBI instance.
-* @param ctx The libVLBI context
+* @brief Close a OpenVLBI instance.
+* @param ctx The OpenVLBI context
 */
 DLL_EXPORT void vlbi_exit(vlbi_context ctx);
 
 /**
-* @brief Add a stream into the current libVLBI context.
-* @param ctx The libVLBI context
-* @param Stream The libVLBI stream to add
+* @brief Add a stream into the current OpenVLBI context.
+* @param ctx The OpenVLBI context
+* @param Stream The OpenVLBI stream to add
 * @param name A friendly name of this stream
 */
-DLL_EXPORT void vlbi_add_stream(vlbi_context ctx, dsp_stream_p Stream, char* name, int geographic_coordinates);
+DLL_EXPORT void vlbi_add_node(vlbi_context ctx, dsp_stream_p Stream, char* name, int geographic_coordinates);
 
 /**
-* @brief Remove a stream from the current libVLBI context.
-* @param ctx The libVLBI context
+* @brief Remove a stream from the current OpenVLBI context.
+* @param ctx The OpenVLBI context
 * @param name The friendly name of the stream to be removed
 */
-DLL_EXPORT void vlbi_del_stream(vlbi_context ctx, char* name);
+DLL_EXPORT void vlbi_del_node(vlbi_context ctx, char* name);
+
+/**
+* @brief List all nodes of the current OpenVLBI context.
+* @param ctx The OpenVLBI context
+* @param nodes The nodes array pointer to be filled
+* @return the number of nodes in the current context
+*/
+DLL_EXPORT int vlbi_get_nodes(void *ctx, vlbi_node** nodes);
+
+/**
+* @brief List all baselines of the current OpenVLBI context.
+* @param ctx The OpenVLBI context
+* @param baselines The baselines array pointer to be filled
+* @return the number of baselines in the current context
+*/
+DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 
 /**
 * @brief Set the location of the reference station.
-* @param ctx The libVLBI context
+* @param ctx The OpenVLBI context
 * @param lat The latitude of the station
 * @param lon The longitude of the station
 * @param el The elevation of the station
@@ -233,7 +273,7 @@ DLL_EXPORT void vlbi_set_location(void *ctx, double lat, double lon, double el);
 
 /**
 * @brief Set the buffer of a single baseline with already correlated data.
-* @param ctx The libVLBI context
+* @param ctx The OpenVLBI context
 * @param node1 The name of the first node
 * @param node2 The name of the second node
 * @param buffer The buffer with correlated data
@@ -243,7 +283,7 @@ DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, ds
 
 /**
 * @brief Get the delays of a single baseline nodes.
-* @param ctx The libVLBI context
+* @param ctx The OpenVLBI context
 * @param J2000Time The time of the calculation
 * @param node1 The name of the first node
 * @param node2 The name of the second node
@@ -254,7 +294,7 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1
 
 /**
 * @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.
-* @param ctx The libVLBI context
+* @param ctx The OpenVLBI context
 * @param correlation_func The correlation delegate, you should use the vlbi_func2_t delegate function type for this argument.
 * @param u The U size of the resulting UV plot
 * @param v The V size of the resulting UV plot
@@ -264,7 +304,7 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1
 * @param nodelay 1 if no delay calculation should be done. streams entered are already synced.
 * @param moving_baseline 1 if the location field of all streams is an array containing the coordinates of the nodes on each element of the data array.
 * @param delegate The delegate function to be executed on each node stream buffer element.
-* @return The libVLBI stream structure containing the Fourier transform of the object observed
+* @return The OpenVLBI stream structure containing the Fourier transform of the object observed
 */
 DLL_EXPORT dsp_stream_p vlbi_get_uv_plot(void *ctx, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
 
@@ -283,7 +323,7 @@ DLL_EXPORT dsp_stream_p vlbi_get_ifft_estimate(dsp_stream_p uv);
 DLL_EXPORT dsp_stream_p vlbi_apply_model(dsp_stream_p uv, dsp_stream_p model);
 
 /**
-* @brief Print the version number of libVLBI.
+* @brief Print the version number of OpenVLBI.
 * @return char* The Version string
 */
 DLL_EXPORT char* vlbi_get_version();

@@ -61,12 +61,12 @@ void VLBI::Client::AddNode(char *name, dsp_location *locations, void *buf, int b
     }
     node->location = locations;
     memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
-    vlbi_add_stream(context, node, name, geo);
+    vlbi_add_node(context, node, name, geo);
 }
 
 void VLBI::Client::DelNode(char *name)
 {
-    vlbi_del_stream(context, name);
+    vlbi_del_node(context, name);
 }
 
 dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type, bool nodelay)
@@ -120,7 +120,21 @@ void VLBI::Client::Parse(char* cmd, char* arg, char* value)
         }
     }
     else if(!strcmp(cmd, "get")) {
-        if(!strcmp(arg, "observation")) {
+        if(!strcmp(arg, "nodes")) {
+            vlbi_node* nodes;
+            int n = vlbi_get_nodes(GetContext(), &nodes);
+            for(int x = 0; x < n; x++) {
+                fprintf(f, "Node #%d: name:%s relative?:%s x:%lf y:%lf z:%lf latitude:%lf longitude:%lf elevation:%lf\n", nodes[x].Index, nodes[x].Name, nodes[x].Geo ? "no" : "yes", nodes[x].Location[0], nodes[x].Location[1], nodes[x].Location[2], nodes[x].GeographicLocation[0], nodes[x].GeographicLocation[1], nodes[x].GeographicLocation[2]);
+            }
+            free(nodes);
+        } else if(!strcmp(arg, "baselines")) {
+            vlbi_baseline* baselines;
+            int n = vlbi_get_baselines(GetContext(), &baselines);
+            for(int x = 0; x < n; x++) {
+                fprintf(f, "Baseline #%d: name:%s samplerate:%lf wavelength:%lf custom?:%s\n", x, baselines[x].Name, baselines[x].SampleRate, baselines[x].WaveLength, baselines[x].locked ? "yes" : "no");
+            }
+            free(baselines);
+        } else if(!strcmp(arg, "observation")) {
             int type = 0;
             char *t = strtok(value, "_");
             bool nodelay = false;
