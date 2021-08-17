@@ -52,9 +52,10 @@ public:
     void Tracking(bool on);
 
     int Init(int argc, char** argv);
-    void Parse(char* cmd, char* arg, char* value);
+    void Parse(FILE* f);
 
 private:
+    double Gain;
     char* Address;
     char* Savedir;
     double Bandwidth;
