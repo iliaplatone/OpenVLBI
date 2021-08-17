@@ -11,9 +11,10 @@ VLBI::Client::Client()
     Freq = 1420000000;
     SampleRate = 100000000;
     Bps = 8;
-    Gain = 1;
     w = 128;
     h = 128;
+    context = (char*)malloc(9);
+    strcpy(context, "OpenVLBI\0");
     contexts = new InstanceCollection();
     model = dsp_stream_new();
     uv = dsp_stream_new();

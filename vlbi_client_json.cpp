@@ -139,22 +139,24 @@ void JSONClient::Parse(FILE* f)
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "type")) {
-                        if(!strcmp(v->u.string.ptr, "synthesis_raw_idft"))
-                            type = APERTURE_SYNTHESIS|UV_IDFT;
-                        if(!strcmp(v->u.string.ptr, "synthesis_coverage_idft"))
-                            type = APERTURE_SYNTHESIS|UV_COVERAGE|UV_IDFT;
-                        if(!strcmp(v->u.string.ptr, "synthesis_raw"))
-                            type = APERTURE_SYNTHESIS;
-                        if(!strcmp(v->u.string.ptr, "synthesis_coverage"))
-                            type = APERTURE_SYNTHESIS|UV_COVERAGE;
-                        if(!strcmp(v->u.string.ptr, "movingbase_raw_idft"))
-                            type = UV_IDFT;
-                        if(!strcmp(v->u.string.ptr, "movingbase_coverage_idft"))
-                            type = UV_COVERAGE|UV_IDFT;
-                        if(!strcmp(v->u.string.ptr, "movingbase_raw"))
-                            type = 0;
-                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "movingbase_coverage"))
-                            type = UV_COVERAGE;
+                        for(int y = 0; y < v->u.object.length; y++) {
+                            if(!strcmp(v->u.object.values[y].name, "projection")) {
+                                if(!strcmp(v->u.object.values[y].value->u.string.ptr, "synthesis"))
+                                    type |= APERTURE_SYNTHESIS;
+                                if(!strcmp(v->u.object.values[y].value->u.string.ptr, "movingbase"))
+                                    type &= APERTURE_SYNTHESIS;
+                            }
+                            if(!strcmp(v->u.object.values[y].name, "buffer")) {
+                                if(!strcmp(v->u.object.values[y].name, "coverage"))
+                                    type |= UV_COVERAGE;
+                                if(!strcmp(v->u.object.values[y].name, "raw"))
+                                    type &= UV_COVERAGE;
+                            }
+                            if(!strcmp(v->u.object.values[y].name, "idft"))
+                                type |= v->u.object.values[y].value->u.boolean ? UV_IDFT : 0;
+                            if(!strcmp(v->u.object.values[y].name, "adjust_delays"))
+                                nodelay = (int)~v->u.object.values[y].value->u.boolean;
+                        }
                         i++;
                     }
                 }
@@ -168,7 +170,7 @@ void JSONClient::Parse(FILE* f)
                     }
                     unsigned char *base64 = (unsigned char *)malloc(sizeof(dsp_t)*plot->len * 4/3+4);
                     to64frombits(base64, (unsigned char*)plot->buf, plot->len*sizeof(double));
-                    fprintf(stdout, "{ \"context\": \"%s\", \"type\": \"%s\", \"plot\": \"%s\" }");
+                    fprintf(stdout, "{ \"context\": \"%s\", \"type\": { \"projection: \"%s\", \"buffer\": \"%s\", \"idft\": %s\", \"adjust_delays\": \"%s\" }, \"buffer\": \"%s\" }\n", CurrentContext(), (type & APERTURE_SYNTHESIS) ? "synthesis" : "movingbase", (type & UV_COVERAGE) ? "coverage" : "raw", (type & UV_IDFT) ? "true" : "false", nodelay ? "false" : "true");
                 }
             }
         }
@@ -176,3 +178,4 @@ void JSONClient::Parse(FILE* f)
     json_value_free(value);
 }
 
+JSONClient *client = new JSONClient();

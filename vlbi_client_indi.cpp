@@ -323,8 +323,29 @@ void INDIClient::serverDisconnected(int exit_code) {
     INDI_UNUSED(exit_code);
 }
 
-void INDIClient::Parse(char* cmd, char* arg, char* value)
+void INDIClient::Parse(FILE *f)
 {
+    size_t len = 0;
+    char *cmd = nullptr;
+    char *arg = nullptr;
+    char *value = nullptr;
+    char *str = nullptr;
+    getdelim(&str, &len, (int)'\n', f);
+    *strrchr(str, '\n') = 0;
+    if(str == nullptr)
+        return;
+    if (len == 0)
+        return;
+    str[len-2] = 0;
+    cmd = strtok(str, " ");
+    if (cmd == nullptr)
+        return;
+    arg = strtok(NULL, " ");
+    if (arg == nullptr)
+        return;
+    value = strtok(NULL, " ");
+    if(value == nullptr)
+        return;
     if(!strcmp(cmd, "set")) {
         if(!strcmp(arg, "connection")) {
             if(!strcmp(value, "on")) {
@@ -392,7 +413,7 @@ void INDIClient::Parse(char* cmd, char* arg, char* value)
                 AbortExposure();
         }
     }
-    VLBI::Client::Parse(cmd, arg, value);
+    VLBI::Client::Parse(f);
 }
 
 INDIClient* client = new INDIClient();

@@ -25,8 +25,9 @@ public:
     Client();
     virtual ~Client();
 
+    inline char* CurrentContext() { return context; }
     inline void AddContext(char* name) { if(!contexts->Contains(name)) contexts->Add(vlbi_init()); }
-    inline void SetContext(char* name) { if(contexts->Contains(name)) strcpy(context, name); }
+    inline void SetContext(char* name) { if(contexts->Contains(name)) { context = (char*)malloc(strlen(name)); strcpy(context, name); } }
     inline vlbi_context GetContext() { if(contexts->Contains(context)) return contexts->Get(context); return nullptr; }
     inline void DelContext(char* name) {
         if(contexts->ContainsKey(name)) {
@@ -50,7 +51,7 @@ public:
     int w;
     int h;
 private:
-    char context[150];
+    char *context;
     FILE *f;
     dsp_stream_p model;
     dsp_stream_p uv;
