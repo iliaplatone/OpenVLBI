@@ -28,7 +28,7 @@ void JSONClient::Parse()
     json_value *v;
     char *n;
     size_t len = 0;
-    getdelim(&str, &len, (int)'\n', f);
+    getdelim(&str, &len, (int)'\0', f);
     json_value *value = json_parse(str, len);
     for(int x = 0; x < value->u.object.length; x++) {
         n = value->u.object.values[x].name;
@@ -171,7 +171,7 @@ void JSONClient::Parse()
                     }
                     unsigned char *base64 = (unsigned char *)malloc(sizeof(dsp_t)*plot->len * 4/3+4);
                     to64frombits(base64, (unsigned char*)plot->buf, plot->len*sizeof(double));
-                    fprintf(output, "{ \"context\": \"%s\", \"type\": { \"projection: \"%s\", \"buffer\": \"%s\", \"idft\": %s\", \"adjust_delays\": \"%s\" }, \"buffer\": \"%s\" }\n", CurrentContext(), (type & APERTURE_SYNTHESIS) ? "synthesis" : "movingbase", (type & UV_COVERAGE) ? "coverage" : "raw", (type & UV_IDFT) ? "true" : "false", nodelay ? "false" : "true");
+                    fprintf(output, "{\n \"context\": \"%s\",\n \"type\": {\n  \"projection: \"%s\",\n  \"buffer\": \"%s\",\n  \"idft\": %s\",\n  \"adjust_delays\": \"%s\"\n },\n \"buffer\": \"%s\"\n}\0", CurrentContext(), (type & APERTURE_SYNTHESIS) ? "synthesis" : "movingbase", (type & UV_COVERAGE) ? "coverage" : "raw", (type & UV_IDFT) ? "true" : "false", nodelay ? "false" : "true");
                 }
             }
         }
