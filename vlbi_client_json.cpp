@@ -34,7 +34,7 @@ void JSONClient::Parse()
     json_value *value = json_parse_ex (&settings,
                                        str, len,
                                        error);
-    fprintf(stderr, error);
+    fprintf(stderr, "error parsing JSON: %s\n", error);
     if(!value) return;
     for(int x = 0; x < value->u.object.length; x++) {
         n = value->u.object.values[x].name;
