@@ -176,7 +176,7 @@ void JSONClient::Parse()
                     }
                     unsigned char *base64 = (unsigned char *)malloc(sizeof(dsp_t)*plot->len * 4/3+4);
                     to64frombits(base64, (unsigned char*)plot->buf, plot->len*sizeof(double));
-                    fprintf(output, "{\n \"context\": \"%s\",\n \"plot\": {\n  \"projection\": \"%s\",\n  \"buffer\": \"%s\",\n  \"idft\": %s,\n  \"adjust_delays\": %s,\n  \"buffer\": \"%s\"\n }\n}\0", CurrentContext(), (type & APERTURE_SYNTHESIS) ? "synthesis" : "movingbase", (type & UV_COVERAGE) ? "coverage" : "raw", (type & UV_IDFT) ? "true" : "false", nodelay ? "false" : "true", base64);
+                    fprintf(output, "{\n \"context\": \"%s\",\n \"plot\": {\n  \"projection\": \"%s\",\n  \"buffer\": \"%s\",\n  \"idft\": %s,\n  \"adjust_delays\": %s,\n  \"buffer\": \"%s\"\n }\n}\n", CurrentContext(), (type & APERTURE_SYNTHESIS) ? "synthesis" : "movingbase", (type & UV_COVERAGE) ? "coverage" : "raw", (type & UV_IDFT) ? "true" : "false", nodelay ? "false" : "true", base64);
                     free(base64);
                 }
             }
