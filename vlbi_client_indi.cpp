@@ -323,8 +323,9 @@ void INDIClient::serverDisconnected(int exit_code) {
     INDI_UNUSED(exit_code);
 }
 
-void INDIClient::Parse(FILE *f)
+void INDIClient::Parse()
 {
+    FILE* f = input;
     size_t len = 0;
     char *cmd = nullptr;
     char *arg = nullptr;
@@ -413,7 +414,7 @@ void INDIClient::Parse(FILE *f)
                 AbortExposure();
         }
     }
-    VLBI::Client::Parse(f);
+    VLBI::Client::Parse();
 }
 
 INDIClient* client = new INDIClient();

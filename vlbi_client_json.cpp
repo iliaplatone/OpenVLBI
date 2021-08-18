@@ -21,8 +21,9 @@ int JSONClient::Init(int argc, char** argv)
 	return VLBI::Client::Init(argc, argv);
 }
 
-void JSONClient::Parse(FILE* f)
+void JSONClient::Parse()
 {
+    FILE* f = input;
     char *str = nullptr;
     json_value *v;
     char *n;
@@ -170,7 +171,7 @@ void JSONClient::Parse(FILE* f)
                     }
                     unsigned char *base64 = (unsigned char *)malloc(sizeof(dsp_t)*plot->len * 4/3+4);
                     to64frombits(base64, (unsigned char*)plot->buf, plot->len*sizeof(double));
-                    fprintf(stdout, "{ \"context\": \"%s\", \"type\": { \"projection: \"%s\", \"buffer\": \"%s\", \"idft\": %s\", \"adjust_delays\": \"%s\" }, \"buffer\": \"%s\" }\n", CurrentContext(), (type & APERTURE_SYNTHESIS) ? "synthesis" : "movingbase", (type & UV_COVERAGE) ? "coverage" : "raw", (type & UV_IDFT) ? "true" : "false", nodelay ? "false" : "true");
+                    fprintf(output, "{ \"context\": \"%s\", \"type\": { \"projection: \"%s\", \"buffer\": \"%s\", \"idft\": %s\", \"adjust_delays\": \"%s\" }, \"buffer\": \"%s\" }\n", CurrentContext(), (type & APERTURE_SYNTHESIS) ? "synthesis" : "movingbase", (type & UV_COVERAGE) ? "coverage" : "raw", (type & UV_IDFT) ? "true" : "false", nodelay ? "false" : "true");
                 }
             }
         }

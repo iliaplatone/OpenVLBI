@@ -12,7 +12,7 @@ public:
     ~JSONClient();
 
     int Init(int argc, char** argv);
-    void Parse(FILE* f);
+    void Parse();
 
 private:
     bool nodelay;

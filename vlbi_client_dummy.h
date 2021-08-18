@@ -12,7 +12,7 @@ public:
     ~DUMMYClient();
 
     int Init(int argc, char** argv);
-    void Parse(FILE* f);
+    void Parse();
 };
 
 #endif //VLBI_CLIENT_DUMMY_H

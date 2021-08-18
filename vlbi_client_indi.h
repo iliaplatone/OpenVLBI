@@ -52,7 +52,7 @@ public:
     void Tracking(bool on);
 
     int Init(int argc, char** argv);
-    void Parse(FILE* f);
+    void Parse();
 
 private:
     double Gain;

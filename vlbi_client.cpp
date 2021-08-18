@@ -5,7 +5,8 @@ static int is_running = 1;
 
 VLBI::Client::Client()
 {
-    f = stdout;
+    input = stdin;
+    output = stdout;
     Ra=0;
     Dec = 0;
     Freq = 1420000000;
@@ -23,8 +24,8 @@ VLBI::Client::Client()
 
 VLBI::Client::~Client()
 {
-    if(context != NULL) {
-        vlbi_exit(context);
+    if(GetContext() != NULL) {
+        vlbi_exit(GetContext());
     }
 }
 
@@ -62,12 +63,12 @@ void VLBI::Client::AddNode(char *name, dsp_location *locations, void *buf, int b
     }
     node->location = locations;
     memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
-    vlbi_add_node(context, node, name, geo);
+    vlbi_add_node(GetContext(), node, name, geo);
 }
 
 void VLBI::Client::DelNode(char *name)
 {
-    vlbi_del_node(context, name);
+    vlbi_del_node(GetContext(), name);
 }
 
 dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type, bool nodelay)
@@ -78,20 +79,20 @@ dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type, bool nodelay)
     return plot;
 }
 
-void VLBI::Client::Parse(FILE* f)
+void VLBI::Client::Parse()
 {
+    FILE* f = input;
     size_t len = 0;
     char *cmd = nullptr;
     char *arg = nullptr;
     char *value = nullptr;
     char *str = nullptr;
     getdelim(&str, &len, (int)'\n', f);
-    *strrchr(str, '\n') = 0;
     if(str == nullptr)
         return;
     if (len == 0)
         return;
-    str[len-2] = 0;
+    *strrchr(str, '\n') = 0;
     cmd = strtok(str, " ");
     if (cmd == nullptr)
         return;
@@ -201,7 +202,7 @@ void VLBI::Client::Parse(FILE* f)
                     dsp_buffer_copy(plot->buf, buf, plot->len);
                     char* base64 = (char*)malloc(olen);
                     to64frombits((unsigned char*)base64, (unsigned char*)buf, ilen);
-                    fwrite(base64, 1, olen, f);
+                    fwrite(base64, 1, olen, output);
                     free(base64);
                     dsp_stream_free(plot);
                 }
@@ -272,14 +273,16 @@ static void sighandler(int signum)
 int main(int argc, char** argv)
 {
     char *cmd, *arg, *value, opt;
-    FILE *input = stdin;
     while ((opt = getopt(argc, argv, "t:f:")) != -1) {
         switch (opt) {
         case 't':
             vlbi_max_threads((int)atof(optarg));
             break;
         case 'f':
-            input = fopen (optarg, "rb+");
+            client->input = fopen (optarg, "rb+");
+            break;
+        case 'o':
+            client->output = fopen (optarg, "a");
             break;
         default:
             fprintf(stderr, "Usage: %s [-t max_threads] [-f obs_file]\n", argv[0]);
@@ -293,9 +296,9 @@ int main(int argc, char** argv)
     signal(SIGQUIT, sighandler);
     if(client->Init(argc, argv)) {
         while (is_running) {
-            if(feof(input))
+            if(feof(client->input))
                 break;
-            client->Parse(input);
+            client->Parse();
         }
     }
     return EXIT_SUCCESS;
