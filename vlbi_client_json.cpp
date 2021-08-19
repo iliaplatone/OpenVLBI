@@ -68,6 +68,27 @@ void JSONClient::Parse()
             }
         }
         int i = 0;
+        if(!strcmp(n, "fits")) {
+            if(v->u.object.length == 2) {
+                char *name = nullptr;
+                char *buf = nullptr;
+                int len;
+                char *base64 = nullptr;
+                int base64len;
+                for(int y = 0; y < 2; y ++) {
+                    if(!strcmp(v->u.object.values[y].name, "name")) {
+                        name = v->u.object.values[y].value->u.string.ptr;
+                    }
+                    if(!strcmp(v->u.object.values[y].name, "buffer")) {
+                        base64 = v->u.object.values[y].value->u.string.ptr;
+                        base64len = v->u.object.values[y].value->u.string.length;
+                        buf = (char*)malloc(base64len * 3 / 4);
+                        len = from64tobits_fast(buf, base64, base64len);
+                        vlbi_add_node(GetContext(), vlbi_file_read_fits(buf, len), name, true);
+                    }
+                }
+            }
+        }
         if(!strcmp(n, "node")) {
             if(v->u.object.length == 5) {
                 timespec_t starttime;

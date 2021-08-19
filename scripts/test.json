@@ -45,7 +45,7 @@
     "height": 128
   },
   "adjust_delays": false,
-  "idft": false,
+  "idft": true,
   "projection": "synthesis",
   "buffer": "coverage",
  }

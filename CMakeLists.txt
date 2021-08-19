@@ -32,6 +32,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dsp/dsp.h.cmake ${CMAKE_CURRENT_BINAR
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/vlbi/vlbi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
 
+include_directories( ${CFITSIO_INCLUDE_DIR})
 include_directories( ${CMAKE_CURRENT_BINARY_DIR})
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/vlbi)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/dsp)
@@ -59,6 +60,7 @@ set(vlbi_C_SRCS
 SET(dsp_C_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/convert.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/fft.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/file.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stats.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/buffer.c
@@ -70,7 +72,7 @@ SET(dsp_C_SRC
 execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(openvlbi SHARED ${dsp_C_SRC} ${vlbi_C_SRCS} ${vlbi_CXX_SRCS})
 set_target_properties(openvlbi PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
-target_link_libraries(openvlbi ${FFTW3_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(openvlbi ${FFTW3_LIBRARIES} ${M_LIB} ${CFITSIO_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dsp.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)

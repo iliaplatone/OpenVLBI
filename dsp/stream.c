@@ -55,7 +55,7 @@ dsp_stream_p dsp_stream_new()
     stream->pixel_sizes = (double*)malloc(sizeof(double) * 1);
     stream->children = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * 1);
     stream->ROI = (dsp_region*)malloc(sizeof(dsp_region) * 1);
-    stream->location = (double*)malloc(sizeof(double) * 3);
+    stream->location = (dsp_location*)malloc(sizeof(dsp_location) * 1);
     stream->target = (double*)malloc(sizeof(double) * 3);
     stream->stars = (dsp_star*)malloc(sizeof(dsp_star) * 1);
     stream->triangles = (dsp_triangle*)malloc(sizeof(dsp_triangle) * 1);

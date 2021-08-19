@@ -535,6 +535,16 @@ DLL_EXPORT double vlbi_astro_calc_delta_magnitude(double mag0, double mag, doubl
  */
 DLL_EXPORT double vlbi_astro_estimate_absolute_magnitude(double delta_dist, double delta_spectrum, double delta_mag);
 
+/**
+* \brief Read a FITS file and fill a dsp_stream_p with the contents
+* \param src the input buffer
+* \param red the location of the red pixel within the bayer pattern
+* \param width the picture width
+* \param height the picture height
+* \return The new dsp_t array
+*/
+DLL_EXPORT dsp_stream_p vlbi_file_read_fits(void *data, size_t len);
+
 DLL_EXPORT int vlbi_b64readfile(char* filename, void* buf);
 
 /**@}*/

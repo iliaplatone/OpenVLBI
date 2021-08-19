@@ -1198,98 +1198,6 @@ DLL_EXPORT void dsp_stream_traslate(dsp_stream_p stream);
 DLL_EXPORT void dsp_stream_scale(dsp_stream_p stream);
 
 /**
-* \brief Read a FITS file and fill a dsp_stream_p with its content
-* \param filename the file name.
-* \param stretch 1 if the buffer intensities have to be stretched
-* \return The new dsp_stream_p structure pointer
-*/
-DLL_EXPORT dsp_stream_p* dsp_file_read_fits(char *filename, int *channels, int stretch);
-
-/**
-* \brief Write the dsp_stream_p into a FITS file,
-* \param filename the file name.
-* \param bpp the bit depth of the output FITS file.
-* \param stream the input stream to be saved
-*/
-DLL_EXPORT void dsp_file_write_fits(char *filename, int bpp, dsp_stream_p stream);
-
-/**
-* \brief Write the components dsp_stream_p array into a JPEG file,
-* \param filename the file name.
-* \param components the number of streams in the array to be used as components 1 or 3.
-* \param bpp the bit depth of the output JPEG file [8,16,32,64,-32,-64].
-* \param stream the input stream to be saved
-*/
-DLL_EXPORT void dsp_file_write_fits_composite(char *filename, int components, int bpp, dsp_stream_p* stream);
-
-/**
-* \brief Read a JPEG file and fill a array of dsp_stream_p with its content,
-* each color channel has its own stream in this array and an additional grayscale at end will be added
-* \param filename the file name.
-* \param channels this value will be updated with the channel quantity into the picture.
-* \param stretch 1 if the buffer intensities have to be stretched
-* \return The new dsp_stream_p structure pointers array
-*/
-DLL_EXPORT dsp_stream_p* dsp_file_read_jpeg(char *filename, int *channels, int stretch);
-
-/**
-* \brief Write the stream into a JPEG file,
-* \param filename the file name.
-* \param quality the quality of the output JPEG file 0-100.
-* \param stream the input stream to be saved
-*/
-DLL_EXPORT void dsp_file_write_jpeg(char *filename, int quality, dsp_stream_p stream);
-
-/**
-* \brief Write the components dsp_stream_p array into a JPEG file,
-* \param filename the file name.
-* \param components the number of streams in the array to be used as components 1 or 3.
-* \param quality the quality of the output JPEG file 0-100.
-* \param stream the input stream to be saved
-*/
-DLL_EXPORT void dsp_file_write_jpeg_composite(char *filename, int components, int quality, dsp_stream_p* stream);
-
-/**
-* \brief Read a PNG file and fill a array of dsp_stream_p with its content,
-* each color channel has its own stream in this array and an additional grayscale at end will be added
-* \param filename the file name.
-* \param channels this value will be updated with the channel quantity into the picture.
-* \param stretch 1 if the buffer intensities have to be stretched
-* \return The new dsp_stream_p structure pointers array
-*/
-DLL_EXPORT dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int stretch);
-
-/**
-* \brief Write the components dsp_stream_p array into a PNG file,
-* \param filename the file name.
-* \param components the number of streams in the array to be used as components 1 or 3.
-* \param quality the compression of the output PNG 0-9.
-* \param stream the input stream to be saved
-*/
-DLL_EXPORT void dsp_file_write_png_composite(char *filename, int components, int compression, dsp_stream_p* stream);
-
-/**
-* \brief Convert a bayer pattern dsp_t array into a grayscale array
-* \param src the input buffer
-* \param width the picture width
-* \param height the picture height
-* \return The new dsp_t array
-*/
-DLL_EXPORT dsp_t* dsp_file_bayer_2_gray(dsp_t* src, long int width, long int height);
-
-/**
-* \brief Convert a bayer pattern dsp_t array into a ordered 3 RGB array
-* \param src the input buffer
-* \param red the location of the red pixel within the bayer pattern
-* \param width the picture width
-* \param height the picture height
-* \return The new dsp_t array
-*/
-DLL_EXPORT dsp_t* dsp_file_bayer_2_rgb(dsp_t *src, int red, long int width, long int height);
-DLL_EXPORT dsp_stream_p *dsp_stream_from_components(int* buf, int dims, int *sizes, int components);
-DLL_EXPORT dsp_stream_p *dsp_buffer_rgb_to_components(void* buf, int dims, int *sizes, int components, int bpp, int stretch);
-DLL_EXPORT void dsp_buffer_components_to_rgb(dsp_stream_p *stream, void* rgb, int components, int bpp);
-/**
 * \brief Convert a bayer pattern dsp_t array into a contiguos component array
 * \param src the input buffer
 * \param red the location of the red pixel within the bayer pattern
@@ -1298,7 +1206,6 @@ DLL_EXPORT void dsp_buffer_components_to_rgb(dsp_stream_p *stream, void* rgb, in
 * \return The new dsp_t array
 */
 DLL_EXPORT dsp_t* dsp_file_bayer_2_composite(dsp_t *src, int red, long int width, long int height);
-
 /*@}*/
 /*@}*/
 
