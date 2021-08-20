@@ -151,6 +151,7 @@ dsp_stream_p vlbi_file_read_fits(void *data, size_t len)
         stream->location->geographic.el = atof(value);
     }
 
+    status = 0;
     fits_close_file(fptr, &status);
     if(status)
         goto fail;

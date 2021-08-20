@@ -49,15 +49,15 @@ void JSONClient::Parse()
                 int i = 0;
                 for(int y = 0; y < 3; y ++) {
                     if(!strcmp(v->u.object.values[y].name, "latitude")) {
-                        lat = v->u.object.values[y].value->u.dbl;
+                        lat = atof(v->u.object.values[y].value->u.string.ptr);
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "longitude")) {
-                        lon = v->u.object.values[y].value->u.dbl;
+                        lon = atof(v->u.object.values[y].value->u.string.ptr);
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "elevation")) {
-                        el = v->u.object.values[y].value->u.dbl;
+                        el = atof(v->u.object.values[y].value->u.string.ptr);
                         i++;
                     }
                 }
@@ -107,7 +107,7 @@ void JSONClient::Parse()
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "bitspersample")) {
-                        Bps = (int)v->u.object.values[y].value->u.integer;
+                        Bps = atoi(v->u.object.values[y].value->u.string.ptr);
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "buffer")) {
@@ -137,29 +137,29 @@ void JSONClient::Parse()
                     if(!strcmp(v->u.object.values[y].name, "target")) {
                         for(int z = 0; z < v->u.object.values[y].value->u.object.length; z ++) {
                             if(!strcmp(v->u.object.values[y].value->u.object.values[z].name, "ra")) {
-                                Ra = v->u.object.values[y].value->u.object.values[z].value->u.dbl;
+                                Ra = atof(v->u.object.values[y].value->u.object.values[z].value->u.string.ptr);
                             }
                             if(!strcmp(v->u.object.values[y].value->u.object.values[z].name, "dec")) {
-                                Dec = v->u.object.values[y].value->u.object.values[z].value->u.dbl;
+                                Dec = atof(v->u.object.values[y].value->u.object.values[z].value->u.string.ptr);
                             }
                         }
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "frequency")) {
-                        Freq = v->u.object.values[y].value->u.dbl;
+                        Freq = atof(v->u.object.values[y].value->u.string.ptr);
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "samplerate")) {
-                        SampleRate = v->u.object.values[y].value->u.dbl;
+                        SampleRate = atof(v->u.object.values[y].value->u.string.ptr);
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "resolution")) {
                         for(int z = 0; z < 2; z ++) {
                             if(!strcmp(v->u.object.values[y].value->u.object.values[z].name, "width")) {
-                                w = (int)v->u.object.values[y].value->u.object.values[z].value->u.integer;
+                                w = atoi(v->u.object.values[y].value->u.object.values[z].value->u.string.ptr);
                             }
                             if(!strcmp(v->u.object.values[y].value->u.object.values[z].name, "height")) {
-                                h = (int)v->u.object.values[y].value->u.object.values[z].value->u.integer;
+                                h = atoi(v->u.object.values[y].value->u.object.values[z].value->u.string.ptr);
                             }
                         }
                         i++;
@@ -179,11 +179,11 @@ void JSONClient::Parse()
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "idft")) {
-                        type |= v->u.object.values[y].value->u.boolean ? UV_IDFT : 0;
+                        type |= strcmp(v->u.object.values[y].value->u.string.ptr, "false") ? UV_IDFT : 0;
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "adjust_delays")) {
-                        nodelay = (int)~v->u.object.values[y].value->u.boolean;
+                        nodelay = strcmp(v->u.object.values[y].value->u.string.ptr, "true") ? true : false;
                         i++;
                     }
                 }
