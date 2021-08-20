@@ -17,18 +17,18 @@
   "buffer": "",
  },
  "plot": {
-  "frequency": 142000000.000,
-  "samplerate": 1.0,
+  "frequency": "142000000.000",
+  "samplerate": "1.0",
   "target": {
-   "ra": 18.5,
-   "dec": 38.6
+   "ra": "18.5",
+   "dec": "38.6"
   },
   "resolution": {
-    "width": 128,
-    "height": 128
+    "width": "128",
+    "height": "128"
   },
-  "adjust_delays": false,
-  "idft": true,
+  "adjust_delays": "false",
+  "idft": "true",
   "projection": "synthesis",
   "buffer": "coverage",
  }
