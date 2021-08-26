@@ -179,11 +179,19 @@ void JSONClient::Parse()
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "idft")) {
-                        type |= strcmp(v->u.object.values[y].value->u.string.ptr, "false") ? UV_IDFT : 0;
+                        type &=  ~UV_IDFT;
+                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "true"))
+                            type |=  UV_IDFT;
+                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "1"))
+                            type |= UV_IDFT;
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "adjust_delays")) {
-                        nodelay = strcmp(v->u.object.values[y].value->u.string.ptr, "true") ? true : false;
+                        nodelay = true;
+                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "true"))
+                            nodelay = false;
+                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "1"))
+                            nodelay = false;
                         i++;
                     }
                 }
