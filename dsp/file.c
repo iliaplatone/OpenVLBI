@@ -115,10 +115,13 @@ dsp_stream_p vlbi_file_read_fits(void *data, size_t len)
     if(status||anynul)
         goto fail;
 
-    ffgkey(fptr, "DATE-OBS", value, comment, &status);
+    ffgkey(fptr, "EPOCH", value, comment, &status);
     if (!status)
     {
-        stream->starttimeutc = vlbi_time_string_to_utc(value);
+        double timestamp = atof(value);
+        stream->starttimeutc.tv_sec = (time_t)timestamp;
+        timestamp -= stream->starttimeutc.tv_sec;
+        stream->starttimeutc.tv_nsec = timestamp *  1000000000;
     }
 
     ffgkey(fptr, "RA_OBJ", value, comment, &status);
