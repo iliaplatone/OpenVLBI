@@ -174,7 +174,7 @@ void JSONClient::Parse()
                             type &= APERTURE_SYNTHESIS;
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "buffer")) {
+                    if(!strcmp(v->u.object.values[y].name, "type")) {
                         if(!strcmp(v->u.object.values[y].name, "coverage"))
                             type |= UV_COVERAGE;
                         if(!strcmp(v->u.object.values[y].name, "raw"))
@@ -206,10 +206,16 @@ void JSONClient::Parse()
                         dsp_stream_free(plot);
                         plot = idft;
                     }
+                    dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
+                    int ilen = plot->len;
+                    int olen = ilen*4/3+4;
+                    unsigned char* buf = (unsigned char*)malloc(plot->len);
+                    dsp_buffer_copy(plot->buf, buf, plot->len);
                     unsigned char *base64 = (unsigned char *)malloc(sizeof(dsp_t)*plot->len * 4/3+4);
-                    to64frombits(base64, (unsigned char*)plot->buf, plot->len*sizeof(double));
-                    fprintf(output, "{\n \"context\": \"%s\",\n \"plot\": {\n  \"projection\": \"%s\",\n  \"buffer\": \"%s\",\n  \"idft\": %s,\n  \"adjust_delays\": %s,\n  \"buffer\": \"%s\"\n }\n}\n", CurrentContext(), (type & APERTURE_SYNTHESIS) ? "synthesis" : "movingbase", (type & UV_COVERAGE) ? "coverage" : "raw", (type & UV_IDFT) ? "true" : "false", nodelay ? "false" : "true", base64);
+                    to64frombits(base64, buf, plot->len*sizeof(double));
+                    fprintf(output, "{\n \"context\": \"%s\",\n \"plot\": {\n  \"projection\": \"%s\",\n  \"type\": \"%s\",\n  \"idft\": %s,\n  \"adjust_delays\": %s,\n  \"  resolution\":  {\n   \"width\": \"%d\",\n   \"height\": \"%d\",\n  }\n  \"buffer\": \"%s\"\n }\n}\n", CurrentContext(), (type & APERTURE_SYNTHESIS) ? "synthesis" : "movingbase", (type & UV_COVERAGE) ? "coverage" : "raw", (type & UV_IDFT) ? "true" : "false", nodelay ? "false" : "true", w, h, base64);
                     free(base64);
+                    free(buf);
                 }
             }
         }
