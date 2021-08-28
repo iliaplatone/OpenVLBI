@@ -212,7 +212,7 @@ void JSONClient::Parse()
                     unsigned char* buf = (unsigned char*)malloc(plot->len);
                     dsp_buffer_copy(plot->buf, buf, plot->len);
                     unsigned char *base64 = (unsigned char *)malloc(sizeof(dsp_t)*plot->len * 4/3+4);
-                    to64frombits(base64, buf, plot->len*sizeof(double));
+                    to64frombits(base64, buf, plot->len);
                     fprintf(output, "{\n \"context\": \"%s\",\n \"plot\": {\n  \"projection\": \"%s\",\n  \"type\": \"%s\",\n  \"idft\": %s,\n  \"adjust_delays\": %s,\n  \"resolution\":  {\n   \"width\": \"%d\",\n   \"height\": \"%d\"\n  },\n  \"buffer\": \"%s\"\n }\n}\n", CurrentContext(), (type & APERTURE_SYNTHESIS) ? "synthesis" : "movingbase", (type & UV_COVERAGE) ? "coverage" : "raw", (type & UV_IDFT) ? "true" : "false", nodelay ? "false" : "true", w, h, base64);
                     free(base64);
                     free(buf);
