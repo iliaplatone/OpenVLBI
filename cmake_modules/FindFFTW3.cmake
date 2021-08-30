@@ -27,7 +27,7 @@ else (FFTW3_LIBRARIES)
     PATHS
     ${_obLinkDir}
     ${GNUWIN32_DIR}/lib
-    /usr/local/lib
+    HINTS ${CMAKE_C_IMPLICIT_LINK_DIRECTORIES}
   )
 
   if(FFTW3_LIBRARIES)

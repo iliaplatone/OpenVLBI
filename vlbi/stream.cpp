@@ -16,10 +16,12 @@
 
 */
 
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef _WIN32
 #include <sys/io.h>
 #include <linux/fcntl.h>
+#endif
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
 #include <nodecollection.h>
@@ -154,7 +156,6 @@ static void* fillplane(void *arg)
     bool moving_baseline = argument->moving_baseline;
     bool nodelay = argument->nodelay;
     NodeCollection *nodes = argument->nodes;
-    dsp_stream_p s = b->getStream();
     dsp_stream_p parent = (dsp_stream_p)nodes->getBaselines()->getStream();
     int u = parent->sizes[0];
     int v = parent->sizes[1];
@@ -163,16 +164,10 @@ static void* fillplane(void *arg)
     double tau = 1.0/b->getSampleRate();
     double time;
     int l = 0;
-    double max_delay = 0;
-    int farest = 0;
-    double center[3];
-    double Alt, Az;
     double offset1;
     double offset2;
-    int U;
-    int V;
     int idx;
-    int x, y;
+    int x;
     double val;
     for(time = st; time < et; time += tau, l++) {
         for (x = 0; x < nodes->Count; x++){
@@ -314,7 +309,6 @@ dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, do
     fprintf(stderr, "%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
     fprintf(stderr, "\n");
     baselines->SetDelegate(delegate);
-    int num_threads = MAX_THREADS;
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
