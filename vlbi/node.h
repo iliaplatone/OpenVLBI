@@ -48,7 +48,7 @@ public:
     inline double getStartTime() { return (double)vlbi_time_timespec_to_J2000time(getStream()->starttimeutc); }
 
     inline void setWaveLength(double wavelength) { getStream()->wavelength = wavelength; }
-    inline void setSampleRate(double samplerate) { getStream()->samplerate = samplerate; }
+    inline void setSampleRate(double samplerate) { getStream()->align_info.factor = getStream()->samplerate / samplerate; if(getStream()->align_info.factor != 1.0) dsp_stream_scale(getStream()); getStream()->samplerate = samplerate; }
     inline void setStartTime(double starttime) { getStream()->starttimeutc.tv_sec = floor(starttime); getStream()->starttimeutc.tv_nsec = (starttime-getStream()->starttimeutc.tv_sec)*1000000000.0; }
 
     inline void setTarget(double horiz, double vert) { getStream()->target[0] = horiz; getStream()->target[1] = vert; }

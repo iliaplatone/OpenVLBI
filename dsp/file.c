@@ -123,36 +123,56 @@ dsp_stream_p vlbi_file_read_fits(void *data, size_t len)
         timestamp -= stream->starttimeutc.tv_sec;
         stream->starttimeutc.tv_nsec = timestamp *  1000000000;
     }
+    status = 0;
 
     ffgkey(fptr, "RA_OBJ", value, comment, &status);
     if (!status)
     {
         stream->target[0] = atof(value);
     }
+    status = 0;
 
     ffgkey(fptr, "DEC_OBJ", value, comment, &status);
     if (!status)
     {
         stream->target[0] = atof(value);
     }
+    status = 0;
 
     ffgkey(fptr, "LATITUDE", value, comment, &status);
     if (!status)
     {
         stream->location->geographic.lat = atof(value);
     }
+    status = 0;
 
     ffgkey(fptr, "LONGITUDE", value, comment, &status);
     if (!status)
     {
         stream->location->geographic.lon = atof(value);
     }
+    status = 0;
 
     ffgkey(fptr, "ELEVATION", value, comment, &status);
     if (!status)
     {
         stream->location->geographic.el = atof(value);
     }
+    status = 0;
+
+    ffgkey(fptr, "SRATE", value, comment, &status);
+    if (!status)
+    {
+        stream->samplerate = atof(value);
+    }
+    status = 0;
+
+    ffgkey(fptr, "FREQ", value, comment, &status);
+    if (!status)
+    {
+        stream->wavelength = LIGHTSPEED/atof(value);
+    }
+    status = 0;
 
     status = 0;
     fits_close_file(fptr, &status);
