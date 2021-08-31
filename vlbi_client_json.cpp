@@ -28,11 +28,11 @@ void JSONClient::Parse()
     json_value *v;
     char *n;
     size_t len = 0;
-    getdelim(&str, &len, (int)'\r', f);
+    getdelim(&str, &len, (int)'\0', f);
     char error[150];
     json_settings settings;
     json_value *value = json_parse_ex (&settings,
-                                       str, len,
+                                       str, len-1,
                                        error);
 
     if(!value) {

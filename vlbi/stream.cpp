@@ -29,7 +29,7 @@
 #include <base64.h>
 
 #define THREADS_MASK ((1<<vlbi_max_threads(0))-1)
-unsigned long int MAX_THREADS = 48;
+unsigned long int MAX_THREADS = 1;
 int DSP_MAX_THREADS = MAX_THREADS;
 
 static NodeCollection *vlbi_nodes = new NodeCollection();
@@ -217,9 +217,8 @@ void vlbi_set_location(void *ctx, double lat, double lon, double el)
     nodes->getBaselines()->setRelative(true);
 }
 
-void vlbi_add_node(void *ctx, dsp_stream_p Stream, char* name, int geo) {
+void vlbi_add_node(void *ctx, dsp_stream_p stream, char* name, int geo) {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    dsp_stream_p stream = dsp_stream_copy(Stream);
     nodes->Add(new VLBINode(stream, name, nodes->Count, geo == 1));
 }
 
