@@ -300,49 +300,33 @@ void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer
 dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate)
 {
     pfunc;
-    dsp_stream_p plot = dsp_stream_new();
-    dsp_stream_add_dim(plot, u);
-    dsp_stream_add_dim(plot, v);
-    dsp_stream_alloc_buffer(plot, plot->len);
-    plot->wavelength = LIGHTSPEED / freq;
-    plot->samplerate = sr;
-    dsp_buffer_copy(target, plot->target, 2);
-    dsp_buffer_set(plot->buf, plot->len, 0);
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     pgarb("%d nodes, %d baselines\n", nodes->Count, nodes->Count*(nodes->Count-1)/2);
-    for(int x = 0; x < nodes->Count; x++) {
-        for(int y = x+1; y < nodes->Count; y++) {
-            NodeCollection *baseline = new NodeCollection();
-            vlbi_add_node((vlbi_context)baseline, nodes->At(x)->getStream(), nodes->At(x)->getName(), nodes->At(x)->GeographicCoordinates());
-            vlbi_add_node((vlbi_context)baseline, nodes->At(y)->getStream(), nodes->At(y)->getName(), nodes->At(y)->GeographicCoordinates());
-            BaselineCollection *baselines = baseline->getBaselines();
-            baselines->setWidth(u);
-            baselines->setHeight(v);
-            baselines->SetFrequency(freq);
-            baselines->SetSampleRate(sr);
-            baselines->setRa(target[0]);
-            baselines->setDec(target[1]);
-            dsp_stream_p parent = baselines->getStream();
-            parent->child_count = 0;
-            baselines->SetDelegate(delegate);
-            for(int i = 0; i < baselines->Count; i++)
-            {
-                VLBIBaseline *b = baselines->At(i);
-                struct args { VLBIBaseline *b; NodeCollection *nodes; bool moving_baseline; bool nodelay; };
-                args argument;
-                argument.b = b;
-                argument.nodes = nodes;
-                argument.moving_baseline = moving_baseline;
-                argument.nodelay = nodelay;
-                vlbi_start_thread(fillplane, &argument, &parent->child_count, i);
-            }
-            vlbi_wait_threads(&parent->child_count);
-            dsp_buffer_sum(plot, parent->buf, parent->len);
-            baseline->~NodeCollection();
-        }
+    BaselineCollection *baselines = nodes->getBaselines();
+    baselines->setWidth(u);
+    baselines->setHeight(v);
+    baselines->SetFrequency(freq);
+    baselines->SetSampleRate(sr);
+    baselines->setRa(target[0]);
+    baselines->setDec(target[1]);
+    dsp_stream_p parent = baselines->getStream();
+    parent->child_count = 0;
+    pgarb("%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
+    baselines->SetDelegate(delegate);
+    for(int i = 0; i < baselines->Count; i++)
+    {
+        VLBIBaseline *b = baselines->At(i);
+        struct args { VLBIBaseline *b; NodeCollection *nodes; bool moving_baseline; bool nodelay; };
+        args argument;
+        argument.b = b;
+        argument.nodes = nodes;
+        argument.moving_baseline = moving_baseline;
+        argument.nodelay = nodelay;
+        vlbi_start_thread(fillplane, &argument, &parent->child_count, i);
     }
-    fprintf(stderr, "\naperture synthesis plotting completed\n");
-    return plot;
+    vlbi_wait_threads(&parent->child_count);
+    pgarb("aperture synthesis plotting completed\n");
+    return parent;
 }
 
 dsp_stream_p vlbi_get_ifft_estimate(dsp_stream_p uv)
