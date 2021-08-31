@@ -303,7 +303,6 @@ static void* dsp_buffer_median_th(void* arg)
 void dsp_buffer_median(dsp_stream_p in, int size, int median)
 {
     pfunc;
-    start_gettime;
     int dims = in->dims;
     int dim, y, d;
     dsp_stream_p stream = dsp_stream_copy(in);
@@ -336,7 +335,6 @@ void dsp_buffer_median(dsp_stream_p in, int size, int median)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }
 
 static void* dsp_buffer_sigma_th(void* arg)
@@ -383,7 +381,6 @@ static void* dsp_buffer_sigma_th(void* arg)
 
 void dsp_buffer_sigma(dsp_stream_p in, int size)
 {
-    start_gettime;
     int dims = in->dims;
     int dim, y, d;
     dsp_stream_p stream = dsp_stream_copy(in);
@@ -413,7 +410,6 @@ void dsp_buffer_sigma(dsp_stream_p in, int size)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }
 
 void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t mindeviation, dsp_t maxdeviation)

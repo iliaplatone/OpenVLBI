@@ -88,6 +88,7 @@ void JSONClient::Parse()
                         buf = (char*)malloc(base64len * 3 / 4);
                         len = from64tobits_fast(buf, base64, base64len);
                         vlbi_add_node(GetContext(), vlbi_file_read_fits(buf, len), name, true);
+                        free(buf);
                     }
                 }
             }

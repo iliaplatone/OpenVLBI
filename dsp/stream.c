@@ -17,9 +17,9 @@
  */
 
 #include "dsp.h"
-struct timespec ts;
-double ex_time = 0;
+int DSP_MAX_THREADS = 1;
 int dsp_debug = 0;
+char* dsp_app_name = NULL;
 void dsp_stream_alloc_buffer(dsp_stream_p stream, int len)
 {
     if(stream->buf != NULL) {
@@ -270,7 +270,6 @@ int dsp_stream_set_position(dsp_stream_p stream, int* pos) {
 
 void dsp_stream_crop(dsp_stream_p in)
 {
-    start_gettime;
     dsp_stream_p stream = dsp_stream_new();
     int dim, d;
     for(dim = 0; dim < in->dims; dim++) {
@@ -306,12 +305,10 @@ void dsp_stream_crop(dsp_stream_p in)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }
 
 void dsp_stream_traslate(dsp_stream_p in)
 {
-    start_gettime;
     pfunc;
     dsp_stream_p stream = dsp_stream_copy(in);
     int* offset = (int*)malloc(sizeof(int)*stream->dims);
@@ -328,7 +325,6 @@ void dsp_stream_traslate(dsp_stream_p in)
     memcpy(data, buf, sizeof(dsp_t)*len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }
 
 static void* dsp_stream_scale_th(void* arg)
@@ -361,7 +357,6 @@ static void* dsp_stream_scale_th(void* arg)
 
 void dsp_stream_scale(dsp_stream_p in)
 {
-    start_gettime;
     int dims = in->dims;
     int dim, y;
     dsp_stream_p stream = dsp_stream_copy(in);
@@ -385,7 +380,6 @@ void dsp_stream_scale(dsp_stream_p in)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }
 
 static void* dsp_stream_rotate_th(void* arg)
@@ -427,7 +421,6 @@ static void* dsp_stream_rotate_th(void* arg)
 
 void dsp_stream_rotate(dsp_stream_p in)
 {
-    start_gettime;
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
@@ -448,5 +441,4 @@ void dsp_stream_rotate(dsp_stream_p in)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }

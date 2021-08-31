@@ -1,5 +1,6 @@
 #include "vlbi_client.h"
 #include <cstring>
+#include <dsp.h>
 
 static int is_running = 1;
 
@@ -273,6 +274,7 @@ static void sighandler(int signum)
 int main(int argc, char** argv)
 {
     char *cmd, *arg, *value, opt;
+    dsp_app_name = argv[0];
     while ((opt = getopt(argc, argv, "t:f:")) != -1) {
         switch (opt) {
         case 't':

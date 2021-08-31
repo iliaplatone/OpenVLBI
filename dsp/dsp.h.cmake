@@ -60,31 +60,53 @@ extern "C" {
 
 extern int DSP_MAX_THREADS;
 
+extern int dsp_debug;
 #ifndef DSP_DEBUG
 #define DSP_DEBUG
 #define DSP_DEBUG_INFO 0
 #define DSP_DEBUG_ERROR 1
 #define DSP_DEBUG_WARNING 2
 #define DSP_DEBUG_DEBUG 3
-extern int dsp_debug;
-#define pdbg(x, ...) ({if(x==DSP_DEBUG_INFO)fprintf(stdout, __VA_ARGS__); else if(x<=dsp_debug)fprintf(stderr, __VA_ARGS__);})
+extern char* dsp_app_name;
+#define pdbg(x, ...) ({ \
+char str[500]; \
+struct timespec ts; \
+time_t t = time(NULL); \
+struct tm tm = *localtime(&t); \
+clock_gettime(CLOCK_REALTIME, &ts); \
+sprintf(str, "[%d-%02d-%02dT%02d:%02d:%02d.%03ld %+03d ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts.tv_nsec/1000000, tm.tm_gmtoff / 3600); \
+switch(x) { \
+    case DSP_DEBUG_ERROR: \
+    sprintf(&str[strlen(str)], "ERRO]"); \
+        break; \
+    case DSP_DEBUG_WARNING: \
+    sprintf(&str[strlen(str)], "WARN]"); \
+        break; \
+    case DSP_DEBUG_DEBUG: \
+    sprintf(&str[strlen(str)], "DEBG]"); \
+        break; \
+    default: \
+    sprintf(&str[strlen(str)], "INFO]"); \
+        break; \
+} \
+if(dsp_app_name != NULL) \
+    sprintf(&str[strlen(str)], "[%s]", dsp_app_name); \
+sprintf(&str[strlen(str)], " "); \
+sprintf(&str[strlen(str)], __VA_ARGS__); \
+if(x==DSP_DEBUG_INFO)fprintf(stdout, "%s", str); \
+else if(x<=dsp_debug)fprintf(stderr, "%s", str); \
+})
 #define pinfo(...) pdbg(DSP_DEBUG_INFO, __VA_ARGS__)
 #define perr(...) pdbg(DSP_DEBUG_ERROR, __VA_ARGS__)
 #define pwarn(...) pdbg(DSP_DEBUG_WARNING, __VA_ARGS__)
 #define pgarb(...) pdbg(DSP_DEBUG_DEBUG, __VA_ARGS__)
 #define pfunc pwarn("%s\n", __func__)
-extern struct timespec ts;
-extern double ex_time;
-#define start_gettime ({ \
-    clock_gettime(CLOCK_REALTIME, &ts); \
-    ex_time = (ts.tv_sec + ((double)ts.tv_nsec)/1000000000.0); \
-    })
-
-#define end_gettime ({ \
-    clock_gettime(CLOCK_REALTIME, &ts); \
-    ex_time = (ts.tv_sec + ((double)ts.tv_nsec)/1000000000.0)-ex_time; \
-    pgarb("%s duration %lfs\n", __func__, ex_time); \
-    })
+#else
+#define pinfo(...)
+#define perr(...)
+#define pwarn(...)
+#define pgarb(...)
+#define pfunc
 #endif
 
 ///if min() is not present you can use this one
