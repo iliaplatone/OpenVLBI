@@ -49,7 +49,6 @@ double vlbi_time_timespec_to_J2000time(timespec_t tp)
     j2000_tm.tm_wday = 6;
     j2000_tm.tm_yday = 0;
     j2000_tm.tm_isdst = 0;
-    j2000_tm.tm_zone = "UTC";
     j2000 = mktime(&j2000_tm);
     return ((double)(tp.tv_sec - j2000) + (double)tp.tv_nsec / 1000000000.0);
 }

@@ -26,7 +26,7 @@
 #include <vlbi.h>
 
 struct VLBIElement {
-	long item;
+    void* item;
     char *name;
 };
 
