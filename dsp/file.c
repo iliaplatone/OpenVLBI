@@ -20,6 +20,52 @@
 #include "vlbi.h"
 #include <fitsio.h>
 
+int f_scansexa(const char *str0, /* input string */
+               double *dp)       /* cracked value, if return 0 */
+{
+    double a = 0, b = 0, c = 0;
+    char str[128];
+    //char *neg;
+    unsigned char isNegative=0;
+    int r= 0;
+
+    /* copy str0 so we can play with it */
+    strncpy(str, str0, sizeof(str) - 1);
+    str[sizeof(str) - 1] = '\0';
+
+    /* remove any spaces */
+    char* i = str;
+    char* j = str;
+    while(*j != 0)
+    {
+        *i = *j++;
+        if(*i != ' ')
+            i++;
+    }
+    *i = 0;
+
+    // This has problem process numbers in scientific notations e.g. 1e-06
+    /*neg = strchr(str, '-');
+    if (neg)
+        *neg = ' ';
+    */
+    if (str[0] == '-')
+    {
+        isNegative = 1;
+        str[0] = ' ';
+    }
+
+    r = sscanf(str, "%lf%*[^0-9]%lf%*[^0-9]%lf", &a, &b, &c);
+
+
+    if (r < 1)
+        return (-1);
+    *dp = a + b / 60 + c / 3600;
+    if (isNegative)
+        *dp *= -1;
+    return (0);
+}
+
 dsp_stream_p vlbi_file_read_fits(void *data, size_t len)
 {
     fitsfile *fptr = (fitsfile*)malloc(sizeof(fitsfile));
@@ -125,35 +171,35 @@ dsp_stream_p vlbi_file_read_fits(void *data, size_t len)
     }
     status = 0;
 
-    ffgkey(fptr, "RA_OBJ", value, comment, &status);
+    ffgkey(fptr, "OBJCTRA", value, comment, &status);
     if (!status)
     {
-        stream->target[0] = atof(value);
+        f_scansexa(value, &stream->target[0]);
     }
     status = 0;
 
-    ffgkey(fptr, "DEC_OBJ", value, comment, &status);
+    ffgkey(fptr, "OBJCTDEC", value, comment, &status);
     if (!status)
     {
-        stream->target[0] = atof(value);
+        f_scansexa(value, &stream->target[1]);
     }
     status = 0;
 
-    ffgkey(fptr, "LATITUDE", value, comment, &status);
+    ffgkey(fptr, "SITELAT", value, comment, &status);
     if (!status)
     {
         stream->location->geographic.lat = atof(value);
     }
     status = 0;
 
-    ffgkey(fptr, "LONGITUDE", value, comment, &status);
+    ffgkey(fptr, "SITELONG", value, comment, &status);
     if (!status)
     {
         stream->location->geographic.lon = atof(value);
     }
     status = 0;
 
-    ffgkey(fptr, "ELEVATION", value, comment, &status);
+    ffgkey(fptr, "SITEELEV", value, comment, &status);
     if (!status)
     {
         stream->location->geographic.el = atof(value);

@@ -52,10 +52,9 @@ static void vlbi_wait_threads(int *thread_cnt)
 
 static void* vlbi_thread_func(void* arg)
 {
-    vlbi_thread_t *t = (vlbi_thread_t*)arg;
-    t->__start_routine(t->arg);
-    *t->thread_cnt = (((int)(*t->thread_cnt))&t->m);
-    free(t);
+    vlbi_thread_t t = *((vlbi_thread_t*)arg);
+    t.__start_routine(t.arg);
+    (*t.thread_cnt) &= t.m;
     return NULL;
 }
 
@@ -161,17 +160,21 @@ static void* fillplane(void *arg)
     dsp_stream_p parent = (dsp_stream_p)nodes->getBaselines()->getStream();
     int u = parent->sizes[0];
     int v = parent->sizes[1];
+    bool *valued = new bool[u*v];
     double st = b->getStartTime();
     double et = b->getEndTime();
     double tau = 1.0/b->getSampleRate();
     double time;
     int l = 0;
+    int e = 0;
+    int s = 0;
+    int i = 1;
     double offset1;
     double offset2;
     int idx;
     int x;
     double val;
-    for(time = st; time < et; time += tau, l++) {
+    for(time = st; time < et; time += tau * i, l++) {
         for (x = 0; x < nodes->Count; x++){
             if(moving_baseline) {
                 nodes->At(x)->setLocation(l);
@@ -188,11 +191,17 @@ static void* fillplane(void *arg)
         int V = b->getV() + v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v) {
             idx = (int)(U+V*u);
-            val = b->Locked() ? b->Correlate(time) : b->Correlate(time+offset1, time+offset2);
-            parent->buf[idx] = val;
-            parent->buf[parent->len-idx] = val;
+            if(!valued[idx]) {
+                val = b->Locked() ? b->Correlate(time) : b->Correlate(time+offset1, time+offset2);
+                parent->buf[idx] = val;
+                parent->buf[parent->len-idx] = val;
+                e = s;
+            }
+            s = l+1;
+            valued[idx] = true;
         }
-        fprintf(stderr, "\r%.3fs %.3f%%   ", (time-st), (time-st)*100.0/(et-st-tau));
+        i = s-e;
+        fprintf(stderr, "\r%.3lfs %.3lf %d  ", (time-st), (time-st)*100.0/(et-st-tau), i);
     }
     return NULL;
 }

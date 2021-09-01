@@ -38,3 +38,15 @@ VLBINode::~VLBINode()
     dsp_stream_free(getStream());
     free(getName());
 }
+
+void VLBINode::setSampleRate(double samplerate)
+{
+    getStream()->align_info.factor = getStream()->samplerate / samplerate;
+    if(getStream()->align_info.factor != 1.0) {
+        getStream()->sizes[0] *= getStream()->align_info.factor;
+        getStream()->len *= getStream()->align_info.factor;
+        dsp_stream_alloc_buffer(getStream(), getStream()->len);
+        dsp_stream_scale(getStream());
+    }
+    getStream()->samplerate = samplerate;
+}
