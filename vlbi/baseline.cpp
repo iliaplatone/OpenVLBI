@@ -51,7 +51,7 @@ double VLBIBaseline::Correlate(double time1, double time2)
 {
     int idx1 = (time1-getStartTime())/getSampleRate();
     int idx2 = (time2-getStartTime())/getSampleRate();
-    if(idx1 > 0 && idx2 > 0 && idx1 < getNode1()->getStream()->len && idx2 < getNode2()->getStream()->len)
+    if(idx1 >= 0 && idx2 >= 0 && idx1 < getNode1()->getStream()->len && idx2 < getNode2()->getStream()->len)
         return dsp_correlation_delegate(getNode1()->getStream()->buf[idx1], getNode2()->getStream()->buf[idx2]);
     return 0.0;
 }
@@ -87,7 +87,7 @@ double *VLBIBaseline::getBaseline()
         memcpy(location1.coordinates, coords, sizeof(double)*3);
         free(coords);
         coords = vlbi_calc_location(getNode2()->getGeographicLocation());
-        memcpy(location1.coordinates, coords, sizeof(double)*3);
+        memcpy(location2.coordinates, coords, sizeof(double)*3);
         free(coords);
     } else {
         memcpy(location1.coordinates, getNode1()->getLocation(), sizeof(double)*3);
@@ -111,4 +111,27 @@ void VLBIBaseline::getProjection()
     v = proj[1];
     delay = proj[2];
     free (proj);
+}
+
+void VLBIBaseline::setTime(double time)
+{
+    double Alt, Az;
+    if(!isRelative()) {
+        double *center = (double*)malloc(sizeof(double) * 3);
+        center[0] = getNode2()->getGeographicLocation()[0]+getNode1()->getGeographicLocation()[0]/2;
+        center[1] = getNode2()->getGeographicLocation()[1]+getNode1()->getGeographicLocation()[1]/2;
+        while(center[0] > 90.0)
+            center[0] -= 180.0;
+        while(center[0] < -90.0)
+            center[0] += 180.0;
+        while(center[1] > 180.0)
+            center[1] -= 360.0;
+        while(center[1] < -180.0)
+            center[1] += 360.0;
+        vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, getNode2()->getGeographicLocation()[1]), Ra, Dec, center[0], center[1], &Alt, &Az);
+        free(center);
+    } else {
+        //vlbi_astro_alt_az_from_ra_dec(vlbi_time_J2000time_to_lst(time, getLocation()->geographic.lon), Ra, Dec, getLocation()->geographic.lat, nodes->getLocation()->geographic.lon, &Alt, &Az);
+    }
+    setTarget(Az, Alt);
 }
