@@ -170,7 +170,7 @@ inline static double vlbi_default_delegate(double x, double y) {
 #define J2000 3155716800.0
 #endif
 #ifndef GAMMAJ2000
-#define GAMMAJ2000 (double)13.753357767
+#define GAMMAJ2000 (double)17.7075
 #endif
 #ifndef EULER
 #define EULER (double)2.71828182845904523536028747135266249775724709369995
@@ -374,14 +374,6 @@ DLL_EXPORT double* vlbi_calc_uv_coordinates(double *proj, double wavelength);
 * @return double* The xyz location.
 */
 DLL_EXPORT double* vlbi_calc_location(double *loc);
-
-/**
-* @brief Convert geographic baseline into geographic baseline
-* @param loc1 The 1st location of the observer.
-* @param loc2 The 2nd location of the observer.
-* @return double* The baseline in meters.
-*/
-DLL_EXPORT double* vlbi_calc_baseline(double *loc1, double *loc2);
 
 /**
 * @brief Convert radians into arcseconds

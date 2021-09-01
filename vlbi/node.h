@@ -42,7 +42,7 @@ public:
     inline double* getGeographicLocation() {
         GeographicLocation[0] = getLocation()[0];
         GeographicLocation[1] = getLocation()[1];
-        GeographicLocation[2] = vlbi_astro_estimate_geocentric_elevation(getLocation()[0], getLocation()[2]);
+        GeographicLocation[2] = getLocation()[2];
         return GeographicLocation;
     }
     inline double getStartTime() { return (double)vlbi_time_timespec_to_J2000time(getStream()->starttimeutc); }
@@ -64,7 +64,9 @@ public:
     }
     inline bool GeographicCoordinates() { return Geo; }
     inline void useGeographicCoordinates(bool geo) { Geo = geo; }
+    inline dsp_location stationLocation() { return StationLocation; }
 private:
+    dsp_location StationLocation;
     double GeographicLocation[3];
     double Location[3];
     bool Geo;

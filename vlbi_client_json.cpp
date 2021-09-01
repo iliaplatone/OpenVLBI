@@ -29,10 +29,12 @@ void JSONClient::Parse()
     char *n;
     size_t len = 0;
     getdelim(&str, &len, (int)'\0', f);
+    if(strlen(str) <= 0)
+        return;
     char error[150];
     json_settings settings;
     json_value *value = json_parse_ex (&settings,
-                                       str, len-1,
+                                       str, len-2,
                                        error);
 
     if(!value) {

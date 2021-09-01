@@ -81,3 +81,14 @@ int NodeCollection::IndexOf(VLBINode *element)
     return VLBICollection::IndexOf(element);
 }
 
+void NodeCollection::setRelative(bool value) {
+    relative = value;
+    if(value) {
+        for(int x = 0; x < Count; x++) {
+            memcpy(At(x)->stationLocation().coordinates, station.coordinates, sizeof(dsp_location));
+        }
+        for(int x = 0; x < getBaselines()->Count; x++) {
+            memcpy(getBaselines()->At(x)->stationLocation()->coordinates, station.coordinates, sizeof(dsp_location));
+        }
+    }
+}

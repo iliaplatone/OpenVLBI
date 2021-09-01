@@ -43,9 +43,12 @@ double* vlbi_calc_3d_projection(double alt, double az, double *baseline)
     double* proj = (double*)calloc(sizeof(double), 3);
     az *= M_PI / 180.0;
     alt *= M_PI / 180.0;
-    proj[0] = (baseline[0] * sin(az) + baseline[1] * cos(az));
-    proj[1] = (baseline[1] * sin(alt) * sin(az) - baseline[0] * sin(alt) * cos(az) + baseline[2] * cos(alt));
-    proj[2] = cos(az) * baseline[1] * cos(alt) - baseline[0] * sin(az) * cos(alt) + sin(alt) * baseline[2];
+    double x = baseline[0];
+    double y = baseline[1];
+    double z = baseline[2];
+    proj[0] = (x * sin(az) + y * cos(az));
+    proj[1] = (y * sin(alt) * sin(az) - x * sin(alt) * cos(az) + z * cos(alt));
+    proj[2] = cos(az) * y * cos(alt) - x * sin(az) * cos(alt) + sin(alt) * z;
     return proj;
 }
 
@@ -60,34 +63,17 @@ double* vlbi_calc_uv_coordinates(double *proj, double wavelength)
 
 double* vlbi_calc_location(double *loc)
 {
+    double* location = (double*)malloc(sizeof(double)*3);
     double lat, lon, el;
-    double* location = (double*)calloc(sizeof(double), 3);
-    lat = loc[0] + 90.0;
+    lat = loc[0];
     lon = loc[1];
-    el = loc[2];
+    el = vlbi_astro_estimate_geocentric_elevation(loc[0], loc[2]);
     lat *= M_PI / 180.0;
     lon *= M_PI / 180.0;
-    while(lat < 0)
-        lat += 2 * M_PI;
-    while(lon < 0)
-        lon += 2 * M_PI;
-    while(lat >= 2 * M_PI)
-        lat -= 2 * M_PI;
-    while(lon >= 2 * M_PI)
-        lon -= 2 * M_PI;
-    location[0] = cos(lat) * sin(lon) * el;
-    location[1] = cos(lat) * cos(lon) * el;
-    location[2] = sin(lat) * el;
+    location[0] = sqrt(pow(sin(lon), 2)+pow(1.0-cos(lon), 2)) * el * (lon < 0 ? -1 : 1);
+    location[1] = sqrt(pow(sin(lat), 2)+pow(1.0-cos(lat), 2)) * el * (lat < 0 ? -1 : 1);
+    location[2] = el-vlbi_astro_estimate_geocentric_elevation(loc[0], 0);
     return location;
-}
-
-double* vlbi_calc_baseline(double *loc1, double *loc2)
-{
-    double* baseline = (double*)calloc(sizeof(double), 4);
-    baseline[0] = loc1[0] - loc2[0];
-    baseline[1] = loc1[1] - loc2[1];
-    baseline[2] = loc1[2] - loc2[2];
-    return baseline;
 }
 
 double* vlbi_calc_baseline_center(double *loc1, double *loc2)

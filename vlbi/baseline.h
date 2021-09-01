@@ -73,8 +73,10 @@ public:
     inline void Unlock() { locked = false; }
     inline void setRelative(bool rel) { relative = rel; }
     inline bool isRelative() { return relative; }
+    inline dsp_location* stationLocation() { return &station; }
 
 private:
+    dsp_location station;
     bool relative { false };
     bool locked { false };
     double Target[3];
