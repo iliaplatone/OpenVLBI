@@ -157,7 +157,7 @@ static void* fillplane(void *arg)
     bool moving_baseline = argument->moving_baseline;
     bool nodelay = argument->nodelay;
     NodeCollection *nodes = argument->nodes;
-    dsp_stream_p parent = (dsp_stream_p)nodes->getBaselines()->getStream();
+    dsp_stream_p parent = nodes->getBaselines()->getStream();
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     bool *valued = new bool[u*v];
@@ -174,6 +174,7 @@ static void* fillplane(void *arg)
     int idx;
     int x;
     double val;
+    int oldU = -1, oldV = -1;
     for(time = st; time < et; time += tau * i, l++) {
         for (x = 0; x < nodes->Count; x++){
             if(moving_baseline) {
@@ -186,20 +187,22 @@ static void* fillplane(void *arg)
         if(nodelay) {
             offset1 = offset2 = 0.0;
         }
+        b->setTime(time);
         b->getProjection();
         int U = b->getU() + u / 2;
         int V = b->getV() + v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v) {
             idx = (int)(U+V*u);
-            if(!valued[idx]) {
+            if(U != oldU || V != oldV) {
+                oldU = U;
+                oldV = V;
                 val = b->Locked() ? b->Correlate(time) : b->Correlate(time+offset1, time+offset2);
                 parent->buf[idx] = val;
                 parent->buf[parent->len-idx] = val;
                 e = s;
             }
-            s = l+1;
-            valued[idx] = true;
         }
+        s = l+1;
         i = s-e;
         fprintf(stderr, "\r%.3lfs %.3lf %d  ", (time-st), (time-st)*100.0/(et-st-tau), i);
     }

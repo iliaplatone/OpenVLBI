@@ -275,7 +275,7 @@ int main(int argc, char** argv)
 {
     char *cmd, *arg, *value, opt;
     dsp_app_name = argv[0];
-    while ((opt = getopt(argc, argv, "t:f:")) != -1) {
+    while ((opt = getopt(argc, argv, "t:f:o:")) != -1) {
         switch (opt) {
         case 't':
             vlbi_max_threads((int)atof(optarg));

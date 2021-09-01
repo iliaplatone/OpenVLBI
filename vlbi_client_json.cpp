@@ -176,9 +176,9 @@ void JSONClient::Parse()
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "type")) {
-                        if(!strcmp(v->u.object.values[y].name, "coverage"))
+                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "coverage"))
                             type |= UV_COVERAGE;
-                        if(!strcmp(v->u.object.values[y].name, "raw"))
+                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "raw"))
                             type &= UV_COVERAGE;
                         i++;
                     }

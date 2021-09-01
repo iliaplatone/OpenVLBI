@@ -48,6 +48,7 @@ public:
     inline double getU() { return u; }
     inline double getV() { return v; }
     inline double getDelay() { return delay; }
+    void setTime(double time);
 
     inline double getRa() { return Ra; }
     inline double getDec() { return Dec; }
@@ -74,16 +75,18 @@ public:
     inline bool isRelative() { return relative; }
 
 private:
-    bool relative;
-    bool locked;
+    bool relative { false };
+    bool locked { false };
     double Target[3];
-    double Ra;
-    double Dec;
+    double Ra { 0 };
+    double Dec { 0 };
     double baseline[3];
-    double u, v, delay;
-    double WaveLength;
-    double SampleRate;
-    int max_threads;
+    double u { 0 };
+    double v { 0 };
+    double delay { 0 };
+    double WaveLength { 0 };
+    double SampleRate { 0 };
+    int max_threads { 0 };
     VLBINode* Node1;
     VLBINode* Node2;
     vlbi_func2_t dsp_correlation_delegate;
