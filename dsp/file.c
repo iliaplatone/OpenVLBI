@@ -72,7 +72,6 @@ dsp_stream_p vlbi_file_read_fits(void *data, size_t len)
     memset(fptr, 0, sizeof(fitsfile));
     int bpp = 16;
     int status = 0;
-    char key[150];
     char value[150];
     char comment[150];
     char error_status[64];

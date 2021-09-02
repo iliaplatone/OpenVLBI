@@ -96,7 +96,7 @@ void vlbi_get_offsets(vlbi_context ctx, double J200Time, char* node1, char* node
     VLBIBaseline *b = nodes->getBaselines()->Get(baseline);
     b->setRa(Ra);
     b->setDec(Dec);
-    double max_delay = 0, Alt, Az;
+    double max_delay = 0;
     int farest = 0, x, y;
     for (x = 0; x < nodes->Count; x++) {
         for (y = x+1; y < nodes->Count; y++) {
