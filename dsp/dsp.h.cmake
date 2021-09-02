@@ -217,7 +217,7 @@ typedef union dsp_location_t
 /// The location in xyz coordinates
     struct { double x; double y; double z; } xyz;
 /// The location in geographic coordinates
-    struct {double lat;  double lon; double el; } geographic;
+    struct {double lon; double lat;  double el; } geographic;
 /// A 3d double array containing the location
     double coordinates[3];
 } dsp_location;
