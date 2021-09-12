@@ -26,7 +26,7 @@ add_definitions(-Wall -g -Wno-unused-parameter)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/README.md" README )
 string(REPLACE "[![Build Status](https://travis-ci.org/iliaplatone/OpenVLBI.svg?branch=master)](https://travis-ci.org/iliaplatone/OpenVLBI)" "" README "${README}")
-string(REGEX REPLACE "\n\# \([a-z:A-Z:0-9]*\)" "\n\n\\page page_\1 \1" README "${README}" )
+string(REGEX REPLACE "\n\# \([a-z:A-Z:0-9]*\)" "\n\n\\\\page page_\\1 \\1" README "${README}" )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dsp/dsp.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/dsp.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/vlbi/vlbi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
