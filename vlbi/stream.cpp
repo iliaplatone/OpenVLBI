@@ -162,7 +162,6 @@ static void* fillplane(void *arg)
                 oldidx = idx;
                 val = b->Locked() ? b->Correlate(time) : b->Correlate(time+offset1, time+offset2);
                 parent->buf[idx] += val;
-                parent->buf[parent->len-idx] += val;
                 e = s;
             }
         }
