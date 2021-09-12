@@ -181,7 +181,7 @@ void JSONClient::Parse()
                         if(!strcmp(v->u.object.values[y].value->u.string.ptr, "coverage"))
                             type |= UV_COVERAGE;
                         if(!strcmp(v->u.object.values[y].value->u.string.ptr, "raw"))
-                            type &= UV_COVERAGE;
+                            type &= ~UV_COVERAGE;
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "idft")) {
