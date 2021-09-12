@@ -199,17 +199,6 @@ typedef struct dsp_region_t
 } dsp_region;
 
 /**
-* \brief A star or object contained into a buffer
-*/
-typedef struct dsp_star_t
-{
-/// The center of the star
-    dsp_point center;
-/// The diameter of the star
-    double diameter;
-} dsp_star;
-
-/**
 * \brief The location type
 */
 typedef union dsp_location_t
@@ -221,6 +210,17 @@ typedef union dsp_location_t
 /// A 3d double array containing the location
     double coordinates[3];
 } dsp_location;
+
+/**
+* \brief A star or object contained into a buffer
+*/
+typedef struct dsp_star_t
+{
+/// The center of the star
+    dsp_point center;
+/// The diameter of the star
+    double diameter;
+} dsp_star;
 
 /**
 * \brief A set of stars

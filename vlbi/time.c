@@ -58,10 +58,7 @@ double vlbi_time_J2000time_to_lst(double secs_since_J2000, double Long)
     double Lst = GAMMAJ2000 + 24.0 * secs_since_J2000 / SIDEREAL_DAY;
     Long *= 24.0 / 360.0;
     Lst += Long;
-    while (Lst < 0)
-        Lst += 24.0;
-    while (Lst >= 24.0)
-        Lst -= 24.0;
+    fmod(Lst, 24.0);
     return Lst;
 }
 
