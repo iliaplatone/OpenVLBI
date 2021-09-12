@@ -28,6 +28,25 @@
 #include <baselinecollection.h>
 #include <base64.h>
 
+pthread_mutex_t mutex;
+pthread_mutexattr_t mutexattr;
+bool mutex_initialized = false;
+
+static void init_mutex()
+{
+    pthread_mutexattr_init(&mutexattr);
+    pthread_mutexattr_settype(&mutexattr, PTHREAD_MUTEX_ERRORCHECK);
+    pthread_mutex_init(&mutex, &mutexattr);
+    mutex_initialized = true;
+}
+
+static void destroy_mutex()
+{
+    pthread_mutex_destroy(&mutex);
+    pthread_mutexattr_destroy(&mutexattr);
+    mutex_initialized = false;
+}
+
 #define THREADS_MASK ((1<<vlbi_max_threads(0))-1)
 unsigned long int MAX_THREADS = DSP_MAX_THREADS;
 
@@ -162,7 +181,12 @@ static void* fillplane(void *arg)
             if(idx != oldidx) {
                 oldidx = idx;
                 val = b->Locked() ? b->Correlate(time) : b->Correlate(time+offset1, time+offset2);
-                parent->buf[idx] += val;
+                if(mutex_initialized) {
+                    while(pthread_mutex_trylock(&mutex))
+                        usleep(10);
+                    parent->buf[idx] += val;
+                    pthread_mutex_unlock(&mutex);
+                }
                 e = s;
             }
         }
@@ -289,6 +313,7 @@ dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, do
     parent->child_count = 0;
     pgarb("%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
     baselines->SetDelegate(delegate);
+    init_mutex();
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
@@ -298,10 +323,10 @@ dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, do
         argument.nodes = nodes;
         argument.moving_baseline = moving_baseline;
         argument.nodelay = nodelay;
-        //vlbi_start_thread(fillplane, &argument, &parent->child_count, i);
-        fillplane(&argument);
+        vlbi_start_thread(fillplane, &argument, &parent->child_count, i);
     }
-    //vlbi_wait_threads(&parent->child_count);
+    vlbi_wait_threads(&parent->child_count);
+    destroy_mutex();
     pgarb("aperture synthesis plotting completed\n");
     return parent;
 }
