@@ -1,8 +1,14 @@
-libopenvlbi (1.14) focal; urgency=low
+libopenvlbi (1.15) focal; urgency=low
 
-  * Multithreading added
+  * Fixed multithreading issues
 
  -- Ilia Platone <info@iliaplatone.com>  Mon, 3 Jul 2021 00:00:00 +0200
+
+ libopenvlbi (1.14) focal; urgency=low
+
+   * Multithreading added
+
+  -- Ilia Platone <info@iliaplatone.com>  Mon, 3 Jul 2021 00:00:00 +0200
 
 libopenvlbi (1.13) focal; urgency=low
 
