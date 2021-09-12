@@ -47,7 +47,6 @@ static void destroy_mutex()
     mutex_initialized = false;
 }
 
-#define THREADS_MASK ((1<<vlbi_max_threads(0))-1)
 unsigned long int MAX_THREADS = DSP_MAX_THREADS;
 
 static NodeCollection *vlbi_nodes = new NodeCollection();
@@ -55,7 +54,6 @@ static NodeCollection *vlbi_nodes = new NodeCollection();
 typedef struct _vlbi_thread_t {
     void *(*__start_routine) (void *);
     void* arg;
-    unsigned long m;
     int* thread_cnt;
     pthread_t th;
 }vlbi_thread_t;
@@ -71,26 +69,24 @@ static void vlbi_wait_threads(int *thread_cnt)
 
 static void* vlbi_thread_func(void* arg)
 {
-    vlbi_thread_t t = *((vlbi_thread_t*)arg);
-    t.__start_routine(t.arg);
-    (*t.thread_cnt) &= t.m;
+    vlbi_thread_t *t = ((vlbi_thread_t*)arg);
+    *t->thread_cnt = *t->thread_cnt + 1;
+    t->__start_routine(t->arg);
+    *t->thread_cnt = *t->thread_cnt - 1;
+    free(t);
     return NULL;
 }
 
-static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int *thread_cnt, int n)
+static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int *thread_cnt)
 {
-    unsigned long nt = (1<<(n%vlbi_max_threads(0)));
-    vlbi_thread_t t;
-    t.__start_routine = __start_routine;
-    t.arg = arg;
-    t.m = (nt^THREADS_MASK);
-    t.thread_cnt = thread_cnt;
+    vlbi_thread_t *t = (vlbi_thread_t*)malloc(sizeof(vlbi_thread_t));
+    memset(t, 0, sizeof(vlbi_thread_t));
+    t->__start_routine = __start_routine;
+    t->arg = arg;
+    t->thread_cnt = thread_cnt;
 
     usleep(100000);
-    if(((int)(*t.thread_cnt))==THREADS_MASK)
-        vlbi_wait_threads(t.thread_cnt);
-    *t.thread_cnt = (((int)(*t.thread_cnt))|nt);
-    pthread_create(&t.th, NULL, &vlbi_thread_func, &t);
+    pthread_create(&t->th, NULL, &vlbi_thread_func, t);
 }
 
 static double getDelay(double time, NodeCollection *nodes, VLBINode *n1, VLBINode *n2, double Ra, double Dec, double wavelength)
@@ -323,7 +319,7 @@ dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, do
         argument.nodes = nodes;
         argument.moving_baseline = moving_baseline;
         argument.nodelay = nodelay;
-        vlbi_start_thread(fillplane, &argument, &parent->child_count, i);
+        vlbi_start_thread(fillplane, &argument, &parent->child_count);
     }
     vlbi_wait_threads(&parent->child_count);
     destroy_mutex();
