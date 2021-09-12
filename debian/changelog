@@ -1,6 +1,6 @@
 libopenvlbi (1.15) focal; urgency=low
 
-  * Fixed multithreading issues
+   * Fixed multithreading issues
 
   -- Ilia Platone <info@iliaplatone.com>  Sun, 12 Sep 2021 00:00:00 +0200
 
