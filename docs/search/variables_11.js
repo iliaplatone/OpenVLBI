@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_475',['y',['../uniondsp__location__t.html#afb9e775285c69e85b1239899668e296a',1,'dsp_location_t']]]
+  ['v_473',['v',['../structvlbi__baseline.html#af8b09edbb953397691d04c0d74145c46',1,'vlbi_baseline']]]
 ];

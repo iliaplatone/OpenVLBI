@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['x_286',['x',['../uniondsp__location__t.html#a8117ef7347d1579252bcc2878c821e35',1,'dsp_location_t']]],
-  ['xyz_287',['xyz',['../uniondsp__location__t.html#a85cc6324a80f347dd10f49122da3af3e',1,'dsp_location_t']]]
+  ['wavelength_285',['wavelength',['../structdsp__stream__t.html#a2ea9e7b74ca02ca5d17de2f0eb41c6e1',1,'dsp_stream_t::wavelength()'],['../structvlbi__baseline.html#a439048384cf94d81d749cf25e1ca0135',1,'vlbi_baseline::WaveLength()']]]
 ];

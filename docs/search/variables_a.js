@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['offset_451',['offset',['../structdsp__offset__t.html#aa829075218a519d7905c1ff769ba92d8',1,'dsp_offset_t::offset()'],['../structdsp__align__info__t.html#afac188d2d5726bda04185c1cdfc8c246',1,'dsp_align_info_t::offset()']]]
+  ['name_446',['Name',['../structvlbi__node.html#ae2609b20e785660dceb9397f69f274e6',1,'vlbi_node::Name()'],['../structvlbi__baseline.html#a1719db627b870126ccfaa2f926f2aa9d',1,'vlbi_baseline::Name()']]],
+  ['node1_447',['Node1',['../structvlbi__baseline.html#ab9b1ac7e0f9d2dab00236b4abcbcf12b',1,'vlbi_baseline']]],
+  ['node2_448',['Node2',['../structvlbi__baseline.html#a3f2cc666a17cb23587ec265577b48541',1,'vlbi_baseline']]]
 ];

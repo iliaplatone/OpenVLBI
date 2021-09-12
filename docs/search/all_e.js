@@ -1,15 +1,13 @@
 var searchData=
 [
-  ['samplerate_215',['samplerate',['../structdsp__stream__t.html#a04bc4a7d413e7a229c53a665e792783a',1,'dsp_stream_t']]],
-  ['sidereal_5fday_216',['SIDEREAL_DAY',['../group___v_l_b_i___defines.html#gae76e361688d56175e386e0be1ebb744a',1,'vlbi.h']]],
-  ['sin2cos_217',['sin2cos',['../group___v_l_b_i___defines.html#ga6b79ba2acd2b99945571763dea41d42c',1,'vlbi.h']]],
-  ['sizes_218',['sizes',['../structdsp__triangle__t.html#a6cfcf4753491d5da0a431f79e93a7a98',1,'dsp_triangle_t::sizes()'],['../structdsp__stream__t.html#a463d2fd45653ca521ee84f48068b6da5',1,'dsp_stream_t::sizes()']]],
-  ['snr_219',['SNR',['../structdsp__stream__t.html#abd4550117d0bdc649d018b84dd0b96c7',1,'dsp_stream_t']]],
-  ['solar_5fday_220',['SOLAR_DAY',['../group___v_l_b_i___defines.html#ga902dfb312bb1d1d3766f03f3f6412044',1,'vlbi.h']]],
-  ['speed_5fmean_221',['SPEED_MEAN',['../group___v_l_b_i___defines.html#ga47ef2092d906b4caf3ed9f6885bdac3a',1,'vlbi.h']]],
-  ['stars_222',['stars',['../structdsp__triangle__t.html#a6cabff9e9b92720abfb177b0e615d89e',1,'dsp_triangle_t::stars()'],['../structdsp__stream__t.html#a6752a57287d9fcc7dcad9b1571bfabcb',1,'dsp_stream_t::stars()']]],
-  ['stars_5fcount_223',['stars_count',['../structdsp__stream__t.html#a793767575fa574d60d3ff09acdab8155',1,'dsp_stream_t']]],
-  ['start_224',['start',['../structdsp__region__t.html#a3d10923a10d3ba5deab4be86d088ae81',1,'dsp_region_t']]],
-  ['start_5fgettime_225',['start_gettime',['../dsp_8h.html#a35832dd3408ee6b5f6e7ff3a84ca5ce0',1,'dsp.h']]],
-  ['starttimeutc_226',['starttimeutc',['../structdsp__stream__t.html#a692b42650d2d2c3be4a48c9e9be18764',1,'dsp_stream_t']]]
+  ['references_200',['References',['../page__references.html',1,'']]],
+  ['ra_201',['Ra',['../structvlbi__baseline.html#ad0fe725f861618e78817a43a36e7fcdb',1,'vlbi_baseline']]],
+  ['rad_5fas_202',['RAD_AS',['../group___v_l_b_i___defines.html#gad6b384bd38eaff378444e38bb44e8e7e',1,'vlbi.h']]],
+  ['radians_203',['radians',['../structdsp__align__info__t.html#a58deea46f6307c17241f13e3b869675a',1,'dsp_align_info_t']]],
+  ['ratios_204',['ratios',['../structdsp__triangle__t.html#ad7870c32610bc91930d03b63ec09b48e',1,'dsp_triangle_t']]],
+  ['real_205',['real',['../structdsp__complex__t.html#a945260a0574f865349afef7e6522e620',1,'dsp_complex_t']]],
+  ['red_206',['red',['../structdsp__stream__t.html#a517949bf72f39b594e2db973861947b2',1,'dsp_stream_t']]],
+  ['relative_207',['relative',['../structvlbi__baseline.html#a083bcfe10e5a959e8c8f74f8a4c8626b',1,'vlbi_baseline']]],
+  ['roi_208',['ROI',['../structdsp__stream__t.html#ae4945adcbb1cc9fef407a62d6109a312',1,'dsp_stream_t']]],
+  ['root2_209',['ROOT2',['../group___v_l_b_i___defines.html#ga5ad3e7aa8c959da6685a19d86c5f01a0',1,'vlbi.h']]]
 ];

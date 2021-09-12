@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['parent_452',['parent',['../structdsp__stream__t.html#a40dc327cb0be8479a2d9af06a6996fe7',1,'dsp_stream_t']]],
-  ['pixel_5fsizes_453',['pixel_sizes',['../structdsp__stream__t.html#a233ee0e0aac827d9acd06a0d0e91a16a',1,'dsp_stream_t']]]
+  ['offset_449',['offset',['../structdsp__offset__t.html#aa829075218a519d7905c1ff769ba92d8',1,'dsp_offset_t::offset()'],['../structdsp__align__info__t.html#afac188d2d5726bda04185c1cdfc8c246',1,'dsp_align_info_t::offset()']]]
 ];

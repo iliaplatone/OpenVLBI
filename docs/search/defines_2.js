@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['log_520',['Log',['../dsp_8h.html#a6db125b15238caf42269bd77d7462e96',1,'dsp.h']]]
+  ['max_522',['Max',['../dsp_8h.html#a4886a8f966a69949cefc46a6a3468006',1,'dsp.h']]],
+  ['min_523',['Min',['../dsp_8h.html#a9e04209162ea72f9985338596262b657',1,'dsp.h']]]
 ];
