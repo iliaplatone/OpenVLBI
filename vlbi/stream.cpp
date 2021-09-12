@@ -148,9 +148,10 @@ static void* fillplane(void *arg)
                 nodes->At(x)->setLocation(0);
             }
         }
-        vlbi_get_offsets((void*)nodes, time, b->getNode1()->getName(), b->getNode2()->getName(), b->getRa(), b->getDec(), &offset1, &offset2);
         if(nodelay) {
             offset1 = offset2 = 0.0;
+        } else {
+            vlbi_get_offsets((void*)nodes, time, b->getNode1()->getName(), b->getNode2()->getName(), b->getRa(), b->getDec(), &offset1, &offset2);
         }
         b->setTime(time);
         b->getProjection();
