@@ -1,26 +1,32 @@
-libopenvlbi (1.14) focal; urgency=low
+libopenvlbi (1.15) focal; urgency=low
+
+  * Fixed multithreading issues
+
+  -- Ilia Platone <info@iliaplatone.com>  Sun, 12 Sep 2021 00:00:00 +0200
+
+ libopenvlbi (1.14) focal; urgency=low
 
   * Multithreading added
 
- -- Ilia Platone <info@iliaplatone.com>  Mon, 3 Jul 2021 00:00:00 +0200
+  -- Ilia Platone <info@iliaplatone.com>  Mon, 3 Jul 2021 00:00:00 +0200
 
 libopenvlbi (1.13) focal; urgency=low
 
   * Initial release
 
- -- Ilia Platone <info@iliaplatone.com>  Mon, 14 Jun 2021 00:00:00 +0200
+ -- Ilia Platone <info@iliaplatone.com>  Mon, 17 Jun 2021 00:00:00 +0200
 
 libopenvlbi (1.12) focal; urgency=low
 
   * Initial release
 
- -- Ilia Platone <info@iliaplatone.com>  Mon, 14 Jun 2021 00:00:00 +0200
+ -- Ilia Platone <info@iliaplatone.com>  Mon, 16 Jun 2021 00:00:00 +0200
 
 libopenvlbi (1.11) focal; urgency=low
 
   * Initial release
 
- -- Ilia Platone <info@iliaplatone.com>  Mon, 14 Jun 2021 00:00:00 +0200
+ -- Ilia Platone <info@iliaplatone.com>  Mon, 15 Jun 2021 00:00:00 +0200
 
 libopenvlbi (1.10) focal; urgency=low
 

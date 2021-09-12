@@ -17,9 +17,9 @@
  */
 
 #include "dsp.h"
-struct timespec ts;
-double ex_time = 0;
+int DSP_MAX_THREADS = 1;
 int dsp_debug = 0;
+char* dsp_app_name = NULL;
 void dsp_stream_alloc_buffer(dsp_stream_p stream, int len)
 {
     if(stream->buf != NULL) {
@@ -55,7 +55,7 @@ dsp_stream_p dsp_stream_new()
     stream->pixel_sizes = (double*)malloc(sizeof(double) * 1);
     stream->children = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * 1);
     stream->ROI = (dsp_region*)malloc(sizeof(dsp_region) * 1);
-    stream->location = (double*)malloc(sizeof(double) * 3);
+    stream->location = (dsp_location*)malloc(sizeof(dsp_location) * 1);
     stream->target = (double*)malloc(sizeof(double) * 3);
     stream->stars = (dsp_star*)malloc(sizeof(dsp_star) * 1);
     stream->triangles = (dsp_triangle*)malloc(sizeof(dsp_triangle) * 1);
@@ -110,7 +110,7 @@ dsp_stream_p dsp_stream_copy(dsp_stream_p stream)
     memcpy(dest->ROI, stream->ROI, sizeof(dsp_region) * stream->dims);
     memcpy(dest->pixel_sizes, stream->pixel_sizes, sizeof(double) * stream->dims);
     memcpy(dest->target, stream->target, sizeof(double) * 3);
-    memcpy(dest->location, stream->location, sizeof(double) * 3);
+    memcpy(dest->location, stream->location, sizeof(dsp_location) * 1);
     memcpy(dest->buf, stream->buf, sizeof(dsp_t) * stream->len);
     return dest;
 }
@@ -232,7 +232,7 @@ void dsp_stream_del_triangle(dsp_stream_p stream, int index)
 {
     dsp_triangle* triangles = (dsp_triangle*)malloc(sizeof(dsp_triangle) * stream->triangles_count);
     int triangles_count = stream->triangles_count;
-    memcpy(triangles, stream->triangles, sizeof(dsp_triangle*) * stream->triangles_count);
+    memcpy(triangles, stream->triangles, sizeof(dsp_triangle) * stream->triangles_count);
     free(stream->triangles);
     stream->triangles_count = 0;
     int i;
@@ -270,7 +270,6 @@ int dsp_stream_set_position(dsp_stream_p stream, int* pos) {
 
 void dsp_stream_crop(dsp_stream_p in)
 {
-    start_gettime;
     dsp_stream_p stream = dsp_stream_new();
     int dim, d;
     for(dim = 0; dim < in->dims; dim++) {
@@ -306,12 +305,10 @@ void dsp_stream_crop(dsp_stream_p in)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }
 
 void dsp_stream_traslate(dsp_stream_p in)
 {
-    start_gettime;
     pfunc;
     dsp_stream_p stream = dsp_stream_copy(in);
     int* offset = (int*)malloc(sizeof(int)*stream->dims);
@@ -328,7 +325,6 @@ void dsp_stream_traslate(dsp_stream_p in)
     memcpy(data, buf, sizeof(dsp_t)*len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }
 
 static void* dsp_stream_scale_th(void* arg)
@@ -357,13 +353,12 @@ static void* dsp_stream_scale_th(void* arg)
             stream->buf[y] += in->buf[x]/(stream->align_info.factor*stream->dims);
         free(pos);
     }
+    return NULL;
 }
 
 void dsp_stream_scale(dsp_stream_p in)
 {
-    start_gettime;
-    int dims = in->dims;
-    int dim, y;
+    int y;
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
@@ -385,7 +380,6 @@ void dsp_stream_scale(dsp_stream_p in)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }
 
 static void* dsp_stream_rotate_th(void* arg)
@@ -400,7 +394,7 @@ static void* dsp_stream_rotate_th(void* arg)
     int start = cur_th * stream->len / DSP_MAX_THREADS;
     int end = start + stream->len / DSP_MAX_THREADS;
     end = Min(stream->len, end);
-    int y, d;
+    int y;
     for(y = start; y < end; y++)
     {
         int *pos = dsp_stream_get_position(stream, y);
@@ -423,11 +417,11 @@ static void* dsp_stream_rotate_th(void* arg)
         if(x >= 0 && x < in->len)
             stream->buf[y] = in->buf[x];
     }
+    return NULL;
 }
 
 void dsp_stream_rotate(dsp_stream_p in)
 {
-    start_gettime;
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
@@ -448,5 +442,4 @@ void dsp_stream_rotate(dsp_stream_p in)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }

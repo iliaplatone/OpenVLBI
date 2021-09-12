@@ -42,13 +42,13 @@ public:
     inline double* getGeographicLocation() {
         GeographicLocation[0] = getLocation()[0];
         GeographicLocation[1] = getLocation()[1];
-        GeographicLocation[2] = vlbi_astro_estimate_geocentric_elevation(getLocation()[0], getLocation()[2]);
+        GeographicLocation[2] = getLocation()[2];
         return GeographicLocation;
     }
     inline double getStartTime() { return (double)vlbi_time_timespec_to_J2000time(getStream()->starttimeutc); }
 
     inline void setWaveLength(double wavelength) { getStream()->wavelength = wavelength; }
-    inline void setSampleRate(double samplerate) { getStream()->samplerate = samplerate; }
+    void setSampleRate(double samplerate);
     inline void setStartTime(double starttime) { getStream()->starttimeutc.tv_sec = floor(starttime); getStream()->starttimeutc.tv_nsec = (starttime-getStream()->starttimeutc.tv_sec)*1000000000.0; }
 
     inline void setTarget(double horiz, double vert) { getStream()->target[0] = horiz; getStream()->target[1] = vert; }
@@ -64,7 +64,9 @@ public:
     }
     inline bool GeographicCoordinates() { return Geo; }
     inline void useGeographicCoordinates(bool geo) { Geo = geo; }
+    inline dsp_location stationLocation() { return StationLocation; }
 private:
+    dsp_location StationLocation;
     double GeographicLocation[3];
     double Location[3];
     bool Geo;

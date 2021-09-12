@@ -22,9 +22,11 @@
 VLBINode::VLBINode(dsp_stream_p stream, char* name, int index, bool geographic_coordinates)
 {
     Stream = stream;
+    getStream()->align_info.dims = getStream()->dims;
     dsp_stream_add_dim(getStream(), 1);
     dsp_stream_alloc_buffer(getStream(), getStream()->len);
-    Name = name;
+    Name = (char*)calloc(150, 1);
+    sprintf(Name, "%s", name);
     Index = index;
     setLocation(0);
     Geo = geographic_coordinates;
@@ -35,4 +37,16 @@ VLBINode::~VLBINode()
     dsp_stream_free_buffer(getStream());
     dsp_stream_free(getStream());
     free(getName());
+}
+
+void VLBINode::setSampleRate(double samplerate)
+{
+    getStream()->align_info.factor = getStream()->samplerate / samplerate;
+    if(getStream()->align_info.factor != 1.0) {
+        getStream()->sizes[0] *= getStream()->align_info.factor;
+        getStream()->len *= getStream()->align_info.factor;
+        dsp_stream_alloc_buffer(getStream(), getStream()->len);
+        dsp_stream_scale(getStream());
+    }
+    getStream()->samplerate = samplerate;
 }

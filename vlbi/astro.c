@@ -27,10 +27,10 @@ void vlbi_astro_alt_az_from_ra_dec(double J2000time, double Ra, double Dec, doub
 
 double vlbi_astro_get_local_hour_angle(double Lst, double Ra)
 {
-    double Ha = (Lst - Ra);
-    while (Ha < 0)
+    double Ha = (fmod(Lst, 24.0) - Ra);
+    if (Ha < -12)
         Ha += 24.0;
-    while (Ha >= 24.0)
+    if (Ha >= 12.0)
         Ha -= 24.0;
     return Ha;
 }
@@ -45,7 +45,7 @@ void vlbi_astro_get_alt_az_coordinates(double Ha, double Dec, double Lat, double
     az = acos((sin(Dec) - sin(alt)*sin(Lat)) / (cos(alt) * cos(Lat)));
     alt *= 180.0 / M_PI;
     az *= 180.0 / M_PI;
-    if (sin(Ha) >= 0.0)
+    if (sin(Ha) > 0.0)
         az = 360 - az;
     *Alt = alt;
     *Az = az;
@@ -54,8 +54,8 @@ void vlbi_astro_get_alt_az_coordinates(double Ha, double Dec, double Lat, double
 double vlbi_astro_estimate_geocentric_elevation(double Lat, double El)
 {
     Lat *= M_PI / 180.0;
-    Lat = fabs(sin(Lat));
-    El += Lat * (EARTHRADIUSPOLAR - EARTHRADIUSEQUATORIAL) + EARTHRADIUSEQUATORIAL;
+    Lat = fabs(cos(Lat));
+    El += Lat * (EARTHRADIUSEQUATORIAL - EARTHRADIUSPOLAR) + EARTHRADIUSPOLAR;
     return El;
 }
 

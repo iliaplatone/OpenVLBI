@@ -39,9 +39,9 @@ public:
 	bool ContainsKey(const char* element);
     int IndexOf(VLBINode *element);
     inline BaselineCollection* getBaselines() { return baselines; }
-    dsp_location *getLocation() { return &station; }
+    dsp_location *stationLocation() { return &station; }
     bool isRelative() { return relative; }
-    void setRelative(bool value) { relative = value; }
+    void setRelative(bool value);
 
 private:
     bool relative;

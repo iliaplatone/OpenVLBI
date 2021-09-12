@@ -26,8 +26,8 @@
 #include <vlbi.h>
 
 struct VLBIElement {
-	long item;
-	char name[32];
+    void* item;
+    char *name;
 };
 
 class VLBICollection

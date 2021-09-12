@@ -51,7 +51,7 @@ double VLBIBaseline::Correlate(double time1, double time2)
 {
     int idx1 = (time1-getStartTime())/getSampleRate();
     int idx2 = (time2-getStartTime())/getSampleRate();
-    if(idx1 > 0 && idx2 > 0 && idx1 < getNode1()->getStream()->len && idx2 < getNode2()->getStream()->len)
+    if(idx1 >= 0 && idx2 >= 0 && idx1 < getNode1()->getStream()->len && idx2 < getNode2()->getStream()->len)
         return dsp_correlation_delegate(getNode1()->getStream()->buf[idx1], getNode2()->getStream()->buf[idx2]);
     return 0.0;
 }
@@ -80,26 +80,39 @@ double VLBIBaseline::getEndTime()
 
 double *VLBIBaseline::getBaseline()
 {
-    dsp_location location1;
-    dsp_location location2;
+    double *b;
+    dsp_location location1, location2, baseline;
     if (!isRelative()) {
-        double *coords = vlbi_calc_location(getNode1()->getGeographicLocation());
-        memcpy(location1.coordinates, coords, sizeof(double)*3);
-        free(coords);
-        coords = vlbi_calc_location(getNode2()->getGeographicLocation());
-        memcpy(location1.coordinates, coords, sizeof(double)*3);
-        free(coords);
+        double lon1 = getNode1()->getGeographicLocation()[1];
+        double lon2 = getNode2()->getGeographicLocation()[1];
+        if(fabs(lon1 - lon2) >= 180.0) {
+            if(lon1 < 180.0)
+                lon1 += 360;
+            if(lon2 < 180.0)
+                lon2 += 360;
+        }
+        baseline.geographic.lon = (lon2-lon1);
+        if(baseline.geographic.lon >= 180)
+            baseline.geographic.lon -= 360;
+        if(baseline.geographic.lon < -180)
+            baseline.geographic.lon += 360;
+        baseline.geographic.lat = getNode2()->getGeographicLocation()[0];
+        baseline.geographic.lat -= getNode1()->getGeographicLocation()[0];
+        baseline.geographic.el = getNode2()->getGeographicLocation()[2];
+        baseline.geographic.el -= getNode1()->getGeographicLocation()[2];
+        baseline.geographic.el += getNode2()->getGeographicLocation()[2];
+        b = vlbi_calc_location(baseline.coordinates);
+        memcpy(baseline.coordinates, b, sizeof(dsp_location));
+        baseline.xyz.z -= getNode2()->getGeographicLocation()[2];
     } else {
         memcpy(location1.coordinates, getNode1()->getLocation(), sizeof(double)*3);
         memcpy(location2.coordinates, getNode2()->getLocation(), sizeof(double)*3);
+        b = (double*)malloc(sizeof(double)*3);
+        b[0] = location1.xyz.x - location2.xyz.x;
+        b[1] = location1.xyz.y - location2.xyz.y;
+        b[2] = location1.xyz.z - location2.xyz.z;
     }
-
-    double *bl = vlbi_calc_baseline(location1.coordinates, location2.coordinates);
-    baseline[0] = bl[0];
-    baseline[1] = bl[1];
-    baseline[2] = bl[2];
-    free (bl);
-    return baseline;
+    return b;
 }
 
 void VLBIBaseline::getProjection()
@@ -111,4 +124,35 @@ void VLBIBaseline::getProjection()
     v = proj[1];
     delay = proj[2];
     free (proj);
+}
+
+void VLBIBaseline::setTime(double time)
+{
+    double Alt, Az;
+    if(!isRelative()) {
+        dsp_location center;
+        double lon1 = getNode1()->getGeographicLocation()[1];
+        double lon2 = getNode2()->getGeographicLocation()[1];
+        if(fabs(lon1 - lon2) >= 180.0) {
+            if(lon1 < 180.0)
+                lon1 += 360;
+            if(lon2 < 180.0)
+                lon2 += 360;
+        }
+        center.geographic.lon = (lon1+lon2)/2;
+        if(center.geographic.lon >= 360)
+            center.geographic.lon -= 360;
+        if(center.geographic.lon < 0)
+            center.geographic.lon += 360;
+        center.geographic.lat = getNode1()->getGeographicLocation()[0];
+        center.geographic.lat += getNode2()->getGeographicLocation()[0];
+        center.geographic.lat /= 2;
+        center.geographic.el = getNode1()->getGeographicLocation()[2];
+        center.geographic.el += getNode2()->getGeographicLocation()[2];
+        center.geographic.el /= 2;
+        vlbi_astro_alt_az_from_ra_dec(time, Ra, Dec, center.geographic.lat, center.geographic.lon, &Alt, &Az);
+    } else {
+        vlbi_astro_alt_az_from_ra_dec(time, Ra, Dec, stationLocation()->geographic.lat, stationLocation()->geographic.lon, &Alt, &Az);
+    }
+    setTarget(Az, Alt);
 }

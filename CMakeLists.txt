@@ -8,29 +8,30 @@ include(ExternalProject)
 
 find_package(CFITSIO REQUIRED)
 find_package(ZLIB REQUIRED)
-find_package(Nova REQUIRED)
 find_package(FFTW3 REQUIRED)
 find_package(Threads REQUIRED)
 option(WITH_INDI_CLIENT "Add INDI client for OpenVLBI" ON)
 option(WITH_DUMMY_CLIENT "Add dummy client for OpenVLBI" ON)
+option(WITH_JSON_CLIENT "Add JSON client for OpenVLBI" ON)
 
 set (VLBI_VERSION_MAJOR 1)
-set (VLBI_VERSION_MINOR 14)
+set (VLBI_VERSION_MINOR 15)
 set (VLBI_VERSION_STRING "${VLBI_VERSION_MAJOR}.${VLBI_VERSION_MINOR}.0")
 set(LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake_modules/")
 
-add_definitions(-Wall -g -fstack-protector -Wno-unused-parameter)
+add_definitions(-Wall -g -Wno-unused-parameter)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/README.md" README )
 string(REPLACE "[![Build Status](https://travis-ci.org/iliaplatone/OpenVLBI.svg?branch=master)](https://travis-ci.org/iliaplatone/OpenVLBI)" "" README "${README}")
-string(REGEX REPLACE "\n\# \([a-z:A-Z:0-9]*\)" "\n\n\\page page_\1 \1" README "${README}" )
+string(REGEX REPLACE "\n\# \([a-z:A-Z:0-9]*\)" "\n\n\\\\page page_\\1 \\1" README "${README}" )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dsp/dsp.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/dsp.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/vlbi/vlbi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
 
+include_directories( ${CFITSIO_INCLUDE_DIR})
 include_directories( ${CMAKE_CURRENT_BINARY_DIR})
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/vlbi)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/dsp)
@@ -58,6 +59,7 @@ set(vlbi_C_SRCS
 SET(dsp_C_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/convert.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/fft.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/file.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stats.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/buffer.c
@@ -69,11 +71,21 @@ SET(dsp_C_SRC
 execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(openvlbi SHARED ${dsp_C_SRC} ${vlbi_C_SRCS} ${vlbi_CXX_SRCS})
 set_target_properties(openvlbi PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
-target_link_libraries(openvlbi ${FFTW3_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(openvlbi ${FFTW3_LIBRARIES} ${M_LIB} ${CFITSIO_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dsp.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
 install(TARGETS openvlbi LIBRARY DESTINATION ${LIB_INSTALL_DIR})
+
+if(WITH_JSON_CLIENT)
+find_package(JSONPARSER REQUIRED)
+if(JSONPARSER_LIBRARIES)
+include_directories( ${JSONPARSER_INCLUDE_DIR})
+add_executable(vlbi_client_json ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client_json.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp)
+target_link_libraries(vlbi_client_json openvlbi ${JSONPARSER_LIBRARIES} ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
+install(TARGETS vlbi_client_json RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+endif(JSONPARSER_LIBRARIES)
+endif(WITH_JSON_CLIENT)
 
 if(WITH_INDI_CLIENT)
 find_package(INDI REQUIRED)
@@ -91,9 +103,3 @@ add_executable(vlbi_client_dummy ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp ${C
 target_link_libraries(vlbi_client_dummy openvlbi ${M_LIB} ${ZLIB_LIBRARY})
 install(TARGETS vlbi_client_dummy RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(WITH_DUMMY_CLIENT)
-
-if(WITH_JSON_CLIENT)
-add_executable(vlbi_client_json ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client_json.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp)
-target_link_libraries(vlbi_client_json openvlbi)
-install(TARGETS vlbi_client_json RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-endif(WITH_JSON_CLIENT)

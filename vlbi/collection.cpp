@@ -34,7 +34,8 @@ VLBICollection::~VLBICollection()
 void VLBICollection::Add(void* el, const char* name)
 {
     VLBIElement item;
-    item.item = (long)el;
+    item.item = el;
+    item.name = (char*)malloc(strlen(name));
     strcpy(item.name, name);
     Count++;
     Items = (VLBIElement*)realloc(Items, S * Count);
@@ -47,7 +48,7 @@ void VLBICollection::Remove(void* el)
 		return;
 	for(int i = 0; i < Count; i++)
 	{
-		if((long)el == Items[i].item)
+        if(el == Items[i].item)
 		{
 			Items[i].item = 0;
 		}
@@ -102,7 +103,7 @@ int VLBICollection::IndexOf(void* el)
 	int ret = -1;
 	for(int i = 0; i < Count; i++)
 	{
-		if((long)el == Items[i].item)
+        if(el == Items[i].item)
 		{
 			ret = i;
 		}
@@ -129,7 +130,7 @@ bool VLBICollection::Contains(void* el)
 	bool ret = false;
 	for(int i = 0; i < Count; i++)
 	{
-		if((long)el == Items[i].item)
+        if(el == Items[i].item)
 		{
 			ret = true;
 		}

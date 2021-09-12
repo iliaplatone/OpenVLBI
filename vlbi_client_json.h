@@ -12,7 +12,12 @@ public:
     ~JSONClient();
 
     int Init(int argc, char** argv);
-    void Parse(char* cmd, char* arg, char* value);
+    void Parse();
+
+private:
+    bool nodelay;
+    bool relative;
+    vlbi_node node;
 };
 
 #endif //VLBI_CLIENT_JSON_H

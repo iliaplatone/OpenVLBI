@@ -20,9 +20,9 @@ int DUMMYClient::Init(int argc, char** argv)
 	return VLBI::Client::Init(argc, argv);
 }
 
-void DUMMYClient::Parse(char* cmd, char* arg, char* value)
+void DUMMYClient::Parse()
 {
-	VLBI::Client::Parse(cmd, arg, value);
+    VLBI::Client::Parse();
 }
 
 DUMMYClient *client = new DUMMYClient();

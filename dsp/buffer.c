@@ -20,30 +20,6 @@
 #include <setjmp.h>
 #include <signal.h>
 
-jmp_buf jump;
-
-static void segv (int sig)
-{
-  longjmp (jump, 1);
-}
-
-int dsp_buffer_check(void *x)
-{
-  volatile char c;
-  int illegal = 0;
-
-  signal (SIGSEGV, segv);
-
-  if (!setjmp (jump))
-    c = *(char *) (x);
-  else
-    illegal = 1;
-
-  signal (SIGSEGV, SIG_DFL);
-
-  return illegal;
-}
-
 void dsp_buffer_shift(dsp_stream_p stream)
 {
     if(stream->dims == 0)
@@ -273,7 +249,7 @@ static void* dsp_buffer_median_th(void* arg)
     int start = cur_th * stream->len / DSP_MAX_THREADS;
     int end = start + stream->len / DSP_MAX_THREADS;
     end = Min(stream->len, end);
-    int x, y, dim, idx, xdi;
+    int x, y, dim, idx;
     dsp_t* sorted = (dsp_t*)malloc(pow(size, stream->dims) * sizeof(dsp_t));
     int len = pow(size, in->dims);
     for(x = start; x < end; x++) {
@@ -303,9 +279,7 @@ static void* dsp_buffer_median_th(void* arg)
 void dsp_buffer_median(dsp_stream_p in, int size, int median)
 {
     pfunc;
-    start_gettime;
-    int dims = in->dims;
-    int dim, y, d;
+    int y, d;
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
@@ -336,7 +310,6 @@ void dsp_buffer_median(dsp_stream_p in, int size, int median)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }
 
 static void* dsp_buffer_sigma_th(void* arg)
@@ -383,9 +356,7 @@ static void* dsp_buffer_sigma_th(void* arg)
 
 void dsp_buffer_sigma(dsp_stream_p in, int size)
 {
-    start_gettime;
-    int dims = in->dims;
-    int dim, y, d;
+    int y, d;
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
@@ -413,7 +384,6 @@ void dsp_buffer_sigma(dsp_stream_p in, int size)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-    end_gettime;
 }
 
 void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t mindeviation, dsp_t maxdeviation)
