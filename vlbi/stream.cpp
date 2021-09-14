@@ -231,7 +231,7 @@ int vlbi_get_nodes(void *ctx, vlbi_node** output) {
             out[x].Location = nodes->At(x)->getLocation();
             out[x].Geo = nodes->At(x)->GeographicCoordinates();
             out[x].Stream = nodes->At(x)->getStream();
-            out[x].Name = nodes->At(x)->getName();
+            strcpy(out[x].Name, nodes->At(x)->getName());
             out[x].Index = nodes->At(x)->getIndex();
         }
         *output = out;
@@ -267,15 +267,15 @@ int vlbi_get_baselines(void *ctx, vlbi_baseline** output) {
             out[x].Node1.Location = baselines->At(x)->getNode1()->getLocation();
             out[x].Node1.Geo = baselines->At(x)->getNode1()->GeographicCoordinates();
             out[x].Node1.Stream = baselines->At(x)->getNode1()->getStream();
-            out[x].Node1.Name = baselines->At(x)->getNode1()->getName();
+            strcpy(out[x].Node1.Name, baselines->At(x)->getNode1()->getName());
             out[x].Node1.Index = baselines->At(x)->getNode1()->getIndex();
             out[x].Node2.GeographicLocation = baselines->At(x)->getNode2()->getGeographicLocation();
             out[x].Node2.Location = baselines->At(x)->getNode2()->getLocation();
             out[x].Node2.Geo = baselines->At(x)->getNode2()->GeographicCoordinates();
             out[x].Node2.Stream = baselines->At(x)->getNode2()->getStream();
-            out[x].Node2.Name = baselines->At(x)->getNode2()->getName();
+            strcpy(out[x].Node2.Name, baselines->At(x)->getNode2()->getName());
             out[x].Node2.Index = baselines->At(x)->getNode2()->getIndex();
-            out[x].Name = baselines->At(x)->getName();
+            strcpy(out[x].Name, baselines->At(x)->getName());
             out[x].Stream = baselines->At(x)->getStream();
         }
         *output = out;

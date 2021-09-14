@@ -74,7 +74,7 @@ struct timespec ts; \
 time_t t = time(NULL); \
 struct tm tm = *localtime(&t); \
 clock_gettime(CLOCK_REALTIME, &ts); \
-sprintf(str, "[%d-%02d-%02dT%02d:%02d:%02d.%03ld %+03d ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts.tv_nsec/1000000, tm.tm_gmtoff / 3600); \
+sprintf(str, "[%04d-%02d-%02dT%02d:%02d:%02ld.%03ld ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts.tv_nsec/1000000); \
 switch(x) { \
     case DSP_DEBUG_ERROR: \
     sprintf(&str[strlen(str)], "ERRO]"); \
@@ -529,15 +529,15 @@ DLL_EXPORT dsp_stream_p dsp_convolution_convolution(dsp_stream_p stream1, dsp_st
 * \param len the length in elements of the buffer.
 * \return the mean value of the stream.
 */
-#define dsp_stats_mean(buf, len)\
+#define dsp_stats_mean(__dsp__buf, __dsp__len)\
 ({\
-    int i;\
-    double mean = 0;\
-    for(i = 0; i < len; i++) {\
-        mean += buf[i];\
+    int __dsp__i;\
+    double __dsp__mean = 0;\
+    for(__dsp__i = 0; __dsp__i < __dsp__len; __dsp__i++) {\
+        __dsp__mean += __dsp__buf[__dsp__i];\
     }\
-    mean /= len;\
-    mean;\
+    __dsp__mean /= __dsp__len;\
+    __dsp__mean;\
     })
 
 /**
@@ -545,16 +545,16 @@ DLL_EXPORT dsp_stream_p dsp_convolution_convolution(dsp_stream_p stream1, dsp_st
 * \param stream the stream on which execute
 * \return the standard deviation.
 */
-#define dsp_stats_stddev(buf, len)\
+#define dsp_stats_stddev(__dsp__buf, __dsp__len)\
 ({\
-    double mean = dsp_stats_mean(buf, len);\
-    int x;\
-    double stddev = 0;\
-    for(x = 0; x < len; x++) {\
-        stddev += fabs(buf[x] - mean);\
+    double __dsp__mean = dsp_stats_mean(__dsp__buf, __dsp__len);\
+    int __dsp__x;\
+    double __dsp__stddev = 0;\
+    for(__dsp__x = 0; __dsp__x < __dsp__len; __dsp__x++) {\
+        __dsp__stddev += fabs(__dsp__buf[__dsp__x] - __dsp__mean);\
     }\
-    stddev /= len;\
-    stddev;\
+    __dsp__stddev /= __dsp__len;\
+    __dsp__stddev;\
     })
 
 /**
