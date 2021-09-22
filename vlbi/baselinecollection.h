@@ -60,8 +60,8 @@ protected:
     bool relative;
     double Ra, Dec;
     NodeCollection *Nodes;
-    int width;
-    int height;
+    int width { 128 };
+    int height { 128 };
     dsp_stream_p Stream;
 };
 
