@@ -30,6 +30,8 @@ timespec_t vlbi_time_mktimespec(int year, int month, int dom, int hour, int minu
     t_tm.tm_mday = dom;
     t_tm.tm_mon = month - 1;
     t_tm.tm_year = year - 1900;
+    t_tm.tm_gmtoff = 0;
+    t_tm.tm_zone = "UTC";
     t_time = mktime(&t_tm);
     ret.tv_sec = t_time + nanosecond / 1000000000;
     ret.tv_nsec = nanosecond % 1000000000;
@@ -38,52 +40,30 @@ timespec_t vlbi_time_mktimespec(int year, int month, int dom, int hour, int minu
 
 double vlbi_time_timespec_to_J2000time(timespec_t tp)
 {
-    struct tm j2000_tm;
-    time_t j2000;
-    j2000_tm.tm_sec = 0;
-    j2000_tm.tm_min = 0;
-    j2000_tm.tm_hour = 12;
-    j2000_tm.tm_mday = 1;
-    j2000_tm.tm_mon = 0;
-    j2000_tm.tm_year = 100;
-    j2000_tm.tm_wday = 6;
-    j2000_tm.tm_yday = 0;
-    j2000_tm.tm_isdst = 0;
-    j2000 = mktime(&j2000_tm);
-    return ((double)(tp.tv_sec - j2000) + (double)tp.tv_nsec / 1000000000.0);
+    char time[64];
+    strcpy(time, "2000-01-01T12:00:00Z");
+    timespec_t j2000 = vlbi_time_string_to_timespec(time);
+    return ((double)(tp.tv_sec - j2000.tv_sec) + (double)tp.tv_nsec / 1000000000.0);
 }
 
 double vlbi_time_J2000time_to_lst(double secs_since_J2000, double Long)
 {
-    double Lst = GAMMAJ2000 + 24.0 * secs_since_J2000 / SIDEREAL_DAY;
     Long *= 24.0 / 360.0;
-    Lst += Long;
-    Lst = fmod(Lst, 24.0);
-    return Lst;
+    return fmod(24.0 * secs_since_J2000 / SIDEREAL_DAY + Long + GAMMAJ2000, 24.0);
 }
 
 timespec_t vlbi_time_J2000time_to_timespec(double secs)
 {
     timespec_t ret;
-    struct tm j2000_tm;
-    time_t j2000;
-    j2000_tm.tm_sec = 0;
-    j2000_tm.tm_min = 0;
-    j2000_tm.tm_hour = 12;
-    j2000_tm.tm_mday = 1;
-    j2000_tm.tm_mon = 0;
-    j2000_tm.tm_year = 100;
-    j2000_tm.tm_wday = 6;
-    j2000_tm.tm_yday = 0;
-    j2000_tm.tm_isdst = 0;
-    j2000 = mktime(&j2000_tm);
-    secs = secs + j2000;
-    ret.tv_sec = secs;
+    char time[64];
+    strcpy(time, "2000-01-01T12:00:00Z");
+    timespec_t j2000 = vlbi_time_string_to_timespec(time);
+    ret.tv_sec = secs+j2000.tv_sec;
     ret.tv_nsec = ((long)(secs  * 1000000000.0)) % 1000000000;
     return ret;
 }
 
-timespec_t vlbi_time_string_to_utc(char *time)
+timespec_t vlbi_time_string_to_timespec(char *time)
 {
     char* k = strtok(time, "-");
     int Y = (int)strtol(k, NULL, 10);

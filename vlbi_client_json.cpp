@@ -109,7 +109,7 @@ void JSONClient::Parse()
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "starttime")) {
-                        starttime = vlbi_time_string_to_utc(v->u.object.values[y].value->u.string.ptr);
+                        starttime = vlbi_time_string_to_timespec(v->u.object.values[y].value->u.string.ptr);
                         i++;
                     }
                     if(!strcmp(v->u.object.values[y].name, "bitspersample")) {

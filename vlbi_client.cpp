@@ -246,7 +246,7 @@ void VLBI::Client::Parse()
                 location.geographic.lon = lon;
                 location.geographic.el = el;
                 if(len > 0 && geo > 0) {
-                    AddNode(name, &location, buf, len, vlbi_time_string_to_utc(date), geo == 1);
+                    AddNode(name, &location, buf, len, vlbi_time_string_to_timespec(date), geo == 1);
                 }
             }
         }

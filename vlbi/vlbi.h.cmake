@@ -167,10 +167,10 @@ inline static double vlbi_default_delegate(double x, double y) {
 #define ROOT2 1.41421356237309504880168872420969807856967187537694
 #endif
 #ifndef J2000
-#define J2000 3155716800.0
+#define J2000 2451545.0
 #endif
 #ifndef GAMMAJ2000
-#define GAMMAJ2000 (double)17.7075
+#define GAMMAJ2000 (double)18.6971378528
 #endif
 #ifndef EULER
 #define EULER (double)2.71828182845904523536028747135266249775724709369995
@@ -435,7 +435,7 @@ DLL_EXPORT double vlbi_time_J2000time_to_lst(double secs_since_J2000, double Lon
 * @param time String containing the time to be converted
 * @return the timespec struct containing the date and time specified.
 */
-DLL_EXPORT timespec_t vlbi_time_string_to_utc(char* time);
+DLL_EXPORT timespec_t vlbi_time_string_to_timespec(char* time);
 /**
 * @brief obtain a timespec struct containing the date and time specified by a J2000 time
 * @param secs_since_J2000 seconds since J2000.
