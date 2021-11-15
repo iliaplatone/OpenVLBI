@@ -30,8 +30,6 @@ timespec_t vlbi_time_mktimespec(int year, int month, int dom, int hour, int minu
     t_tm.tm_mday = dom;
     t_tm.tm_mon = month - 1;
     t_tm.tm_year = year - 1900;
-    t_tm.tm_gmtoff = 0;
-    t_tm.tm_zone = "UTC";
     t_time = mktime(&t_tm);
     ret.tv_sec = t_time + nanosecond / 1000000000;
     ret.tv_nsec = nanosecond % 1000000000;
