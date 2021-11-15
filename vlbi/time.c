@@ -63,18 +63,16 @@ timespec_t vlbi_time_J2000time_to_timespec(double secs)
 
 timespec_t vlbi_time_string_to_timespec(char *time)
 {
-    char* k = strtok(time, "-");
-    int Y = (int)strtol(k, NULL, 10);
-    k = strtok(NULL, "-");
-    int M = (int)strtol(k, NULL, 10);
-    k = strtok(NULL, "T");
-    int D = (int)strtol(k, NULL, 10);
-
-    k = strtok(time+11, ":");
-    int H = (int)strtol(k, NULL, 10);
-    k = strtok(NULL, ":");
-    int m = (int)strtol(k, NULL, 10);
-    k = strtok(NULL, ":");
-    double s = (double)atof(k);
+    time[4] = 0;
+    time[7] = 0;
+    time[10] = 0;
+    time[13] = 0;
+    time[16] = 0;
+    int Y = (int)atoi(time);
+    int M = (int)atoi(&time[5]);
+    int D = (int)atoi(&time[8]);
+    int H = (int)atoi(&time[11]);
+    int m = (int)atoi(&time[14]);
+    double s = (double)atof(&time[17]);
     return vlbi_time_mktimespec(Y, M, D, H, m, floor(s), (s-floor(s))*100000000.0);
 }
