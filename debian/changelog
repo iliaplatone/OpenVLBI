@@ -1,3 +1,9 @@
+libopenvlbi (1.16) focal; urgency=low
+
+  * New version of idft and dft
+
+  -- Ilia Platone <info@iliaplatone.com>  Sun, 12 Sep 2021 00:00:00 +0200
+
 libopenvlbi (1.15) focal; urgency=low
 
   * Fixed multithreading issues

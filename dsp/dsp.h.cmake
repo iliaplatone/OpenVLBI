@@ -438,7 +438,7 @@ DLL_EXPORT void dsp_filter_squarelaw(dsp_stream_p stream);
 * \param samplingfrequency the sampling frequency of the input stream.
 * \param frequency the cutoff frequency of the filter.
 */
-DLL_EXPORT void dsp_filter_lowpass(dsp_stream_p stream, double samplingfrequency, double frequency);
+DLL_EXPORT void dsp_filter_lowpass(dsp_stream_p stream, double frequency);
 
 /**
 * \brief A high pass filter
@@ -446,7 +446,7 @@ DLL_EXPORT void dsp_filter_lowpass(dsp_stream_p stream, double samplingfrequency
 * \param samplingfrequency the sampling frequency of the input stream.
 * \param frequency the cutoff frequency of the filter.
 */
-DLL_EXPORT void dsp_filter_highpass(dsp_stream_p stream, double samplingfrequency, double frequency);
+DLL_EXPORT void dsp_filter_highpass(dsp_stream_p stream, double frequency);
 
 /**
 * \brief A band pass filter
@@ -455,7 +455,7 @@ DLL_EXPORT void dsp_filter_highpass(dsp_stream_p stream, double samplingfrequenc
 * \param LowFrequency the high-pass cutoff frequency of the filter.
 * \param HighFrequency the low-pass cutoff frequency of the filter.
 */
-DLL_EXPORT void dsp_filter_bandpass(dsp_stream_p stream, double samplingfrequency, double LowFrequency,
+DLL_EXPORT void dsp_filter_bandpass(dsp_stream_p stream, double LowFrequency,
                                     double HighFrequency);
 
 /**
@@ -465,7 +465,7 @@ DLL_EXPORT void dsp_filter_bandpass(dsp_stream_p stream, double samplingfrequenc
 * \param LowFrequency the high-pass cutoff frequency of the filter.
 * \param HighFrequency the low-pass cutoff frequency of the filter.
 */
-DLL_EXPORT void dsp_filter_bandreject(dsp_stream_p stream, double samplingfrequency, double LowFrequency,
+DLL_EXPORT void dsp_filter_bandreject(dsp_stream_p stream, double LowFrequency,
                                       double HighFrequency);
 
 /*@}*/

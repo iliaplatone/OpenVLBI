@@ -330,6 +330,12 @@ dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, do
 dsp_stream_p vlbi_get_ifft_estimate(dsp_stream_p uv)
 {
     dsp_stream_p ifft = dsp_stream_copy(uv);
+    dsp_complex* dft = (dsp_complex*)malloc(sizeof(dsp_complex)*ifft->len);
+    for(int x = 0; x < ifft->len; x++) {
+        dft[x].real = ifft->buf[x];
+        dft[x].imaginary = 0;
+    }
+    ifft->buf = (dsp_t*)dft;
     dsp_fourier_idft(ifft);
     dsp_buffer_shift(ifft);
     return ifft;
