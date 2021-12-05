@@ -29,7 +29,6 @@ dsp_stream_p* dsp_file_read_fits(char *filename, int *channels, int stretch)
     fitsfile *fptr;
     int bpp = 16;
     int status = 0;
-    char key[150];
     char value[150];
     char comment[150];
     char error_status[64];
@@ -175,7 +174,7 @@ void dsp_file_write_fits(char *filename, int bpp, dsp_stream_p stream)
     long *naxes = (long*)malloc(sizeof(long) * tmp->dims);
     long nelements = tmp->len;
     char error_status[64];
-    unsigned int i;
+    int i;
     dsp_buffer_stretch(tmp->buf, tmp->len, 0, dsp_t_max);
     for (i = 0;  i < tmp->dims; i++)
         naxes[i] = tmp->sizes[i];
@@ -279,7 +278,7 @@ void dsp_file_write_fits_composite(char *filename, int components, int bpp, dsp_
     long *naxes = (long*)malloc(sizeof(long) * (tmp->dims + 1));
     long nelements = tmp->len * components;
     char error_status[64];
-    unsigned int i;
+    int i;
     for (i = 0;  i < tmp->dims; i++)
         naxes[i] = tmp->sizes[i];
     naxes[i] = components;
@@ -370,7 +369,6 @@ fail_fptr:
         fits_get_errstatus(status, error_status);
         fprintf(stderr, "FITS Error: %s\n", error_status);
     }
-fail:
     free(naxes);
     free (buf);
 }
@@ -391,15 +389,14 @@ void dsp_file_write_fits_bayer(char *filename, int components, int bpp, dsp_stre
     long *naxes = (long*)malloc(sizeof(long) * (tmp->dims));
     long nelements = tmp->len;
     char error_status[64];
-    unsigned int i;
+    int i;
     for (i = 0;  i < tmp->dims; i++)
         naxes[i] = tmp->sizes[i];
-    dsp_t max = (1<<abs(bpp))/2-2;
     dsp_t *buf = dsp_file_composite_2_bayer(stream, red, tmp->sizes[0], tmp->sizes[1]);
     dsp_stream_free_buffer(tmp);
     dsp_stream_free(tmp);
     for(x = 0; x < components; x++) {
-        dsp_buffer_stretch(buf, stream[components]->len, 0, (1<<abs(bpp))-1);
+        dsp_buffer_stretch(buf, stream[components]->len, 0, (dsp_t)(1<<abs(bpp))-1);
         switch (bpp)
         {
             case 8:
@@ -515,7 +512,6 @@ fail_fptr:
         fits_get_errstatus(status, error_status);
         fprintf(stderr, "FITS Error: %s\n", error_status);
     }
-fail:
     free(naxes);
     free (data);
 }
@@ -531,7 +527,6 @@ dsp_stream_p* dsp_file_read_jpeg(char *filename, int *channels, int stretch)
     info.err = jpeg_std_error(& err);
     jpeg_create_decompress(& info);
 
-    int frame_number = 0;
     FILE *jpeg = fopen (filename, "r");
     if(jpeg == NULL)
         return NULL;
@@ -547,7 +542,7 @@ dsp_stream_p* dsp_file_read_jpeg(char *filename, int *channels, int stretch)
     int row_stride = components * width;
     buf = (unsigned char *)malloc(width * height * components);
     unsigned char *image = buf;
-    unsigned int row;
+    int row;
     for (row = 0; row < height; row++)
     {
         jpeg_read_scanlines(&info, &image, 1);
@@ -612,7 +607,6 @@ void dsp_file_write_jpeg(char *filename, int quality, dsp_stream_p stream)
 void dsp_file_write_jpeg_composite(char *filename, int components, int quality, dsp_stream_p* stream)
 {
     int bpp = 8;
-    size_t y;
     unsigned int row_stride;
     int width = stream[components]->sizes[0];
     int height = stream[components]->sizes[1];
@@ -664,7 +658,6 @@ dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int stretch)
     int bpp;
     unsigned char * buf;
 
-    int frame_number = 0;
     FILE *infile = fopen (filename, "r");
     if(infile == NULL)
         return NULL;
@@ -698,7 +691,7 @@ dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int stretch)
     row_stride = width * components * bpp / 8;
     buf = (unsigned char *)malloc(row_stride * height);
     unsigned char *image = (unsigned char *)buf;
-    unsigned int row;
+    int row;
     for (row = 0; row < height; row++) {
         png_read_row(png, image, NULL);
         image += row_stride;
@@ -716,10 +709,9 @@ dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int stretch)
 void dsp_file_write_png_composite(char *filename, int components, int compression, dsp_stream_p* stream)
 {
     int bpp = 16;
-    size_t x, y;
     unsigned int row_stride;
-    unsigned int width = stream[0]->sizes[0];
-    unsigned int height = stream[0]->sizes[1];
+    int width = stream[0]->sizes[0];
+    int height = stream[0]->sizes[1];
 
     png_structp png = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
     if (!png)
@@ -1255,7 +1247,7 @@ dsp_stream_p *dsp_buffer_rgb_to_components(void* buf, int dims, int *sizes, int 
 
 void dsp_buffer_components_to_rgb(dsp_stream_p *stream, void* rgb, int components, int bpp)
 {
-    size_t y;
+    ssize_t y;
     int len = stream[0]->len * components;
     dsp_t max = (dsp_t)((double)((1<<abs(bpp))-1));
     max = Min(max, dsp_t_max);

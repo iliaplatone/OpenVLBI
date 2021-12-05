@@ -121,6 +121,7 @@ static void* dsp_stream_dft_th(void* arg)
        dsp_stream_p stream;
     } *arguments = arg;
     dsp_fourier_dft(arguments->stream, arguments->exp);
+    return NULL;
 }
 void dsp_fourier_dft(dsp_stream_p stream, int exp)
 {
@@ -172,7 +173,7 @@ void dsp_fourier_dft(dsp_stream_p stream, int exp)
 
 void dsp_fourier_idft(dsp_stream_p stream)
 {
-    int x = 0, y = 0, d = 0;
+    int d = 0;
     double *buf = (double*)malloc(sizeof(double)*stream->len);
     dsp_t mn = dsp_stats_min(stream->buf, stream->len);
     dsp_t mx = dsp_stats_max(stream->buf, stream->len);

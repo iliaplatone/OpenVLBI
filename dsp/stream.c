@@ -474,13 +474,12 @@ static void* dsp_stream_scale_th(void* arg)
             stream->buf[y] += in->buf[x]/(factor*stream->dims);
         free(pos);
     }
+    return NULL;
 }
 
 void dsp_stream_scale(dsp_stream_p in)
 {
-
-    int dims = in->dims;
-    int dim, y;
+    int y;
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
@@ -517,7 +516,7 @@ static void* dsp_stream_rotate_th(void* arg)
     int start = cur_th * stream->len / DSP_MAX_THREADS;
     int end = start + stream->len / DSP_MAX_THREADS;
     end = Min(stream->len, end);
-    int y, d;
+    int y;
     for(y = start; y < end; y++)
     {
         int *pos = dsp_stream_get_position(stream, y);
@@ -540,6 +539,7 @@ static void* dsp_stream_rotate_th(void* arg)
         if(x >= 0 && x < in->len)
             stream->buf[y] = in->buf[x];
     }
+    return NULL;
 }
 
 void dsp_stream_rotate(dsp_stream_p in)

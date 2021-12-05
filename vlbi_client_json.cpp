@@ -42,7 +42,7 @@ void JSONClient::Parse()
         fprintf(stderr, "error parsing JSON: %s\n", error);
         return;
     }
-    for(int x = 0; x < value->u.object.length; x++)
+    for(unsigned int x = 0; x < value->u.object.length; x++)
     {
         n = value->u.object.values[x].name;
         v = value->u.object.values[x].value;
@@ -169,7 +169,7 @@ void JSONClient::Parse()
                 {
                     if(!strcmp(v->u.object.values[y].name, "target"))
                     {
-                        for(int z = 0; z < v->u.object.values[y].value->u.object.length; z ++)
+                        for(unsigned int z = 0; z < v->u.object.values[y].value->u.object.length; z ++)
                         {
                             if(!strcmp(v->u.object.values[y].value->u.object.values[z].name, "ra"))
                             {
