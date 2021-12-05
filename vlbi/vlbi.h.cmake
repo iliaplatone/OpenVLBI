@@ -309,18 +309,42 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1
 DLL_EXPORT dsp_stream_p vlbi_get_uv_plot(void *ctx, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
 
 /**
-* @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
+* @brief Plot an inverse fourier transform of the uv plot buffer as magnitude, and its 4th order dft phase as its phase content.
 * @param uv The Forier transform stream.
-* @return dsp_stream_p The inverse fourier transform (almost the image of the object observed)
+* @return dsp_stream_p The inverse fourier transform (an estimation of it)
 */
 DLL_EXPORT dsp_stream_p vlbi_get_ifft_estimate(dsp_stream_p uv);
 
 /**
-* @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
+* @brief Plot an inverse fourier transform of the uv plot using its current magnitude and phase components.
 * @param uv The Forier transform stream.
-* @return dsp_stream_p The inverse fourier transform (almost the image of the object observed)
+* @return dsp_stream_p The inverse fourier transform
 */
-DLL_EXPORT dsp_stream_p vlbi_apply_model(dsp_stream_p uv, dsp_stream_p model);
+DLL_EXPORT dsp_stream_p vlbi_get_ifft(dsp_stream_p uv);
+
+/**
+* @brief Apply the passed model as phase content of the uv plot.
+* @param stream The Forier transform stream.
+* @param model The phase model to apply.
+* @return dsp_stream_p The fourier transform stream
+*/
+DLL_EXPORT dsp_stream_p vlbi_apply_phase_model(dsp_stream_p stream, dsp_stream_p model);
+
+/**
+* @brief Apply the passed model as magnitude content of the uv plot.
+* @param stream The Forier transform stream.
+* @param model The magnitude model to apply.
+* @return dsp_stream_p The fourier transform stream
+*/
+DLL_EXPORT dsp_stream_p vlbi_apply_magnitude_model(dsp_stream_p stream, dsp_stream_p model);
+
+/**
+* @brief Mask the stream with the content of the mask stream, by multiplication of each element.
+* @param stream The original stream.
+* @param model The mask to apply.
+* @return dsp_stream_p The stream masked
+*/
+DLL_EXPORT dsp_stream_p vlbi_apply_mask(dsp_stream_p stream, dsp_stream_p mask);
 
 /**
 * @brief Print the version number of OpenVLBI.

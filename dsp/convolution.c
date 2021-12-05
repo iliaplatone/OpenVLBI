@@ -18,51 +18,40 @@
 
 #include "dsp.h"
 
-static void* dsp_convolution_convolution_th(void* arg)
-{
-    dsp_stream_p matrix = (dsp_stream_p)arg;
-    dsp_stream_p field = (dsp_stream_p)matrix->parent;
-    dsp_stream_p stream = (dsp_stream_p)field->parent;
-    int y = matrix->ROI[0].start;
-    int* pos = dsp_stream_get_position(matrix, y);
-    int x, d;
-    for(x = 0; x < stream->len; x++)
-    {
-        int* pos1 = dsp_stream_get_position(field, x);
-        for(d = 0; d < field->dims; d++)
-            pos1[d] += pos[d];
-        int z = dsp_stream_set_position(field, pos1);
-        if(z >= 0 && z < field->len && x >= 0 && x < stream->len && y >= 0)
-            stream->buf[x] += field->buf[z] * matrix->buf[y];
-        free(pos1);
+void dsp_convolution_convolution(dsp_stream_p stream, dsp_stream_p matrix) {
+    int x, y, d;
+    dsp_t mn = dsp_stats_min(stream->buf, stream->len);
+    dsp_t mx = dsp_stats_max(stream->buf, stream->len);
+    int* d_pos = (int*)malloc(sizeof(int)*stream->dims);
+    for(y = 0; y < matrix->len; y++) {
+        int* pos = dsp_stream_get_position(matrix, y);
+        for(d = 0; d < stream->dims; d++) {
+            d_pos[d] = stream->sizes[d]/2+pos[d]-matrix->sizes[d]/2;
+        }
+        x = dsp_stream_set_position(stream, d_pos);
+        free(pos);
+        stream->magnitude->buf[x] *= sqrt(matrix->magnitude->buf[y]);
     }
-    free(pos);
-    dsp_stream_free_buffer(matrix);
-    dsp_stream_free(matrix);
-    return NULL;
+    free(d_pos);
+    dsp_fourier_idft(stream);
+    dsp_buffer_stretch(stream->buf, stream->len, mn, mx);
 }
 
-dsp_stream_p dsp_convolution_convolution(dsp_stream_p stream, dsp_stream_p object) {
-    dsp_stream_p field = dsp_stream_copy(stream);
-    dsp_stream_p tmp = dsp_stream_copy(stream);
-    dsp_buffer_set(tmp->buf, tmp->len, 0);
-    field->parent = tmp;
-    int n_threads = object->len;
-    pthread_t *th = malloc(sizeof(pthread_t)*n_threads);
-    int y, xy;
-    for(y = -n_threads; y < n_threads; y+=DSP_MAX_THREADS)
-    {
-        for(xy = 0; xy < DSP_MAX_THREADS; xy++) {
-            dsp_stream_p matrix = dsp_stream_copy(object);
-            matrix->parent = field;
-            matrix->ROI[0].start = xy;
-            matrix->ROI[0].len = 0;
-            pthread_create(&th[xy], NULL, dsp_convolution_convolution_th, (void*)matrix);
+void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p matrix) {
+    int x, y, d;
+    dsp_t mn = dsp_stats_min(stream->buf, stream->len);
+    dsp_t mx = dsp_stats_max(stream->buf, stream->len);
+    int* d_pos = (int*)malloc(sizeof(int)*stream->dims);
+    for(y = 0; y < matrix->len; y++) {
+        int* pos = dsp_stream_get_position(matrix, y);
+        for(d = 0; d < stream->dims; d++) {
+            d_pos[d] = stream->sizes[d]/2+((pos[d]+matrix->sizes[d])%matrix->sizes[d])-matrix->sizes[d]/2;
         }
-        for(xy = 0; xy < DSP_MAX_THREADS; xy++)
-            pthread_join(th[xy], NULL);
+        x = dsp_stream_set_position(stream, d_pos);
+        free(pos);
+        stream->magnitude->buf[x] *= sqrt(matrix->magnitude->buf[matrix->len-1-y]);
     }
-    dsp_stream_free_buffer(field);
-    dsp_stream_free(field);
-    return tmp;
+    free(d_pos);
+    dsp_fourier_idft(stream);
+    dsp_buffer_stretch(stream->buf, stream->len, mn, mx);
 }
