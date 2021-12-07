@@ -2,6 +2,7 @@
 export version=$(head -n 1 debian/changelog | tr -d [a-z:\(:\):=:\;:\ ] | tr -d '\n')
 export arch=$(dpkg --print-architecture)
 
+sudo add-apt-repository -y ppa:~mutlaqja/ppa
 sudo apt-get update
 sudo apt-get install -y libjsonparser-dev libindi-dev libnova-dev libfftw3-dev libcfitsio-dev cdbs cmake dpkg-dev build-essential fakeroot devscripts jq
 dpkg-buildpackage  -b -rfakeroot -us -uc;
