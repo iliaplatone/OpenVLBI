@@ -5,7 +5,7 @@ Maintainer: Ilia Platone <info@iliaplatone.com>
 Build-Depends: debhelper (>= 8.1.3~),
  cdbs,
  cmake (>= 2.4.7),
- libindi-dev (>= 1.8),
+ libindi-dev (>= 1.8)
 Standards-Version: 3.9.5
 Homepage: http://iliaplatone.github.io/OpenVLBI/
 Vcs-Git: git://github.com/iliaplatone/OpenVLBI.git
@@ -28,7 +28,7 @@ Description: OpenVLBI Correlator library
 
 Package: openvlbi-bin
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libopenvlbi (= ${source:Version}), libindi1 (>= 1.8)
+Depends: ${shlibs:Depends}, ${misc:Depends}, libopenvlbi (= ${source:Version})
 Description: OpenVLBI Correlator library - client applications
     OpenVLBI is an open source library for astronomical interferometers.
     with OpenVLBI astronomers can join together more telescopes to observe    
