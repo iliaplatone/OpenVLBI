@@ -25,6 +25,7 @@
 #include <pthread.h>
 #include <nodecollection.h>
 #include <baselinecollection.h>
+#include <modelcollection.h>
 #include <base64.h>
 
 pthread_mutex_t mutex;
@@ -276,6 +277,37 @@ void vlbi_del_node(void *ctx, char* name)
     VLBINode* node = nodes->Get(name);
     nodes->Remove(node);
     node->~VLBINode();
+}
+
+void vlbi_add_model(void *ctx, dsp_stream_p stream, char* name)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    nodes->getModels()->Add(dsp_stream_copy(stream), name);
+}
+
+int vlbi_get_models(void *ctx, dsp_stream_p** output)
+{
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(nodes->Count > 0)
+    {
+        dsp_stream_p* out = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * nodes->getModels()->Count);
+        for(int x = 0; x < nodes->getModels()->Count; x++)
+        {
+            out[x] = nodes->getModels()->At(x);
+        }
+        *output = out;
+    }
+    return nodes->getModels()->Count;
+}
+
+void vlbi_del_model(void *ctx, char* name)
+{
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    dsp_stream_p model = nodes->getModels()->Get(name);
+    nodes->getModels()->Remove(model);
+    dsp_stream_free_buffer(model);
+    dsp_stream_free(model);
 }
 
 int vlbi_get_baselines(void *ctx, vlbi_baseline** output)

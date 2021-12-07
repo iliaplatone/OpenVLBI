@@ -263,6 +263,29 @@ DLL_EXPORT int vlbi_get_nodes(void *ctx, vlbi_node** nodes);
 DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 
 /**
+* @brief Add a model into the current OpenVLBI context.
+* @param ctx The OpenVLBI context
+* @param Stream The OpenVLBI stream to add
+* @param name A friendly name of this model
+*/
+DLL_EXPORT void vlbi_add_model(vlbi_context ctx, dsp_stream_p Stream, char* name);
+
+/**
+* @brief Remove a model from the current OpenVLBI context.
+* @param ctx The OpenVLBI context
+* @param name The friendly name of the model to be removed
+*/
+DLL_EXPORT void vlbi_del_model(vlbi_context ctx, char* name);
+
+/**
+* @brief List all models of the current OpenVLBI context.
+* @param ctx The OpenVLBI context
+* @param model The model array pointer to be filled
+* @return the number of models in the current context
+*/
+DLL_EXPORT int vlbi_get_models(void *ctx, dsp_stream_p** models);
+
+/**
 * @brief Set the location of the reference station.
 * @param ctx The OpenVLBI context
 * @param lat The latitude of the station

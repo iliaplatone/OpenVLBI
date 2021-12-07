@@ -23,30 +23,45 @@
 #include "node.h"
 
 class BaselineCollection;
+class ModelCollection;
 
 class NodeCollection : public VLBICollection
 {
-public:
-	NodeCollection();
-	~NodeCollection();
-    void Add(VLBINode *element);
-	void Remove(VLBINode *element);
-	void RemoveAt(int index);
-    VLBINode *Get(const char* name);
-    void RemoveKey(const char* element);
-	VLBINode * At(int index);
-	bool Contains(VLBINode *element);
-	bool ContainsKey(const char* element);
-    int IndexOf(VLBINode *element);
-    inline BaselineCollection* getBaselines() { return baselines; }
-    dsp_location *stationLocation() { return &station; }
-    bool isRelative() { return relative; }
-    void setRelative(bool value);
+    public:
+        NodeCollection();
+        ~NodeCollection();
+        void Add(VLBINode *element);
+        void Remove(VLBINode *element);
+        void RemoveAt(int index);
+        VLBINode *Get(const char* name);
+        void RemoveKey(const char* element);
+        VLBINode * At(int index);
+        bool Contains(VLBINode *element);
+        bool ContainsKey(const char* element);
+        int IndexOf(VLBINode *element);
+        inline BaselineCollection* getBaselines()
+        {
+            return baselines;
+        }
+        inline ModelCollection* getModels()
+        {
+            return models;
+        }
+        dsp_location *stationLocation()
+        {
+            return &station;
+        }
+        bool isRelative()
+        {
+            return relative;
+        }
+        void setRelative(bool value);
 
-private:
-    bool relative;
-    dsp_location station;
-    BaselineCollection *baselines;
+    private:
+        bool relative;
+        dsp_location station;
+        BaselineCollection *baselines;
+        ModelCollection *models;
 };
 
 #endif //_NODECOLLECTION_H

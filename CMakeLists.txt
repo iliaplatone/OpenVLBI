@@ -46,6 +46,7 @@ set(vlbi_CXX_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/collection.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/nodecollection.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/baselinecollection.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/modelcollection.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/node.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/baseline.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/stream.cpp
