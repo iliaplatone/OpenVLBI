@@ -76,7 +76,7 @@ struct timespec ts; \
 time_t t = time(NULL); \
 struct tm tm = *localtime(&t); \
 clock_gettime(CLOCK_REALTIME, &ts); \
-sprintf(str, "[%04d-%02d-%02dT%02d:%02d:%02ld.%03ld ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts.tv_nsec/1000000); \
+sprintf(str, "[%04d-%02d-%02dT%02d:%02d:%02ld.%03d ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts.tv_nsec/1000000); \
 switch(x) { \
     case DSP_DEBUG_ERROR: \
     sprintf(&str[strlen(str)], "ERRO]"); \

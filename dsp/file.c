@@ -58,9 +58,9 @@ dsp_stream_p* dsp_file_read_fits(char *filename, int *channels, int stretch)
     for(dim = 0; dim < dims; dim++) {
         nelements *= naxes[dim];
     }
-    void *array = malloc(abs(bpp) * nelements / 8);
+    void *array = malloc((size_t)(abs(bpp) * nelements / 8));
     int anynul = 0;
-    dsp_t* buf = (dsp_t*)malloc(sizeof(dsp_t)*(nelements+1));
+    dsp_t* buf = (dsp_t*)malloc(sizeof(dsp_t)*(size_t)(nelements+1));
     switch(bpp) {
     case BYTE_IMG:
         fits_read_img(fptr, TBYTE, 1, (long)nelements, NULL, array, &anynul, &status);
@@ -168,10 +168,10 @@ void dsp_file_write_fits(char *filename, int bpp, dsp_stream_p stream)
     int img_type  = USHORT_IMG;
     int byte_type = TUSHORT;
     char bit_depth[64] = "16 bits per sample";
-    void* buf = malloc(tmp->len * abs(bpp) / 8 + 512);
+    void* buf = malloc((size_t)(tmp->len * abs(bpp) / 8 + 512));
     int status    = 0;
     int naxis    = tmp->dims;
-    long *naxes = (long*)malloc(sizeof(long) * tmp->dims);
+    long *naxes = (long*)malloc(sizeof(long) * (size_t)tmp->dims);
     long nelements = tmp->len;
     char error_status[64];
     int i;
@@ -272,10 +272,10 @@ void dsp_file_write_fits_composite(char *filename, int components, int bpp, dsp_
     int img_type  = USHORT_IMG;
     int byte_type = TUSHORT;
     char bit_depth[64] = "16 bits per sample";
-    void* buf = malloc(tmp->len * components * abs(bpp) / 8 + 512);
+    void* buf = malloc((size_t)(tmp->len * components * abs(bpp) / 8 + 512));
     int status    = 0;
     int naxis    = tmp->dims + 1;
-    long *naxes = (long*)malloc(sizeof(long) * (tmp->dims + 1));
+    long *naxes = (long*)malloc(sizeof(long) * (size_t)(tmp->dims + 1));
     long nelements = tmp->len * components;
     char error_status[64];
     int i;
@@ -383,10 +383,10 @@ void dsp_file_write_fits_bayer(char *filename, int components, int bpp, dsp_stre
     int byte_type = TUSHORT;
     char bit_depth[64] = "16 bits per sample";
     int len = tmp->len;
-    void* data = malloc(len * abs(bpp) / 8 + 512);
+    void* data = malloc((size_t)(len * abs(bpp) / 8 + 512));
     int status    = 0;
     int naxis    = tmp->dims;
-    long *naxes = (long*)malloc(sizeof(long) * (tmp->dims));
+    long *naxes = (long*)malloc(sizeof(long) * (size_t)(tmp->dims));
     long nelements = tmp->len;
     char error_status[64];
     int i;
@@ -518,8 +518,8 @@ fail_fptr:
 dsp_stream_p* dsp_file_read_jpeg(char *filename, int *channels, int stretch)
 {
     int width, height;
-    unsigned int components;
-    unsigned int bpp = 8;
+    int components;
+    int bpp = 8;
     unsigned char * buf;
     struct jpeg_decompress_struct info;
     struct jpeg_error_mgr err;
@@ -535,12 +535,12 @@ dsp_stream_p* dsp_file_read_jpeg(char *filename, int *channels, int stretch)
     jpeg_read_header(&info, TRUE);
     info.dct_method = JDCT_FLOAT;
     jpeg_start_decompress(&info);
-    width = info.output_width;
-    height = info.output_height;
-    components = info.num_components;
+    width = (int)info.output_width;
+    height = (int)info.output_height;
+    components = (int)info.num_components;
 
-    int row_stride = components * width;
-    buf = (unsigned char *)malloc(width * height * components);
+    int row_stride = (components * width);
+    buf = (unsigned char *)malloc((size_t)(width * height * components));
     unsigned char *image = buf;
     int row;
     for (row = 0; row < height; row++)
@@ -558,7 +558,7 @@ void dsp_file_write_jpeg(char *filename, int quality, dsp_stream_p stream)
     int width = stream->sizes[0];
     int height = stream->sizes[1];
     int components = (stream->red>=0) ? 3 : 1;
-    void *buf = malloc(stream->len*(stream->red>=0?3:1));
+    void *buf = malloc((size_t)(stream->len*(stream->red>=0?3:1)));
     unsigned char *image = (unsigned char *)buf;
     dsp_t* data = stream->buf;
 
@@ -578,8 +578,8 @@ void dsp_file_write_jpeg(char *filename, int quality, dsp_stream_p stream)
         return;
     }
     jpeg_stdio_dest(&cinfo, outfile);
-    cinfo.image_width = width;
-    cinfo.image_height = height;
+    cinfo.image_width = (unsigned int)width;
+    cinfo.image_height = (unsigned int)height;
     cinfo.in_color_space = (components == 1 ? JCS_GRAYSCALE : JCS_RGB);
     cinfo.input_components = components;
     jpeg_set_defaults(&cinfo);
@@ -610,7 +610,7 @@ void dsp_file_write_jpeg_composite(char *filename, int components, int quality, 
     unsigned int row_stride;
     int width = stream[components]->sizes[0];
     int height = stream[components]->sizes[1];
-    void *buf = malloc(stream[components]->len*components);
+    void *buf = malloc((size_t)(stream[components]->len*components));
     unsigned char *image = (unsigned char *)buf;
     dsp_buffer_components_to_rgb(stream, buf, components, bpp);
 
@@ -652,7 +652,7 @@ void dsp_file_write_jpeg_composite(char *filename, int components, int quality, 
 dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int stretch)
 {
     int width, height;
-    unsigned int components;
+    int components;
     unsigned int type;
     unsigned int row_stride;
     int bpp;
@@ -674,8 +674,8 @@ dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int stretch)
         return NULL;
     png_init_io(png, infile);
     png_read_info(png, info);
-    width = png_get_image_width(png, info);
-    height = png_get_image_height(png, info);
+    width = (int)png_get_image_width(png, info);
+    height = (int)png_get_image_height(png, info);
     type = png_get_color_type(png, info);
     bpp = png_get_bit_depth(png, info);
     if (type & PNG_COLOR_MASK_PALETTE)
@@ -688,8 +688,8 @@ dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int stretch)
     components = (type & (PNG_COLOR_MASK_COLOR|PNG_COLOR_MASK_PALETTE)) ? 3 : 1;
     if (type & PNG_COLOR_MASK_ALPHA)
         components++;
-    row_stride = width * components * bpp / 8;
-    buf = (unsigned char *)malloc(row_stride * height);
+    row_stride = (unsigned int)(width * components * bpp / 8);
+    buf = (unsigned char *)malloc(row_stride * (size_t)(height));
     unsigned char *image = (unsigned char *)buf;
     int row;
     for (row = 0; row < height; row++) {
@@ -729,8 +729,8 @@ void dsp_file_write_png_composite(char *filename, int components, int compressio
     png_init_io(png, outfile);
     png_set_IHDR(png,
                  info,
-                 width,
-                 height,
+                 (unsigned int)width,
+                 (unsigned int)height,
                  bpp,
                  components == 1 ? PNG_COLOR_TYPE_GRAY : PNG_COLOR_TYPE_RGB,
                  PNG_INTERLACE_NONE,
@@ -738,9 +738,9 @@ void dsp_file_write_png_composite(char *filename, int components, int compressio
                  PNG_FILTER_TYPE_DEFAULT);
     png_set_compression_level(png, compression);
     png_write_info(png, info);
-    row_stride = width * components * bpp / 8;
+    row_stride = (unsigned int)(width * components * bpp / 8);
     int row;
-    void *buf = malloc(stream[0]->len*components*bpp/8);
+    void *buf = malloc((size_t)(stream[0]->len*components*bpp/8));
     unsigned char *image = (unsigned char *)buf;
     dsp_buffer_components_to_rgb(stream, image, components, bpp);
     if(bpp == 16)
@@ -760,7 +760,7 @@ dsp_t* dsp_file_bayer_2_gray(dsp_t *src, int width, int height)
     dsp_t *rawpt, *scanpt;
     int size;
 
-    dsp_t * dst = (dsp_t*)malloc(sizeof(dsp_t)*width*height);
+    dsp_t * dst = (dsp_t*)malloc(sizeof(dsp_t)*(size_t)(width*height));
     rawpt  = src;
     scanpt = dst;
     size   = width * height;
@@ -855,7 +855,7 @@ dsp_t* dsp_file_composite_2_bayer(dsp_stream_p *src, int r, int width, int heigh
     int i;
     dsp_t *rawpt, *red, *green, *blue;
     int size;
-    dsp_t *dst = (dsp_t *)malloc(sizeof(dsp_t)*width*height);
+    dsp_t *dst = (dsp_t *)malloc(sizeof(dsp_t)*(size_t)(width*height));
     rawpt  = dst;
     blue = src[0]->buf;
     green = src[1]->buf;
@@ -962,7 +962,7 @@ dsp_t* dsp_file_bayer_2_composite(dsp_t *src, int r, int width, int height)
     dsp_t *rawpt, *red, *green, *blue;
     int size;
 
-    dsp_t *dst = (dsp_t *)malloc(sizeof(dsp_t)*width*height*3);
+    dsp_t *dst = (dsp_t *)malloc(sizeof(dsp_t)*(size_t)(width*height*3));
     rawpt  = src;
     blue = &dst[0];
     green = &dst[width*height];
@@ -1058,11 +1058,11 @@ dsp_t* dsp_file_bayer_2_rgb(dsp_t *src, int red, int width, int height)
     dsp_t *rawpt, *scanpt;
     int size;
 
-    dsp_t * dst = (dsp_t*)malloc(sizeof(dsp_t)*width*height*3);
+    dsp_t * dst = (dsp_t*)malloc(sizeof(dsp_t)*(size_t)(width*height*3));
     rawpt  = src;
     scanpt = dst;
     size   = width * height;
-    *scanpt++;
+    (void)*scanpt++;
     for (i = 0; i < size; i++)
     {
         if ((i / width) % 2 == ((red&2)>>1))
@@ -1149,7 +1149,7 @@ dsp_t* dsp_file_bayer_2_rgb(dsp_t *src, int red, int width, int height)
 dsp_stream_p *dsp_stream_from_components(dsp_t* buf, int dims, int *sizes, int components)
 {
     int d, y, x;
-    dsp_stream_p* picture = (dsp_stream_p*) malloc(sizeof(dsp_stream_p)*(components+1));
+    dsp_stream_p* picture = (dsp_stream_p*) malloc(sizeof(dsp_stream_p)*(size_t)(components+1));
     for(y = 0; y <= components; y++) {
         picture[y] = dsp_stream_new();
         for(d = 0; d < dims; d++)
@@ -1172,7 +1172,7 @@ dsp_stream_p *dsp_stream_from_components(dsp_t* buf, int dims, int *sizes, int c
 
 dsp_stream_p *dsp_buffer_rgb_to_components(void* buf, int dims, int *sizes, int components, int bpp, int stretch)
 {
-    dsp_stream_p* picture = (dsp_stream_p*) malloc(sizeof(dsp_stream_p)*(components+1));
+    dsp_stream_p* picture = (dsp_stream_p*) malloc(sizeof(dsp_stream_p)*(size_t)(components+1));
     int x, y, z, d;
     dsp_stream_p channel;
     for(y = 0; y < components; y++) {
