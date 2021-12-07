@@ -347,6 +347,12 @@ DLL_EXPORT dsp_stream_p vlbi_apply_magnitude_model(dsp_stream_p stream, dsp_stre
 DLL_EXPORT dsp_stream_p vlbi_apply_mask(dsp_stream_p stream, dsp_stream_p mask);
 
 /**
+* @brief Shift the stream by its dimensions.
+* @param stream The shifted stream.
+*/
+DLL_EXPORT void vlbi_shift(dsp_stream_p stream);
+
+/**
 * @brief Print the version number of OpenVLBI.
 * @return char* The Version string
 */

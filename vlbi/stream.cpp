@@ -415,6 +415,11 @@ dsp_stream_p vlbi_apply_mask(dsp_stream_p stream, dsp_stream_p mask)
     return masked;
 }
 
+void vlbi_shift(dsp_stream_p stream)
+{
+    dsp_buffer_shift(stream);
+}
+
 int vlbi_b64readfile(char *file, void* buf)
 {
     FILE *tmp = fopen(file, "r");
