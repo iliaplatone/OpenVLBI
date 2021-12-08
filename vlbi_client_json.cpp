@@ -165,8 +165,14 @@ void JSONClient::Parse()
             if(v->u.object.length == 8)
             {
                 int type = 0;
+                char *name = nullptr;
                 for(int y = 0; y < 8; y ++)
                 {
+                    if(!strcmp(v->u.object.values[y].name, "name"))
+                    {
+                        name = v->u.object.values[y].value->u.string.ptr;
+                        i++;
+                    }
                     if(!strcmp(v->u.object.values[y].name, "target"))
                     {
                         for(unsigned int z = 0; z < v->u.object.values[y].value->u.object.length; z ++)
@@ -223,15 +229,6 @@ void JSONClient::Parse()
                             type &= ~UV_COVERAGE;
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "idft"))
-                    {
-                        type &=  ~UV_IDFT;
-                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "true"))
-                            type |=  UV_IDFT;
-                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "1"))
-                            type |= UV_IDFT;
-                        i++;
-                    }
                     if(!strcmp(v->u.object.values[y].name, "adjust_delays"))
                     {
                         nodelay = true;
@@ -244,27 +241,36 @@ void JSONClient::Parse()
                 }
                 if(i == 8)
                 {
-                    dsp_stream_p plot = GetPlot(w, h, type, nodelay);
-                    if(type & UV_IDFT)
+                    Plot(name, w, h, type, nodelay);
+                }
+            }
+        }
+        if(!strcmp(n, "model"))
+        {
+            if(v->u.object.length == 2)
+            {
+                char* name = nullptr;
+                char* format = nullptr;
+                for(int y = 0; y < 2; y ++)
+                {
+                    if(!strcmp(v->u.object.values[y].name, "name"))
                     {
-                        dsp_stream_p idft = vlbi_get_ifft_estimate(plot);
-                        dsp_stream_free_buffer(plot);
-                        dsp_stream_free(plot);
-                        plot = idft;
+                        name = v->u.object.values[y].value->u.string.ptr;
+                        i++;
                     }
-                    dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
-                    int ilen = plot->len;
-                    int olen = ilen * 4 / 3 + 4;
-                    unsigned char* buf = (unsigned char*)malloc(plot->len);
-                    dsp_buffer_copy(plot->buf, buf, plot->len);
-                    unsigned char *base64 = (unsigned char *)malloc(olen);
-                    to64frombits(base64, buf, plot->len);
+                    if(!strcmp(v->u.object.values[y].name, "format"))
+                    {
+                        format = v->u.object.values[y].value->u.string.ptr;
+                        i++;
+                    }
+                }
+                if(i == 2)
+                {
+                    char *base64 = GetModel(name, format);
                     fprintf(output,
-                            "{\n \"context\": \"%s\",\n \"plot\": {\n  \"projection\": \"%s\",\n  \"type\": \"%s\",\n  \"idft\": %s,\n  \"adjust_delays\": %s,\n  \"resolution\":  {\n   \"width\": \"%d\",\n   \"height\": \"%d\"\n  },\n  \"buffer\": \"%s\"\n }\n}\n",
-                            CurrentContext(), (type & APERTURE_SYNTHESIS) ? "synthesis" : "movingbase", (type & UV_COVERAGE) ? "coverage" : "raw",
-                            (type & UV_IDFT) ? "true" : "false", nodelay ? "false" : "true", w, h, base64);
+                            "{\n \"context\": \"%s\",\n \"model\": {\n  \"name\": \"%s\",\n  \"format\": \"%s\",\n  \"buffer\": \"%s\"\n }\n}\n",
+                            CurrentContext(), name, format, base64);
                     free(base64);
-                    free(buf);
                 }
             }
         }

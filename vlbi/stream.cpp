@@ -267,8 +267,9 @@ int vlbi_get_nodes(void *ctx, vlbi_node** output)
             out[x].Index = nodes->At(x)->getIndex();
         }
         *output = out;
+        return nodes->Count;
     }
-    return nodes->Count;
+    return 0;
 }
 
 void vlbi_del_node(void *ctx, char* name)
@@ -289,16 +290,24 @@ void vlbi_add_model(void *ctx, dsp_stream_p stream, char* name)
 int vlbi_get_models(void *ctx, dsp_stream_p** output)
 {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    if(nodes->Count > 0)
+    ModelCollection *models = nodes->getModels();
+    if(models->Count > 0)
     {
-        dsp_stream_p* out = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * nodes->getModels()->Count);
-        for(int x = 0; x < nodes->getModels()->Count; x++)
+        dsp_stream_p* out = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * models->Count);
+        for(int x = 0; x < models->Count; x++)
         {
-            out[x] = nodes->getModels()->At(x);
+            out[x] = models->At(x);
         }
         *output = out;
+        return models->Count;
     }
-    return nodes->getModels()->Count;
+    return 0;
+}
+
+dsp_stream_p vlbi_get_model(void *ctx, char* name)
+{
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    return nodes->getModels()->Get(name);
 }
 
 void vlbi_del_model(void *ctx, char* name)
@@ -313,11 +322,11 @@ void vlbi_del_model(void *ctx, char* name)
 int vlbi_get_baselines(void *ctx, vlbi_baseline** output)
 {
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    if(nodes->getBaselines()->Count > 0)
+    BaselineCollection* baselines = nodes->getBaselines();
+    if(baselines->Count > 0)
     {
-        vlbi_baseline* out = (vlbi_baseline*)malloc(sizeof(vlbi_baseline) * nodes->Count);
-        BaselineCollection* baselines = nodes->getBaselines();
-        for(int x = 0; x < nodes->getBaselines()->Count; x++)
+        vlbi_baseline* out = (vlbi_baseline*)malloc(sizeof(vlbi_baseline) * baselines->Count);
+        for(int x = 0; x < baselines->Count; x++)
         {
             out[x].relative = baselines->At(x)->isRelative();
             out[x].locked = baselines->At(x)->Locked();
@@ -361,8 +370,8 @@ void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer
     b->Lock();
 }
 
-dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, double freq, double sr, int nodelay,
-                              int moving_baseline, vlbi_func2_t delegate)
+void vlbi_get_uv_plot(vlbi_context ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay,
+                      int moving_baseline, vlbi_func2_t delegate)
 {
     pfunc;
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -399,57 +408,75 @@ dsp_stream_p vlbi_get_uv_plot(vlbi_context ctx, int u, int v, double *target, do
     vlbi_wait_threads(&parent->child_count);
     destroy_mutex();
     pgarb("aperture synthesis plotting completed\n");
-    return parent;
+    vlbi_add_model(ctx, parent, name);
 }
 
-dsp_stream_p vlbi_get_ifft_estimate(dsp_stream_p uv)
+void vlbi_get_ifft_estimate(vlbi_context ctx, char *name, char *uv)
 {
-    dsp_stream_p ifft = dsp_stream_copy(uv);
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    dsp_stream_p ifft = dsp_stream_copy(nodes->getModels()->Get(uv));
     dsp_buffer_stretch(ifft->buf, ifft->len, 0, dsp_t_max);
     ifft->magnitude = dsp_stream_copy(ifft);
     dsp_fourier_dft(ifft->magnitude, 3);
     ifft->phase = dsp_stream_copy(ifft->magnitude->magnitude->magnitude->phase);
     dsp_fourier_idft(ifft);
     dsp_buffer_shift(ifft);
-    return ifft;
+    vlbi_add_model(ctx, ifft, name);
 }
 
-dsp_stream_p vlbi_get_ifft(dsp_stream_p uv)
+void vlbi_get_ifft(vlbi_context ctx, char *name, char *uv)
 {
-    dsp_stream_p ifft = dsp_stream_copy(uv);
-    ifft->magnitude = dsp_stream_copy(uv->magnitude);
-    ifft->phase = dsp_stream_copy(uv->phase);
+    pfunc;
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    dsp_stream_p ifft = dsp_stream_copy(nodes->getModels()->Get(uv));
     dsp_fourier_idft(ifft);
-    return ifft;
+    vlbi_add_model(ctx, ifft, name);
 }
 
-dsp_stream_p vlbi_apply_phase_model(dsp_stream_p stream, dsp_stream_p model)
+void vlbi_get_fft(vlbi_context ctx, char *name, char *magnitude, char *phase)
 {
-    dsp_stream_p fft = dsp_stream_copy(stream);
-    fft->magnitude = dsp_stream_copy(stream->magnitude);
-    fft->phase = dsp_stream_copy(model);
-    return fft;
+    pfunc;
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    dsp_stream_p fft = nodes->getModels()->Get(name);
+    dsp_fourier_dft(fft, 1);
+    vlbi_add_model(ctx, fft->phase, phase);
+    vlbi_add_model(ctx, fft->magnitude, magnitude);
 }
 
-dsp_stream_p vlbi_apply_magnitude_model(dsp_stream_p stream, dsp_stream_p model)
+void vlbi_apply_phase_model(vlbi_context ctx, char *name, char *model)
 {
-    dsp_stream_p fft = dsp_stream_copy(stream);
-    fft->phase = dsp_stream_copy(stream->phase);
-    fft->phase = dsp_stream_copy(model);
-    return fft;
+    pfunc;
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    dsp_stream_p fft = nodes->getModels()->Get(name);
+    fft->phase = dsp_stream_copy(nodes->getModels()->Get(model));
 }
 
-dsp_stream_p vlbi_apply_mask(dsp_stream_p stream, dsp_stream_p mask)
+void vlbi_apply_magnitude_model(vlbi_context ctx, char *name, char *model)
 {
-    dsp_stream_p masked = dsp_stream_copy(stream);
-    dsp_stream_scale(mask);
-    dsp_buffer_mul(masked, mask->buf, mask->len);
-    return masked;
+    pfunc;
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    dsp_stream_p fft = nodes->getModels()->Get(name);
+    fft->magnitude = dsp_stream_copy(nodes->getModels()->Get(model));
 }
 
-void vlbi_shift(dsp_stream_p stream)
+void vlbi_apply_mask(vlbi_context ctx, char *name, char *stream, char *mask)
 {
-    dsp_buffer_shift(stream);
+    pfunc;
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    dsp_stream_p masked = dsp_stream_copy(nodes->getModels()->Get(stream));
+    dsp_stream_p model = dsp_stream_copy(nodes->getModels()->Get(mask));
+    for (int d = 0; d < Min(masked->dims, model->dims); d++)
+        model->align_info.factor[d] = (double)masked->sizes[d] / (double)model->sizes[d];
+    dsp_stream_scale(model);
+    dsp_buffer_mul(masked, model->buf, model->len);
+    vlbi_add_model(ctx, masked, name);
+}
+
+void vlbi_shift(vlbi_context ctx, char *name)
+{
+    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
+    dsp_stream_p shifted = nodes->getModels()->Get(name);
+    dsp_buffer_shift(shifted);
 }
 
 int vlbi_b64readfile(char *file, void* buf)

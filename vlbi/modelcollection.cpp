@@ -30,6 +30,7 @@ ModelCollection::~ModelCollection()
 
 void ModelCollection::Add(dsp_stream_p element, const char *name)
 {
+    strcpy(element->name, name);
     VLBICollection::Add(element, name);
 }
 

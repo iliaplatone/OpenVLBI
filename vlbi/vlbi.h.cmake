@@ -281,6 +281,14 @@ DLL_EXPORT void vlbi_del_model(vlbi_context ctx, char* name);
 DLL_EXPORT int vlbi_get_models(void *ctx, dsp_stream_p** models);
 
 /**
+* @brief Get a single model from the current OpenVLBI context.
+* @param ctx The OpenVLBI context
+* @param name The name of the chosen model
+* @return the model chosen as dsp_stream_p
+*/
+DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, char* name);
+
+/**
 * @brief Set the location of the reference station.
 * @param ctx The OpenVLBI context
 * @param lat The latitude of the station
@@ -311,8 +319,9 @@ DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, ds
 DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1, char* node2, double Ra, double Dec, double *offset1, double *offset2);
 
 /**
-* @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.
+* @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams into a new model with the given name.
 * @param ctx The OpenVLBI context
+* @param name The name of the new model
 * @param u The U size of the resulting UV plot
 * @param v The V size of the resulting UV plot
 * @param target The target position int Ra/Dec celestial coordinates
@@ -321,53 +330,65 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1
 * @param nodelay 1 if no delay calculation should be done. streams entered are already synced.
 * @param moving_baseline 1 if the location field of all streams is an array containing the coordinates of the nodes on each element of the data array.
 * @param delegate The delegate function to be executed on each node stream buffer element.
-* @return The OpenVLBI stream structure containing the Fourier transform of the object observed
 */
-DLL_EXPORT dsp_stream_p vlbi_get_uv_plot(void *ctx, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
+DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
 
 /**
 * @brief Plot an inverse fourier transform of the uv plot buffer as magnitude, and its 4th order dft phase as its phase content.
-* @param uv The Forier transform stream.
-* @return dsp_stream_p The inverse fourier transform (an estimation of it)
+* @param ctx The OpenVLBI context
+* @param name The name of the newly created model.
+* @param model The magnitude model.
 */
-DLL_EXPORT dsp_stream_p vlbi_get_ifft_estimate(dsp_stream_p uv);
+DLL_EXPORT void vlbi_get_ifft_estimate(vlbi_context ctx, char* name, char* model);
 
 /**
 * @brief Plot an inverse fourier transform of the uv plot using its current magnitude and phase components.
-* @param uv The Forier transform stream.
-* @return dsp_stream_p The inverse fourier transform
+* @param ctx The OpenVLBI context
+* @param name The name of the newly created model.
+* @param model The model with magnitude and phase models applied.
 */
-DLL_EXPORT dsp_stream_p vlbi_get_ifft(dsp_stream_p uv);
+DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char* name, char* model);
+
+/**
+* @brief Get the fourier transform of the given model and save its magnitude and phase components into two new models named so.
+* @param ctx The OpenVLBI context
+* @param model The name of the model from which extract the magnitude and phase.
+* @param magnitude The name of the model where to save the magnitude.
+* @param magnitude The name of the model where to save the phase.
+*/
+DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, char *model, char *magnitude, char *phase);
 
 /**
 * @brief Apply the passed model as phase content of the uv plot.
-* @param stream The Forier transform stream.
-* @param model The phase model to apply.
-* @return dsp_stream_p The fourier transform stream
+* @param ctx The OpenVLBI context
+* @param name The name of the model where to apply the phase.
+* @param phase The name of the model containing the phase.
 */
-DLL_EXPORT dsp_stream_p vlbi_apply_phase_model(dsp_stream_p stream, dsp_stream_p model);
+DLL_EXPORT void vlbi_apply_phase_model(vlbi_context ctx, char* name, char* phase);
 
 /**
 * @brief Apply the passed model as magnitude content of the uv plot.
-* @param stream The Forier transform stream.
-* @param model The magnitude model to apply.
-* @return dsp_stream_p The fourier transform stream
+* @param ctx The OpenVLBI context
+* @param name The name of the model where to apply the magnitude.
+* @param magnitude The name of the model containing the magnitude.
 */
-DLL_EXPORT dsp_stream_p vlbi_apply_magnitude_model(dsp_stream_p stream, dsp_stream_p model);
+DLL_EXPORT void vlbi_apply_magnitude_model(vlbi_context ctx, char* name, char* magnitude);
 
 /**
 * @brief Mask the stream with the content of the mask stream, by multiplication of each element.
-* @param stream The original stream.
-* @param model The mask to apply.
-* @return dsp_stream_p The stream masked
+* @param ctx The OpenVLBI context
+* @param name The name of the newly created model.
+* @param model The name of the model containing the data to be masked.
+* @param mask The name of the model containing the mask.
 */
-DLL_EXPORT dsp_stream_p vlbi_apply_mask(dsp_stream_p stream, dsp_stream_p mask);
+DLL_EXPORT void vlbi_apply_mask(vlbi_context ctx, char* name, char* model, char* mask);
 
 /**
-* @brief Shift the stream by its dimensions.
-* @param stream The shifted stream.
+* @brief Shift a model by its dimensions.
+* @param ctx The OpenVLBI context
+* @param model The name of the model to be shifted.
 */
-DLL_EXPORT void vlbi_shift(dsp_stream_p stream);
+DLL_EXPORT void vlbi_shift(vlbi_context ctx, char* model);
 
 /**
 * @brief Print the version number of OpenVLBI.

@@ -17,14 +17,12 @@ option(WITH_DUMMY_CLIENT "Add dummy client for OpenVLBI" ON)
 option(WITH_JSON_CLIENT "Add JSON client for OpenVLBI" ON)
 
 set (VLBI_VERSION_MAJOR 1)
-set (VLBI_VERSION_MINOR 18)
+set (VLBI_VERSION_MINOR 19)
 set (VLBI_VERSION_STRING "${VLBI_VERSION_MAJOR}.${VLBI_VERSION_MINOR}.0")
 set(LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake_modules/")
-
-add_definitions(-Wall -g -Wno-unused-parameter)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/README.md" README )
 string(REPLACE "[![Build Status](https://travis-ci.org/iliaplatone/OpenVLBI.svg?branch=master)](https://travis-ci.org/iliaplatone/OpenVLBI)" "" README "${README}")
@@ -92,14 +90,13 @@ endif(JSONPARSER_LIBRARIES)
 endif(WITH_JSON_CLIENT)
 
 if(WITH_INDI_CLIENT)
-find_package(INDI REQUIRED)
 find_package(INDICLIENT REQUIRED)
-if(INDI_LIBRARIES AND INDICLIENT_LIBRARIES)
+if(INDICLIENT_LIBRARIES)
 include_directories( ${INDI_INCLUDE_DIR})
 add_executable(vlbi_client_indi ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client_indi.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_client.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp)
 target_link_libraries(vlbi_client_indi openvlbi ${INDICLIENT_LIBRARIES} ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
 install(TARGETS vlbi_client_indi RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-endif(INDI_LIBRARIES AND INDICLIENT_LIBRARIES)
+endif(INDICLIENT_LIBRARIES)
 endif(WITH_INDI_CLIENT)
 
 if(WITH_DUMMY_CLIENT)
