@@ -11,7 +11,7 @@ var searchData=
   ['stars_235',['stars',['../structdsp__triangle__t.html#a6cabff9e9b92720abfb177b0e615d89e',1,'dsp_triangle_t::stars()'],['../structdsp__stream__t.html#a6752a57287d9fcc7dcad9b1571bfabcb',1,'dsp_stream_t::stars()']]],
   ['stars_5fcount_236',['stars_count',['../structdsp__stream__t.html#a793767575fa574d60d3ff09acdab8155',1,'dsp_stream_t']]],
   ['start_237',['start',['../structdsp__region__t.html#a3d10923a10d3ba5deab4be86d088ae81',1,'dsp_region_t']]],
-  ['start_5fgettime_238',['start_gettime',['../dsp_8h.html#a35832dd3408ee6b5f6e7ff3a84ca5ce0',1,'dsp.h']]],
+  ['start_5fgettime_238',['start_gettime',['../group___d_s_p___defines.html#ga35832dd3408ee6b5f6e7ff3a84ca5ce0',1,'dsp.h']]],
   ['starttimeutc_239',['starttimeutc',['../structdsp__stream__t.html#a692b42650d2d2c3be4a48c9e9be18764',1,'dsp_stream_t']]],
   ['stream_240',['Stream',['../structvlbi__node.html#a583243baefd10b4cbca043946f546c88',1,'vlbi_node::Stream()'],['../structvlbi__baseline.html#a49974ea4e7e15c987a82836ed046da2e',1,'vlbi_baseline::Stream()']]]
 ];
