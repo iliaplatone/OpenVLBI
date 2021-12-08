@@ -65,11 +65,9 @@ class Client
         void AddNode(char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo);
         void DelNode(char *name);
         void Plot(char *name, int u, int v, int type, bool nodelay = false);
-        void Idft(char *model);
+        void Idft(char *name, char *magnitude, char *phase);
         void Dft(char *model, char *magnitude, char *phase);
         void Mask(char *name, char *model, char *mask);
-        void SetMagnitude(char *name, char *magnitude);
-        void SetPhase(char *name, char *phase);
         void Shift(char *name);
         char* GetModel(char *name, char *format);
         int GetModels(char** names);

@@ -325,7 +325,7 @@ void JSONClient::Parse()
                 {
                     if(!strcmp(values[y].name, "inverse"))
                     {
-                        inverse = !strcmp(values[y].value->u.string.ptr, "true") ? true : false;
+                        inverse = strcmp(values[y].value->u.string.ptr, "false") ? true : false;
                         i++;
                     }
                     if(!strcmp(values[y].name, "idft"))
@@ -348,9 +348,7 @@ void JSONClient::Parse()
                 {
                     if(inverse)
                     {
-                        SetMagnitude(idft, magnitude);
-                        SetPhase(idft, phase);
-                        Idft(idft);
+                        Idft(idft, magnitude, phase);
                     }
                     else
                     {

@@ -81,9 +81,9 @@ void VLBI::Client::Plot(char *name, int u, int v, int type, bool nodelay)
                      (type & UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
 }
 
-void VLBI::Client::Idft(char *name)
+void VLBI::Client::Idft(char *model, char *magnitude, char *phase)
 {
-    vlbi_get_ifft(GetContext(), name);
+    vlbi_get_ifft(GetContext(), model, magnitude, phase);
 }
 
 void VLBI::Client::Dft(char *model, char *magnitude, char *phase)
@@ -94,16 +94,6 @@ void VLBI::Client::Dft(char *model, char *magnitude, char *phase)
 void VLBI::Client::Mask(char *name, char *model, char *mask)
 {
     vlbi_apply_mask(GetContext(), name, model, mask);
-}
-
-void VLBI::Client::SetMagnitude(char *name, char *magnitude)
-{
-    vlbi_apply_magnitude_model(GetContext(), name, magnitude);
-}
-
-void VLBI::Client::SetPhase(char *name, char *phase)
-{
-    vlbi_apply_phase_model(GetContext(), name, phase);
 }
 
 void VLBI::Client::Shift(char *name)
@@ -249,38 +239,6 @@ void VLBI::Client::Parse()
             if(!strcmp(arg, "context"))
             {
                 SetContext(value);
-            }
-            else if(!strcmp(arg, "magnitude"))
-            {
-                char *t = strtok(value, ",");
-                char *model = t;
-                if(model == nullptr)
-                {
-                    return;
-                }
-                t = strtok(nullptr, ",");
-                char *magnitude = t;
-                if(magnitude == nullptr)
-                {
-                    return;
-                }
-                SetMagnitude(model, magnitude);
-            }
-            else if(!strcmp(arg, "phase"))
-            {
-                char *t = strtok(value, ",");
-                char *model = t;
-                if(model == nullptr)
-                {
-                    return;
-                }
-                t = strtok(nullptr, ",");
-                char *phase = t;
-                if(phase == nullptr)
-                {
-                    return;
-                }
-                SetPhase(model, phase);
             }
             else if(!strcmp(arg, "mask"))
             {
@@ -498,12 +456,25 @@ void VLBI::Client::Parse()
             }
             else if(!strcmp(arg, "idft"))
             {
-                char *name = value;
-                if(name == nullptr)
+                char *t = strtok(value, ",");
+                char *model = t;
+                if(model == nullptr)
                 {
                     return;
                 }
-                Idft(name);
+                t = strtok(nullptr, ",");
+                char *magnitude = t;
+                if(magnitude == nullptr)
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                char *phase = t;
+                if(phase == nullptr)
+                {
+                    return;
+                }
+                Idft(model, magnitude, phase);
             }
             else if(!strcmp(arg, "dft"))
             {

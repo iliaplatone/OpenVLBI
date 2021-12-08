@@ -337,9 +337,10 @@ DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *ta
 * @brief Plot an inverse fourier transform of the uv plot using its current magnitude and phase components.
 * @param ctx The OpenVLBI context
 * @param name The name of the newly created model.
-* @param model The model with magnitude and phase models applied.
+* @param magnitude The magnitude model.
+* @param phase The phase model.
 */
-DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char* name);
+DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char *name, char *magnitude, char *phase);
 
 /**
 * @brief Get the fourier transform of the given model and save its magnitude and phase components into two new models named so.
@@ -349,22 +350,6 @@ DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char* name);
 * @param magnitude The name of the model where to save the phase.
 */
 DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, char *model, char *magnitude, char *phase);
-
-/**
-* @brief Apply the passed model as phase content of the uv plot.
-* @param ctx The OpenVLBI context
-* @param name The name of the model where to apply the phase.
-* @param phase The name of the model containing the phase.
-*/
-DLL_EXPORT void vlbi_apply_phase_model(vlbi_context ctx, char* name, char* phase);
-
-/**
-* @brief Apply the passed model as magnitude content of the uv plot.
-* @param ctx The OpenVLBI context
-* @param name The name of the model where to apply the magnitude.
-* @param magnitude The name of the model containing the magnitude.
-*/
-DLL_EXPORT void vlbi_apply_magnitude_model(vlbi_context ctx, char* name, char* magnitude);
 
 /**
 * @brief Mask the stream with the content of the mask stream, by multiplication of each element.
