@@ -50,9 +50,10 @@ extern "C" {
 
 /**
  * \defgroup VLBI Very Long Baseline Interferometry
- * \authors Ilia Platone
  *
- * OpenVLBI is a free, open source set of applications for very long baseline radio interferometry.<br>
+ * OpenVLBI is a free, open source set of applications for very long baseline interferometry.<br>
+ *
+ * \author Ilia Platone
  */
 /**@{*/
 

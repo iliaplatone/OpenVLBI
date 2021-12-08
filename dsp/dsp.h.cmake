@@ -49,12 +49,12 @@ extern "C" {
 *
 * \author Ilia Platone
 */
-/*@{*/
+/**@{*/
 
 /**
  * \defgroup DSP_Defines DSP API defines
 */
-/*@{*/
+/**@{*/
 #define DSP_MAX_STARS 200
 #define dsp_t double
 #define dsp_t_max 255
@@ -135,11 +135,11 @@ else if(x<=dsp_debug)fprintf(stderr, "%s", str); \
 #define Log(a,b) \
 ( log(a) / log(b) )
 #endif
-/*@}*/
+/**@}*/
 /**
  * \defgroup DSP_Types DSP API types
 */
-/*@{*/
+/**@{*/
 
 /**
 * \brief Indicates a dot or line inside a dsp_stream
@@ -281,9 +281,12 @@ typedef void *(*dsp_func_t) (void *, ...);
 /**
 * \brief Contains a set of informations and data relative to a buffer and how to use it
 * \sa dsp_stream_new
-* \sa dsp_stream_free
 * \sa dsp_stream_add_dim
 * \sa dsp_stream_del_dim
+* \sa dsp_stream_alloc_buffer
+* \sa dsp_stream_copy
+* \sa dsp_stream_free_buffer
+* \sa dsp_stream_free
 */
 typedef struct dsp_stream_t
 {
@@ -301,9 +304,9 @@ typedef struct dsp_stream_t
     dsp_complex dft;
     /// Optional argument for the func() callback
     void *arg;
-    /// The stream this one is child of
+    /// The parent stream
     struct dsp_stream_t* parent;
-    /// Children streams of the current one
+    /// Children streams
     struct dsp_stream_t** children;
     /// Children streams count
     int child_count;
@@ -331,9 +334,9 @@ typedef struct dsp_stream_t
     pthread_t thread;
     /// Callback function
     dsp_func_t func;
-    /// magnitude
+    /// Fourier transform magnitude
     struct dsp_stream_t *magnitude;
-    /// phase
+    /// Fourier transform phase
     struct dsp_stream_t *phase;
     /// Regions of interest for each dimension
     dsp_region *ROI;
@@ -351,11 +354,11 @@ typedef struct dsp_stream_t
     int frame_number;
 } dsp_stream, *dsp_stream_p;
 
-/*@}*/
+/**@}*/
 /**
  * \defgroup dsp_FourierTransform DSP API Fourier transform related functions
 */
-/*@{*/
+/**@{*/
 
 /**
 * \brief Perform a discrete Fourier Transform of a dsp_stream
@@ -394,11 +397,11 @@ DLL_EXPORT double* dsp_fourier_complex_array_get_magnitude(dsp_complex in, int l
 */
 DLL_EXPORT double* dsp_fourier_complex_array_get_phase(dsp_complex in, int len);
 
-/*@}*/
+/**@}*/
 /**
  * \defgroup dsp_Filters DSP API Linear buffer filtering functions
 */
-/*@{*/
+/**@{*/
 /**
 * \brief A square law filter
 * \param stream the input stream.
@@ -441,11 +444,11 @@ DLL_EXPORT void dsp_filter_bandpass(dsp_stream_p stream, double LowFrequency,
 DLL_EXPORT void dsp_filter_bandreject(dsp_stream_p stream, double LowFrequency,
                                       double HighFrequency);
 
-/*@}*/
+/**@}*/
 /**
  * \defgroup dsp_Convolution DSP API Convolution and cross-correlation functions
 */
-/*@{*/
+/**@{*/
 /**
 * \brief A cross-convolution processor
 * \param stream1 the first input stream.
@@ -453,11 +456,11 @@ DLL_EXPORT void dsp_filter_bandreject(dsp_stream_p stream, double LowFrequency,
 */
 DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p stream2);
 
-/*@}*/
+/**@}*/
 /**
  * \defgroup dsp_Stats DSP API Buffer statistics functions
 */
-/*@{*/
+/**@{*/
 
 /**
 * \brief Gets the minimum value of the input stream
@@ -647,11 +650,11 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 */
 DLL_EXPORT double* dsp_stats_histogram(dsp_stream_p stream, int size);
 
-/*@}*/
+/**@}*/
 /**
  * \defgroup dsp_Buffers DSP API Buffer editing functions
 */
-/*@{*/
+/**@{*/
 
 /**
 * \brief Shift a stream on each dimension
@@ -944,11 +947,11 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
     })
 #endif
 
-/*@}*/
+/**@}*/
 /**
  * \defgroup dsp_DSPStream DSP API Stream type management functions
 */
-/*@{*/
+/**@{*/
 
 /**
 * \brief Allocate a buffer with length len on the stream passed as argument
@@ -1122,11 +1125,11 @@ DLL_EXPORT void *dsp_stream_exec(dsp_stream_p stream, void *args, ...);
 */
 DLL_EXPORT void dsp_stream_crop(dsp_stream_p stream);
 
-/*@}*/
+/**@}*/
 /**
  * \defgroup dsp_SignalGen DSP API Signal generation functions
 */
-/*@{*/
+/**@{*/
 
 /**
 * \brief Generate white noise
@@ -1383,8 +1386,8 @@ DLL_EXPORT void dsp_file_write_fits_bayer(char *filename, int components, int bp
 */
 DLL_EXPORT dsp_t* dsp_file_bayer_2_composite(dsp_t *src, int red, int width, int height);
 
-/*@}*/
-/*@}*/
+/**@}*/
+/**@}*/
 
 #ifdef  __cplusplus
 }
