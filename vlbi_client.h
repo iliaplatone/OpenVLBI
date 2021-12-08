@@ -65,7 +65,7 @@ class Client
         void AddNode(char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo);
         void DelNode(char *name);
         void Plot(char *name, int u, int v, int type, bool nodelay = false);
-        void Idft(char *name, char *model);
+        void Idft(char *model);
         void Dft(char *model, char *magnitude, char *phase);
         void Mask(char *name, char *model, char *mask);
         void SetMagnitude(char *name, char *magnitude);
@@ -91,7 +91,6 @@ class Client
 
     private:
         char *context;
-        dsp_stream_p model;
         InstanceCollection *contexts;
 };
 };

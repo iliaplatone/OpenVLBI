@@ -339,7 +339,7 @@ DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *ta
 * @param name The name of the newly created model.
 * @param model The model with magnitude and phase models applied.
 */
-DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char* name, char* model);
+DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char* name);
 
 /**
 * @brief Get the fourier transform of the given model and save its magnitude and phase components into two new models named so.

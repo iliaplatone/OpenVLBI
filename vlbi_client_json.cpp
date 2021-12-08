@@ -45,6 +45,15 @@ void JSONClient::Parse()
     {
         n = value->u.object.values[x].name;
         v = value->u.object.values[x].value;
+        typedef struct
+        {
+            json_char * name;
+            unsigned int name_length;
+
+            struct _json_value * value;
+
+        }* json_values;
+        json_values values = (json_values)v->u.object.values;
         if(!strcmp(n, "context"))
         {
             AddContext(v->u.string.ptr);
@@ -58,19 +67,19 @@ void JSONClient::Parse()
                 int i = 0;
                 for(int y = 0; y < 3; y ++)
                 {
-                    if(!strcmp(v->u.object.values[y].name, "latitude"))
+                    if(!strcmp(values[y].name, "latitude"))
                     {
-                        lat = atof(v->u.object.values[y].value->u.string.ptr);
+                        lat = atof(values[y].value->u.string.ptr);
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "longitude"))
+                    if(!strcmp(values[y].name, "longitude"))
                     {
-                        lon = atof(v->u.object.values[y].value->u.string.ptr);
+                        lon = atof(values[y].value->u.string.ptr);
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "elevation"))
+                    if(!strcmp(values[y].name, "elevation"))
                     {
-                        el = atof(v->u.object.values[y].value->u.string.ptr);
+                        el = atof(values[y].value->u.string.ptr);
                         i++;
                     }
                 }
@@ -93,14 +102,14 @@ void JSONClient::Parse()
                 int base64len;
                 for(int y = 0; y < 2; y ++)
                 {
-                    if(!strcmp(v->u.object.values[y].name, "name"))
+                    if(!strcmp(values[y].name, "name"))
                     {
-                        name = v->u.object.values[y].value->u.string.ptr;
+                        name = values[y].value->u.string.ptr;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "buffer"))
+                    if(!strcmp(values[y].name, "buffer"))
                     {
-                        base64 = v->u.object.values[y].value->u.string.ptr;
-                        base64len = v->u.object.values[y].value->u.string.length;
+                        base64 = values[y].value->u.string.ptr;
+                        base64len = values[y].value->u.string.length;
                         buf = (char*)malloc(base64len * 3 / 4);
                         len = from64tobits_fast(buf, base64, base64len);
                         vlbi_add_node(GetContext(), vlbi_file_read_fits(buf, len), name, true);
@@ -121,33 +130,33 @@ void JSONClient::Parse()
                 int locationslen = 0;
                 for(int y = 0; y < 5; y ++)
                 {
-                    if(!strcmp(v->u.object.values[y].name, "name"))
+                    if(!strcmp(values[y].name, "name"))
                     {
-                        name = v->u.object.values[y].value->u.string.ptr;
+                        name = values[y].value->u.string.ptr;
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "starttime"))
+                    if(!strcmp(values[y].name, "starttime"))
                     {
-                        starttime = vlbi_time_string_to_timespec(v->u.object.values[y].value->u.string.ptr);
+                        starttime = vlbi_time_string_to_timespec(values[y].value->u.string.ptr);
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "bitspersample"))
+                    if(!strcmp(values[y].name, "bitspersample"))
                     {
-                        Bps = atoi(v->u.object.values[y].value->u.string.ptr);
+                        Bps = atoi(values[y].value->u.string.ptr);
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "buffer"))
+                    if(!strcmp(values[y].name, "buffer"))
                     {
-                        char *base64 = v->u.object.values[y].value->u.string.ptr;
-                        int base64len = v->u.object.values[y].value->u.string.length;
+                        char *base64 = values[y].value->u.string.ptr;
+                        int base64len = values[y].value->u.string.length;
                         buf = (char*)malloc(base64len * 3 / 4);
                         buflen = from64tobits_fast(buf, base64, base64len);
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "locations"))
+                    if(!strcmp(values[y].name, "locations"))
                     {
-                        char *base64 = v->u.object.values[y].value->u.string.ptr;
-                        int base64len = v->u.object.values[y].value->u.string.length;
+                        char *base64 = values[y].value->u.string.ptr;
+                        int base64len = values[y].value->u.string.length;
                         locations = (char*)malloc(base64len * 3 / 4);
                         locationslen = from64tobits_fast(locations, base64, base64len);
                         i++;
@@ -167,73 +176,73 @@ void JSONClient::Parse()
                 char *name = nullptr;
                 for(int y = 0; y < 8; y ++)
                 {
-                    if(!strcmp(v->u.object.values[y].name, "name"))
+                    if(!strcmp(values[y].name, "name"))
                     {
-                        name = v->u.object.values[y].value->u.string.ptr;
+                        name = values[y].value->u.string.ptr;
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "target"))
+                    if(!strcmp(values[y].name, "target"))
                     {
-                        for(unsigned int z = 0; z < v->u.object.values[y].value->u.object.length; z ++)
+                        for(unsigned int z = 0; z < values[y].value->u.object.length; z ++)
                         {
-                            if(!strcmp(v->u.object.values[y].value->u.object.values[z].name, "ra"))
+                            if(!strcmp(values[y].value->u.object.values[z].name, "ra"))
                             {
-                                Ra = atof(v->u.object.values[y].value->u.object.values[z].value->u.string.ptr);
+                                Ra = atof(values[y].value->u.object.values[z].value->u.string.ptr);
                             }
-                            if(!strcmp(v->u.object.values[y].value->u.object.values[z].name, "dec"))
+                            if(!strcmp(values[y].value->u.object.values[z].name, "dec"))
                             {
-                                Dec = atof(v->u.object.values[y].value->u.object.values[z].value->u.string.ptr);
+                                Dec = atof(values[y].value->u.object.values[z].value->u.string.ptr);
                             }
                         }
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "frequency"))
+                    if(!strcmp(values[y].name, "frequency"))
                     {
-                        Freq = atof(v->u.object.values[y].value->u.string.ptr);
+                        Freq = atof(values[y].value->u.string.ptr);
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "samplerate"))
+                    if(!strcmp(values[y].name, "samplerate"))
                     {
-                        SampleRate = atof(v->u.object.values[y].value->u.string.ptr);
+                        SampleRate = atof(values[y].value->u.string.ptr);
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "resolution"))
+                    if(!strcmp(values[y].name, "resolution"))
                     {
                         for(int z = 0; z < 2; z ++)
                         {
-                            if(!strcmp(v->u.object.values[y].value->u.object.values[z].name, "width"))
+                            if(!strcmp(values[y].value->u.object.values[z].name, "width"))
                             {
-                                w = atoi(v->u.object.values[y].value->u.object.values[z].value->u.string.ptr);
+                                w = atoi(values[y].value->u.object.values[z].value->u.string.ptr);
                             }
-                            if(!strcmp(v->u.object.values[y].value->u.object.values[z].name, "height"))
+                            if(!strcmp(values[y].value->u.object.values[z].name, "height"))
                             {
-                                h = atoi(v->u.object.values[y].value->u.object.values[z].value->u.string.ptr);
+                                h = atoi(values[y].value->u.object.values[z].value->u.string.ptr);
                             }
                         }
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "projection"))
+                    if(!strcmp(values[y].name, "projection"))
                     {
-                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "synthesis"))
+                        if(!strcmp(values[y].value->u.string.ptr, "synthesis"))
                             type |= APERTURE_SYNTHESIS;
-                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "movingbase"))
+                        if(!strcmp(values[y].value->u.string.ptr, "movingbase"))
                             type &= APERTURE_SYNTHESIS;
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "type"))
+                    if(!strcmp(values[y].name, "type"))
                     {
-                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "coverage"))
+                        if(!strcmp(values[y].value->u.string.ptr, "coverage"))
                             type |= UV_COVERAGE;
-                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "raw"))
+                        if(!strcmp(values[y].value->u.string.ptr, "raw"))
                             type &= ~UV_COVERAGE;
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "adjust_delays"))
+                    if(!strcmp(values[y].name, "adjust_delays"))
                     {
                         nodelay = true;
-                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "true"))
+                        if(!strcmp(values[y].value->u.string.ptr, "true"))
                             nodelay = false;
-                        if(!strcmp(v->u.object.values[y].value->u.string.ptr, "1"))
+                        if(!strcmp(values[y].value->u.string.ptr, "1"))
                             nodelay = false;
                         i++;
                     }
@@ -244,7 +253,7 @@ void JSONClient::Parse()
                 }
             }
         }
-        if(!strcmp(n, "model"))
+        if(!strcmp(n, "download"))
         {
             if(v->u.object.length == 2)
             {
@@ -252,14 +261,14 @@ void JSONClient::Parse()
                 char* format = nullptr;
                 for(int y = 0; y < 2; y ++)
                 {
-                    if(!strcmp(v->u.object.values[y].name, "name"))
+                    if(!strcmp(values[y].name, "name"))
                     {
-                        name = v->u.object.values[y].value->u.string.ptr;
+                        name = values[y].value->u.string.ptr;
                         i++;
                     }
-                    if(!strcmp(v->u.object.values[y].name, "format"))
+                    if(!strcmp(values[y].name, "format"))
                     {
-                        format = v->u.object.values[y].value->u.string.ptr;
+                        format = values[y].value->u.string.ptr;
                         i++;
                     }
                 }
@@ -270,6 +279,132 @@ void JSONClient::Parse()
                             "{\n \"context\": \"%s\",\n \"model\": {\n  \"name\": \"%s\",\n  \"format\": \"%s\",\n  \"buffer\": \"%s\"\n }\n}\n",
                             CurrentContext(), name, format, base64);
                     free(base64);
+                }
+            }
+        }
+        if(!strcmp(n, "upload"))
+        {
+            if(v->u.object.length == 3)
+            {
+                char* name = nullptr;
+                char* format = nullptr;
+                char* base64 = nullptr;
+                for(int y = 0; y < 3; y ++)
+                {
+                    if(!strcmp(values[y].name, "name"))
+                    {
+                        name = values[y].value->u.string.ptr;
+                        i++;
+                    }
+                    if(!strcmp(values[y].name, "format"))
+                    {
+                        format = values[y].value->u.string.ptr;
+                        i++;
+                    }
+                    if(!strcmp(values[y].name, "buffer"))
+                    {
+                        base64 = values[y].value->u.string.ptr;
+                        i++;
+                    }
+                }
+                if(i == 2)
+                {
+                    AddModel(name, format, base64);
+                }
+            }
+        }
+        if(!strcmp(n, "dft"))
+        {
+            if(v->u.object.length == 4)
+            {
+                bool inverse = false;
+                char* idft = nullptr;
+                char* magnitude = nullptr;
+                char* phase = nullptr;
+                for(int y = 0; y < 4; y ++)
+                {
+                    if(!strcmp(values[y].name, "inverse"))
+                    {
+                        inverse = !strcmp(values[y].value->u.string.ptr, "true") ? true : false;
+                        i++;
+                    }
+                    if(!strcmp(values[y].name, "idft"))
+                    {
+                        idft = values[y].value->u.string.ptr;
+                        i++;
+                    }
+                    if(!strcmp(values[y].name, "magnitude"))
+                    {
+                        magnitude = values[y].value->u.string.ptr;
+                        i++;
+                    }
+                    if(!strcmp(values[y].name, "phase"))
+                    {
+                        phase = values[y].value->u.string.ptr;
+                        i++;
+                    }
+                }
+                if(i == 4)
+                {
+                    if(inverse)
+                    {
+                        SetMagnitude(idft, magnitude);
+                        SetPhase(idft, phase);
+                        Idft(idft);
+                    }
+                    else
+                    {
+                        Dft(idft, magnitude, phase);
+                    }
+                }
+            }
+        }
+        if(!strcmp(n, "edit"))
+        {
+            if(v->u.object.length == 4)
+            {
+                char* name = nullptr;
+                char* model = nullptr;
+                char* edit = nullptr;
+                char* arg = nullptr;
+                for(int y = 0; y < 4; y ++)
+                {
+                    if(!strcmp(values[y].name, "name"))
+                    {
+                        name = values[y].value->u.string.ptr;
+                        i++;
+                    }
+                    if(!strcmp(values[y].name, "model"))
+                    {
+                        name = values[y].value->u.string.ptr;
+                        i++;
+                    }
+                    if(!strcmp(values[y].name, "arg"))
+                    {
+                        arg = values[y].value->u.string.ptr;
+                        i++;
+                    }
+                    if(!strcmp(values[y].name, "edit"))
+                    {
+                        edit = values[y].value->u.string.ptr;
+                        i++;
+                    }
+                }
+                if(i == 4)
+                {
+                    if(edit != nullptr)
+                    {
+                        if(!strcmp(edit, "shift"))
+                        {
+                            if(name != nullptr)
+                                Shift(name);
+                        }
+                        if(!strcmp(edit, "mask"))
+                        {
+                            if(name != nullptr && model != nullptr && arg != nullptr)
+                                Mask(name, model, arg);
+                        }
+                    }
                 }
             }
         }

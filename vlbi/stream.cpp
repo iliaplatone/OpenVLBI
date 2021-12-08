@@ -411,13 +411,12 @@ void vlbi_get_uv_plot(vlbi_context ctx, char *name, int u, int v, double *target
     vlbi_add_model(ctx, parent, name);
 }
 
-void vlbi_get_ifft(vlbi_context ctx, char *name, char *uv)
+void vlbi_get_ifft(vlbi_context ctx, char *name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    dsp_stream_p ifft = nodes->getModels()->Get(uv);
+    dsp_stream_p ifft = nodes->getModels()->Get(name);
     dsp_fourier_idft(ifft);
-    vlbi_add_model(ctx, dsp_stream_copy(ifft), name);
 }
 
 void vlbi_get_fft(vlbi_context ctx, char *name, char *magnitude, char *phase)

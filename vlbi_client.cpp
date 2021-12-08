@@ -18,7 +18,6 @@ VLBI::Client::Client()
     context = (char*)malloc(9);
     strcpy(context, "OpenVLBI\0");
     contexts = new InstanceCollection();
-    model = dsp_stream_new();
 }
 
 VLBI::Client::~Client()
@@ -82,9 +81,9 @@ void VLBI::Client::Plot(char *name, int u, int v, int type, bool nodelay)
                      (type & UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
 }
 
-void VLBI::Client::Idft(char *name, char *model)
+void VLBI::Client::Idft(char *name)
 {
-    vlbi_get_ifft(GetContext(), name, model);
+    vlbi_get_ifft(GetContext(), name);
 }
 
 void VLBI::Client::Dft(char *model, char *magnitude, char *phase)
@@ -190,9 +189,10 @@ void VLBI::Client::AddModel(char* name, char *format, char *b64)
         fd = mkstemp(filename);
         if(fd > -1)
         {
-            buf = (char*)malloc(len * 4 / 3 + 4);
+            buf = (char*)malloc(len * 3 / 4 + 4);
             from64tobits_fast(buf, b64, (int)len);
             write(fd, buf, len * 4 / 3 + 4);
+            free(buf);
             close(fd);
             if(!strcmp(format, "fit"))
             {
@@ -498,19 +498,12 @@ void VLBI::Client::Parse()
             }
             else if(!strcmp(arg, "idft"))
             {
-                char *t = strtok(value, ",");
-                char *name = t;
+                char *name = value;
                 if(name == nullptr)
                 {
                     return;
                 }
-                t = strtok(nullptr, ",");
-                char *model = t;
-                if(model == nullptr)
-                {
-                    return;
-                }
-                Idft(name, model);
+                Idft(name);
             }
             else if(!strcmp(arg, "dft"))
             {
