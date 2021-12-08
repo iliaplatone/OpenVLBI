@@ -167,10 +167,10 @@ inline static double vlbi_default_delegate(double x, double y) {
 #define ROOT2 1.41421356237309504880168872420969807856967187537694
 #endif
 #ifndef J2000
-#define J2000 3155716800.0
+#define J2000 2451545.0
 #endif
 #ifndef GAMMAJ2000
-#define GAMMAJ2000 (double)17.7075
+#define GAMMAJ2000 (double)18.6971378528
 #endif
 #ifndef EULER
 #define EULER (double)2.71828182845904523536028747135266249775724709369995
@@ -263,6 +263,29 @@ DLL_EXPORT int vlbi_get_nodes(void *ctx, vlbi_node** nodes);
 DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 
 /**
+* @brief Add a model into the current OpenVLBI context.
+* @param ctx The OpenVLBI context
+* @param Stream The OpenVLBI stream to add
+* @param name A friendly name of this model
+*/
+DLL_EXPORT void vlbi_add_model(vlbi_context ctx, dsp_stream_p Stream, char* name);
+
+/**
+* @brief Remove a model from the current OpenVLBI context.
+* @param ctx The OpenVLBI context
+* @param name The friendly name of the model to be removed
+*/
+DLL_EXPORT void vlbi_del_model(vlbi_context ctx, char* name);
+
+/**
+* @brief List all models of the current OpenVLBI context.
+* @param ctx The OpenVLBI context
+* @param model The model array pointer to be filled
+* @return the number of models in the current context
+*/
+DLL_EXPORT int vlbi_get_models(void *ctx, dsp_stream_p** models);
+
+/**
 * @brief Set the location of the reference station.
 * @param ctx The OpenVLBI context
 * @param lat The latitude of the station
@@ -309,18 +332,48 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1
 DLL_EXPORT dsp_stream_p vlbi_get_uv_plot(void *ctx, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
 
 /**
-* @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
+* @brief Plot an inverse fourier transform of the uv plot buffer as magnitude, and its 4th order dft phase as its phase content.
 * @param uv The Forier transform stream.
-* @return dsp_stream_p The inverse fourier transform (almost the image of the object observed)
+* @return dsp_stream_p The inverse fourier transform (an estimation of it)
 */
 DLL_EXPORT dsp_stream_p vlbi_get_ifft_estimate(dsp_stream_p uv);
 
 /**
-* @brief Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.
+* @brief Plot an inverse fourier transform of the uv plot using its current magnitude and phase components.
 * @param uv The Forier transform stream.
-* @return dsp_stream_p The inverse fourier transform (almost the image of the object observed)
+* @return dsp_stream_p The inverse fourier transform
 */
-DLL_EXPORT dsp_stream_p vlbi_apply_model(dsp_stream_p uv, dsp_stream_p model);
+DLL_EXPORT dsp_stream_p vlbi_get_ifft(dsp_stream_p uv);
+
+/**
+* @brief Apply the passed model as phase content of the uv plot.
+* @param stream The Forier transform stream.
+* @param model The phase model to apply.
+* @return dsp_stream_p The fourier transform stream
+*/
+DLL_EXPORT dsp_stream_p vlbi_apply_phase_model(dsp_stream_p stream, dsp_stream_p model);
+
+/**
+* @brief Apply the passed model as magnitude content of the uv plot.
+* @param stream The Forier transform stream.
+* @param model The magnitude model to apply.
+* @return dsp_stream_p The fourier transform stream
+*/
+DLL_EXPORT dsp_stream_p vlbi_apply_magnitude_model(dsp_stream_p stream, dsp_stream_p model);
+
+/**
+* @brief Mask the stream with the content of the mask stream, by multiplication of each element.
+* @param stream The original stream.
+* @param model The mask to apply.
+* @return dsp_stream_p The stream masked
+*/
+DLL_EXPORT dsp_stream_p vlbi_apply_mask(dsp_stream_p stream, dsp_stream_p mask);
+
+/**
+* @brief Shift the stream by its dimensions.
+* @param stream The shifted stream.
+*/
+DLL_EXPORT void vlbi_shift(dsp_stream_p stream);
 
 /**
 * @brief Print the version number of OpenVLBI.
@@ -435,7 +488,7 @@ DLL_EXPORT double vlbi_time_J2000time_to_lst(double secs_since_J2000, double Lon
 * @param time String containing the time to be converted
 * @return the timespec struct containing the date and time specified.
 */
-DLL_EXPORT timespec_t vlbi_time_string_to_utc(char* time);
+DLL_EXPORT timespec_t vlbi_time_string_to_timespec(char* time);
 /**
 * @brief obtain a timespec struct containing the date and time specified by a J2000 time
 * @param secs_since_J2000 seconds since J2000.

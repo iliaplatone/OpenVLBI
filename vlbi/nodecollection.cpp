@@ -21,11 +21,13 @@
 #include "node.h"
 #include "nodecollection.h"
 #include "baselinecollection.h"
+#include "modelcollection.h"
 
 NodeCollection::NodeCollection() : VLBICollection::VLBICollection()
 {
     relative = false;
     baselines = new BaselineCollection(this);
+    models = new ModelCollection();
 }
 
 NodeCollection::~NodeCollection()
@@ -57,13 +59,13 @@ void NodeCollection::Remove(VLBINode *element)
 
 void NodeCollection::RemoveAt(int index)
 {
-	VLBICollection::RemoveAt(index);
+    VLBICollection::RemoveAt(index);
     baselines->Update();
 }
 
 VLBINode * NodeCollection::At(int index)
 {
-	return (VLBINode *)(VLBICollection::At(index));
+    return (VLBINode *)(VLBICollection::At(index));
 }
 
 bool NodeCollection::Contains(VLBINode *element)
@@ -81,13 +83,17 @@ int NodeCollection::IndexOf(VLBINode *element)
     return VLBICollection::IndexOf(element);
 }
 
-void NodeCollection::setRelative(bool value) {
+void NodeCollection::setRelative(bool value)
+{
     relative = value;
-    if(value) {
-        for(int x = 0; x < Count; x++) {
+    if(value)
+    {
+        for(int x = 0; x < Count; x++)
+        {
             memcpy(At(x)->stationLocation().coordinates, station.coordinates, sizeof(dsp_location));
         }
-        for(int x = 0; x < getBaselines()->Count; x++) {
+        for(int x = 0; x < getBaselines()->Count; x++)
+        {
             memcpy(getBaselines()->At(x)->stationLocation()->coordinates, station.coordinates, sizeof(dsp_location));
         }
     }

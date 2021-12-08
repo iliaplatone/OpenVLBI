@@ -34,102 +34,114 @@ void dsp_filter_squarelaw(dsp_stream_p stream)
     free(out);
 }
 
-void dsp_filter_calc_coefficients(double SamplingFrequency, double LowFrequency, double HighFrequency, double* CF, double* R, double *K)
+void dsp_filter_lowpass(dsp_stream_p stream, double Frequency)
 {
-    double BW = (HighFrequency - LowFrequency) / SamplingFrequency;
-    *CF = 2.0 * cos((LowFrequency + HighFrequency) * M_PI / SamplingFrequency);
-    *R = 1.0 - 3.0 * BW;
-    *K = (1.0 - *R * *CF + *R * *R) / (2.0 - *CF);
+    int d, x;
+    double radius = 0.0;
+    for(d = 0; d < stream->dims; d++) {
+        radius += pow(stream->sizes[d]/2.0, 2);
+    }
+    radius = sqrt(radius);
+    dsp_stream_p matrix = dsp_stream_copy(stream);
+    dsp_buffer_set(matrix->magnitude->buf, matrix->len, 0);
+    for(x = 0; x < matrix->len; x++) {
+        int* pos = dsp_stream_get_position(matrix, x);
+        double dist = 0.0;
+        for(d = 0; d < matrix->dims; d++) {
+            dist += pow(matrix->sizes[d]/2.0-pos[d], 2);
+        }
+        free(pos);
+        dist = sqrt(dist);
+        dist *= M_PI/radius;
+        if(dist<Frequency)
+            matrix->magnitude->buf[x] = 1.0;
+    }
+    dsp_fourier_idft(matrix);
+    dsp_convolution_convolution(stream, matrix);
+    dsp_stream_free_buffer(matrix);
+    dsp_stream_free(matrix);
 }
 
-void dsp_filter_lowpass(dsp_stream_p stream, double SamplingFrequency, double Frequency)
+void dsp_filter_highpass(dsp_stream_p stream, double Frequency)
 {
-    dsp_t *out = (dsp_t*)malloc(sizeof(dsp_t) * stream->len);
-    double CF = cos(Frequency / 2.0 * M_PI / SamplingFrequency);
-    int dim = -1, i;
-    out[0] = stream->buf[0];
-    while (dim++ < stream->dims - 1) {
-        int size = (dim < 0 ? 1 : stream->sizes[dim]);
-        for(i = size; i < stream->len; i+=size) {
-            out[i] += stream->buf[i] + (out[i - size] - stream->buf[i]) * CF;
-        }
+    int d, x;
+    double radius = 0.0;
+    for(d = 0; d < stream->dims; d++) {
+        radius += pow(stream->sizes[d]/2.0, 2);
     }
-    memcpy(stream->buf, out, stream->len * sizeof(dsp_t));
-    free(out);
+    radius = sqrt(radius);
+    dsp_stream_p matrix = dsp_stream_copy(stream);
+    dsp_buffer_set(matrix->magnitude->buf, matrix->len, 0);
+    for(x = 0; x < matrix->len; x++) {
+        int* pos = dsp_stream_get_position(matrix, x);
+        double dist = 0.0;
+        for(d = 0; d < matrix->dims; d++) {
+            dist += pow(matrix->sizes[d]/2.0-pos[d], 2);
+        }
+        free(pos);
+        dist = sqrt(dist);
+        dist *= M_PI/radius;
+        if(dist>Frequency)
+            matrix->magnitude->buf[x] = 1.0;
+    }
+    dsp_fourier_idft(matrix);
+    dsp_convolution_convolution(stream, matrix);
+    dsp_stream_free_buffer(matrix);
+    dsp_stream_free(matrix);
 }
 
-void dsp_filter_highpass(dsp_stream_p stream, double SamplingFrequency, double Frequency)
+void dsp_filter_bandreject(dsp_stream_p stream, double LowFrequency, double HighFrequency)
 {
-    dsp_t *out = (dsp_t*)malloc(sizeof(dsp_t) * stream->len);
-    double CF = cos(Frequency / 2.0 * M_PI / SamplingFrequency);
-    int dim = -1, i;
-    out[0] = stream->buf[0];
-    while (dim++ < stream->dims - 1) {
-        int size = (dim < 0 ? 1 : stream->sizes[dim]);
-        for(i = size; i < stream->len; i+=size) {
-            out[i] += stream->buf[i] + (out[i - size] - stream->buf[i]) * CF;
-        }
+    int d, x;
+    double radius = 0.0;
+    for(d = 0; d < stream->dims; d++) {
+        radius += pow(stream->sizes[d]/2.0, 2);
     }
-    dsp_buffer_sub(stream, out, stream->len);
-    free(out);
+    radius = sqrt(radius);
+    dsp_stream_p matrix = dsp_stream_copy(stream);
+    dsp_buffer_set(matrix->magnitude->buf, matrix->len, 0);
+    for(x = 0; x < matrix->len; x++) {
+        int* pos = dsp_stream_get_position(matrix, x);
+        double dist = 0.0;
+        for(d = 0; d < matrix->dims; d++) {
+            dist += pow(matrix->sizes[d]/2.0-pos[d], 2);
+        }
+        free(pos);
+        dist = sqrt(dist);
+        dist *= M_PI/radius;
+        if(dist>HighFrequency||dist<LowFrequency)
+            matrix->magnitude->buf[x] = 1.0;
+    }
+    dsp_fourier_idft(matrix);
+    dsp_convolution_convolution(stream, matrix);
+    dsp_stream_free_buffer(matrix);
+    dsp_stream_free(matrix);
 }
 
-void dsp_filter_bandreject(dsp_stream_p stream, double SamplingFrequency, double LowFrequency, double HighFrequency) {
-    dsp_t *out = (dsp_t*)malloc(sizeof(dsp_t) * stream->len);
-    double R, K, CF;
-    dsp_filter_calc_coefficients(SamplingFrequency, LowFrequency, HighFrequency, &CF, &R, &K);
-    double R2 = R*R;
-
-    double a[3] = { K, -K*CF, K };
-    double b[2] = { R*CF, -R2 };
-
-    int dim = -1, i, x;
-    while (dim++ < stream->dims - 1) {
-        for(i = 0; i < stream->len; i++) {
-            int size = (dim < 0 ? 1 : stream->sizes[dim]);
-            out[i] = 0;
-            if(i < stream->len - 2 * size) {
-                for(x = 0; x < 3; x++) {
-                    out[i] += (dsp_t)stream->buf[i + x * size] * a[2 - x];
-                }
-            }
-            if(i > size) {
-                for(x = 0; x < 2; x++) {
-                    out[i] -= out[i - 2 * size + x * size] * b[x];
-                }
-            }
-        }
+void dsp_filter_bandpass(dsp_stream_p stream, double LowFrequency, double HighFrequency)
+{
+    int d, x;
+    double radius = 0.0;
+    for(d = 0; d < stream->dims; d++) {
+        radius += pow(stream->sizes[d]/2.0, 2);
     }
-    memcpy(stream->buf, out, stream->len * sizeof(dsp_t));
-    free(out);
-}
-
-void dsp_filter_bandpass(dsp_stream_p stream, double SamplingFrequency, double LowFrequency, double HighFrequency) {
-    dsp_t *out = (dsp_t*)malloc(sizeof(dsp_t) * stream->len);
-    double R, K, CF;
-    dsp_filter_calc_coefficients(SamplingFrequency, LowFrequency, HighFrequency, &CF, &R, &K);
-    double R2 = R*R;
-
-    double a[3] = { 1 - K, (K-R)*CF, R2 - K };
-    double b[2] = { R*CF, -R2 };
-
-    int dim = -1, i, x;
-    while (dim++ < stream->dims - 1) {
-        for(i = 0; i < stream->len; i++) {
-            int size = (dim < 0 ? 1 : stream->sizes[dim]);
-            out[i] = 0;
-            if(i < stream->len - 2 * size) {
-                for(x = 0; x < 3; x++) {
-                    out[i] += (dsp_t)stream->buf[i + x * size] * a[2 - x];
-                }
-            }
-            if(i > size) {
-                for(x = 0; x < 2; x++) {
-                    out[i] -= out[i - 2 * size + x * size] * b[x];
-                }
-            }
+    radius = sqrt(radius);
+    dsp_stream_p matrix = dsp_stream_copy(stream);
+    dsp_buffer_set(matrix->magnitude->buf, matrix->len, 0);
+    for(x = 0; x < matrix->len; x++) {
+        int* pos = dsp_stream_get_position(matrix, x);
+        double dist = 0.0;
+        for(d = 0; d < matrix->dims; d++) {
+            dist += pow(matrix->sizes[d]/2.0-pos[d], 2);
         }
+        free(pos);
+        dist = sqrt(dist);
+        dist *= M_PI/radius;
+        if(dist<HighFrequency&&dist>LowFrequency)
+            matrix->magnitude->buf[x] = 1.0;
     }
-    memcpy(stream->buf, out, stream->len * sizeof(dsp_t));
-    free(out);
+    dsp_fourier_idft(matrix);
+    dsp_convolution_convolution(stream, matrix);
+    dsp_stream_free_buffer(matrix);
+    dsp_stream_free(matrix);
 }

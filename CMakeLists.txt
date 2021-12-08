@@ -8,6 +8,8 @@ include(ExternalProject)
 
 find_package(CFITSIO REQUIRED)
 find_package(ZLIB REQUIRED)
+find_package(PNG REQUIRED)
+find_package(JPEG REQUIRED)
 find_package(FFTW3 REQUIRED)
 find_package(Threads REQUIRED)
 option(WITH_INDI_CLIENT "Add INDI client for OpenVLBI" ON)
@@ -15,7 +17,7 @@ option(WITH_DUMMY_CLIENT "Add dummy client for OpenVLBI" ON)
 option(WITH_JSON_CLIENT "Add JSON client for OpenVLBI" ON)
 
 set (VLBI_VERSION_MAJOR 1)
-set (VLBI_VERSION_MINOR 15)
+set (VLBI_VERSION_MINOR 18)
 set (VLBI_VERSION_STRING "${VLBI_VERSION_MAJOR}.${VLBI_VERSION_MINOR}.0")
 set(LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 
@@ -44,12 +46,14 @@ set(vlbi_CXX_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/collection.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/nodecollection.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/baselinecollection.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/modelcollection.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/node.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/baseline.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/stream.cpp
     )
 
 set(vlbi_C_SRCS
+    ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/file.c
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/time.c
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/base64.c
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/matrix.c
@@ -71,7 +75,7 @@ SET(dsp_C_SRC
 execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(openvlbi SHARED ${dsp_C_SRC} ${vlbi_C_SRCS} ${vlbi_CXX_SRCS})
 set_target_properties(openvlbi PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
-target_link_libraries(openvlbi ${FFTW3_LIBRARIES} ${M_LIB} ${CFITSIO_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(openvlbi ${FFTW3_LIBRARIES} ${M_LIB} ${CFITSIO_LIBRARIES} ${JPEG_LIBRARIES} ${PNG_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dsp.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)

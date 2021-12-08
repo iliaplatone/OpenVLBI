@@ -27,6 +27,7 @@ extern "C" {
 #define DLL_EXPORT extern
 #endif
 
+#include <endian.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,6 +37,7 @@ extern "C" {
 #include <time.h>
 #include <assert.h>
 #include <pthread.h>
+#include <fftw3.h>
 
 
 /**
@@ -55,7 +57,7 @@ extern "C" {
 /*@{*/
 #define DSP_MAX_STARS 200
 #define dsp_t double
-#define dsp_t_max (dsp_t)(((unsigned long long)~0)>>(sizeof(dsp_t)*4))
+#define dsp_t_max 255
 #define dsp_t_min -dsp_t_max
 
 extern int DSP_MAX_THREADS;
@@ -74,7 +76,7 @@ struct timespec ts; \
 time_t t = time(NULL); \
 struct tm tm = *localtime(&t); \
 clock_gettime(CLOCK_REALTIME, &ts); \
-sprintf(str, "[%d-%02d-%02dT%02d:%02d:%02d.%03ld %+03d ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts.tv_nsec/1000000, tm.tm_gmtoff / 3600); \
+sprintf(str, "[%04d-%02d-%02dT%02d:%02d:%02ld.%03ld ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec, ts.tv_nsec/1000000); \
 switch(x) { \
     case DSP_DEBUG_ERROR: \
     sprintf(&str[strlen(str)], "ERRO]"); \
@@ -100,14 +102,19 @@ else if(x<=dsp_debug)fprintf(stderr, "%s", str); \
 #define perr(...) pdbg(DSP_DEBUG_ERROR, __VA_ARGS__)
 #define pwarn(...) pdbg(DSP_DEBUG_WARNING, __VA_ARGS__)
 #define pgarb(...) pdbg(DSP_DEBUG_DEBUG, __VA_ARGS__)
-#define pfunc pwarn("%s\n", __func__)
+#define pfunc pgarb("%s\n", __func__)
+#define start_gettime
+#define end_gettime
 #else
 #define pinfo(...)
 #define perr(...)
 #define pwarn(...)
 #define pgarb(...)
-#define pfunc
+#define pfunc(...)
+#define start_gettime(...)
+#define end_gettime(...)
 #endif
+
 
 ///if min() is not present you can use this one
 #ifndef Min
@@ -140,9 +147,9 @@ else if(x<=dsp_debug)fprintf(stderr, "%s", str); \
 */
 typedef struct dsp_point_t
 {
-/// Center of the point
+    /// Center of the point
     double* location;
-/// Dimensions limit of the point
+    /// Dimensions limit of the point
     int dims;
 } dsp_point;
 
@@ -151,11 +158,41 @@ typedef struct dsp_point_t
 */
 typedef struct dsp_offset_t
 {
-/// Center of the point
+    /// Center of the point
     double* offset;
-/// Dimensions limit of the point
+    /// Dimensions limit of the point
     int dims;
 } dsp_offset;
+
+/**
+* \brief A star or object contained into a buffer
+*/
+typedef struct dsp_star_t
+{
+    /// The center of the star
+    dsp_point center;
+    /// The diameter of the star
+    double diameter;
+} dsp_star;
+
+/**
+* \brief A star or object contained into a buffer
+*/
+typedef struct dsp_triangle_t
+{
+    /// The index of the triangle
+    double index;
+    /// The dimensions of the triangle
+    int dims;
+    /// The inclination of the triangle
+    double theta;
+    /// The sizes of the triangle
+    double *sizes;
+    /// The sizes of the triangle
+    double *ratios;
+    /// The stars of the triangle
+    dsp_star *stars;
+} dsp_triangle;
 
 /**
 * \brief Alignment informations needed
@@ -169,22 +206,37 @@ typedef struct dsp_align_info_t
     /// Rotational offset
     double* radians;
     /// Scaling factor
-    double factor;
+    double* factor;
     /// Dimensions limit
     int dims;
+    /// Reference triangles
+    dsp_triangle triangles[2];
+    /// Triangles quantity
+    int triangles_count;
+    /// Match score
+    double score;
+    /// Decimals
+    double decimals;
 } dsp_align_info;
 
 /**
-* \brief Complex number, used in Fourier Transform functions
+* \brief Complex number array struct, used in Fourier Transform functions
 * \sa dsp_fourier_dft
-* \sa dsp_fourier_complex_to_magnitude
 */
-typedef struct dsp_complex_t
+typedef union
 {
-/// Real part of the complex number
-    double real;
-/// Imaginary part of the complex number
-    double imaginary;
+    /// Complex struct type array
+    struct
+    {
+        /// Real part of the complex number
+        double real;
+        /// Imaginary part of the complex number
+        double imaginary;
+    } *complex;
+    /// Complex number type array used with libFFTW
+    fftw_complex *fftw;
+    /// Linear double array containing complex numbers
+    double *buf;
 } dsp_complex;
 
 /**
@@ -192,9 +244,9 @@ typedef struct dsp_complex_t
 */
 typedef struct dsp_region_t
 {
-/// Starting point within the buffer
+    /// Starting point within the buffer
     int start;
-/// Length of the region
+    /// Length of the region
     int len;
 } dsp_region;
 
@@ -203,43 +255,23 @@ typedef struct dsp_region_t
 */
 typedef union dsp_location_t
 {
-/// The location in xyz coordinates
-    struct { double x; double y; double z; } xyz;
-/// The location in geographic coordinates
-    struct {double lon; double lat;  double el; } geographic;
-/// A 3d double array containing the location
+    /// The location in xyz coordinates
+    struct
+    {
+        double x;
+        double y;
+        double z;
+    } xyz;
+    /// The location in geographic coordinates
+    struct
+    {
+        double lon;
+        double lat;
+        double el;
+    } geographic;
+    /// A 3d double array containing the location
     double coordinates[3];
 } dsp_location;
-
-/**
-* \brief A star or object contained into a buffer
-*/
-typedef struct dsp_star_t
-{
-/// The center of the star
-    dsp_point center;
-/// The diameter of the star
-    double diameter;
-} dsp_star;
-
-/**
-* \brief A set of stars
-*/
-typedef struct dsp_triangle_t
-{
-/// The index of the triangle
-    double index;
-/// The dimensions of the triangle
-    int dims;
-/// The inclination of the triangle
-    double theta;
-/// The sizes of the triangle
-    double *sizes;
-/// The sizes of the triangle
-    double *ratios;
-/// The stars of the triangle
-    dsp_star *stars;
-} dsp_triangle;
 
 /**
 * \brief Multi-dimensional processing delegate function
@@ -255,59 +287,67 @@ typedef void *(*dsp_func_t) (void *, ...);
 */
 typedef struct dsp_stream_t
 {
-/// The buffers length
+    /// Increments by one on the copied stream
+    int is_copy;
+    /// The buffers length
     int len;
-/// Number of dimensions of the buffers
+    /// Number of dimensions of the buffers
     int dims;
-/// Sizes of each dimension
+    /// Sizes of each dimension
     int* sizes;
-/// buffer
+    /// buffer
     dsp_t* buf;
-/// Optional argument for the func() callback
+    /// Fourier transform
+    dsp_complex dft;
+    /// Optional argument for the func() callback
     void *arg;
-/// The stream this one is child of
+    /// The stream this one is child of
     struct dsp_stream_t* parent;
-/// Children streams of the current one
+    /// Children streams of the current one
     struct dsp_stream_t** children;
-/// Children streams count
+    /// Children streams count
     int child_count;
-/// Location coordinates
+    /// Location coordinates
     dsp_location* location;
-/// Target coordinates
+    /// Target coordinates
     double* target;
-/// Time at the beginning of the stream
+    /// Time at the beginning of the stream
     struct timespec starttimeutc;
-/// Wavelength observed, used as reference with signal generators or filters
+    /// Wavelength observed, used as reference with signal generators or filters
     double wavelength;
-/// Focal ratio
+    /// Focal ratio
     double focal_ratio;
-/// Diameter
+    /// Diameter
     double diameter;
-/// SNR
+    /// SNR
     double SNR;
-/// Red pixel (Bayer)
+    /// Red pixel (Bayer)
     int red;
-/// Sensor size
+    /// Sensor size
     double *pixel_sizes;
-/// Sample rate of the buffers
+    /// Sample rate of the buffers
     double samplerate;
-/// Thread type for future usage
+    /// Thread type for future usage
     pthread_t thread;
-/// Callback function
+    /// Callback function
     dsp_func_t func;
-/// Regions of interest for each dimension
+    /// magnitude
+    struct dsp_stream_t *magnitude;
+    /// phase
+    struct dsp_stream_t *phase;
+    /// Regions of interest for each dimension
     dsp_region *ROI;
-/// Stars or objects identified into the buffers - TODO
+    /// Stars or objects identified into the buffers - TODO
     dsp_star *stars;
-/// Stars or objects quantity
+    /// Stars or objects quantity
     int stars_count;
-/// Triangles of stars or objects
+    /// Triangles of stars or objects
     dsp_triangle *triangles;
-/// Triangles of stars or objects quantity
+    /// Triangles of stars or objects quantity
     int triangles_count;
-/// Align/scale/rotation settings
+    /// Align/scale/rotation settings
     dsp_align_info align_info;
-/// Frame number (if part of a series)
+    /// Frame number (if part of a series)
     int frame_number;
 } dsp_stream, *dsp_stream_p;
 
@@ -321,7 +361,7 @@ typedef struct dsp_stream_t
 * \brief Perform a discrete Fourier Transform of a dsp_stream
 * \param stream the inout stream.
 */
-DLL_EXPORT dsp_complex* dsp_fourier_dft(dsp_stream_p stream);
+DLL_EXPORT void dsp_fourier_dft(dsp_stream_p stream, int exp);
 
 /**
 * \brief Perform an inverse discrete Fourier Transform of a dsp_stream
@@ -330,30 +370,13 @@ DLL_EXPORT dsp_complex* dsp_fourier_dft(dsp_stream_p stream);
 DLL_EXPORT void dsp_fourier_idft(dsp_stream_p stream);
 
 /**
-* \brief Perform a fast Fourier Transform of a dsp_stream
-* \param stream the inout stream.
+* \brief Obtain a complex array from phase and magnitude arrays
+* \param mag the input magnitude array.
+* \param phi the input phase array.
+* \param len the input arrays length.
+* \return the array filled with the complex numbers
 */
-void dsp_fourier_fft(dsp_stream_p stream);
-
-/**
-* \brief Perform an inverse fast Fourier Transform of a dsp_stream
-* \param stream the inout stream.
-*/
-void dsp_fourier_ifft(dsp_stream_p stream);
-
-/**
-* \brief Obtain a complex number's magnitude
-* \param n the input complex.
-* \return the magnitude of the given number
-*/
-DLL_EXPORT double dsp_fourier_complex_get_magnitude(dsp_complex n);
-
-/**
-* \brief Obtain a complex number's phase
-* \param n the input complex.
-* \return the phase of the given number
-*/
-DLL_EXPORT double dsp_fourier_complex_get_phase(dsp_complex n);
+DLL_EXPORT dsp_complex dsp_fourier_phase_mag_array_get_complex(double* mag, double* phi, int len);
 
 /**
 * \brief Obtain a complex number's array magnitudes
@@ -361,7 +384,7 @@ DLL_EXPORT double dsp_fourier_complex_get_phase(dsp_complex n);
 * \param len the input array length.
 * \return the array filled with the magnitudes
 */
-DLL_EXPORT double* dsp_fourier_complex_array_get_magnitude(dsp_complex* in, int len);
+DLL_EXPORT double* dsp_fourier_complex_array_get_magnitude(dsp_complex in, int len);
 
 /**
 * \brief Obtain a complex number's array phases
@@ -369,19 +392,7 @@ DLL_EXPORT double* dsp_fourier_complex_array_get_magnitude(dsp_complex* in, int 
 * \param len the input array length.
 * \return the array filled with the phases
 */
-DLL_EXPORT double* dsp_fourier_complex_array_get_phase(dsp_complex* in, int len);
-
-/**
-* \brief Perform a discrete Fourier Transform of a dsp_stream and obtain the complex magnitudes
-* \param stream the input stream.
-*/
-DLL_EXPORT void dsp_fourier_dft_magnitude(dsp_stream_p stream);
-
-/**
-* \brief Perform a discrete Fourier Transform of a dsp_stream and obtain the complex phases
-* \param stream the input stream.
-*/
-DLL_EXPORT void dsp_fourier_dft_phase(dsp_stream_p stream);
+DLL_EXPORT double* dsp_fourier_complex_array_get_phase(dsp_complex in, int len);
 
 /*@}*/
 /**
@@ -400,7 +411,7 @@ DLL_EXPORT void dsp_filter_squarelaw(dsp_stream_p stream);
 * \param samplingfrequency the sampling frequency of the input stream.
 * \param frequency the cutoff frequency of the filter.
 */
-DLL_EXPORT void dsp_filter_lowpass(dsp_stream_p stream, double samplingfrequency, double frequency);
+DLL_EXPORT void dsp_filter_lowpass(dsp_stream_p stream, double frequency);
 
 /**
 * \brief A high pass filter
@@ -408,7 +419,7 @@ DLL_EXPORT void dsp_filter_lowpass(dsp_stream_p stream, double samplingfrequency
 * \param samplingfrequency the sampling frequency of the input stream.
 * \param frequency the cutoff frequency of the filter.
 */
-DLL_EXPORT void dsp_filter_highpass(dsp_stream_p stream, double samplingfrequency, double frequency);
+DLL_EXPORT void dsp_filter_highpass(dsp_stream_p stream, double frequency);
 
 /**
 * \brief A band pass filter
@@ -417,7 +428,8 @@ DLL_EXPORT void dsp_filter_highpass(dsp_stream_p stream, double samplingfrequenc
 * \param LowFrequency the high-pass cutoff frequency of the filter.
 * \param HighFrequency the low-pass cutoff frequency of the filter.
 */
-DLL_EXPORT void dsp_filter_bandpass(dsp_stream_p stream, double samplingfrequency, double LowFrequency, double HighFrequency);
+DLL_EXPORT void dsp_filter_bandpass(dsp_stream_p stream, double LowFrequency,
+                                    double HighFrequency);
 
 /**
 * \brief A band reject filter
@@ -426,7 +438,8 @@ DLL_EXPORT void dsp_filter_bandpass(dsp_stream_p stream, double samplingfrequenc
 * \param LowFrequency the high-pass cutoff frequency of the filter.
 * \param HighFrequency the low-pass cutoff frequency of the filter.
 */
-DLL_EXPORT void dsp_filter_bandreject(dsp_stream_p stream, double samplingfrequency, double LowFrequency, double HighFrequency);
+DLL_EXPORT void dsp_filter_bandreject(dsp_stream_p stream, double LowFrequency,
+                                      double HighFrequency);
 
 /*@}*/
 /**
@@ -438,7 +451,7 @@ DLL_EXPORT void dsp_filter_bandreject(dsp_stream_p stream, double samplingfreque
 * \param stream1 the first input stream.
 * \param stream2 the second input stream.
 */
-DLL_EXPORT dsp_stream_p dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p stream2);
+DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p stream2);
 
 /*@}*/
 /**
@@ -529,15 +542,15 @@ DLL_EXPORT dsp_stream_p dsp_convolution_convolution(dsp_stream_p stream1, dsp_st
 * \param len the length in elements of the buffer.
 * \return the mean value of the stream.
 */
-#define dsp_stats_mean(buf, len)\
+#define dsp_stats_mean(__dsp__buf, __dsp__len)\
 ({\
-    int i;\
-    double mean = 0;\
-    for(i = 0; i < len; i++) {\
-        mean += buf[i];\
+    int __dsp__i;\
+    double __dsp__mean = 0;\
+    for(__dsp__i = 0; __dsp__i < __dsp__len; __dsp__i++) {\
+        __dsp__mean += __dsp__buf[__dsp__i];\
     }\
-    mean /= len;\
-    mean;\
+    __dsp__mean /= __dsp__len;\
+    __dsp__mean;\
     })
 
 /**
@@ -545,16 +558,16 @@ DLL_EXPORT dsp_stream_p dsp_convolution_convolution(dsp_stream_p stream1, dsp_st
 * \param stream the stream on which execute
 * \return the standard deviation.
 */
-#define dsp_stats_stddev(buf, len)\
+#define dsp_stats_stddev(__dsp__buf, __dsp__len)\
 ({\
-    double mean = dsp_stats_mean(buf, len);\
-    int x;\
-    double stddev = 0;\
-    for(x = 0; x < len; x++) {\
-        stddev += fabs(buf[x] - mean);\
+    double __dsp__mean = dsp_stats_mean(__dsp__buf, __dsp__len);\
+    int __dsp__x;\
+    double __dsp__stddev = 0;\
+    for(__dsp__x = 0; __dsp__x < __dsp__len; __dsp__x++) {\
+        __dsp__stddev += fabs(__dsp__buf[__dsp__x] - __dsp__mean);\
     }\
-    stddev /= len;\
-    stddev;\
+    __dsp__stddev /= __dsp__len;\
+    __dsp__stddev;\
     })
 
 /**
@@ -1192,7 +1205,8 @@ DLL_EXPORT int dsp_align_crop_limit(dsp_stream_p reference, dsp_stream_p to_alig
 * \param start_star Start compare from the start_star brigher star
 * \return The new dsp_align_info structure pointer
 */
-DLL_EXPORT int dsp_align_get_offset(dsp_stream_p stream1, dsp_stream_p stream, int decimals);
+DLL_EXPORT int dsp_align_get_offset(dsp_stream_p stream1, dsp_stream_p stream, double decimals, int delta_info,
+                                    double target_score);
 
 /**
 * \brief Rotate a stream around an axis and offset
@@ -1208,7 +1222,7 @@ DLL_EXPORT void dsp_stream_rotate(dsp_stream_p stream);
 * \param info The dsp_align_info structure pointer containing the traslation informations
 * \return The new dsp_stream_p structure pointer
 */
-DLL_EXPORT void dsp_stream_traslate(dsp_stream_p stream);
+DLL_EXPORT void dsp_stream_translate(dsp_stream_p stream);
 
 /**
 * \brief Scale a stream
@@ -1219,6 +1233,147 @@ DLL_EXPORT void dsp_stream_traslate(dsp_stream_p stream);
 DLL_EXPORT void dsp_stream_scale(dsp_stream_p stream);
 
 /**
+* \brief Read a FITS file and fill a dsp_stream_p with its content
+* \param filename the file name.
+* \param stretch 1 if the buffer intensities have to be stretched
+* \return The new dsp_stream_p structure pointer
+*/
+DLL_EXPORT dsp_stream_p* dsp_file_read_fits(char *filename, int *channels, int stretch);
+
+/**
+* \brief Write the dsp_stream_p into a FITS file,
+* \param filename the file name.
+* \param bpp the bit depth of the output FITS file.
+* \param stream the input stream to be saved
+*/
+DLL_EXPORT void dsp_file_write_fits(char *filename, int bpp, dsp_stream_p stream);
+
+/**
+* \brief Write the components dsp_stream_p array into a JPEG file,
+* \param filename the file name.
+* \param components the number of streams in the array to be used as components 1 or 3.
+* \param bpp the bit depth of the output JPEG file [8,16,32,64,-32,-64].
+* \param stream the input stream to be saved
+*/
+DLL_EXPORT void dsp_file_write_fits_composite(char *filename, int components, int bpp, dsp_stream_p* stream);
+
+/**
+* \brief Read a JPEG file and fill a array of dsp_stream_p with its content,
+* each color channel has its own stream in this array and an additional grayscale at end will be added
+* \param filename the file name.
+* \param channels this value will be updated with the channel quantity into the picture.
+* \param stretch 1 if the buffer intensities have to be stretched
+* \return The new dsp_stream_p structure pointers array
+*/
+DLL_EXPORT dsp_stream_p* dsp_file_read_jpeg(char *filename, int *channels, int stretch);
+
+/**
+* \brief Write the stream into a JPEG file,
+* \param filename the file name.
+* \param quality the quality of the output JPEG file 0-100.
+* \param stream the input stream to be saved
+*/
+DLL_EXPORT void dsp_file_write_jpeg(char *filename, int quality, dsp_stream_p stream);
+
+/**
+* \brief Write the components dsp_stream_p array into a JPEG file,
+* \param filename the file name.
+* \param components the number of streams in the array to be used as components 1 or 3.
+* \param quality the quality of the output JPEG file 0-100.
+* \param stream the input stream to be saved
+*/
+DLL_EXPORT void dsp_file_write_jpeg_composite(char *filename, int components, int quality, dsp_stream_p* stream);
+
+/**
+* \brief Read a PNG file and fill a array of dsp_stream_p with its content,
+* each color channel has its own stream in this array and an additional grayscale at end will be added
+* \param filename the file name.
+* \param channels this value will be updated with the channel quantity into the picture.
+* \param stretch 1 if the buffer intensities have to be stretched
+* \return The new dsp_stream_p structure pointers array
+*/
+DLL_EXPORT dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int stretch);
+
+/**
+* \brief Write the components dsp_stream_p array into a PNG file,
+* \param filename the file name.
+* \param components the number of streams in the array to be used as components 1 or 3.
+* \param quality the compression of the output PNG 0-9.
+* \param stream the input stream to be saved
+*/
+DLL_EXPORT void dsp_file_write_png_composite(char *filename, int components, int compression, dsp_stream_p* stream);
+
+/**
+* \brief Convert a bayer pattern dsp_t array into a grayscale array
+* \param src the input buffer
+* \param width the picture width
+* \param height the picture height
+* \return The new dsp_t array
+*/
+DLL_EXPORT dsp_t* dsp_file_bayer_2_gray(dsp_t* src, int width, int height);
+
+/**
+* \brief Convert a bayer pattern dsp_t array into a ordered 3 RGB array
+* \param src the input buffer
+* \param red the location of the red pixel within the bayer pattern
+* \param width the picture width
+* \param height the picture height
+* \return The new dsp_t array
+*/
+DLL_EXPORT dsp_t* dsp_file_bayer_2_rgb(dsp_t *src, int red, int width, int height);
+
+/**
+* \brief Convert a color component dsp_t array into a dsp_stream_p array each element containing the single components
+* \param buf the input buffer
+* \param dims the number of dimension
+* \param sizes the sizes of each dimension
+* \param components the number of the color components
+* \return The new dsp_stream_p array
+*/
+DLL_EXPORT dsp_stream_p *dsp_stream_from_components(dsp_t* buf, int dims, int *sizes, int components);
+
+/**
+* \brief Convert an RGB color dsp_t array into a dsp_stream_p array each element containing the single components
+* \param buf the input buffer
+* \param dims the number of dimension
+* \param sizes the sizes of each dimension
+* \param components the number of the color components
+* \param bpp the color depth of the color components
+* \param stretch whether to stretch within 0 and dsp_t_max
+* \return The new dsp_stream_p array
+*/
+DLL_EXPORT dsp_stream_p *dsp_buffer_rgb_to_components(void* buf, int dims, int *sizes, int components, int bpp, int stretch);
+
+/**
+* \brief Convert a component dsp_stream_p array into an RGB dsp_t array
+* \param stream the component dsp_stream_p array
+* \param rgb the output buffer
+* \param components the number of the color components
+* \param bpp the color depth of the color components
+*/
+DLL_EXPORT void dsp_buffer_components_to_rgb(dsp_stream_p *stream, void* rgb, int components, int bpp);
+
+/**
+* \brief Convert a component dsp_stream_p array into a bayer dsp_t array
+* \param stream the component dsp_stream_p array
+* \param bayer the output buffer
+* \param red the red offset within the bayer quad
+* \param width the width of the output array
+* \param width the height of the output array
+* \return The new dsp_stream_p array
+*/
+DLL_EXPORT dsp_t* dsp_file_composite_2_bayer(dsp_stream_p *src, int red, int width, int height);
+
+/**
+* \brief Write a FITS file from a dsp_stream_p array
+* \param filename the output file name
+* \param components the number of the color components
+* \param bpp the color depth of the color components
+* \param stream the component dsp_stream_p array
+*/
+DLL_EXPORT void dsp_file_write_fits_bayer(char *filename, int components, int bpp, dsp_stream_p* stream);
+
+/**
 * \brief Convert a bayer pattern dsp_t array into a contiguos component array
 * \param src the input buffer
 * \param red the location of the red pixel within the bayer pattern
@@ -1226,7 +1381,8 @@ DLL_EXPORT void dsp_stream_scale(dsp_stream_p stream);
 * \param height the picture height
 * \return The new dsp_t array
 */
-DLL_EXPORT dsp_t* dsp_file_bayer_2_composite(dsp_t *src, int red, long int width, long int height);
+DLL_EXPORT dsp_t* dsp_file_bayer_2_composite(dsp_t *src, int red, int width, int height);
+
 /*@}*/
 /*@}*/
 

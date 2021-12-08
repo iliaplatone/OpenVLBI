@@ -18,57 +18,57 @@
 
 #include <cstdio>
 #include <cstdlib>
-#include "instancecollection.h"
+#include "modelcollection.h"
 
-InstanceCollection::InstanceCollection() : VLBICollection::VLBICollection()
+ModelCollection::ModelCollection() : VLBICollection::VLBICollection()
 {
 }
 
-InstanceCollection::~InstanceCollection()
+ModelCollection::~ModelCollection()
 {
 }
 
-void InstanceCollection::Add(vlbi_context element, const char *name)
+void ModelCollection::Add(dsp_stream_p element, const char *name)
 {
     VLBICollection::Add(element, name);
 }
 
-void InstanceCollection::RemoveKey(const char* name)
+void ModelCollection::RemoveKey(const char* name)
 {
     VLBICollection::RemoveKey(name);
 }
 
-vlbi_context InstanceCollection::Get(const char* name)
+dsp_stream_p ModelCollection::Get(const char* name)
 {
-    return (vlbi_context)VLBICollection::Get(name);
+    return (dsp_stream_p)VLBICollection::Get(name);
 }
 
-void InstanceCollection::Remove(vlbi_context element)
+void ModelCollection::Remove(dsp_stream_p element)
 {
     VLBICollection::Remove(element);
 }
 
-void InstanceCollection::RemoveAt(int index)
+void ModelCollection::RemoveAt(int index)
 {
     VLBICollection::RemoveAt(index);
 }
 
-vlbi_context  InstanceCollection::At(int index)
+dsp_stream_p  ModelCollection::At(int index)
 {
-    return (vlbi_context)VLBICollection::At(index);
+    return (dsp_stream_p )(VLBICollection::At(index));
 }
 
-bool InstanceCollection::Contains(vlbi_context element)
+bool ModelCollection::Contains(dsp_stream_p element)
 {
     return VLBICollection::Contains(element);
 }
 
-bool InstanceCollection::ContainsKey(const char* element)
+bool ModelCollection::ContainsKey(const char* element)
 {
     return VLBICollection::ContainsKey(element);
 }
 
-int InstanceCollection::IndexOf(vlbi_context element)
+int ModelCollection::IndexOf(dsp_stream_p element)
 {
     return VLBICollection::IndexOf(element);
 }

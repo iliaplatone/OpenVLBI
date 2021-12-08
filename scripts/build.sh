@@ -4,7 +4,7 @@ export arch=$(dpkg --print-architecture)
 
 sudo add-apt-repository -y ppa:~mutlaqja/ppa
 sudo apt-get update
-sudo apt-get install -y libjsonparser-dev indi-full libindi-dev libnova-dev libfftw3-dev libcfitsio-dev cdbs cmake dpkg-dev build-essential fakeroot devscripts jq
+sudo apt-get install -y libjsonparser-dev libindi-dev libnova-dev libfftw3-dev libcfitsio-dev cdbs cmake dpkg-dev build-essential fakeroot devscripts jq
 dpkg-buildpackage  -b -rfakeroot -us -uc;
 mkdir -p packages
 mv ../libopenvlbi_${version}_${arch}.deb packages/

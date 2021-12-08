@@ -17,9 +17,10 @@
  */
 
 #include "dsp.h"
-int DSP_MAX_THREADS = 1;
 int dsp_debug = 0;
 char* dsp_app_name = NULL;
+int DSP_MAX_THREADS = 1;
+
 void dsp_stream_alloc_buffer(dsp_stream_p stream, int len)
 {
     if(stream->buf != NULL) {
@@ -27,6 +28,15 @@ void dsp_stream_alloc_buffer(dsp_stream_p stream, int len)
     } else {
         stream->buf = (dsp_t*)malloc(sizeof(dsp_t) * len);
     }
+    if(stream->dft.buf != NULL) {
+        stream->dft.fftw = (fftw_complex*)realloc(stream->dft.buf, sizeof(fftw_complex) * len);
+    } else {
+        stream->dft.fftw = (fftw_complex*)malloc(sizeof(fftw_complex) * len);
+    }
+    if(stream->magnitude != NULL)
+        dsp_stream_alloc_buffer(stream->magnitude, len);
+    if(stream->phase != NULL)
+        dsp_stream_alloc_buffer(stream->phase, len);
 }
 
 void dsp_stream_set_buffer(dsp_stream_p stream, void *buffer, int len)
@@ -42,15 +52,28 @@ dsp_t* dsp_stream_get_buffer(dsp_stream_p stream)
 
 void dsp_stream_free_buffer(dsp_stream_p stream)
 {
-    if(stream->buf == NULL)
-        return;
-    free(stream->buf);
+    if(stream->buf != NULL)
+        free(stream->buf);
+    if(stream->dft.buf != NULL)
+        free(stream->dft.buf);
+    if(stream->magnitude != NULL)
+        dsp_stream_free_buffer(stream->magnitude);
+    if(stream->phase != NULL)
+        dsp_stream_free_buffer(stream->phase);
 }
 
+/**
+ * @brief dsp_stream_new
+ * @return
+ */
 dsp_stream_p dsp_stream_new()
 {
     dsp_stream_p stream = (dsp_stream_p)malloc(sizeof(dsp_stream) * 1);
-    stream->buf = (dsp_t*)malloc(sizeof(dsp_t) * 1);
+    stream->is_copy = 0;
+    stream->buf = NULL;
+    stream->dft.buf = NULL;
+    stream->magnitude = NULL;
+    stream->phase = NULL;
     stream->sizes = (int*)malloc(sizeof(int) * 1);
     stream->pixel_sizes = (double*)malloc(sizeof(double) * 1);
     stream->children = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * 1);
@@ -62,6 +85,7 @@ dsp_stream_p dsp_stream_new()
     stream->align_info.offset = (double*)malloc(sizeof(double)*1);
     stream->align_info.center = (double*)malloc(sizeof(double)*1);
     stream->align_info.radians = (double*)malloc(sizeof(double)*1);
+    stream->align_info.factor = (double*)malloc(sizeof(double)*1);
     stream->stars_count = 0;
     stream->triangles_count = 0;
     stream->child_count = 0;
@@ -77,44 +101,78 @@ dsp_stream_p dsp_stream_new()
     return stream;
 }
 
+/**
+ * @brief dsp_stream_free
+ * @param stream
+ */
 void dsp_stream_free(dsp_stream_p stream)
 {
     if(stream == NULL)
         return;
-    free(stream->sizes);
-    free(stream->pixel_sizes);
-    free(stream->children);
-    free(stream->ROI);
-    free(stream->location);
-    free(stream->target);
+    if(stream->sizes != NULL)
+        free(stream->sizes);
+    if(stream->magnitude != NULL)
+        dsp_stream_free(stream->magnitude);
+    if(stream->phase != NULL)
+        dsp_stream_free(stream->phase);
+    if(stream->is_copy == 0) {
+        if(stream->pixel_sizes != NULL)
+            free(stream->pixel_sizes);
+        if(stream->children != NULL)
+            free(stream->children);
+        if(stream->ROI != NULL)
+            free(stream->ROI);
+        if(stream->location != NULL)
+            free(stream->location);
+        if(stream->target != NULL)
+            free(stream->target);
+        if(stream->stars != NULL)
+            free(stream->stars);
+        if(stream->triangles != NULL)
+            free(stream->triangles);
+    }
     free(stream);
 }
 
+/**
+ * @brief dsp_stream_copy
+ * @param stream
+ * @return
+ */
 dsp_stream_p dsp_stream_copy(dsp_stream_p stream)
 {
     dsp_stream_p dest = dsp_stream_new();
     int i;
     for(i = 0; i < stream->dims; i++)
        dsp_stream_add_dim(dest, abs(stream->sizes[i]));
+    for(i = 0; i < stream->stars_count; i++)
+        dsp_stream_add_star(dest, stream->stars[i]);
+    for(i = 0; i < stream->triangles_count; i++)
+        dsp_stream_add_triangle(dest, stream->triangles[i]);
+    dest->is_copy = stream->is_copy + 1;
     dsp_stream_alloc_buffer(dest, dest->len);
     dest->wavelength = stream->wavelength;
     dest->samplerate = stream->samplerate;
-    dest->stars_count = stream->stars_count;
-    dest->triangles_count = stream->triangles_count;
     dest->diameter = stream->diameter;
     dest->focal_ratio = stream->focal_ratio;
-    dest->starttimeutc = stream->starttimeutc;
-    dest->align_info = stream->align_info;
-    memcpy(dest->stars, stream->stars, sizeof(dsp_star) * stream->stars_count);
-    memcpy(dest->triangles, stream->triangles, sizeof(dsp_triangle) * stream->triangles_count);
+    memcpy(&dest->starttimeutc,  &stream->starttimeutc, sizeof(struct timespec));
+    memcpy(&dest->align_info, &stream->align_info, sizeof(dsp_align_info));
     memcpy(dest->ROI, stream->ROI, sizeof(dsp_region) * stream->dims);
     memcpy(dest->pixel_sizes, stream->pixel_sizes, sizeof(double) * stream->dims);
     memcpy(dest->target, stream->target, sizeof(double) * 3);
     memcpy(dest->location, stream->location, sizeof(dsp_location) * 1);
-    memcpy(dest->buf, stream->buf, sizeof(dsp_t) * stream->len);
+    if(dest->buf != NULL)
+        memcpy(dest->buf, stream->buf, sizeof(dsp_t) * stream->len);
+    if(dest->dft.buf != NULL)
+        memcpy(dest->dft.buf, stream->dft.buf, sizeof(fftw_complex) * stream->len);
     return dest;
 }
 
+/**
+ * @brief dsp_stream_add_dim
+ * @param stream
+ * @param size
+ */
 void dsp_stream_add_dim(dsp_stream_p stream, int size)
 {
     stream->sizes[stream->dims] = size;
@@ -127,9 +185,18 @@ void dsp_stream_add_dim(dsp_stream_p stream, int size)
     stream->align_info.offset = (double*)realloc(stream->align_info.offset, sizeof(double)*stream->dims);
     stream->align_info.center = (double*)realloc(stream->align_info.center, sizeof(double)*stream->dims);
     stream->align_info.radians = (double*)realloc(stream->align_info.radians, sizeof(double)*(stream->dims-1));
-    stream->align_info.factor = 0.0;
+    stream->align_info.factor = (double*)realloc(stream->align_info.factor, sizeof(double)*stream->dims);
+    if(stream->magnitude != NULL)
+        dsp_stream_add_dim(stream->magnitude, size);
+    if(stream->phase != NULL)
+        dsp_stream_add_dim(stream->phase, size);
 }
 
+/**
+ * @brief dsp_stream_del_dim
+ * @param stream
+ * @param index
+ */
 void dsp_stream_del_dim(dsp_stream_p stream, int index)
 {
     int* sizes = (int*)malloc(sizeof(int) * stream->dims);
@@ -143,8 +210,17 @@ void dsp_stream_del_dim(dsp_stream_p stream, int index)
             dsp_stream_add_dim(stream, abs(sizes[i]));
         }
     }
+    if(stream->magnitude != NULL)
+        dsp_stream_del_dim(stream->magnitude, index);
+    if(stream->phase != NULL)
+        dsp_stream_del_dim(stream->phase, index);
 }
 
+/**
+ * @brief dsp_stream_add_child
+ * @param stream
+ * @param child
+ */
 void dsp_stream_add_child(dsp_stream_p stream, dsp_stream_p child)
 {
     child->parent = stream;
@@ -153,6 +229,11 @@ void dsp_stream_add_child(dsp_stream_p stream, dsp_stream_p child)
     stream->children = (dsp_stream_p*)realloc(stream->children, sizeof(dsp_stream_p) * (stream->child_count + 1));
 }
 
+/**
+ * @brief dsp_stream_del_child
+ * @param stream
+ * @param index
+ */
 void dsp_stream_del_child(dsp_stream_p stream, int index)
 {
     dsp_stream_p* children = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * stream->child_count);
@@ -168,6 +249,11 @@ void dsp_stream_del_child(dsp_stream_p stream, int index)
     }
 }
 
+/**
+ * @brief dsp_stream_add_star
+ * @param stream
+ * @param star
+ */
 void dsp_stream_add_star(dsp_stream_p stream, dsp_star star)
 {
     int d;
@@ -180,6 +266,11 @@ void dsp_stream_add_star(dsp_stream_p stream, dsp_star star)
     stream->stars_count++;
 }
 
+/**
+ * @brief dsp_stream_del_star
+ * @param stream
+ * @param index
+ */
 void dsp_stream_del_star(dsp_stream_p stream, int index)
 {
     dsp_star* stars = (dsp_star*)malloc(sizeof(dsp_star) * stream->stars_count);
@@ -195,6 +286,11 @@ void dsp_stream_del_star(dsp_stream_p stream, int index)
     }
 }
 
+/**
+ * @brief dsp_stream_add_triangle
+ * @param stream
+ * @param triangle
+ */
 void dsp_stream_add_triangle(dsp_stream_p stream, dsp_triangle triangle)
 {
     int s;
@@ -206,14 +302,11 @@ void dsp_stream_add_triangle(dsp_stream_p stream, dsp_triangle triangle)
     stream->triangles[stream->triangles_count].sizes = (double*)malloc(sizeof(double)*triangle.dims);
     stream->triangles[stream->triangles_count].stars = (dsp_star*)malloc(sizeof(dsp_star)*triangle.dims);
     stream->triangles[stream->triangles_count].ratios[0] = 1.0;
-    triangle.index = acos(stream->triangles[stream->triangles_count].ratios[1]);
+    triangle.index = triangle.index;
     for (s = 0; s < triangle.dims; s++) {
         stream->triangles[stream->triangles_count].sizes[s] = triangle.sizes[s];
         if(s > 0) {
             stream->triangles[stream->triangles_count].ratios[s] = fabs(triangle.sizes[s]/triangle.sizes[0]);
-            if(s > 1) {
-                triangle.index -= acos(stream->triangles[stream->triangles_count].ratios[s]);
-            }
         }
         stream->triangles[stream->triangles_count].stars[s].center.dims = triangle.stars[s].center.dims;
         stream->triangles[stream->triangles_count].stars[s].diameter = triangle.stars[s].diameter;
@@ -221,18 +314,20 @@ void dsp_stream_add_triangle(dsp_stream_p stream, dsp_triangle triangle)
         for(d = 0; d < triangle.stars[s].center.dims; d++)
             stream->triangles[stream->triangles_count].stars[s].center.location[d] = triangle.stars[s].center.location[d];
     }
-    triangle.index = fabs(triangle.index)/M_PI;
-    if(triangle.index > 0.5)
-        triangle.index = 1.0 - stream->triangles[stream->triangles_count].index;
     stream->triangles[stream->triangles_count].index = triangle.index;
     stream->triangles_count++;
 }
 
+/**
+ * @brief dsp_stream_del_triangle
+ * @param stream
+ * @param index
+ */
 void dsp_stream_del_triangle(dsp_stream_p stream, int index)
 {
     dsp_triangle* triangles = (dsp_triangle*)malloc(sizeof(dsp_triangle) * stream->triangles_count);
     int triangles_count = stream->triangles_count;
-    memcpy(triangles, stream->triangles, sizeof(dsp_triangle) * stream->triangles_count);
+    memcpy(triangles, stream->triangles, sizeof(dsp_triangle*) * stream->triangles_count);
     free(stream->triangles);
     stream->triangles_count = 0;
     int i;
@@ -243,6 +338,12 @@ void dsp_stream_del_triangle(dsp_stream_p stream, int index)
     }
 }
 
+/**
+ * @brief dsp_stream_get_position
+ * @param stream
+ * @param index
+ * @return
+ */
 int* dsp_stream_get_position(dsp_stream_p stream, int index) {
     int dim = 0;
     int y = 0;
@@ -257,6 +358,12 @@ int* dsp_stream_get_position(dsp_stream_p stream, int index) {
     return pos;
 }
 
+/**
+ * @brief dsp_stream_set_position
+ * @param stream
+ * @param pos
+ * @return
+ */
 int dsp_stream_set_position(dsp_stream_p stream, int* pos) {
     int dim = 0;
     int index = 0;
@@ -268,8 +375,13 @@ int dsp_stream_set_position(dsp_stream_p stream, int* pos) {
     return index;
 }
 
+/**
+ * @brief dsp_stream_crop
+ * @param in
+ */
 void dsp_stream_crop(dsp_stream_p in)
 {
+
     dsp_stream_p stream = dsp_stream_new();
     int dim, d;
     for(dim = 0; dim < in->dims; dim++) {
@@ -305,11 +417,11 @@ void dsp_stream_crop(dsp_stream_p in)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
+
 }
 
-void dsp_stream_traslate(dsp_stream_p in)
+void dsp_stream_translate(dsp_stream_p in)
 {
-    pfunc;
     dsp_stream_p stream = dsp_stream_copy(in);
     int* offset = (int*)malloc(sizeof(int)*stream->dims);
     dsp_buffer_copy(in->align_info.offset, offset, in->dims);
@@ -325,8 +437,14 @@ void dsp_stream_traslate(dsp_stream_p in)
     memcpy(data, buf, sizeof(dsp_t)*len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
+
 }
 
+/**
+ * @brief dsp_stream_scale_th
+ * @param arg
+ * @return
+ */
 static void* dsp_stream_scale_th(void* arg)
 {
     struct {
@@ -343,14 +461,17 @@ static void* dsp_stream_scale_th(void* arg)
     for(y = start; y < end; y++)
     {
         int* pos = dsp_stream_get_position(stream, y);
+        double factor = 0.0;
         for(d = 0; d < stream->dims; d++) {
-            pos[d] -= stream->sizes[d];
-            pos[d] /= stream->align_info.factor;
-            pos[d] += stream->sizes[d];
+            pos[d] -= stream->align_info.center[d];
+            pos[d] /= stream->align_info.factor[d];
+            pos[d] += stream->align_info.center[d];
+            factor += pow(stream->align_info.factor[d], 2);
         }
+        factor = sqrt(factor);
         int x = dsp_stream_set_position(in, pos);
         if(x >= 0 && x < in->len)
-            stream->buf[y] += in->buf[x]/(stream->align_info.factor*stream->dims);
+            stream->buf[y] += in->buf[x]/(factor*stream->dims);
         free(pos);
     }
     return NULL;
@@ -380,6 +501,7 @@ void dsp_stream_scale(dsp_stream_p in)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
+
 }
 
 static void* dsp_stream_rotate_th(void* arg)
@@ -405,12 +527,12 @@ static void* dsp_stream_rotate_th(void* arg)
             double r = stream->align_info.radians[dim-1];
             double x = pos[dim-1];
             double y = pos[dim];
-            pos[dim] = x*-cos(r-M_PI_2);
+            pos[dim] = x*-sin(r);
             pos[dim-1] = x*cos(r);
             pos[dim] += y*cos(r);
+            pos[dim-1] += y*sin(r);
             pos[dim] += stream->align_info.center[dim];
             pos[dim-1] += stream->align_info.center[dim-1];
-            pos[dim-1] += y*cos(r-M_PI_2);
         }
         int x = dsp_stream_set_position(in, pos);
         free(pos);
@@ -422,6 +544,7 @@ static void* dsp_stream_rotate_th(void* arg)
 
 void dsp_stream_rotate(dsp_stream_p in)
 {
+
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
@@ -442,4 +565,5 @@ void dsp_stream_rotate(dsp_stream_p in)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
+
 }
