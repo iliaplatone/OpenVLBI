@@ -81,10 +81,6 @@ void VLBI::Client::Plot(char *name, int u, int v, int type, bool nodelay)
     vlbi_get_uv_plot(GetContext(), name, u, v, coords, Freq, SampleRate, nodelay, (type & APERTURE_SYNTHESIS) == 0,
                      (type & UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
 }
-void VLBI::Client::EstimateIdft(char *name, char *model)
-{
-    vlbi_get_ifft_estimate(GetContext(), name, model);
-}
 
 void VLBI::Client::Idft(char *name, char *model)
 {
@@ -134,7 +130,7 @@ char* VLBI::Client::GetModel(char *name, char *format)
     if(fd > -1)
     {
         close(fd);
-        if(!strcmp(format, "jpg"))
+        if(!strcmp(format, "jpeg"))
             dsp_file_write_jpeg_composite(filename, channels, 100, stream);
         if(!strcmp(format, "png"))
             dsp_file_write_png_composite(filename, channels, 9, stream);
@@ -203,7 +199,7 @@ void VLBI::Client::AddModel(char* name, char *format, char *b64)
                 model = dsp_file_read_fits(filename, &channels, 0);
                 vlbi_add_model(GetContext(), model[channels], name);
             }
-            if(!strcmp(format, "jpg"))
+            if(!strcmp(format, "jpeg"))
             {
                 model = dsp_file_read_jpeg(filename, &channels, 0);
                 vlbi_add_model(GetContext(), model[channels], name);
@@ -352,6 +348,17 @@ void VLBI::Client::Parse()
         }
         else if(!strcmp(cmd, "get"))
         {
+            if(!strcmp(arg, "models"))
+            {
+                dsp_stream_p* models;
+                int n = vlbi_get_models(GetContext(), &models);
+                for(int x = 0; x < n; x++)
+                {
+                    fprintf(f, "Model #%d: name:%s width:%d height:%d\n magnitude:%s phase:%s", x,
+                            models[x]->name, models[x]->sizes[0], models[x]->sizes[1], models[x]->magnitude->name, models[x]->phase->name);
+                }
+                free(models);
+            }
             if(!strcmp(arg, "nodes"))
             {
                 vlbi_node* nodes;
@@ -504,22 +511,6 @@ void VLBI::Client::Parse()
                     return;
                 }
                 Idft(name, model);
-            }
-            else if(!strcmp(arg, "idft_estimation"))
-            {
-                char *t = strtok(value, ",");
-                char *name = t;
-                if(name == nullptr)
-                {
-                    return;
-                }
-                t = strtok(nullptr, ",");
-                char *model = t;
-                if(model == nullptr)
-                {
-                    return;
-                }
-                EstimateIdft(name, model);
             }
             else if(!strcmp(arg, "dft"))
             {

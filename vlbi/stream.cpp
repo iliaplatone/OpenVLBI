@@ -284,7 +284,7 @@ void vlbi_add_model(void *ctx, dsp_stream_p stream, char* name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    nodes->getModels()->Add(dsp_stream_copy(stream), name);
+    nodes->getModels()->Add(stream, name);
 }
 
 int vlbi_get_models(void *ctx, dsp_stream_p** output)
@@ -411,26 +411,13 @@ void vlbi_get_uv_plot(vlbi_context ctx, char *name, int u, int v, double *target
     vlbi_add_model(ctx, parent, name);
 }
 
-void vlbi_get_ifft_estimate(vlbi_context ctx, char *name, char *uv)
-{
-    NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    dsp_stream_p ifft = dsp_stream_copy(nodes->getModels()->Get(uv));
-    dsp_buffer_stretch(ifft->buf, ifft->len, 0, dsp_t_max);
-    ifft->magnitude = dsp_stream_copy(ifft);
-    dsp_fourier_dft(ifft->magnitude, 3);
-    ifft->phase = dsp_stream_copy(ifft->magnitude->magnitude->magnitude->phase);
-    dsp_fourier_idft(ifft);
-    dsp_buffer_shift(ifft);
-    vlbi_add_model(ctx, ifft, name);
-}
-
 void vlbi_get_ifft(vlbi_context ctx, char *name, char *uv)
 {
     pfunc;
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
-    dsp_stream_p ifft = dsp_stream_copy(nodes->getModels()->Get(uv));
+    dsp_stream_p ifft = nodes->getModels()->Get(uv);
     dsp_fourier_idft(ifft);
-    vlbi_add_model(ctx, ifft, name);
+    vlbi_add_model(ctx, dsp_stream_copy(ifft), name);
 }
 
 void vlbi_get_fft(vlbi_context ctx, char *name, char *magnitude, char *phase)
@@ -438,6 +425,8 @@ void vlbi_get_fft(vlbi_context ctx, char *name, char *magnitude, char *phase)
     pfunc;
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p fft = nodes->getModels()->Get(name);
+    fft->phase = nullptr;
+    fft->magnitude = nullptr;
     dsp_fourier_dft(fft, 1);
     vlbi_add_model(ctx, fft->phase, phase);
     vlbi_add_model(ctx, fft->magnitude, magnitude);
@@ -448,7 +437,13 @@ void vlbi_apply_phase_model(vlbi_context ctx, char *name, char *model)
     pfunc;
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p fft = nodes->getModels()->Get(name);
-    fft->phase = dsp_stream_copy(nodes->getModels()->Get(model));
+    dsp_stream_p phase = nodes->getModels()->Get(model);
+    int d = 0;
+    if(fft->dims == phase->dims)
+        for (int d = 0; d < fft->dims && fft->sizes[d] == phase->sizes[d]; )
+            d++;
+    if(fft->dims == d)
+        fft->phase = phase;
 }
 
 void vlbi_apply_magnitude_model(vlbi_context ctx, char *name, char *model)
@@ -456,7 +451,13 @@ void vlbi_apply_magnitude_model(vlbi_context ctx, char *name, char *model)
     pfunc;
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p fft = nodes->getModels()->Get(name);
-    fft->magnitude = dsp_stream_copy(nodes->getModels()->Get(model));
+    dsp_stream_p magnitude = nodes->getModels()->Get(model);
+    int d = 0;
+    if(fft->dims == magnitude->dims)
+        for (int d = 0; d < fft->dims && fft->sizes[d] == magnitude->sizes[d]; )
+            d++;
+    if(fft->dims == d)
+        fft->magnitude = magnitude;
 }
 
 void vlbi_apply_mask(vlbi_context ctx, char *name, char *stream, char *mask)
@@ -464,12 +465,16 @@ void vlbi_apply_mask(vlbi_context ctx, char *name, char *stream, char *mask)
     pfunc;
     NodeCollection *nodes = (ctx != NULL) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p masked = dsp_stream_copy(nodes->getModels()->Get(stream));
-    dsp_stream_p model = dsp_stream_copy(nodes->getModels()->Get(mask));
-    for (int d = 0; d < Min(masked->dims, model->dims); d++)
-        model->align_info.factor[d] = (double)masked->sizes[d] / (double)model->sizes[d];
-    dsp_stream_scale(model);
-    dsp_buffer_mul(masked, model->buf, model->len);
-    vlbi_add_model(ctx, masked, name);
+    dsp_stream_p model = nodes->getModels()->Get(mask);
+    int d = 0;
+    if(masked->dims == model->dims)
+    {
+        for (int d = 0; d < masked->dims && masked->sizes[d] == model->sizes[d]; )
+            d++;
+        if(masked->dims == d)
+            dsp_buffer_mul(masked, model->buf, model->len);
+        vlbi_add_model(ctx, masked, name);
+    }
 }
 
 void vlbi_shift(vlbi_context ctx, char *name)

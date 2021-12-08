@@ -31,12 +31,11 @@ void JSONClient::Parse()
     getdelim(&str, &len, (int)'\0', f);
     if(strlen(str) <= 0)
         return;
-    char error[150];
+    char error[json_error_max];
     json_settings settings;
     json_value *value = json_parse_ex (&settings,
                                        str, len - 2,
                                        error);
-
     if(!value)
     {
         fprintf(stderr, "error parsing JSON: %s\n", error);

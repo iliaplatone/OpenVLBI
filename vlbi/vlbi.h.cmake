@@ -334,14 +334,6 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1
 DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
 
 /**
-* @brief Plot an inverse fourier transform of the uv plot buffer as magnitude, and its 4th order dft phase as its phase content.
-* @param ctx The OpenVLBI context
-* @param name The name of the newly created model.
-* @param model The magnitude model.
-*/
-DLL_EXPORT void vlbi_get_ifft_estimate(vlbi_context ctx, char* name, char* model);
-
-/**
 * @brief Plot an inverse fourier transform of the uv plot using its current magnitude and phase components.
 * @param ctx The OpenVLBI context
 * @param name The name of the newly created model.
