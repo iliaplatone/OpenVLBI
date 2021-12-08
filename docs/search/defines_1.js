@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['log_521',['Log',['../dsp_8h.html#a6db125b15238caf42269bd77d7462e96',1,'dsp.h']]]
+  ['end_5fgettime_571',['end_gettime',['../dsp_8h.html#a5ce9c243fc6dbacd12635ebd4b6e051b',1,'dsp.h']]]
 ];

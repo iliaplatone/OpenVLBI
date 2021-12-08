@@ -89,6 +89,15 @@ Functions</h2></td></tr>
 <tr class="memitem:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gad8463ac0e307bb75bcef9c293cc5bd92">vlbi_get_baselines</a> (void *ctx, <a class="el" href="structvlbi__baseline.html">vlbi_baseline</a> **baselines)</td></tr>
 <tr class="memdesc:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all baselines of the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#gad8463ac0e307bb75bcef9c293cc5bd92">More...</a><br /></td></tr>
 <tr class="separator:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5ba6f1431f425cb3bc254d175f189322"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga5ba6f1431f425cb3bc254d175f189322">vlbi_add_model</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> Stream, char *name)</td></tr>
+<tr class="memdesc:ga5ba6f1431f425cb3bc254d175f189322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a model into the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#ga5ba6f1431f425cb3bc254d175f189322">More...</a><br /></td></tr>
+<tr class="separator:ga5ba6f1431f425cb3bc254d175f189322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0862302257214708d18f8ec436c1728"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaf0862302257214708d18f8ec436c1728">vlbi_del_model</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name)</td></tr>
+<tr class="memdesc:gaf0862302257214708d18f8ec436c1728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a model from the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#gaf0862302257214708d18f8ec436c1728">More...</a><br /></td></tr>
+<tr class="separator:gaf0862302257214708d18f8ec436c1728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49892d4e0938072735a95476926b6cc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga49892d4e0938072735a95476926b6cc0">vlbi_get_models</a> (void *ctx, <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> **models)</td></tr>
+<tr class="memdesc:ga49892d4e0938072735a95476926b6cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all models of the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#ga49892d4e0938072735a95476926b6cc0">More...</a><br /></td></tr>
+<tr class="separator:ga49892d4e0938072735a95476926b6cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf57dbbb14efe53d31db2306389b0233c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaf57dbbb14efe53d31db2306389b0233c">vlbi_set_location</a> (void *ctx, double lat, double lon, double el)</td></tr>
 <tr class="memdesc:gaf57dbbb14efe53d31db2306389b0233c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the location of the reference station.  <a href="group___v_l_b_i___functions.html#gaf57dbbb14efe53d31db2306389b0233c">More...</a><br /></td></tr>
 <tr class="separator:gaf57dbbb14efe53d31db2306389b0233c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,17 +111,73 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga447f088ec3c35ce1e3486f70a6b5d09d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.  <a href="group___v_l_b_i___functions.html#ga447f088ec3c35ce1e3486f70a6b5d09d">More...</a><br /></td></tr>
 <tr class="separator:ga447f088ec3c35ce1e3486f70a6b5d09d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0796b9c149931dd6cc9b7233e9b13ef2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga0796b9c149931dd6cc9b7233e9b13ef2">vlbi_get_ifft_estimate</a> (<a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> uv)</td></tr>
-<tr class="memdesc:ga0796b9c149931dd6cc9b7233e9b13ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.  <a href="group___v_l_b_i___functions.html#ga0796b9c149931dd6cc9b7233e9b13ef2">More...</a><br /></td></tr>
+<tr class="memdesc:ga0796b9c149931dd6cc9b7233e9b13ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot an inverse fourier transform of the uv plot buffer as magnitude, and its 4th order dft phase as its phase content.  <a href="group___v_l_b_i___functions.html#ga0796b9c149931dd6cc9b7233e9b13ef2">More...</a><br /></td></tr>
 <tr class="separator:ga0796b9c149931dd6cc9b7233e9b13ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad69d4ef40a91ba75f7ab618c6824b7c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gad69d4ef40a91ba75f7ab618c6824b7c1">vlbi_apply_model</a> (<a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> uv, <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> model)</td></tr>
-<tr class="memdesc:gad69d4ef40a91ba75f7ab618c6824b7c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream.  <a href="group___v_l_b_i___functions.html#gad69d4ef40a91ba75f7ab618c6824b7c1">More...</a><br /></td></tr>
-<tr class="separator:gad69d4ef40a91ba75f7ab618c6824b7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60a7fbe2884fd2bb7072f0bc0d4e0518"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga60a7fbe2884fd2bb7072f0bc0d4e0518">vlbi_get_ifft</a> (<a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> uv)</td></tr>
+<tr class="memdesc:ga60a7fbe2884fd2bb7072f0bc0d4e0518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot an inverse fourier transform of the uv plot using its current magnitude and phase components.  <a href="group___v_l_b_i___functions.html#ga60a7fbe2884fd2bb7072f0bc0d4e0518">More...</a><br /></td></tr>
+<tr class="separator:ga60a7fbe2884fd2bb7072f0bc0d4e0518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9137b5214de6ec8c32ae3b5cb2a9d1d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga9137b5214de6ec8c32ae3b5cb2a9d1d3">vlbi_apply_phase_model</a> (<a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> stream, <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> model)</td></tr>
+<tr class="memdesc:ga9137b5214de6ec8c32ae3b5cb2a9d1d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the passed model as phase content of the uv plot.  <a href="group___v_l_b_i___functions.html#ga9137b5214de6ec8c32ae3b5cb2a9d1d3">More...</a><br /></td></tr>
+<tr class="separator:ga9137b5214de6ec8c32ae3b5cb2a9d1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a9f7b3f62940ab7deb1db66300dc0eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga5a9f7b3f62940ab7deb1db66300dc0eb">vlbi_apply_magnitude_model</a> (<a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> stream, <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> model)</td></tr>
+<tr class="memdesc:ga5a9f7b3f62940ab7deb1db66300dc0eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the passed model as magnitude content of the uv plot.  <a href="group___v_l_b_i___functions.html#ga5a9f7b3f62940ab7deb1db66300dc0eb">More...</a><br /></td></tr>
+<tr class="separator:ga5a9f7b3f62940ab7deb1db66300dc0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaad2c96163f711e48ab068297969a50e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaaad2c96163f711e48ab068297969a50e">vlbi_apply_mask</a> (<a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> stream, <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> mask)</td></tr>
+<tr class="memdesc:gaaad2c96163f711e48ab068297969a50e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask the stream with the content of the mask stream, by multiplication of each element.  <a href="group___v_l_b_i___functions.html#gaaad2c96163f711e48ab068297969a50e">More...</a><br /></td></tr>
+<tr class="separator:gaaad2c96163f711e48ab068297969a50e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b095c3d179916011b4acbdd22ac8b23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga7b095c3d179916011b4acbdd22ac8b23">vlbi_shift</a> (<a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> stream)</td></tr>
+<tr class="memdesc:ga7b095c3d179916011b4acbdd22ac8b23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift the stream by its dimensions.  <a href="group___v_l_b_i___functions.html#ga7b095c3d179916011b4acbdd22ac8b23">More...</a><br /></td></tr>
+<tr class="separator:ga7b095c3d179916011b4acbdd22ac8b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga79a6e4befc2d91b2f36ab1e5d79ccef8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga79a6e4befc2d91b2f36ab1e5d79ccef8">vlbi_get_version</a> ()</td></tr>
 <tr class="memdesc:ga79a6e4befc2d91b2f36ab1e5d79ccef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the version number of OpenVLBI.  <a href="group___v_l_b_i___functions.html#ga79a6e4befc2d91b2f36ab1e5d79ccef8">More...</a><br /></td></tr>
 <tr class="separator:ga79a6e4befc2d91b2f36ab1e5d79ccef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga5ba6f1431f425cb3bc254d175f189322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5ba6f1431f425cb3bc254d175f189322">&#9670;&nbsp;</a></span>vlbi_add_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_add_model </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>Stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a model into the current OpenVLBI context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">Stream</td><td>The OpenVLBI stream to add </td></tr>
+    <tr><td class="paramname">name</td><td>A friendly name of this model </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ga9e99d6986d48745e327677d44b5e65aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga9e99d6986d48745e327677d44b5e65aa">&#9670;&nbsp;</a></span>vlbi_add_node()</h2>
 
@@ -163,17 +228,17 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gad69d4ef40a91ba75f7ab618c6824b7c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad69d4ef40a91ba75f7ab618c6824b7c1">&#9670;&nbsp;</a></span>vlbi_apply_model()</h2>
+<a id="ga5a9f7b3f62940ab7deb1db66300dc0eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5a9f7b3f62940ab7deb1db66300dc0eb">&#9670;&nbsp;</a></span>vlbi_apply_magnitude_model()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> vlbi_apply_model </td>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> vlbi_apply_magnitude_model </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
-          <td class="paramname"><em>uv</em>, </td>
+          <td class="paramname"><em>stream</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -189,14 +254,128 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream. </p>
+<p>Apply the passed model as magnitude content of the uv plot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">uv</td><td>The Forier transform stream. </td></tr>
+    <tr><td class="paramname">stream</td><td>The Forier transform stream. </td></tr>
+    <tr><td class="paramname">model</td><td>The magnitude model to apply. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>dsp_stream_p The inverse fourier transform (almost the image of the object observed) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>dsp_stream_p The fourier transform stream </dd></dl>
+
+</div>
+</div>
+<a id="gaaad2c96163f711e48ab068297969a50e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaad2c96163f711e48ab068297969a50e">&#9670;&nbsp;</a></span>vlbi_apply_mask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> vlbi_apply_mask </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mask the stream with the content of the mask stream, by multiplication of each element. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>The original stream. </td></tr>
+    <tr><td class="paramname">model</td><td>The mask to apply. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>dsp_stream_p The stream masked </dd></dl>
+
+</div>
+</div>
+<a id="ga9137b5214de6ec8c32ae3b5cb2a9d1d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9137b5214de6ec8c32ae3b5cb2a9d1d3">&#9670;&nbsp;</a></span>vlbi_apply_phase_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> vlbi_apply_phase_model </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>model</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Apply the passed model as phase content of the uv plot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>The Forier transform stream. </td></tr>
+    <tr><td class="paramname">model</td><td>The phase model to apply. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>dsp_stream_p The fourier transform stream </dd></dl>
+
+</div>
+</div>
+<a id="gaf0862302257214708d18f8ec436c1728"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf0862302257214708d18f8ec436c1728">&#9670;&nbsp;</a></span>vlbi_del_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_del_model </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove a model from the current OpenVLBI context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">name</td><td>The friendly name of the model to be removed </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -301,6 +480,33 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga60a7fbe2884fd2bb7072f0bc0d4e0518"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga60a7fbe2884fd2bb7072f0bc0d4e0518">&#9670;&nbsp;</a></span>vlbi_get_ifft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> vlbi_get_ifft </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>uv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Plot an inverse fourier transform of the uv plot using its current magnitude and phase components. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uv</td><td>The Forier transform stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>dsp_stream_p The inverse fourier transform </dd></dl>
+
+</div>
+</div>
 <a id="ga0796b9c149931dd6cc9b7233e9b13ef2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga0796b9c149931dd6cc9b7233e9b13ef2">&#9670;&nbsp;</a></span>vlbi_get_ifft_estimate()</h2>
 
@@ -317,14 +523,52 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Plot a fourier transform of the object observed using an arbitrary positional buffer on each stream. </p>
+<p>Plot an inverse fourier transform of the uv plot buffer as magnitude, and its 4th order dft phase as its phase content. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">uv</td><td>The Forier transform stream. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>dsp_stream_p The inverse fourier transform (almost the image of the object observed) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>dsp_stream_p The inverse fourier transform (an estimation of it) </dd></dl>
+
+</div>
+</div>
+<a id="ga49892d4e0938072735a95476926b6cc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga49892d4e0938072735a95476926b6cc0">&#9670;&nbsp;</a></span>vlbi_get_models()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int vlbi_get_models </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> **&#160;</td>
+          <td class="paramname"><em>models</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List all models of the current OpenVLBI context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">model</td><td>The model array pointer to be filled </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of models in the current context </dd></dl>
 
 </div>
 </div>
@@ -680,10 +924,36 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga7b095c3d179916011b4acbdd22ac8b23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7b095c3d179916011b4acbdd22ac8b23">&#9670;&nbsp;</a></span>vlbi_shift()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_shift </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="dsp_8h.html#a2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shift the stream by its dimensions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>The shifted stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 8 2021 01:02:40 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 8 2021 01:03:47 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
