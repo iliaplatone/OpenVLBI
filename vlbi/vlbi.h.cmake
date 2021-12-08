@@ -97,22 +97,22 @@ typedef struct timespec timespec_t;
 inline static double vlbi_default_delegate(double x, double y) {
     return x*y;
 }
-///if max() is not present you can use this one
 #ifndef Min
+///if max() is not present you can use this one
 #define Min(a,b) \
    ({ __typeof__ (a) _a = (a); \
        __typeof__ (b) _b = (b); \
      _a < _b ? _a : _b; })
 #endif
-///if max() is not present you can use this one
 #ifndef Max
+///if max() is not present you can use this one
 #define Max(a,b) \
    ({ __typeof__ (a) _a = (a); \
        __typeof__ (b) _b = (b); \
      _a > _b ? _a : _b; })
-#endif
-///Logarithm of a with arbitrary base b
+#endif b
 #ifndef Log
+///Logarithm of a with arbitrary base
 #define Log(a,b) \
 ( log(a) / log(b) )
 #endif
@@ -147,10 +147,10 @@ inline static double vlbi_default_delegate(double x, double y) {
 #define TRACKRATE_SIDEREAL ((360.0 * 3600.0) / SIDEREAL_DAY)
 #endif
 #ifndef TRACKRATE_SOLAR
-#define TRACKRATE_SOLAR    ((360.0 * 3600.0) / SOLAR_DAY)
+#define TRACKRATE_SOLAR ((360.0 * 3600.0) / SOLAR_DAY)
 #endif
 #ifndef TRACKRATE_LUNAR
-#define TRACKRATE_LUNAR    14.511415
+#define TRACKRATE_LUNAR 14.511415
 #endif
 #ifndef EARTHRADIUSEQUATORIAL
 #define EARTHRADIUSEQUATORIAL 6378137.0
@@ -171,19 +171,13 @@ inline static double vlbi_default_delegate(double x, double y) {
 #define J2000 2451545.0
 #endif
 #ifndef GAMMAJ2000
-#define GAMMAJ2000 (double)18.6971378528
+#define GAMMAJ2000 18.6971378528
 #endif
 #ifndef EULER
-#define EULER (double)2.71828182845904523536028747135266249775724709369995
+#define EULER 2.71828182845904523536028747135266249775724709369995
 #endif
 #ifndef ROOT2
-#define ROOT2 (double)1.41421356237309504880168872420969807856967187537694
-#endif
-#ifndef AU
-#define AU (double)1.495978707E+11
-#endif
-#ifndef PARSEC
-#define PARSEC (double)(ASTRONOMICALUNIT*2.06264806247096E+5)
+#define ROOT2 1.41421356237309504880168872420969807856967187537694
 #endif
 #ifndef AIRY
 #define AIRY 1.21966
@@ -204,7 +198,7 @@ inline static double vlbi_default_delegate(double x, double y) {
 #define ASTRONOMICALUNIT 1.495978707E+11
 #endif
 #ifndef PARSEC
-#define PARSEC (ASTRONOMICALUNIT*2.06264806247096E+5)
+#define PARSEC (ASTRONOMICALUNIT/sin(M_PI*2/CIRCLE_AS))
 #endif
 #ifndef LIGHTSPEED
 #define LIGHTSPEED 299792458.0
@@ -319,7 +313,6 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1
 /**
 * @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams.
 * @param ctx The OpenVLBI context
-* @param correlation_func The correlation delegate, you should use the vlbi_func2_t delegate function type for this argument.
 * @param u The U size of the resulting UV plot
 * @param v The V size of the resulting UV plot
 * @param target The target position int Ra/Dec celestial coordinates
