@@ -12,9 +12,9 @@ jobs:
           command: |
             ./scripts/build.sh
             mkdir -p tests
-            vlbi_client_json -t 1 -f scripts/coverage.json | jq .plot.buffer | tr -d '"' | base64 -d | convert -size 1024x1024 -depth 8 GRAY:- tests/synthesis_delay_coverage.png
-            vlbi_client_json -t 1 -f scripts/raw.json | jq .plot.buffer | tr -d '"' | base64 -d | convert -size 1024x1024 -depth 8 GRAY:- tests/synthesis_delay_raw.png
-            vlbi_client_json -t 1 -f scripts/idft.json | jq .plot.buffer | tr -d '"' | base64 -d | convert -size 1024x1024 -depth 8 GRAY:- tests/synthesis_delay_idft.png
+            scripts/json_to_image.sh scripts/coverage.json tests/synthesis_delay_coverage
+            scripts/json_to_image.sh scripts/raw.json tests/synthesis_delay_raw
+            scripts/json_to_image.sh scripts/idft.json tests/synthesis_delay_idft
 
 workflows:
   version: 2
