@@ -743,8 +743,6 @@ void dsp_file_write_png_composite(char *filename, int components, int compressio
     void *buf = malloc((size_t)(stream[0]->len*components*bpp/8));
     unsigned char *image = (unsigned char *)buf;
     dsp_buffer_components_to_rgb(stream, image, components, bpp);
-    if(bpp == 16)
-        dsp_buffer_swap(((unsigned short*)buf), width*height*components);
     for (row = 0; row < height; row++) {
         png_write_row(png, image);
         image += row_stride;

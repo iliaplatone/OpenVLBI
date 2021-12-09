@@ -18,7 +18,6 @@ namespace VLBI
 
 #define APERTURE_SYNTHESIS 1
 #define UV_COVERAGE 2
-#define UV_IDFT 4
 
 class Client
 {
@@ -65,7 +64,15 @@ class Client
         virtual void Parse();
         void AddNode(char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo);
         void DelNode(char *name);
-        dsp_stream_p GetPlot(int u, int v, int type, bool nodelay = false);
+        void Plot(char *name, int u, int v, int type, bool nodelay = false);
+        void Idft(char *name, char *magnitude, char *phase);
+        void Dft(char *model, char *magnitude, char *phase);
+        void Mask(char *name, char *model, char *mask);
+        void Shift(char *name);
+        char* GetModel(char *name, char *format);
+        int GetModels(char** names);
+        void AddModel(char* name, char *format, char *b64);
+        void DelModel(char* name);
         void SetFifo(FILE* fifo)
         {
             output = fifo;
@@ -82,9 +89,6 @@ class Client
 
     private:
         char *context;
-        dsp_stream_p model;
-        dsp_stream_p uv;
-        dsp_stream_p fft;
         InstanceCollection *contexts;
 };
 };

@@ -1,3 +1,9 @@
+libopenvlbi (1.19) unstable; urgency=medium
+
+  * Added models management
+
+ -- Ilia Platone <plato@localhost>  Thu, 09 Dec 2021 00:23:19 +0100
+
 libopenvlbi (1.18) unstable; urgency=medium
 
   * Debian compatibility fixes

@@ -290,6 +290,8 @@ typedef void *(*dsp_func_t) (void *, ...);
 */
 typedef struct dsp_stream_t
 {
+    /// Friendly name of the stream
+    char name[128];
     /// Increments by one on the copied stream
     int is_copy;
     /// The buffers length

@@ -18,14 +18,11 @@ VLBI::Client::Client()
     context = (char*)malloc(9);
     strcpy(context, "OpenVLBI\0");
     contexts = new InstanceCollection();
-    model = dsp_stream_new();
-    uv = dsp_stream_new();
-    fft = dsp_stream_new();
 }
 
 VLBI::Client::~Client()
 {
-    if(GetContext() != NULL)
+    if(GetContext() != nullptr)
     {
         vlbi_exit(GetContext());
     }
@@ -33,6 +30,8 @@ VLBI::Client::~Client()
 
 static double fillone_delegate(double x, double y)
 {
+    (void)x;
+    (void)y;
     return 1.0;
 }
 
@@ -75,13 +74,134 @@ void VLBI::Client::DelNode(char *name)
     vlbi_del_node(GetContext(), name);
 }
 
-dsp_stream_p VLBI::Client::GetPlot(int u, int v, int type, bool nodelay)
+void VLBI::Client::Plot(char *name, int u, int v, int type, bool nodelay)
 {
-    dsp_stream_p plot;
     double coords[3] = { Ra, Dec };
-    plot = vlbi_get_uv_plot(GetContext(), u, v, coords, Freq, SampleRate, nodelay, (type & APERTURE_SYNTHESIS) == 0,
-                            (type & UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
-    return plot;
+    vlbi_get_uv_plot(GetContext(), name, u, v, coords, Freq, SampleRate, nodelay, (type & APERTURE_SYNTHESIS) == 0,
+                     (type & UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
+}
+
+void VLBI::Client::Idft(char *model, char *magnitude, char *phase)
+{
+    vlbi_get_ifft(GetContext(), model, magnitude, phase);
+}
+
+void VLBI::Client::Dft(char *model, char *magnitude, char *phase)
+{
+    vlbi_get_fft(GetContext(), model, magnitude, phase);
+}
+
+void VLBI::Client::Mask(char *name, char *model, char *mask)
+{
+    vlbi_apply_mask(GetContext(), name, model, mask);
+}
+
+void VLBI::Client::Shift(char *name)
+{
+    vlbi_shift(GetContext(), name);
+}
+
+char* VLBI::Client::GetModel(char *name, char *format)
+{
+    char filename[128];
+    int channels = 1;
+    int fd = -1;
+    ssize_t len = 0;
+    ssize_t outlen = 0;
+    unsigned char *buf = nullptr;
+    unsigned char *b64 = nullptr;
+    strcpy(filename, "tmp_modelXXXXXX");
+    dsp_stream_p model = vlbi_get_model(GetContext(), name);
+    dsp_stream_p *stream = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(channels + 1));
+    for(int c = 0; c <= channels; c++)
+        stream[c] = model;
+    fd = mkstemp(filename);
+    if(fd > -1)
+    {
+        close(fd);
+        if(!strcmp(format, "jpeg"))
+            dsp_file_write_jpeg_composite(filename, channels, 100, stream);
+        if(!strcmp(format, "png"))
+            dsp_file_write_png_composite(filename, channels, 9, stream);
+        if(!strcmp(format, "fits"))
+            dsp_file_write_fits_composite(filename, channels, 16, stream);
+        FILE* f = fopen(filename, "r");
+        fseek(f, 0, SEEK_END);
+        len = ftell(f);
+        rewind(f);
+        len -= ftell(f);
+        buf = (unsigned char*)malloc((size_t)len);
+        fread(buf, (size_t)len, 1, f);
+        fclose(f);
+        unlink(filename);
+        outlen = len * 4 / 3 + 4;
+        b64 = (unsigned char*)malloc((size_t)outlen);
+        to64frombits(b64, buf, (int)len);
+        free(buf);
+        return (char*)b64;
+    }
+    return nullptr;
+}
+
+int VLBI::Client::GetModels(char** names)
+{
+    dsp_stream_p* models;
+    int len = vlbi_get_models(GetContext(), &models);
+    if(len > 0)
+    {
+        names = (char**)malloc(sizeof(char*) * (size_t)len);
+        for(int x = 0; x < len; x++)
+        {
+            names[x] = models[x]->name;
+        }
+        return len;
+    }
+    return 0;
+}
+
+void VLBI::Client::DelModel(char* name)
+{
+    vlbi_del_model(GetContext(), name);
+}
+
+void VLBI::Client::AddModel(char* name, char *format, char *b64)
+{
+    dsp_stream_p* model;
+    char filename[128];
+    int channels;
+    int fd = -1;
+    size_t len = 0;
+    char *buf = nullptr;
+    strcpy(filename, "tmp_modelXXXXXX");
+    len = strlen(b64);
+    if(len > 0)
+    {
+        fd = mkstemp(filename);
+        if(fd > -1)
+        {
+            buf = (char*)malloc(len * 3 / 4 + 4);
+            from64tobits_fast(buf, b64, (int)len);
+            write(fd, buf, len * 4 / 3 + 4);
+            free(buf);
+            close(fd);
+            if(!strcmp(format, "fit"))
+            {
+                model = dsp_file_read_fits(filename, &channels, 0);
+                vlbi_add_model(GetContext(), model[channels], name);
+            }
+            if(!strcmp(format, "jpeg"))
+            {
+                model = dsp_file_read_jpeg(filename, &channels, 0);
+                vlbi_add_model(GetContext(), model[channels], name);
+            }
+            if(!strcmp(format, "png"))
+            {
+                model = dsp_file_read_png(filename, &channels, 0);
+                vlbi_add_model(GetContext(), model[channels], name);
+            }
+            unlink(filename);
+        }
+    }
 }
 
 void VLBI::Client::Parse()
@@ -108,10 +228,10 @@ void VLBI::Client::Parse()
     }
     else
     {
-        arg = strtok(NULL, " ");
+        arg = strtok(nullptr, " ");
         if (arg == nullptr)
             return;
-        value = strtok(NULL, " ");
+        value = strtok(nullptr, " ");
         if(value == nullptr)
             return;
         if(!strcmp(cmd, "set"))
@@ -120,17 +240,43 @@ void VLBI::Client::Parse()
             {
                 SetContext(value);
             }
+            else if(!strcmp(arg, "mask"))
+            {
+                char *t = strtok(value, ",");
+                char *name = t;
+                if(name == nullptr)
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                char *model = t;
+                if(model == nullptr)
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                char *mask = t;
+                if(mask == nullptr)
+                {
+                    return;
+                }
+                Mask(name, model, mask);
+            }
+            else if(!strcmp(arg, "shifted"))
+            {
+                Shift(value);
+            }
             else if(!strcmp(arg, "resolution"))
             {
                 char* W = strtok(value, "x");
-                char* H = strtok(NULL, "x");
+                char* H = strtok(nullptr, "x");
                 w = (int)atof(W);
                 h = (int)atof(H);
             }
             else if(!strcmp(arg, "target"))
             {
                 char* ra = strtok(value, ",");
-                char* dec = strtok(NULL, ",");
+                char* dec = strtok(nullptr, ",");
                 Ra = (double)atof(ra);
                 Dec = (double)atof(dec);
             }
@@ -151,18 +297,26 @@ void VLBI::Client::Parse()
                 double lat, lon, el;
                 char *t = strtok(value, ",");
                 lat = (int)atof(t);
-                t = strtok(NULL, ",");
+                t = strtok(nullptr, ",");
                 lon = (int)atof(t);
-                t = strtok(NULL, ",");
+                t = strtok(nullptr, ",");
                 el = (int)atof(t);
                 vlbi_set_location(GetContext(), lat, lon, el);
-            }
-            else if(!strcmp(arg, "model"))
-            {
             }
         }
         else if(!strcmp(cmd, "get"))
         {
+            if(!strcmp(arg, "models"))
+            {
+                dsp_stream_p* models;
+                int n = vlbi_get_models(GetContext(), &models);
+                for(int x = 0; x < n; x++)
+                {
+                    fprintf(f, "Model #%d: name:%s width:%d height:%d\n magnitude:%s phase:%s", x,
+                            models[x]->name, models[x]->sizes[0], models[x]->sizes[1], models[x]->magnitude->name, models[x]->phase->name);
+                }
+                free(models);
+            }
             if(!strcmp(arg, "nodes"))
             {
                 vlbi_node* nodes;
@@ -186,73 +340,23 @@ void VLBI::Client::Parse()
                 }
                 free(baselines);
             }
-            else if(!strcmp(arg, "observation"))
+            else if(!strcmp(arg, "model"))
             {
-                int type = 0;
-                char *t = strtok(value, "_");
-                bool nodelay = false;
-                if(!strcmp(t, "synthesis"))
-                {
-                    type |= APERTURE_SYNTHESIS;
-                }
-                else if(!strcmp(t, "movingbase"))
-                {
-                    type &= ~APERTURE_SYNTHESIS;
-                }
-                else
+                char *t = strtok(value, ",");
+                char *name = t;
+                if(name == nullptr)
                 {
                     return;
                 }
-                t = strtok(NULL, "_");
-                if(!strcmp(t, "nodelay"))
-                {
-                    nodelay = true;
-                }
-                else if(!strcmp(t, "delay"))
-                {
-                    nodelay = false;
-                }
-                else
+                t = strtok(nullptr, ",");
+                char *format = t;
+                if(format == nullptr)
                 {
                     return;
                 }
-                t = strtok(NULL, "_");
-                if(!strcmp(t, "idft"))
-                {
-                    type |= UV_IDFT;
-                }
-                else if(!strcmp(t, "raw"))
-                {
-                }
-                else if(!strcmp(t, "coverage"))
-                {
-                    type |= UV_COVERAGE;
-                }
-                else
-                {
-                    return;
-                }
-                dsp_stream_p plot = GetPlot(w, h, type, nodelay);
-                if (plot != NULL)
-                {
-                    if((type & UV_IDFT) != 0)
-                    {
-                        dsp_stream_p idft = vlbi_get_ifft_estimate(plot);
-                        dsp_stream_free_buffer(plot);
-                        dsp_stream_free(plot);
-                        plot = idft;
-                    }
-                    dsp_buffer_stretch(plot->buf, plot->len, 0.0, 255.0);
-                    int ilen = plot->len;
-                    int olen = ilen * 4 / 3 + 4;
-                    unsigned char* buf = (unsigned char*)malloc(plot->len);
-                    dsp_buffer_copy(plot->buf, buf, plot->len);
-                    char* base64 = (char*)malloc(olen);
-                    to64frombits((unsigned char*)base64, (unsigned char*)buf, ilen);
-                    fwrite(base64, 1, olen, output);
-                    free(base64);
-                    dsp_stream_free(plot);
-                }
+                char *base64 = GetModel(name, format);
+                fwrite(base64, 1, strlen(base64), output);
+                free(base64);
             }
         }
         else if(!strcmp(cmd, "add"))
@@ -268,7 +372,7 @@ void VLBI::Client::Parse()
                 int geo = 2;
                 char* k = strtok(value, ",");
                 strcpy(name, k);
-                k = strtok(NULL, ",");
+                k = strtok(nullptr, ",");
                 if(!strcmp(k, "geo"))
                     geo = 1;
                 else if(!strcmp(k, "xyz"));
@@ -277,19 +381,19 @@ void VLBI::Client::Parse()
                     geo = 0;
                     return;
                 }
-                k = strtok(NULL, ",");
+                k = strtok(nullptr, ",");
                 lat = (double)atof(k);
-                k = strtok(NULL, ",");
+                k = strtok(nullptr, ",");
                 lon = (double)atof(k);
-                k = strtok(NULL, ",");
+                k = strtok(nullptr, ",");
                 el = (double)atof(k);
-                k = strtok(NULL, ",");
-                int len = strlen (k);
+                k = strtok(nullptr, ",");
+                size_t len = strlen (k);
                 char* base64 = (char*)malloc(len);
                 char* buf = (char*)malloc(len * 3 / 4 + 4);
                 strcpy(base64, k);
-                len = from64tobits_fast(buf, base64, len);
-                k = strtok(NULL, ",");
+                len = (size_t)from64tobits_fast(buf, base64, (int)len);
+                k = strtok(nullptr, ",");
                 strcpy(date, k);
                 dsp_location location;
                 location.geographic.lat = lat;
@@ -297,8 +401,124 @@ void VLBI::Client::Parse()
                 location.geographic.el = el;
                 if(len > 0 && geo > 0)
                 {
-                    AddNode(name, &location, buf, len, vlbi_time_string_to_timespec(date), geo == 1);
+                    AddNode(name, &location, buf, (int)len, vlbi_time_string_to_timespec(date), geo == 1);
                 }
+            }
+            else if(!strcmp(arg, "plot"))
+            {
+                int type = 0;
+                char *t = strtok(value, ",");
+                bool nodelay = false;
+                char *name = t;
+                if(name == nullptr)
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                if(!strcmp(t, "synthesis"))
+                {
+                    type |= APERTURE_SYNTHESIS;
+                }
+                else if(!strcmp(t, "movingbase"))
+                {
+                    type &= ~APERTURE_SYNTHESIS;
+                }
+                else
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                if(!strcmp(t, "nodelay"))
+                {
+                    nodelay = true;
+                }
+                else if(!strcmp(t, "delay"))
+                {
+                    nodelay = false;
+                }
+                else
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                if(!strcmp(t, "raw"))
+                {
+                }
+                else if(!strcmp(t, "coverage"))
+                {
+                    type |= UV_COVERAGE;
+                }
+                else
+                {
+                    return;
+                }
+                Plot(name, w, h, type, nodelay);
+            }
+            else if(!strcmp(arg, "idft"))
+            {
+                char *t = strtok(value, ",");
+                char *model = t;
+                if(model == nullptr)
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                char *magnitude = t;
+                if(magnitude == nullptr)
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                char *phase = t;
+                if(phase == nullptr)
+                {
+                    return;
+                }
+                Idft(model, magnitude, phase);
+            }
+            else if(!strcmp(arg, "dft"))
+            {
+                char *t = strtok(value, ",");
+                char *model = t;
+                if(model == nullptr)
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                char *magnitude = t;
+                if(magnitude == nullptr)
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                char *phase = t;
+                if(phase == nullptr)
+                {
+                    return;
+                }
+                Dft(model, magnitude, phase);
+            }
+            else if(!strcmp(arg, "model"))
+            {
+                char *t = strtok(value, ",");
+                char *name = t;
+                if(name == nullptr)
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                char *format = t;
+                if(format == nullptr)
+                {
+                    return;
+                }
+                t = strtok(nullptr, ",");
+                char *b64 = t;
+                if(b64 == nullptr)
+                {
+                    return;
+                }
+                AddModel(name, format, b64);
             }
         }
         else if(!strcmp(cmd, "del"))
@@ -310,6 +530,10 @@ void VLBI::Client::Parse()
             else if(!strcmp(arg, "context"))
             {
                 DelContext(value);
+            }
+            else if(!strcmp(arg, "model"))
+            {
+                DelModel(value);
             }
         }
     }
@@ -327,14 +551,14 @@ static void sighandler(int signum)
 
 int main(int argc, char** argv)
 {
-    char opt;
+    int opt;
     dsp_app_name = argv[0];
     while ((opt = getopt(argc, argv, "t:f:o:")) != -1)
     {
         switch (opt)
         {
             case 't':
-                vlbi_max_threads((int)atof(optarg));
+                vlbi_max_threads((unsigned long)atol(optarg));
                 break;
             case 'f':
                 client->input = fopen (optarg, "rb+");
