@@ -421,7 +421,7 @@ void vlbi_get_ifft(vlbi_context ctx, char *name, char *magnitude, char *phase)
     dsp_stream_p phi = nodes->getModels()->Get(phase);
     int d = 0;
     if(mag->dims == phi->dims)
-        for (int d = 0; d < mag->dims && mag->sizes[d] == phi->sizes[d]; )
+        for (d = 0; d < mag->dims && mag->sizes[d] == phi->sizes[d]; )
             d++;
     if(mag->dims == d)
     {
@@ -456,7 +456,7 @@ void vlbi_apply_mask(vlbi_context ctx, char *name, char *stream, char *mask)
     int d = 0;
     if(masked->dims == model->dims)
     {
-        for (int d = 0; d < masked->dims && masked->sizes[d] == model->sizes[d]; )
+        for (d = 0; d < masked->dims && masked->sizes[d] == model->sizes[d]; )
             d++;
         if(masked->dims == d)
         {

@@ -359,50 +359,44 @@ void JSONClient::Parse()
         }
         if(!strcmp(n, "edit"))
         {
-            if(v->u.object.length == 4)
+            char* name = nullptr;
+            char* model = nullptr;
+            char* edit = nullptr;
+            char* arg = nullptr;
+            for(int y = 0; y < v->u.object.length; y ++)
             {
-                char* name = nullptr;
-                char* model = nullptr;
-                char* edit = nullptr;
-                char* arg = nullptr;
-                for(int y = 0; y < 4; y ++)
+                if(!strcmp(values[y].name, "name"))
                 {
-                    if(!strcmp(values[y].name, "name"))
-                    {
-                        name = values[y].value->u.string.ptr;
-                        i++;
-                    }
-                    if(!strcmp(values[y].name, "model"))
-                    {
-                        name = values[y].value->u.string.ptr;
-                        i++;
-                    }
-                    if(!strcmp(values[y].name, "arg"))
-                    {
-                        arg = values[y].value->u.string.ptr;
-                        i++;
-                    }
-                    if(!strcmp(values[y].name, "edit"))
-                    {
-                        edit = values[y].value->u.string.ptr;
-                        i++;
-                    }
+                    name = values[y].value->u.string.ptr;
+                    i++;
                 }
-                if(i == 4)
+                if(!strcmp(values[y].name, "model"))
                 {
-                    if(edit != nullptr)
-                    {
-                        if(!strcmp(edit, "shift"))
-                        {
-                            if(name != nullptr)
-                                Shift(name);
-                        }
-                        if(!strcmp(edit, "mask"))
-                        {
-                            if(name != nullptr && model != nullptr && arg != nullptr)
-                                Mask(name, model, arg);
-                        }
-                    }
+                    name = values[y].value->u.string.ptr;
+                    i++;
+                }
+                if(!strcmp(values[y].name, "arg"))
+                {
+                    arg = values[y].value->u.string.ptr;
+                    i++;
+                }
+                if(!strcmp(values[y].name, "edit"))
+                {
+                    edit = values[y].value->u.string.ptr;
+                    i++;
+                }
+            }
+            if(strcmp(edit, ""))
+            {
+                if(!strcmp(edit, "shift"))
+                {
+                    if(strcmp(name, ""))
+                        Shift(name);
+                }
+                else if(!strcmp(edit, "mask"))
+                {
+                    if(strcmp(name, "") && strcmp(model, "") && strcmp(arg, ""))
+                        Mask(name, model, arg);
                 }
             }
         }
