@@ -35,6 +35,24 @@ static double fillone_delegate(double x, double y)
     return 1.0;
 }
 
+void VLBI::Client::AddNode(char *name, char *b64)
+{
+    char filename[128];
+    strcpy(filename, "tmp_nodeXXXXXX");
+    int fd = mkstemp(filename);
+    if(fd > -1)
+    {
+        size_t b64len = strlen(b64);
+        char* buf = (char*)malloc(b64len * 3 / 4 + 4);
+        size_t len = (size_t)from64tobits_fast(buf, b64, (int)b64len);
+        write(fd, buf, len);
+        free(buf);
+        close(fd);
+        vlbi_add_node_from_fits(GetContext(), filename, name, true);
+        unlink(filename);
+    }
+}
+
 void VLBI::Client::AddNode(char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
 {
     dsp_stream_p node = dsp_stream_new();
@@ -99,6 +117,11 @@ void VLBI::Client::Mask(char *name, char *model, char *mask)
 void VLBI::Client::Shift(char *name)
 {
     vlbi_shift(GetContext(), name);
+}
+
+dsp_stream_p VLBI::Client::GetModel(char *name)
+{
+    return vlbi_get_model(GetContext(), name);
 }
 
 char* VLBI::Client::GetModel(char *name, char *format)
@@ -166,38 +189,33 @@ void VLBI::Client::DelModel(char* name)
 
 void VLBI::Client::AddModel(char* name, char *format, char *b64)
 {
-    dsp_stream_p* model;
     char filename[128];
-    int channels;
     int fd = -1;
-    size_t len = 0;
+    size_t b64len = 0;
     char *buf = nullptr;
     strcpy(filename, "tmp_modelXXXXXX");
-    len = strlen(b64);
-    if(len > 0)
+    b64len = strlen(b64);
+    if(b64len > 0)
     {
         fd = mkstemp(filename);
         if(fd > -1)
         {
-            buf = (char*)malloc(len * 3 / 4 + 4);
-            from64tobits_fast(buf, b64, (int)len);
-            write(fd, buf, len * 4 / 3 + 4);
+            buf = (char*)malloc(b64len * 3 / 4 + 4);
+            size_t len = (size_t)from64tobits_fast(buf, b64, (int)b64len);
+            write(fd, buf, len);
             free(buf);
             close(fd);
-            if(!strcmp(format, "fit"))
+            if(!strcmp(format, "fits"))
             {
-                model = dsp_file_read_fits(filename, &channels, 0);
-                vlbi_add_model(GetContext(), model[channels], name);
+                vlbi_add_model_from_fits(GetContext(), filename, name);
             }
             if(!strcmp(format, "jpeg"))
             {
-                model = dsp_file_read_jpeg(filename, &channels, 0);
-                vlbi_add_model(GetContext(), model[channels], name);
+                vlbi_add_model_from_jpeg(GetContext(), filename, name);
             }
             if(!strcmp(format, "png"))
             {
-                model = dsp_file_read_png(filename, &channels, 0);
-                vlbi_add_model(GetContext(), model[channels], name);
+                vlbi_add_model_from_png(GetContext(), filename, name);
             }
             unlink(filename);
         }
@@ -312,8 +330,8 @@ void VLBI::Client::Parse()
                 int n = vlbi_get_models(GetContext(), &models);
                 for(int x = 0; x < n; x++)
                 {
-                    fprintf(f, "Model #%d: name:%s width:%d height:%d\n magnitude:%s phase:%s", x,
-                            models[x]->name, models[x]->sizes[0], models[x]->sizes[1], models[x]->magnitude->name, models[x]->phase->name);
+                    fprintf(f, "Model #%d: name:%s width:%d height:%d\n", x,
+                            models[x]->name, models[x]->sizes[0], models[x]->sizes[1]);
                 }
                 free(models);
             }

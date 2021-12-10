@@ -66,7 +66,7 @@ int f_scansexa(const char *str0, /* input string */
     return (0);
 }
 
-dsp_stream_p vlbi_file_read_fits(void *data, size_t len)
+dsp_stream_p vlbi_file_read_fits(char *filename)
 {
     fitsfile *fptr = (fitsfile*)malloc(sizeof(fitsfile));
     memset(fptr, 0, sizeof(fitsfile));
@@ -82,7 +82,7 @@ dsp_stream_p vlbi_file_read_fits(void *data, size_t len)
     int dims;
     long naxes[3] = { 1, 1, 1 };
 
-    fits_open_memfile(&fptr, "", READONLY, &data, &len, 2880, realloc, &status);
+    fits_open_file(&fptr, filename, READONLY, &status);
 
     if (status)
     {

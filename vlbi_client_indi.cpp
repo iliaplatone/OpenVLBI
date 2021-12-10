@@ -262,43 +262,17 @@ void INDIClient::newBLOB(IBLOB *bp)
 {
     if(!isServerConnected())
         return;
-    if(!strcmp(bp->name, "DATA") || !strcmp(bp->name, "CCD1"))
+    if(!strcmp(bp->name, "DATA"))
     {
         if(GetContext() != NULL)
         {
-            int status = 0;
-            while (status == 0)
-            {
-                size_t len = (bp->bloblen - 4) * 3 / 4;
-                unsigned char* buf = (unsigned char*)malloc(len);
-                from64tobits_fast((char*)(buf), (char*)bp->blob, bp->bloblen);
-                fitsfile* f;
-                fits_create_memfile(&f, (void**)&buf, &len, 1, NULL, &status);
-                char starttime[32], ra[32], dec[32], lat[32], lon[32], el[32], wordsize[32];
-                int Y, M, D, H, m;
-                double s;
-                long long offset = f->Fptr->datastart;
-                fits_read_key(f, 0, (char*)"OBJCTRA", ra, (char*)"Target Ra", &status);
-                fits_read_key(f, 0, (char*)"OBJCTDEC", dec, (char*)"Target Dec", &status);
-                fits_read_key(f, 0, (char*)"LATITUDE", lat, (char*)"Node Latutude", &status);
-                fits_read_key(f, 0, (char*)"LONGITUDE", lon, (char*)"Node Longitude", &status);
-                fits_read_key(f, 0, (char*)"ELEVATION", el, (char*)"Node Elevation", &status);
-                fits_read_key(f, 0, (char*)"DATE-OBS", starttime, (char*)"Observation Date", &status);
-                fits_read_key(f, 0, (char*)"SIZE-T", wordsize, (char*)"", &status);
-                fits_str2time(starttime, &Y, &M, &D, &H, &m, &s, &status);
-                buf = &buf[len - offset];
-                len = (len - offset) * abs(strtol(wordsize, NULL, 10)) / 8;
-                double* dbuf = (double*)malloc(len * sizeof(double));
-                dsp_buffer_copy(buf, dbuf, len);
-                dsp_location location;
-                location.geographic.lat = atof(lat);
-                location.geographic.lon = atof(lon);
-                location.geographic.el = atof(el);
-                AddNode(bp->name, &location, dbuf, len, vlbi_time_mktimespec(Y, M, D, H, m, floor(s), (s - floor(s)) * 1000000000.0), true);
-                return;
-            }
-            char errstr[120];
-            fits_get_errstatus(status, errstr);
+            std::string nodename = "";
+            nodename.append(bp->bvp->device);
+            nodename.append("_");
+            nodename.append(bp->name);
+            nodename.append("_");
+            nodename.append(bp->bvp->timestamp);
+            AddNode((char*)nodename.c_str(), (char*)bp->blob);
         }
         else
         {
