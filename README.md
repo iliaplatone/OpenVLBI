@@ -52,11 +52,11 @@ dsp_stream_alloc_buffer(stream1);
 dsp_buffer_copy(input_arr, stream1->in, stream1->len);
 
 //Latitude and longitude in degrees, elevation in meters OSL
-stream1->location.geo.lat = Latitude;
-stream1->location.geo.lon = Longitude;
-stream1->location.geo.el = Elevation;
+stream1->location.geographic.lat = Latitude;
+stream1->location.geographic.lon = Longitude;
+stream1->location.geographic.el = Elevation;
 
-stream1->starttimeutc = vlbi_time_string_to_utc("2018-06-22T02:12.000154874");
+stream1->starttimeutc = vlbi_time_string_to_timespec("2018-06-22T02:12.000154874");
 
 //assign to this node a friendly, unique name and add it to the context, tell to OpenVLBI to use geographic conversion
 vlbi_add_node(context, stream1, "location1_capture", 1);
