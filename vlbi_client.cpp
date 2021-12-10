@@ -119,6 +119,11 @@ void VLBI::Client::Shift(char *name)
     vlbi_shift(GetContext(), name);
 }
 
+dsp_stream_p VLBI::Client::GetModel(char *name)
+{
+    return vlbi_get_model(GetContext(), name);
+}
+
 char* VLBI::Client::GetModel(char *name, char *format)
 {
     char filename[128];
@@ -325,8 +330,8 @@ void VLBI::Client::Parse()
                 int n = vlbi_get_models(GetContext(), &models);
                 for(int x = 0; x < n; x++)
                 {
-                    fprintf(f, "Model #%d: name:%s width:%d height:%d\n magnitude:%s phase:%s", x,
-                            models[x]->name, models[x]->sizes[0], models[x]->sizes[1], models[x]->magnitude->name, models[x]->phase->name);
+                    fprintf(f, "Model #%d: name:%s width:%d height:%d\n", x,
+                            models[x]->name, models[x]->sizes[0], models[x]->sizes[1]);
                 }
                 free(models);
             }

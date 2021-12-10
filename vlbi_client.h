@@ -70,6 +70,7 @@ class Client
         void Dft(char *model, char *magnitude, char *phase);
         void Mask(char *name, char *model, char *mask);
         void Shift(char *name);
+        dsp_stream_p GetModel(char *name);
         char* GetModel(char *name, char *format);
         int GetModels(char** names);
         void AddModel(char* name, char *format, char *b64);
