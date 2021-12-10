@@ -1,18 +1,18 @@
 [![CircleCi](https://circleci.com/gh/iliaplatone/OpenVLBI/tree/master.svg?style=shield)](https://circleci.com/gh/iliaplatone/OpenVLBI/?branch=master)
 [![Linux](https://github.com/iliaplatone/OpenVLBI/actions/workflows/default.yml/badge.svg)](https://github.com/iliaplatone/OpenVLBI/actions/workflows/default.yml)
 
-libvlbi is an open source library and application suite for astronomical interferometry.
+OpenVLBI is an open source library and application suite for astronomical interferometry.
 
 Interferometry is a discipline that studies the beam or stream interference and the possibility to obtain a coherence degree between more of them.
 A 2d interference plot of a single object observed from different locations (space domain Fourier plane dependent to the location of the observers) shows the fourier transform magnitude (and the phase possibly) of the radiation detected from the object observed.
 
 libopenvlbi offers a set of functions that aim to make interferometry simpler and faster.
 
-There is an application suite that offers a client application that uses a simple set/get scripting language, an INDI client application using the same scripting format and a json client application for who's familiar with JSON/REST APIs.
+There is an application suite that offers a server application that uses a simple set/get scripting language, an OpenVLBI server containing an INDI client application using the same scripting format and a json server application for who's familiar with JSON/REST APIs.
 
-This repository contains the sources for building the library and the client applications
+This repository contains the sources for building the library and the server applications
 
-# Build libvlbi
+# Build OpenVLBI
 
 ## Ubuntu/Debian
 
@@ -27,11 +27,11 @@ If everything will be successful three .deb packages will be built and installed
 
 You'll need CMake to build OpenVLBI, and some developement packages:
 + **libopenvlbi**:libfftw3
-+ **vlbi_client_json**: libjsonparser
-+ **vlbi_client_indi**: libindi libnova libcfitsio
++ **vlbi_server_json**: libjsonparser
++ **vlbi_server_indi**: libindi libnova libcfitsio
 + **tests and scripts**: jq
 
-# Using libvlbi
+# Using OpenVLBI
 
 You can write an application using libopenvlbi by linking against libopenvlbi.so in your gcc command line:
 ```
@@ -111,15 +111,15 @@ vlbi_exit(context);
 
 You can read the API documentation at [https://iliaplatone.github.io/OpenVLBI/](https://iliaplatone.github.io/OpenVLBI/)
 
-# OpenVLBI clients
+# OpenVLBI servers
 
-## OpenVLBI client sample
-OpenVLBI can be tested using the built vlbi_client_dummy application, which creates a subshell or takes arguments from the standard input.
-the source files of the sample application make use of the vlbi_client.h source header, which contains a base class to be inherited in case that you want to build your own client or implementation.
+## OpenVLBI server sample
+OpenVLBI can be tested using the built vlbi_server_dummy application, which creates a subshell or takes arguments from the standard input.
+the source files of the sample application make use of the vlbi_server.h source header, which contains a base class to be inherited in case that you want to build your own server or implementation.
 
-## OpenVLBI client using INDI libraries
+## OpenVLBI server using INDI libraries
 
-OpenVLBI comes with vlbi_client_indi, a client that connects to an INDI server whose drivers will be treated by OpenVLBI as nodes.
+OpenVLBI comes with vlbi_server_indi, a server that connects to an INDI server whose drivers will be treated by OpenVLBI as nodes.
 OpenVLBI nodes must contain informations about location, aperture, focal length, samplerate and observed frequency preferably, and should permit to slew their telescopes or antennas to the same celestial coordinates.
 tracking must be supported by the mounts and each node should capture and run at the same bit depth, frequency and possibly bandwidth and gain.
 After each capture is done, a new node will be added to the OpenVLBI context by parsing the received FITS.
@@ -134,16 +134,16 @@ and optionally, also for autoguiding:
  - INDI::BaseDevice::CCD_INTERFACE
  - INDI::BaseDevice::GUIDER_INTERFACE
 
-The properties used by this client are:
+The properties used by this server are:
  - "EQUATORIAL_EOD_COORDS" RA and DEC from telescope for gotos and slews
  - "TELESCOPE_TRACK_STATE" from telescope for tracking
  - "GEOGRAPHIC_COORDS" LATITUDE, LONGITUDE and ELEVATION to fill the UV plane and plot the frequency response
  - "DETECTOR_CAPTURE" to start capture
  - "DETECTOR_SETTINGS" set up frequency, bandwidth, sampling rate and depth, and gain of the detectors 
 
-## OpenVLBI clients usage
+## OpenVLBI servers usage
 
-The vlbi client applications open a command shell and read from stdin.
+The vlbi server applications open a command shell and read from stdin.
 Format of commands is:
 cmd arg value:type
 where type can be string or numeric.
@@ -175,7 +175,7 @@ del node name:string - remove a node from the current context
 del context name:string - remove a context from the internal list
 ```
 
-### INDI client specific commands
+### INDI server specific commands
 ```
 set gain value:numeric - set detectors gain
 set bandwidth value:numeric - set detectors bandwidth

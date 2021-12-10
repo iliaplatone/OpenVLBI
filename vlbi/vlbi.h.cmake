@@ -49,12 +49,22 @@ extern "C" {
  */
 
 /**
- * \defgroup VLBI Very Long Baseline Interferometry
+ * \defgroup VLBI Very Long Baseline Interferometry API
  *
- * OpenVLBI is a free, open source set of applications for very long baseline interferometry.<br>
+ * OpenVLBI is a free, open source library for very long baseline interferometry.<br>
+ * OpenVLBI provides functions to locate, aim, cross-correlate and synchronize more nodes, or observatories together.
+ * Each observation creates a Fourier plane filled with the perpective projection of each baseline during the various captures.
+ * The nodes can contain a location companion for each sample for moving baseline projection, or a single location.
+ * Projection is calculated by an aperture synthesis algorithm.
+ * OpenVLBI saves each observation into an internal models list, where you can load your own models also.
+ * There are various model operations, including differential Fourier transform, inverse Fourier transform, shift, and masking.
+ * More operations can be done on models by using the DSP API, included into OpenVLBI.
+ * Once your work is done, the models can also be saved as jpeg, png, or fits picture files.
  *
  * \author Ilia Platone
  */
+
+ ///
 /**@{*/
 
 /**
@@ -169,19 +179,19 @@ inline static double vlbi_default_delegate(double x, double y) {
 
 #ifndef CIRCLE_DEG
 ///degrees in a circle
-#define CIRCLE_DEG 360
+#define CIRCLE_DEG 360.0
 #endif
 #ifndef CIRCLE_AM
 ///arcminutes in a circle
-#define CIRCLE_AM (CIRCLE_DEG * 60)
+#define CIRCLE_AM (CIRCLE_DEG * 60.0)
 #endif
 #ifndef CIRCLE_AS
 ///arcseconds in a circle
-#define CIRCLE_AS (CIRCLE_AM * 60)
+#define CIRCLE_AS (CIRCLE_AM * 60.0)
 #endif
 #ifndef RAD_AS
 ///arcseconds per radian
-#define RAD_AS (CIRCLE_AS/(M_PI*2))
+#define RAD_AS (CIRCLE_AS/(M_PI*2.0))
 #endif
 #ifndef ONE_SECOND_TICKS
 ///Many architectures reach 100 ns clock resolutions
@@ -260,11 +270,11 @@ inline static double vlbi_default_delegate(double x, double y) {
 #endif
 #ifndef PARSEC
 ///Aproximation of a parsec in meters
-#define PARSEC (ASTRONOMICALUNIT/sin(M_PI*2/CIRCLE_AS))
+#define PARSEC (ASTRONOMICALUNIT/sin(PI*2.0/CIRCLE_AS))
 #endif
 #ifndef LY
 ///Aproximation of a light year in meters
-#define LY (LIGHTSPEED * SIDEREAL_DAY * 365)
+#define LY (LIGHTSPEED * SIDEREAL_DAY * 365.0)
 #endif
 #ifndef SPEED_MEAN
 ///We use the speed of light as means speed reference
@@ -282,7 +292,7 @@ extern unsigned long int MAX_THREADS;
 * @brief Initialize a OpenVLBI instance.
 * @return The OpenVLBI context
 */
-DLL_EXPORT vlbi_context vlbi_init();
+DLL_EXPORT vlbi_context vlbi_init(void);
 
 /**
 * @brief Close a OpenVLBI instance.
@@ -456,6 +466,30 @@ DLL_EXPORT void vlbi_add_model_from_jpeg(void *ctx, char *filename, char* name);
 DLL_EXPORT void vlbi_add_model_from_fits(void *ctx, char *filename, char* name);
 
 /**
+* @brief Write a model to a png file.
+* @param ctx The OpenVLBI context
+* @param filename The file name of the picture to write
+* @param model The name of the model chosen.
+*/
+DLL_EXPORT void vlbi_get_model_to_png(void *ctx, char *filename, char* name);
+
+/**
+* @brief Write a model to a jpeg file.
+* @param ctx The OpenVLBI context
+* @param filename The file name of the picture to write
+* @param model The name of the model chosen.
+*/
+DLL_EXPORT void vlbi_get_model_to_jpeg(void *ctx, char *filename, char* name);
+
+/**
+* @brief Write a model to a fits file.
+* @param ctx The OpenVLBI context
+* @param filename The file name of the picture to write
+* @param model The name of the model chosen.
+*/
+DLL_EXPORT void vlbi_get_model_to_fits(void *ctx, char *filename, char* name);
+
+/**
 * @brief Add a node from a fits file stored into a memory buffer.
 * @param ctx The OpenVLBI context
 * @param buf The buffer containing the fits file
@@ -476,7 +510,7 @@ inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) { M
 * @brief Print the current version of OpenVLBI.
 * @return char* The Version string
 */
-DLL_EXPORT char* vlbi_get_version();
+DLL_EXPORT char* vlbi_get_version(void);
 
 
 /**@}*/

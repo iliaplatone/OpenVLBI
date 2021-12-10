@@ -1017,7 +1017,7 @@ DLL_EXPORT void dsp_stream_free_buffer(dsp_stream_p stream);
 * \return the newly created DSP stream type
 * \sa dsp_stream_free
 */
-DLL_EXPORT dsp_stream_p dsp_stream_new();
+DLL_EXPORT dsp_stream_p dsp_stream_new(void);
 
 /**
 * \brief Free the DSP stream passed as argument

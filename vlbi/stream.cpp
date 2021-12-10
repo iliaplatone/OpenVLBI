@@ -536,8 +536,48 @@ void vlbi_add_model_from_fits(void *ctx, char *filename, char* name)
     }
 }
 
+void vlbi_get_model_to_png(void *ctx, char *filename, char* name)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    int components = 1;
+    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)components);
+    dsp_stream_p model = nodes->getModels()->Get(name);
+    for(int c = 0; c < components; c++)
+        file[c] = model;
+    dsp_file_write_png_composite(filename, components, 9, file);
+    free(file);
+}
+
+void vlbi_get_model_to_jpeg(void *ctx, char *filename, char* name)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    int components = 1;
+    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)components);
+    dsp_stream_p model = nodes->getModels()->Get(name);
+    for(int c = 0; c < components; c++)
+        file[c] = model;
+    dsp_file_write_jpeg_composite(filename, components, 90, file);
+    free(file);
+}
+
+void vlbi_get_model_to_fits(void *ctx, char *filename, char* name)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    int components = 1;
+    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)components);
+    dsp_stream_p model = nodes->getModels()->Get(name);
+    for(int c = 0; c < components; c++)
+        file[c] = model;
+    dsp_file_write_fits_composite(filename, components, 16, file);
+    free(file);
+}
+
 void vlbi_add_node_from_fits(void *ctx, char *filename, char* name, int geo)
 {
+    pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p stream = vlbi_file_read_fits(filename);
     if(stream != nullptr)
