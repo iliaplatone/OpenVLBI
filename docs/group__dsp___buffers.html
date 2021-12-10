@@ -76,7 +76,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:gaaf6118d32eec56707f7052683ca3ab76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stretch minimum and maximum values of the input stream.  <a href="group__dsp___buffers.html#gaaf6118d32eec56707f7052683ca3ab76">More...</a><br /></td></tr>
 <tr class="separator:gaaf6118d32eec56707f7052683ca3ab76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga85f744360adc5a76cbb1d1b404be43db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga85f744360adc5a76cbb1d1b404be43db">dsp_buffer_set</a>(buf,  len,  _val)</td></tr>
-<tr class="memdesc:ga85f744360adc5a76cbb1d1b404be43db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place the given value on each element of the buffer.  <a href="group__dsp___buffers.html#ga85f744360adc5a76cbb1d1b404be43db">More...</a><br /></td></tr>
+<tr class="memdesc:ga85f744360adc5a76cbb1d1b404be43db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the buffer with the passed value.  <a href="group__dsp___buffers.html#ga85f744360adc5a76cbb1d1b404be43db">More...</a><br /></td></tr>
 <tr class="separator:ga85f744360adc5a76cbb1d1b404be43db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga841f13e2b8c3b4d00f7ce99f3697c716"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga841f13e2b8c3b4d00f7ce99f3697c716">dsp_buffer_normalize</a>(buf,  len,  mn,  mx)</td></tr>
 <tr class="memdesc:ga841f13e2b8c3b4d00f7ce99f3697c716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize the input stream to the minimum and maximum values.  <a href="group__dsp___buffers.html#ga841f13e2b8c3b4d00f7ce99f3697c716">More...</a><br /></td></tr>
@@ -85,6 +85,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:ga96c190cd070bf893b9e78726071e3866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse the order of the buffer elements.  <a href="group__dsp___buffers.html#ga96c190cd070bf893b9e78726071e3866">More...</a><br /></td></tr>
 <tr class="separator:ga96c190cd070bf893b9e78726071e3866"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga391bd0d29dac22b99cbc5c3f6a21a87a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga391bd0d29dac22b99cbc5c3f6a21a87a">dsp_buffer_swap</a>(in,  len)</td></tr>
+<tr class="memdesc:ga391bd0d29dac22b99cbc5c3f6a21a87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the in buffer elements endianness.  <a href="group__dsp___buffers.html#ga391bd0d29dac22b99cbc5c3f6a21a87a">More...</a><br /></td></tr>
 <tr class="separator:ga391bd0d29dac22b99cbc5c3f6a21a87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga07482cd24ca65a78b55ac2ffe1c2d5ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga07482cd24ca65a78b55ac2ffe1c2d5ed">dsp_buffer_copy</a>(in,  out,  len)</td></tr>
 <tr class="memdesc:ga07482cd24ca65a78b55ac2ffe1c2d5ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the output buffer with the values of the elements of the input stream by casting them to the output buffer element type.  <a href="group__dsp___buffers.html#ga07482cd24ca65a78b55ac2ffe1c2d5ed">More...</a><br /></td></tr>
@@ -331,8 +332,8 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
-    <tr><td class="paramname">min</td><td>the clamping minimum value. </td></tr>
-    <tr><td class="paramname">max</td><td>the clamping maximum value. </td></tr>
+    <tr><td class="paramname">min</td><td>the clamping bottom value. </td></tr>
+    <tr><td class="paramname">max</td><td>the clamping upper value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -381,8 +382,8 @@ Functions</h2></td></tr>
 <p>Reverse the order of the buffer elements. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buf</td><td>the input stream. </td></tr>
-    <tr><td class="paramname">len</td><td>the length of the first input stream. </td></tr>
+    <tr><td class="paramname">buf</td><td>the inout stream. </td></tr>
+    <tr><td class="paramname">len</td><td>the length of the input stream. </td></tr>
   </table>
   </dd>
 </dl>
@@ -427,7 +428,7 @@ Functions</h2></td></tr>
 <div class="line">    }\</div>
 <div class="line">})</div>
 </div><!-- fragment -->
-<p>Place the given value on each element of the buffer. </p>
+<p>Fill the buffer with the passed value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
@@ -546,6 +547,15 @@ Functions</h2></td></tr>
 <div class="line">        } \</div>
 <div class="line">    })</div>
 </div><!-- fragment -->
+<p>Change the in buffer elements endianness. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">in</td><td>the inout stream. </td></tr>
+    <tr><td class="paramname">len</td><td>the length of the input stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -1383,12 +1393,12 @@ Functions</h2></td></tr>
 </div>
 </div><!-- contents -->
 <div class="ttc" id="agroup___d_s_p___defines_html_ga4886a8f966a69949cefc46a6a3468006"><div class="ttname"><a href="group___d_s_p___defines.html#ga4886a8f966a69949cefc46a6a3468006">Max</a></div><div class="ttdeci">#define Max(a, b)</div><div class="ttdoc">if max() is not present you can use this one</div><div class="ttdef"><b>Definition:</b> dsp.h:128</div></div>
-<div class="ttc" id="agroup__dsp___stats_html_ga188a626cbaa63ccaa1403e63885a23dd"><div class="ttname"><a href="group__dsp___stats.html#ga188a626cbaa63ccaa1403e63885a23dd">dsp_stats_min</a></div><div class="ttdeci">#define dsp_stats_min(buf, len)</div><div class="ttdoc">Gets the minimum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:473</div></div>
+<div class="ttc" id="agroup__dsp___stats_html_ga188a626cbaa63ccaa1403e63885a23dd"><div class="ttname"><a href="group__dsp___stats.html#ga188a626cbaa63ccaa1403e63885a23dd">dsp_stats_min</a></div><div class="ttdeci">#define dsp_stats_min(buf, len)</div><div class="ttdoc">Gets the minimum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:471</div></div>
 <div class="ttc" id="agroup___d_s_p___defines_html_ga9e04209162ea72f9985338596262b657"><div class="ttname"><a href="group___d_s_p___defines.html#ga9e04209162ea72f9985338596262b657">Min</a></div><div class="ttdeci">#define Min(a, b)</div><div class="ttdoc">if min() is not present you can use this one</div><div class="ttdef"><b>Definition:</b> dsp.h:121</div></div>
 <div class="ttc" id="agroup__dsp___stats_html_ga9205dc9d9f963ceb4581f97ba584b977"><div class="ttname"><a href="group__dsp___stats.html#ga9205dc9d9f963ceb4581f97ba584b977">dsp_stats_max</a></div><div class="ttdeci">#define dsp_stats_max(buf, len)</div><div class="ttdoc">Gets the maximum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:489</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 18:41:01 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 19:18:04 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

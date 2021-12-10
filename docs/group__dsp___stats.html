@@ -100,10 +100,10 @@ Macros</h2></td></tr>
 <tr class="memdesc:gad4a4ec0a43364658202d9954f900ab76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cumulative sum of all the values on the stream.  <a href="group__dsp___stats.html#gad4a4ec0a43364658202d9954f900ab76">More...</a><br /></td></tr>
 <tr class="separator:gad4a4ec0a43364658202d9954f900ab76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga890baa7f9a607dd6c138546d3b026f99"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___stats.html#ga890baa7f9a607dd6c138546d3b026f99">dsp_stats_range_count</a>(buf,  len,  lo,  hi)</td></tr>
-<tr class="memdesc:ga890baa7f9a607dd6c138546d3b026f99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts value occurrences into stream.  <a href="group__dsp___stats.html#ga890baa7f9a607dd6c138546d3b026f99">More...</a><br /></td></tr>
+<tr class="memdesc:ga890baa7f9a607dd6c138546d3b026f99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts value ranging occurrences into stream.  <a href="group__dsp___stats.html#ga890baa7f9a607dd6c138546d3b026f99">More...</a><br /></td></tr>
 <tr class="separator:ga890baa7f9a607dd6c138546d3b026f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5770dd864b4b521e976bf61a26464ada"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___stats.html#ga5770dd864b4b521e976bf61a26464ada">dsp_stats_compare</a>(in1,  in2,  len)</td></tr>
-<tr class="memdesc:ga5770dd864b4b521e976bf61a26464ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two streams.  <a href="group__dsp___stats.html#ga5770dd864b4b521e976bf61a26464ada">More...</a><br /></td></tr>
+<tr class="memdesc:ga5770dd864b4b521e976bf61a26464ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two buffers.  <a href="group__dsp___stats.html#ga5770dd864b4b521e976bf61a26464ada">More...</a><br /></td></tr>
 <tr class="separator:ga5770dd864b4b521e976bf61a26464ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -153,7 +153,7 @@ Functions</h2></td></tr>
 <div class="line">    out;\</div>
 <div class="line">    })</div>
 </div><!-- fragment -->
-<p>Compare two streams. </p>
+<p>Compare two buffers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">in1</td><td>the first input buffer </td></tr>
@@ -487,16 +487,17 @@ Functions</h2></td></tr>
 <div class="line">    count;\</div>
 <div class="line">    })</div>
 </div><!-- fragment -->
-<p>Counts value occurrences into stream. </p>
+<p>Counts value ranging occurrences into stream. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
-    <tr><td class="paramname">val</td><td>the value to count. </td></tr>
+    <tr><td class="paramname">lo</td><td>the bottom margin value. </td></tr>
+    <tr><td class="paramname">hi</td><td>the upper margin value. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the count of the value of the stream. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the count of the values ranging between the margins of the stream. </dd></dl>
 
 </div>
 </div>
@@ -539,11 +540,11 @@ Functions</h2></td></tr>
 <p>Standard deviation of the inut stream. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stream</td><td>the stream on which execute </td></tr>
+    <tr><td class="paramname">buf</td><td>the inout buffer </td></tr>
+    <tr><td class="paramname">len</td><td>the length of the buffer </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the standard deviation. </dd></dl>
 
 </div>
 </div>
@@ -688,13 +689,13 @@ Functions</h2></td></tr>
 </div>
 </div><!-- contents -->
 <div class="ttc" id="agroup___d_s_p___defines_html_ga4886a8f966a69949cefc46a6a3468006"><div class="ttname"><a href="group___d_s_p___defines.html#ga4886a8f966a69949cefc46a6a3468006">Max</a></div><div class="ttdeci">#define Max(a, b)</div><div class="ttdoc">if max() is not present you can use this one</div><div class="ttdef"><b>Definition:</b> dsp.h:128</div></div>
-<div class="ttc" id="agroup__dsp___stats_html_ga8bf2bd6a495e9a1abefefb769e357d32"><div class="ttname"><a href="group__dsp___stats.html#ga8bf2bd6a495e9a1abefefb769e357d32">dsp_stats_mean</a></div><div class="ttdeci">#define dsp_stats_mean(__dsp__buf, __dsp__len)</div><div class="ttdoc">A mean calculator.</div><div class="ttdef"><b>Definition:</b> dsp.h:550</div></div>
-<div class="ttc" id="agroup__dsp___stats_html_ga188a626cbaa63ccaa1403e63885a23dd"><div class="ttname"><a href="group__dsp___stats.html#ga188a626cbaa63ccaa1403e63885a23dd">dsp_stats_min</a></div><div class="ttdeci">#define dsp_stats_min(buf, len)</div><div class="ttdoc">Gets the minimum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:473</div></div>
+<div class="ttc" id="agroup__dsp___stats_html_ga8bf2bd6a495e9a1abefefb769e357d32"><div class="ttname"><a href="group__dsp___stats.html#ga8bf2bd6a495e9a1abefefb769e357d32">dsp_stats_mean</a></div><div class="ttdeci">#define dsp_stats_mean(__dsp__buf, __dsp__len)</div><div class="ttdoc">A mean calculator.</div><div class="ttdef"><b>Definition:</b> dsp.h:558</div></div>
+<div class="ttc" id="agroup__dsp___stats_html_ga188a626cbaa63ccaa1403e63885a23dd"><div class="ttname"><a href="group__dsp___stats.html#ga188a626cbaa63ccaa1403e63885a23dd">dsp_stats_min</a></div><div class="ttdeci">#define dsp_stats_min(buf, len)</div><div class="ttdoc">Gets the minimum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:471</div></div>
 <div class="ttc" id="agroup___d_s_p___defines_html_ga9e04209162ea72f9985338596262b657"><div class="ttname"><a href="group___d_s_p___defines.html#ga9e04209162ea72f9985338596262b657">Min</a></div><div class="ttdeci">#define Min(a, b)</div><div class="ttdoc">if min() is not present you can use this one</div><div class="ttdef"><b>Definition:</b> dsp.h:121</div></div>
 <div class="ttc" id="agroup__dsp___stats_html_ga9205dc9d9f963ceb4581f97ba584b977"><div class="ttname"><a href="group__dsp___stats.html#ga9205dc9d9f963ceb4581f97ba584b977">dsp_stats_max</a></div><div class="ttdeci">#define dsp_stats_max(buf, len)</div><div class="ttdoc">Gets the maximum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:489</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 18:41:01 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 19:18:04 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

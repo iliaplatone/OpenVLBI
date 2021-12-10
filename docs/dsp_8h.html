@@ -184,16 +184,16 @@ Macros</h2></td></tr>
 <tr class="memdesc:gad4a4ec0a43364658202d9954f900ab76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cumulative sum of all the values on the stream.  <a href="group__dsp___stats.html#gad4a4ec0a43364658202d9954f900ab76">More...</a><br /></td></tr>
 <tr class="separator:gad4a4ec0a43364658202d9954f900ab76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga890baa7f9a607dd6c138546d3b026f99"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___stats.html#ga890baa7f9a607dd6c138546d3b026f99">dsp_stats_range_count</a>(buf,  len,  lo,  hi)</td></tr>
-<tr class="memdesc:ga890baa7f9a607dd6c138546d3b026f99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts value occurrences into stream.  <a href="group__dsp___stats.html#ga890baa7f9a607dd6c138546d3b026f99">More...</a><br /></td></tr>
+<tr class="memdesc:ga890baa7f9a607dd6c138546d3b026f99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts value ranging occurrences into stream.  <a href="group__dsp___stats.html#ga890baa7f9a607dd6c138546d3b026f99">More...</a><br /></td></tr>
 <tr class="separator:ga890baa7f9a607dd6c138546d3b026f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5770dd864b4b521e976bf61a26464ada"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___stats.html#ga5770dd864b4b521e976bf61a26464ada">dsp_stats_compare</a>(in1,  in2,  len)</td></tr>
-<tr class="memdesc:ga5770dd864b4b521e976bf61a26464ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two streams.  <a href="group__dsp___stats.html#ga5770dd864b4b521e976bf61a26464ada">More...</a><br /></td></tr>
+<tr class="memdesc:ga5770dd864b4b521e976bf61a26464ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two buffers.  <a href="group__dsp___stats.html#ga5770dd864b4b521e976bf61a26464ada">More...</a><br /></td></tr>
 <tr class="separator:ga5770dd864b4b521e976bf61a26464ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaaf6118d32eec56707f7052683ca3ab76"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#gaaf6118d32eec56707f7052683ca3ab76">dsp_buffer_stretch</a>(buf,  len,  _mn,  _mx)</td></tr>
 <tr class="memdesc:gaaf6118d32eec56707f7052683ca3ab76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stretch minimum and maximum values of the input stream.  <a href="group__dsp___buffers.html#gaaf6118d32eec56707f7052683ca3ab76">More...</a><br /></td></tr>
 <tr class="separator:gaaf6118d32eec56707f7052683ca3ab76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga85f744360adc5a76cbb1d1b404be43db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga85f744360adc5a76cbb1d1b404be43db">dsp_buffer_set</a>(buf,  len,  _val)</td></tr>
-<tr class="memdesc:ga85f744360adc5a76cbb1d1b404be43db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place the given value on each element of the buffer.  <a href="group__dsp___buffers.html#ga85f744360adc5a76cbb1d1b404be43db">More...</a><br /></td></tr>
+<tr class="memdesc:ga85f744360adc5a76cbb1d1b404be43db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the buffer with the passed value.  <a href="group__dsp___buffers.html#ga85f744360adc5a76cbb1d1b404be43db">More...</a><br /></td></tr>
 <tr class="separator:ga85f744360adc5a76cbb1d1b404be43db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga841f13e2b8c3b4d00f7ce99f3697c716"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga841f13e2b8c3b4d00f7ce99f3697c716">dsp_buffer_normalize</a>(buf,  len,  mn,  mx)</td></tr>
 <tr class="memdesc:ga841f13e2b8c3b4d00f7ce99f3697c716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize the input stream to the minimum and maximum values.  <a href="group__dsp___buffers.html#ga841f13e2b8c3b4d00f7ce99f3697c716">More...</a><br /></td></tr>
@@ -202,6 +202,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:ga96c190cd070bf893b9e78726071e3866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse the order of the buffer elements.  <a href="group__dsp___buffers.html#ga96c190cd070bf893b9e78726071e3866">More...</a><br /></td></tr>
 <tr class="separator:ga96c190cd070bf893b9e78726071e3866"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga391bd0d29dac22b99cbc5c3f6a21a87a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga391bd0d29dac22b99cbc5c3f6a21a87a">dsp_buffer_swap</a>(in,  len)</td></tr>
+<tr class="memdesc:ga391bd0d29dac22b99cbc5c3f6a21a87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the in buffer elements endianness.  <a href="group__dsp___buffers.html#ga391bd0d29dac22b99cbc5c3f6a21a87a">More...</a><br /></td></tr>
 <tr class="separator:ga391bd0d29dac22b99cbc5c3f6a21a87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga07482cd24ca65a78b55ac2ffe1c2d5ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga07482cd24ca65a78b55ac2ffe1c2d5ed">dsp_buffer_copy</a>(in,  out,  len)</td></tr>
 <tr class="memdesc:ga07482cd24ca65a78b55ac2ffe1c2d5ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the output buffer with the values of the elements of the input stream by casting them to the output buffer element type.  <a href="group__dsp___buffers.html#ga07482cd24ca65a78b55ac2ffe1c2d5ed">More...</a><br /></td></tr>
@@ -515,7 +516,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 18:41:01 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 19:18:04 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -215,19 +215,19 @@ inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) { M
 /**@{*/
 
 /**
-* @brief vlbi_init Initialize a OpenVLBI instance.
+* @brief Initialize a OpenVLBI instance.
 * @return The OpenVLBI context
 */
 DLL_EXPORT vlbi_context vlbi_init();
 
 /**
-* @brief vlbi_exit Close a OpenVLBI instance.
+* @brief Close a OpenVLBI instance.
 * @param ctx The OpenVLBI context
 */
 DLL_EXPORT void vlbi_exit(vlbi_context ctx);
 
 /**
-* @brief vlbi_add_node Add a stream into the current OpenVLBI context.
+* @brief Add a stream into the current OpenVLBI context.
 * @param ctx The OpenVLBI context
 * @param Stream The OpenVLBI stream to add
 * @param name A friendly name of this stream
@@ -235,14 +235,14 @@ DLL_EXPORT void vlbi_exit(vlbi_context ctx);
 DLL_EXPORT void vlbi_add_node(vlbi_context ctx, dsp_stream_p Stream, char* name, int geographic_coordinates);
 
 /**
-* @brief vlbi_del_node Remove a stream from the current OpenVLBI context.
+* @brief Remove a stream from the current OpenVLBI context.
 * @param ctx The OpenVLBI context
 * @param name The friendly name of the stream to be removed
 */
 DLL_EXPORT void vlbi_del_node(vlbi_context ctx, char* name);
 
 /**
-* @brief vlbi_get_nodes List all nodes of the current OpenVLBI context.
+* @brief List all nodes of the current OpenVLBI context.
 * @param ctx The OpenVLBI context
 * @param nodes The nodes array pointer to be filled
 * @return the number of nodes in the current context
@@ -250,7 +250,7 @@ DLL_EXPORT void vlbi_del_node(vlbi_context ctx, char* name);
 DLL_EXPORT int vlbi_get_nodes(void *ctx, vlbi_node** nodes);
 
 /**
-* @brief vlbi_get_baselines List all baselines of the current OpenVLBI context.
+* @brief List all baselines of the current OpenVLBI context.
 * @param ctx The OpenVLBI context
 * @param baselines The baselines array pointer to be filled
 * @return the number of baselines in the current context
@@ -258,7 +258,7 @@ DLL_EXPORT int vlbi_get_nodes(void *ctx, vlbi_node** nodes);
 DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 
 /**
-* @brief vlbi_add_model Add a model into the current OpenVLBI context.
+* @brief Add a model into the current OpenVLBI context.
 * @param ctx The OpenVLBI context
 * @param Stream The OpenVLBI stream to add
 * @param name A friendly name of this model
@@ -266,14 +266,14 @@ DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 DLL_EXPORT void vlbi_add_model(vlbi_context ctx, dsp_stream_p Stream, char* name);
 
 /**
-* @brief vlbi_del_model Remove a model from the current OpenVLBI context.
+* @brief Remove a model from the current OpenVLBI context.
 * @param ctx The OpenVLBI context
 * @param name The friendly name of the model to be removed
 */
 DLL_EXPORT void vlbi_del_model(vlbi_context ctx, char* name);
 
 /**
-* @brief vlbi_get_models List all models of the current OpenVLBI context.
+* @brief List all models of the current OpenVLBI context.
 * @param ctx The OpenVLBI context
 * @param model The model array pointer to be filled
 * @return the number of models in the current context
@@ -281,7 +281,7 @@ DLL_EXPORT void vlbi_del_model(vlbi_context ctx, char* name);
 DLL_EXPORT int vlbi_get_models(void *ctx, dsp_stream_p** models);
 
 /**
-* @brief vlbi_get_model Get a single model from the current OpenVLBI context.
+* @brief Get a single model from the current OpenVLBI context.
 * @param ctx The OpenVLBI context
 * @param name The name of the chosen model
 * @return the model chosen as dsp_stream_p
@@ -289,7 +289,7 @@ DLL_EXPORT int vlbi_get_models(void *ctx, dsp_stream_p** models);
 DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, char* name);
 
 /**
-* @brief vlbi_set_location Set the location of the reference station.
+* @brief Set the location of the reference station.
 * @param ctx The OpenVLBI context
 * @param lat The latitude of the station
 * @param lon The longitude of the station
@@ -298,7 +298,7 @@ DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, char* name);
 DLL_EXPORT void vlbi_set_location(void *ctx, double lat, double lon, double el);
 
 /**
-* @brief vlbi_set_baseline_buffer Set the buffer of a single baseline with already correlated data.
+* @brief Set the buffer of a single baseline with already correlated data.
 * @param ctx The OpenVLBI context
 * @param node1 The name of the first node
 * @param node2 The name of the second node
@@ -308,7 +308,7 @@ DLL_EXPORT void vlbi_set_location(void *ctx, double lat, double lon, double el);
 DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer, int len);
 
 /**
-* @brief vlbi_get_offsets Get the delays of a single baseline nodes.
+* @brief Get the delays of a single baseline nodes.
 * @param ctx The OpenVLBI context
 * @param J2000Time The time of the calculation
 * @param node1 The name of the first node
@@ -319,7 +319,7 @@ DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, ds
 DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1, char* node2, double Ra, double Dec, double *offset1, double *offset2);
 
 /**
-* @brief vlbi_get_uv_plot Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams into a new model with the given name.
+* @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams into a new model with the given name.
 * @param ctx The OpenVLBI context
 * @param name The name of the new model
 * @param u The U size of the resulting UV plot
@@ -334,7 +334,7 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1
 DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
 
 /**
-* @brief vlbi_get_ifft Plot an inverse fourier transform of the uv plot using its current magnitude and phase components.
+* @brief Plot an inverse fourier transform of the uv plot using its current magnitude and phase components.
 * @param ctx The OpenVLBI context
 * @param name The name of the newly created model.
 * @param magnitude The magnitude model.
@@ -343,7 +343,7 @@ DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *ta
 DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char *name, char *magnitude, char *phase);
 
 /**
-* @brief vlbi_get_fft Get the fourier transform of the given model and save its magnitude and phase components into two new models named so.
+* @brief Get the fourier transform of the given model and save its magnitude and phase components into two new models named so.
 * @param ctx The OpenVLBI context
 * @param model The name of the model from which extract the magnitude and phase.
 * @param magnitude The name of the model where to save the magnitude.
@@ -352,7 +352,7 @@ DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char *name, char *magnitude, cha
 DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, char *model, char *magnitude, char *phase);
 
 /**
-* @brief vlbi_apply_mask Mask the stream with the content of the mask stream, by multiplication of each element.
+* @brief Mask the stream with the content of the mask stream, by multiplication of each element.
 * @param ctx The OpenVLBI context
 * @param name The name of the newly created model.
 * @param model The name of the model containing the data to be masked.
@@ -361,14 +361,14 @@ DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, char *model, char *magnitude, cha
 DLL_EXPORT void vlbi_apply_mask(vlbi_context ctx, char* name, char* model, char* mask);
 
 /**
-* @brief vlbi_shift Shift a model by its dimensions.
+* @brief Shift a model by its dimensions.
 * @param ctx The OpenVLBI context
 * @param model The name of the model to be shifted.
 */
 DLL_EXPORT void vlbi_shift(vlbi_context ctx, char* model);
 
 /**
-* @brief vlbi_add_model_from_png Add a model from a png file.
+* @brief Add a model from a png file.
 * @param ctx The OpenVLBI context
 * @param filename The file name of the picture to read
 * @param model The name of the newly created model.
@@ -376,7 +376,7 @@ DLL_EXPORT void vlbi_shift(vlbi_context ctx, char* model);
 DLL_EXPORT void vlbi_add_model_from_png(void *ctx, char *filename, char* name);
 
 /**
-* @brief vlbi_add_model_from_jpeg Add a model from a jpeg file.
+* @brief Add a model from a jpeg file.
 * @param ctx The OpenVLBI context
 * @param filename The file name of the picture to read
 * @param model The name of the newly created model.
@@ -384,7 +384,7 @@ DLL_EXPORT void vlbi_add_model_from_png(void *ctx, char *filename, char* name);
 DLL_EXPORT void vlbi_add_model_from_jpeg(void *ctx, char *filename, char* name);
 
 /**
-* @brief vlbi_add_model_from_fits Add a model from a fits file.
+* @brief Add a model from a fits file.
 * @param ctx The OpenVLBI context
 * @param filename The file name of the picture to read
 * @param model The name of the newly created model.
@@ -392,7 +392,7 @@ DLL_EXPORT void vlbi_add_model_from_jpeg(void *ctx, char *filename, char* name);
 DLL_EXPORT void vlbi_add_model_from_fits(void *ctx, char *filename, char* name);
 
 /**
-* @brief vlbi_add_node_from_fits Add a node from a fits file stored into a memory buffer.
+* @brief Add a node from a fits file stored into a memory buffer.
 * @param ctx The OpenVLBI context
 * @param buf The buffer containing the fits file
 * @param len The length of the buffer in bytes
@@ -402,7 +402,7 @@ DLL_EXPORT void vlbi_add_model_from_fits(void *ctx, char *filename, char* name);
 DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, char* name, int geo);
 
 /**
-* @brief vlbi_get_version Print the version number of OpenVLBI.
+* @brief Print the version number of OpenVLBI.
 * @return char* The Version string
 */
 DLL_EXPORT char* vlbi_get_version();
@@ -415,7 +415,7 @@ DLL_EXPORT char* vlbi_get_version();
 /**@{*/
 
 /**
-* @brief vlbi_calibrate Return an aproximation of the timing offset that affects the vector passed as argument.
+* @brief Return an aproximation of the timing offset that affects the vector passed as argument.
 * @param stream1 The first stream.
 * @param stream2 The second stream.
 * @return int The calibration value.
@@ -423,7 +423,7 @@ DLL_EXPORT char* vlbi_get_version();
 DLL_EXPORT int vlbi_calibrate(dsp_stream_p stream1, dsp_stream_p stream2);
 
 /**
-* @brief vlbi_calc_baseline_center Return The baseline center in geographic coordinates.
+* @brief Return The baseline center in geographic coordinates.
 * @param loc1 The first location.
 * @param loc2 The second location.
 * @return double* The center of the given coordinates
@@ -431,7 +431,7 @@ DLL_EXPORT int vlbi_calibrate(dsp_stream_p stream1, dsp_stream_p stream2);
 DLL_EXPORT double* vlbi_calc_baseline_center(double *loc1, double *loc2);
 
 /**
-* @brief vlbi_calc_3d_projection Return The 3d projection of the current observation.
+* @brief Return The 3d projection of the current observation.
 * @param alt The altitude of the target.
 * @param az The azimuth of the target.
 * @param baseline The current baseline in meters.
@@ -441,42 +441,42 @@ DLL_EXPORT double* vlbi_calc_baseline_center(double *loc1, double *loc2);
 DLL_EXPORT double* vlbi_calc_3d_projection(double alt, double az, double *baseline);
 
 /**
-* @brief vlbi_calc_uv_coordinates Return The UV coordinates of the current observation.
+* @brief Return The UV coordinates of the current observation.
 * @param proj The wavelength observed.
 * @return double* The 2d coordinates of the current observation and the delay time as 3rd array element.
 */
 DLL_EXPORT double* vlbi_calc_uv_coordinates(double *proj, double wavelength);
 
 /**
-* @brief vlbi_calc_location Convert geographic location into xyz location
+* @brief Convert geographic location into xyz location
 * @param loc The location of the observer.
 * @return double* The xyz location.
 */
 DLL_EXPORT double* vlbi_calc_location(double *loc);
 
 /**
-* @brief vlbi_rad2as Convert radians into arcseconds
+* @brief Convert radians into arcseconds
 * @param rad Radians to convert into arcseconds.
 * @return The arcseconds value corresponding to the given radians
 */
 DLL_EXPORT double vlbi_rad2as(double rad);
 
 /**
-* @brief vlbi_as2rad Convert arcseconds into radians
+* @brief Convert arcseconds into radians
 * @param as Arcseconds to convert into radians.
 * @return double The radian value corresponding to the given arcseconds
 */
 DLL_EXPORT double vlbi_as2rad(double as);
 
 /**
-* @brief vlbi_estimate_resolution_zero Estimate Signal to noise ratio after a given integration time
+* @brief Estimate Signal to noise ratio after a given integration time
 * @param frequency Observed frequency.
 * @return double The resolution at the baseline 0 (1m)
 */
 DLL_EXPORT double vlbi_estimate_resolution_zero(double frequency);
 
 /**
-* @brief vlbi_estimate_resolution Estimate Signal to noise ratio after a given integration time
+* @brief Estimate Signal to noise ratio after a given integration time
 * @param resolution0 Resolution at baseline 0 (1m).
 * @param baseline Current baseline.
 * @return double The resolution at the given baseline
@@ -484,7 +484,7 @@ DLL_EXPORT double vlbi_estimate_resolution_zero(double frequency);
 DLL_EXPORT double vlbi_estimate_resolution(double resolution0, double baseline);
 
 /**
-* @brief vlbi_time_mktimespec Obtain a timespec struct containing the date and time specified
+* @brief Obtain a timespec struct containing the date and time specified
 * @param year the year.
 * @param month the month.
 * @param dom the day of the month.
@@ -497,33 +497,33 @@ DLL_EXPORT double vlbi_estimate_resolution(double resolution0, double baseline);
 DLL_EXPORT timespec_t vlbi_time_mktimespec(int year, int month, int dom, int hour, int minute, int second, long nanosecond);
 
 /**
-* @brief vlbi_time_timespec_to_J2000time Convert a timespec into J2000 time
+* @brief Convert a timespec into J2000 time
 * @param tp the timespec containing date and time informations.
 * @return seconds since J2000.
 */
 DLL_EXPORT double vlbi_time_timespec_to_J2000time(timespec_t tp);
 
 /**
-* @brief vlbi_time_J2000time_to_lst Obtain the local sidereal time at an arbitrary moment and location
+* @brief Obtain the local sidereal time at an arbitrary moment and location
 * @param secs_since_J2000 seconds since J2000.
 * @param Long the longitude.
 */
 DLL_EXPORT double vlbi_time_J2000time_to_lst(double secs_since_J2000, double Long);
 /**
-* @brief vlbi_time_string_to_timespec Obtain a timespec struct containing the date and time specified by a time string
+* @brief Obtain a timespec struct containing the date and time specified by a time string
 * @param time String containing the time to be converted
 * @return the timespec struct containing the date and time specified.
 */
 DLL_EXPORT timespec_t vlbi_time_string_to_timespec(char* time);
 /**
-* @brief vlbi_time_J2000time_to_timespec Obtain a timespec struct containing the date and time specified by a J2000 time
+* @brief Obtain a timespec struct containing the date and time specified by a J2000 time
 * @param secs_since_J2000 seconds since J2000.
 * @return the timespec struct containing the date and time specified.
 */
 DLL_EXPORT timespec_t vlbi_time_J2000time_to_timespec(double secs_since_J2000);
 
 /**
- * @brief vlbi_astro_alt_az_from_ra_dec Returns local hour angle of an object
+ * @brief Returns local hour angle of an object
  * @param local_sideral_time Local Sideral Time
  * @param ra RA of object
  * @return Hour angle in hours (-12 to 12)
@@ -531,7 +531,7 @@ DLL_EXPORT timespec_t vlbi_time_J2000time_to_timespec(double secs_since_J2000);
 DLL_EXPORT void vlbi_astro_alt_az_from_ra_dec(double J2000time, double Ra, double Dec, double Lat, double Long, double* Alt, double *Az);
 
 /**
- * @brief vlbi_astro_get_local_hour_angle Returns local hour angle of an object
+ * @brief Returns local hour angle of an object
  * @param local_sideral_time Local Sideral Time
  * @param ra RA of object
  * @return Hour angle in hours (-12 to 12)
@@ -539,7 +539,7 @@ DLL_EXPORT void vlbi_astro_alt_az_from_ra_dec(double J2000time, double Ra, doubl
 DLL_EXPORT double vlbi_astro_get_local_hour_angle(double local_sideral_time, double ra);
 
 /**
- * @brief vlbi_astro_get_alt_az_coordinates Returns alt-azimuth coordinates of an object
+ * @brief Returns alt-azimuth coordinates of an object
  * @param hour_angle Hour angle in hours (-12 to 12)
  * @param dec DEC of object
  * @param latitude latitude in INDI format (-90 to +90)
@@ -549,7 +549,7 @@ DLL_EXPORT double vlbi_astro_get_local_hour_angle(double local_sideral_time, dou
 DLL_EXPORT void vlbi_astro_get_alt_az_coordinates(double hour_angle, double dec, double latitude, double* alt, double *az);
 
 /**
- * @brief vlbi_astro_estimate_geocentric_elevation Returns an estimation of the actual geocentric elevation
+ * @brief Returns an estimation of the actual geocentric elevation
  * @param latitude latitude in INDI format (-90 to +90)
  * @param sea_level_elevation sea level elevation
  * @return Aproximated geocentric elevation
@@ -557,7 +557,7 @@ DLL_EXPORT void vlbi_astro_get_alt_az_coordinates(double hour_angle, double dec,
 DLL_EXPORT double vlbi_astro_estimate_geocentric_elevation(double latitude, double sea_level_elevation);
 
 /**
- * @brief vlbi_astro_estimate_field_rotation_rate Returns an estimation of the field rotation rate of the object
+ * @brief Returns an estimation of the field rotation rate of the object
  * @param Alt altitude coordinate of the object
  * @param Az azimuth coordinate of the object
  * @param latitude latitude in INDI format (-90 to +90)
@@ -566,7 +566,7 @@ DLL_EXPORT double vlbi_astro_estimate_geocentric_elevation(double latitude, doub
 DLL_EXPORT double vlbi_astro_estimate_field_rotation_rate(double Alt, double Az, double latitude);
 
 /**
- * @brief vlbi_astro_estimate_field_rotation Returns an estimation of the field rotation rate of the object
+ * @brief Returns an estimation of the field rotation rate of the object
  * @param hour_angle Hour angle in hours (-12 to 12)
  * @param field_rotation_rate the field rotation rate
  * @return Aproximation of the absolute field rotation
@@ -574,21 +574,21 @@ DLL_EXPORT double vlbi_astro_estimate_field_rotation_rate(double Alt, double Az,
 DLL_EXPORT double vlbi_astro_estimate_field_rotation(double hour_angle, double field_rotation_rate);
 
 /**
- * @brief vlbi_astro_parsec2m Convert parallax arcseconds into meters
+ * @brief Convert parallax arcseconds into meters
  * @param parsec the parallax arcseconds to convert
  * @return Estimation of the distance in meters
  */
 DLL_EXPORT double vlbi_astro_parsec2m(double parsec);
 
 /**
- * @brief vlbi_astro_m2au Convert meters into astronomical units
+ * @brief Convert meters into astronomical units
  * @param m the distance in meters to convert
  * @return Estimation of the distance in astronomical units
  */
 DLL_EXPORT double vlbi_astro_m2au(double m);
 
 /**
- * @brief vlbi_astro_calc_delta_magnitude Returns the difference of magnitudes given two spectra
+ * @brief Returns the difference of magnitudes given two spectra
  * @param mag0 Reference magnitude
  * @param mag Relative magnitude to normalize
  * @param spectrum The spectrum of the star
@@ -599,7 +599,7 @@ DLL_EXPORT double vlbi_astro_m2au(double m);
 DLL_EXPORT double vlbi_astro_calc_delta_magnitude(double mag0, double mag, double *spectrum, int spectrum_size, int lambda);
 
 /**
- * @brief vlbi_astro_estimate_absolute_magnitude Returns an estimation of the field rotation rate of the object
+ * @brief Returns an estimation of the field rotation rate of the object
  * @param dist The distance in parallax radiuses
  * @param delta_mag The difference of magnitudes
  * @return Aproximation of the absolute magnitude in Δmag
@@ -607,7 +607,7 @@ DLL_EXPORT double vlbi_astro_calc_delta_magnitude(double mag0, double mag, doubl
 DLL_EXPORT double vlbi_astro_estimate_absolute_magnitude(double delta_dist, double delta_spectrum, double delta_mag);
 
 /**
- * @brief vlbi_file_read_fits Returns a stream filled with all the elements needed to form a vlbi node, by loading a FITS file containing them
+ * @brief Returns a stream filled with all the elements needed to form a vlbi node, by loading a FITS file containing them
  * @param filename The FITS filename
  * @return The new stream to add as node
  */

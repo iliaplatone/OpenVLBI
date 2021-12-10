@@ -312,7 +312,7 @@ typedef struct dsp_stream_t
     struct dsp_stream_t** children;
     /// Children streams count
     int child_count;
-    /// Location coordinates
+    /// Location coordinates pointer, can be extended to the main buffer size as location companion
     dsp_location* location;
     /// Target coordinates
     double* target;
@@ -365,6 +365,7 @@ typedef struct dsp_stream_t
 /**
 * \brief Perform a discrete Fourier Transform of a dsp_stream
 * \param stream the inout stream.
+* \param exp the exponent (recursivity) of the fourier transform.
 */
 DLL_EXPORT void dsp_fourier_dft(dsp_stream_p stream, int exp);
 
@@ -413,25 +414,22 @@ DLL_EXPORT void dsp_filter_squarelaw(dsp_stream_p stream);
 /**
 * \brief A low pass filter
 * \param stream the input stream.
-* \param samplingfrequency the sampling frequency of the input stream.
-* \param frequency the cutoff frequency of the filter.
+* \param frequency the cutoff frequency of the filter in radians.
 */
 DLL_EXPORT void dsp_filter_lowpass(dsp_stream_p stream, double frequency);
 
 /**
 * \brief A high pass filter
 * \param stream the input stream.
-* \param samplingfrequency the sampling frequency of the input stream.
-* \param frequency the cutoff frequency of the filter.
+* \param frequency the cutoff frequency of the filter in radians.
 */
 DLL_EXPORT void dsp_filter_highpass(dsp_stream_p stream, double frequency);
 
 /**
 * \brief A band pass filter
 * \param stream the input stream.
-* \param samplingfrequency the sampling frequency of the input stream.
-* \param LowFrequency the high-pass cutoff frequency of the filter.
-* \param HighFrequency the low-pass cutoff frequency of the filter.
+* \param LowFrequency the high-pass cutoff frequency of the filter in radians.
+* \param HighFrequency the low-pass cutoff frequency of the filter in radians.
 */
 DLL_EXPORT void dsp_filter_bandpass(dsp_stream_p stream, double LowFrequency,
                                     double HighFrequency);
@@ -439,8 +437,7 @@ DLL_EXPORT void dsp_filter_bandpass(dsp_stream_p stream, double LowFrequency,
 /**
 * \brief A band reject filter
 * \param stream the input stream.
-* \param samplingfrequency the sampling frequency of the input stream.
-* \param LowFrequency the high-pass cutoff frequency of the filter.
+* \param LowFrequency the high-pass cutoff frequency of the filter in radians.
 * \param HighFrequency the low-pass cutoff frequency of the filter.
 */
 DLL_EXPORT void dsp_filter_bandreject(dsp_stream_p stream, double LowFrequency,
@@ -464,6 +461,7 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 */
 /**@{*/
 
+#ifndef dsp_stats_min
 /**
 * \brief Gets the minimum value of the input stream
 * \param buf the input buffer
@@ -479,7 +477,9 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     }\
     min;\
     })
+#endif
 
+#ifndef dsp_stats_max
 /**
 * \brief Gets the maximum value of the input stream
 * \param buf the input buffer
@@ -495,7 +495,9 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     }\
     max;\
     })
+#endif
 
+#ifndef dsp_stats_mid
 /**
 * \brief Gets the middle value of the input stream
 * \param buf the input buffer
@@ -508,7 +510,9 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     __typeof__(buf[0]) min = dsp_stats_min(buf, len);\
     (__typeof__(buf[0]))(min - dsp_stats_max(buf, len)) / 2.0 + min;\
 })
+#endif
 
+#ifndef dsp_stats_maximum_index
 /**
 * \brief Gets minimum value's position into the buffer
 * \param buf the input buffer
@@ -524,7 +528,9 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     }\
     i;\
     })
+#endif
 
+#ifndef dsp_stats_maximum_index
 /**
 * \brief Gets maximum value's position into the buffer
 * \param buf the input buffer
@@ -540,7 +546,9 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     }\
     i;\
     })
+#endif
 
+#ifndef dsp_stats_stddev
 /**
 * \brief A mean calculator
 * \param buf the input buffer
@@ -557,11 +565,13 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     __dsp__mean /= __dsp__len;\
     __dsp__mean;\
     })
+#endif
 
+#ifndef dsp_stats_stddev
 /**
 * \brief Standard deviation of the inut stream
-* \param stream the stream on which execute
-* \return the standard deviation.
+* \param buf the inout buffer
+* \param len the length of the buffer
 */
 #define dsp_stats_stddev(__dsp__buf, __dsp__len)\
 ({\
@@ -574,7 +584,9 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     __dsp__stddev /= __dsp__len;\
     __dsp__stddev;\
     })
+#endif
 
+#ifndef dsp_stats_val_count
 /**
 * \brief Counts value occurrences into stream
 * \param buf the input buffer
@@ -592,7 +604,9 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     }\
     count;\
     })
+#endif
 
+#ifndef dsp_stats_val_sum
 /**
 * \brief Cumulative sum of all the values on the stream
 * \param buf the input buffer
@@ -608,13 +622,16 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     }\
     sum;\
     })
+#endif
 
+#ifndef dsp_stats_range_count
 /**
-* \brief Counts value occurrences into stream
+* \brief Counts value ranging occurrences into stream
 * \param buf the input buffer
 * \param len the length in elements of the buffer.
-* \param val the value to count.
-* \return the count of the value of the stream.
+* \param lo the bottom margin value.
+* \param hi the upper margin value.
+* \return the count of the values ranging between the margins of the stream.
 */
 #define dsp_stats_range_count(buf, len, lo, hi) \
 ({\
@@ -626,9 +643,11 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     }\
     count;\
     })
+#endif
 
+#ifndef dsp_stats_compare
 /**
-* \brief Compare two streams
+* \brief Compare two buffers
 * \param in1 the first input buffer
 * \param in2 the second input buffer
 * \param len the length in elements of the buffer.
@@ -642,6 +661,7 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     }\
     out;\
     })
+#endif
 
 /**
 * \brief Histogram of the inut stream
@@ -670,6 +690,7 @@ DLL_EXPORT void dsp_buffer_shift(dsp_stream_p stream);
 */
 DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
 
+#ifndef dsp_buffer_stretch
 /**
 * \brief Stretch minimum and maximum values of the input stream
 * \param buf the input buffer
@@ -677,7 +698,6 @@ DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
 * \param min the desired minimum value.
 * \param max the desired maximum value.
 */
-
 #define dsp_buffer_stretch(buf, len, _mn, _mx)\
 ({\
     int k;\
@@ -692,14 +712,15 @@ DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
         buf[k] += _mn;\
     }\
 })
+#endif
 
+#ifndef dsp_buffer_set
 /**
-* \brief Place the given value on each element of the buffer
+* \brief Fill the buffer with the passed value
 * \param buf the input buffer
 * \param len the length in elements of the buffer.
 * \param val the desired value.
 */
-
 #define dsp_buffer_set(buf, len, _val)\
 ({\
     int k;\
@@ -707,13 +728,15 @@ DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
         buf[k] = (__typeof__(buf[0]))(_val);\
     }\
 })
+#endif
 
+#ifndef dsp_buffer_normalize
 /**
 * \brief Normalize the input stream to the minimum and maximum values
 * \param buf the input buffer
 * \param len the length in elements of the buffer.
-* \param min the clamping minimum value.
-* \param max the clamping maximum value.
+* \param min the clamping bottom value.
+* \param max the clamping upper value.
 */
 #define dsp_buffer_normalize(buf, len, mn, mx)\
 ({\
@@ -722,6 +745,7 @@ DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
         buf[k] = Max(mn, Min(mx, buf[k]));\
     }\
 })
+#endif
 
 /**
 * \brief Subtract elements of one stream from another's
@@ -867,12 +891,12 @@ DLL_EXPORT void dsp_buffer_sigma(dsp_stream_p in, int size);
 */
 DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t mindeviation, dsp_t maxdeviation);
 
+#ifndef dsp_buffer_reverse
 /**
 * \brief Reverse the order of the buffer elements
-* \param buf the input stream.
-* \param len the length of the first input stream.
+* \param buf the inout stream.
+* \param len the length of the input stream.
 */
-#ifndef dsp_buffer_reverse
 #define dsp_buffer_reverse(buf, len) \
     ({ \
         int i = (len - 1) / 2; \
@@ -890,6 +914,11 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
 #endif
 
 #ifndef dsp_buffer_swap
+/**
+* \brief Change the in buffer elements endianness
+* \param in the inout stream.
+* \param len the length of the input stream.
+*/
 #define dsp_buffer_swap(in, len) \
     ({ \
         int k; \
@@ -910,6 +939,7 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
     })
 #endif
 
+#ifndef dsp_buffer_copy
 /**
 * \brief Fill the output buffer with the values of the
 * elements of the input stream by casting them to the
@@ -918,7 +948,6 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
 * \param out the output stream.
 * \param len the length of the first input stream.
 */
-#ifndef dsp_buffer_copy
 #define dsp_buffer_copy(in, out, len) \
     ({ \
         int k; \
@@ -928,6 +957,7 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
     })
 #endif
 
+#ifndef dsp_buffer_copy_stepping
 /**
 * \brief Fill the output buffer with the values of the
 * elements of the input stream by casting them to the
@@ -938,7 +968,6 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
 * \param instep copy each instep elements of in into each outstep elements of out.
 * \param outstep copy each instep elements of in into each outstep elements of out.
 */
-#ifndef dsp_buffer_copy_stepping
 #define dsp_buffer_copy_stepping(in, out, inlen, outlen, instep, outstep) \
     ({ \
     int k; \
