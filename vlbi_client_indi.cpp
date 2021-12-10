@@ -262,7 +262,7 @@ void INDIClient::newBLOB(IBLOB *bp)
 {
     if(!isServerConnected())
         return;
-    if(!strcmp(bp->name, "DATA") || !strcmp(bp->name, "CCD1"))
+    if(!strcmp(bp->name, "DATA"))
     {
         if(GetContext() != NULL)
         {
