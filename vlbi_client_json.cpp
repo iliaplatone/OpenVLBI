@@ -108,12 +108,21 @@ void JSONClient::Parse()
                     }
                     if(!strcmp(values[y].name, "buffer"))
                     {
-                        base64 = values[y].value->u.string.ptr;
-                        base64len = values[y].value->u.string.length;
-                        buf = (char*)malloc(base64len * 3 / 4);
-                        len = from64tobits_fast(buf, base64, base64len);
-                        vlbi_add_node(GetContext(), vlbi_file_read_fits(buf, len), name, true);
-                        free(buf);
+                        char filename[128];
+                        strcpy(filename, "tmp_nodeXXXXXX");
+                        int fd = mkstemp(filename);
+                        if(fd > -1)
+                        {
+                            base64 = values[y].value->u.string.ptr;
+                            base64len = values[y].value->u.string.length;
+                            buf = (char*)malloc(base64len * 3 / 4);
+                            len = from64tobits_fast(buf, base64, base64len);
+                            write(fd, buf, len * 4 / 3 + 4);
+                            free(buf);
+                            close(fd);
+                            vlbi_add_node_from_fits(GetContext(), filename, name, true);
+                            unlink(filename);
+                        }
                     }
                 }
             }

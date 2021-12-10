@@ -166,9 +166,7 @@ void VLBI::Client::DelModel(char* name)
 
 void VLBI::Client::AddModel(char* name, char *format, char *b64)
 {
-    dsp_stream_p* model;
     char filename[128];
-    int channels;
     int fd = -1;
     size_t len = 0;
     char *buf = nullptr;
@@ -184,20 +182,17 @@ void VLBI::Client::AddModel(char* name, char *format, char *b64)
             write(fd, buf, len * 4 / 3 + 4);
             free(buf);
             close(fd);
-            if(!strcmp(format, "fit"))
+            if(!strcmp(format, "fits"))
             {
-                model = dsp_file_read_fits(filename, &channels, 0);
-                vlbi_add_model(GetContext(), model[channels], name);
+                vlbi_add_model_from_fits(GetContext(), filename, name);
             }
             if(!strcmp(format, "jpeg"))
             {
-                model = dsp_file_read_jpeg(filename, &channels, 0);
-                vlbi_add_model(GetContext(), model[channels], name);
+                vlbi_add_model_from_jpeg(GetContext(), filename, name);
             }
             if(!strcmp(format, "png"))
             {
-                model = dsp_file_read_png(filename, &channels, 0);
-                vlbi_add_model(GetContext(), model[channels], name);
+                vlbi_add_model_from_png(GetContext(), filename, name);
             }
             unlink(filename);
         }
