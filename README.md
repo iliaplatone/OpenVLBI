@@ -1,36 +1,41 @@
 [![CircleCi](https://circleci.com/gh/iliaplatone/OpenVLBI/tree/master.svg?style=shield)](https://circleci.com/gh/iliaplatone/OpenVLBI/?branch=master)
 [![Linux](https://github.com/iliaplatone/OpenVLBI/actions/workflows/default.yml/badge.svg)](https://github.com/iliaplatone/OpenVLBI/actions/workflows/default.yml)
 
-# Interferometric correlator clients application suite
 libvlbi is an open source library and application suite for astronomical interferometry.
 
-Interferometry is a discipline that studies the beam or stream interference and the obtainability of a coherence degree between more of them.
-A 2d interference plot of a single object observation from different locations (space domain Fourier plane dependent to the location of the receivers) shows the fourier transform of the light pattern of the object observed.
+Interferometry is a discipline that studies the beam or stream interference and the possibility to obtain a coherence degree between more of them.
+A 2d interference plot of a single object observed from different locations (space domain Fourier plane dependent to the location of the observers) shows the fourier transform magnitude (and the phase possibly) of the radiation detected from the object observed.
 
-libvlbi offers functions to applications that use it to make interferometry simpler and faster.
+libopenvlbi offers a set of functions that aim to make interferometry simpler and faster.
 
-The application suite is composed by a client application which opens a shell and can serve it to more other client applications.
-Client applications usually are linked to other libraries and with libvlbi, or drivers that permit the capture of the streams to be correlated by the central server.
-The central server offers a shell that connects to the various clients and correlates using the library streams captured from INDI servers by adding them using the vlbi_server script.
+There is an application suite that offers a client application that uses a simple set/get scripting language, an INDI client application using the same scripting format and a json client application for who's familiar with JSON/REST APIs.
 
-This repository contains the sources for building the library and a client application
+This repository contains the sources for building the library and the client applications
 
 # Build libvlbi
 
+## Ubuntu/Debian
 
+You can build OpenVLBI by running the following command:
 ```
 sh scripts/build.sh
 ```
+This will install all the dependencies, including latest INDI developement libraries.
+If everything will be successful three .deb packages will be built and installed
 
-# Documentation
+## Other OSes
 
-You can read the API documentation at [https://iliaplatone.github.io/OpenVLBI/](https://iliaplatone.github.io/OpenVLBI/)
+You'll need CMake to build OpenVLBI, and some developement packages:
++ **libopenvlbi**:libfftw3
++ **vlbi_client_json**: libjsonparser
++ **vlbi_client_indi**: libindi libnova libcfitsio
++ **tests and scripts**: jq
 
 # Using libvlbi
 
-You can write an application using libvlbi by linking against libvlbi.so in your gcc command line:
+You can write an application using libopenvlbi by linking against libopenvlbi.so in your gcc command line:
 ```
-gcc yourapp.c -lvlbi -o yourapp
+gcc yourapp.c -lopenvlbi -o yourapp
 ```
 Each instance of vlbi is initiated by vlbi_init():
 ```
@@ -38,23 +43,29 @@ vlbi_context context = vlbi_init();
 
 ...
 
+// you must be familiar with the dsp_stream_p type, see "DSP API Documentation"
 dsp_stream_p stream1 = dsp_stream_new();
-dsp_stream_add_dim(stream, elements_n);
-dsp_convert(input_arr, stream1->in, n_elements);
+dsp_stream_add_dim(stream1, elements_n);
+dsp_stream_alloc_buffer(stream1);
 
-stream1->location[0] = Latitude;
-stream1->location[1] = Longitude;
-stream1->location[2] = vlbi_calc_elevation_coarse(Elevation); //estimate the geocentric elevation, given the on sea level elevation
+//dsp_buffer_copy converts numeric types into dsp_t (aka double)
+dsp_buffer_copy(input_arr, stream1->in, stream1->len);
+
+//Latitude and longitude in degrees, elevation in meters OSL
+stream1->location.geo.lat = Latitude;
+stream1->location.geo.lon = Longitude;
+stream1->location.geo.el = Elevation;
 
 stream1->starttimeutc = vlbi_time_string_to_utc("2018-06-22T02:12.000154874");
 
-vlbi_add_stream(context, stream1);
+//assign to this node a friendly, unique name and add it to the context, tell to OpenVLBI to use geographic conversion
+vlbi_add_node(context, stream1, "location1_capture", 1);
 
 dsp_stream_p stream2 = dsp_stream_new();
 
 ...
 
-vlbi_add_stream(context, stream2);
+vlbi_add_node(context, stream2, "location2_capture", 1);
 
 dsp_stream_p stream3 = dsp_stream_new();
 ...
@@ -62,51 +73,62 @@ dsp_stream_p stream3 = dsp_stream_new();
 vlbi_add_stream(context, stream3);
 ...
 
-dsp_t* target = calloc(sizeof(vlbi_t), 3);
+double* target = calloc(sizeof(double), 3);
+//RA must be in 24H format
 target[0] = RightAscension * 360.0 / 24.0;
 target[1] = Declination;
 
-dsp_t frequency = 60.0e+6;
-dsp_t samplerate = 100.0e+6;
+double frequency = 60.0e+6;
+double samplerate = 100.0e+6;
 
-//obtain the UV plot of the observation
-dsp_stream uvplot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, target, frequency, samplerate); // this will return
-//the aproximate Fourier transform of the observation taken (the more are the streams, and more
-//accurate and precise is each stream and data, the less aproximate will be the result).
-dsp_stream image_estimation = vlbi_get_fft_estimate(uvplot); // this is the aproximation
-//of the image of the target, with aproximation basis the taken observations.
+//since we're using geographic coordinates we'd calculate the delay of each baseline
+int no_delay_calculation = 0;
+
+//telescopes do not change their location during capture, so no location companion stream
+int moving_baseline = 0;
+
+//obtain the UV plot of the observation and save it as model, 
+vlbi_get_uv_plot(context, "obs1_plot_model", 1024, 1024, target, frequency, samplerate, no_delay_calculation, moving_baseline, vlbi_default_delegate);
+
+//the default delegate just multiplies each element of the stream by indexing them according to their delay from the farest node to the target
+//after this operation a new model with size 1024x1024 containing the plot of the correlation degrees of all baselines will be added into the context
+
+//you should add a model with an estimation of the phase to get an inverse fourier transform
+vlbi_add_model_from_png(context, "my_phase_estimation.png", "my_phase_estimation");
+
+ //Create a new model containing the inverse Fourier transform of your observation as magnitude component and your estimation of the phase
+vlbi_get_ifft(context, "ifft_estimation", "obs1_plot_model", "my_phase_estimation");
+
+dsp_stream_p image_estimation = vlbi_get_model(context, "ifft_estimation");
+
 ...
 
-dsp_stream_free(uvplot);
+dsp_stream_free_buffer(image_estimation);
+dsp_stream_free(image_estimation);
 vlbi_exit(context);
 
 ```
+
+You can read the API documentation at [https://iliaplatone.github.io/OpenVLBI/](https://iliaplatone.github.io/OpenVLBI/)
 
 # OpenVLBI clients
 
 ## OpenVLBI client sample
 OpenVLBI can be tested using the built vlbi_client_dummy application, which creates a subshell or takes arguments from the standard input.
-the source files of the sample application make use of the vlbi_client.h source header, which contains a base class to be inherited in case you want to build your own client or implementation.
-the sample application can be tested using the test.sh script into the scripts/ directory of this repository:
-the command-line usage is as follows:
-bash scripts/test.sh [integration time in seconds] [type of plot]
-where [type of plot] is: [geo|abs]_[movingbase|synthesis]_[raw|dft]
-
-```
-bash scripts/test.sh 3600 geo_synthesis_dft
-```
+the source files of the sample application make use of the vlbi_client.h source header, which contains a base class to be inherited in case that you want to build your own client or implementation.
 
 ## OpenVLBI client using INDI libraries
 
-OpenVLBI comes with an application which uses the core library and using an INDI server which contains a number of drivers with the necessary properties
-It needs an indi server on which to connect. Such server must connect to each node to be added to the vlbi client application.
-OpenVLBI nodes must contain informations about location, and should permit driving of the telescopes or antennas to the same celestial coordinates,
-tracking must be supported on the mountings and each node should capture and run at the same bit depth, frequency and possibly bandwidth and gain.
+OpenVLBI comes with vlbi_client_indi, a client that connects to an INDI server whose drivers will be treated by OpenVLBI as nodes.
+OpenVLBI nodes must contain informations about location, aperture, focal length, samplerate and observed frequency preferably, and should permit to slew their telescopes or antennas to the same celestial coordinates.
+tracking must be supported by the mounts and each node should capture and run at the same bit depth, frequency and possibly bandwidth and gain.
+After each capture is done, a new node will be added to the OpenVLBI context by parsing the received FITS.
 
 The  needed INDI interfaces are so:
  - INDI::BaseDevice::TELESCOPE_INTERFACE
  - INDI::BaseDevice::GPS_INTERFACE
  - INDI::BaseDevice::DETECTOR_INTERFACE
+ - INDI::BaseDevice::RECEIVER_INTERFACE
 
 and optionally, also for autoguiding:
  - INDI::BaseDevice::CCD_INTERFACE
@@ -131,16 +153,26 @@ Here is the current command list:
 ```
 add context name:string - add an OpenVLBI context to the internal list
 set context name:string - set current OpenVLBI context selecting it by name from the internal list
+set mask name,model,mask:string,string,sting - mask the model with mask, and save the masked model into name
+set shifted name:string - shift the model by its dimensions
 add node name,geo|xyz,latitude|x,longitude|y,elevation|z,datafile,observationdate:string - add a node to the internal list
-del node name:string - remove a node from the internal list
-set model name:string - new comparison model
+add plot name,projection,synch,type:string,string,string,string - add a model with the plot of the perspective projection of all nodes during the observation in format ([synthesis|movingbase],[delay|nodelay],[raw|coverage]) synthesis for aperture synthesis observation or to plot the UV coverage. delay to automatically calculate delays between nodes, nodelay means that they are already synchronized, raw will fill the perspective path with the correlation degree of the respective baseline, coverage will create a mask to apply to a phase model or a simulated magnitude.
+add idft idft,magnitude,phase:string,string,string add a model named idft from the magnitude and phase models passed
+add dft idft,magnitude,phase:string,string,string add the phase and magnitude models obtained from the model passed as idft
+add model name,format,data:string,string,string add a new model from the base64 encoded string containing the picture file buffer, and format as [jpeg|png|fits]
 set frequency value:numeric - set detectors frequency
 set bitspersample value:numeric - set detectors sample bit depth
 set samplerate value:numeric - set detectors sampling rate
 set target ra,dec:numeric,numeric - set telescopes celestial target
 set resolution WxH:numeric,numeric - set the resolution of the output picture of the Fourier plane
 set location latitude,longitude,elevation:numeric,numeric - set the reference station coordinates for xyz node locations relative to this
-get observation type:string - get the Fourier plane observation ([synthesis|movingbase]_[delay|nodelay]_[raw|idft|coverage]) for aperture synthesis observation or to plot the UV coverage. delay stays for automatically calculate delays between nodes, nodelay means they are already synchronized.
+get models - get the models list with names and dimensions
+get nodes - get the nodes list with their data
+get baselines - get the baselines list with their data
+get model name,format:string,string get the model with name in ([png|jpeg|fits]) format, base64 encoded
+del model name:string - remove a model from the current context
+del node name:string - remove a node from the current context
+del context name:string - remove a context from the internal list
 ```
 
 ### INDI client specific commands
