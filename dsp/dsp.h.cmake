@@ -1156,6 +1156,30 @@ DLL_EXPORT void *dsp_stream_exec(dsp_stream_p stream, void *args, ...);
 */
 DLL_EXPORT void dsp_stream_crop(dsp_stream_p stream);
 
+/**
+* \brief Rotate a stream around an axis and offset
+* \param stream The stream that need rotation
+* \param info The dsp_align_info structure pointer containing the rotation informations
+* \return The new dsp_stream_p structure pointer
+*/
+DLL_EXPORT void dsp_stream_rotate(dsp_stream_p stream);
+
+/**
+* \brief Traslate a stream
+* \param stream The stream that need traslation
+* \param info The dsp_align_info structure pointer containing the traslation informations
+* \return The new dsp_stream_p structure pointer
+*/
+DLL_EXPORT void dsp_stream_translate(dsp_stream_p stream);
+
+/**
+* \brief Scale a stream
+* \param stream The stream that need scaling
+* \param info The dsp_align_info structure pointer containing the scaling informations
+* \return The new dsp_stream_p structure pointer
+*/
+DLL_EXPORT void dsp_stream_scale(dsp_stream_p stream);
+
 /**@}*/
 /**
  * \defgroup dsp_SignalGen DSP API Signal generation functions
@@ -1209,62 +1233,11 @@ DLL_EXPORT void dsp_modulation_frequency(dsp_stream_p stream, double samplefreq,
 */
 DLL_EXPORT void dsp_modulation_amplitude(dsp_stream_p stream, double samplefreq, double freq);
 
+/**@}*/
 /**
-* \brief Find stars into the stream
-* \param stream The stream containing stars
-* \param levels The level of thresholding
-* \param min_size Minimum stellar size
-* \param threshold Intensity treshold
-* \param matrix The star shape
-* \return The new dsp_stream_p structure pointer
+ * \defgroup dsp_FileManagement DSP API File read/write functions
 */
-DLL_EXPORT int dsp_align_find_stars(dsp_stream_p stream, int levels, int min_size, float threshold, dsp_stream_p matrix);
-
-/**
-* \brief Limit search area to the radius around the first n stars and store those streams as children of the stream to be aligned
-* \param reference The reference solved stream
-* \param to_align The stream to be aligned
-* \param n Stars count limit
-* \param radius The search area
-* \return The number of streams cropped and added
-*/
-DLL_EXPORT int dsp_align_crop_limit(dsp_stream_p reference, dsp_stream_p to_align, int n, int radius);
-
-/**
-* \brief Find offsets between 2 streams and extract align informations
-* \param stream1 The first stream
-* \param stream2 The second stream
-* \param max_stars The maximum stars count allowed
-* \param precision The precision used for comparison
-* \param start_star Start compare from the start_star brigher star
-* \return The new dsp_align_info structure pointer
-*/
-DLL_EXPORT int dsp_align_get_offset(dsp_stream_p stream1, dsp_stream_p stream, double decimals, int delta_info,
-                                    double target_score);
-
-/**
-* \brief Rotate a stream around an axis and offset
-* \param stream The stream that need rotation
-* \param info The dsp_align_info structure pointer containing the rotation informations
-* \return The new dsp_stream_p structure pointer
-*/
-DLL_EXPORT void dsp_stream_rotate(dsp_stream_p stream);
-
-/**
-* \brief Traslate a stream
-* \param stream The stream that need traslation
-* \param info The dsp_align_info structure pointer containing the traslation informations
-* \return The new dsp_stream_p structure pointer
-*/
-DLL_EXPORT void dsp_stream_translate(dsp_stream_p stream);
-
-/**
-* \brief Scale a stream
-* \param stream The stream that need scaling
-* \param info The dsp_align_info structure pointer containing the scaling informations
-* \return The new dsp_stream_p structure pointer
-*/
-DLL_EXPORT void dsp_stream_scale(dsp_stream_p stream);
+/**@{*/
 
 /**
 * \brief Read a FITS file and fill a dsp_stream_p with its content
