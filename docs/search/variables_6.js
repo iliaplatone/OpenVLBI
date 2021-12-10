@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['geo_478',['Geo',['../structvlbi__node.html#a0c19a48e0e68ceb98ca14a50329fdb23',1,'vlbi_node']]],
-  ['geographic_479',['geographic',['../uniondsp__location__t.html#a71fb09ef04a1753b48d42e9c4789c0d2',1,'dsp_location_t']]],
-  ['geographiclocation_480',['GeographicLocation',['../structvlbi__node.html#a42aa067022ca630ed42b77e04d2847d5',1,'vlbi_node']]]
+  ['imaginary_451',['imaginary',['../uniondsp__complex.html#a18b3fbc0788b3216ce7fc7cc0cb891eb',1,'dsp_complex']]],
+  ['index_452',['index',['../structdsp__triangle__t.html#a6642375ca84fcfcc354b28d1479ed73d',1,'dsp_triangle_t::index()'],['../structvlbi__node.html#ad34f4ab7781676fb9e9ad8c07cad5e7d',1,'vlbi_node::Index()']]],
+  ['is_5fcopy_453',['is_copy',['../structdsp__stream__t.html#ad5b94d84110e6e5488d524acb78b3af9',1,'dsp_stream_t']]]
 ];

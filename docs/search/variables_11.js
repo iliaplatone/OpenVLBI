@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['v_520',['v',['../structvlbi__baseline.html#af8b09edbb953397691d04c0d74145c46',1,'vlbi_baseline']]]
+  ['wavelength_489',['WaveLength',['../structvlbi__baseline.html#a439048384cf94d81d749cf25e1ca0135',1,'vlbi_baseline::WaveLength()'],['../structdsp__stream__t.html#a2ea9e7b74ca02ca5d17de2f0eb41c6e1',1,'dsp_stream_t::wavelength()']]]
 ];

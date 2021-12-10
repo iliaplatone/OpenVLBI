@@ -65,84 +65,93 @@ $(function() {
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Essential VLBI functions<div class="ingroups"><a class="el" href="group___v_l_b_i.html">Very Long Baseline Interferometry</a></div></div>  </div>
+<div class="title">Essential VLBI functions<div class="ingroups"><a class="el" href="group___v_l_b_i.html">Very Long Baseline Interferometry API</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga7af54a4c1922c260e74c8a5f2fcb89d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga7af54a4c1922c260e74c8a5f2fcb89d9">vlbi_init</a> ()</td></tr>
-<tr class="memdesc:ga7af54a4c1922c260e74c8a5f2fcb89d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a OpenVLBI instance.  <a href="group___v_l_b_i___functions.html#ga7af54a4c1922c260e74c8a5f2fcb89d9">More...</a><br /></td></tr>
-<tr class="separator:ga7af54a4c1922c260e74c8a5f2fcb89d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga32534f7714c02277cd0eb519022f1c6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga32534f7714c02277cd0eb519022f1c6f">vlbi_exit</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx)</td></tr>
+<tr class="memitem:gaee569edd6bdf37b90c385df9a6400ac1"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaee569edd6bdf37b90c385df9a6400ac1">vlbi_init</a> (void)</td></tr>
+<tr class="memdesc:gaee569edd6bdf37b90c385df9a6400ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a OpenVLBI instance.  <a href="group___v_l_b_i___functions.html#gaee569edd6bdf37b90c385df9a6400ac1">More...</a><br /></td></tr>
+<tr class="separator:gaee569edd6bdf37b90c385df9a6400ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga32534f7714c02277cd0eb519022f1c6f"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga32534f7714c02277cd0eb519022f1c6f">vlbi_exit</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx)</td></tr>
 <tr class="memdesc:ga32534f7714c02277cd0eb519022f1c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close a OpenVLBI instance.  <a href="group___v_l_b_i___functions.html#ga32534f7714c02277cd0eb519022f1c6f">More...</a><br /></td></tr>
 <tr class="separator:ga32534f7714c02277cd0eb519022f1c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9e99d6986d48745e327677d44b5e65aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga9e99d6986d48745e327677d44b5e65aa">vlbi_add_node</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, <a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> Stream, char *name, int geographic_coordinates)</td></tr>
+<tr class="memitem:ga9e99d6986d48745e327677d44b5e65aa"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga9e99d6986d48745e327677d44b5e65aa">vlbi_add_node</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> Stream, char *name, int geographic_coordinates)</td></tr>
 <tr class="memdesc:ga9e99d6986d48745e327677d44b5e65aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a stream into the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#ga9e99d6986d48745e327677d44b5e65aa">More...</a><br /></td></tr>
 <tr class="separator:ga9e99d6986d48745e327677d44b5e65aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7409f0daf699703181fbb1838d352b7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga7409f0daf699703181fbb1838d352b7a">vlbi_del_node</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name)</td></tr>
+<tr class="memitem:ga7409f0daf699703181fbb1838d352b7a"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga7409f0daf699703181fbb1838d352b7a">vlbi_del_node</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name)</td></tr>
 <tr class="memdesc:ga7409f0daf699703181fbb1838d352b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a stream from the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#ga7409f0daf699703181fbb1838d352b7a">More...</a><br /></td></tr>
 <tr class="separator:ga7409f0daf699703181fbb1838d352b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae4c60f784c7a446d5032e0df056eb79c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gae4c60f784c7a446d5032e0df056eb79c">vlbi_get_nodes</a> (void *ctx, <a class="el" href="structvlbi__node.html">vlbi_node</a> **nodes)</td></tr>
+<tr class="memitem:gae4c60f784c7a446d5032e0df056eb79c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gae4c60f784c7a446d5032e0df056eb79c">vlbi_get_nodes</a> (void *ctx, <a class="el" href="structvlbi__node.html">vlbi_node</a> **nodes)</td></tr>
 <tr class="memdesc:gae4c60f784c7a446d5032e0df056eb79c"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all nodes of the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#gae4c60f784c7a446d5032e0df056eb79c">More...</a><br /></td></tr>
 <tr class="separator:gae4c60f784c7a446d5032e0df056eb79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gad8463ac0e307bb75bcef9c293cc5bd92">vlbi_get_baselines</a> (void *ctx, <a class="el" href="structvlbi__baseline.html">vlbi_baseline</a> **baselines)</td></tr>
+<tr class="memitem:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gad8463ac0e307bb75bcef9c293cc5bd92">vlbi_get_baselines</a> (void *ctx, <a class="el" href="structvlbi__baseline.html">vlbi_baseline</a> **baselines)</td></tr>
 <tr class="memdesc:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all baselines of the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#gad8463ac0e307bb75bcef9c293cc5bd92">More...</a><br /></td></tr>
 <tr class="separator:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5ba6f1431f425cb3bc254d175f189322"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga5ba6f1431f425cb3bc254d175f189322">vlbi_add_model</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, <a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> Stream, char *name)</td></tr>
+<tr class="memitem:ga5ba6f1431f425cb3bc254d175f189322"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga5ba6f1431f425cb3bc254d175f189322">vlbi_add_model</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> Stream, char *name)</td></tr>
 <tr class="memdesc:ga5ba6f1431f425cb3bc254d175f189322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a model into the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#ga5ba6f1431f425cb3bc254d175f189322">More...</a><br /></td></tr>
 <tr class="separator:ga5ba6f1431f425cb3bc254d175f189322"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf0862302257214708d18f8ec436c1728"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaf0862302257214708d18f8ec436c1728">vlbi_del_model</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name)</td></tr>
+<tr class="memitem:gaf0862302257214708d18f8ec436c1728"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaf0862302257214708d18f8ec436c1728">vlbi_del_model</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name)</td></tr>
 <tr class="memdesc:gaf0862302257214708d18f8ec436c1728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a model from the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#gaf0862302257214708d18f8ec436c1728">More...</a><br /></td></tr>
 <tr class="separator:gaf0862302257214708d18f8ec436c1728"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga49892d4e0938072735a95476926b6cc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga49892d4e0938072735a95476926b6cc0">vlbi_get_models</a> (void *ctx, <a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> **models)</td></tr>
+<tr class="memitem:ga49892d4e0938072735a95476926b6cc0"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga49892d4e0938072735a95476926b6cc0">vlbi_get_models</a> (void *ctx, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> **models)</td></tr>
 <tr class="memdesc:ga49892d4e0938072735a95476926b6cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all models of the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#ga49892d4e0938072735a95476926b6cc0">More...</a><br /></td></tr>
 <tr class="separator:ga49892d4e0938072735a95476926b6cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3d8fed08397407efa5b4f814c767665f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga3d8fed08397407efa5b4f814c767665f">vlbi_get_model</a> (void *ctx, char *name)</td></tr>
+<tr class="memitem:ga3d8fed08397407efa5b4f814c767665f"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga3d8fed08397407efa5b4f814c767665f">vlbi_get_model</a> (void *ctx, char *name)</td></tr>
 <tr class="memdesc:ga3d8fed08397407efa5b4f814c767665f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a single model from the current OpenVLBI context.  <a href="group___v_l_b_i___functions.html#ga3d8fed08397407efa5b4f814c767665f">More...</a><br /></td></tr>
 <tr class="separator:ga3d8fed08397407efa5b4f814c767665f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf57dbbb14efe53d31db2306389b0233c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaf57dbbb14efe53d31db2306389b0233c">vlbi_set_location</a> (void *ctx, double lat, double lon, double el)</td></tr>
+<tr class="memitem:gaf57dbbb14efe53d31db2306389b0233c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaf57dbbb14efe53d31db2306389b0233c">vlbi_set_location</a> (void *ctx, double lat, double lon, double el)</td></tr>
 <tr class="memdesc:gaf57dbbb14efe53d31db2306389b0233c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the location of the reference station.  <a href="group___v_l_b_i___functions.html#gaf57dbbb14efe53d31db2306389b0233c">More...</a><br /></td></tr>
 <tr class="separator:gaf57dbbb14efe53d31db2306389b0233c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf234b285a6e5e7616971046673241bdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaf234b285a6e5e7616971046673241bdd">vlbi_set_baseline_buffer</a> (void *ctx, char *node1, char *node2, <a class="el" href="group___d_s_p___defines.html#ga73df7c5a60ce5e6572c8c79035503a75">dsp_t</a> *buffer, int len)</td></tr>
+<tr class="memitem:gaf234b285a6e5e7616971046673241bdd"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaf234b285a6e5e7616971046673241bdd">vlbi_set_baseline_buffer</a> (void *ctx, char *node1, char *node2, dsp_t *buffer, int len)</td></tr>
 <tr class="memdesc:gaf234b285a6e5e7616971046673241bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the buffer of a single baseline with already correlated data.  <a href="group___v_l_b_i___functions.html#gaf234b285a6e5e7616971046673241bdd">More...</a><br /></td></tr>
 <tr class="separator:gaf234b285a6e5e7616971046673241bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0cef76b33739ef82614e1902f54b7eb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga0cef76b33739ef82614e1902f54b7eb8">vlbi_get_offsets</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, double J2000Time, char *node1, char *node2, double Ra, double Dec, double *offset1, double *offset2)</td></tr>
+<tr class="memitem:ga0cef76b33739ef82614e1902f54b7eb8"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga0cef76b33739ef82614e1902f54b7eb8">vlbi_get_offsets</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, double J2000Time, char *node1, char *node2, double Ra, double Dec, double *offset1, double *offset2)</td></tr>
 <tr class="memdesc:ga0cef76b33739ef82614e1902f54b7eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the delays of a single baseline nodes.  <a href="group___v_l_b_i___functions.html#ga0cef76b33739ef82614e1902f54b7eb8">More...</a><br /></td></tr>
 <tr class="separator:ga0cef76b33739ef82614e1902f54b7eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7bfadaa9a1d922d5f69a202ce0bd12c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1">vlbi_get_uv_plot</a> (void *ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, <a class="el" href="group___v_l_b_i___types.html#ga372e6573a910d3275046540c39f3dc39">vlbi_func2_t</a> delegate)</td></tr>
+<tr class="memitem:ga7bfadaa9a1d922d5f69a202ce0bd12c1"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1">vlbi_get_uv_plot</a> (void *ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, <a class="el" href="group___v_l_b_i___types.html#ga372e6573a910d3275046540c39f3dc39">vlbi_func2_t</a> delegate)</td></tr>
 <tr class="memdesc:ga7bfadaa9a1d922d5f69a202ce0bd12c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams into a new model with the given name.  <a href="group___v_l_b_i___functions.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1">More...</a><br /></td></tr>
 <tr class="separator:ga7bfadaa9a1d922d5f69a202ce0bd12c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1f70d9cdc9c4fea80253552ac678601e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga1f70d9cdc9c4fea80253552ac678601e">vlbi_get_ifft</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name, char *magnitude, char *phase)</td></tr>
+<tr class="memitem:ga1f70d9cdc9c4fea80253552ac678601e"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga1f70d9cdc9c4fea80253552ac678601e">vlbi_get_ifft</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name, char *magnitude, char *phase)</td></tr>
 <tr class="memdesc:ga1f70d9cdc9c4fea80253552ac678601e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot an inverse fourier transform of the uv plot using its current magnitude and phase components.  <a href="group___v_l_b_i___functions.html#ga1f70d9cdc9c4fea80253552ac678601e">More...</a><br /></td></tr>
 <tr class="separator:ga1f70d9cdc9c4fea80253552ac678601e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga330eacbd33ebbd4ebb573635fb22ac34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga330eacbd33ebbd4ebb573635fb22ac34">vlbi_get_fft</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *model, char *magnitude, char *phase)</td></tr>
+<tr class="memitem:ga330eacbd33ebbd4ebb573635fb22ac34"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga330eacbd33ebbd4ebb573635fb22ac34">vlbi_get_fft</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *model, char *magnitude, char *phase)</td></tr>
 <tr class="memdesc:ga330eacbd33ebbd4ebb573635fb22ac34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the fourier transform of the given model and save its magnitude and phase components into two new models named so.  <a href="group___v_l_b_i___functions.html#ga330eacbd33ebbd4ebb573635fb22ac34">More...</a><br /></td></tr>
 <tr class="separator:ga330eacbd33ebbd4ebb573635fb22ac34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7dab08e882848051b8d0529b1ab2f3fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga7dab08e882848051b8d0529b1ab2f3fa">vlbi_apply_mask</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name, char *model, char *mask)</td></tr>
+<tr class="memitem:ga7dab08e882848051b8d0529b1ab2f3fa"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga7dab08e882848051b8d0529b1ab2f3fa">vlbi_apply_mask</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name, char *model, char *mask)</td></tr>
 <tr class="memdesc:ga7dab08e882848051b8d0529b1ab2f3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask the stream with the content of the mask stream, by multiplication of each element.  <a href="group___v_l_b_i___functions.html#ga7dab08e882848051b8d0529b1ab2f3fa">More...</a><br /></td></tr>
 <tr class="separator:ga7dab08e882848051b8d0529b1ab2f3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2e395ca38f8cf83bbca211da10321380"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga2e395ca38f8cf83bbca211da10321380">vlbi_shift</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *model)</td></tr>
+<tr class="memitem:ga2e395ca38f8cf83bbca211da10321380"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga2e395ca38f8cf83bbca211da10321380">vlbi_shift</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *model)</td></tr>
 <tr class="memdesc:ga2e395ca38f8cf83bbca211da10321380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift a model by its dimensions.  <a href="group___v_l_b_i___functions.html#ga2e395ca38f8cf83bbca211da10321380">More...</a><br /></td></tr>
 <tr class="separator:ga2e395ca38f8cf83bbca211da10321380"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5a967c4cbe7a491cfe918c6e6623a111"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga5a967c4cbe7a491cfe918c6e6623a111">vlbi_add_model_from_png</a> (void *ctx, char *filename, char *name)</td></tr>
+<tr class="memitem:ga5a967c4cbe7a491cfe918c6e6623a111"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga5a967c4cbe7a491cfe918c6e6623a111">vlbi_add_model_from_png</a> (void *ctx, char *filename, char *name)</td></tr>
 <tr class="memdesc:ga5a967c4cbe7a491cfe918c6e6623a111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a model from a png file.  <a href="group___v_l_b_i___functions.html#ga5a967c4cbe7a491cfe918c6e6623a111">More...</a><br /></td></tr>
 <tr class="separator:ga5a967c4cbe7a491cfe918c6e6623a111"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae0202e05eebcedff7fecdb6db6ce103f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gae0202e05eebcedff7fecdb6db6ce103f">vlbi_add_model_from_jpeg</a> (void *ctx, char *filename, char *name)</td></tr>
+<tr class="memitem:gae0202e05eebcedff7fecdb6db6ce103f"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gae0202e05eebcedff7fecdb6db6ce103f">vlbi_add_model_from_jpeg</a> (void *ctx, char *filename, char *name)</td></tr>
 <tr class="memdesc:gae0202e05eebcedff7fecdb6db6ce103f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a model from a jpeg file.  <a href="group___v_l_b_i___functions.html#gae0202e05eebcedff7fecdb6db6ce103f">More...</a><br /></td></tr>
 <tr class="separator:gae0202e05eebcedff7fecdb6db6ce103f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga94ed2b33d58547643cf6488cd5213d9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga94ed2b33d58547643cf6488cd5213d9a">vlbi_add_model_from_fits</a> (void *ctx, char *filename, char *name)</td></tr>
+<tr class="memitem:ga94ed2b33d58547643cf6488cd5213d9a"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga94ed2b33d58547643cf6488cd5213d9a">vlbi_add_model_from_fits</a> (void *ctx, char *filename, char *name)</td></tr>
 <tr class="memdesc:ga94ed2b33d58547643cf6488cd5213d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a model from a fits file.  <a href="group___v_l_b_i___functions.html#ga94ed2b33d58547643cf6488cd5213d9a">More...</a><br /></td></tr>
 <tr class="separator:ga94ed2b33d58547643cf6488cd5213d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga80904445a9b616a8e78f63cb2a788231"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga80904445a9b616a8e78f63cb2a788231">vlbi_add_node_from_fits</a> (void *ctx, char *filename, char *name, int geo)</td></tr>
+<tr class="memitem:ga21931a71cd53e99f94909365c17d6e97"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga21931a71cd53e99f94909365c17d6e97">vlbi_get_model_to_png</a> (void *ctx, char *filename, char *name)</td></tr>
+<tr class="memdesc:ga21931a71cd53e99f94909365c17d6e97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a model to a png file.  <a href="group___v_l_b_i___functions.html#ga21931a71cd53e99f94909365c17d6e97">More...</a><br /></td></tr>
+<tr class="separator:ga21931a71cd53e99f94909365c17d6e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b9af55931de4731e54f0dca9ec3ce2d"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga0b9af55931de4731e54f0dca9ec3ce2d">vlbi_get_model_to_jpeg</a> (void *ctx, char *filename, char *name)</td></tr>
+<tr class="memdesc:ga0b9af55931de4731e54f0dca9ec3ce2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a model to a jpeg file.  <a href="group___v_l_b_i___functions.html#ga0b9af55931de4731e54f0dca9ec3ce2d">More...</a><br /></td></tr>
+<tr class="separator:ga0b9af55931de4731e54f0dca9ec3ce2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffeb813ff78c96454e5bdea3882b7a7e"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gaffeb813ff78c96454e5bdea3882b7a7e">vlbi_get_model_to_fits</a> (void *ctx, char *filename, char *name)</td></tr>
+<tr class="memdesc:gaffeb813ff78c96454e5bdea3882b7a7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a model to a fits file.  <a href="group___v_l_b_i___functions.html#gaffeb813ff78c96454e5bdea3882b7a7e">More...</a><br /></td></tr>
+<tr class="separator:gaffeb813ff78c96454e5bdea3882b7a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80904445a9b616a8e78f63cb2a788231"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga80904445a9b616a8e78f63cb2a788231">vlbi_add_node_from_fits</a> (void *ctx, char *filename, char *name, int geo)</td></tr>
 <tr class="memdesc:ga80904445a9b616a8e78f63cb2a788231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a node from a fits file stored into a memory buffer.  <a href="group___v_l_b_i___functions.html#ga80904445a9b616a8e78f63cb2a788231">More...</a><br /></td></tr>
 <tr class="separator:ga80904445a9b616a8e78f63cb2a788231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5e1131d240c7c9684e8235e6faceb9b1"><td class="memItemLeft" align="right" valign="top">unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga5e1131d240c7c9684e8235e6faceb9b1">vlbi_max_threads</a> (unsigned long value)</td></tr>
 <tr class="memdesc:ga5e1131d240c7c9684e8235e6faceb9b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">get/set the maximum number of threads allowed  <a href="group___v_l_b_i___functions.html#ga5e1131d240c7c9684e8235e6faceb9b1">More...</a><br /></td></tr>
 <tr class="separator:ga5e1131d240c7c9684e8235e6faceb9b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga79a6e4befc2d91b2f36ab1e5d79ccef8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga79a6e4befc2d91b2f36ab1e5d79ccef8">vlbi_get_version</a> ()</td></tr>
-<tr class="memdesc:ga79a6e4befc2d91b2f36ab1e5d79ccef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the current version of OpenVLBI.  <a href="group___v_l_b_i___functions.html#ga79a6e4befc2d91b2f36ab1e5d79ccef8">More...</a><br /></td></tr>
-<tr class="separator:ga79a6e4befc2d91b2f36ab1e5d79ccef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabfd8aa4ad8d8ae1a28745d71924b73c8"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gabfd8aa4ad8d8ae1a28745d71924b73c8">vlbi_get_version</a> (void)</td></tr>
+<tr class="memdesc:gabfd8aa4ad8d8ae1a28745d71924b73c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the current version of OpenVLBI.  <a href="group___v_l_b_i___functions.html#gabfd8aa4ad8d8ae1a28745d71924b73c8">More...</a><br /></td></tr>
+<tr class="separator:gabfd8aa4ad8d8ae1a28745d71924b73c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -153,7 +162,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_add_model </td>
+          <td class="memname">DLL_EXPORT void vlbi_add_model </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -161,7 +170,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
           <td class="paramname"><em>Stream</em>, </td>
         </tr>
         <tr>
@@ -177,8 +186,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Add a model into the current OpenVLBI context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -197,7 +204,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_add_model_from_fits </td>
+          <td class="memname">DLL_EXPORT void vlbi_add_model_from_fits </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -221,8 +228,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Add a model from a fits file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -241,7 +246,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_add_model_from_jpeg </td>
+          <td class="memname">DLL_EXPORT void vlbi_add_model_from_jpeg </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -265,8 +270,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Add a model from a jpeg file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -285,7 +288,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_add_model_from_png </td>
+          <td class="memname">DLL_EXPORT void vlbi_add_model_from_png </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -309,8 +312,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Add a model from a png file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -329,7 +330,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_add_node </td>
+          <td class="memname">DLL_EXPORT void vlbi_add_node </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -337,7 +338,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
           <td class="paramname"><em>Stream</em>, </td>
         </tr>
         <tr>
@@ -359,8 +360,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Add a stream into the current OpenVLBI context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -379,7 +378,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_add_node_from_fits </td>
+          <td class="memname">DLL_EXPORT void vlbi_add_node_from_fits </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -409,8 +408,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Add a node from a fits file stored into a memory buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -431,7 +428,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_apply_mask </td>
+          <td class="memname">DLL_EXPORT void vlbi_apply_mask </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -461,8 +458,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Mask the stream with the content of the mask stream, by multiplication of each element. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -482,7 +477,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_del_model </td>
+          <td class="memname">DLL_EXPORT void vlbi_del_model </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -500,8 +495,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Remove a model from the current OpenVLBI context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -519,7 +512,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_del_node </td>
+          <td class="memname">DLL_EXPORT void vlbi_del_node </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -537,8 +530,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Remove a stream from the current OpenVLBI context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -556,7 +547,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_exit </td>
+          <td class="memname">DLL_EXPORT void vlbi_exit </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
           <td class="paramname"><em>ctx</em></td><td>)</td>
@@ -564,8 +555,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Close a OpenVLBI instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -582,7 +571,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int vlbi_get_baselines </td>
+          <td class="memname">DLL_EXPORT int vlbi_get_baselines </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -600,8 +589,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>List all baselines of the current OpenVLBI context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -620,7 +607,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_get_fft </td>
+          <td class="memname">DLL_EXPORT void vlbi_get_fft </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -650,8 +637,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Get the fourier transform of the given model and save its magnitude and phase components into two new models named so. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -671,7 +656,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_get_ifft </td>
+          <td class="memname">DLL_EXPORT void vlbi_get_ifft </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -701,8 +686,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Plot an inverse fourier transform of the uv plot using its current magnitude and phase components. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -722,7 +705,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> vlbi_get_model </td>
+          <td class="memname">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> vlbi_get_model </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -740,8 +723,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Get a single model from the current OpenVLBI context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -753,14 +734,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga49892d4e0938072735a95476926b6cc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga49892d4e0938072735a95476926b6cc0">&#9670;&nbsp;</a></span>vlbi_get_models()</h2>
+<a id="gaffeb813ff78c96454e5bdea3882b7a7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaffeb813ff78c96454e5bdea3882b7a7e">&#9670;&nbsp;</a></span>vlbi_get_model_to_fits()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int vlbi_get_models </td>
+          <td class="memname">DLL_EXPORT void vlbi_get_model_to_fits </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -768,7 +749,133 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> **&#160;</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">filename</td><td>The file name of the picture to write </td></tr>
+    <tr><td class="paramname">model</td><td>The name of the model chosen. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0b9af55931de4731e54f0dca9ec3ce2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0b9af55931de4731e54f0dca9ec3ce2d">&#9670;&nbsp;</a></span>vlbi_get_model_to_jpeg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void vlbi_get_model_to_jpeg </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">filename</td><td>The file name of the picture to write </td></tr>
+    <tr><td class="paramname">model</td><td>The name of the model chosen. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga21931a71cd53e99f94909365c17d6e97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga21931a71cd53e99f94909365c17d6e97">&#9670;&nbsp;</a></span>vlbi_get_model_to_png()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void vlbi_get_model_to_png </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">filename</td><td>The file name of the picture to write </td></tr>
+    <tr><td class="paramname">model</td><td>The name of the model chosen. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga49892d4e0938072735a95476926b6cc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga49892d4e0938072735a95476926b6cc0">&#9670;&nbsp;</a></span>vlbi_get_models()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT int vlbi_get_models </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> **&#160;</td>
           <td class="paramname"><em>models</em>&#160;</td>
         </tr>
         <tr>
@@ -778,8 +885,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>List all models of the current OpenVLBI context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -798,7 +903,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> int vlbi_get_nodes </td>
+          <td class="memname">DLL_EXPORT int vlbi_get_nodes </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -816,8 +921,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>List all nodes of the current OpenVLBI context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -836,7 +939,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_get_offsets </td>
+          <td class="memname">DLL_EXPORT void vlbi_get_offsets </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -890,8 +993,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Get the delays of a single baseline nodes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -913,7 +1014,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_get_uv_plot </td>
+          <td class="memname">DLL_EXPORT void vlbi_get_uv_plot </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -979,8 +1080,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams into a new model with the given name. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -999,42 +1098,40 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga79a6e4befc2d91b2f36ab1e5d79ccef8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga79a6e4befc2d91b2f36ab1e5d79ccef8">&#9670;&nbsp;</a></span>vlbi_get_version()</h2>
+<a id="gabfd8aa4ad8d8ae1a28745d71924b73c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabfd8aa4ad8d8ae1a28745d71924b73c8">&#9670;&nbsp;</a></span>vlbi_get_version()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> char* vlbi_get_version </td>
+          <td class="memname">DLL_EXPORT char* vlbi_get_version </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Print the current version of OpenVLBI. </p>
 <dl class="section return"><dt>Returns</dt><dd>char* The Version string </dd></dl>
 
 </div>
 </div>
-<a id="ga7af54a4c1922c260e74c8a5f2fcb89d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7af54a4c1922c260e74c8a5f2fcb89d9">&#9670;&nbsp;</a></span>vlbi_init()</h2>
+<a id="gaee569edd6bdf37b90c385df9a6400ac1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaee569edd6bdf37b90c385df9a6400ac1">&#9670;&nbsp;</a></span>vlbi_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> <a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> vlbi_init </td>
+          <td class="memname">DLL_EXPORT <a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> vlbi_init </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Initialize a OpenVLBI instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>The OpenVLBI context </dd></dl>
 
 </div>
@@ -1062,8 +1159,6 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>get/set the maximum number of threads allowed </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">value</td><td>if greater than 1, set a maximum number of threads allowed </td></tr>
@@ -1081,7 +1176,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_set_baseline_buffer </td>
+          <td class="memname">DLL_EXPORT void vlbi_set_baseline_buffer </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -1101,7 +1196,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___d_s_p___defines.html#ga73df7c5a60ce5e6572c8c79035503a75">dsp_t</a> *&#160;</td>
+          <td class="paramtype">dsp_t *&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -1117,8 +1212,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Set the buffer of a single baseline with already correlated data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -1139,7 +1232,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_set_location </td>
+          <td class="memname">DLL_EXPORT void vlbi_set_location </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -1169,8 +1262,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Set the location of the reference station. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -1190,7 +1281,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void vlbi_shift </td>
+          <td class="memname">DLL_EXPORT void vlbi_shift </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -1208,8 +1299,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Shift a model by its dimensions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
@@ -1223,7 +1312,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 20:23:28 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 23:14:30 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

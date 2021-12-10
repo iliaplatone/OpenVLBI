@@ -1,10 +1,13 @@
-#include "vlbi_client.h"
+#include "vlbi_server.h"
 #include <cstring>
 #include <dsp.h>
+#include <vlbi/base64.h>
+#include <vlbi/instancecollection.h>
 
 static int is_running = 1;
 
-VLBI::Client::Client()
+static InstanceCollection *contexts;
+VLBI::Server::Server()
 {
     input = stdin;
     output = stdout;
@@ -20,7 +23,7 @@ VLBI::Client::Client()
     contexts = new InstanceCollection();
 }
 
-VLBI::Client::~Client()
+VLBI::Server::~Server()
 {
     if(GetContext() != nullptr)
     {
@@ -35,7 +38,7 @@ static double fillone_delegate(double x, double y)
     return 1.0;
 }
 
-void VLBI::Client::AddNode(char *name, char *b64)
+void VLBI::Server::AddNode(char *name, char *b64)
 {
     char filename[128];
     strcpy(filename, "tmp_nodeXXXXXX");
@@ -53,7 +56,7 @@ void VLBI::Client::AddNode(char *name, char *b64)
     }
 }
 
-void VLBI::Client::AddNode(char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
+void VLBI::Server::AddNode(char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
 {
     dsp_stream_p node = dsp_stream_new();
     int len = bytelen * 8 / abs(Bps);
@@ -87,44 +90,44 @@ void VLBI::Client::AddNode(char *name, dsp_location *locations, void *buf, int b
     vlbi_add_node(GetContext(), node, name, geo);
 }
 
-void VLBI::Client::DelNode(char *name)
+void VLBI::Server::DelNode(char *name)
 {
     vlbi_del_node(GetContext(), name);
 }
 
-void VLBI::Client::Plot(char *name, int u, int v, int type, bool nodelay)
+void VLBI::Server::Plot(char *name, int u, int v, int type, bool nodelay)
 {
     double coords[3] = { Ra, Dec };
     vlbi_get_uv_plot(GetContext(), name, u, v, coords, Freq, SampleRate, nodelay, (type & APERTURE_SYNTHESIS) == 0,
                      (type & UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
 }
 
-void VLBI::Client::Idft(char *model, char *magnitude, char *phase)
+void VLBI::Server::Idft(char *model, char *magnitude, char *phase)
 {
     vlbi_get_ifft(GetContext(), model, magnitude, phase);
 }
 
-void VLBI::Client::Dft(char *model, char *magnitude, char *phase)
+void VLBI::Server::Dft(char *model, char *magnitude, char *phase)
 {
     vlbi_get_fft(GetContext(), model, magnitude, phase);
 }
 
-void VLBI::Client::Mask(char *name, char *model, char *mask)
+void VLBI::Server::Mask(char *name, char *model, char *mask)
 {
     vlbi_apply_mask(GetContext(), name, model, mask);
 }
 
-void VLBI::Client::Shift(char *name)
+void VLBI::Server::Shift(char *name)
 {
     vlbi_shift(GetContext(), name);
 }
 
-dsp_stream_p VLBI::Client::GetModel(char *name)
+dsp_stream_p VLBI::Server::GetModel(char *name)
 {
     return vlbi_get_model(GetContext(), name);
 }
 
-char* VLBI::Client::GetModel(char *name, char *format)
+char* VLBI::Server::GetModel(char *name, char *format)
 {
     char filename[128];
     int channels = 1;
@@ -166,7 +169,7 @@ char* VLBI::Client::GetModel(char *name, char *format)
     return nullptr;
 }
 
-int VLBI::Client::GetModels(char** names)
+int VLBI::Server::GetModels(char** names)
 {
     dsp_stream_p* models;
     int len = vlbi_get_models(GetContext(), &models);
@@ -182,12 +185,12 @@ int VLBI::Client::GetModels(char** names)
     return 0;
 }
 
-void VLBI::Client::DelModel(char* name)
+void VLBI::Server::DelModel(char* name)
 {
     vlbi_del_model(GetContext(), name);
 }
 
-void VLBI::Client::AddModel(char* name, char *format, char *b64)
+void VLBI::Server::AddModel(char* name, char *format, char *b64)
 {
     char filename[128];
     int fd = -1;
@@ -222,7 +225,7 @@ void VLBI::Client::AddModel(char* name, char *format, char *b64)
     }
 }
 
-void VLBI::Client::Parse()
+void VLBI::Server::Parse()
 {
     FILE* f = input;
     size_t len = 0;
@@ -557,12 +560,42 @@ void VLBI::Client::Parse()
     }
 }
 
-extern VLBI::Client *client;
+extern VLBI::Server *client;
+
+void VLBI::Server::AddContext(char* name)
+{
+    if(!contexts->ContainsKey(name)) contexts->Add(vlbi_init(), name);
+}
+
+void VLBI::Server::SetContext(char* name)
+{
+    if(contexts->ContainsKey(name))
+    {
+        context = (char*)realloc(context, strlen(name));
+        strcpy(context, name);
+    }
+}
+
+vlbi_context VLBI::Server::GetContext()
+{
+    if(contexts->ContainsKey(context)) return contexts->Get(context);
+    return nullptr;
+}
+
+void VLBI::Server::DelContext(char* name)
+{
+    if(contexts->ContainsKey(name))
+    {
+        vlbi_context ctx = contexts->Get(name);
+        contexts->Remove(name);
+        vlbi_exit(ctx);
+    }
+}
 
 static void sighandler(int signum)
 {
     signal(signum, SIG_IGN);
-    client->~Client();
+    client->~Server();
     signal(signum, sighandler);
     exit(0);
 }
@@ -579,10 +612,10 @@ int main(int argc, char** argv)
                 vlbi_max_threads((unsigned long)atol(optarg));
                 break;
             case 'f':
-                client->input = fopen (optarg, "rb+");
+                client->SetInput(fopen (optarg, "rb+"));
                 break;
             case 'o':
-                client->output = fopen (optarg, "a");
+                client->SetOutput(fopen (optarg, "a"));
                 break;
             default:
                 fprintf(stderr, "Usage: %s [-t max_threads] [-f obs_file] [-o obs_file]\n", argv[0]);
@@ -598,7 +631,7 @@ int main(int argc, char** argv)
     {
         while (is_running)
         {
-            if(feof(client->input))
+            if(feof(client->GetInput()))
                 break;
             client->Parse();
         }

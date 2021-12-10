@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['build_20libvlbi_556',['Build libvlbi',['../page__build.html',1,'']]]
+  ['build_20openvlbi_519',['Build OpenVLBI',['../page__build.html',1,'']]]
 ];

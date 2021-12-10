@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Open source Very Long Baseline Interferometry: OpenVLBI clients</title>
+<title>Open source Very Long Baseline Interferometry: OpenVLBI servers</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,15 +63,15 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">OpenVLBI clients </div>  </div>
+<div class="title">OpenVLBI servers </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2><a class="anchor" id="autotoc_md2"></a>
-OpenVLBI client sample</h2>
-<p>OpenVLBI can be tested using the built vlbi_client_dummy application, which creates a subshell or takes arguments from the standard input. the source files of the sample application make use of the vlbi_client.h source header, which contains a base class to be inherited in case that you want to build your own client or implementation.</p>
+OpenVLBI server sample</h2>
+<p>OpenVLBI can be tested using the built vlbi_server_dummy application, which creates a subshell or takes arguments from the standard input. the source files of the sample application make use of the <a class="el" href="vlbi__server_8h_source.html">vlbi_server.h</a> source header, which contains a base class to be inherited in case that you want to build your own server or implementation.</p>
 <h2><a class="anchor" id="autotoc_md3"></a>
-OpenVLBI client using INDI libraries</h2>
-<p>OpenVLBI comes with vlbi_client_indi, a client that connects to an INDI server whose drivers will be treated by OpenVLBI as nodes. OpenVLBI nodes must contain informations about location, aperture, focal length, samplerate and observed frequency preferably, and should permit to slew their telescopes or antennas to the same celestial coordinates. tracking must be supported by the mounts and each node should capture and run at the same bit depth, frequency and possibly bandwidth and gain. After each capture is done, a new node will be added to the OpenVLBI context by parsing the received FITS.</p>
+OpenVLBI server using INDI libraries</h2>
+<p>OpenVLBI comes with vlbi_server_indi, a server that connects to an INDI server whose drivers will be treated by OpenVLBI as nodes. OpenVLBI nodes must contain informations about location, aperture, focal length, samplerate and observed frequency preferably, and should permit to slew their telescopes or antennas to the same celestial coordinates. tracking must be supported by the mounts and each node should capture and run at the same bit depth, frequency and possibly bandwidth and gain. After each capture is done, a new node will be added to the OpenVLBI context by parsing the received FITS.</p>
 <p>The needed INDI interfaces are so:</p><ul>
 <li>INDI::BaseDevice::TELESCOPE_INTERFACE</li>
 <li>INDI::BaseDevice::GPS_INTERFACE</li>
@@ -82,7 +82,7 @@ OpenVLBI client using INDI libraries</h2>
 <li>INDI::BaseDevice::CCD_INTERFACE</li>
 <li>INDI::BaseDevice::GUIDER_INTERFACE</li>
 </ul>
-<p>The properties used by this client are:</p><ul>
+<p>The properties used by this server are:</p><ul>
 <li>"EQUATORIAL_EOD_COORDS" RA and DEC from telescope for gotos and slews</li>
 <li>"TELESCOPE_TRACK_STATE" from telescope for tracking</li>
 <li>"GEOGRAPHIC_COORDS" LATITUDE, LONGITUDE and ELEVATION to fill the UV plane and plot the frequency response</li>
@@ -90,8 +90,8 @@ OpenVLBI client using INDI libraries</h2>
 <li>"DETECTOR_SETTINGS" set up frequency, bandwidth, sampling rate and depth, and gain of the detectors</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md4"></a>
-OpenVLBI clients usage</h2>
-<p>The vlbi client applications open a command shell and read from stdin. Format of commands is: cmd arg value:type where type can be string or numeric.</p>
+OpenVLBI servers usage</h2>
+<p>The vlbi server applications open a command shell and read from stdin. Format of commands is: cmd arg value:type where type can be string or numeric.</p>
 <p>Here is the current command list:</p>
 <div class="fragment"><div class="line">add context name:<span class="keywordtype">string</span> - add an OpenVLBI context to the <span class="keyword">internal</span> list</div>
 <div class="line">set context name:<span class="keywordtype">string</span> - set current OpenVLBI context selecting it by name from the <span class="keyword">internal</span> list</div>
@@ -116,7 +116,7 @@ OpenVLBI clients usage</h2>
 <div class="line">del node name:<span class="keywordtype">string</span> - remove a node from the current context</div>
 <div class="line">del context name:<span class="keywordtype">string</span> - remove a context from the <span class="keyword">internal</span> list</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md5"></a>
-INDI client specific commands</h3>
+INDI server specific commands</h3>
 <div class="fragment"><div class="line">set gain value:numeric - set detectors gain</div>
 <div class="line">set bandwidth value:numeric - set detectors bandwidth</div>
 <div class="line">set parking state:<span class="keywordtype">string</span> - set telescopes parking state (on, off)</div>
@@ -128,7 +128,7 @@ INDI client specific commands</h3>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 20:23:28 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 23:14:30 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

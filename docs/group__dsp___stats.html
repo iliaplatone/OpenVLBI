@@ -108,7 +108,7 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga5ff02b49377aec1a4176b7397d26093c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___stats.html#ga5ff02b49377aec1a4176b7397d26093c">dsp_stats_histogram</a> (<a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a> stream, int size)</td></tr>
+<tr class="memitem:ga5ff02b49377aec1a4176b7397d26093c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___stats.html#ga5ff02b49377aec1a4176b7397d26093c">dsp_stats_histogram</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, int size)</td></tr>
 <tr class="memdesc:ga5ff02b49377aec1a4176b7397d26093c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Histogram of the inut stream.  <a href="group__dsp___stats.html#ga5ff02b49377aec1a4176b7397d26093c">More...</a><br /></td></tr>
 <tr class="separator:ga5ff02b49377aec1a4176b7397d26093c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -152,9 +152,7 @@ Functions</h2></td></tr>
 <div class="line">    }\</div>
 <div class="line">    out;\</div>
 <div class="line">    })</div>
-</div><!-- fragment -->
-<p>Compare two buffers. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">in1</td><td>the first input buffer </td></tr>
     <tr><td class="paramname">in2</td><td>the second input buffer </td></tr>
@@ -199,9 +197,7 @@ Functions</h2></td></tr>
 <div class="line">    }\</div>
 <div class="line">    max;\</div>
 <div class="line">    })</div>
-</div><!-- fragment -->
-<p>Gets the maximum value of the input stream. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
@@ -245,9 +241,7 @@ Functions</h2></td></tr>
 <div class="line">    }\</div>
 <div class="line">    i;\</div>
 <div class="line">    })</div>
-</div><!-- fragment -->
-<p>Gets maximum value's position into the buffer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
@@ -292,9 +286,7 @@ Functions</h2></td></tr>
 <div class="line">    __dsp__mean /= __dsp__len;\</div>
 <div class="line">    __dsp__mean;\</div>
 <div class="line">    })</div>
-</div><!-- fragment -->
-<p>A mean calculator. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
@@ -335,9 +327,7 @@ Functions</h2></td></tr>
 <div class="line">    __typeof__(buf[0]) min = <a class="code" href="group__dsp___stats.html#ga188a626cbaa63ccaa1403e63885a23dd">dsp_stats_min</a>(buf, len);\</div>
 <div class="line">    (__typeof__(buf[0]))(min - <a class="code" href="group__dsp___stats.html#ga9205dc9d9f963ceb4581f97ba584b977">dsp_stats_max</a>(buf, len)) / 2.0 + min;\</div>
 <div class="line">})</div>
-</div><!-- fragment -->
-<p>Gets the middle value of the input stream. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
@@ -381,9 +371,7 @@ Functions</h2></td></tr>
 <div class="line">    }\</div>
 <div class="line">    min;\</div>
 <div class="line">    })</div>
-</div><!-- fragment -->
-<p>Gets the minimum value of the input stream. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
@@ -427,9 +415,7 @@ Functions</h2></td></tr>
 <div class="line">    }\</div>
 <div class="line">    i;\</div>
 <div class="line">    })</div>
-</div><!-- fragment -->
-<p>Gets minimum value's position into the buffer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
@@ -486,9 +472,7 @@ Functions</h2></td></tr>
 <div class="line">    }\</div>
 <div class="line">    count;\</div>
 <div class="line">    })</div>
-</div><!-- fragment -->
-<p>Counts value ranging occurrences into stream. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
@@ -536,9 +520,7 @@ Functions</h2></td></tr>
 <div class="line">    __dsp__stddev /= __dsp__len;\</div>
 <div class="line">    __dsp__stddev;\</div>
 <div class="line">    })</div>
-</div><!-- fragment -->
-<p>Standard deviation of the inut stream. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the inout buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length of the buffer </td></tr>
@@ -588,9 +570,7 @@ Functions</h2></td></tr>
 <div class="line">    }\</div>
 <div class="line">    count;\</div>
 <div class="line">    })</div>
-</div><!-- fragment -->
-<p>Counts value occurrences into stream. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
@@ -635,9 +615,7 @@ Functions</h2></td></tr>
 <div class="line">    }\</div>
 <div class="line">    sum;\</div>
 <div class="line">    })</div>
-</div><!-- fragment -->
-<p>Cumulative sum of all the values on the stream. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
@@ -656,9 +634,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> double* dsp_stats_histogram </td>
+          <td class="memname">DLL_EXPORT double* dsp_stats_histogram </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
           <td class="paramname"><em>stream</em>, </td>
         </tr>
         <tr>
@@ -674,8 +652,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Histogram of the inut stream. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stream</td><td>the stream on which execute </td></tr>
@@ -695,7 +671,7 @@ Functions</h2></td></tr>
 <div class="ttc" id="agroup__dsp___stats_html_ga9205dc9d9f963ceb4581f97ba584b977"><div class="ttname"><a href="group__dsp___stats.html#ga9205dc9d9f963ceb4581f97ba584b977">dsp_stats_max</a></div><div class="ttdeci">#define dsp_stats_max(buf, len)</div><div class="ttdoc">Gets the maximum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:489</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 20:23:28 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 23:14:30 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

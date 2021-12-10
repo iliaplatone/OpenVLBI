@@ -1,12 +1,12 @@
-#include "vlbi_client_indi.h"
+#include "vlbi_server_indi.h"
 
-INDIClient::INDIClient()
+INDIServer::INDIServer()
     : INDI::BaseClient()
-    , VLBI::Client::Client()
+    , VLBI::Server::Server()
 {
 }
 
-int INDIClient::Init(int argc, char** argv)
+int INDIServer::Init(int argc, char** argv)
 {
     if(argc > 1)
     {
@@ -23,12 +23,12 @@ int INDIClient::Init(int argc, char** argv)
     return 1;
 }
 
-INDIClient::~INDIClient()
+INDIServer::~INDIServer()
 {
     disconnectServer();
 }
 
-void INDIClient::SetCapture(double seconds)
+void INDIServer::SetCapture(double seconds)
 {
     if(!isServerConnected())
         return;
@@ -41,7 +41,7 @@ void INDIClient::SetCapture(double seconds)
     }
 }
 
-void INDIClient::AbortCapture()
+void INDIServer::AbortCapture()
 {
     if(!isServerConnected())
         return;
@@ -54,7 +54,7 @@ void INDIClient::AbortCapture()
     }
 }
 
-void INDIClient::SetExposure(double seconds)
+void INDIServer::SetExposure(double seconds)
 {
     if(!isServerConnected())
         return;
@@ -67,7 +67,7 @@ void INDIClient::SetExposure(double seconds)
     }
 }
 
-void INDIClient::AbortExposure()
+void INDIServer::AbortExposure()
 {
     if(!isServerConnected())
         return;
@@ -80,10 +80,11 @@ void INDIClient::AbortExposure()
     }
 }
 
-void INDIClient::SetFrequency(double centerfrequency)
+void INDIServer::SetFreq(double centerfrequency)
 {
     if(!isServerConnected())
         return;
+    VLBI::Server::SetFreq(centerfrequency);
     std::vector<INDI::BaseDevice*> devices;
     getDevices(devices, INDI::BaseDevice::SPECTROGRAPH_INTERFACE);
     for(INDI::BaseDevice* dev : devices)
@@ -93,10 +94,11 @@ void INDIClient::SetFrequency(double centerfrequency)
     }
 }
 
-void INDIClient::SetSampleRate(double samplingfrequency)
+void INDIServer::SetSampleRate(double samplingfrequency)
 {
     if(!isServerConnected())
         return;
+    VLBI::Server::SetSampleRate(samplingfrequency);
     std::vector<INDI::BaseDevice*> devices;
     getDevices(devices, INDI::BaseDevice::SPECTROGRAPH_INTERFACE);
     for(INDI::BaseDevice* dev : devices)
@@ -106,7 +108,7 @@ void INDIClient::SetSampleRate(double samplingfrequency)
     }
 }
 
-void INDIClient::SetBadwidth(double bandwidth)
+void INDIServer::SetBadwidth(double bandwidth)
 {
     if(!isServerConnected())
         return;
@@ -120,7 +122,7 @@ void INDIClient::SetBadwidth(double bandwidth)
     }
 }
 
-void INDIClient::SetGain(double gain)
+void INDIServer::SetGain(double gain)
 {
     if(!isServerConnected())
         return;
@@ -133,10 +135,11 @@ void INDIClient::SetGain(double gain)
     }
 }
 
-void INDIClient::SetBps(int Bps)
+void INDIServer::SetBps(int Bps)
 {
     if(!isServerConnected())
         return;
+    VLBI::Server::SetBps(Bps);
     std::vector<INDI::BaseDevice*> devices;
     getDevices(devices, INDI::BaseDevice::SPECTROGRAPH_INTERFACE);
     for(INDI::BaseDevice* dev : devices)
@@ -146,7 +149,7 @@ void INDIClient::SetBps(int Bps)
     }
 }
 
-void INDIClient::GoTo(double Ra, double Dec)
+void INDIServer::GoTo(double Ra, double Dec)
 {
     if(!isServerConnected())
         return;
@@ -160,7 +163,7 @@ void INDIClient::GoTo(double Ra, double Dec)
     }
 }
 
-void INDIClient::Connect()
+void INDIServer::Connect()
 {
     if(!isServerConnected())
         return;
@@ -174,7 +177,7 @@ void INDIClient::Connect()
     }
 }
 
-void INDIClient::Disconnect()
+void INDIServer::Disconnect()
 {
     if(!isServerConnected())
         return;
@@ -188,7 +191,7 @@ void INDIClient::Disconnect()
     }
 }
 
-void INDIClient::Tracking(bool on)
+void INDIServer::Tracking(bool on)
 {
     if(!isServerConnected())
         return;
@@ -207,7 +210,7 @@ void INDIClient::Tracking(bool on)
     }
 }
 
-void INDIClient::Park()
+void INDIServer::Park()
 {
     if(!isServerConnected())
         return;
@@ -221,7 +224,7 @@ void INDIClient::Park()
     }
 }
 
-void INDIClient::Unpark()
+void INDIServer::Unpark()
 {
     if(!isServerConnected())
         return;
@@ -235,17 +238,17 @@ void INDIClient::Unpark()
     }
 }
 
-void INDIClient::newDevice(INDI::BaseDevice *dev)
+void INDIServer::newDevice(INDI::BaseDevice *dev)
 {
     INDI_UNUSED(dev);
 }
 
-void INDIClient::removeDevice(INDI::BaseDevice *dp)
+void INDIServer::removeDevice(INDI::BaseDevice *dp)
 {
     INDI_UNUSED(dp);
 }
 
-void INDIClient::newProperty(INDI::Property *property)
+void INDIServer::newProperty(INDI::Property *property)
 {
     if(!isServerConnected())
         return;
@@ -253,12 +256,12 @@ void INDIClient::newProperty(INDI::Property *property)
     INDI_UNUSED(property);
 }
 
-void INDIClient::removeProperty(INDI::Property *property)
+void INDIServer::removeProperty(INDI::Property *property)
 {
     INDI_UNUSED(property);
 }
 
-void INDIClient::newBLOB(IBLOB *bp)
+void INDIServer::newBLOB(IBLOB *bp)
 {
     if(!isServerConnected())
         return;
@@ -279,9 +282,10 @@ void INDIClient::newBLOB(IBLOB *bp)
             INDI_UNUSED(bp);
         }
     }
+    INDI_UNUSED(bp);
 }
 
-void INDIClient::newSwitch(ISwitchVectorProperty *svp)
+void INDIServer::newSwitch(ISwitchVectorProperty *svp)
 {
     if(!isServerConnected())
         return;
@@ -296,9 +300,10 @@ void INDIClient::newSwitch(ISwitchVectorProperty *svp)
             fprintf(stderr, "Device %s disconnected.\n", svp->device);
         }
     }
+    INDI_UNUSED(svp);
 }
 
-void INDIClient::newNumber(INumberVectorProperty *nvp)
+void INDIServer::newNumber(INumberVectorProperty *nvp)
 {
     if(!isServerConnected())
         return;
@@ -322,40 +327,41 @@ void INDIClient::newNumber(INumberVectorProperty *nvp)
     {
         fprintf(stderr, "Current coordinates: RA:%lf DEC:%lf.\n", nvp->np[0].value, nvp->np[1].value);
     }
+    INDI_UNUSED(nvp);
 }
 
-void INDIClient::newText(ITextVectorProperty *tvp)
+void INDIServer::newText(ITextVectorProperty *tvp)
 {
     INDI_UNUSED(tvp);
 }
 
-void INDIClient::newLight(ILightVectorProperty *lvp)
+void INDIServer::newLight(ILightVectorProperty *lvp)
 {
     INDI_UNUSED(lvp);
 }
 
-void INDIClient::newMessage(INDI::BaseDevice *dp, int messageID)
+void INDIServer::newMessage(INDI::BaseDevice *dp, int messageID)
 {
     INDI_UNUSED(dp);
     INDI_UNUSED(messageID);
 }
 
-void INDIClient::serverConnected()
+void INDIServer::serverConnected()
 {
     fprintf(stderr, "Connected to server\n");
 }
 
-void INDIClient::serverDisconnected(int exit_code)
+void INDIServer::serverDisconnected(int exit_code)
 {
     fprintf(stderr, "Disconnected from server\n");
     INDI_UNUSED(exit_code);
 }
 
-void INDIClient::Parse()
+void INDIServer::Parse()
 {
     if(!isServerConnected())
         return;
-    FILE* f = input;
+    FILE* f = GetInput();
     size_t len = 0;
     char *cmd = nullptr;
     char *arg = nullptr;
@@ -415,25 +421,22 @@ void INDIClient::Parse()
         else if(!strcmp(arg, "goto"))
         {
             char* k = strtok(value, ",");
-            Ra = (double)atof(k);
+            SetRa((double)atof(k));
             k = strtok(NULL, ",");
-            Dec = (double)atof(k);
-            GoTo(Ra, Dec);
+            SetDec((double)atof(k));
+            GoTo(GetRa(), GetDec());
         }
         else if(!strcmp(arg, "frequency"))
         {
-            Freq = (double)atof(value);
-            SetFrequency(Freq);
+            SetFreq((double)atof(value));
         }
         else if(!strcmp(arg, "samplerate"))
         {
-            SampleRate = (double)atof(value);
-            SetSampleRate(SampleRate);
+            SetSampleRate((double)atof(value));
         }
         else if(!strcmp(arg, "bitspersample"))
         {
-            Bps = (double)atof(value);
-            SetBps(Bps);
+            SetBps((double)atof(value));
         }
         else if(!strcmp(arg, "gain"))
         {
@@ -463,7 +466,7 @@ void INDIClient::Parse()
                 AbortExposure();
         }
     }
-    VLBI::Client::Parse();
+    VLBI::Server::Parse();
 }
 
-INDIClient* client = new INDIClient();
+INDIServer* client = new INDIServer();

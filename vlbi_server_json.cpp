@@ -6,24 +6,24 @@
 #include <fitsio2.h>
 #include <json.h>
 #include <base64.h>
-#include "vlbi_client_json.h"
+#include "vlbi_server_json.h"
 
-JSONClient::JSONClient()
+JSONServer::JSONServer()
 {
 }
 
-JSONClient::~JSONClient()
+JSONServer::~JSONServer()
 {
 }
 
-int JSONClient::Init(int argc, char** argv)
+int JSONServer::Init(int argc, char** argv)
 {
-    return VLBI::Client::Init(argc, argv);
+    return VLBI::Server::Init(argc, argv);
 }
 
-void JSONClient::Parse()
+void JSONServer::Parse()
 {
-    FILE* f = input;
+    FILE* f = GetInput();
     char *str = nullptr;
     json_value *v;
     char *n;
@@ -135,7 +135,7 @@ void JSONClient::Parse()
                     }
                     if(!strcmp(values[y].name, "bitspersample"))
                     {
-                        Bps = atoi(values[y].value->u.string.ptr);
+                        SetBps(atoi(values[y].value->u.string.ptr));
                         i++;
                     }
                     if(!strcmp(values[y].name, "buffer"))
@@ -155,7 +155,7 @@ void JSONClient::Parse()
                         i++;
                     }
                 }
-                if(name && buf && locations && Bps > 0 && starttime.tv_sec > 0)
+                if(name && buf && locations && GetBps() > 0 && starttime.tv_sec > 0)
                 {
                     AddNode(name, (dsp_location*)locations, buf, buflen, starttime, relative);
                 }
@@ -180,23 +180,23 @@ void JSONClient::Parse()
                         {
                             if(!strcmp(values[y].value->u.object.values[z].name, "ra"))
                             {
-                                Ra = atof(values[y].value->u.object.values[z].value->u.string.ptr);
+                                SetRa(atof(values[y].value->u.object.values[z].value->u.string.ptr));
                             }
                             if(!strcmp(values[y].value->u.object.values[z].name, "dec"))
                             {
-                                Dec = atof(values[y].value->u.object.values[z].value->u.string.ptr);
+                                SetDec(atof(values[y].value->u.object.values[z].value->u.string.ptr));
                             }
                         }
                         i++;
                     }
                     if(!strcmp(values[y].name, "frequency"))
                     {
-                        Freq = atof(values[y].value->u.string.ptr);
+                        SetFreq(atof(values[y].value->u.string.ptr));
                         i++;
                     }
                     if(!strcmp(values[y].name, "samplerate"))
                     {
-                        SampleRate = atof(values[y].value->u.string.ptr);
+                        SetSampleRate(atof(values[y].value->u.string.ptr));
                         i++;
                     }
                     if(!strcmp(values[y].name, "resolution"))
@@ -205,11 +205,11 @@ void JSONClient::Parse()
                         {
                             if(!strcmp(values[y].value->u.object.values[z].name, "width"))
                             {
-                                w = atoi(values[y].value->u.object.values[z].value->u.string.ptr);
+                                SetWidth(atoi(values[y].value->u.object.values[z].value->u.string.ptr));
                             }
                             if(!strcmp(values[y].value->u.object.values[z].name, "height"))
                             {
-                                h = atoi(values[y].value->u.object.values[z].value->u.string.ptr);
+                                SetHeight(atoi(values[y].value->u.object.values[z].value->u.string.ptr));
                             }
                         }
                         i++;
@@ -242,7 +242,7 @@ void JSONClient::Parse()
                 }
                 if(i == 8)
                 {
-                    Plot(name, w, h, type, nodelay);
+                    Plot(name, GetWidth(), GetHeight(), type, nodelay);
                 }
             }
         }
@@ -268,7 +268,7 @@ void JSONClient::Parse()
                 if(i == 2)
                 {
                     char *base64 = GetModel(name, format);
-                    fprintf(output,
+                    fprintf(GetOutput(),
                             "{\n \"context\": \"%s\",\n \"model\": {\n  \"name\": \"%s\",\n  \"format\": \"%s\",\n  \"buffer\": \"%s\"\n }\n}\n",
                             CurrentContext(), name, format, base64);
                     free(base64);
@@ -397,4 +397,4 @@ void JSONClient::Parse()
     json_value_free(value);
 }
 
-JSONClient *client = new JSONClient();
+JSONServer *client = new JSONServer();
