@@ -35,6 +35,24 @@ static double fillone_delegate(double x, double y)
     return 1.0;
 }
 
+void VLBI::Client::AddNode(char *name, char *b64)
+{
+    char filename[128];
+    strcpy(filename, "tmp_nodeXXXXXX");
+    int fd = mkstemp(filename);
+    if(fd > -1)
+    {
+        size_t b64len = strlen(b64);
+        char* buf = (char*)malloc(b64len * 3 / 4 + 4);
+        size_t len = (size_t)from64tobits_fast(buf, b64, (int)b64len);
+        write(fd, buf, len);
+        free(buf);
+        close(fd);
+        vlbi_add_node_from_fits(GetContext(), filename, name, true);
+        unlink(filename);
+    }
+}
+
 void VLBI::Client::AddNode(char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
 {
     dsp_stream_p node = dsp_stream_new();
@@ -168,18 +186,18 @@ void VLBI::Client::AddModel(char* name, char *format, char *b64)
 {
     char filename[128];
     int fd = -1;
-    size_t len = 0;
+    size_t b64len = 0;
     char *buf = nullptr;
     strcpy(filename, "tmp_modelXXXXXX");
-    len = strlen(b64);
-    if(len > 0)
+    b64len = strlen(b64);
+    if(b64len > 0)
     {
         fd = mkstemp(filename);
         if(fd > -1)
         {
-            buf = (char*)malloc(len * 3 / 4 + 4);
-            from64tobits_fast(buf, b64, (int)len);
-            write(fd, buf, len * 4 / 3 + 4);
+            buf = (char*)malloc(b64len * 3 / 4 + 4);
+            size_t len = (size_t)from64tobits_fast(buf, b64, (int)b64len);
+            write(fd, buf, len);
             free(buf);
             close(fd);
             if(!strcmp(format, "fits"))

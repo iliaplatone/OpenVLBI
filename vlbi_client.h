@@ -62,6 +62,7 @@ class Client
             return 1;
         }
         virtual void Parse();
+        void AddNode(char *name, char *b64);
         void AddNode(char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo);
         void DelNode(char *name);
         void Plot(char *name, int u, int v, int type, bool nodelay = false);
