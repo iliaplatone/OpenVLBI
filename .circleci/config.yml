@@ -10,7 +10,7 @@ jobs:
       - run:
           name: build
           command: |
-            ./scripts/build.sh
+            sudo ./scripts/build.sh
             mkdir -p tests
             scripts/json_to_image.sh scripts/coverage.json tests/synthesis_delay_coverage
             scripts/json_to_image.sh scripts/raw.json tests/synthesis_delay_raw
