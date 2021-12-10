@@ -66,12 +66,23 @@ $(function() {
 <div class="title">Build libvlbi </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="fragment"><div class="line">sh scripts/build.sh</div>
-</div><!-- fragment --> </div></div><!-- contents -->
+<div class="textblock"><h2><a class="anchor" id="autotoc_md0"></a>
+Ubuntu/Debian</h2>
+<p>You can build OpenVLBI by running the following command: </p><div class="fragment"><div class="line">sh scripts/build.sh</div>
+</div><!-- fragment --><p>This will install all the dependencies, including latest INDI developement libraries. If everything will be successful three .deb packages will be built and installed</p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Other OSes</h2>
+<p>You'll need CMake to build OpenVLBI, and some developement packages:</p><ul>
+<li><b>libopenvlbi</b>:libfftw3</li>
+<li><b>vlbi_client_json</b>: libjsonparser</li>
+<li><b>vlbi_client_indi</b>: libindi libnova libcfitsio</li>
+<li><b>tests and scripts</b>: jq </li>
+</ul>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 00:11:42 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 18:41:01 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

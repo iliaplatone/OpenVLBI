@@ -66,28 +66,34 @@ $(function() {
 <div class="title">Using libvlbi </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>You can write an application using libvlbi by linking against libvlbi.so in your gcc command line: </p><div class="fragment"><div class="line">gcc yourapp.c -lvlbi -o yourapp</div>
-</div><!-- fragment --><p>Each instance of vlbi is initiated by <a class="el" href="group___v_l_b_i___functions.html#ga7af54a4c1922c260e74c8a5f2fcb89d9" title="Initialize a OpenVLBI instance.">vlbi_init()</a>: </p><div class="fragment"><div class="line"><a class="code" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> context = <a class="code" href="group___v_l_b_i___functions.html#ga7af54a4c1922c260e74c8a5f2fcb89d9">vlbi_init</a>();</div>
+<div class="textblock"><p>You can write an application using libopenvlbi by linking against libopenvlbi.so in your gcc command line: </p><div class="fragment"><div class="line">gcc yourapp.c -lopenvlbi -o yourapp</div>
+</div><!-- fragment --><p>Each instance of vlbi is initiated by <a class="el" href="group___v_l_b_i___functions.html#ga7af54a4c1922c260e74c8a5f2fcb89d9" title="vlbi_init Initialize a OpenVLBI instance.">vlbi_init()</a>: </p><div class="fragment"><div class="line"><a class="code" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> context = <a class="code" href="group___v_l_b_i___functions.html#ga7af54a4c1922c260e74c8a5f2fcb89d9">vlbi_init</a>();</div>
 <div class="line"> </div>
 <div class="line">...</div>
 <div class="line"> </div>
+<div class="line"><span class="comment">// you must be familiar with the dsp_stream_p type, see &quot;DSP API Documentation&quot;</span></div>
 <div class="line">dsp_stream_p stream1 = <a class="code" href="group__dsp___d_s_p_stream.html#gac1a4e2f023ac686cb930e6b45a5b720d">dsp_stream_new</a>();</div>
-<div class="line"><a class="code" href="group__dsp___d_s_p_stream.html#gab01d4c42bda4b0b9fe736fc74da3e79d">dsp_stream_add_dim</a>(stream, elements_n);</div>
-<div class="line">dsp_convert(input_arr, stream1-&gt;in, n_elements);</div>
+<div class="line"><a class="code" href="group__dsp___d_s_p_stream.html#gab01d4c42bda4b0b9fe736fc74da3e79d">dsp_stream_add_dim</a>(stream1, elements_n);</div>
+<div class="line"><a class="code" href="group__dsp___d_s_p_stream.html#gab899ec9e6c2ee5cc7acdb45327ffb155">dsp_stream_alloc_buffer</a>(stream1);</div>
 <div class="line"> </div>
-<div class="line">stream1-&gt;location[0] = Latitude;</div>
-<div class="line">stream1-&gt;location[1] = Longitude;</div>
-<div class="line">stream1-&gt;location[2] = vlbi_calc_elevation_coarse(Elevation); <span class="comment">//estimate the geocentric elevation, given the on sea level elevation</span></div>
+<div class="line"><span class="comment">//dsp_buffer_copy converts numeric types into dsp_t (aka double)</span></div>
+<div class="line"><a class="code" href="group__dsp___buffers.html#ga07482cd24ca65a78b55ac2ffe1c2d5ed">dsp_buffer_copy</a>(input_arr, stream1-&gt;in, stream1-&gt;len);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//Latitude and longitude in degrees, elevation in meters OSL</span></div>
+<div class="line">stream1-&gt;location.geo.lat = Latitude;</div>
+<div class="line">stream1-&gt;location.geo.lon = Longitude;</div>
+<div class="line">stream1-&gt;location.geo.el = Elevation;</div>
 <div class="line"> </div>
 <div class="line">stream1-&gt;starttimeutc = vlbi_time_string_to_utc(<span class="stringliteral">&quot;2018-06-22T02:12.000154874&quot;</span>);</div>
 <div class="line"> </div>
-<div class="line">vlbi_add_stream(context, stream1);</div>
+<div class="line"><span class="comment">//assign to this node a friendly, unique name and add it to the context, tell to OpenVLBI to use geographic conversion</span></div>
+<div class="line"><a class="code" href="group___v_l_b_i___functions.html#ga9e99d6986d48745e327677d44b5e65aa">vlbi_add_node</a>(context, stream1, <span class="stringliteral">&quot;location1_capture&quot;</span>, 1);</div>
 <div class="line"> </div>
 <div class="line"><a class="code" href="structdsp__stream__t.html">dsp_stream_p</a> stream2 = <a class="code" href="group__dsp___d_s_p_stream.html#gac1a4e2f023ac686cb930e6b45a5b720d">dsp_stream_new</a>();</div>
 <div class="line"> </div>
 <div class="line">...</div>
 <div class="line"> </div>
-<div class="line">vlbi_add_stream(context, stream2);</div>
+<div class="line">vlbi_add_node(context, stream2, <span class="stringliteral">&quot;location2_capture&quot;</span>, 1);</div>
 <div class="line"> </div>
 <div class="line"><a class="code" href="structdsp__stream__t.html">dsp_stream_p</a> stream3 = <a class="code" href="group__dsp___d_s_p_stream.html#gac1a4e2f023ac686cb930e6b45a5b720d">dsp_stream_new</a>();</div>
 <div class="line">...</div>
@@ -95,35 +101,60 @@ $(function() {
 <div class="line">vlbi_add_stream(context, stream3);</div>
 <div class="line">...</div>
 <div class="line"> </div>
-<div class="line">dsp_t* target = calloc(<span class="keyword">sizeof</span>(vlbi_t), 3);</div>
+<div class="line">double* target = calloc(<span class="keyword">sizeof</span>(<span class="keywordtype">double</span>), 3);</div>
+<div class="line"><span class="comment">//RA must be in 24H format</span></div>
 <div class="line">target[0] = RightAscension * 360.0 / 24.0;</div>
 <div class="line">target[1] = Declination;</div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="group___d_s_p___defines.html#ga73df7c5a60ce5e6572c8c79035503a75">dsp_t</a> frequency = 60.0e+6;</div>
-<div class="line"><a class="code" href="group___d_s_p___defines.html#ga73df7c5a60ce5e6572c8c79035503a75">dsp_t</a> samplerate = 100.0e+6;</div>
+<div class="line"><span class="keywordtype">double</span> frequency = 60.0e+6;</div>
+<div class="line"><span class="keywordtype">double</span> samplerate = 100.0e+6;</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">//obtain the UV plot of the observation</span></div>
-<div class="line"><a class="code" href="structdsp__stream__t.html">dsp_stream</a> uvplot = vlbi_get_uv_plot_aperture_synthesis(context, u, v, target, frequency, samplerate); <span class="comment">// this will return</span></div>
-<div class="line"><span class="comment">//the aproximate Fourier transform of the observation taken (the more are the streams, and more</span></div>
-<div class="line"><span class="comment">//accurate and precise is each stream and data, the less aproximate will be the result).</span></div>
-<div class="line"><a class="code" href="structdsp__stream__t.html">dsp_stream</a> image_estimation = vlbi_get_fft_estimate(uvplot); <span class="comment">// this is the aproximation</span></div>
-<div class="line"><span class="comment">//of the image of the target, with aproximation basis the taken observations.</span></div>
+<div class="line"><span class="comment">//since we&#39;re using geographic coordinates we&#39;d calculate the delay of each baseline</span></div>
+<div class="line"><span class="keywordtype">int</span> no_delay_calculation = 0;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//telescopes do not change their location during capture, so no location companion stream</span></div>
+<div class="line"><span class="keywordtype">int</span> moving_baseline = 0;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//obtain the UV plot of the observation and save it as model, </span></div>
+<div class="line"><a class="code" href="group___v_l_b_i___functions.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1">vlbi_get_uv_plot</a>(context, <span class="stringliteral">&quot;obs1_plot_model&quot;</span>, 1024, 1024, target, frequency, samplerate, no_delay_calculation, moving_baseline, <a class="code" href="group___v_l_b_i___defines.html#ga986f3e2aa432b9ceb02d847231b31760">vlbi_default_delegate</a>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//the default delegate just multiplies each element of the stream by indexing them according to their delay from the farest node to the target</span></div>
+<div class="line"><span class="comment">//after this operation a new model with size 1024x1024 containing the plot of the correlation degrees of all baselines will be added into the context</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//you should add a model with an estimation of the phase to get an inverse fourier transform</span></div>
+<div class="line"><a class="code" href="group___v_l_b_i___functions.html#ga5a967c4cbe7a491cfe918c6e6623a111">vlbi_add_model_from_png</a>(context, <span class="stringliteral">&quot;my_phase_estimation.png&quot;</span>, <span class="stringliteral">&quot;my_phase_estimation&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"> <span class="comment">//Create a new model containing the inverse Fourier transform of your observation as magnitude component and your estimation of the phase</span></div>
+<div class="line"><a class="code" href="group___v_l_b_i___functions.html#ga1f70d9cdc9c4fea80253552ac678601e">vlbi_get_ifft</a>(context, <span class="stringliteral">&quot;ifft_estimation&quot;</span>, <span class="stringliteral">&quot;obs1_plot_model&quot;</span>, <span class="stringliteral">&quot;my_phase_estimation&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="structdsp__stream__t.html">dsp_stream_p</a> image_estimation = <a class="code" href="group___v_l_b_i___functions.html#ga3d8fed08397407efa5b4f814c767665f">vlbi_get_model</a>(context, <span class="stringliteral">&quot;ifft_estimation&quot;</span>);</div>
+<div class="line"> </div>
 <div class="line">...</div>
 <div class="line"> </div>
-<div class="line">dsp_stream_free(uvplot);</div>
+<div class="line">dsp_stream_free_buffer(image_estimation);</div>
+<div class="line"><a class="code" href="group__dsp___d_s_p_stream.html#ga1496c2f88a9f21d0bf7a46e5a1d545f5">dsp_stream_free</a>(image_estimation);</div>
 <div class="line"><a class="code" href="group___v_l_b_i___functions.html#ga32534f7714c02277cd0eb519022f1c6f">vlbi_exit</a>(context);</div>
-</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- fragment --><p>You can read the API documentation at <a href="https://iliaplatone.github.io/OpenVLBI/">https://iliaplatone.github.io/OpenVLBI/</a> </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
-<div class="ttc" id="agroup___v_l_b_i___functions_html_ga7af54a4c1922c260e74c8a5f2fcb89d9"><div class="ttname"><a href="group___v_l_b_i___functions.html#ga7af54a4c1922c260e74c8a5f2fcb89d9">vlbi_init</a></div><div class="ttdeci">DLL_EXPORT vlbi_context vlbi_init()</div><div class="ttdoc">Initialize a OpenVLBI instance.</div></div>
-<div class="ttc" id="agroup___v_l_b_i___functions_html_ga32534f7714c02277cd0eb519022f1c6f"><div class="ttname"><a href="group___v_l_b_i___functions.html#ga32534f7714c02277cd0eb519022f1c6f">vlbi_exit</a></div><div class="ttdeci">DLL_EXPORT void vlbi_exit(vlbi_context ctx)</div><div class="ttdoc">Close a OpenVLBI instance.</div></div>
+<div class="ttc" id="agroup___v_l_b_i___functions_html_ga7af54a4c1922c260e74c8a5f2fcb89d9"><div class="ttname"><a href="group___v_l_b_i___functions.html#ga7af54a4c1922c260e74c8a5f2fcb89d9">vlbi_init</a></div><div class="ttdeci">DLL_EXPORT vlbi_context vlbi_init()</div><div class="ttdoc">vlbi_init Initialize a OpenVLBI instance.</div></div>
+<div class="ttc" id="agroup___v_l_b_i___defines_html_ga986f3e2aa432b9ceb02d847231b31760"><div class="ttname"><a href="group___v_l_b_i___defines.html#ga986f3e2aa432b9ceb02d847231b31760">vlbi_default_delegate</a></div><div class="ttdeci">static double vlbi_default_delegate(double x, double y)</div><div class="ttdef"><b>Definition:</b> vlbi.h:294</div></div>
+<div class="ttc" id="agroup___v_l_b_i___functions_html_ga1f70d9cdc9c4fea80253552ac678601e"><div class="ttname"><a href="group___v_l_b_i___functions.html#ga1f70d9cdc9c4fea80253552ac678601e">vlbi_get_ifft</a></div><div class="ttdeci">DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char *name, char *magnitude, char *phase)</div><div class="ttdoc">vlbi_get_ifft Plot an inverse fourier transform of the uv plot using its current magnitude and phase ...</div></div>
+<div class="ttc" id="agroup___v_l_b_i___functions_html_ga32534f7714c02277cd0eb519022f1c6f"><div class="ttname"><a href="group___v_l_b_i___functions.html#ga32534f7714c02277cd0eb519022f1c6f">vlbi_exit</a></div><div class="ttdeci">DLL_EXPORT void vlbi_exit(vlbi_context ctx)</div><div class="ttdoc">vlbi_exit Close a OpenVLBI instance.</div></div>
 <div class="ttc" id="agroup__dsp___d_s_p_stream_html_gac1a4e2f023ac686cb930e6b45a5b720d"><div class="ttname"><a href="group__dsp___d_s_p_stream.html#gac1a4e2f023ac686cb930e6b45a5b720d">dsp_stream_new</a></div><div class="ttdeci">DLL_EXPORT dsp_stream_p dsp_stream_new()</div><div class="ttdoc">Allocate a new DSP stream type.</div></div>
+<div class="ttc" id="agroup___v_l_b_i___functions_html_ga7bfadaa9a1d922d5f69a202ce0bd12c1"><div class="ttname"><a href="group___v_l_b_i___functions.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1">vlbi_get_uv_plot</a></div><div class="ttdeci">DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate)</div><div class="ttdoc">vlbi_get_uv_plot Plot a fourier transform of the object observed using celestial coordinates and the ...</div></div>
 <div class="ttc" id="astructdsp__stream__t_html"><div class="ttname"><a href="structdsp__stream__t.html">dsp_stream_t</a></div><div class="ttdoc">Contains a set of informations and data relative to a buffer and how to use it.</div><div class="ttdef"><b>Definition:</b> dsp.h:291</div></div>
+<div class="ttc" id="agroup__dsp___d_s_p_stream_html_ga1496c2f88a9f21d0bf7a46e5a1d545f5"><div class="ttname"><a href="group__dsp___d_s_p_stream.html#ga1496c2f88a9f21d0bf7a46e5a1d545f5">dsp_stream_free</a></div><div class="ttdeci">DLL_EXPORT void dsp_stream_free(dsp_stream_p stream)</div><div class="ttdoc">Free the DSP stream passed as argument.</div></div>
+<div class="ttc" id="agroup__dsp___d_s_p_stream_html_gab899ec9e6c2ee5cc7acdb45327ffb155"><div class="ttname"><a href="group__dsp___d_s_p_stream.html#gab899ec9e6c2ee5cc7acdb45327ffb155">dsp_stream_alloc_buffer</a></div><div class="ttdeci">DLL_EXPORT void dsp_stream_alloc_buffer(dsp_stream_p stream, int len)</div><div class="ttdoc">Allocate a buffer with length len on the stream passed as argument.</div></div>
 <div class="ttc" id="agroup__dsp___d_s_p_stream_html_gab01d4c42bda4b0b9fe736fc74da3e79d"><div class="ttname"><a href="group__dsp___d_s_p_stream.html#gab01d4c42bda4b0b9fe736fc74da3e79d">dsp_stream_add_dim</a></div><div class="ttdeci">DLL_EXPORT void dsp_stream_add_dim(dsp_stream_p stream, int len)</div><div class="ttdoc">Add a dimension with length len to a DSP stream.</div></div>
-<div class="ttc" id="agroup___v_l_b_i___types_html_ga50f883f7e834b395856676739fe83e0e"><div class="ttname"><a href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a></div><div class="ttdeci">void * vlbi_context</div><div class="ttdef"><b>Definition:</b> vlbi.h:257</div></div>
-<div class="ttc" id="agroup___d_s_p___defines_html_ga73df7c5a60ce5e6572c8c79035503a75"><div class="ttname"><a href="group___d_s_p___defines.html#ga73df7c5a60ce5e6572c8c79035503a75">dsp_t</a></div><div class="ttdeci">#define dsp_t</div><div class="ttdef"><b>Definition:</b> dsp.h:59</div></div>
+<div class="ttc" id="agroup___v_l_b_i___types_html_ga50f883f7e834b395856676739fe83e0e"><div class="ttname"><a href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a></div><div class="ttdeci">void * vlbi_context</div><div class="ttdef"><b>Definition:</b> vlbi.h:287</div></div>
+<div class="ttc" id="agroup___v_l_b_i___functions_html_ga3d8fed08397407efa5b4f814c767665f"><div class="ttname"><a href="group___v_l_b_i___functions.html#ga3d8fed08397407efa5b4f814c767665f">vlbi_get_model</a></div><div class="ttdeci">DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, char *name)</div><div class="ttdoc">vlbi_get_model Get a single model from the current OpenVLBI context.</div></div>
+<div class="ttc" id="agroup___v_l_b_i___functions_html_ga5a967c4cbe7a491cfe918c6e6623a111"><div class="ttname"><a href="group___v_l_b_i___functions.html#ga5a967c4cbe7a491cfe918c6e6623a111">vlbi_add_model_from_png</a></div><div class="ttdeci">DLL_EXPORT void vlbi_add_model_from_png(void *ctx, char *filename, char *name)</div><div class="ttdoc">vlbi_add_model_from_png Add a model from a png file.</div></div>
+<div class="ttc" id="agroup__dsp___buffers_html_ga07482cd24ca65a78b55ac2ffe1c2d5ed"><div class="ttname"><a href="group__dsp___buffers.html#ga07482cd24ca65a78b55ac2ffe1c2d5ed">dsp_buffer_copy</a></div><div class="ttdeci">#define dsp_buffer_copy(in, out, len)</div><div class="ttdoc">Fill the output buffer with the values of the elements of the input stream by casting them to the out...</div><div class="ttdef"><b>Definition:</b> dsp.h:922</div></div>
+<div class="ttc" id="agroup___v_l_b_i___functions_html_ga9e99d6986d48745e327677d44b5e65aa"><div class="ttname"><a href="group___v_l_b_i___functions.html#ga9e99d6986d48745e327677d44b5e65aa">vlbi_add_node</a></div><div class="ttdeci">DLL_EXPORT void vlbi_add_node(vlbi_context ctx, dsp_stream_p Stream, char *name, int geographic_coordinates)</div><div class="ttdoc">vlbi_add_node Add a stream into the current OpenVLBI context.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 00:11:42 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 18:41:01 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

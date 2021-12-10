@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['interferometric_20correlator_20clients_20application_20suite_558',['Interferometric correlator clients application suite',['../page__interferometric.html',1,'']]]
+  ['references_562',['References',['../page__references.html',1,'']]]
 ];

@@ -146,6 +146,5 @@ var searchData=
   ['dsp_5ft_5fmin_159',['dsp_t_min',['../group___d_s_p___defines.html#gad5e916bc48f99df7177080adfbab16c6',1,'dsp.h']]],
   ['dsp_5ftriangle_160',['dsp_triangle',['../group___d_s_p___types.html#ga5c35d8d85bdbf6df99e1abfd099457a1',1,'dsp.h']]],
   ['dsp_5ftriangle_5ft_161',['dsp_triangle_t',['../structdsp__triangle__t.html',1,'']]],
-  ['dsp_20api_20types_162',['DSP API types',['../group___d_s_p___types.html',1,'']]],
-  ['documentation_163',['Documentation',['../page__documentation.html',1,'']]]
+  ['dsp_20api_20types_162',['DSP API types',['../group___d_s_p___types.html',1,'']]]
 ];
