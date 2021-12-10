@@ -137,8 +137,11 @@ Functions</h2></td></tr>
 <tr class="memitem:ga80904445a9b616a8e78f63cb2a788231"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga80904445a9b616a8e78f63cb2a788231">vlbi_add_node_from_fits</a> (void *ctx, char *filename, char *name, int geo)</td></tr>
 <tr class="memdesc:ga80904445a9b616a8e78f63cb2a788231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a node from a fits file stored into a memory buffer.  <a href="group___v_l_b_i___functions.html#ga80904445a9b616a8e78f63cb2a788231">More...</a><br /></td></tr>
 <tr class="separator:ga80904445a9b616a8e78f63cb2a788231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e1131d240c7c9684e8235e6faceb9b1"><td class="memItemLeft" align="right" valign="top">unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga5e1131d240c7c9684e8235e6faceb9b1">vlbi_max_threads</a> (unsigned long value)</td></tr>
+<tr class="memdesc:ga5e1131d240c7c9684e8235e6faceb9b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">get/set the maximum number of threads allowed  <a href="group___v_l_b_i___functions.html#ga5e1131d240c7c9684e8235e6faceb9b1">More...</a><br /></td></tr>
+<tr class="separator:ga5e1131d240c7c9684e8235e6faceb9b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga79a6e4befc2d91b2f36ab1e5d79ccef8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dsp_8h.html#a1ca888bd091694c05472e1b91df1a97b">DLL_EXPORT</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga79a6e4befc2d91b2f36ab1e5d79ccef8">vlbi_get_version</a> ()</td></tr>
-<tr class="memdesc:ga79a6e4befc2d91b2f36ab1e5d79ccef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the version number of OpenVLBI.  <a href="group___v_l_b_i___functions.html#ga79a6e4befc2d91b2f36ab1e5d79ccef8">More...</a><br /></td></tr>
+<tr class="memdesc:ga79a6e4befc2d91b2f36ab1e5d79ccef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the current version of OpenVLBI.  <a href="group___v_l_b_i___functions.html#ga79a6e4befc2d91b2f36ab1e5d79ccef8">More...</a><br /></td></tr>
 <tr class="separator:ga79a6e4befc2d91b2f36ab1e5d79ccef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -1011,7 +1014,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Print the version number of OpenVLBI. </p>
+<p>Print the current version of OpenVLBI. </p>
 <dl class="section return"><dt>Returns</dt><dd>char* The Version string </dd></dl>
 
 </div>
@@ -1033,6 +1036,41 @@ Functions</h2></td></tr>
 
 <p>Initialize a OpenVLBI instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>The OpenVLBI context </dd></dl>
+
+</div>
+</div>
+<a id="ga5e1131d240c7c9684e8235e6faceb9b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5e1131d240c7c9684e8235e6faceb9b1">&#9670;&nbsp;</a></span>vlbi_max_threads()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long int vlbi_max_threads </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get/set the maximum number of threads allowed </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>if greater than 1, set a maximum number of threads allowed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The current or new number of threads allowed during runtime </dd></dl>
 
 </div>
 </div>
@@ -1185,7 +1223,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 19:36:21 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 20:23:28 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

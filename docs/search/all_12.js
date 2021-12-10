@@ -48,7 +48,7 @@ var searchData=
   ['vlbi_5fget_5fversion_292',['vlbi_get_version',['../group___v_l_b_i___functions.html#ga79a6e4befc2d91b2f36ab1e5d79ccef8',1,'vlbi.h']]],
   ['vlbi_5finit_293',['vlbi_init',['../group___v_l_b_i___functions.html#ga7af54a4c1922c260e74c8a5f2fcb89d9',1,'vlbi.h']]],
   ['vlbi_20internal_20functions_294',['VLBI internal functions',['../group___v_l_b_i___internal.html',1,'']]],
-  ['vlbi_5fmax_5fthreads_295',['vlbi_max_threads',['../group___v_l_b_i___defines.html#ga5e1131d240c7c9684e8235e6faceb9b1',1,'vlbi.h']]],
+  ['vlbi_5fmax_5fthreads_295',['vlbi_max_threads',['../group___v_l_b_i___functions.html#ga5e1131d240c7c9684e8235e6faceb9b1',1,'vlbi.h']]],
   ['vlbi_5fnode_296',['vlbi_node',['../structvlbi__node.html',1,'']]],
   ['vlbi_5frad2as_297',['vlbi_rad2as',['../group___v_l_b_i___internal.html#ga9e0a7cd5fab6a930cc6813b2d4f6a042',1,'vlbi.h']]],
   ['vlbi_5fset_5fbaseline_5fbuffer_298',['vlbi_set_baseline_buffer',['../group___v_l_b_i___functions.html#gaf234b285a6e5e7616971046673241bdd',1,'vlbi.h']]],

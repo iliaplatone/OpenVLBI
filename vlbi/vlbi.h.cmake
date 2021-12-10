@@ -62,38 +62,79 @@ extern "C" {
 */
 /**@{*/
 
+///A single node, returned by vlbi_get_nodes into an array
 typedef struct {
+///Geographic coordinates array (latitude, longitude, elevation)
     double *GeographicLocation;
+///Current location array in meters
     double *Location;
+///Whether this node uses geographic coordinates
     int Geo;
+///Node's DSP stream
     dsp_stream_p Stream;
+///Node's name
     char *Name;
+///Node's index - oldest zero
     int Index;
 } vlbi_node;
 
+///A single baseline, returned by vlbi_get_baselines into an array
 typedef struct {
+///Whether this baseline's nodes use coordinates relative to the context reference station
     int relative;
+///Whether this baseline's nodes use coordinates relative to the context reference station
     int locked;
+///The baseline's current celestial target array
     double *Target;
+///The baseline's current celestial target right ascension
     double Ra;
+///The baseline's current celestial target declination
     double Dec;
+///The baseline's 3d sizes in meters
     double *baseline;
-    double u, v, delay;
+///Current u perspective location in pixels
+    double u;
+///Current v perspective location in pixels
+    double v;
+///Current delay in seconds
+    double delay;
+///Wavelength observed in meters
     double WaveLength;
+///Samples per second
     double SampleRate;
+///Earlier node
     vlbi_node Node1;
+///Latter node
     vlbi_node Node2;
+///Baseline's name
     char *Name;
+///Baseline's DSP stream
     dsp_stream_p Stream;
 } vlbi_baseline;
+
+/**
+* @brief The delegate function type to pass to vlbi_plot_uv_plane
+*
+* This function type natively accepts the double type, but you must consider to cast these arguments
+* as other types, like structure, unions, C++ classes or other kind of object pointers.
+*
+* @param farest baseline's node current value
+* @param closest baseline's node current value
+* @return the result of the operation done
+*/
 typedef double(* vlbi_func2_t)(double, double);
+
+///the OpenVLBI context object type
 typedef void* vlbi_context;
+
+///Definition of the timespec_t in a C type, just for convenience
 typedef struct timespec timespec_t;
 /**@}*/
 /**
  * \defgroup VLBI_Defines VLBI defines
 */
 /**@{*/
+///A placeholder delegate that simply multiplies the values received from vlbi_get_uv_plot
 inline static double vlbi_default_delegate(double x, double y) {
     return x*y;
 }
@@ -117,97 +158,120 @@ inline static double vlbi_default_delegate(double x, double y) {
 ( log(a) / log(b) )
 #endif
 
+///Get the cosine of a sine value
 #define sin2cos(s) cos(asin(s))
+
+///Get the sine from a cosine value
 #define cos2sin(c) sin(acos(c))
 
+///The current OpenVLBI version
 #define VLBI_VERSION_STRING "@VLBI_VERSION_STRING@"
-#ifndef SPEED_MEAN
-#define SPEED_MEAN LIGHTSPEED
-#endif
 
-#ifndef PI
-#define PI (double)3.14159265358979323846
+#ifndef CIRCLE_DEG
+///degrees in a circle
+#define CIRCLE_DEG 360
+#endif
+#ifndef CIRCLE_AM
+///arcminutes in a circle
+#define CIRCLE_AM (CIRCLE_DEG * 60)
+#endif
+#ifndef CIRCLE_AS
+///arcseconds in a circle
+#define CIRCLE_AS (CIRCLE_AM * 60)
+#endif
+#ifndef RAD_AS
+///arcseconds per radian
+#define RAD_AS (CIRCLE_AS/(M_PI*2))
 #endif
 #ifndef ONE_SECOND_TICKS
+///Many architectures reach 100 ns clock resolutions
 #define ONE_SECOND_TICKS 100000000
 #endif
 #ifndef ONE_MILLISECOND_TICKS
+///Our millisecond tick value
 #define ONE_MILLISECOND_TICKS 100000
 #endif
 #ifndef ONE_MICROSECOND_TICKS
+///Our microsecond tick value
 #define ONE_MICROSECOND_TICKS 100
 #endif
 #ifndef SOLAR_DAY
+///Solar day duration in seconds
 #define SOLAR_DAY 86400
 #endif
 #ifndef SIDEREAL_DAY
+///Sidereal day aproximated duration in seconds
 #define SIDEREAL_DAY 86164.0905
 #endif
 #ifndef TRACKRATE_SIDEREAL
-#define TRACKRATE_SIDEREAL ((360.0 * 3600.0) / SIDEREAL_DAY)
+///Sidereal track rate in arcseconds/second
+#define TRACKRATE_SIDEREAL (CIRCLE_AS / SIDEREAL_DAY)
 #endif
 #ifndef TRACKRATE_SOLAR
-#define TRACKRATE_SOLAR ((360.0 * 3600.0) / SOLAR_DAY)
+///Solar track rate in arcseconds/second
+#define TRACKRATE_SOLAR (CIRCLE_AS / SOLAR_DAY)
 #endif
 #ifndef TRACKRATE_LUNAR
+///Lunar track rate in arcseconds/second
 #define TRACKRATE_LUNAR 14.511415
 #endif
 #ifndef EARTHRADIUSEQUATORIAL
+///Earth equatorial radius aproximation in meters
 #define EARTHRADIUSEQUATORIAL 6378137.0
 #endif
 #ifndef EARTHRADIUSPOLAR
+///Earth polar radius aproximation in meters
 #define EARTHRADIUSPOLAR 6356752.0
 #endif
 #ifndef EARTHRADIUSMEAN
+///Earth mean radius aproximation in meters
 #define EARTHRADIUSMEAN 6372797.0
 #endif
 #ifndef EULER
+///Our Euler constant
 #define EULER 2.71828182845904523536028747135266249775724709369995
 #endif
 #ifndef ROOT2
+///Our square root of 2 constant
 #define ROOT2 1.41421356237309504880168872420969807856967187537694
 #endif
+#ifndef PI
+///Our PI constant
+#define PI 3.14159265358979323846
+#endif
+///Our c constant
+#ifndef LIGHTSPEED
+#define LIGHTSPEED 299792458.0
+#endif
 #ifndef J2000
+///J2000 epoch in seconds
 #define J2000 2451545.0
 #endif
 #ifndef GAMMAJ2000
+///Right ascension of the meridian at J2000 zero at Greenwich
 #define GAMMAJ2000 18.6971378528
-#endif
-#ifndef EULER
-#define EULER 2.71828182845904523536028747135266249775724709369995
-#endif
-#ifndef ROOT2
-#define ROOT2 1.41421356237309504880168872420969807856967187537694
 #endif
 #ifndef AIRY
 #define AIRY 1.21966
 #endif
-#ifndef CIRCLE_DEG
-#define CIRCLE_DEG 360
-#endif
-#ifndef CIRCLE_AM
-#define CIRCLE_AM (CIRCLE_DEG * 60)
-#endif
-#ifndef CIRCLE_AS
-#define CIRCLE_AS (CIRCLE_AM * 60)
-#endif
-#ifndef RAD_AS
-#define RAD_AS (CIRCLE_AS/(M_PI*2))
-#endif
 #ifndef ASTRONOMICALUNIT
+///Aproximation of an astronomical unit in meters
 #define ASTRONOMICALUNIT 1.495978707E+11
 #endif
 #ifndef PARSEC
+///Aproximation of a parsec in meters
 #define PARSEC (ASTRONOMICALUNIT/sin(M_PI*2/CIRCLE_AS))
 #endif
-#ifndef LIGHTSPEED
-#define LIGHTSPEED 299792458.0
-#endif
 #ifndef LY
-#define LY (LIGHTSPEED * SOLAR_DAY * 365)
+///Aproximation of a light year in meters
+#define LY (LIGHTSPEED * SIDEREAL_DAY * 365)
 #endif
+#ifndef SPEED_MEAN
+///We use the speed of light as means speed reference
+#define SPEED_MEAN LIGHTSPEED
+#endif
+///The maximum number of threads allowed
 extern unsigned long int MAX_THREADS;
-inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) { MAX_THREADS = value; DSP_MAX_THREADS = value; } return MAX_THREADS; }
 /**@}*/
 /**
  * \defgroup VLBI_Functions Essential VLBI functions
@@ -402,7 +466,14 @@ DLL_EXPORT void vlbi_add_model_from_fits(void *ctx, char *filename, char* name);
 DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, char* name, int geo);
 
 /**
-* @brief Print the version number of OpenVLBI.
+* @brief get/set the maximum number of threads allowed
+* @param value if greater than 1, set a maximum number of threads allowed
+* @return The current or new number of threads allowed during runtime
+*/
+inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) { MAX_THREADS = value; DSP_MAX_THREADS = value; } return MAX_THREADS; }
+
+/**
+* @brief Print the current version of OpenVLBI.
 * @return char* The Version string
 */
 DLL_EXPORT char* vlbi_get_version();

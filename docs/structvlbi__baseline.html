@@ -69,41 +69,61 @@ $(function() {
 <div class="title">vlbi_baseline Struct Reference<div class="ingroups"><a class="el" href="group___v_l_b_i.html">Very Long Baseline Interferometry</a> &raquo; <a class="el" href="group___v_l_b_i___types.html">VLBI types</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A single baseline, returned by vlbi_get_baselines into an array.  
+ <a href="structvlbi__baseline.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a083bcfe10e5a959e8c8f74f8a4c8626b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#a083bcfe10e5a959e8c8f74f8a4c8626b">relative</a></td></tr>
+<tr class="memdesc:a083bcfe10e5a959e8c8f74f8a4c8626b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether this baseline's nodes use coordinates relative to the context reference station.  <a href="structvlbi__baseline.html#a083bcfe10e5a959e8c8f74f8a4c8626b">More...</a><br /></td></tr>
 <tr class="separator:a083bcfe10e5a959e8c8f74f8a4c8626b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4003cec20271797ae5f13dd6b54df7bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#a4003cec20271797ae5f13dd6b54df7bd">locked</a></td></tr>
+<tr class="memdesc:a4003cec20271797ae5f13dd6b54df7bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether this baseline's nodes use coordinates relative to the context reference station.  <a href="structvlbi__baseline.html#a4003cec20271797ae5f13dd6b54df7bd">More...</a><br /></td></tr>
 <tr class="separator:a4003cec20271797ae5f13dd6b54df7bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ca9b60bd6a28f67bd4ef290e4e1dde5"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#a4ca9b60bd6a28f67bd4ef290e4e1dde5">Target</a></td></tr>
+<tr class="memdesc:a4ca9b60bd6a28f67bd4ef290e4e1dde5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The baseline's current celestial target array.  <a href="structvlbi__baseline.html#a4ca9b60bd6a28f67bd4ef290e4e1dde5">More...</a><br /></td></tr>
 <tr class="separator:a4ca9b60bd6a28f67bd4ef290e4e1dde5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0fe725f861618e78817a43a36e7fcdb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#ad0fe725f861618e78817a43a36e7fcdb">Ra</a></td></tr>
+<tr class="memdesc:ad0fe725f861618e78817a43a36e7fcdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The baseline's current celestial target right ascension.  <a href="structvlbi__baseline.html#ad0fe725f861618e78817a43a36e7fcdb">More...</a><br /></td></tr>
 <tr class="separator:ad0fe725f861618e78817a43a36e7fcdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1324e3897699e4b9c3c75b82a3c0b7b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#af1324e3897699e4b9c3c75b82a3c0b7b">Dec</a></td></tr>
+<tr class="memdesc:af1324e3897699e4b9c3c75b82a3c0b7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The baseline's current celestial target declination.  <a href="structvlbi__baseline.html#af1324e3897699e4b9c3c75b82a3c0b7b">More...</a><br /></td></tr>
 <tr class="separator:af1324e3897699e4b9c3c75b82a3c0b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23b83d569063d09974f530c433e8a4a3"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#a23b83d569063d09974f530c433e8a4a3">baseline</a></td></tr>
+<tr class="memdesc:a23b83d569063d09974f530c433e8a4a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The baseline's 3d sizes in meters.  <a href="structvlbi__baseline.html#a23b83d569063d09974f530c433e8a4a3">More...</a><br /></td></tr>
 <tr class="separator:a23b83d569063d09974f530c433e8a4a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3df508a186ef8126f2f3242f538c1cc2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#a3df508a186ef8126f2f3242f538c1cc2">u</a></td></tr>
+<tr class="memdesc:a3df508a186ef8126f2f3242f538c1cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current u perspective location in pixels.  <a href="structvlbi__baseline.html#a3df508a186ef8126f2f3242f538c1cc2">More...</a><br /></td></tr>
 <tr class="separator:a3df508a186ef8126f2f3242f538c1cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8b09edbb953397691d04c0d74145c46"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#af8b09edbb953397691d04c0d74145c46">v</a></td></tr>
+<tr class="memdesc:af8b09edbb953397691d04c0d74145c46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current v perspective location in pixels.  <a href="structvlbi__baseline.html#af8b09edbb953397691d04c0d74145c46">More...</a><br /></td></tr>
 <tr class="separator:af8b09edbb953397691d04c0d74145c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ba498438b76ad4d50dc7f5ab0c3ba0d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#a1ba498438b76ad4d50dc7f5ab0c3ba0d">delay</a></td></tr>
+<tr class="memdesc:a1ba498438b76ad4d50dc7f5ab0c3ba0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current delay in seconds.  <a href="structvlbi__baseline.html#a1ba498438b76ad4d50dc7f5ab0c3ba0d">More...</a><br /></td></tr>
 <tr class="separator:a1ba498438b76ad4d50dc7f5ab0c3ba0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a439048384cf94d81d749cf25e1ca0135"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#a439048384cf94d81d749cf25e1ca0135">WaveLength</a></td></tr>
+<tr class="memdesc:a439048384cf94d81d749cf25e1ca0135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wavelength observed in meters.  <a href="structvlbi__baseline.html#a439048384cf94d81d749cf25e1ca0135">More...</a><br /></td></tr>
 <tr class="separator:a439048384cf94d81d749cf25e1ca0135"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefe632eee76611eaf381a786050ee6ce"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#aefe632eee76611eaf381a786050ee6ce">SampleRate</a></td></tr>
+<tr class="memdesc:aefe632eee76611eaf381a786050ee6ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Samples per second.  <a href="structvlbi__baseline.html#aefe632eee76611eaf381a786050ee6ce">More...</a><br /></td></tr>
 <tr class="separator:aefe632eee76611eaf381a786050ee6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9b1ac7e0f9d2dab00236b4abcbcf12b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvlbi__node.html">vlbi_node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#ab9b1ac7e0f9d2dab00236b4abcbcf12b">Node1</a></td></tr>
+<tr class="memdesc:ab9b1ac7e0f9d2dab00236b4abcbcf12b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Earlier node.  <a href="structvlbi__baseline.html#ab9b1ac7e0f9d2dab00236b4abcbcf12b">More...</a><br /></td></tr>
 <tr class="separator:ab9b1ac7e0f9d2dab00236b4abcbcf12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f2cc666a17cb23587ec265577b48541"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvlbi__node.html">vlbi_node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#a3f2cc666a17cb23587ec265577b48541">Node2</a></td></tr>
+<tr class="memdesc:a3f2cc666a17cb23587ec265577b48541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Latter node.  <a href="structvlbi__baseline.html#a3f2cc666a17cb23587ec265577b48541">More...</a><br /></td></tr>
 <tr class="separator:a3f2cc666a17cb23587ec265577b48541"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1719db627b870126ccfaa2f926f2aa9d"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#a1719db627b870126ccfaa2f926f2aa9d">Name</a></td></tr>
+<tr class="memdesc:a1719db627b870126ccfaa2f926f2aa9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Baseline's name.  <a href="structvlbi__baseline.html#a1719db627b870126ccfaa2f926f2aa9d">More...</a><br /></td></tr>
 <tr class="separator:a1719db627b870126ccfaa2f926f2aa9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49974ea4e7e15c987a82836ed046da2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_s_p___types.html#ga2a1b0fa42e2d522d83ab074f117bd9be">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html#a49974ea4e7e15c987a82836ed046da2e">Stream</a></td></tr>
+<tr class="memdesc:a49974ea4e7e15c987a82836ed046da2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Baseline's DSP stream.  <a href="structvlbi__baseline.html#a49974ea4e7e15c987a82836ed046da2e">More...</a><br /></td></tr>
 <tr class="separator:a49974ea4e7e15c987a82836ed046da2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A single baseline, returned by vlbi_get_baselines into an array. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a23b83d569063d09974f530c433e8a4a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a23b83d569063d09974f530c433e8a4a3">&#9670;&nbsp;</a></span>baseline</h2>
 
@@ -115,6 +135,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The baseline's 3d sizes in meters. </p>
 
 </div>
 </div>
@@ -130,6 +152,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The baseline's current celestial target declination. </p>
+
 </div>
 </div>
 <a id="a1ba498438b76ad4d50dc7f5ab0c3ba0d"></a>
@@ -143,6 +167,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Current delay in seconds. </p>
 
 </div>
 </div>
@@ -158,6 +184,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Whether this baseline's nodes use coordinates relative to the context reference station. </p>
+
 </div>
 </div>
 <a id="a1719db627b870126ccfaa2f926f2aa9d"></a>
@@ -171,6 +199,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Baseline's name. </p>
 
 </div>
 </div>
@@ -186,6 +216,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Earlier node. </p>
+
 </div>
 </div>
 <a id="a3f2cc666a17cb23587ec265577b48541"></a>
@@ -199,6 +231,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Latter node. </p>
 
 </div>
 </div>
@@ -214,6 +248,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The baseline's current celestial target right ascension. </p>
+
 </div>
 </div>
 <a id="a083bcfe10e5a959e8c8f74f8a4c8626b"></a>
@@ -227,6 +263,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Whether this baseline's nodes use coordinates relative to the context reference station. </p>
 
 </div>
 </div>
@@ -242,6 +280,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Samples per second. </p>
+
 </div>
 </div>
 <a id="a49974ea4e7e15c987a82836ed046da2e"></a>
@@ -255,6 +295,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Baseline's DSP stream. </p>
 
 </div>
 </div>
@@ -270,6 +312,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The baseline's current celestial target array. </p>
+
 </div>
 </div>
 <a id="a3df508a186ef8126f2f3242f538c1cc2"></a>
@@ -283,6 +327,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Current u perspective location in pixels. </p>
 
 </div>
 </div>
@@ -298,6 +344,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Current v perspective location in pixels. </p>
+
 </div>
 </div>
 <a id="a439048384cf94d81d749cf25e1ca0135"></a>
@@ -312,12 +360,14 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Wavelength observed in meters. </p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 19:36:21 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 20:23:28 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

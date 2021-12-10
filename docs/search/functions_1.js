@@ -40,7 +40,7 @@ var searchData=
   ['vlbi_5fget_5fuv_5fplot_441',['vlbi_get_uv_plot',['../group___v_l_b_i___functions.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1',1,'vlbi.h']]],
   ['vlbi_5fget_5fversion_442',['vlbi_get_version',['../group___v_l_b_i___functions.html#ga79a6e4befc2d91b2f36ab1e5d79ccef8',1,'vlbi.h']]],
   ['vlbi_5finit_443',['vlbi_init',['../group___v_l_b_i___functions.html#ga7af54a4c1922c260e74c8a5f2fcb89d9',1,'vlbi.h']]],
-  ['vlbi_5fmax_5fthreads_444',['vlbi_max_threads',['../group___v_l_b_i___defines.html#ga5e1131d240c7c9684e8235e6faceb9b1',1,'vlbi.h']]],
+  ['vlbi_5fmax_5fthreads_444',['vlbi_max_threads',['../group___v_l_b_i___functions.html#ga5e1131d240c7c9684e8235e6faceb9b1',1,'vlbi.h']]],
   ['vlbi_5frad2as_445',['vlbi_rad2as',['../group___v_l_b_i___internal.html#ga9e0a7cd5fab6a930cc6813b2d4f6a042',1,'vlbi.h']]],
   ['vlbi_5fset_5fbaseline_5fbuffer_446',['vlbi_set_baseline_buffer',['../group___v_l_b_i___functions.html#gaf234b285a6e5e7616971046673241bdd',1,'vlbi.h']]],
   ['vlbi_5fset_5flocation_447',['vlbi_set_location',['../group___v_l_b_i___functions.html#gaf57dbbb14efe53d31db2306389b0233c',1,'vlbi.h']]],

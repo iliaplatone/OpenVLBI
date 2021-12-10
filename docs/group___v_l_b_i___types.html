@@ -73,17 +73,22 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__node.html">vlbi_node</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single node, returned by vlbi_get_nodes into an array.  <a href="structvlbi__node.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvlbi__baseline.html">vlbi_baseline</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single baseline, returned by vlbi_get_baselines into an array.  <a href="structvlbi__baseline.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:ga372e6573a910d3275046540c39f3dc39"><td class="memItemLeft" align="right" valign="top">typedef double(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___types.html#ga372e6573a910d3275046540c39f3dc39">vlbi_func2_t</a>) (double, double)</td></tr>
+<tr class="memdesc:ga372e6573a910d3275046540c39f3dc39"><td class="mdescLeft">&#160;</td><td class="mdescRight">The delegate function type to pass to vlbi_plot_uv_plane.  <a href="group___v_l_b_i___types.html#ga372e6573a910d3275046540c39f3dc39">More...</a><br /></td></tr>
 <tr class="separator:ga372e6573a910d3275046540c39f3dc39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga50f883f7e834b395856676739fe83e0e"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a></td></tr>
+<tr class="memdesc:ga50f883f7e834b395856676739fe83e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">the OpenVLBI context object type  <a href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">More...</a><br /></td></tr>
 <tr class="separator:ga50f883f7e834b395856676739fe83e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa0b51754d79d4eac2b53e1c6ae364c43"><td class="memItemLeft" align="right" valign="top">typedef struct timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___types.html#gaa0b51754d79d4eac2b53e1c6ae364c43">timespec_t</a></td></tr>
+<tr class="memdesc:gaa0b51754d79d4eac2b53e1c6ae364c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition of the timespec_t in a C type, just for convenience.  <a href="group___v_l_b_i___types.html#gaa0b51754d79d4eac2b53e1c6ae364c43">More...</a><br /></td></tr>
 <tr class="separator:gaa0b51754d79d4eac2b53e1c6ae364c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -100,6 +105,8 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition of the timespec_t in a C type, just for convenience. </p>
+
 </div>
 </div>
 <a id="ga50f883f7e834b395856676739fe83e0e"></a>
@@ -113,6 +120,8 @@ Typedefs</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>the OpenVLBI context object type </p>
 
 </div>
 </div>
@@ -128,12 +137,23 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The delegate function type to pass to vlbi_plot_uv_plane. </p>
+<p>This function type natively accepts the double type, but you must consider to cast these arguments as other types, like structure, unions, C++ classes or other kind of object pointers.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">farest</td><td>baseline's node current value </td></tr>
+    <tr><td class="paramname">closest</td><td>baseline's node current value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the result of the operation done </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 19:36:21 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 20:23:28 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
