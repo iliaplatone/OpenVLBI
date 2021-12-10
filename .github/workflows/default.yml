@@ -18,7 +18,7 @@ jobs:
       - name: Build & Install
         run: |
             cd OpenVLBI
-            ./scripts/build.sh
+            sudo ./scripts/build.sh
 
       - name: Run Tests
         run: |
