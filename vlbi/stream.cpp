@@ -16,9 +16,6 @@
 
 */
 
-#ifndef _WIN32
-#include <linux/fcntl.h>
-#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
