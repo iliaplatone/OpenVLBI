@@ -555,14 +555,14 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 * \param len the length in elements of the buffer.
 * \return the mean value of the stream.
 */
-#define dsp_stats_mean(__dsp__buf, __dsp__len)\
+#define dsp_stats_mean(buf, len)\
 ({\
     int __dsp__i;\
     double __dsp__mean = 0;\
-    for(__dsp__i = 0; __dsp__i < __dsp__len; __dsp__i++) {\
+    for(__dsp__i = 0; __dsp__i < len; __dsp__i++) {\
         __dsp__mean += __dsp__buf[__dsp__i];\
     }\
-    __dsp__mean /= __dsp__len;\
+    __dsp__mean /= len;\
     __dsp__mean;\
     })
 #endif
@@ -573,15 +573,15 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
 * \param buf the inout buffer
 * \param len the length of the buffer
 */
-#define dsp_stats_stddev(__dsp__buf, __dsp__len)\
+#define dsp_stats_stddev(buf, len)\
 ({\
-    double __dsp__mean = dsp_stats_mean(__dsp__buf, __dsp__len);\
+    double __dsp__mean = dsp_stats_mean(buf, len);\
     int __dsp__x;\
     double __dsp__stddev = 0;\
-    for(__dsp__x = 0; __dsp__x < __dsp__len; __dsp__x++) {\
-        __dsp__stddev += fabs(__dsp__buf[__dsp__x] - __dsp__mean);\
+    for(__dsp__x = 0; __dsp__x < len; __dsp__x++) {\
+        __dsp__stddev += fabs(buf[__dsp__x] - __dsp__mean);\
     }\
-    __dsp__stddev /= __dsp__len;\
+    __dsp__stddev /= len;\
     __dsp__stddev;\
     })
 #endif
@@ -695,8 +695,8 @@ DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
 * \brief Stretch minimum and maximum values of the input stream
 * \param buf the input buffer
 * \param len the length in elements of the buffer.
-* \param min the desired minimum value.
-* \param max the desired maximum value.
+* \param _mn the desired minimum value.
+* \param _mx the desired maximum value.
 */
 #define dsp_buffer_stretch(buf, len, _mn, _mx)\
 ({\
@@ -719,7 +719,7 @@ DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
 * \brief Fill the buffer with the passed value
 * \param buf the input buffer
 * \param len the length in elements of the buffer.
-* \param val the desired value.
+* \param _val the desired value.
 */
 #define dsp_buffer_set(buf, len, _val)\
 ({\
@@ -735,8 +735,8 @@ DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
 * \brief Normalize the input stream to the minimum and maximum values
 * \param buf the input buffer
 * \param len the length in elements of the buffer.
-* \param min the clamping bottom value.
-* \param max the clamping upper value.
+* \param mn the clamping bottom value.
+* \param mx the clamping upper value.
 */
 #define dsp_buffer_normalize(buf, len, mn, mx)\
 ({\
@@ -880,7 +880,7 @@ DLL_EXPORT void dsp_buffer_median(dsp_stream_p stream, int size, int median);
 * \param stream the stream on which execute
 * \param size the reference size.
 */
-DLL_EXPORT void dsp_buffer_sigma(dsp_stream_p in, int size);
+DLL_EXPORT void dsp_buffer_sigma(dsp_stream_p stream, int size);
 
 /**
 * \brief Deviate forward the first input stream using the second stream as indexing reference
@@ -964,7 +964,8 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
 * output buffer element type
 * \param in the input stream.
 * \param out the output stream.
-* \param len the length of the first input stream.
+* \param inlen the length of the input stream.
+* \param outlen the length of the output stream.
 * \param instep copy each instep elements of in into each outstep elements of out.
 * \param outstep copy each instep elements of in into each outstep elements of out.
 */
@@ -1046,7 +1047,7 @@ DLL_EXPORT void dsp_stream_add_child(dsp_stream_p stream, dsp_stream_p child);
 /**
 * \brief Add a star to the DSP Stream passed as argument
 * \param stream the target DSP stream.
-* \param child the star to add to DSP stream.
+* \param star the star to add to DSP stream.
 * \sa dsp_stream_new
 * \sa dsp_stream_del_star
 */
@@ -1064,7 +1065,7 @@ DLL_EXPORT void dsp_stream_del_star(dsp_stream_p stream, int n);
 /**
 * \brief Add a triangle to the DSP Stream passed as argument
 * \param stream the target DSP stream.
-* \param child the triangle to add to DSP stream.
+* \param triangle the triangle to add to DSP stream.
 * \sa dsp_stream_new
 * \sa dsp_stream_del_triangle
 */
@@ -1073,7 +1074,7 @@ DLL_EXPORT void dsp_stream_add_triangle(dsp_stream_p stream, dsp_triangle triang
 /**
 * \brief Remove the triangle with index n to a DSP stream
 * \param stream the target DSP stream.
-* \param n the index of the triangle to remove
+* \param index the index of the triangle to remove
 * \sa dsp_stream_new
 * \sa dsp_stream_add_triangle
 */
@@ -1141,6 +1142,7 @@ DLL_EXPORT int* dsp_stream_get_position(dsp_stream_p stream, int index);
 /**
 * \brief Execute the function callback pointed by the func field of the passed stream
 * \param stream the target DSP stream.
+* \param args The arguments list to be passed to the callback
 * \return callback return value
 * \sa dsp_stream_new
 * \sa dsp_stream_get_position
@@ -1150,33 +1152,25 @@ DLL_EXPORT void *dsp_stream_exec(dsp_stream_p stream, void *args, ...);
 
 /**
 * \brief Crop the buffers of the stream passed as argument by reading the ROI field.
-* \param stream the target DSP stream.
-* \return the cropped DSP stream.
-* \sa dsp_stream_new
+* \param stream The stream that will be cropped in-place
 */
 DLL_EXPORT void dsp_stream_crop(dsp_stream_p stream);
 
 /**
 * \brief Rotate a stream around an axis and offset
-* \param stream The stream that need rotation
-* \param info The dsp_align_info structure pointer containing the rotation informations
-* \return The new dsp_stream_p structure pointer
+* \param stream The stream that will be rotated in-place
 */
 DLL_EXPORT void dsp_stream_rotate(dsp_stream_p stream);
 
 /**
 * \brief Traslate a stream
-* \param stream The stream that need traslation
-* \param info The dsp_align_info structure pointer containing the traslation informations
-* \return The new dsp_stream_p structure pointer
+* \param stream The stream that will be translated in-place
 */
 DLL_EXPORT void dsp_stream_translate(dsp_stream_p stream);
 
 /**
 * \brief Scale a stream
-* \param stream The stream that need scaling
-* \param info The dsp_align_info structure pointer containing the scaling informations
-* \return The new dsp_stream_p structure pointer
+* \param stream The stream that will be scaled in-place
 */
 DLL_EXPORT void dsp_stream_scale(dsp_stream_p stream);
 
@@ -1242,6 +1236,7 @@ DLL_EXPORT void dsp_modulation_amplitude(dsp_stream_p stream, double samplefreq,
 /**
 * \brief Read a FITS file and fill a dsp_stream_p with its content
 * \param filename the file name.
+* \param channels will be filled with the number of components
 * \param stretch 1 if the buffer intensities have to be stretched
 * \return The new dsp_stream_p structure pointer
 */
@@ -1305,8 +1300,8 @@ DLL_EXPORT dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int st
 * \brief Write the components dsp_stream_p array into a PNG file,
 * \param filename the file name.
 * \param components the number of streams in the array to be used as components 1 or 3.
-* \param quality the compression of the output PNG 0-9.
-* \param stream the input stream to be saved
+* \param compression the compression of the output PNG 0-9.
+* \param stream the input stream array to be saved
 */
 DLL_EXPORT void dsp_file_write_png_composite(char *filename, int components, int compression, dsp_stream_p* stream);
 
@@ -1362,11 +1357,10 @@ DLL_EXPORT void dsp_buffer_components_to_rgb(dsp_stream_p *stream, void* rgb, in
 
 /**
 * \brief Convert a component dsp_stream_p array into a bayer dsp_t array
-* \param stream the component dsp_stream_p array
-* \param bayer the output buffer
+* \param src the component dsp_stream_p array
 * \param red the red offset within the bayer quad
 * \param width the width of the output array
-* \param width the height of the output array
+* \param height the height of the output array
 * \return The new dsp_stream_p array
 */
 DLL_EXPORT dsp_t* dsp_file_composite_2_bayer(dsp_stream_p *src, int red, int width, int height);
