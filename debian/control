@@ -35,7 +35,7 @@ Description: OpenVLBI Correlator library
 Package: openvlbi-bin
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libopenvlbi (= ${source:Version})
-Description: OpenVLBI Correlator library - client applications
+Description: OpenVLBI Correlator library - server applications
     OpenVLBI is an open source library for astronomical interferometers.
     with OpenVLBI astronomers can join together more telescopes to observe    
     celestial objects at great resolution.
