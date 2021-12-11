@@ -560,7 +560,7 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p s
     int __dsp__i;\
     double __dsp__mean = 0;\
     for(__dsp__i = 0; __dsp__i < len; __dsp__i++) {\
-        __dsp__mean += __dsp__buf[__dsp__i];\
+        __dsp__mean += buf[__dsp__i];\
     }\
     __dsp__mean /= len;\
     __dsp__mean;\
