@@ -42,15 +42,17 @@ void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p matrix) {
     dsp_t mn = dsp_stats_min(stream->buf, stream->len);
     dsp_t mx = dsp_stats_max(stream->buf, stream->len);
     int* d_pos = (int*)malloc(sizeof(int)*stream->dims);
+    dsp_buffer_shift(matrix->magnitude);
     for(y = 0; y < matrix->len; y++) {
         int* pos = dsp_stream_get_position(matrix, y);
         for(d = 0; d < stream->dims; d++) {
-            d_pos[d] = stream->sizes[d]/2+((pos[d]+matrix->sizes[d])%matrix->sizes[d])-matrix->sizes[d]/2;
+            d_pos[d] = stream->sizes[d]/2+pos[d]-matrix->sizes[d]/2;
         }
         x = dsp_stream_set_position(stream, d_pos);
         free(pos);
-        stream->magnitude->buf[x] *= sqrt(matrix->magnitude->buf[matrix->len-1-y]);
+        stream->magnitude->buf[x] *= sqrt(matrix->magnitude->buf[y]);
     }
+    dsp_buffer_shift(matrix->magnitude);
     free(d_pos);
     dsp_fourier_idft(stream);
     dsp_buffer_stretch(stream->buf, stream->len, mn, mx);

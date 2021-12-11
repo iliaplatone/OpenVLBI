@@ -450,10 +450,17 @@ DLL_EXPORT void dsp_filter_bandreject(dsp_stream_p stream, double LowFrequency,
 /**@{*/
 /**
 * \brief A cross-convolution processor
-* \param stream1 the first input stream.
-* \param stream2 the second input stream.
+* \param stream the input stream.
+* \param matrix the convolution matrix stream.
 */
-DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream1, dsp_stream_p stream2);
+DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream, dsp_stream_p matrix);
+
+/**
+* \brief A cross-correlation processor
+* \param stream the input stream.
+* \param matrix the correlation matrix stream.
+*/
+DLL_EXPORT void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p matrix);
 
 /**@}*/
 /**

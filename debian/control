@@ -27,20 +27,13 @@ Description: OpenVLBI Correlator library
     with OpenVLBI astronomers can join together more telescopes to observe    
     celestial objects at great resolution.
     OpenVLBI can be used with radio antennas or optical sensors. 
-    A test and multi-contextual client/server applications are included into
-    openvlbi-bin, and libopenvlbi contains the correlator library.
-    An INDI client is included into openvlbi-bin which connects to one or more 
-    INDI servers that observe in realtime. 
 
 Package: openvlbi-bin
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libopenvlbi (= ${source:Version})
-Description: OpenVLBI Correlator library - server applications
+Description: OpenVLBI Correlator library - runtime
     OpenVLBI is an open source library for astronomical interferometers.
     with OpenVLBI astronomers can join together more telescopes to observe    
     celestial objects at great resolution.
     OpenVLBI can be used with radio antennas or optical sensors. 
-    A test and multi-contextual client/server applications are included into
-    openvlbi-bin, and libopenvlbi contains the correlator library.
-    An INDI client is included into openvlbi-bin which connects to one or more 
-    INDI servers that observe in realtime. 
+    This package includes test and multi-contextual client/server applications.

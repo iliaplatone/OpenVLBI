@@ -1,3 +1,9 @@
+libopenvlbi (1.20) unstable; urgency=medium
+
+  * Converted misunderstood clients into servers
+
+ -- Ilia Platone <plato@localhost>  Sat, 11 Dec 2021 15:39:26 +0100
+
 libopenvlbi (1.19) unstable; urgency=medium
 
   * Added models management
