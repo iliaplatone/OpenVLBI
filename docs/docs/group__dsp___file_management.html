@@ -417,11 +417,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stream</td><td>the component dsp_stream_p array </td></tr>
-    <tr><td class="paramname">bayer</td><td>the output buffer </td></tr>
+    <tr><td class="paramname">src</td><td>the component dsp_stream_p array </td></tr>
     <tr><td class="paramname">red</td><td>the red offset within the bayer quad </td></tr>
     <tr><td class="paramname">width</td><td>the width of the output array </td></tr>
-    <tr><td class="paramname">width</td><td>the height of the output array </td></tr>
+    <tr><td class="paramname">height</td><td>the height of the output array </td></tr>
   </table>
   </dd>
 </dl>
@@ -463,6 +462,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>the file name. </td></tr>
+    <tr><td class="paramname">channels</td><td>will be filled with the number of components </td></tr>
     <tr><td class="paramname">stretch</td><td>1 if the buffer intensities have to be stretched </td></tr>
   </table>
   </dd>
@@ -829,8 +829,8 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">filename</td><td>the file name. </td></tr>
     <tr><td class="paramname">components</td><td>the number of streams in the array to be used as components 1 or 3. </td></tr>
-    <tr><td class="paramname">quality</td><td>the compression of the output PNG 0-9. </td></tr>
-    <tr><td class="paramname">stream</td><td>the input stream to be saved </td></tr>
+    <tr><td class="paramname">compression</td><td>the compression of the output PNG 0-9. </td></tr>
+    <tr><td class="paramname">stream</td><td>the input stream array to be saved </td></tr>
   </table>
   </dd>
 </dl>
@@ -890,7 +890,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 11 2021 02:05:52 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 11 2021 02:37:44 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

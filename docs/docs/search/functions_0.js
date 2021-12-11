@@ -18,7 +18,7 @@ var searchData=
   ['dsp_5fbuffer_5fremovemean_313',['dsp_buffer_removemean',['../group__dsp___buffers.html#ga5d4632f9c3581d9904349a51840ffda3',1,'dsp.h']]],
   ['dsp_5fbuffer_5frgb_5fto_5fcomponents_314',['dsp_buffer_rgb_to_components',['../group__dsp___file_management.html#gab366a5c8ca61bcca07127b5b50852cac',1,'dsp.h']]],
   ['dsp_5fbuffer_5fshift_315',['dsp_buffer_shift',['../group__dsp___buffers.html#ga3ce0ecd97a57879065620bc9ad40381b',1,'dsp.h']]],
-  ['dsp_5fbuffer_5fsigma_316',['dsp_buffer_sigma',['../group__dsp___buffers.html#ga4552cbf83b52a1063930a5ba2d98d328',1,'dsp.h']]],
+  ['dsp_5fbuffer_5fsigma_316',['dsp_buffer_sigma',['../group__dsp___buffers.html#ga7f549d807fad45ce62923f66a21acb44',1,'dsp.h']]],
   ['dsp_5fbuffer_5fsub_317',['dsp_buffer_sub',['../group__dsp___buffers.html#gae2d329a0dac86b456ef29d064fe8bf8f',1,'dsp.h']]],
   ['dsp_5fbuffer_5fsub1_318',['dsp_buffer_sub1',['../group__dsp___buffers.html#gae7f5026d663cc78bb406a7e96fa12766',1,'dsp.h']]],
   ['dsp_5fbuffer_5fsum_319',['dsp_buffer_sum',['../group__dsp___buffers.html#ga14617baa20322adcb197424643a98220',1,'dsp.h']]],

@@ -153,9 +153,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga374f6a2f4d99089d834e040f23884b6b"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga374f6a2f4d99089d834e040f23884b6b">dsp_buffer_median</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, int size, int median)</td></tr>
 <tr class="memdesc:ga374f6a2f4d99089d834e040f23884b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Median elements of the input stream.  <a href="group__dsp___buffers.html#ga374f6a2f4d99089d834e040f23884b6b">More...</a><br /></td></tr>
 <tr class="separator:ga374f6a2f4d99089d834e040f23884b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4552cbf83b52a1063930a5ba2d98d328"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga4552cbf83b52a1063930a5ba2d98d328">dsp_buffer_sigma</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> in, int size)</td></tr>
-<tr class="memdesc:ga4552cbf83b52a1063930a5ba2d98d328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard deviation of each element of the input stream within the given size.  <a href="group__dsp___buffers.html#ga4552cbf83b52a1063930a5ba2d98d328">More...</a><br /></td></tr>
-<tr class="separator:ga4552cbf83b52a1063930a5ba2d98d328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f549d807fad45ce62923f66a21acb44"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga7f549d807fad45ce62923f66a21acb44">dsp_buffer_sigma</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, int size)</td></tr>
+<tr class="memdesc:ga7f549d807fad45ce62923f66a21acb44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard deviation of each element of the input stream within the given size.  <a href="group__dsp___buffers.html#ga7f549d807fad45ce62923f66a21acb44">More...</a><br /></td></tr>
+<tr class="separator:ga7f549d807fad45ce62923f66a21acb44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3eb265dda4ab1c5b9441da71cf60a45d"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___buffers.html#ga3eb265dda4ab1c5b9441da71cf60a45d">dsp_buffer_deviate</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, dsp_t *deviation, dsp_t mindeviation, dsp_t maxdeviation)</td></tr>
 <tr class="memdesc:ga3eb265dda4ab1c5b9441da71cf60a45d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deviate forward the first input stream using the second stream as indexing reference.  <a href="group__dsp___buffers.html#ga3eb265dda4ab1c5b9441da71cf60a45d">More...</a><br /></td></tr>
 <tr class="separator:ga3eb265dda4ab1c5b9441da71cf60a45d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,7 +270,8 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">in</td><td>the input stream. </td></tr>
     <tr><td class="paramname">out</td><td>the output stream. </td></tr>
-    <tr><td class="paramname">len</td><td>the length of the first input stream. </td></tr>
+    <tr><td class="paramname">inlen</td><td>the length of the input stream. </td></tr>
+    <tr><td class="paramname">outlen</td><td>the length of the output stream. </td></tr>
     <tr><td class="paramname">instep</td><td>copy each instep elements of in into each outstep elements of out. </td></tr>
     <tr><td class="paramname">outstep</td><td>copy each instep elements of in into each outstep elements of out. </td></tr>
   </table>
@@ -326,8 +327,8 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
-    <tr><td class="paramname">min</td><td>the clamping bottom value. </td></tr>
-    <tr><td class="paramname">max</td><td>the clamping upper value. </td></tr>
+    <tr><td class="paramname">mn</td><td>the clamping bottom value. </td></tr>
+    <tr><td class="paramname">mx</td><td>the clamping upper value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -423,7 +424,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
-    <tr><td class="paramname">val</td><td>the desired value. </td></tr>
+    <tr><td class="paramname">_val</td><td>the desired value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -484,8 +485,8 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">buf</td><td>the input buffer </td></tr>
     <tr><td class="paramname">len</td><td>the length in elements of the buffer. </td></tr>
-    <tr><td class="paramname">min</td><td>the desired minimum value. </td></tr>
-    <tr><td class="paramname">max</td><td>the desired maximum value. </td></tr>
+    <tr><td class="paramname">_mn</td><td>the desired minimum value. </td></tr>
+    <tr><td class="paramname">_mx</td><td>the desired maximum value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1146,8 +1147,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga4552cbf83b52a1063930a5ba2d98d328"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4552cbf83b52a1063930a5ba2d98d328">&#9670;&nbsp;</a></span>dsp_buffer_sigma()</h2>
+<a id="ga7f549d807fad45ce62923f66a21acb44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7f549d807fad45ce62923f66a21acb44">&#9670;&nbsp;</a></span>dsp_buffer_sigma()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1156,7 +1157,7 @@ Functions</h2></td></tr>
           <td class="memname">DLL_EXPORT void dsp_buffer_sigma </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
-          <td class="paramname"><em>in</em>, </td>
+          <td class="paramname"><em>stream</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1342,7 +1343,7 @@ Functions</h2></td></tr>
 <div class="ttc" id="agroup__dsp___stats_html_ga9205dc9d9f963ceb4581f97ba584b977"><div class="ttname"><a href="group__dsp___stats.html#ga9205dc9d9f963ceb4581f97ba584b977">dsp_stats_max</a></div><div class="ttdeci">#define dsp_stats_max(buf, len)</div><div class="ttdoc">Gets the maximum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:489</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 11 2021 02:05:52 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 11 2021 02:37:44 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

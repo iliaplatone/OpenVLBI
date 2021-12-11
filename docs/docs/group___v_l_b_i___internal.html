@@ -114,7 +114,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga1a725d845343f59b3a2a6ac993403529"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain a timespec struct containing the date and time specified by a J2000 time.  <a href="group___v_l_b_i___internal.html#ga1a725d845343f59b3a2a6ac993403529">More...</a><br /></td></tr>
 <tr class="separator:ga1a725d845343f59b3a2a6ac993403529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8427a4368f0436925db2e09810f700a1"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#ga8427a4368f0436925db2e09810f700a1">vlbi_astro_alt_az_from_ra_dec</a> (double J2000time, double Ra, double Dec, double Lat, double Long, double *Alt, double *Az)</td></tr>
-<tr class="memdesc:ga8427a4368f0436925db2e09810f700a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns local hour angle of an object.  <a href="group___v_l_b_i___internal.html#ga8427a4368f0436925db2e09810f700a1">More...</a><br /></td></tr>
+<tr class="memdesc:ga8427a4368f0436925db2e09810f700a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the altitude and azimuth coordinate of a celestial coordinate at a specific time.  <a href="group___v_l_b_i___internal.html#ga8427a4368f0436925db2e09810f700a1">More...</a><br /></td></tr>
 <tr class="separator:ga8427a4368f0436925db2e09810f700a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacb0b11b89a053de62e7181eb4b295680"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___internal.html#gacb0b11b89a053de62e7181eb4b295680">vlbi_astro_get_local_hour_angle</a> (double local_sideral_time, double ra)</td></tr>
 <tr class="memdesc:gacb0b11b89a053de62e7181eb4b295680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns local hour angle of an object.  <a href="group___v_l_b_i___internal.html#gacb0b11b89a053de62e7181eb4b295680">More...</a><br /></td></tr>
@@ -231,12 +231,16 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">local_sideral_time</td><td>Local Sideral Time </td></tr>
-    <tr><td class="paramname">ra</td><td>RA of object </td></tr>
+    <tr><td class="paramname">J2000time</td><td>Current time offset in seconds from J2000 </td></tr>
+    <tr><td class="paramname">Ra</td><td>Right ascension coordinate of the object </td></tr>
+    <tr><td class="paramname">Dec</td><td>Declination coordinate of object </td></tr>
+    <tr><td class="paramname">Lat</td><td>Latitude of the observatory </td></tr>
+    <tr><td class="paramname">Long</td><td>Longitude of the observatory </td></tr>
+    <tr><td class="paramname">Alt</td><td>Altitude pointer </td></tr>
+    <tr><td class="paramname">Az</td><td>Azimuth pointer </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Hour angle in hours (-12 to 12) </dd></dl>
 
 </div>
 </div>
@@ -330,7 +334,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dist</td><td>The distance in parallax radiuses </td></tr>
+    <tr><td class="paramname">delta_dist</td><td>The distance difference between the two references </td></tr>
+    <tr><td class="paramname">delta_spectrum</td><td>The difference of magnitudes </td></tr>
     <tr><td class="paramname">delta_mag</td><td>The difference of magnitudes </td></tr>
   </table>
   </dd>
@@ -632,7 +637,6 @@ Functions</h2></td></tr>
     <tr><td class="paramname">alt</td><td>The altitude of the target. </td></tr>
     <tr><td class="paramname">az</td><td>The azimuth of the target. </td></tr>
     <tr><td class="paramname">baseline</td><td>The current baseline in meters. </td></tr>
-    <tr><td class="paramname">wavelength</td><td>The wavelength observed. </td></tr>
   </table>
   </dd>
 </dl>
@@ -728,7 +732,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">proj</td><td>The wavelength observed. </td></tr>
+    <tr><td class="paramname">proj</td><td>The 2d projection of the current baseline perspective distance. </td></tr>
+    <tr><td class="paramname">wavelength</td><td>The wavelength observed. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1067,7 +1072,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 11 2021 02:05:52 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 11 2021 02:37:44 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

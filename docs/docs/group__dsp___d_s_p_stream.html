@@ -247,7 +247,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stream</td><td>the target DSP stream. </td></tr>
-    <tr><td class="paramname">child</td><td>the star to add to DSP stream. </td></tr>
+    <tr><td class="paramname">star</td><td>the star to add to DSP stream. </td></tr>
   </table>
   </dd>
 </dl>
@@ -285,7 +285,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stream</td><td>the target DSP stream. </td></tr>
-    <tr><td class="paramname">child</td><td>the triangle to add to DSP stream. </td></tr>
+    <tr><td class="paramname">triangle</td><td>the triangle to add to DSP stream. </td></tr>
   </table>
   </dd>
 </dl>
@@ -400,12 +400,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stream</td><td>the target DSP stream. </td></tr>
+    <tr><td class="paramname">stream</td><td>The stream that will be cropped in-place </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the cropped DSP stream. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__dsp___d_s_p_stream.html#ga822aec4e60347496b54f085bf36cf85b" title="Allocate a new DSP stream type.">dsp_stream_new</a> </dd></dl>
 
 </div>
 </div>
@@ -551,7 +549,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stream</td><td>the target DSP stream. </td></tr>
-    <tr><td class="paramname">n</td><td>the index of the triangle to remove </td></tr>
+    <tr><td class="paramname">index</td><td>the index of the triangle to remove </td></tr>
   </table>
   </dd>
 </dl>
@@ -595,6 +593,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stream</td><td>the target DSP stream. </td></tr>
+    <tr><td class="paramname">args</td><td>The arguments list to be passed to the callback </td></tr>
   </table>
   </dd>
 </dl>
@@ -761,12 +760,10 @@ dsp_stream_exec_multidim </dd></dl>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stream</td><td>The stream that need rotation </td></tr>
-    <tr><td class="paramname">info</td><td>The dsp_align_info structure pointer containing the rotation informations </td></tr>
+    <tr><td class="paramname">stream</td><td>The stream that will be rotated in-place </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The new dsp_stream_p structure pointer </dd></dl>
 
 </div>
 </div>
@@ -787,12 +784,10 @@ dsp_stream_exec_multidim </dd></dl>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stream</td><td>The stream that need scaling </td></tr>
-    <tr><td class="paramname">info</td><td>The dsp_align_info structure pointer containing the scaling informations </td></tr>
+    <tr><td class="paramname">stream</td><td>The stream that will be scaled in-place </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The new dsp_stream_p structure pointer </dd></dl>
 
 </div>
 </div>
@@ -898,19 +893,17 @@ dsp_stream_exec_multidim </dd></dl>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stream</td><td>The stream that need traslation </td></tr>
-    <tr><td class="paramname">info</td><td>The dsp_align_info structure pointer containing the traslation informations </td></tr>
+    <tr><td class="paramname">stream</td><td>The stream that will be translated in-place </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The new dsp_stream_p structure pointer </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 11 2021 02:05:52 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 11 2021 02:37:44 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

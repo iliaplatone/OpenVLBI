@@ -122,9 +122,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga7dab08e882848051b8d0529b1ab2f3fa"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga7dab08e882848051b8d0529b1ab2f3fa">vlbi_apply_mask</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name, char *model, char *mask)</td></tr>
 <tr class="memdesc:ga7dab08e882848051b8d0529b1ab2f3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask the stream with the content of the mask stream, by multiplication of each element.  <a href="group___v_l_b_i___functions.html#ga7dab08e882848051b8d0529b1ab2f3fa">More...</a><br /></td></tr>
 <tr class="separator:ga7dab08e882848051b8d0529b1ab2f3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2e395ca38f8cf83bbca211da10321380"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga2e395ca38f8cf83bbca211da10321380">vlbi_shift</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *model)</td></tr>
-<tr class="memdesc:ga2e395ca38f8cf83bbca211da10321380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift a model by its dimensions.  <a href="group___v_l_b_i___functions.html#ga2e395ca38f8cf83bbca211da10321380">More...</a><br /></td></tr>
-<tr class="separator:ga2e395ca38f8cf83bbca211da10321380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb8b29b2ccfd933e612e66945191808b"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#gacb8b29b2ccfd933e612e66945191808b">vlbi_shift</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name)</td></tr>
+<tr class="memdesc:gacb8b29b2ccfd933e612e66945191808b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift a model by its dimensions.  <a href="group___v_l_b_i___functions.html#gacb8b29b2ccfd933e612e66945191808b">More...</a><br /></td></tr>
+<tr class="separator:gacb8b29b2ccfd933e612e66945191808b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5a967c4cbe7a491cfe918c6e6623a111"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga5a967c4cbe7a491cfe918c6e6623a111">vlbi_add_model_from_png</a> (void *ctx, char *filename, char *name)</td></tr>
 <tr class="memdesc:ga5a967c4cbe7a491cfe918c6e6623a111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a model from a png file.  <a href="group___v_l_b_i___functions.html#ga5a967c4cbe7a491cfe918c6e6623a111">More...</a><br /></td></tr>
 <tr class="separator:ga5a967c4cbe7a491cfe918c6e6623a111"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -232,7 +232,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">filename</td><td>The file name of the picture to read </td></tr>
-    <tr><td class="paramname">model</td><td>The name of the newly created model. </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the newly created model. </td></tr>
   </table>
   </dd>
 </dl>
@@ -274,7 +274,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">filename</td><td>The file name of the picture to read </td></tr>
-    <tr><td class="paramname">model</td><td>The name of the newly created model. </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the newly created model. </td></tr>
   </table>
   </dd>
 </dl>
@@ -316,7 +316,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">filename</td><td>The file name of the picture to read </td></tr>
-    <tr><td class="paramname">model</td><td>The name of the newly created model. </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the newly created model. </td></tr>
   </table>
   </dd>
 </dl>
@@ -365,6 +365,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">Stream</td><td>The OpenVLBI stream to add </td></tr>
     <tr><td class="paramname">name</td><td>A friendly name of this stream </td></tr>
+    <tr><td class="paramname">geographic_coordinates</td><td>Whether to use geographic coordinates </td></tr>
   </table>
   </dd>
 </dl>
@@ -411,9 +412,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
-    <tr><td class="paramname">buf</td><td>The buffer containing the fits file </td></tr>
-    <tr><td class="paramname">len</td><td>The length of the buffer in bytes </td></tr>
-    <tr><td class="paramname">model</td><td>The name of the newly created model </td></tr>
+    <tr><td class="paramname">filename</td><td>The filename of the fits to read </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the newly created model </td></tr>
     <tr><td class="paramname">geo</td><td>whether to consider the file coordinates as geographic or relative to the context station </td></tr>
   </table>
   </dd>
@@ -642,7 +642,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">model</td><td>The name of the model from which extract the magnitude and phase. </td></tr>
     <tr><td class="paramname">magnitude</td><td>The name of the model where to save the magnitude. </td></tr>
-    <tr><td class="paramname">magnitude</td><td>The name of the model where to save the phase. </td></tr>
+    <tr><td class="paramname">phase</td><td>The name of the model where to save the phase. </td></tr>
   </table>
   </dd>
 </dl>
@@ -769,7 +769,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">filename</td><td>The file name of the picture to write </td></tr>
-    <tr><td class="paramname">model</td><td>The name of the model chosen. </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the model chosen. </td></tr>
   </table>
   </dd>
 </dl>
@@ -811,7 +811,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">filename</td><td>The file name of the picture to write </td></tr>
-    <tr><td class="paramname">model</td><td>The name of the model chosen. </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the model chosen. </td></tr>
   </table>
   </dd>
 </dl>
@@ -853,7 +853,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">filename</td><td>The file name of the picture to write </td></tr>
-    <tr><td class="paramname">model</td><td>The name of the model chosen. </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the model chosen. </td></tr>
   </table>
   </dd>
 </dl>
@@ -888,7 +888,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
-    <tr><td class="paramname">model</td><td>The model array pointer to be filled </td></tr>
+    <tr><td class="paramname">models</td><td>The model array pointer to be filled </td></tr>
   </table>
   </dd>
 </dl>
@@ -999,6 +999,8 @@ Functions</h2></td></tr>
     <tr><td class="paramname">J2000Time</td><td>The time of the calculation </td></tr>
     <tr><td class="paramname">node1</td><td>The name of the first node </td></tr>
     <tr><td class="paramname">node2</td><td>The name of the second node </td></tr>
+    <tr><td class="paramname">Ra</td><td>The right ascension coordinate </td></tr>
+    <tr><td class="paramname">Dec</td><td>The declination coordinate </td></tr>
     <tr><td class="paramname">offset1</td><td>The output offset calculated for the first node </td></tr>
     <tr><td class="paramname">offset2</td><td>The output offset calculated for the second node </td></tr>
   </table>
@@ -1274,8 +1276,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga2e395ca38f8cf83bbca211da10321380"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2e395ca38f8cf83bbca211da10321380">&#9670;&nbsp;</a></span>vlbi_shift()</h2>
+<a id="gacb8b29b2ccfd933e612e66945191808b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacb8b29b2ccfd933e612e66945191808b">&#9670;&nbsp;</a></span>vlbi_shift()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1290,7 +1292,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>model</em>&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1302,7 +1304,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
-    <tr><td class="paramname">model</td><td>The name of the model to be shifted. </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the model to be shifted. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1312,7 +1314,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 11 2021 02:05:52 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 11 2021 02:37:44 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
