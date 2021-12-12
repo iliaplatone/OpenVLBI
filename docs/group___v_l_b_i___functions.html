@@ -111,10 +111,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga0cef76b33739ef82614e1902f54b7eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the delays of a single baseline nodes.  <a href="group___v_l_b_i___functions.html#ga0cef76b33739ef82614e1902f54b7eb8">More...</a><br /></td></tr>
 <tr class="separator:ga0cef76b33739ef82614e1902f54b7eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7bfadaa9a1d922d5f69a202ce0bd12c1"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1">vlbi_get_uv_plot</a> (void *ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, <a class="el" href="group___v_l_b_i___types.html#ga372e6573a910d3275046540c39f3dc39">vlbi_func2_t</a> delegate)</td></tr>
-<tr class="memdesc:ga7bfadaa9a1d922d5f69a202ce0bd12c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams into a new model with the given name.  <a href="group___v_l_b_i___functions.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1">More...</a><br /></td></tr>
+<tr class="memdesc:ga7bfadaa9a1d922d5f69a202ce0bd12c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill a fourier plane with an aperture synthesis projection of the baselines during the integration time and save it into a new model with the given name.  <a href="group___v_l_b_i___functions.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1">More...</a><br /></td></tr>
 <tr class="separator:ga7bfadaa9a1d922d5f69a202ce0bd12c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1f70d9cdc9c4fea80253552ac678601e"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga1f70d9cdc9c4fea80253552ac678601e">vlbi_get_ifft</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name, char *magnitude, char *phase)</td></tr>
-<tr class="memdesc:ga1f70d9cdc9c4fea80253552ac678601e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot an inverse fourier transform of the uv plot using its current magnitude and phase components.  <a href="group___v_l_b_i___functions.html#ga1f70d9cdc9c4fea80253552ac678601e">More...</a><br /></td></tr>
+<tr class="memdesc:ga1f70d9cdc9c4fea80253552ac678601e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save into name an inverse fourier transform of the uv plot using its current magnitude and phase components.  <a href="group___v_l_b_i___functions.html#ga1f70d9cdc9c4fea80253552ac678601e">More...</a><br /></td></tr>
 <tr class="separator:ga1f70d9cdc9c4fea80253552ac678601e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga330eacbd33ebbd4ebb573635fb22ac34"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___functions.html#ga330eacbd33ebbd4ebb573635fb22ac34">vlbi_get_fft</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *model, char *magnitude, char *phase)</td></tr>
 <tr class="memdesc:ga330eacbd33ebbd4ebb573635fb22ac34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the fourier transform of the given model and save its magnitude and phase components into two new models named so.  <a href="group___v_l_b_i___functions.html#ga330eacbd33ebbd4ebb573635fb22ac34">More...</a><br /></td></tr>
@@ -1090,9 +1090,9 @@ Functions</h2></td></tr>
     <tr><td class="paramname">v</td><td>The V size of the resulting UV plot </td></tr>
     <tr><td class="paramname">target</td><td>The target position int Ra/Dec celestial coordinates </td></tr>
     <tr><td class="paramname">freq</td><td>The frequency observed. This parameter will scale the plot inverserly. </td></tr>
-    <tr><td class="paramname">sr</td><td>The sampling rate. This parameter will be used as meter for the elements of the streams. </td></tr>
-    <tr><td class="paramname">nodelay</td><td>1 if no delay calculation should be done. streams entered are already synced. </td></tr>
-    <tr><td class="paramname">moving_baseline</td><td>1 if the location field of all streams is an array containing the coordinates of the nodes on each element of the data array. </td></tr>
+    <tr><td class="paramname">sr</td><td>The sampling rate per second. This parameter will be used as meter for the elements of the streams. </td></tr>
+    <tr><td class="paramname">nodelay</td><td>if 1 no delay calculation should be done. streams entered are already synced. </td></tr>
+    <tr><td class="paramname">moving_baseline</td><td>if 1 the location field of all the dsp_stream_p is an array of dsp_location for each element of the dsp_stream_p-&gt;buf array. </td></tr>
     <tr><td class="paramname">delegate</td><td>The delegate function to be executed on each node stream buffer element. </td></tr>
   </table>
   </dd>
@@ -1314,7 +1314,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 11 2021 02:56:46 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 12 2021 19:18:17 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

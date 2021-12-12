@@ -67,15 +67,1296 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_v_l_b_i_1_1_server-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">VLBI::Server Class Reference</div>  </div>
+<div class="title">VLBI::Server Class Reference<div class="ingroups"><a class="el" href="group___server.html">OpenVLBI Server C++ API</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Inherit this class to create an OpenVLBI server application.  
+</p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a5e34b3313bcb67417b7305057390034d"><td class="memItemLeft" align="right" valign="top"><a id="a5e34b3313bcb67417b7305057390034d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a5e34b3313bcb67417b7305057390034d">Server</a> (void)</td></tr>
+<tr class="memdesc:a5e34b3313bcb67417b7305057390034d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, initializes all the internal variables. <br /></td></tr>
+<tr class="separator:a5e34b3313bcb67417b7305057390034d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f9f2313b8f36179ec13e9a38995af9e"><td class="memItemLeft" align="right" valign="top"><a id="a7f9f2313b8f36179ec13e9a38995af9e"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a7f9f2313b8f36179ec13e9a38995af9e">~Server</a> (void)</td></tr>
+<tr class="memdesc:a7f9f2313b8f36179ec13e9a38995af9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor, destroys this object. <br /></td></tr>
+<tr class="separator:a7f9f2313b8f36179ec13e9a38995af9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92cd5bfb6314ded325382b984dbefb62"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a92cd5bfb6314ded325382b984dbefb62">Init</a> (int argc, char **argv)</td></tr>
+<tr class="memdesc:a92cd5bfb6314ded325382b984dbefb62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called immediately after main(), can be overriden to add your custom arguments.  <a href="class_v_l_b_i_1_1_server.html#a92cd5bfb6314ded325382b984dbefb62">More...</a><br /></td></tr>
+<tr class="separator:a92cd5bfb6314ded325382b984dbefb62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd7eb27b2ea842c5fc480f8a5e41242c"><td class="memItemLeft" align="right" valign="top"><a id="afd7eb27b2ea842c5fc480f8a5e41242c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#afd7eb27b2ea842c5fc480f8a5e41242c">Parse</a> (void)</td></tr>
+<tr class="memdesc:afd7eb27b2ea842c5fc480f8a5e41242c"><td class="mdescLeft">&#160;</td><td class="mdescRight">main() creates a loop that calls <a class="el" href="class_v_l_b_i_1_1_server.html#afd7eb27b2ea842c5fc480f8a5e41242c" title="main() creates a loop that calls Parse(), you can use this one, which uses the standard syntax or ove...">Parse()</a>, you can use this one, which uses the standard syntax or override it with your own implementation <br /></td></tr>
+<tr class="separator:afd7eb27b2ea842c5fc480f8a5e41242c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89ec91f35e26d991023a86c1f81e1020"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a89ec91f35e26d991023a86c1f81e1020">AddContext</a> (char *name)</td></tr>
+<tr class="memdesc:a89ec91f35e26d991023a86c1f81e1020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new OpenVLBI context by giving it a name. <a class="el" href="class_v_l_b_i_1_1_server.html" title="Inherit this class to create an OpenVLBI server application.">VLBI::Server</a> has an internal context collection.  <a href="class_v_l_b_i_1_1_server.html#a89ec91f35e26d991023a86c1f81e1020">More...</a><br /></td></tr>
+<tr class="separator:a89ec91f35e26d991023a86c1f81e1020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e481ec513e11043848e6acbe206e846"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a3e481ec513e11043848e6acbe206e846">DelContext</a> (char *name)</td></tr>
+<tr class="memdesc:a3e481ec513e11043848e6acbe206e846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete an existing OpenVLBI context by name.  <a href="class_v_l_b_i_1_1_server.html#a3e481ec513e11043848e6acbe206e846">More...</a><br /></td></tr>
+<tr class="separator:a3e481ec513e11043848e6acbe206e846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab63feca10481b6ef81f2ee0b8377c6d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ab63feca10481b6ef81f2ee0b8377c6d8">SetContext</a> (char *name)</td></tr>
+<tr class="memdesc:ab63feca10481b6ef81f2ee0b8377c6d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the current OpenVLBI context by passing its name.  <a href="class_v_l_b_i_1_1_server.html#ab63feca10481b6ef81f2ee0b8377c6d8">More...</a><br /></td></tr>
+<tr class="separator:ab63feca10481b6ef81f2ee0b8377c6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bb68ef892b6b68197ecb28a2aca42a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a5bb68ef892b6b68197ecb28a2aca42a2">GetContext</a> (void)</td></tr>
+<tr class="memdesc:a5bb68ef892b6b68197ecb28a2aca42a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the current OpenVLBI context object.  <a href="class_v_l_b_i_1_1_server.html#a5bb68ef892b6b68197ecb28a2aca42a2">More...</a><br /></td></tr>
+<tr class="separator:a5bb68ef892b6b68197ecb28a2aca42a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75183c5df719a95d1e4b6df962fdcaeb"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a75183c5df719a95d1e4b6df962fdcaeb">CurrentContext</a> (void)</td></tr>
+<tr class="memdesc:a75183c5df719a95d1e4b6df962fdcaeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the name current OpenVLBI context.  <a href="class_v_l_b_i_1_1_server.html#a75183c5df719a95d1e4b6df962fdcaeb">More...</a><br /></td></tr>
+<tr class="separator:a75183c5df719a95d1e4b6df962fdcaeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d917aaaf9b20c1a4f5c0be57747a56d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a0d917aaaf9b20c1a4f5c0be57747a56d">AddModel</a> (char *name, char *format, char *b64)</td></tr>
+<tr class="memdesc:a0d917aaaf9b20c1a4f5c0be57747a56d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new model from a picture, give it a name and add it to the current context.  <a href="class_v_l_b_i_1_1_server.html#a0d917aaaf9b20c1a4f5c0be57747a56d">More...</a><br /></td></tr>
+<tr class="separator:a0d917aaaf9b20c1a4f5c0be57747a56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3040c97c13ab58902441933b879b076d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a3040c97c13ab58902441933b879b076d">GetModel</a> (char *name)</td></tr>
+<tr class="memdesc:a3040c97c13ab58902441933b879b076d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the dsp_stream_p object of a model by passing its name.  <a href="class_v_l_b_i_1_1_server.html#a3040c97c13ab58902441933b879b076d">More...</a><br /></td></tr>
+<tr class="separator:a3040c97c13ab58902441933b879b076d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeda9efa54a61bc06907e5469b99954d4"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#aeda9efa54a61bc06907e5469b99954d4">GetModel</a> (char *name, char *format)</td></tr>
+<tr class="memdesc:aeda9efa54a61bc06907e5469b99954d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the base64 encoded file buffer of a model by passing its name.  <a href="class_v_l_b_i_1_1_server.html#aeda9efa54a61bc06907e5469b99954d4">More...</a><br /></td></tr>
+<tr class="separator:aeda9efa54a61bc06907e5469b99954d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7895cb04b2de053bf4d5f50caa6146b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#af7895cb04b2de053bf4d5f50caa6146b">DelModel</a> (char *name)</td></tr>
+<tr class="memdesc:af7895cb04b2de053bf4d5f50caa6146b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete from the current context an existing model by name.  <a href="class_v_l_b_i_1_1_server.html#af7895cb04b2de053bf4d5f50caa6146b">More...</a><br /></td></tr>
+<tr class="separator:af7895cb04b2de053bf4d5f50caa6146b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee29d00a052e84b127df1eb0bbc5265"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#afee29d00a052e84b127df1eb0bbc5265">GetModels</a> (char **names)</td></tr>
+<tr class="memdesc:afee29d00a052e84b127df1eb0bbc5265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the names of all the models of the current context.  <a href="class_v_l_b_i_1_1_server.html#afee29d00a052e84b127df1eb0bbc5265">More...</a><br /></td></tr>
+<tr class="separator:afee29d00a052e84b127df1eb0bbc5265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a772e31199d963187b4c2699d202cf459"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a772e31199d963187b4c2699d202cf459">AddNode</a> (char *name, char *b64)</td></tr>
+<tr class="memdesc:a772e31199d963187b4c2699d202cf459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new node from a monodimensional FITS file, give it a name and add it to the current context.  <a href="class_v_l_b_i_1_1_server.html#a772e31199d963187b4c2699d202cf459">More...</a><br /></td></tr>
+<tr class="separator:a772e31199d963187b4c2699d202cf459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd8ead79c7fbb04c9638085370e43a86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#acd8ead79c7fbb04c9638085370e43a86">AddNode</a> (char *name, <a class="el" href="group___d_s_p___types.html#gaed2bb55a5ec25c68e1fbf547580651aa">dsp_location</a> *locations, void *buf, int len, timespec starttime, bool geo)</td></tr>
+<tr class="memdesc:acd8ead79c7fbb04c9638085370e43a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new node from a its raw data, give it a name and add it to the current context.  <a href="class_v_l_b_i_1_1_server.html#acd8ead79c7fbb04c9638085370e43a86">More...</a><br /></td></tr>
+<tr class="separator:acd8ead79c7fbb04c9638085370e43a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2fab30291cf07d38eaf659a2efb268c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ad2fab30291cf07d38eaf659a2efb268c">DelNode</a> (char *name)</td></tr>
+<tr class="memdesc:ad2fab30291cf07d38eaf659a2efb268c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete from the current context an existing node by name.  <a href="class_v_l_b_i_1_1_server.html#ad2fab30291cf07d38eaf659a2efb268c">More...</a><br /></td></tr>
+<tr class="separator:ad2fab30291cf07d38eaf659a2efb268c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaa382b568b5fe65c9a00ba3ddc84a94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#afaa382b568b5fe65c9a00ba3ddc84a94">Plot</a> (char *name, int flags)</td></tr>
+<tr class="memdesc:afaa382b568b5fe65c9a00ba3ddc84a94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot the current observation into a new model.  <a href="class_v_l_b_i_1_1_server.html#afaa382b568b5fe65c9a00ba3ddc84a94">More...</a><br /></td></tr>
+<tr class="separator:afaa382b568b5fe65c9a00ba3ddc84a94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad34f7550029bbbccfa084b82feaefe8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ad34f7550029bbbccfa084b82feaefe8c">Idft</a> (char *name, char *magnitude, char *phase)</td></tr>
+<tr class="memdesc:ad34f7550029bbbccfa084b82feaefe8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain an inverse fourier transform from the magnitude and phase models passed.  <a href="class_v_l_b_i_1_1_server.html#ad34f7550029bbbccfa084b82feaefe8c">More...</a><br /></td></tr>
+<tr class="separator:ad34f7550029bbbccfa084b82feaefe8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3f2bbb4eb51d923ee80341fcffbf6d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ab3f2bbb4eb51d923ee80341fcffbf6d4">Dft</a> (char *name, char *magnitude, char *phase)</td></tr>
+<tr class="memdesc:ab3f2bbb4eb51d923ee80341fcffbf6d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save the magnitude and phase to new models obtained by the fourier transform of the model passed.  <a href="class_v_l_b_i_1_1_server.html#ab3f2bbb4eb51d923ee80341fcffbf6d4">More...</a><br /></td></tr>
+<tr class="separator:ab3f2bbb4eb51d923ee80341fcffbf6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b3a5189133959a97de6d4a632985785"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a4b3a5189133959a97de6d4a632985785">Mask</a> (char *name, char *model, char *mask)</td></tr>
+<tr class="memdesc:a4b3a5189133959a97de6d4a632985785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask a model with another model by multiplication.  <a href="class_v_l_b_i_1_1_server.html#a4b3a5189133959a97de6d4a632985785">More...</a><br /></td></tr>
+<tr class="separator:a4b3a5189133959a97de6d4a632985785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba0e4aa05a3657a0f7c4a58e7946a9fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#aba0e4aa05a3657a0f7c4a58e7946a9fa">Shift</a> (char *name)</td></tr>
+<tr class="memdesc:aba0e4aa05a3657a0f7c4a58e7946a9fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift a model by its dimension in-place.  <a href="class_v_l_b_i_1_1_server.html#aba0e4aa05a3657a0f7c4a58e7946a9fa">More...</a><br /></td></tr>
+<tr class="separator:aba0e4aa05a3657a0f7c4a58e7946a9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab69f482e0672223125429982aa85221e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ab69f482e0672223125429982aa85221e">SetRa</a> (double value)</td></tr>
+<tr class="memdesc:ab69f482e0672223125429982aa85221e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the target right ascension coordinate, do this before calling <a class="el" href="class_v_l_b_i_1_1_server.html#afaa382b568b5fe65c9a00ba3ddc84a94" title="Plot the current observation into a new model.">Plot()</a>  <a href="class_v_l_b_i_1_1_server.html#ab69f482e0672223125429982aa85221e">More...</a><br /></td></tr>
+<tr class="separator:ab69f482e0672223125429982aa85221e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8bceb2a516245eb9bd64c37d39e3d22"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ae8bceb2a516245eb9bd64c37d39e3d22">SetDec</a> (double value)</td></tr>
+<tr class="memdesc:ae8bceb2a516245eb9bd64c37d39e3d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the target declination coordinate, do this before calling <a class="el" href="class_v_l_b_i_1_1_server.html#afaa382b568b5fe65c9a00ba3ddc84a94" title="Plot the current observation into a new model.">Plot()</a>  <a href="class_v_l_b_i_1_1_server.html#ae8bceb2a516245eb9bd64c37d39e3d22">More...</a><br /></td></tr>
+<tr class="separator:ae8bceb2a516245eb9bd64c37d39e3d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4f9905e8cd0c2832d87ad2ec84bc822"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#af4f9905e8cd0c2832d87ad2ec84bc822">SetFreq</a> (double value)</td></tr>
+<tr class="memdesc:af4f9905e8cd0c2832d87ad2ec84bc822"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the frequency observed, do this before calling <a class="el" href="class_v_l_b_i_1_1_server.html#afaa382b568b5fe65c9a00ba3ddc84a94" title="Plot the current observation into a new model.">Plot()</a>  <a href="class_v_l_b_i_1_1_server.html#af4f9905e8cd0c2832d87ad2ec84bc822">More...</a><br /></td></tr>
+<tr class="separator:af4f9905e8cd0c2832d87ad2ec84bc822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63204c751ce10a1a644805ef4535db68"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a63204c751ce10a1a644805ef4535db68">SetSampleRate</a> (double value)</td></tr>
+<tr class="memdesc:a63204c751ce10a1a644805ef4535db68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the sampling frequency, do this before calling <a class="el" href="class_v_l_b_i_1_1_server.html#afaa382b568b5fe65c9a00ba3ddc84a94" title="Plot the current observation into a new model.">Plot()</a>  <a href="class_v_l_b_i_1_1_server.html#a63204c751ce10a1a644805ef4535db68">More...</a><br /></td></tr>
+<tr class="separator:a63204c751ce10a1a644805ef4535db68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac556044b8d787c872ffab17b03d94e5a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ac556044b8d787c872ffab17b03d94e5a">SetBps</a> (int value)</td></tr>
+<tr class="memdesc:ac556044b8d787c872ffab17b03d94e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bytes per sample, do this before calling <a class="el" href="class_v_l_b_i_1_1_server.html#a772e31199d963187b4c2699d202cf459" title="Create a new node from a monodimensional FITS file, give it a name and add it to the current context.">AddNode()</a>  <a href="class_v_l_b_i_1_1_server.html#ac556044b8d787c872ffab17b03d94e5a">More...</a><br /></td></tr>
+<tr class="separator:ac556044b8d787c872ffab17b03d94e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e5573ba57ed82f0aa4e19d49b132ec"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ad6e5573ba57ed82f0aa4e19d49b132ec">SetWidth</a> (int value)</td></tr>
+<tr class="memdesc:ad6e5573ba57ed82f0aa4e19d49b132ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the plot width, do this before calling <a class="el" href="class_v_l_b_i_1_1_server.html#afaa382b568b5fe65c9a00ba3ddc84a94" title="Plot the current observation into a new model.">Plot()</a>  <a href="class_v_l_b_i_1_1_server.html#ad6e5573ba57ed82f0aa4e19d49b132ec">More...</a><br /></td></tr>
+<tr class="separator:ad6e5573ba57ed82f0aa4e19d49b132ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8de50ae7951a4c17ef28f8e027a7eaed"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a8de50ae7951a4c17ef28f8e027a7eaed">SetHeight</a> (int value)</td></tr>
+<tr class="memdesc:a8de50ae7951a4c17ef28f8e027a7eaed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the plot height, do this before calling <a class="el" href="class_v_l_b_i_1_1_server.html#afaa382b568b5fe65c9a00ba3ddc84a94" title="Plot the current observation into a new model.">Plot()</a>  <a href="class_v_l_b_i_1_1_server.html#a8de50ae7951a4c17ef28f8e027a7eaed">More...</a><br /></td></tr>
+<tr class="separator:a8de50ae7951a4c17ef28f8e027a7eaed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3811ae79bba1c1ba03cb86feb0055fe6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a3811ae79bba1c1ba03cb86feb0055fe6">GetRa</a> (void)</td></tr>
+<tr class="memdesc:a3811ae79bba1c1ba03cb86feb0055fe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current right ascension coordinate.  <a href="class_v_l_b_i_1_1_server.html#a3811ae79bba1c1ba03cb86feb0055fe6">More...</a><br /></td></tr>
+<tr class="separator:a3811ae79bba1c1ba03cb86feb0055fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa143e729408c93a60acce2b93facdbff"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#aa143e729408c93a60acce2b93facdbff">GetDec</a> (void)</td></tr>
+<tr class="memdesc:aa143e729408c93a60acce2b93facdbff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current declination coordinate.  <a href="class_v_l_b_i_1_1_server.html#aa143e729408c93a60acce2b93facdbff">More...</a><br /></td></tr>
+<tr class="separator:aa143e729408c93a60acce2b93facdbff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10bedba49f37645e8ddf2e7c1bd4613c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a10bedba49f37645e8ddf2e7c1bd4613c">GetFreq</a> (void)</td></tr>
+<tr class="memdesc:a10bedba49f37645e8ddf2e7c1bd4613c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current frequency.  <a href="class_v_l_b_i_1_1_server.html#a10bedba49f37645e8ddf2e7c1bd4613c">More...</a><br /></td></tr>
+<tr class="separator:a10bedba49f37645e8ddf2e7c1bd4613c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1e1ba1ad01cf37eaa66f1bb1e1d73fc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ae1e1ba1ad01cf37eaa66f1bb1e1d73fc">GetSampleRate</a> (void)</td></tr>
+<tr class="memdesc:ae1e1ba1ad01cf37eaa66f1bb1e1d73fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current sample rate.  <a href="class_v_l_b_i_1_1_server.html#ae1e1ba1ad01cf37eaa66f1bb1e1d73fc">More...</a><br /></td></tr>
+<tr class="separator:ae1e1ba1ad01cf37eaa66f1bb1e1d73fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05bc9d39b6f258b403a136669c7cedd8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a05bc9d39b6f258b403a136669c7cedd8">GetBps</a> (void)</td></tr>
+<tr class="memdesc:a05bc9d39b6f258b403a136669c7cedd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the bytes per sample.  <a href="class_v_l_b_i_1_1_server.html#a05bc9d39b6f258b403a136669c7cedd8">More...</a><br /></td></tr>
+<tr class="separator:a05bc9d39b6f258b403a136669c7cedd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab02555bdc81b9f3b27588174ba24b2c4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ab02555bdc81b9f3b27588174ba24b2c4">GetWidth</a> (void)</td></tr>
+<tr class="memdesc:ab02555bdc81b9f3b27588174ba24b2c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the plot width.  <a href="class_v_l_b_i_1_1_server.html#ab02555bdc81b9f3b27588174ba24b2c4">More...</a><br /></td></tr>
+<tr class="separator:ab02555bdc81b9f3b27588174ba24b2c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab449fbb842fcd73719d0d886820cdd0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#aab449fbb842fcd73719d0d886820cdd0">GetHeight</a> (void)</td></tr>
+<tr class="memdesc:aab449fbb842fcd73719d0d886820cdd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the plot height.  <a href="class_v_l_b_i_1_1_server.html#aab449fbb842fcd73719d0d886820cdd0">More...</a><br /></td></tr>
+<tr class="separator:aab449fbb842fcd73719d0d886820cdd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc82a8ac40d126b310075477cfc69dd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#adc82a8ac40d126b310075477cfc69dd5">SetInput</a> (FILE *in)</td></tr>
+<tr class="memdesc:adc82a8ac40d126b310075477cfc69dd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the input stream.  <a href="class_v_l_b_i_1_1_server.html#adc82a8ac40d126b310075477cfc69dd5">More...</a><br /></td></tr>
+<tr class="separator:adc82a8ac40d126b310075477cfc69dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af060c5679ef29b6cda3b1c7461dd98e8"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#af060c5679ef29b6cda3b1c7461dd98e8">GetInput</a> ()</td></tr>
+<tr class="memdesc:af060c5679ef29b6cda3b1c7461dd98e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the input stream.  <a href="class_v_l_b_i_1_1_server.html#af060c5679ef29b6cda3b1c7461dd98e8">More...</a><br /></td></tr>
+<tr class="separator:af060c5679ef29b6cda3b1c7461dd98e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae765502af2d371cdbb724afc5e0b9d78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ae765502af2d371cdbb724afc5e0b9d78">SetOutput</a> (FILE *out)</td></tr>
+<tr class="memdesc:ae765502af2d371cdbb724afc5e0b9d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the output stream.  <a href="class_v_l_b_i_1_1_server.html#ae765502af2d371cdbb724afc5e0b9d78">More...</a><br /></td></tr>
+<tr class="separator:ae765502af2d371cdbb724afc5e0b9d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc69446a13521adfc1e64e7c65b1361d"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#abc69446a13521adfc1e64e7c65b1361d">GetOutput</a> ()</td></tr>
+<tr class="memdesc:abc69446a13521adfc1e64e7c65b1361d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the output stream.  <a href="class_v_l_b_i_1_1_server.html#abc69446a13521adfc1e64e7c65b1361d">More...</a><br /></td></tr>
+<tr class="separator:abc69446a13521adfc1e64e7c65b1361d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a89ec91f35e26d991023a86c1f81e1020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89ec91f35e26d991023a86c1f81e1020">&#9670;&nbsp;</a></span>AddContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::AddContext </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the new context </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0d917aaaf9b20c1a4f5c0be57747a56d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d917aaaf9b20c1a4f5c0be57747a56d">&#9670;&nbsp;</a></span>AddModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::AddModel </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>b64</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the new model </td></tr>
+    <tr><td class="paramname">format</td><td>The format of the new model, can be one of png, jpeg or fits </td></tr>
+    <tr><td class="paramname">b64</td><td>The file buffer base64 encoded </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a772e31199d963187b4c2699d202cf459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a772e31199d963187b4c2699d202cf459">&#9670;&nbsp;</a></span>AddNode() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::AddNode </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>b64</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the new node </td></tr>
+    <tr><td class="paramname">b64</td><td>The file buffer base64 encoded </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd8ead79c7fbb04c9638085370e43a86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd8ead79c7fbb04c9638085370e43a86">&#9670;&nbsp;</a></span>AddNode() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::AddNode </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___d_s_p___types.html#gaed2bb55a5ec25c68e1fbf547580651aa">dsp_location</a> *&#160;</td>
+          <td class="paramname"><em>locations</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">timespec&#160;</td>
+          <td class="paramname"><em>starttime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>geo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the new node </td></tr>
+    <tr><td class="paramname">locations</td><td>A pointer to its location(s), will be pointed from the new node, so don't free() it until the node is deleted </td></tr>
+    <tr><td class="paramname">buf</td><td>The data buffer of the new node. Will be casted, according the current value of Bps, to the element type with the current word size </td></tr>
+    <tr><td class="paramname">len</td><td>The number of elements </td></tr>
+    <tr><td class="paramname">starttime</td><td>The UTC time of the first element </td></tr>
+    <tr><td class="paramname">geo</td><td>If 1, consider all elements of location as geographic coordinates, if 0 as relative to the current context' station location </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a75183c5df719a95d1e4b6df962fdcaeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75183c5df719a95d1e4b6df962fdcaeb">&#9670;&nbsp;</a></span>CurrentContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* VLBI::Server::CurrentContext </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The name of the current context </dd></dl>
+
+</div>
+</div>
+<a id="a3e481ec513e11043848e6acbe206e846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e481ec513e11043848e6acbe206e846">&#9670;&nbsp;</a></span>DelContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::DelContext </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the context to be deleted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af7895cb04b2de053bf4d5f50caa6146b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7895cb04b2de053bf4d5f50caa6146b">&#9670;&nbsp;</a></span>DelModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::DelModel </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the model to be deleted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad2fab30291cf07d38eaf659a2efb268c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2fab30291cf07d38eaf659a2efb268c">&#9670;&nbsp;</a></span>DelNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::DelNode </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the node to be deleted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab3f2bbb4eb51d923ee80341fcffbf6d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3f2bbb4eb51d923ee80341fcffbf6d4">&#9670;&nbsp;</a></span>Dft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::Dft </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>magnitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>phase</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the model </td></tr>
+    <tr><td class="paramname">magnitude</td><td>The name of the new model that will contain the magnitude </td></tr>
+    <tr><td class="paramname">phase</td><td>The name of the new model that will contain the phase </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a05bc9d39b6f258b403a136669c7cedd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05bc9d39b6f258b403a136669c7cedd8">&#9670;&nbsp;</a></span>GetBps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double VLBI::Server::GetBps </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The word width in bytes </dd></dl>
+
+</div>
+</div>
+<a id="a5bb68ef892b6b68197ecb28a2aca42a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bb68ef892b6b68197ecb28a2aca42a2">&#9670;&nbsp;</a></span>GetContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> VLBI::Server::GetContext </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The vlbi_context object representing the current context </dd></dl>
+
+</div>
+</div>
+<a id="aa143e729408c93a60acce2b93facdbff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa143e729408c93a60acce2b93facdbff">&#9670;&nbsp;</a></span>GetDec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double VLBI::Server::GetDec </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The current declination in hours </dd></dl>
+
+</div>
+</div>
+<a id="a10bedba49f37645e8ddf2e7c1bd4613c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10bedba49f37645e8ddf2e7c1bd4613c">&#9670;&nbsp;</a></span>GetFreq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double VLBI::Server::GetFreq </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The frequency in Hz </dd></dl>
+
+</div>
+</div>
+<a id="aab449fbb842fcd73719d0d886820cdd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab449fbb842fcd73719d0d886820cdd0">&#9670;&nbsp;</a></span>GetHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double VLBI::Server::GetHeight </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The plot height in pixels </dd></dl>
+
+</div>
+</div>
+<a id="af060c5679ef29b6cda3b1c7461dd98e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af060c5679ef29b6cda3b1c7461dd98e8">&#9670;&nbsp;</a></span>GetInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* VLBI::Server::GetInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The input stream file pointer </dd></dl>
+
+</div>
+</div>
+<a id="a3040c97c13ab58902441933b879b076d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3040c97c13ab58902441933b879b076d">&#9670;&nbsp;</a></span>GetModel() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> VLBI::Server::GetModel </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the model </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The dsp_stream_p object representing the model </dd></dl>
+
+</div>
+</div>
+<a id="aeda9efa54a61bc06907e5469b99954d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeda9efa54a61bc06907e5469b99954d4">&#9670;&nbsp;</a></span>GetModel() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* VLBI::Server::GetModel </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>format</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the model </td></tr>
+    <tr><td class="paramname">format</td><td>The format of the picture exported, can be one of png, jpeg or fits </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The file buffer base64 encoded </dd></dl>
+
+</div>
+</div>
+<a id="afee29d00a052e84b127df1eb0bbc5265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee29d00a052e84b127df1eb0bbc5265">&#9670;&nbsp;</a></span>GetModels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int VLBI::Server::GetModels </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>names</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">names</td><td>The pointer of a char* array to be filled with the names of the models </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of models in the current context </dd></dl>
+
+</div>
+</div>
+<a id="abc69446a13521adfc1e64e7c65b1361d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc69446a13521adfc1e64e7c65b1361d">&#9670;&nbsp;</a></span>GetOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* VLBI::Server::GetOutput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The output stream file pointer </dd></dl>
+
+</div>
+</div>
+<a id="a3811ae79bba1c1ba03cb86feb0055fe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3811ae79bba1c1ba03cb86feb0055fe6">&#9670;&nbsp;</a></span>GetRa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double VLBI::Server::GetRa </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The current right ascension in hours </dd></dl>
+
+</div>
+</div>
+<a id="ae1e1ba1ad01cf37eaa66f1bb1e1d73fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1e1ba1ad01cf37eaa66f1bb1e1d73fc">&#9670;&nbsp;</a></span>GetSampleRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double VLBI::Server::GetSampleRate </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The sampling rate in sps </dd></dl>
+
+</div>
+</div>
+<a id="ab02555bdc81b9f3b27588174ba24b2c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab02555bdc81b9f3b27588174ba24b2c4">&#9670;&nbsp;</a></span>GetWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double VLBI::Server::GetWidth </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The plot width in pixels </dd></dl>
+
+</div>
+</div>
+<a id="ad34f7550029bbbccfa084b82feaefe8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad34f7550029bbbccfa084b82feaefe8c">&#9670;&nbsp;</a></span>Idft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::Idft </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>magnitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>phase</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the new model </td></tr>
+    <tr><td class="paramname">magnitude</td><td>The name of the model used as magnitude </td></tr>
+    <tr><td class="paramname">phase</td><td>The name of the model used as phase </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a92cd5bfb6314ded325382b984dbefb62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92cd5bfb6314ded325382b984dbefb62">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int VLBI::Server::Init </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>Non-negative value representing the number of arguments passed to the program from the environment in which the program is run. </td></tr>
+    <tr><td class="paramname">argv</td><td>Pointer to the first element of an array of argc + 1 pointers, of which the last one is null and the previous ones, if any, point to strings that represent the arguments passed to the program from the host environment. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4b3a5189133959a97de6d4a632985785"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b3a5189133959a97de6d4a632985785">&#9670;&nbsp;</a></span>Mask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::Mask </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the new model </td></tr>
+    <tr><td class="paramname">model</td><td>The name of the model to be masked </td></tr>
+    <tr><td class="paramname">mask</td><td>The name of the mask model </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afaa382b568b5fe65c9a00ba3ddc84a94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaa382b568b5fe65c9a00ba3ddc84a94">&#9670;&nbsp;</a></span>Plot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::Plot </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>flags</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the new model </td></tr>
+    <tr><td class="paramname">flags</td><td>The vlbi_plot_flags that characterize this observation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac556044b8d787c872ffab17b03d94e5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac556044b8d787c872ffab17b03d94e5a">&#9670;&nbsp;</a></span>SetBps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void VLBI::Server::SetBps </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The word width in bytes </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab63feca10481b6ef81f2ee0b8377c6d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab63feca10481b6ef81f2ee0b8377c6d8">&#9670;&nbsp;</a></span>SetContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::SetContext </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the context </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae8bceb2a516245eb9bd64c37d39e3d22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8bceb2a516245eb9bd64c37d39e3d22">&#9670;&nbsp;</a></span>SetDec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void VLBI::Server::SetDec </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The Declination coordinate in degrees </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af4f9905e8cd0c2832d87ad2ec84bc822"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4f9905e8cd0c2832d87ad2ec84bc822">&#9670;&nbsp;</a></span>SetFreq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void VLBI::Server::SetFreq </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The frequency in Hz </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8de50ae7951a4c17ef28f8e027a7eaed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8de50ae7951a4c17ef28f8e027a7eaed">&#9670;&nbsp;</a></span>SetHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void VLBI::Server::SetHeight </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>plot height in pixels </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adc82a8ac40d126b310075477cfc69dd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc82a8ac40d126b310075477cfc69dd5">&#9670;&nbsp;</a></span>SetInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::SetInput </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">in</td><td>The input stream file pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae765502af2d371cdbb724afc5e0b9d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae765502af2d371cdbb724afc5e0b9d78">&#9670;&nbsp;</a></span>SetOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::SetOutput </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>The output stream file pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab69f482e0672223125429982aa85221e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab69f482e0672223125429982aa85221e">&#9670;&nbsp;</a></span>SetRa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void VLBI::Server::SetRa </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The RA coordinate in hours </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a63204c751ce10a1a644805ef4535db68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63204c751ce10a1a644805ef4535db68">&#9670;&nbsp;</a></span>SetSampleRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void VLBI::Server::SetSampleRate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The sample rate, in samples per second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad6e5573ba57ed82f0aa4e19d49b132ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6e5573ba57ed82f0aa4e19d49b132ec">&#9670;&nbsp;</a></span>SetWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void VLBI::Server::SetWidth </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>plot width in pixels </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aba0e4aa05a3657a0f7c4a58e7946a9fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba0e4aa05a3657a0f7c4a58e7946a9fa">&#9670;&nbsp;</a></span>Shift()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::Shift </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the model </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 11 2021 02:56:46 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 12 2021 19:18:17 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

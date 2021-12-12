@@ -71,14 +71,17 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga5af3473b67ee328eb2498fb02d758025"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___convolution.html#ga5af3473b67ee328eb2498fb02d758025">dsp_convolution_convolution</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream1, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream2)</td></tr>
-<tr class="memdesc:ga5af3473b67ee328eb2498fb02d758025"><td class="mdescLeft">&#160;</td><td class="mdescRight">A cross-convolution processor.  <a href="group__dsp___convolution.html#ga5af3473b67ee328eb2498fb02d758025">More...</a><br /></td></tr>
-<tr class="separator:ga5af3473b67ee328eb2498fb02d758025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd96ab3969738873a83ebcacf499b9e6"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___convolution.html#gabd96ab3969738873a83ebcacf499b9e6">dsp_convolution_convolution</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> matrix)</td></tr>
+<tr class="memdesc:gabd96ab3969738873a83ebcacf499b9e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A cross-convolution processor.  <a href="group__dsp___convolution.html#gabd96ab3969738873a83ebcacf499b9e6">More...</a><br /></td></tr>
+<tr class="separator:gabd96ab3969738873a83ebcacf499b9e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6006280722df169a1bd5daa57b638f92"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___convolution.html#ga6006280722df169a1bd5daa57b638f92">dsp_convolution_correlation</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> matrix)</td></tr>
+<tr class="memdesc:ga6006280722df169a1bd5daa57b638f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">A cross-correlation processor.  <a href="group__dsp___convolution.html#ga6006280722df169a1bd5daa57b638f92">More...</a><br /></td></tr>
+<tr class="separator:ga6006280722df169a1bd5daa57b638f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga5af3473b67ee328eb2498fb02d758025"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5af3473b67ee328eb2498fb02d758025">&#9670;&nbsp;</a></span>dsp_convolution_convolution()</h2>
+<a id="gabd96ab3969738873a83ebcacf499b9e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabd96ab3969738873a83ebcacf499b9e6">&#9670;&nbsp;</a></span>dsp_convolution_convolution()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -87,13 +90,13 @@ Functions</h2></td></tr>
           <td class="memname">DLL_EXPORT void dsp_convolution_convolution </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
-          <td class="paramname"><em>stream1</em>, </td>
+          <td class="paramname"><em>stream</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
-          <td class="paramname"><em>stream2</em>&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -104,8 +107,43 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stream1</td><td>the first input stream. </td></tr>
-    <tr><td class="paramname">stream2</td><td>the second input stream. </td></tr>
+    <tr><td class="paramname">stream</td><td>the input stream. </td></tr>
+    <tr><td class="paramname">matrix</td><td>the convolution matrix stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6006280722df169a1bd5daa57b638f92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6006280722df169a1bd5daa57b638f92">&#9670;&nbsp;</a></span>dsp_convolution_correlation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void dsp_convolution_correlation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>the input stream. </td></tr>
+    <tr><td class="paramname">matrix</td><td>the correlation matrix stream. </td></tr>
   </table>
   </dd>
 </dl>
@@ -115,7 +153,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 11 2021 02:56:46 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 12 2021 19:18:17 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
