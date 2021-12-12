@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['samplerate_226',['samplerate',['../structdsp__stream__t.html#a04bc4a7d413e7a229c53a665e792783a',1,'dsp_stream_t::samplerate()'],['../structvlbi__baseline.html#aefe632eee76611eaf381a786050ee6ce',1,'vlbi_baseline::SampleRate()']]],
+  ['samplerate_226',['SampleRate',['../structvlbi__baseline.html#aefe632eee76611eaf381a786050ee6ce',1,'vlbi_baseline::SampleRate()'],['../structdsp__stream__t.html#a04bc4a7d413e7a229c53a665e792783a',1,'dsp_stream_t::samplerate()']]],
   ['score_227',['score',['../structdsp__align__info__t.html#acd1936097cf5b8d8550ee1e9c3799b1e',1,'dsp_align_info_t']]],
   ['server_228',['Server',['../class_v_l_b_i_1_1_server.html',1,'VLBI::Server'],['../class_v_l_b_i_1_1_server.html#a5e34b3313bcb67417b7305057390034d',1,'VLBI::Server::Server()']]],
   ['setbps_229',['SetBps',['../class_v_l_b_i_1_1_server.html#ac556044b8d787c872ffab17b03d94e5a',1,'VLBI::Server']]],

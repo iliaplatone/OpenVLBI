@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['samplerate_554',['samplerate',['../structdsp__stream__t.html#a04bc4a7d413e7a229c53a665e792783a',1,'dsp_stream_t::samplerate()'],['../structvlbi__baseline.html#aefe632eee76611eaf381a786050ee6ce',1,'vlbi_baseline::SampleRate()']]],
+  ['samplerate_554',['SampleRate',['../structvlbi__baseline.html#aefe632eee76611eaf381a786050ee6ce',1,'vlbi_baseline::SampleRate()'],['../structdsp__stream__t.html#a04bc4a7d413e7a229c53a665e792783a',1,'dsp_stream_t::samplerate()']]],
   ['score_555',['score',['../structdsp__align__info__t.html#acd1936097cf5b8d8550ee1e9c3799b1e',1,'dsp_align_info_t']]],
   ['sizes_556',['sizes',['../structdsp__triangle__t.html#a6cfcf4753491d5da0a431f79e93a7a98',1,'dsp_triangle_t::sizes()'],['../structdsp__stream__t.html#a463d2fd45653ca521ee84f48068b6da5',1,'dsp_stream_t::sizes()']]],
   ['snr_557',['SNR',['../structdsp__stream__t.html#abd4550117d0bdc649d018b84dd0b96c7',1,'dsp_stream_t']]],
