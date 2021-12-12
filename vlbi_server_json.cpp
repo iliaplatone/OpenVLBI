@@ -165,7 +165,7 @@ void JSONServer::Parse()
         {
             if(v->u.object.length == 8)
             {
-                int type = 0;
+                int flags = 0;
                 char *name = nullptr;
                 for(int y = 0; y < 8; y ++)
                 {
@@ -217,32 +217,32 @@ void JSONServer::Parse()
                     if(!strcmp(values[y].name, "projection"))
                     {
                         if(!strcmp(values[y].value->u.string.ptr, "synthesis"))
-                            type |= APERTURE_SYNTHESIS;
+                            flags &= ~plot_flags_moving_baseline;
                         if(!strcmp(values[y].value->u.string.ptr, "movingbase"))
-                            type &= APERTURE_SYNTHESIS;
+                            flags |= plot_flags_moving_baseline;
                         i++;
                     }
                     if(!strcmp(values[y].name, "type"))
                     {
                         if(!strcmp(values[y].value->u.string.ptr, "coverage"))
-                            type |= UV_COVERAGE;
+                            flags |= plot_flags_uv_coverage;
                         if(!strcmp(values[y].value->u.string.ptr, "raw"))
-                            type &= ~UV_COVERAGE;
+                            flags &= ~plot_flags_uv_coverage;
                         i++;
                     }
                     if(!strcmp(values[y].name, "adjust_delays"))
                     {
-                        nodelay = true;
+                        flags |= plot_flags_synced;
                         if(!strcmp(values[y].value->u.string.ptr, "true"))
-                            nodelay = false;
+                            flags &= ~plot_flags_synced;
                         if(!strcmp(values[y].value->u.string.ptr, "1"))
-                            nodelay = false;
+                            flags &= ~plot_flags_synced;
                         i++;
                     }
                 }
                 if(i == 8)
                 {
-                    Plot(name, GetWidth(), GetHeight(), type, nodelay);
+                    Plot(name, flags);
                 }
             }
         }

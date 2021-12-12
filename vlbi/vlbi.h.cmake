@@ -1,5 +1,5 @@
 /*  OpenVLBI - Open Source Very Long Baseline Interferometry
-    Copyright © 2017-2019  Ilia Platone
+    Copyright © 2017-2021  Ilia Platone
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -128,8 +128,8 @@ typedef struct {
 * This function type natively accepts the double type, but you must consider to cast these arguments
 * as other types, like structure, unions, C++ classes or other kind of object pointers.
 *
-* @param farest baseline's node current value
-* @param closest baseline's node current value
+* @param value1 farest baseline's node current value
+* @param value2 closest baseline's node current value
 * @return the result of the operation done
 */
 typedef double(* vlbi_func2_t)(double, double);
@@ -396,22 +396,22 @@ DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, ds
 DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1, char* node2, double Ra, double Dec, double *offset1, double *offset2);
 
 /**
-* @brief Plot a fourier transform of the object observed using celestial coordinates and the integration times given by the single streams into a new model with the given name.
+* @brief Fill a fourier plane with an aperture synthesis projection of the baselines during the integration time and save it into a new model with the given name.
 * @param ctx The OpenVLBI context
 * @param name The name of the new model
 * @param u The U size of the resulting UV plot
 * @param v The V size of the resulting UV plot
 * @param target The target position int Ra/Dec celestial coordinates
 * @param freq The frequency observed. This parameter will scale the plot inverserly.
-* @param sr The sampling rate. This parameter will be used as meter for the elements of the streams.
-* @param nodelay 1 if no delay calculation should be done. streams entered are already synced.
-* @param moving_baseline 1 if the location field of all streams is an array containing the coordinates of the nodes on each element of the data array.
+* @param sr The sampling rate per second. This parameter will be used as meter for the elements of the streams.
+* @param nodelay if 1 no delay calculation should be done. streams entered are already synced.
+* @param moving_baseline if 1 the location field of all the dsp_stream_p is an array of dsp_location for each element of the dsp_stream_p->buf array.
 * @param delegate The delegate function to be executed on each node stream buffer element.
 */
 DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
 
 /**
-* @brief Plot an inverse fourier transform of the uv plot using its current magnitude and phase components.
+* @brief Save into name an inverse fourier transform of the uv plot using its current magnitude and phase components.
 * @param ctx The OpenVLBI context
 * @param name The name of the newly created model.
 * @param magnitude The magnitude model.

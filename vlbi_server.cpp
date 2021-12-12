@@ -1,6 +1,10 @@
 #include "vlbi_server.h"
+#include <cstdio>
+#include <cstdlib>
 #include <cstring>
-#include <dsp.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <signal.h>
 #include <vlbi/base64.h>
 #include <vlbi/instancecollection.h>
 
@@ -95,11 +99,12 @@ void VLBI::Server::DelNode(char *name)
     vlbi_del_node(GetContext(), name);
 }
 
-void VLBI::Server::Plot(char *name, int u, int v, int type, bool nodelay)
+void VLBI::Server::Plot(char *name, int flags)
 {
     double coords[3] = { Ra, Dec };
-    vlbi_get_uv_plot(GetContext(), name, u, v, coords, Freq, SampleRate, nodelay, (type & APERTURE_SYNTHESIS) == 0,
-                     (type & UV_COVERAGE) != 0 ? fillone_delegate : vlbi_default_delegate);
+    vlbi_get_uv_plot(GetContext(), name, w, h, coords, Freq, SampleRate, (flags & plot_flags_synced) != 0,
+                     (flags & plot_flags_moving_baseline) != 0,
+                     (flags & plot_flags_uv_coverage) != 0 ? fillone_delegate : vlbi_default_delegate);
 }
 
 void VLBI::Server::Idft(char *model, char *magnitude, char *phase)
@@ -427,9 +432,8 @@ void VLBI::Server::Parse()
             }
             else if(!strcmp(arg, "plot"))
             {
-                int type = 0;
+                int flags;
                 char *t = strtok(value, ",");
-                bool nodelay = false;
                 char *name = t;
                 if(name == nullptr)
                 {
@@ -438,11 +442,10 @@ void VLBI::Server::Parse()
                 t = strtok(nullptr, ",");
                 if(!strcmp(t, "synthesis"))
                 {
-                    type |= APERTURE_SYNTHESIS;
                 }
                 else if(!strcmp(t, "movingbase"))
                 {
-                    type &= ~APERTURE_SYNTHESIS;
+                    flags |= plot_flags_moving_baseline;
                 }
                 else
                 {
@@ -451,11 +454,10 @@ void VLBI::Server::Parse()
                 t = strtok(nullptr, ",");
                 if(!strcmp(t, "nodelay"))
                 {
-                    nodelay = true;
+                    flags |= plot_flags_synced;
                 }
                 else if(!strcmp(t, "delay"))
                 {
-                    nodelay = false;
                 }
                 else
                 {
@@ -467,13 +469,13 @@ void VLBI::Server::Parse()
                 }
                 else if(!strcmp(t, "coverage"))
                 {
-                    type |= UV_COVERAGE;
+                    flags |= plot_flags_uv_coverage;
                 }
                 else
                 {
                     return;
                 }
-                Plot(name, w, h, type, nodelay);
+                Plot(name, flags);
             }
             else if(!strcmp(arg, "idft"))
             {

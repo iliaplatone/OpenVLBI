@@ -1,3 +1,9 @@
+libopenvlbi (1.21) unstable; urgency=medium
+
+  * First official release
+
+ -- Ilia Platone <plato@localhost>  Sun, 12 Dec 2021 19:15:04 +0100
+
 libopenvlbi (1.20) unstable; urgency=medium
 
   * Converted misunderstood clients into servers
