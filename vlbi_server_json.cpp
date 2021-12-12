@@ -356,7 +356,7 @@ void JSONServer::Parse()
             char* model = nullptr;
             char* edit = nullptr;
             char* arg = nullptr;
-            for(int y = 0; y < v->u.object.length; y ++)
+            for(int y = 0; y < (int)v->u.object.length; y ++)
             {
                 if(!strcmp(values[y].name, "name"))
                 {

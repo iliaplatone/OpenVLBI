@@ -278,7 +278,6 @@ static void* dsp_buffer_median_th(void* arg)
 
 void dsp_buffer_median(dsp_stream_p in, int size, int median)
 {
-    pfunc;
     int y, d;
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);

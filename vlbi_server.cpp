@@ -432,7 +432,7 @@ void VLBI::Server::Parse()
             }
             else if(!strcmp(arg, "plot"))
             {
-                int flags;
+                int flags = 0;
                 char *t = strtok(value, ",");
                 char *name = t;
                 if(name == nullptr)

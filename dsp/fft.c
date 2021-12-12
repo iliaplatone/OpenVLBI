@@ -32,8 +32,8 @@ static void dsp_fourier_dft_phase(dsp_stream_p stream)
 static void dsp_fourier_2dsp(dsp_stream_p stream)
 {
     int x, y;
-    fftw_complex *dft = (fftw_complex*)malloc(sizeof(fftw_complex) * stream->len);
-    memcpy(dft, stream->dft.fftw, sizeof(fftw_complex) * stream->len);
+    fftw_complex *dft = (fftw_complex*)malloc(sizeof(fftw_complex) * (size_t)stream->len);
+    memcpy(dft, stream->dft.fftw, sizeof(fftw_complex) * (size_t)stream->len);
     y = 0;
     for(x = 0; x < stream->len; x++) {
         int *pos = dsp_stream_get_position(stream, x);
@@ -52,9 +52,9 @@ static void dsp_fourier_2dsp(dsp_stream_p stream)
 static void dsp_fourier_2fftw(dsp_stream_p stream)
 {
     int x, y;
-    fftw_complex *dft = (fftw_complex*)malloc(sizeof(fftw_complex) * stream->len);
+    fftw_complex *dft = (fftw_complex*)malloc(sizeof(fftw_complex) * (size_t)stream->len);
     dsp_buffer_shift(stream);
-    memcpy(dft, stream->dft.fftw, sizeof(fftw_complex) * stream->len);
+    memcpy(dft, stream->dft.fftw, sizeof(fftw_complex) * (size_t)stream->len);
     dsp_buffer_set(stream->dft.buf, stream->len*2, 0);
     y = 0;
     for(x = 0; x < stream->len; x++) {
@@ -71,7 +71,7 @@ static void dsp_fourier_2fftw(dsp_stream_p stream)
 double* dsp_fourier_complex_array_get_magnitude(dsp_complex in, int len)
 {
     int i;
-    double* out = (double*)malloc(sizeof(double) * len);
+    double* out = (double*)malloc(sizeof(double) * (size_t)len);
     for(i = 0; i < len; i++) {
         double real = in.complex[i].real;
         double imaginary = in.complex[i].imaginary;
@@ -83,15 +83,15 @@ double* dsp_fourier_complex_array_get_magnitude(dsp_complex in, int len)
 double* dsp_fourier_complex_array_get_phase(dsp_complex in, int len)
 {
     int i;
-    double* out = (double*)malloc(sizeof(double) * len);
+    double* out = (double*)malloc(sizeof(double) * (size_t)len);
     for(i = 0; i < len; i++) {
         out [i] = 0;
-        if (in.complex[i].real != 0) {
+        if (in.complex[i].real != 0.0) {
             double real = in.complex[i].real;
             double imaginary = in.complex[i].imaginary;
             double mag = sqrt(pow(real, 2)+pow(imaginary, 2));
             double rad = acos (imaginary / mag);
-            if(real < 0 && rad != 0)
+            if(real < 0 && rad != 0.0)
                 rad = M_PI*2-rad;
             out [i] = rad;
         }
@@ -103,7 +103,7 @@ dsp_complex dsp_fourier_phase_mag_array_get_complex(double* mag, double* phi, in
 {
     int i;
     dsp_complex out;
-    out.fftw = (fftw_complex*)malloc(sizeof(fftw_complex) * len);
+    out.fftw = (fftw_complex*)malloc(sizeof(fftw_complex) * (size_t)len);
     dsp_buffer_set(out.buf, len*2, 0);
     for(i = 0; i < len; i++) {
         double real = sin(phi[i])*mag[i];
@@ -128,7 +128,7 @@ void dsp_fourier_dft(dsp_stream_p stream, int exp)
     int d;
     if(exp < 1)
         return;
-    double* buf = (double*)malloc(sizeof(double) * stream->len);
+    double* buf = (double*)malloc(sizeof(double) * (size_t)stream->len);
     if(stream->phase == NULL)
         stream->phase = dsp_stream_copy(stream);
     if(stream->magnitude == NULL)
