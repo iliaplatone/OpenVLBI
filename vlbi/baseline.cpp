@@ -103,7 +103,7 @@ double *VLBIBaseline::getBaseline()
         baseline.geographic.el = getNode2()->getGeographicLocation()[2];
         baseline.geographic.el -= getNode1()->getGeographicLocation()[2];
         baseline.geographic.el += getNode2()->getGeographicLocation()[2];
-        b = vlbi_calc_location(baseline.coordinates);
+        b = vlbi_matrix_calc_location(baseline.coordinates);
         memcpy(baseline.coordinates, b, sizeof(dsp_location));
         baseline.xyz.z -= getNode2()->getGeographicLocation()[2];
     }
@@ -121,8 +121,8 @@ double *VLBIBaseline::getBaseline()
 
 void VLBIBaseline::getProjection()
 {
-    double *tmp = vlbi_calc_3d_projection(Target[1], Target[0], getBaseline());
-    double *proj = vlbi_calc_uv_coordinates(tmp, getWaveLength());
+    double *tmp = vlbi_matrix_calc_3d_projection(Target[1], Target[0], getBaseline());
+    double *proj = vlbi_matrix_calc_uv_coordinates(tmp, getWaveLength());
     free (tmp);
     u = proj[0];
     v = proj[1];

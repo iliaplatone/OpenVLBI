@@ -51,35 +51,57 @@ void vlbi_astro_get_alt_az_coordinates(double Ha, double Dec, double Lat, double
     *Az = az;
 }
 
-double vlbi_astro_estimate_geocentric_elevation(double Lat, double El)
-{
-    Lat *= M_PI / 180.0;
-    Lat = fabs(cos(Lat));
-    El += Lat * (EARTHRADIUSEQUATORIAL - EARTHRADIUSPOLAR) + EARTHRADIUSPOLAR;
-    return El;
-}
-
-double vlbi_astro_parsec2m(double parsec)
-{
-    return parsec * PARSEC;
-}
-
-double vlbi_astro_m2au(double m)
-{
-    return m / ASTRONOMICALUNIT;
-}
-
-double vlbi_astro_calc_delta_spectrum(double *spectrum0, double *spectrum, int spectrum_size)
+double vlbi_astro_spectra_ratio(double *spectrum0, double *spectrum, int spectrum_size)
 {
     double delta_spectrum = 0;
     for(int l = 0; l < spectrum_size; l++) {
-        delta_spectrum += spectrum[l] - spectrum0[l];
+        delta_spectrum += spectrum[l] / spectrum0[l];
     }
     delta_spectrum /= spectrum_size;
     return delta_spectrum;
 }
 
-double vlbi_astro_estimate_absolute_magnitude(double delta_dist, double delta_spectrum, double delta_mag)
+double vlbi_astro_flux_ratio(double flux0, double flux, double delta_spectrum)
 {
-    return sqrt(delta_dist * delta_spectrum * delta_mag); //TODO missing correct formula
+    return delta_spectrum * flux / flux0;
+}
+
+double vlbi_astro_estimate_temperature_ratio(double rad_ratio, double flux_ratio)
+{
+    return pow(flux_ratio / (pow(rad_ratio, 2) * BOLTSMANN), 0.25);
+}
+
+double vlbi_astro_estimate_size_ratio(double luminosity_ratio, double temperature_ratio)
+{
+    return sqrt(luminosity_ratio/(4*M_PI*BOLTSMANN*pow(temperature_ratio, 4.0)));
+}
+
+double vlbi_astro_estimate_luminosity_ratio(double size_ratio, double flux_ratio)
+{
+    return pow(size_ratio, 2) * M_PI * 4 * flux_ratio;
+}
+
+double vlbi_astro_estimate_distance_ratio(double luminosity_ratio, double flux_ratio)
+{
+    return sqrt(luminosity_ratio / (flux_ratio * M_PI * 4));
+}
+
+double vlbi_astro_estimate_distance_parallax(double rad, double baseline)
+{
+    return baseline * tan(M_PI+rad);
+}
+
+double vlbi_astro_estimate_redshift(double wavelength0, int wavelength)
+{
+    return (wavelength-wavelength0) / wavelength0;
+}
+
+double vlbi_astro_estimate_size_transient(double transient_object_velocity, double transit_time)
+{
+    return transient_object_velocity / transit_time;
+}
+
+double vlbi_astro_redshift_adjust(double distance, double redshift)
+{
+    return distance * pow(redshift + 1, 2);
 }

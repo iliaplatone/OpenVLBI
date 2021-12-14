@@ -143,10 +143,10 @@ void BaselineCollection:: setDec(double dec)
 
 void BaselineCollection::SetFrequency(double frequency)
 {
-    Stream->wavelength = LIGHTSPEED / frequency;
+    Stream->wavelength = SPEED_MEAN / frequency;
     for(int i = 0; i < Count; i++)
     {
-        At(i)->setWaveLength(LIGHTSPEED / frequency);
+        At(i)->setWaveLength(SPEED_MEAN / frequency);
     }
 }
 
