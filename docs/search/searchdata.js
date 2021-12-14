@@ -7,7 +7,7 @@ var indexSectionsWithContent =
   4: "dtv",
   5: "v",
   6: "p",
-  7: "deov",
+  7: "abcdmnoptv",
   8: "boru"
 };
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openvlbi_20server_20c_2b_2b_20api_600',['OpenVLBI Server C++ API',['../group___server.html',1,'']]]
+  ['core_20vlbi_20functions_610',['Core VLBI functions',['../group___v_l_b_i___functions.html',1,'']]]
 ];

@@ -72,33 +72,38 @@ $(function() {
  OpenVLBI provides functions to locate, aim, cross-correlate and synchronize more nodes, or observatories together. Each observation creates a Fourier plane filled with the perpective projection of each baseline during the various captures. The nodes can contain a location companion for each sample for moving baseline projection, or a single location. Projection is calculated by an aperture synthesis algorithm. OpenVLBI saves each observation into an internal models list, where you can load your own models also. There are various model operations, including differential Fourier transform, inverse Fourier transform, shift, and masking. More operations can be done on models by using the DSP API, included into OpenVLBI. Once your work is done, the models can also be saved as jpeg, png, or fits picture files </td></tr>
 <tr id="row_0_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___v_l_b_i___types.html" target="_self">VLBI types</a></td><td class="desc"></td></tr>
 <tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___v_l_b_i___defines.html" target="_self">VLBI defines</a></td><td class="desc"></td></tr>
-<tr id="row_0_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___v_l_b_i___functions.html" target="_self">Essential VLBI functions</a></td><td class="desc"></td></tr>
-<tr id="row_0_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___v_l_b_i___internal.html" target="_self">VLBI internal functions</a></td><td class="desc"></td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___server.html" target="_self">OpenVLBI Server C++ API</a></td><td class="desc">The OpenVLBI <a class="el" href="class_v_l_b_i_1_1_server.html" title="Inherit this class to create an OpenVLBI server application.">Server</a> C++ API is meant for C++ developers who want to write their own<br  />
+<tr id="row_0_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___v_l_b_i___functions.html" target="_self">Core VLBI functions</a></td><td class="desc"></td></tr>
+<tr id="row_0_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___v_l_b_i___nodes.html" target="_self">Nodes API</a></td><td class="desc"></td></tr>
+<tr id="row_0_4_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___v_l_b_i___baselines.html" target="_self">Baselines API</a></td><td class="desc"></td></tr>
+<tr id="row_0_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___v_l_b_i___models.html" target="_self">Models API</a></td><td class="desc"></td></tr>
+<tr id="row_0_6_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___v_l_b_i___matrix.html" target="_self">Parallax calculators</a></td><td class="desc"></td></tr>
+<tr id="row_0_7_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___v_l_b_i___time.html" target="_self">Time conversions</a></td><td class="desc"></td></tr>
+<tr id="row_0_8_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___v_l_b_i___astro.html" target="_self">Astronomy specific</a></td><td class="desc"></td></tr>
+<tr id="row_1_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="group___server.html" target="_self">OpenVLBI Server C++ API</a></td><td class="desc">The OpenVLBI <a class="el" href="class_v_l_b_i_1_1_server.html" title="Inherit this class to create an OpenVLBI server application.">Server</a> C++ API is meant for C++ developers who want to write their own<br  />
  implementation of an OpenVLBI server or application.<br  />
 <br  />
  This class offers a simple interface with the most common methods, allowing custom overrides and<br  />
  extensibility </td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_2_" class="arrow" onclick="toggleFolder('2_')">&#9660;</span><a class="el" href="group___d_s_p.html" target="_self">Digital Signal Processing API</a></td><td class="desc">The DSP API is used for processing monodimensional or multidimensional buffers,<br  />
+<tr id="row_2_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_2_" class="arrow" onclick="toggleFolder('2_')">&#9660;</span><a class="el" href="group___d_s_p.html" target="_self">Digital Signal Processing API</a></td><td class="desc">The DSP API is used for processing monodimensional or multidimensional buffers,<br  />
  converting array element types, generate statistics, extract informations from buffers, convolute or<br  />
  cross-correlate different single or multi dimensional streams, rotate, scale, crop images.<br  />
  </td></tr>
-<tr id="row_2_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___d_s_p___defines.html" target="_self">DSP API defines</a></td><td class="desc"></td></tr>
-<tr id="row_2_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___d_s_p___types.html" target="_self">DSP API types</a></td><td class="desc"></td></tr>
-<tr id="row_2_2_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___fourier_transform.html" target="_self">DSP API Fourier transform related functions</a></td><td class="desc"></td></tr>
-<tr id="row_2_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___filters.html" target="_self">DSP API Linear buffer filtering functions</a></td><td class="desc"></td></tr>
-<tr id="row_2_4_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___convolution.html" target="_self">DSP API Convolution and cross-correlation functions</a></td><td class="desc"></td></tr>
-<tr id="row_2_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___stats.html" target="_self">DSP API Buffer statistics functions</a></td><td class="desc"></td></tr>
-<tr id="row_2_6_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___buffers.html" target="_self">DSP API Buffer editing functions</a></td><td class="desc"></td></tr>
-<tr id="row_2_7_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___d_s_p_stream.html" target="_self">DSP API Stream type management functions</a></td><td class="desc"></td></tr>
-<tr id="row_2_8_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___signal_gen.html" target="_self">DSP API Signal generation functions</a></td><td class="desc"></td></tr>
-<tr id="row_2_9_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___file_management.html" target="_self">DSP API File read/write functions</a></td><td class="desc"></td></tr>
+<tr id="row_2_0_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___d_s_p___defines.html" target="_self">DSP API defines</a></td><td class="desc"></td></tr>
+<tr id="row_2_1_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group___d_s_p___types.html" target="_self">DSP API types</a></td><td class="desc"></td></tr>
+<tr id="row_2_2_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___fourier_transform.html" target="_self">DSP API Fourier transform related functions</a></td><td class="desc"></td></tr>
+<tr id="row_2_3_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___filters.html" target="_self">DSP API Linear buffer filtering functions</a></td><td class="desc"></td></tr>
+<tr id="row_2_4_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___convolution.html" target="_self">DSP API Convolution and cross-correlation functions</a></td><td class="desc"></td></tr>
+<tr id="row_2_5_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___stats.html" target="_self">DSP API Buffer statistics functions</a></td><td class="desc"></td></tr>
+<tr id="row_2_6_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___buffers.html" target="_self">DSP API Buffer editing functions</a></td><td class="desc"></td></tr>
+<tr id="row_2_7_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___d_s_p_stream.html" target="_self">DSP API Stream type management functions</a></td><td class="desc"></td></tr>
+<tr id="row_2_8_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___signal_gen.html" target="_self">DSP API Signal generation functions</a></td><td class="desc"></td></tr>
+<tr id="row_2_9_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a class="el" href="group__dsp___file_management.html" target="_self">DSP API File read/write functions</a></td><td class="desc"></td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 12 2021 19:23:05 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 14 2021 18:32:22 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
