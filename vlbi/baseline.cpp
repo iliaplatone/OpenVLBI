@@ -1,5 +1,5 @@
 /*  OpenVLBI - Open Source Very Long Baseline Interferometry
-    Copyright © 2017-2019  Ilia Platone
+    Copyright © 2017-2021  Ilia Platone
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -32,16 +32,16 @@ VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
 
 VLBIBaseline::~VLBIBaseline()
 {
-     dsp_stream_free_buffer(getStream());
-     dsp_stream_free(getStream());
-     free(getName());
+    dsp_stream_free_buffer(getStream());
+    dsp_stream_free(getStream());
+    free(getName());
 }
 
 double VLBIBaseline::Correlate(double time)
 {
     if(!Locked())
         return 0.0;
-    int idx = (time-getStartTime())/getSampleRate();
+    int idx = (time - getStartTime()) / getSampleRate();
     if(idx > 0 && idx < getStream()->len)
         return getStream()->buf[idx];
     return 0.0;
@@ -49,8 +49,8 @@ double VLBIBaseline::Correlate(double time)
 
 double VLBIBaseline::Correlate(double time1, double time2)
 {
-    int idx1 = (time1-getStartTime())/getSampleRate();
-    int idx2 = (time2-getStartTime())/getSampleRate();
+    int idx1 = (time1 - getStartTime()) / getSampleRate();
+    int idx2 = (time2 - getStartTime()) / getSampleRate();
     if(idx1 >= 0 && idx2 >= 0 && idx1 < getNode1()->getStream()->len && idx2 < getNode2()->getStream()->len)
         return dsp_correlation_delegate(getNode1()->getStream()->buf[idx1], getNode2()->getStream()->buf[idx2]);
     return 0.0;
@@ -82,16 +82,18 @@ double *VLBIBaseline::getBaseline()
 {
     double *b;
     dsp_location location1, location2, baseline;
-    if (!isRelative()) {
+    if (!isRelative())
+    {
         double lon1 = getNode1()->getGeographicLocation()[1];
         double lon2 = getNode2()->getGeographicLocation()[1];
-        if(fabs(lon1 - lon2) >= 180.0) {
+        if(fabs(lon1 - lon2) >= 180.0)
+        {
             if(lon1 < 180.0)
                 lon1 += 360;
             if(lon2 < 180.0)
                 lon2 += 360;
         }
-        baseline.geographic.lon = (lon2-lon1);
+        baseline.geographic.lon = (lon2 - lon1);
         if(baseline.geographic.lon >= 180)
             baseline.geographic.lon -= 360;
         if(baseline.geographic.lon < -180)
@@ -101,13 +103,15 @@ double *VLBIBaseline::getBaseline()
         baseline.geographic.el = getNode2()->getGeographicLocation()[2];
         baseline.geographic.el -= getNode1()->getGeographicLocation()[2];
         baseline.geographic.el += getNode2()->getGeographicLocation()[2];
-        b = vlbi_calc_location(baseline.coordinates);
+        b = vlbi_matrix_calc_location(baseline.coordinates);
         memcpy(baseline.coordinates, b, sizeof(dsp_location));
         baseline.xyz.z -= getNode2()->getGeographicLocation()[2];
-    } else {
-        memcpy(location1.coordinates, getNode1()->getLocation(), sizeof(double)*3);
-        memcpy(location2.coordinates, getNode2()->getLocation(), sizeof(double)*3);
-        b = (double*)malloc(sizeof(double)*3);
+    }
+    else
+    {
+        memcpy(location1.coordinates, getNode1()->getLocation(), sizeof(double) * 3);
+        memcpy(location2.coordinates, getNode2()->getLocation(), sizeof(double) * 3);
+        b = (double*)malloc(sizeof(double) * 3);
         b[0] = location1.xyz.x - location2.xyz.x;
         b[1] = location1.xyz.y - location2.xyz.y;
         b[2] = location1.xyz.z - location2.xyz.z;
@@ -117,8 +121,8 @@ double *VLBIBaseline::getBaseline()
 
 void VLBIBaseline::getProjection()
 {
-    double *tmp = vlbi_calc_3d_projection(Target[1], Target[0], getBaseline());
-    double *proj = vlbi_calc_uv_coordinates(tmp, getWaveLength());
+    double *tmp = vlbi_matrix_calc_3d_projection(Target[1], Target[0], getBaseline());
+    double *proj = vlbi_matrix_calc_uv_coordinates(tmp, getWaveLength());
     free (tmp);
     u = proj[0];
     v = proj[1];
@@ -129,17 +133,19 @@ void VLBIBaseline::getProjection()
 void VLBIBaseline::setTime(double time)
 {
     double Alt, Az;
-    if(!isRelative()) {
+    if(!isRelative())
+    {
         dsp_location center;
         double lon1 = getNode1()->getGeographicLocation()[1];
         double lon2 = getNode2()->getGeographicLocation()[1];
-        if(fabs(lon1 - lon2) >= 180.0) {
+        if(fabs(lon1 - lon2) >= 180.0)
+        {
             if(lon1 < 180.0)
                 lon1 += 360;
             if(lon2 < 180.0)
                 lon2 += 360;
         }
-        center.geographic.lon = (lon1+lon2)/2;
+        center.geographic.lon = (lon1 + lon2) / 2;
         if(center.geographic.lon >= 360)
             center.geographic.lon -= 360;
         if(center.geographic.lon < 0)
@@ -151,8 +157,11 @@ void VLBIBaseline::setTime(double time)
         center.geographic.el += getNode2()->getGeographicLocation()[2];
         center.geographic.el /= 2;
         vlbi_astro_alt_az_from_ra_dec(time, Ra, Dec, center.geographic.lat, center.geographic.lon, &Alt, &Az);
-    } else {
-        vlbi_astro_alt_az_from_ra_dec(time, Ra, Dec, stationLocation()->geographic.lat, stationLocation()->geographic.lon, &Alt, &Az);
+    }
+    else
+    {
+        vlbi_astro_alt_az_from_ra_dec(time, Ra, Dec, stationLocation()->geographic.lat, stationLocation()->geographic.lon, &Alt,
+                                      &Az);
     }
     setTarget(Az, Alt);
 }

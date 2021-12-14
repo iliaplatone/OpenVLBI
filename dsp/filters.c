@@ -1,6 +1,6 @@
 /*
  *   libDSPAU - a digital signal processing library for astronomy usage
- *   Copyright (C) 2017  Ilia Platone <info@iliaplatone.com>
+ *   Copyright (C) 2017-2021  Ilia Platone <info@iliaplatone.com>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -42,24 +42,20 @@ void dsp_filter_lowpass(dsp_stream_p stream, double Frequency)
         radius += pow(stream->sizes[d]/2.0, 2);
     }
     radius = sqrt(radius);
-    dsp_stream_p matrix = dsp_stream_copy(stream);
-    dsp_buffer_set(matrix->magnitude->buf, matrix->len, 0);
-    for(x = 0; x < matrix->len; x++) {
-        int* pos = dsp_stream_get_position(matrix, x);
+    dsp_fourier_dft(stream, 1);
+    for(x = 0; x < stream->len; x++) {
+        int* pos = dsp_stream_get_position(stream, x);
         double dist = 0.0;
-        for(d = 0; d < matrix->dims; d++) {
-            dist += pow(matrix->sizes[d]/2.0-pos[d], 2);
+        for(d = 0; d < stream->dims; d++) {
+            dist += pow(stream->sizes[d]/2.0-pos[d], 2);
         }
         free(pos);
         dist = sqrt(dist);
         dist *= M_PI/radius;
-        if(dist<Frequency)
-            matrix->magnitude->buf[x] = 1.0;
+        if(dist>Frequency)
+            stream->magnitude->buf[x] = 0.0;
     }
-    dsp_fourier_idft(matrix);
-    dsp_convolution_convolution(stream, matrix);
-    dsp_stream_free_buffer(matrix);
-    dsp_stream_free(matrix);
+    dsp_fourier_idft(stream);
 }
 
 void dsp_filter_highpass(dsp_stream_p stream, double Frequency)
@@ -70,24 +66,20 @@ void dsp_filter_highpass(dsp_stream_p stream, double Frequency)
         radius += pow(stream->sizes[d]/2.0, 2);
     }
     radius = sqrt(radius);
-    dsp_stream_p matrix = dsp_stream_copy(stream);
-    dsp_buffer_set(matrix->magnitude->buf, matrix->len, 0);
-    for(x = 0; x < matrix->len; x++) {
-        int* pos = dsp_stream_get_position(matrix, x);
+    dsp_fourier_dft(stream, 1);
+    for(x = 0; x < stream->len; x++) {
+        int* pos = dsp_stream_get_position(stream, x);
         double dist = 0.0;
-        for(d = 0; d < matrix->dims; d++) {
-            dist += pow(matrix->sizes[d]/2.0-pos[d], 2);
+        for(d = 0; d < stream->dims; d++) {
+            dist += pow(stream->sizes[d]/2.0-pos[d], 2);
         }
         free(pos);
         dist = sqrt(dist);
         dist *= M_PI/radius;
-        if(dist>Frequency)
-            matrix->magnitude->buf[x] = 1.0;
+        if(dist<Frequency)
+            stream->magnitude->buf[x] = 0.0;
     }
-    dsp_fourier_idft(matrix);
-    dsp_convolution_convolution(stream, matrix);
-    dsp_stream_free_buffer(matrix);
-    dsp_stream_free(matrix);
+    dsp_fourier_idft(stream);
 }
 
 void dsp_filter_bandreject(dsp_stream_p stream, double LowFrequency, double HighFrequency)
@@ -98,24 +90,20 @@ void dsp_filter_bandreject(dsp_stream_p stream, double LowFrequency, double High
         radius += pow(stream->sizes[d]/2.0, 2);
     }
     radius = sqrt(radius);
-    dsp_stream_p matrix = dsp_stream_copy(stream);
-    dsp_buffer_set(matrix->magnitude->buf, matrix->len, 0);
-    for(x = 0; x < matrix->len; x++) {
-        int* pos = dsp_stream_get_position(matrix, x);
+    dsp_fourier_dft(stream, 1);
+    for(x = 0; x < stream->len; x++) {
+        int* pos = dsp_stream_get_position(stream, x);
         double dist = 0.0;
-        for(d = 0; d < matrix->dims; d++) {
-            dist += pow(matrix->sizes[d]/2.0-pos[d], 2);
+        for(d = 0; d < stream->dims; d++) {
+            dist += pow(stream->sizes[d]/2.0-pos[d], 2);
         }
         free(pos);
         dist = sqrt(dist);
         dist *= M_PI/radius;
-        if(dist>HighFrequency||dist<LowFrequency)
-            matrix->magnitude->buf[x] = 1.0;
+        if(dist<HighFrequency&&dist>LowFrequency)
+            stream->magnitude->buf[x] = 0.0;
     }
-    dsp_fourier_idft(matrix);
-    dsp_convolution_convolution(stream, matrix);
-    dsp_stream_free_buffer(matrix);
-    dsp_stream_free(matrix);
+    dsp_fourier_idft(stream);
 }
 
 void dsp_filter_bandpass(dsp_stream_p stream, double LowFrequency, double HighFrequency)
@@ -126,22 +114,18 @@ void dsp_filter_bandpass(dsp_stream_p stream, double LowFrequency, double HighFr
         radius += pow(stream->sizes[d]/2.0, 2);
     }
     radius = sqrt(radius);
-    dsp_stream_p matrix = dsp_stream_copy(stream);
-    dsp_buffer_set(matrix->magnitude->buf, matrix->len, 0);
-    for(x = 0; x < matrix->len; x++) {
-        int* pos = dsp_stream_get_position(matrix, x);
+    dsp_fourier_dft(stream, 1);
+    for(x = 0; x < stream->len; x++) {
+        int* pos = dsp_stream_get_position(stream, x);
         double dist = 0.0;
-        for(d = 0; d < matrix->dims; d++) {
-            dist += pow(matrix->sizes[d]/2.0-pos[d], 2);
+        for(d = 0; d < stream->dims; d++) {
+            dist += pow(stream->sizes[d]/2.0-pos[d], 2);
         }
         free(pos);
         dist = sqrt(dist);
         dist *= M_PI/radius;
-        if(dist<HighFrequency&&dist>LowFrequency)
-            matrix->magnitude->buf[x] = 1.0;
+        if(dist>HighFrequency||dist<LowFrequency)
+            stream->magnitude->buf[x] = 0.0;
     }
-    dsp_fourier_idft(matrix);
-    dsp_convolution_convolution(stream, matrix);
-    dsp_stream_free_buffer(matrix);
-    dsp_stream_free(matrix);
+    dsp_fourier_idft(stream);
 }

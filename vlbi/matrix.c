@@ -1,5 +1,5 @@
 /*  OpenVLBI - Open Source Very Long Baseline Interferometry
-    Copyright © 2017-2019  Ilia Platone
+    Copyright © 2017-2021  Ilia Platone
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,27 +18,19 @@
 
 #include <vlbi.h>
 
-double vlbi_rad2as(double rad)
-{
-    return rad * RAD_AS;
-}
+double SPEED_MEAN = LIGHTSPEED;
 
-double vlbi_as2rad(double as)
-{
-    return as / RAD_AS;
-}
-
-double vlbi_estimate_resolution_zero(double frequency)
+double vlbi_matrix_estimate_resolution_zero(double frequency)
 {
     return AIRY * SPEED_MEAN / frequency;
 }
 
-double vlbi_estimate_resolution(double resolution_zero, double baseline)
+double vlbi_matrix_estimate_resolution(double resolution_zero, double baseline)
 {
     return resolution_zero / baseline;
 }
 
-double* vlbi_calc_3d_projection(double alt, double az, double *baseline)
+double* vlbi_matrix_calc_3d_projection(double alt, double az, double *baseline)
 {
     double* proj = (double*)calloc(sizeof(double), 3);
     az *= M_PI / 180.0;
@@ -52,31 +44,32 @@ double* vlbi_calc_3d_projection(double alt, double az, double *baseline)
     return proj;
 }
 
-double* vlbi_calc_uv_coordinates(double *proj, double wavelength)
+double* vlbi_matrix_calc_uv_coordinates(double *proj, double wavelength)
 {
     double* uv = (double*)calloc(sizeof(double), 3);
-    uv[0] = proj[0] * AIRY / wavelength;
-    uv[1] = proj[1] * AIRY / wavelength;
-    uv[2] = proj[2] / LIGHTSPEED;
+    double rzero = vlbi_matrix_estimate_resolution_zero(1.0/wavelength);
+    uv[0] = vlbi_matrix_estimate_resolution(rzero, proj[0]);
+    uv[1] = vlbi_matrix_estimate_resolution(rzero, proj[1]);
+    uv[2] = proj[2] / SPEED_MEAN;
     return uv;
 }
 
-double* vlbi_calc_location(double *loc)
+double* vlbi_matrix_calc_location(double *loc)
 {
     double* location = (double*)malloc(sizeof(double)*3);
     double lat, lon, el;
     lat = loc[0];
     lon = loc[1];
-    el = vlbi_astro_estimate_geocentric_elevation(loc[0], loc[2]);
+    el = vlbi_matrix_estimate_geocentric_elevation(loc[0], loc[2]);
     lat *= M_PI / 180.0;
     lon *= M_PI / 180.0;
     location[0] = sqrt(pow(sin(lon), 2)+pow(1.0-cos(lon), 2)) * el * (lon < 0 ? -1 : 1);
     location[1] = sqrt(pow(sin(lat), 2)+pow(1.0-cos(lat), 2)) * el * (lat < 0 ? -1 : 1);
-    location[2] = el-vlbi_astro_estimate_geocentric_elevation(loc[0], 0);
+    location[2] = el-vlbi_matrix_estimate_geocentric_elevation(loc[0], 0);
     return location;
 }
 
-double* vlbi_calc_baseline_center(double *loc1, double *loc2)
+double* vlbi_matrix_calc_baseline_center(double *loc1, double *loc2)
 {
     double* center = (double*)calloc(sizeof(double), 3);
     double* location1 = (double*)calloc(sizeof(double), 3);
@@ -101,4 +94,12 @@ double* vlbi_calc_baseline_center(double *loc1, double *loc2)
     while(center[1] >= 360.0)
         center[1] -= 360.0;
     return center;
+}
+
+double vlbi_matrix_estimate_geocentric_elevation(double Lat, double El)
+{
+    Lat *= M_PI / 180.0;
+    Lat = fabs(cos(Lat));
+    El += Lat * (EARTHRADIUSEQUATORIAL - EARTHRADIUSPOLAR) + EARTHRADIUSPOLAR;
+    return El;
 }
