@@ -1,3 +1,9 @@
+libopenvlbi (1.22) unstable; urgency=medium
+
+  * Added more constants, astrometric functions and updated documentation
+
+ -- Ilia Platone <plato@localhost>  Tue, 14 Dec 2021 18:36:33 +0100
+
 libopenvlbi (1.21) unstable; urgency=medium
 
   * First official release
