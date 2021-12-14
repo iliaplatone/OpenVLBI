@@ -1,6 +1,6 @@
 /*
  *   libDSPAU - a digital signal processing library for astronoms usage
- *   Copyright (C) 2017  Ilia Platone <info@iliaplatone.com>
+ *   Copyright (C) 2017-2021  Ilia Platone <info@iliaplatone.com>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by

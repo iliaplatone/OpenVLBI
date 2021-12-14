@@ -1,5 +1,5 @@
 /*  OpenVLBI - Open Source Very Long Baseline Interferometry
-    Copyright © 2017-2019  Ilia Platone
+    Copyright © 2017-2021  Ilia Platone
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -37,7 +37,8 @@ BaselineCollection::BaselineCollection(NodeCollection *nodes) : VLBICollection::
 
 BaselineCollection::~BaselineCollection()
 {
-    for(int i = 0; i < Count; i++) {
+    for(int i = 0; i < Count; i++)
+    {
         At(i)->~VLBIBaseline();
     }
 }
@@ -74,7 +75,7 @@ void BaselineCollection::RemoveKey(const char* name)
 
 void BaselineCollection::Clear()
 {
-    for(int i = Count-1; i >= 0; i--)
+    for(int i = Count - 1; i >= 0; i--)
         VLBICollection::RemoveAt(i);
 }
 
@@ -90,7 +91,7 @@ void BaselineCollection::Remove(VLBIBaseline *element)
 
 void BaselineCollection::RemoveAt(int index)
 {
-	VLBICollection::RemoveAt(index);
+    VLBICollection::RemoveAt(index);
 }
 
 VLBIBaseline * BaselineCollection::At(int index)
@@ -116,7 +117,8 @@ int BaselineCollection::IndexOf(VLBIBaseline *element)
 void BaselineCollection::SetTarget(double *target)
 {
     memcpy(Stream->target, target, sizeof(double) * 3);
-    for(int i = 0; i < Count; i++) {
+    for(int i = 0; i < Count; i++)
+    {
         At(i)->setTarget(Stream->target);
     }
 }
@@ -124,7 +126,8 @@ void BaselineCollection::SetTarget(double *target)
 void BaselineCollection:: setRa(double ra)
 {
     Ra = ra;
-    for(int i = 0; i < Count; i++) {
+    for(int i = 0; i < Count; i++)
+    {
         At(i)->setRa(ra);
     }
 }
@@ -132,7 +135,8 @@ void BaselineCollection:: setRa(double ra)
 void BaselineCollection:: setDec(double dec)
 {
     Dec = dec;
-    for(int i = 0; i < Count; i++) {
+    for(int i = 0; i < Count; i++)
+    {
         At(i)->setDec(dec);
     }
 }
@@ -140,7 +144,8 @@ void BaselineCollection:: setDec(double dec)
 void BaselineCollection::SetFrequency(double frequency)
 {
     Stream->wavelength = LIGHTSPEED / frequency;
-    for(int i = 0; i < Count; i++) {
+    for(int i = 0; i < Count; i++)
+    {
         At(i)->setWaveLength(LIGHTSPEED / frequency);
     }
 }
@@ -148,7 +153,8 @@ void BaselineCollection::SetFrequency(double frequency)
 void BaselineCollection::setRelative(bool rel)
 {
     relative = rel;
-    for(int i = 0; i < Count; i++) {
+    for(int i = 0; i < Count; i++)
+    {
         At(i)->setRelative(rel);
     }
 }
@@ -156,14 +162,16 @@ void BaselineCollection::setRelative(bool rel)
 void BaselineCollection::SetSampleRate(double samplerate)
 {
     Stream->samplerate = samplerate;
-    for(int i = 0; i < Count; i++) {
+    for(int i = 0; i < Count; i++)
+    {
         At(i)->setSampleRate(samplerate);
     }
 }
 
 void BaselineCollection::SetDelegate(vlbi_func2_t delegate)
 {
-    for(int i = 0; i < Count; i++) {
+    for(int i = 0; i < Count; i++)
+    {
         At(i)->setDelegate(delegate);
     }
 }
