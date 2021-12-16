@@ -1,4 +1,4 @@
-libopenvlbi (1.22.2) UNRELEASED; urgency=medium
+libopenvlbi (1.22.2) unstable; urgency=medium
 
   * Fixed wrong projection
 
