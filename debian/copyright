@@ -3,5 +3,5 @@ Upstream-Name: libopenvlbi
 Source: http://iliaplatone.github.io/OpenVLBI
 
 Files: *
-Copyright: 2018, Ilia Platone <info@iliaplatone.com>
+Copyright: 2017-2021 Ilia Platone <info@iliaplatone.com>
 License: LGPL-3+
