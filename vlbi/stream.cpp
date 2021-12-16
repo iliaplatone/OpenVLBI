@@ -207,7 +207,7 @@ static void* fillplane(void *arg)
                 {
                     while(pthread_mutex_trylock(&mutex))
                         usleep(10);
-                    parent->buf[idx] += val;
+                    parent->buf[idx] = val;
                     pthread_mutex_unlock(&mutex);
                 }
                 e = s;

@@ -47,9 +47,8 @@ double* vlbi_matrix_calc_3d_projection(double alt, double az, double *baseline)
 double* vlbi_matrix_calc_uv_coordinates(double *proj, double wavelength)
 {
     double* uv = (double*)calloc(sizeof(double), 3);
-    double rzero = vlbi_matrix_estimate_resolution_zero(1.0/wavelength);
-    uv[0] = vlbi_matrix_estimate_resolution(rzero, proj[0]);
-    uv[1] = vlbi_matrix_estimate_resolution(rzero, proj[1]);
+    uv[0] = proj[0] * AIRY / wavelength;
+    uv[1] = proj[1] * AIRY / wavelength;
     uv[2] = proj[2] / SPEED_MEAN;
     return uv;
 }
