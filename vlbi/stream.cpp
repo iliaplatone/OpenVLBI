@@ -90,7 +90,6 @@ static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int 
     t->arg = arg;
     t->thread_cnt = thread_cnt;
 
-    usleep(100000);
     pthread_create(&t->th, nullptr, &vlbi_thread_func, t);
 }
 
