@@ -1,3 +1,9 @@
+libopenvlbi (1.22.3) unstable; urgency=medium
+
+  * Minor bugfixes
+
+ -- Ilia Platone <info@iliaplatone.com>  Thu, 17 Dec 2021 07:29:22 +0100
+
 libopenvlbi (1.22.2) unstable; urgency=medium
 
   * Fixed wrong projection
