@@ -397,4 +397,4 @@ void JSONServer::Parse()
     json_value_free(value);
 }
 
-JSONServer *client = new JSONServer();
+Server *VLBI::server = (Server*)new JSONServer();

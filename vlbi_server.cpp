@@ -562,8 +562,6 @@ void VLBI::Server::Parse()
     }
 }
 
-extern VLBI::Server *client;
-
 void VLBI::Server::AddContext(char* name)
 {
     if(!contexts->ContainsKey(name)) contexts->Add(vlbi_init(), name);
@@ -597,7 +595,7 @@ void VLBI::Server::DelContext(char* name)
 static void sighandler(int signum)
 {
     signal(signum, SIG_IGN);
-    client->~Server();
+    VLBI::server->~Server();
     signal(signum, sighandler);
     exit(0);
 }
@@ -614,10 +612,10 @@ int main(int argc, char** argv)
                 vlbi_max_threads((unsigned long)atol(optarg));
                 break;
             case 'f':
-                client->SetInput(fopen (optarg, "rb+"));
+                VLBI::server->SetInput(fopen (optarg, "rb+"));
                 break;
             case 'o':
-                client->SetOutput(fopen (optarg, "a"));
+                VLBI::server->SetOutput(fopen (optarg, "a"));
                 break;
             default:
                 fprintf(stderr, "Usage: %s [-t max_threads] [-f obs_file] [-o obs_file]\n", argv[0]);
@@ -629,13 +627,13 @@ int main(int argc, char** argv)
     signal(SIGILL, sighandler);
     signal(SIGSTOP, sighandler);
     signal(SIGQUIT, sighandler);
-    if(client->Init(argc, argv))
+    if(VLBI::server->Init(argc, argv))
     {
         while (is_running)
         {
-            if(feof(client->GetInput()))
+            if(feof(VLBI::server->GetInput()))
                 break;
-            client->Parse();
+            VLBI::server->Parse();
         }
     }
     return EXIT_SUCCESS;

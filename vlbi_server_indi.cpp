@@ -469,4 +469,4 @@ void INDIServer::Parse()
     VLBI::Server::Parse();
 }
 
-INDIServer* client = new INDIServer();
+Server *VLBI::server = (Server*)new INDIServer();

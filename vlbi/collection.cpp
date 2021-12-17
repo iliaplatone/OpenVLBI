@@ -79,14 +79,14 @@ void* VLBICollection::Get(const char* name)
             return (void*)Items[i].item;
         }
     }
-    return NULL;
+    return nullptr;
 }
 
 void VLBICollection::RemoveAt(int index)
 {
     if(index >= Count)
         return;
-    Items[index].item = 0;
+    Items[index].item = nullptr;
     Defrag();
 }
 
@@ -94,7 +94,7 @@ void* VLBICollection::At(int index)
 {
     if(index < 0 || index >= Count)
     {
-        return NULL;
+        return nullptr;
     }
     return (void*)Items[index].item;
 }

@@ -387,6 +387,7 @@ class Server
         FILE *input, *output;
         char *context;
 };
+extern VLBI::Server *server;
 /**@}*/
 };
 

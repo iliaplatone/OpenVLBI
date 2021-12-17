@@ -25,4 +25,4 @@ void DUMMYServer::Parse()
     VLBI::Server::Parse();
 }
 
-DUMMYServer *client = new DUMMYServer();
+Server *VLBI::server = (Server*)new DUMMYServer();

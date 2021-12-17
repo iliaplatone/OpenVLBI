@@ -90,6 +90,7 @@ static void vlbi_start_thread(void *(*__start_routine) (void *), void *arg, int 
     t->arg = arg;
     t->thread_cnt = thread_cnt;
 
+    usleep(100000);
     pthread_create(&t->th, nullptr, &vlbi_thread_func, t);
 }
 
@@ -211,11 +212,11 @@ static void* fillplane(void *arg)
                     pthread_mutex_unlock(&mutex);
                 }
                 e = s;
+                fprintf(stderr, "\r%.3lfs %.3lf %d  ", (time - st), (time - st) * 100.0 / (et - st - tau), i);
             }
         }
         s = l + 1;
         i = s - e;
-        fprintf(stderr, "\r%.3lfs %.3lf %d  ", (time - st), (time - st) * 100.0 / (et - st - tau), i);
     }
     return nullptr;
 }
