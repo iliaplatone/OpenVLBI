@@ -1,0 +1,11 @@
+@software{ilia_platone_2021_5788023,
+  author       = {Ilia Platone and
+                  Thorsten Alteholz},
+  title        = {iliaplatone/OpenVLBI: OpenVLBI version 1.22.3},
+  month        = dec,
+  year         = 2021,
+  publisher    = {Zenodo},
+  version      = {v1.22.3},
+  doi          = {10.5281/zenodo.5788023},
+  url          = {https://doi.org/10.5281/zenodo.5788023}
+}
