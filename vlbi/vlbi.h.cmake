@@ -149,6 +149,21 @@ typedef struct timespec timespec_t;
 inline static double vlbi_default_delegate(double x, double y) {
     return x*y;
 }
+///A magnitude calculator delegate for vlbi_get_uv_plot
+inline static double vlbi_magnitude_delegate(double x, double y) {
+return sqrt(pow(x, 2)+pow(y, 2));
+}
+///A phase calculator delegate for vlbi_get_uv_plot
+inline static double vlbi_phase_delegate(double x, double y) {
+double mag = sqrt(pow(x, 2)+pow(y, 2));
+double rad = 0.0;
+if(mag > 0.0) {
+    rad = acos (y / (mag > 0.0 ? mag : 1.0));
+    if(x < 0 && rad != 0)
+        rad = M_PI*2-rad;
+}
+return rad;
+}
 #ifndef Min
 ///if max() is not present you can use this one
 #define Min(a,b) \
