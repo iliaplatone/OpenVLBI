@@ -63,15 +63,16 @@ extern "C" {
  * Once your work is done, the models can also be saved as jpeg, png, or fits picture files.
  *
  * \author Ilia Platone
- */
-
- ///
-/**@{*/
+ * \version @VLBI_VERSION_STRING@
+ * \date 2017-2021
+ * \copyright GNU GPL3 Public License.
+ *
+ *\{*/
 
 /**
  * \defgroup VLBI_Types VLBI types
 */
-/**@{*/
+/**\{*/
 
 ///A single node, returned by vlbi_get_nodes into an array
 typedef struct {
@@ -140,11 +141,11 @@ typedef void* vlbi_context;
 
 ///Definition of the timespec_t in a C type, just for convenience
 typedef struct timespec timespec_t;
-/**@}*/
+/**\}*/
 /**
  * \defgroup VLBI_Defines VLBI defines
 */
-/**@{*/
+/**\{*/
 ///A placeholder delegate that simply multiplies the values received from vlbi_get_uv_plot
 inline static double vlbi_default_delegate(double x, double y) {
     return x*y;
@@ -381,11 +382,11 @@ return rad;
 extern double SPEED_MEAN;
 ///The maximum number of threads allowed
 extern unsigned long int MAX_THREADS;
-/**@}*/
+/**\}*/
 /**
  * \defgroup VLBI_Functions Core VLBI functions
 */
-/**@{*/
+/**\{*/
 
 /**
 * @brief get/set the maximum number of threads allowed
@@ -412,11 +413,11 @@ DLL_EXPORT vlbi_context vlbi_init(void);
 */
 DLL_EXPORT void vlbi_exit(vlbi_context ctx);
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup VLBI_Nodes Nodes API
 */
-/**@{*/
+/**\{*/
 
 /**
 * @brief Add a stream into the current OpenVLBI context.
@@ -451,11 +452,11 @@ DLL_EXPORT int vlbi_get_nodes(void *ctx, vlbi_node** nodes);
 */
 DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, char* name, int geo);
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup VLBI_Baselines Baselines API
 */
-/**@{*/
+/**\{*/
 
 /**
 * @brief List all baselines of the current OpenVLBI context.
@@ -497,11 +498,11 @@ DLL_EXPORT void vlbi_set_location(void *ctx, double lat, double lon, double el);
 */
 DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1, char* node2, double Ra, double Dec, double *offset1, double *offset2);
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup VLBI_Models Models API
 */
-/**@{*/
+/**\{*/
 
 /**
 * @brief Fill a fourier plane with an aperture synthesis projection of the baselines during the integration time and save it into a new model with the given name.
@@ -631,12 +632,12 @@ DLL_EXPORT void vlbi_get_model_to_jpeg(void *ctx, char *filename, char* name);
 */
 DLL_EXPORT void vlbi_get_model_to_fits(void *ctx, char *filename, char* name);
 
-/**@}*/
+/**\}*/
 
 /**
  * \defgroup VLBI_Matrix Parallax calculators
 */
-/**@{*/
+/**\{*/
 
 /**
 * @brief Return The baseline center in geographic coordinates.
@@ -693,11 +694,11 @@ DLL_EXPORT double vlbi_matrix_estimate_resolution_zero(double frequency);
 */
 DLL_EXPORT double vlbi_matrix_estimate_resolution(double resolution0, double baseline);
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup VLBI_Time Time conversions
 */
-/**@{*/
+/**\{*/
 
 /**
 * @brief Obtain a timespec struct containing the date and time specified
@@ -740,11 +741,11 @@ DLL_EXPORT timespec_t vlbi_time_string_to_timespec(char* time);
 */
 DLL_EXPORT timespec_t vlbi_time_J2000time_to_timespec(double secs_since_J2000);
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup VLBI_Astro Astronomy specific
 */
-/**@{*/
+/**\{*/
 
 /**
  * @brief Obtain the altitude and azimuth coordinate of a celestial coordinate at a specific time
@@ -858,8 +859,10 @@ DLL_EXPORT double vlbi_astro_estimate_size_transient(double transient_object_vel
  */
 DLL_EXPORT double vlbi_astro_redshift_adjust(double distance, double redshift);
 
-/**@}*/
-/**@}*/
+/**\}*/
+/**\defgroup Server*/
+/**\defgroup DSP*/
+/**\}*/
 
 #ifdef __cplusplus
 }

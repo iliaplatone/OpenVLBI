@@ -51,13 +51,16 @@ extern "C" {
 * cross-correlate different single or multi dimensional streams, rotate, scale, crop images.<br>
 *
 * \author Ilia Platone
+* \version 1.0.0
+* \date 2017-2021
+* \copyright GNU GPL3 Public License.
 */
-/**@{*/
+/**\{*/
 
 /**
  * \defgroup DSP_Defines DSP API defines
 */
-/**@{*/
+/**\{*/
 #define DSP_MAX_STARS 200
 #define dsp_t double
 #define dsp_t_max 255
@@ -138,11 +141,11 @@ else if(x<=dsp_debug)fprintf(stderr, "%s", str); \
 #define Log(a,b) \
 ( log(a) / log(b) )
 #endif
-/**@}*/
+/**\}*/
 /**
  * \defgroup DSP_Types DSP API types
 */
-/**@{*/
+/**\{*/
 
 /**
 * \brief Indicates a dot or line inside a dsp_stream
@@ -359,11 +362,11 @@ typedef struct dsp_stream_t
     int frame_number;
 } dsp_stream, *dsp_stream_p;
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup dsp_FourierTransform DSP API Fourier transform related functions
 */
-/**@{*/
+/**\{*/
 
 /**
 * \brief Perform a discrete Fourier Transform of a dsp_stream
@@ -403,11 +406,11 @@ DLL_EXPORT double* dsp_fourier_complex_array_get_magnitude(dsp_complex in, int l
 */
 DLL_EXPORT double* dsp_fourier_complex_array_get_phase(dsp_complex in, int len);
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup dsp_Filters DSP API Linear buffer filtering functions
 */
-/**@{*/
+/**\{*/
 /**
 * \brief A square law filter
 * \param stream the input stream.
@@ -446,11 +449,11 @@ DLL_EXPORT void dsp_filter_bandpass(dsp_stream_p stream, double LowFrequency,
 DLL_EXPORT void dsp_filter_bandreject(dsp_stream_p stream, double LowFrequency,
                                       double HighFrequency);
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup dsp_Convolution DSP API Convolution and cross-correlation functions
 */
-/**@{*/
+/**\{*/
 /**
 * \brief A cross-convolution processor
 * \param stream the input stream.
@@ -465,11 +468,11 @@ DLL_EXPORT void dsp_convolution_convolution(dsp_stream_p stream, dsp_stream_p ma
 */
 DLL_EXPORT void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p matrix);
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup dsp_Stats DSP API Buffer statistics functions
 */
-/**@{*/
+/**\{*/
 
 #ifndef dsp_stats_min
 /**
@@ -682,11 +685,11 @@ DLL_EXPORT void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p ma
 */
 DLL_EXPORT double* dsp_stats_histogram(dsp_stream_p stream, int size);
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup dsp_Buffers DSP API Buffer editing functions
 */
-/**@{*/
+/**\{*/
 
 /**
 * \brief Shift a stream on each dimension
@@ -989,11 +992,11 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
     })
 #endif
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup dsp_DSPStream DSP API Stream type management functions
 */
-/**@{*/
+/**\{*/
 
 /**
 * \brief Allocate a buffer with length len on the stream passed as argument
@@ -1184,11 +1187,11 @@ DLL_EXPORT void dsp_stream_translate(dsp_stream_p stream);
 */
 DLL_EXPORT void dsp_stream_scale(dsp_stream_p stream);
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup dsp_SignalGen DSP API Signal generation functions
 */
-/**@{*/
+/**\{*/
 
 /**
 * \brief Generate white noise
@@ -1237,11 +1240,11 @@ DLL_EXPORT void dsp_modulation_frequency(dsp_stream_p stream, double samplefreq,
 */
 DLL_EXPORT void dsp_modulation_amplitude(dsp_stream_p stream, double samplefreq, double freq);
 
-/**@}*/
+/**\}*/
 /**
  * \defgroup dsp_FileManagement DSP API File read/write functions
 */
-/**@{*/
+/**\{*/
 
 /**
 * \brief Read a FITS file and fill a dsp_stream_p with its content
@@ -1394,8 +1397,8 @@ DLL_EXPORT void dsp_file_write_fits_bayer(char *filename, int components, int bp
 */
 DLL_EXPORT dsp_t* dsp_file_bayer_2_composite(dsp_t *src, int red, int width, int height);
 
-/**@}*/
-/**@}*/
+/**\}*/
+/**\}*/
 
 #ifdef  __cplusplus
 }
