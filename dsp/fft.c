@@ -95,9 +95,12 @@ double* dsp_fourier_complex_array_get_phase(dsp_complex in, int len)
             double real = in.complex[i].real;
             double imaginary = in.complex[i].imaginary;
             double mag = sqrt(pow(real, 2)+pow(imaginary, 2));
-            double rad = acos (imaginary / mag);
-            if(real < 0 && rad != 0)
-                rad = M_PI*2-rad;
+            double rad = 0.0;
+            if(mag > 0.0) {
+                rad = acos (imaginary / (mag > 0.0 ? mag : 1.0));
+                if(real < 0 && rad != 0)
+                    rad = M_PI*2-rad;
+            }
             out [i] = rad;
         }
     }

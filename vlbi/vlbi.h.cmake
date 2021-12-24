@@ -52,6 +52,7 @@ extern "C" {
  * \defgroup VLBI Very Long Baseline Interferometry API
  *
  * OpenVLBI is a free, open source library for very long baseline interferometry.<br>
+ *
  * OpenVLBI provides functions to locate, aim, cross-correlate and synchronize more nodes, or observatories together.
  * Each observation creates a Fourier plane filled with the perpective projection of each baseline during the various captures.
  * The nodes can contain a location companion for each sample for moving baseline projection, or a single location.
