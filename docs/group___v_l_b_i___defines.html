@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">VLBI defines<div class="ingroups"><a class="el" href="group___v_l_b_i.html">Very Long Baseline Interferometry API</a></div></div>  </div>
@@ -228,6 +229,18 @@ Macros</h2></td></tr>
 <tr class="memitem:ga2654c5076ef84f6d3cb14f994b495dc3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___defines.html#ga2654c5076ef84f6d3cb14f994b495dc3">AS2RAD</a>(as)&#160;&#160;&#160;(as / <a class="el" href="group___v_l_b_i___defines.html#gad6b384bd38eaff378444e38bb44e8e7e">RAD_AS</a>);</td></tr>
 <tr class="memdesc:ga2654c5076ef84f6d3cb14f994b495dc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert arcseconds into radians.  <a href="group___v_l_b_i___defines.html#ga2654c5076ef84f6d3cb14f994b495dc3">More...</a><br /></td></tr>
 <tr class="separator:ga2654c5076ef84f6d3cb14f994b495dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga4e7b8daa2225ad7227edbda951502799"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___defines.html#ga4e7b8daa2225ad7227edbda951502799">vlbi_default_delegate</a> (double x, double y)</td></tr>
+<tr class="memdesc:ga4e7b8daa2225ad7227edbda951502799"><td class="mdescLeft">&#160;</td><td class="mdescRight">A placeholder delegate that simply multiplies the values received from vlbi_get_uv_plot.  <a href="group___v_l_b_i___defines.html#ga4e7b8daa2225ad7227edbda951502799">More...</a><br /></td></tr>
+<tr class="separator:ga4e7b8daa2225ad7227edbda951502799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac73969af18b94f1bc52bc600d843d908"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___defines.html#gac73969af18b94f1bc52bc600d843d908">vlbi_magnitude_delegate</a> (double x, double y)</td></tr>
+<tr class="memdesc:gac73969af18b94f1bc52bc600d843d908"><td class="mdescLeft">&#160;</td><td class="mdescRight">A magnitude calculator delegate for vlbi_get_uv_plot.  <a href="group___v_l_b_i___defines.html#gac73969af18b94f1bc52bc600d843d908">More...</a><br /></td></tr>
+<tr class="separator:gac73969af18b94f1bc52bc600d843d908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga93c4f6b17894b3c4aca4e326ea083f7f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___defines.html#ga93c4f6b17894b3c4aca4e326ea083f7f">vlbi_phase_delegate</a> (double x, double y)</td></tr>
+<tr class="memdesc:ga93c4f6b17894b3c4aca4e326ea083f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A phase calculator delegate for vlbi_get_uv_plot.  <a href="group___v_l_b_i___defines.html#ga93c4f6b17894b3c4aca4e326ea083f7f">More...</a><br /></td></tr>
+<tr class="separator:ga93c4f6b17894b3c4aca4e326ea083f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -442,10 +455,143 @@ unsigned long int&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 
 </div>
 </div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga4e7b8daa2225ad7227edbda951502799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4e7b8daa2225ad7227edbda951502799">&#9670;&nbsp;</a></span>vlbi_default_delegate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double vlbi_default_delegate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>lowest index baseline's node current value </td></tr>
+    <tr><td class="paramname">y</td><td>highest index baseline's node current value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the result of the operation done </dd></dl>
+
+</div>
+</div>
+<a id="gac73969af18b94f1bc52bc600d843d908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac73969af18b94f1bc52bc600d843d908">&#9670;&nbsp;</a></span>vlbi_magnitude_delegate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double vlbi_magnitude_delegate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The real part </td></tr>
+    <tr><td class="paramname">y</td><td>The imaginary part </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The magnitude of this correlation </dd></dl>
+
+</div>
+</div>
+<a id="ga93c4f6b17894b3c4aca4e326ea083f7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga93c4f6b17894b3c4aca4e326ea083f7f">&#9670;&nbsp;</a></span>vlbi_phase_delegate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double vlbi_phase_delegate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The real part </td></tr>
+    <tr><td class="paramname">y</td><td>The imaginary part </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The phase of this correlation </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 24 2021 16:55:17 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 24 2021 17:28:43 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

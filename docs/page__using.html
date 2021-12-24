@@ -116,7 +116,7 @@ $(function() {
 <div class="line"><span class="keywordtype">int</span> moving_baseline = 0;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">//obtain the UV plot of the observation and save it as model, </span></div>
-<div class="line"><a class="code" href="group___v_l_b_i___models.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1">vlbi_get_uv_plot</a>(context, <span class="stringliteral">&quot;obs1_plot_model&quot;</span>, 1024, 1024, target, frequency, samplerate, no_delay_calculation, moving_baseline, vlbi_default_delegate);</div>
+<div class="line"><a class="code" href="group___v_l_b_i___models.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1">vlbi_get_uv_plot</a>(context, <span class="stringliteral">&quot;obs1_plot_model&quot;</span>, 1024, 1024, target, frequency, samplerate, no_delay_calculation, moving_baseline, <a class="code" href="group___v_l_b_i___defines.html#ga4e7b8daa2225ad7227edbda951502799">vlbi_default_delegate</a>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">//the default delegate just multiplies each element of the stream by indexing them according to their delay from the farest node to the target</span></div>
 <div class="line"><span class="comment">//after this operation a new model with size 1024x1024 containing the plot of the correlation degrees of all baselines will be added into the context</span></div>
@@ -140,6 +140,7 @@ $(function() {
 <div class="ttc" id="agroup___v_l_b_i___models_html_ga7bfadaa9a1d922d5f69a202ce0bd12c1"><div class="ttname"><a href="group___v_l_b_i___models.html#ga7bfadaa9a1d922d5f69a202ce0bd12c1">vlbi_get_uv_plot</a></div><div class="ttdeci">DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate)</div><div class="ttdoc">Fill a fourier plane with an aperture synthesis projection of the baselines during the integration ti...</div></div>
 <div class="ttc" id="agroup___v_l_b_i___functions_html_gaee569edd6bdf37b90c385df9a6400ac1"><div class="ttname"><a href="group___v_l_b_i___functions.html#gaee569edd6bdf37b90c385df9a6400ac1">vlbi_init</a></div><div class="ttdeci">DLL_EXPORT vlbi_context vlbi_init(void)</div><div class="ttdoc">Initialize a OpenVLBI instance.</div></div>
 <div class="ttc" id="agroup___v_l_b_i___functions_html_ga32534f7714c02277cd0eb519022f1c6f"><div class="ttname"><a href="group___v_l_b_i___functions.html#ga32534f7714c02277cd0eb519022f1c6f">vlbi_exit</a></div><div class="ttdeci">DLL_EXPORT void vlbi_exit(vlbi_context ctx)</div><div class="ttdoc">Close a OpenVLBI instance.</div></div>
+<div class="ttc" id="agroup___v_l_b_i___defines_html_ga4e7b8daa2225ad7227edbda951502799"><div class="ttname"><a href="group___v_l_b_i___defines.html#ga4e7b8daa2225ad7227edbda951502799">vlbi_default_delegate</a></div><div class="ttdeci">double vlbi_default_delegate(double x, double y)</div><div class="ttdoc">A placeholder delegate that simply multiplies the values received from vlbi_get_uv_plot.</div><div class="ttdef"><b>Definition:</b> vlbi.h:355</div></div>
 <div class="ttc" id="astructdsp__stream__t_html"><div class="ttname"><a href="structdsp__stream__t.html">dsp_stream_t</a></div><div class="ttdoc">Contains a set of informations and data relative to a buffer and how to use it.</div><div class="ttdef"><b>Definition:</b> dsp.h:297</div></div>
 <div class="ttc" id="agroup__dsp___d_s_p_stream_html_ga1496c2f88a9f21d0bf7a46e5a1d545f5"><div class="ttname"><a href="group__dsp___d_s_p_stream.html#ga1496c2f88a9f21d0bf7a46e5a1d545f5">dsp_stream_free</a></div><div class="ttdeci">DLL_EXPORT void dsp_stream_free(dsp_stream_p stream)</div><div class="ttdoc">Free the DSP stream passed as argument.</div></div>
 <div class="ttc" id="agroup__dsp___d_s_p_stream_html_ga822aec4e60347496b54f085bf36cf85b"><div class="ttname"><a href="group__dsp___d_s_p_stream.html#ga822aec4e60347496b54f085bf36cf85b">dsp_stream_new</a></div><div class="ttdeci">DLL_EXPORT dsp_stream_p dsp_stream_new(void)</div><div class="ttdoc">Allocate a new DSP stream type.</div></div>
@@ -154,7 +155,7 @@ $(function() {
 <div class="ttc" id="agroup___v_l_b_i___models_html_ga3d8fed08397407efa5b4f814c767665f"><div class="ttname"><a href="group___v_l_b_i___models.html#ga3d8fed08397407efa5b4f814c767665f">vlbi_get_model</a></div><div class="ttdeci">DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, char *name)</div><div class="ttdoc">Get a single model from the current OpenVLBI context.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 24 2021 16:55:17 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 24 2021 17:28:43 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
