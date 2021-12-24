@@ -43,7 +43,10 @@ extern "C" {
 /**
  * \defgroup DSP Digital Signal Processing API
 *
+* The DSP API is a collection of essential routines used in astronomy signal processing<br>
+*
 * The DSP API is used for processing monodimensional or multidimensional buffers,<br>
+* generating, tranforming, stack, processing buffers, aligning, convoluting arrays,<br>
 * converting array element types, generate statistics, extract informations from buffers, convolute or<br>
 * cross-correlate different single or multi dimensional streams, rotate, scale, crop images.<br>
 *
