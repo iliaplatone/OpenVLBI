@@ -71,21 +71,21 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*  OpenVLBI - Open Source Very Long Baseline Interferometry</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">    Copyright © 2017-2021  Ilia Platone</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">    This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">    it under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    (at your option) any later version.</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">    This program is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">    GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">    You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*   Copyright © 2017-2021  Ilia Platone</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">*   This program is free software; you can redistribute it and/or</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*   modify it under the terms of the GNU Lesser General Public</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">*   License as published by the Free Software Foundation; either</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">*   version 3 of the License, or (at your option) any later version.</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">*   This program is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*   but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">*   Lesser General Public License for more details.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">*   You should have received a copy of the GNU Lesser General Public License</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">*   along with this program; if not, write to the Free Software Foundation,</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*   Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef VLBI_SERVER_H</span></div>
@@ -259,14 +259,15 @@ $(function() {
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        FILE *input, *output;</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keywordtype">char</span> *context;</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;};</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;};</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="preprocessor">#endif //VLBI_SERVER_H</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_v_l_b_i_1_1_server.html">VLBI::Server</a> *server;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;};</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160; </div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="preprocessor">#endif //VLBI_SERVER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_ad34f7550029bbbccfa084b82feaefe8c"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#ad34f7550029bbbccfa084b82feaefe8c">VLBI::Server::Idft</a></div><div class="ttdeci">void Idft(char *name, char *magnitude, char *phase)</div><div class="ttdoc">Obtain an inverse fourier transform from the magnitude and phase models passed.</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_afd7eb27b2ea842c5fc480f8a5e41242c"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#afd7eb27b2ea842c5fc480f8a5e41242c">VLBI::Server::Parse</a></div><div class="ttdeci">virtual void Parse(void)</div><div class="ttdoc">main() creates a loop that calls Parse(), you can use this one, which uses the standard syntax or ove...</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_afee29d00a052e84b127df1eb0bbc5265"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#afee29d00a052e84b127df1eb0bbc5265">VLBI::Server::GetModels</a></div><div class="ttdeci">int GetModels(char **names)</div><div class="ttdoc">Get the names of all the models of the current context.</div></div>
-<div class="ttc" id="auniondsp__location__t_html"><div class="ttname"><a href="uniondsp__location__t.html">dsp_location_t</a></div><div class="ttdoc">The location type.</div><div class="ttdef"><b>Definition:</b> dsp.h:256</div></div>
+<div class="ttc" id="auniondsp__location__t_html"><div class="ttname"><a href="uniondsp__location__t.html">dsp_location_t</a></div><div class="ttdoc">The location type.</div><div class="ttdef"><b>Definition:</b> dsp.h:262</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_ac556044b8d787c872ffab17b03d94e5a"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#ac556044b8d787c872ffab17b03d94e5a">VLBI::Server::SetBps</a></div><div class="ttdeci">virtual void SetBps(int value)</div><div class="ttdoc">Set the bytes per sample, do this before calling AddNode()</div><div class="ttdef"><b>Definition:</b> vlbi_server.h:257</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_abc69446a13521adfc1e64e7c65b1361d"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#abc69446a13521adfc1e64e7c65b1361d">VLBI::Server::GetOutput</a></div><div class="ttdeci">FILE * GetOutput()</div><div class="ttdoc">Get the output stream.</div><div class="ttdef"><b>Definition:</b> vlbi_server.h:374</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_a75183c5df719a95d1e4b6df962fdcaeb"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#a75183c5df719a95d1e4b6df962fdcaeb">VLBI::Server::CurrentContext</a></div><div class="ttdeci">char * CurrentContext(void)</div><div class="ttdoc">Obtain the name current OpenVLBI context.</div><div class="ttdef"><b>Definition:</b> vlbi_server.h:115</div></div>
@@ -281,12 +282,12 @@ $(function() {
 <div class="ttc" id="agroup___server_html_ga161d2cf9689d908a700b752985cabe4a"><div class="ttname"><a href="group___server.html#ga161d2cf9689d908a700b752985cabe4a">VLBI::vlbi_plot_flags</a></div><div class="ttdeci">vlbi_plot_flags</div><div class="ttdoc">Flags that characterize a plot.</div><div class="ttdef"><b>Definition:</b> vlbi_server.h:45</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_ab69f482e0672223125429982aa85221e"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#ab69f482e0672223125429982aa85221e">VLBI::Server::SetRa</a></div><div class="ttdeci">virtual void SetRa(double value)</div><div class="ttdoc">Set the target right ascension coordinate, do this before calling Plot()</div><div class="ttdef"><b>Definition:</b> vlbi_server.h:221</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_a5bb68ef892b6b68197ecb28a2aca42a2"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#a5bb68ef892b6b68197ecb28a2aca42a2">VLBI::Server::GetContext</a></div><div class="ttdeci">vlbi_context GetContext(void)</div><div class="ttdoc">Obtain the current OpenVLBI context object.</div></div>
-<div class="ttc" id="astructdsp__stream__t_html"><div class="ttname"><a href="structdsp__stream__t.html">dsp_stream_t</a></div><div class="ttdoc">Contains a set of informations and data relative to a buffer and how to use it.</div><div class="ttdef"><b>Definition:</b> dsp.h:291</div></div>
+<div class="ttc" id="astructdsp__stream__t_html"><div class="ttname"><a href="structdsp__stream__t.html">dsp_stream_t</a></div><div class="ttdoc">Contains a set of informations and data relative to a buffer and how to use it.</div><div class="ttdef"><b>Definition:</b> dsp.h:297</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_a0d917aaaf9b20c1a4f5c0be57747a56d"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#a0d917aaaf9b20c1a4f5c0be57747a56d">VLBI::Server::AddModel</a></div><div class="ttdeci">void AddModel(char *name, char *format, char *b64)</div><div class="ttdoc">Create a new model from a picture, give it a name and add it to the current context.</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_ae1e1ba1ad01cf37eaa66f1bb1e1d73fc"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#ae1e1ba1ad01cf37eaa66f1bb1e1d73fc">VLBI::Server::GetSampleRate</a></div><div class="ttdeci">double GetSampleRate(void)</div><div class="ttdoc">Get the current sample rate.</div><div class="ttdef"><b>Definition:</b> vlbi_server.h:311</div></div>
 <div class="ttc" id="agroup___server_html_gga161d2cf9689d908a700b752985cabe4aaddf9975d58df674350024d45c3bfe9b7"><div class="ttname"><a href="group___server.html#gga161d2cf9689d908a700b752985cabe4aaddf9975d58df674350024d45c3bfe9b7">VLBI::plot_flags_synced</a></div><div class="ttdeci">@ plot_flags_synced</div><div class="ttdoc">This indicates that the nodes are synced already and no delay calculation will be done.</div><div class="ttdef"><b>Definition:</b> vlbi_server.h:52</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_ab02555bdc81b9f3b27588174ba24b2c4"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#ab02555bdc81b9f3b27588174ba24b2c4">VLBI::Server::GetWidth</a></div><div class="ttdeci">double GetWidth(void)</div><div class="ttdoc">Get the plot width.</div><div class="ttdef"><b>Definition:</b> vlbi_server.h:329</div></div>
-<div class="ttc" id="agroup___v_l_b_i___types_html_ga50f883f7e834b395856676739fe83e0e"><div class="ttname"><a href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a></div><div class="ttdeci">void * vlbi_context</div><div class="ttdoc">the OpenVLBI context object type</div><div class="ttdef"><b>Definition:</b> vlbi.h:335</div></div>
+<div class="ttc" id="agroup___v_l_b_i___types_html_ga50f883f7e834b395856676739fe83e0e"><div class="ttname"><a href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a></div><div class="ttdeci">void * vlbi_context</div><div class="ttdoc">the OpenVLBI context object type</div><div class="ttdef"><b>Definition:</b> vlbi.h:338</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_af7895cb04b2de053bf4d5f50caa6146b"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#af7895cb04b2de053bf4d5f50caa6146b">VLBI::Server::DelModel</a></div><div class="ttdeci">void DelModel(char *name)</div><div class="ttdoc">Delete from the current context an existing model by name.</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_a4b3a5189133959a97de6d4a632985785"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#a4b3a5189133959a97de6d4a632985785">VLBI::Server::Mask</a></div><div class="ttdeci">void Mask(char *name, char *model, char *mask)</div><div class="ttdoc">Mask a model with another model by multiplication.</div></div>
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_aab449fbb842fcd73719d0d886820cdd0"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#aab449fbb842fcd73719d0d886820cdd0">VLBI::Server::GetHeight</a></div><div class="ttdeci">double GetHeight(void)</div><div class="ttdoc">Get the plot height.</div><div class="ttdef"><b>Definition:</b> vlbi_server.h:338</div></div>
@@ -311,7 +312,7 @@ $(function() {
 <div class="ttc" id="aclass_v_l_b_i_1_1_server_html_a3e481ec513e11043848e6acbe206e846"><div class="ttname"><a href="class_v_l_b_i_1_1_server.html#a3e481ec513e11043848e6acbe206e846">VLBI::Server::DelContext</a></div><div class="ttdeci">void DelContext(char *name)</div><div class="ttdoc">Delete an existing OpenVLBI context by name.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 14 2021 18:32:22 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 24 2021 16:55:17 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
