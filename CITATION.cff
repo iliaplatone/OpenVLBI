@@ -1,11 +1,11 @@
-@software{ilia_platone_2021_5788023,
-  author       = {Ilia Platone and
-                  Thorsten Alteholz},
-  title        = {iliaplatone/OpenVLBI: OpenVLBI version 1.22.3},
-  month        = dec,
-  year         = 2021,
-  publisher    = {Zenodo},
-  version      = {v1.22.3},
-  doi          = {10.5281/zenodo.5788023},
-  url          = {https://doi.org/10.5281/zenodo.5788023}
-}
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Platone"
+  given-names: "Ilia"
+  orcid: "https://orcid.org/0000-0002-8527-4611"
+title: "OpenVLBI"
+version:1.22.3
+doi: 10.5281/zenodo.5788023
+date-released: 2017-12-18
+url: "https://github.com/iliaplatone/OpenVLBI"
