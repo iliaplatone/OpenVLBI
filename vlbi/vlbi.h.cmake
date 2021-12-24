@@ -65,7 +65,7 @@ extern "C" {
  * \author Ilia Platone
  * \version @VLBI_VERSION_STRING@
  * \date 2017-2021
- * \copyright GNU GPL3 Public License.
+ * \copyright GNU Lesser GPL3 Public License.
  *
  *\{*/
 
