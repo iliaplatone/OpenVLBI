@@ -150,8 +150,8 @@ typedef struct timespec timespec_t;
 /**
 * \brief A placeholder delegate that simply multiplies the values received from vlbi_get_uv_plot
 *
-* \param value1 lowest index baseline's node current value
-* \param value2 highest index baseline's node current value
+* \param x lowest index baseline's node current value
+* \param y highest index baseline's node current value
 * \return the result of the operation done
 */
 inline double vlbi_default_delegate(double x, double y) {
@@ -161,8 +161,8 @@ inline double vlbi_default_delegate(double x, double y) {
 /**
 * \brief A magnitude calculator delegate for vlbi_get_uv_plot
 *
-* \param value1 The real part
-* \param value2 The imaginary part
+* \param x The real part
+* \param y The imaginary part
 * \return The magnitude of this correlation
 */
 inline double vlbi_magnitude_delegate(double x, double y) {
@@ -172,8 +172,8 @@ inline double vlbi_magnitude_delegate(double x, double y) {
 /**
 * \brief A phase calculator delegate for vlbi_get_uv_plot
 *
-* \param value1 The real part
-* \param value2 The imaginary part
+* \param x The real part
+* \param y The imaginary part
 * \return The phase of this correlation
 */
 inline double vlbi_phase_delegate(double x, double y) {
