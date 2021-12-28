@@ -1,0 +1,4 @@
+3800  3382440405 HCN  Hydrogen cyanide
+5300  1127522539 HCN  Hydrogen cyanide
+7100  845715061 HCN  Hydrogen cyanide
+74100  375946892 HCN  Hydrogen cyanide

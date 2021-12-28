@@ -1,0 +1,4 @@
+1800  3434048774 C2H  Ethynyl radical
+5200  1144246022 C2H  Ethynyl radical
+7000  858168139 C2H  Ethynyl radical
+7000  858045330 C2H  Ethynyl radical

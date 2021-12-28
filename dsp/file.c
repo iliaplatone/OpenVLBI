@@ -25,7 +25,7 @@
 #include <jpeglib.h>
 #include <png.h>
 
-dsp_stream_p* dsp_file_read_fits(char *filename, int *channels, int stretch)
+dsp_stream_p* dsp_file_read_fits(const char* filename, int *channels, int stretch)
 {
     fitsfile *fptr;
     int bpp = 16;
@@ -163,7 +163,7 @@ fail:
     return NULL;
 }
 
-void dsp_file_write_fits(char *filename, int bpp, dsp_stream_p stream)
+void dsp_file_write_fits(const char* filename, int bpp, dsp_stream_p stream)
 {
     dsp_stream_p tmp = dsp_stream_copy(stream);
     int img_type  = USHORT_IMG;
@@ -266,7 +266,7 @@ fail:
     free (buf);
 }
 
-void dsp_file_write_fits_composite(char *filename, int components, int bpp, dsp_stream_p* stream)
+void dsp_file_write_fits_composite(const char* filename, int components, int bpp, dsp_stream_p* stream)
 {
     int x;
     dsp_stream_p tmp = stream[components];
@@ -375,7 +375,7 @@ fail_fptr:
 }
 
 
-void dsp_file_write_fits_bayer(char *filename, int components, int bpp, dsp_stream_p* stream)
+void dsp_file_write_fits_bayer(const char* filename, int components, int bpp, dsp_stream_p* stream)
 {
     int red = 0;
     int x;
@@ -516,7 +516,7 @@ fail_fptr:
     free(naxes);
     free (data);
 }
-dsp_stream_p* dsp_file_read_jpeg(char *filename, int *channels, int stretch)
+dsp_stream_p* dsp_file_read_jpeg(const char* filename, int *channels, int stretch)
 {
     int width, height;
     int components;
@@ -554,7 +554,7 @@ dsp_stream_p* dsp_file_read_jpeg(char *filename, int *channels, int stretch)
     return dsp_buffer_rgb_to_components(buf, 2, (int[]){width, height}, components, bpp, stretch);
 }
 
-void dsp_file_write_jpeg(char *filename, int quality, dsp_stream_p stream)
+void dsp_file_write_jpeg(const char* filename, int quality, dsp_stream_p stream)
 {
     int width = stream->sizes[0];
     int height = stream->sizes[1];
@@ -605,7 +605,7 @@ void dsp_file_write_jpeg(char *filename, int quality, dsp_stream_p stream)
     jpeg_destroy_compress(&cinfo);
 }
 
-void dsp_file_write_jpeg_composite(char *filename, int components, int quality, dsp_stream_p* stream)
+void dsp_file_write_jpeg_composite(const char* filename, int components, int quality, dsp_stream_p* stream)
 {
     int bpp = 8;
     unsigned int row_stride;
@@ -650,7 +650,7 @@ void dsp_file_write_jpeg_composite(char *filename, int components, int quality, 
     free(buf);
 }
 
-dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int stretch)
+dsp_stream_p* dsp_file_read_png(const char* filename, int *channels, int stretch)
 {
     int width, height;
     int components;
@@ -707,7 +707,7 @@ dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int stretch)
     return dsp_buffer_rgb_to_components(buf, 2, (int[]){width, height}, components, bpp, stretch);
 }
 
-void dsp_file_write_png_composite(char *filename, int components, int compression, dsp_stream_p* stream)
+void dsp_file_write_png_composite(const char* filename, int components, int compression, dsp_stream_p* stream)
 {
     int bpp = 16;
     unsigned int row_stride;

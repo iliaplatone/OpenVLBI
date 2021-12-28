@@ -28,7 +28,7 @@
 class VLBINode
 {
 public:
-    VLBINode(dsp_stream_p stream, char* name, int index, bool geographic_coordinates=true);
+    VLBINode(dsp_stream_p stream, const char* name, int index, bool geographic_coordinates=true);
     ~VLBINode();
 
     inline char *getName() { return Name; }

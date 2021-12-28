@@ -19,7 +19,7 @@
 #include <dsp.h>
 #include "node.h"
 
-VLBINode::VLBINode(dsp_stream_p stream, char* name, int index, bool geographic_coordinates)
+VLBINode::VLBINode(dsp_stream_p stream, const char* name, int index, bool geographic_coordinates)
 {
     Stream = stream;
     getStream()->align_info.dims = getStream()->dims;

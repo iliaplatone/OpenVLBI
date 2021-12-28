@@ -1,0 +1,10 @@
+1800  3472231387 H13CN  Hydrogen cyanide
+5200  1157446210 H13CN  Hydrogen cyanide
+6800  870629197 H13CN  Hydrogen cyanide
+8600  694510628 H13CN  Hydrogen cyanide
+10400  578783439 H13CN  Hydrogen cyanide
+12100  496124994 H13CN  Hydrogen cyanide
+13800  434313133 H13CN  Hydrogen cyanide
+15600  385923179 H13CN  Hydrogen cyanide
+17200  347356304 H13CN  Hydrogen cyanide
+19000  315804038 H13CN  Hydrogen cyanide

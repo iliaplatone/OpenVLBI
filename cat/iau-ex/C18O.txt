@@ -1,0 +1,4 @@
+2200  2730797926 C18O  Carbon monoxide
+4400  1365423838 C18O  Carbon monoxide
+6600  910310199 C18O  Carbon monoxide
+8800  682761674 C18O  Carbon monoxide

@@ -1,0 +1,4 @@
+1800  3506344538 CH3CCH  Methyl acetylene
+2100  2924804468 CH3CCH  Methyl acetylene
+3100  1949235747 CH3CCH  Methyl acetylene
+4500  1349808455 CH3CCH  Methyl acetylene

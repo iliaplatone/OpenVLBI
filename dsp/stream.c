@@ -259,6 +259,7 @@ void dsp_stream_add_star(dsp_stream_p stream, dsp_star star)
 {
     int d;
     stream->stars = (dsp_star*)realloc(stream->stars, sizeof(dsp_star)*(stream->stars_count+1));
+    strcpy(stream->stars[stream->stars_count].name, star.name);
     stream->stars[stream->stars_count].diameter = star.diameter;
     stream->stars[stream->stars_count].center.dims = star.center.dims;
     stream->stars[stream->stars_count].center.location = (double*)malloc(sizeof(double)*star.center.dims);

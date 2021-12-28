@@ -1,0 +1,8 @@
+5100  2600762186 CO  Carbon monoxide
+10000  1300403655 CO  Carbon monoxide
+15000  866963348 CO  Carbon monoxide
+20000  650251188 CO  Carbon monoxide
+24900  520230965 CO  Carbon monoxide
+29900  433556274 CO  Carbon monoxide
+35000  371650300 CO  Carbon monoxide
+40000  325225057 CO  Carbon monoxide

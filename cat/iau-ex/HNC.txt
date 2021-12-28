@@ -1,0 +1,10 @@
+1800  3306631717 HNC  Hydrogen isocyanide
+5400  1102255150 HNC  Hydrogen isocyanide
+7200  826717199 HNC  Hydrogen isocyanide
+9000  661399294 HNC  Hydrogen isocyanide
+10900  551193439 HNC  Hydrogen isocyanide
+12600  472478696 HNC  Hydrogen isocyanide
+14500  413445819 HNC  Hydrogen isocyanide
+35400  367535047 HNC  Hydrogen isocyanide
+18200  330809486 HNC  Hydrogen isocyanide
+20000  300763623 HNC  Hydrogen isocyanide

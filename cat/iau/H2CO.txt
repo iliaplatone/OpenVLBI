@@ -1,0 +1,3 @@
+209  62073201426 H2CO  Formaldehyde
+600  20692466731 H2CO  Formaldehyde
+2900  2128603081 H2CO  Formaldehyde

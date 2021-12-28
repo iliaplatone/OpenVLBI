@@ -1,0 +1,5 @@
+6200  975912321 H3O+  Hydronium
+7300  821806259 H3O+  Hydronium
+7800  771748004 H3O+  Hydronium
+7900  756532023 H3O+  Hydronium
+19700  304451478 H3O+  Hydronium

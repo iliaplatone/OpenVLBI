@@ -32,6 +32,7 @@ extern "C" {
 #include <string.h>
 #include <math.h>
 #include <float.h>
+#include <libgen.h>
 #include <sys/types.h>
 #include <assert.h>
 #include <pthread.h>
@@ -207,14 +208,30 @@ inline double vlbi_phase_delegate(double x, double y) {
 ( log(a) / log(b) )
 #endif
 
+#ifndef hz2rad
+///Get the frequency in radians/s
+#define hz2rad(hz) (2.0*M_PI*hz)
+#endif
+
+#ifndef sin2cos
 ///Get the cosine of a sine value
 #define sin2cos(s) cos(asin(s))
+#endif
 
+#ifndef cos2sin
 ///Get the sine from a cosine value
 #define cos2sin(c) sin(acos(c))
+#endif
 
+#ifndef VLBI_VERSION_STRING
 ///The current OpenVLBI version
 #define VLBI_VERSION_STRING "@VLBI_VERSION_STRING@"
+#endif
+
+#ifndef VLBI_CATALOG_PATH
+///The path where the catalogs are stored
+#define VLBI_CATALOG_PATH "@CATALOG_DIR@"
+#endif
 
 #ifndef CIRCLE_DEG
 ///degrees in a circle
@@ -291,6 +308,10 @@ inline double vlbi_phase_delegate(double x, double y) {
 #ifndef EULER
 ///Our Euler constant
 #define EULER 2.71828182845904523536028747135266249775724709369995
+#endif
+#ifndef PLANK
+///Our Plank constant
+#define PLANK 6.62607015E-34
 #endif
 #ifndef ROOT2
 ///Our square root of 2 constant
@@ -419,9 +440,9 @@ inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) { M
 
 /**
 * \brief Print the current version of OpenVLBI.
-* \return char* The Version string
+* \return The Version string
 */
-DLL_EXPORT char* vlbi_get_version(void);
+DLL_EXPORT const char* vlbi_get_version(void);
 
 /**
 * \brief Initialize a OpenVLBI instance.
@@ -448,14 +469,14 @@ DLL_EXPORT void vlbi_exit(vlbi_context ctx);
 * \param name A friendly name of this stream
 * \param geographic_coordinates Whether to use geographic coordinates
 */
-DLL_EXPORT void vlbi_add_node(vlbi_context ctx, dsp_stream_p Stream, char* name, int geographic_coordinates);
+DLL_EXPORT void vlbi_add_node(vlbi_context ctx, dsp_stream_p Stream, const char *name, int geographic_coordinates);
 
 /**
 * \brief Remove a stream from the current OpenVLBI context.
 * \param ctx The OpenVLBI context
 * \param name The friendly name of the stream to be removed
 */
-DLL_EXPORT void vlbi_del_node(vlbi_context ctx, char* name);
+DLL_EXPORT void vlbi_del_node(vlbi_context ctx, const char *name);
 
 /**
 * \brief List all nodes of the current OpenVLBI context.
@@ -472,7 +493,7 @@ DLL_EXPORT int vlbi_get_nodes(void *ctx, vlbi_node** nodes);
 * \param name The name of the newly created model
 * \param geo whether to consider the file coordinates as geographic or relative to the context station
 */
-DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, char* name, int geo);
+DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, const char *name, int geo);
 
 /**\}*/
 /**
@@ -496,7 +517,7 @@ DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 * \param buffer The buffer with correlated data
 * \param len The length of the buffer
 */
-DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer, int len);
+DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, const char* node1, const char* node2, dsp_t *buffer, int len);
 
 /**
 * \brief Set the location of the reference station.
@@ -518,7 +539,7 @@ DLL_EXPORT void vlbi_set_location(void *ctx, double lat, double lon, double el);
 * \param offset1 The offset calculated for the first node to the farest one
 * \param offset2 The offset calculated for the second node to the farest one
 */
-DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1, char* node2, double Ra, double Dec, double *offset1, double *offset2);
+DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, const char* node2, double Ra, double Dec, double *offset1, double *offset2);
 
 /**\}*/
 /**
@@ -539,7 +560,7 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1
 * \param moving_baseline if 1 the location field of all the dsp_stream_p is an array of dsp_location for each element of the dsp_stream_p->buf array.
 * \param delegate The delegate function to be executed on each node stream buffer element.
 */
-DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
+DLL_EXPORT void vlbi_get_uv_plot(void *ctx, const char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
 
 /**
 * \brief Add a model into the current OpenVLBI context.
@@ -547,14 +568,14 @@ DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *ta
 * \param Stream The OpenVLBI stream to add
 * \param name A friendly name of this model
 */
-DLL_EXPORT void vlbi_add_model(vlbi_context ctx, dsp_stream_p Stream, char* name);
+DLL_EXPORT void vlbi_add_model(vlbi_context ctx, dsp_stream_p Stream, const char *name);
 
 /**
 * \brief Remove a model from the current OpenVLBI context.
 * \param ctx The OpenVLBI context
 * \param name The friendly name of the model to be removed
 */
-DLL_EXPORT void vlbi_del_model(vlbi_context ctx, char* name);
+DLL_EXPORT void vlbi_del_model(vlbi_context ctx, const char *name);
 
 /**
 * \brief List all models of the current OpenVLBI context.
@@ -570,7 +591,7 @@ DLL_EXPORT int vlbi_get_models(void *ctx, dsp_stream_p** models);
 * \param name The name of the chosen model
 * \return the model chosen as dsp_stream_p
 */
-DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, char* name);
+DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, const char *name);
 
 /**
 * \brief Save into name an inverse fourier transform of the uv plot using its current magnitude and phase components.
@@ -579,7 +600,7 @@ DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, char* name);
 * \param magnitude The magnitude model.
 * \param phase The phase model.
 */
-DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char *name, char *magnitude, char *phase);
+DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, const char *phase);
 
 /**
 * \brief Get the fourier transform of the given model and save its magnitude and phase components into two new models named so.
@@ -588,7 +609,7 @@ DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char *name, char *magnitude, cha
 * \param magnitude The name of the model where to save the magnitude.
 * \param phase The name of the model where to save the phase.
 */
-DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, char *model, char *magnitude, char *phase);
+DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, const char *model, const char *magnitude, const char *phase);
 
 /**
 * \brief Mask the stream with the content of the mask stream, by multiplication of each element.
@@ -597,14 +618,14 @@ DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, char *model, char *magnitude, cha
 * \param model The name of the model containing the data to be masked.
 * \param mask The name of the model containing the mask.
 */
-DLL_EXPORT void vlbi_apply_mask(vlbi_context ctx, char* name, char* model, char* mask);
+DLL_EXPORT void vlbi_apply_mask(vlbi_context ctx, const char *name, const char* model, const char* mask);
 
 /**
 * \brief Shift a model by its dimensions.
 * \param ctx The OpenVLBI context
 * \param name The name of the model to be shifted.
 */
-DLL_EXPORT void vlbi_shift(vlbi_context ctx, char* name);
+DLL_EXPORT void vlbi_shift(vlbi_context ctx, const char *name);
 
 /**
 * \brief Add a model from a png file.
@@ -612,7 +633,7 @@ DLL_EXPORT void vlbi_shift(vlbi_context ctx, char* name);
 * \param filename The file name of the picture to read
 * \param name The name of the newly created model.
 */
-DLL_EXPORT void vlbi_add_model_from_png(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_add_model_from_png(void *ctx, char *filename, const char *name);
 
 /**
 * \brief Add a model from a jpeg file.
@@ -620,7 +641,7 @@ DLL_EXPORT void vlbi_add_model_from_png(void *ctx, char *filename, char* name);
 * \param filename The file name of the picture to read
 * \param name The name of the newly created model.
 */
-DLL_EXPORT void vlbi_add_model_from_jpeg(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_add_model_from_jpeg(void *ctx, char *filename, const char *name);
 
 /**
 * \brief Add a model from a fits file.
@@ -628,7 +649,7 @@ DLL_EXPORT void vlbi_add_model_from_jpeg(void *ctx, char *filename, char* name);
 * \param filename The file name of the picture to read
 * \param name The name of the newly created model.
 */
-DLL_EXPORT void vlbi_add_model_from_fits(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_add_model_from_fits(void *ctx, char *filename, const char *name);
 
 /**
 * \brief Write a model to a png file.
@@ -636,7 +657,7 @@ DLL_EXPORT void vlbi_add_model_from_fits(void *ctx, char *filename, char* name);
 * \param filename The file name of the picture to write
 * \param name The name of the model chosen.
 */
-DLL_EXPORT void vlbi_get_model_to_png(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_get_model_to_png(void *ctx, char *filename, const char *name);
 
 /**
 * \brief Write a model to a jpeg file.
@@ -644,7 +665,7 @@ DLL_EXPORT void vlbi_get_model_to_png(void *ctx, char *filename, char* name);
 * \param filename The file name of the picture to write
 * \param name The name of the model chosen.
 */
-DLL_EXPORT void vlbi_get_model_to_jpeg(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_get_model_to_jpeg(void *ctx, char *filename, const char *name);
 
 /**
 * \brief Write a model to a fits file.
@@ -652,7 +673,7 @@ DLL_EXPORT void vlbi_get_model_to_jpeg(void *ctx, char *filename, char* name);
 * \param filename The file name of the picture to write
 * \param name The name of the model chosen.
 */
-DLL_EXPORT void vlbi_get_model_to_fits(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_get_model_to_fits(void *ctx, char *filename, const char *name);
 
 /**\}*/
 
@@ -754,7 +775,7 @@ DLL_EXPORT double vlbi_time_J2000time_to_lst(double secs_since_J2000, double Lon
 * \param time String containing the time to be converted
 * \return the timespec struct containing the date and time specified.
 */
-DLL_EXPORT timespec_t vlbi_time_string_to_timespec(char* time);
+DLL_EXPORT timespec_t vlbi_time_string_to_timespec(const char* time);
 
 /**
 * \brief Obtain a timespec struct containing the date and time specified by a J2000 time
@@ -800,13 +821,61 @@ DLL_EXPORT double vlbi_astro_get_local_hour_angle(double local_sideral_time, dou
 DLL_EXPORT void vlbi_astro_get_alt_az_coordinates(double hour_angle, double dec, double latitude, double* alt, double *az);
 
 /**
- * \brief Returns the mean ratio between two common-range spectra
- * \param spectrum0 The reference spectrum
- * \param spectrum The target spectrum
- * \param spectrum_size The size of the spectra arrays
- * \return The ratio of the two spectra
+ * \brief Load a spectrum file
+ * \param filename The spectrum file
+ * \return a dsp_stream_p containgin the spectral lines in the spectrum file
  */
-DLL_EXPORT double vlbi_astro_spectra_ratio(double *spectrum0, double *spectrum, int spectrum_size);
+DLL_EXPORT dsp_stream_p vlbi_astro_load_spectrum(char *filename);
+
+/**
+ * \brief Load a spectrum file catalog
+ * \param path The path of the folder containing index.txt
+ * \param catalog A pointer to an array of dsp_stream_p to be allocated and filled
+ * \return The number of spectra correctly parsed
+ */
+DLL_EXPORT int vlbi_astro_load_spectra_catalog(char *path, dsp_stream_p **catalog, int *catalog_size);
+
+/**
+ * \brief Create a dsp_stream_p containing all the spectral lines of all elements of a catalog
+ * \param catalog A catalog of spectra
+ * \param catalog_size The size of the catalog
+ * \return A dsp_stream_p structure containing all the spectral lines of the catalog spectra
+ */
+DLL_EXPORT dsp_stream_p vlbi_astro_create_reference_catalog(dsp_stream_p *catalog, int catalog_size);
+
+/**
+ * \brief Save a spectrum stream into a file
+ * \param stream The stream containing a spectrum
+ * \param filename The file name where to save the acquired spectrum
+ */
+DLL_EXPORT void vlbi_astro_save_spectrum(dsp_stream_p stream, char *filename);
+
+/**
+ * \brief Scan a dsp_stream_p and detect the relevant spectral lines
+ * \param stream The stream containing a spectrum
+ * \param sample_size The sampling size used for detection
+ */
+DLL_EXPORT void vlbi_astro_scan_spectrum(dsp_stream_p stream, int sample_size);
+
+/**
+ * \brief Align a spectrum to a reference catalog
+ * \param spectrum The spectrum to analyze
+ * \param catalog A catalog of spectra to compare
+ * \param max_lines The perfomance-needed limit of lines used for comparison
+ * \param decimals The number of decimals used in comparison
+ * \param min_score The trigger matching score percent to reach
+ * \return An dsp_align_info structure containing the calculated offset and scale ratio
+ */
+DLL_EXPORT dsp_align_info vlbi_astro_align_spectra(dsp_stream_p spectrum, dsp_stream_p catalog, int max_lines, double decimals, double min_score);
+
+/**
+ * \brief Compare a spectrum to a reference one
+ * \param spectrum0 The reference spectrum
+ * \param spectrum The spectrum to analyze
+ * \param decades The number of decades used in comparison
+ * \return An estimation of the temperature difference between the two spectra
+ */
+DLL_EXPORT double vlbi_astro_diff_spectra(dsp_stream_p spectrum0, dsp_stream_p spectrum, double decades);
 
 /**
  * \brief Returns the flux ratio of two objects
@@ -816,6 +885,30 @@ DLL_EXPORT double vlbi_astro_spectra_ratio(double *spectrum0, double *spectrum, 
  * \return The ratio of the two objects' fluxes
  */
 DLL_EXPORT double vlbi_astro_flux_ratio(double flux0, double flux, double delta_spectrum);
+
+/**
+ * \brief Estimate the brightness temperature from a flux
+ * \param wavelength The radiation wavelength in meters
+ * \param flux The measured radiation flux
+ * \return An estimation of the brightness temperature in Kelvin
+ */
+DLL_EXPORT double vlbi_astro_estimate_brightness_temperature(double wavelength, double flux);
+
+/**
+ * \brief Estimate the physical temperature with a given flux
+ * \param wavelength The radiation wavelength in meters
+ * \param flux The measured radiation flux
+ * \return An estimation of the physical temperature in Kelvin
+ */
+DLL_EXPORT double vlbi_astro_estimate_temperature(double wavelength, double flux);
+
+/**
+ * \brief Estimate the flux from a physical temperature
+ * \param wavelength The radiation wavelength in meters
+ * \param temperature The measured temperature in Kelvin
+ * \return An estimation of the temperature the flux on the indicated wavelength
+ */
+DLL_EXPORT double vlbi_astro_estimate_flux(double wavelength, double temperature);
 
 /**
  * \brief Returns the temperature ratio of two objects

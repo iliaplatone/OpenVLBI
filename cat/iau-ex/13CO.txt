@@ -1,0 +1,7 @@
+95200  2720415041 13CO  Carbon monoxide
+9500  1360226035 13CO  Carbon monoxide
+14300  906848902 13CO  Carbon monoxide
+19100  680163937 13CO  Carbon monoxide
+23900  544161027 13CO  Carbon monoxide
+28700  453497842 13CO  Carbon monoxide
+38200  340181144 13CO  Carbon monoxide

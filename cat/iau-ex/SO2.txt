@@ -1,0 +1,4 @@
+4500  1350629414 SO2  Sulphur dioxide
+4500  1331499586 SO2  Sulphur dioxide
+5000  1193389055 SO2  Sulphur dioxide
+5300  1142789184 SO2  Sulphur dioxide

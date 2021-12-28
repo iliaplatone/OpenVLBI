@@ -30,7 +30,7 @@ pthread_mutex_t mutex;
 pthread_mutexattr_t mutexattr;
 bool mutex_initialized = false;
 
-static dsp_stream_p read_fits(char *filename);
+static dsp_stream_p read_fits(char* filename);
 
 static void init_mutex()
 {
@@ -59,9 +59,9 @@ typedef struct _vlbi_thread_t
     pthread_t th;
 } vlbi_thread_t;
 
-char* vlbi_get_version()
+const char* vlbi_get_version()
 {
-    return (char*)VLBI_VERSION_STRING;
+    return VLBI_VERSION_STRING;
 }
 
 static void vlbi_wait_threads(int *thread_cnt)
@@ -109,7 +109,7 @@ static double getDelay(double time, NodeCollection *nodes, VLBINode *n1, VLBINod
     return delay;
 }
 
-void vlbi_get_offsets(vlbi_context ctx, double J200Time, char* node1, char* node2, double Ra, double Dec, double *offset1,
+void vlbi_get_offsets(vlbi_context ctx, double J200Time, const char* node1, const char* node2, double Ra, double Dec, double *offset1,
                       double *offset2)
 {
     NodeCollection* nodes = (NodeCollection*)ctx;
@@ -244,7 +244,7 @@ void vlbi_set_location(void *ctx, double lat, double lon, double el)
     nodes->getBaselines()->setRelative(true);
 }
 
-void vlbi_add_node(void *ctx, dsp_stream_p stream, char* name, int geo)
+void vlbi_add_node(void *ctx, dsp_stream_p stream, const char* name, int geo)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -272,7 +272,7 @@ int vlbi_get_nodes(void *ctx, vlbi_node** output)
     return 0;
 }
 
-void vlbi_del_node(void *ctx, char* name)
+void vlbi_del_node(void *ctx, const char* name)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     VLBINode* node = nodes->Get(name);
@@ -280,7 +280,7 @@ void vlbi_del_node(void *ctx, char* name)
     node->~VLBINode();
 }
 
-void vlbi_add_model(void *ctx, dsp_stream_p stream, char* name)
+void vlbi_add_model(void *ctx, dsp_stream_p stream, const char* name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -304,7 +304,7 @@ int vlbi_get_models(void *ctx, dsp_stream_p** output)
     return 0;
 }
 
-dsp_stream_p vlbi_get_model(void *ctx, char* name)
+dsp_stream_p vlbi_get_model(void *ctx, const char* name)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p model = nodes->getModels()->Get(name);
@@ -312,7 +312,7 @@ dsp_stream_p vlbi_get_model(void *ctx, char* name)
     return model;
 }
 
-void vlbi_del_model(void *ctx, char* name)
+void vlbi_del_model(void *ctx, const char* name)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p model = nodes->getModels()->Get(name);
@@ -362,7 +362,7 @@ int vlbi_get_baselines(void *ctx, vlbi_baseline** output)
     return 0;
 }
 
-void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer, int len)
+void vlbi_set_baseline_buffer(void *ctx, const char* node1, const char* node2, dsp_t *buffer, int len)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     char name[150];
@@ -372,7 +372,7 @@ void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer
     b->Lock();
 }
 
-void vlbi_get_uv_plot(vlbi_context ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay,
+void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *target, double freq, double sr, int nodelay,
                       int moving_baseline, vlbi_func2_t delegate)
 {
     pfunc;
@@ -413,7 +413,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, char *name, int u, int v, double *target
     vlbi_add_model(ctx, parent, name);
 }
 
-void vlbi_get_ifft(vlbi_context ctx, char *name, char *magnitude, char *phase)
+void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, const char *phase)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -435,7 +435,7 @@ void vlbi_get_ifft(vlbi_context ctx, char *name, char *magnitude, char *phase)
     }
 }
 
-void vlbi_get_fft(vlbi_context ctx, char *name, char *magnitude, char *phase)
+void vlbi_get_fft(vlbi_context ctx, const char *name, const char *magnitude, const char *phase)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -447,7 +447,7 @@ void vlbi_get_fft(vlbi_context ctx, char *name, char *magnitude, char *phase)
     vlbi_add_model(ctx, fft->magnitude, magnitude);
 }
 
-void vlbi_apply_mask(vlbi_context ctx, char *name, char *stream, char *mask)
+void vlbi_apply_mask(vlbi_context ctx, const char *name, const char *stream, const char *mask)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -470,14 +470,14 @@ void vlbi_apply_mask(vlbi_context ctx, char *name, char *stream, char *mask)
     dsp_stream_free(masked);
 }
 
-void vlbi_shift(vlbi_context ctx, char *name)
+void vlbi_shift(vlbi_context ctx, const char *name)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p shifted = nodes->getModels()->Get(name);
     dsp_buffer_shift(shifted);
 }
 
-void vlbi_add_model_from_png(void *ctx, char *filename, char* name)
+void vlbi_add_model_from_png(void *ctx, char* filename, const char* name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -496,7 +496,7 @@ void vlbi_add_model_from_png(void *ctx, char *filename, char* name)
     }
 }
 
-void vlbi_add_model_from_jpeg(void *ctx, char *filename, char* name)
+void vlbi_add_model_from_jpeg(void *ctx, char* filename, const char* name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -515,7 +515,7 @@ void vlbi_add_model_from_jpeg(void *ctx, char *filename, char* name)
     }
 }
 
-void vlbi_add_model_from_fits(void *ctx, char *filename, char* name)
+void vlbi_add_model_from_fits(void *ctx, char* filename, const char* name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -534,7 +534,7 @@ void vlbi_add_model_from_fits(void *ctx, char *filename, char* name)
     }
 }
 
-void vlbi_get_model_to_png(void *ctx, char *filename, char* name)
+void vlbi_get_model_to_png(void *ctx, char* filename, const char* name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -547,7 +547,7 @@ void vlbi_get_model_to_png(void *ctx, char *filename, char* name)
     free(file);
 }
 
-void vlbi_get_model_to_jpeg(void *ctx, char *filename, char* name)
+void vlbi_get_model_to_jpeg(void *ctx, char* filename, const char* name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -560,7 +560,7 @@ void vlbi_get_model_to_jpeg(void *ctx, char *filename, char* name)
     free(file);
 }
 
-void vlbi_get_model_to_fits(void *ctx, char *filename, char* name)
+void vlbi_get_model_to_fits(void *ctx, char* filename, const char* name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -573,7 +573,7 @@ void vlbi_get_model_to_fits(void *ctx, char *filename, char* name)
     free(file);
 }
 
-void vlbi_add_node_from_fits(void *ctx, char *filename, char* name, int geo)
+void vlbi_add_node_from_fits(void *ctx, char* filename, const char* name, int geo)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -628,7 +628,7 @@ static int f_scansexa(const char *str0, /* input string */
     return (0);
 }
 
-static dsp_stream_p read_fits(char *filename)
+static dsp_stream_p read_fits(char* filename)
 {
     fitsfile *fptr = (fitsfile*)malloc(sizeof(fitsfile));
     memset(fptr, 0, sizeof(fitsfile));

@@ -1,0 +1,4 @@
+2000  3019057985 SO  Sulphur monoxide
+2200  2744045491 SO  Sulphur monoxide
+4100  1454060889 SO  Sulphur monoxide
+4300  1392951700 SO  Sulphur monoxide

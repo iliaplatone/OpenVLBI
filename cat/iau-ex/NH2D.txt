@@ -1,0 +1,2 @@
+1700  3488960943 NH2D  Deuterated Ammonia
+2200  2721600482 NH2D  Deuterated Ammonia

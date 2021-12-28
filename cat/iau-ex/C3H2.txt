@@ -1,0 +1,4 @@
+800  16343698304 C3H2  Cyclopropenylidene
+500  13887638764 C3H2  Cyclopropenylidene
+1700  3613437528 C3H2  Cyclopropenylidene
+3700  3512959584 C3H2  Cyclopropenylidene

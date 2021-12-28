@@ -1,0 +1,4 @@
+3900  3361316507 HCO+  Formylium
+5400  1120480712 HCO+  Formylium
+7200  840380950 HCO+  Formylium
+20000  373501946 HCO+  Formylium

@@ -53,7 +53,7 @@ extern "C" {
 * \author Ilia Platone
 * \version 1.0.0
 * \date 2017-2021
-* \copyright GNU GPL3 Public License.
+* \copyright GNU Lesser GPL3 Public License.
 */
 /**\{*/
 
@@ -141,6 +141,22 @@ else if(x<=dsp_debug)fprintf(stderr, "%s", str); \
 #define Log(a,b) \
 ( log(a) / log(b) )
 #endif
+#ifndef DSP_ALIGN_TRANSLATED
+///The stream is translated by the reference
+#define DSP_ALIGN_TRANSLATED 1
+#endif
+#ifndef DSP_ALIGN_SCALED
+///The stream is scaled by the reference
+#define DSP_ALIGN_SCALED 2
+#endif
+#ifndef DSP_ALIGN_ROTATED
+///The stream is rotated by the reference
+#define DSP_ALIGN_ROTATED 4
+#endif
+#ifndef DSP_ALIGN_NO_MATCH
+///No matches were found during comparison
+#define DSP_ALIGN_NO_MATCH 8
+#endif
 /**\}*/
 /**
  * \defgroup DSP_Types DSP API types
@@ -179,6 +195,8 @@ typedef struct dsp_star_t
     dsp_point center;
     /// The diameter of the star
     double diameter;
+    /// The name of the star
+    char name[150];
 } dsp_star;
 
 /**
@@ -205,7 +223,7 @@ typedef struct dsp_triangle_t
 */
 typedef struct dsp_align_info_t
 {
-    /// Traslation offset
+    /// Translation offset
     double* offset;
     /// Center of rotation coordinates
     double* center;
@@ -223,6 +241,8 @@ typedef struct dsp_align_info_t
     double score;
     /// Decimals
     double decimals;
+    /// Errors
+    int err;
 } dsp_align_info;
 
 /**
@@ -1176,7 +1196,7 @@ DLL_EXPORT void dsp_stream_crop(dsp_stream_p stream);
 DLL_EXPORT void dsp_stream_rotate(dsp_stream_p stream);
 
 /**
-* \brief Traslate a stream
+* \brief Translate a stream
 * \param stream The stream that will be translated in-place
 */
 DLL_EXPORT void dsp_stream_translate(dsp_stream_p stream);
@@ -1253,7 +1273,7 @@ DLL_EXPORT void dsp_modulation_amplitude(dsp_stream_p stream, double samplefreq,
 * \param stretch 1 if the buffer intensities have to be stretched
 * \return The new dsp_stream_p structure pointer
 */
-DLL_EXPORT dsp_stream_p* dsp_file_read_fits(char *filename, int *channels, int stretch);
+DLL_EXPORT dsp_stream_p* dsp_file_read_fits(const char* filename, int *channels, int stretch);
 
 /**
 * \brief Write the dsp_stream_p into a FITS file,
@@ -1261,7 +1281,7 @@ DLL_EXPORT dsp_stream_p* dsp_file_read_fits(char *filename, int *channels, int s
 * \param bpp the bit depth of the output FITS file.
 * \param stream the input stream to be saved
 */
-DLL_EXPORT void dsp_file_write_fits(char *filename, int bpp, dsp_stream_p stream);
+DLL_EXPORT void dsp_file_write_fits(const char* filename, int bpp, dsp_stream_p stream);
 
 /**
 * \brief Write the components dsp_stream_p array into a JPEG file,
@@ -1270,7 +1290,7 @@ DLL_EXPORT void dsp_file_write_fits(char *filename, int bpp, dsp_stream_p stream
 * \param bpp the bit depth of the output JPEG file [8,16,32,64,-32,-64].
 * \param stream the input stream to be saved
 */
-DLL_EXPORT void dsp_file_write_fits_composite(char *filename, int components, int bpp, dsp_stream_p* stream);
+DLL_EXPORT void dsp_file_write_fits_composite(const char* filename, int components, int bpp, dsp_stream_p* stream);
 
 /**
 * \brief Read a JPEG file and fill a array of dsp_stream_p with its content,
@@ -1280,7 +1300,7 @@ DLL_EXPORT void dsp_file_write_fits_composite(char *filename, int components, in
 * \param stretch 1 if the buffer intensities have to be stretched
 * \return The new dsp_stream_p structure pointers array
 */
-DLL_EXPORT dsp_stream_p* dsp_file_read_jpeg(char *filename, int *channels, int stretch);
+DLL_EXPORT dsp_stream_p* dsp_file_read_jpeg(const char* filename, int *channels, int stretch);
 
 /**
 * \brief Write the stream into a JPEG file,
@@ -1288,7 +1308,7 @@ DLL_EXPORT dsp_stream_p* dsp_file_read_jpeg(char *filename, int *channels, int s
 * \param quality the quality of the output JPEG file 0-100.
 * \param stream the input stream to be saved
 */
-DLL_EXPORT void dsp_file_write_jpeg(char *filename, int quality, dsp_stream_p stream);
+DLL_EXPORT void dsp_file_write_jpeg(const char* filename, int quality, dsp_stream_p stream);
 
 /**
 * \brief Write the components dsp_stream_p array into a JPEG file,
@@ -1297,7 +1317,7 @@ DLL_EXPORT void dsp_file_write_jpeg(char *filename, int quality, dsp_stream_p st
 * \param quality the quality of the output JPEG file 0-100.
 * \param stream the input stream to be saved
 */
-DLL_EXPORT void dsp_file_write_jpeg_composite(char *filename, int components, int quality, dsp_stream_p* stream);
+DLL_EXPORT void dsp_file_write_jpeg_composite(const char* filename, int components, int quality, dsp_stream_p* stream);
 
 /**
 * \brief Read a PNG file and fill a array of dsp_stream_p with its content,
@@ -1307,7 +1327,7 @@ DLL_EXPORT void dsp_file_write_jpeg_composite(char *filename, int components, in
 * \param stretch 1 if the buffer intensities have to be stretched
 * \return The new dsp_stream_p structure pointers array
 */
-DLL_EXPORT dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int stretch);
+DLL_EXPORT dsp_stream_p* dsp_file_read_png(const char* filename, int *channels, int stretch);
 
 /**
 * \brief Write the components dsp_stream_p array into a PNG file,
@@ -1316,7 +1336,7 @@ DLL_EXPORT dsp_stream_p* dsp_file_read_png(char *filename, int *channels, int st
 * \param compression the compression of the output PNG 0-9.
 * \param stream the input stream array to be saved
 */
-DLL_EXPORT void dsp_file_write_png_composite(char *filename, int components, int compression, dsp_stream_p* stream);
+DLL_EXPORT void dsp_file_write_png_composite(const char* filename, int components, int compression, dsp_stream_p* stream);
 
 /**
 * \brief Convert a bayer pattern dsp_t array into a grayscale array
@@ -1385,7 +1405,7 @@ DLL_EXPORT dsp_t* dsp_file_composite_2_bayer(dsp_stream_p *src, int red, int wid
 * \param bpp the color depth of the color components
 * \param stream the component dsp_stream_p array
 */
-DLL_EXPORT void dsp_file_write_fits_bayer(char *filename, int components, int bpp, dsp_stream_p* stream);
+DLL_EXPORT void dsp_file_write_fits_bayer(const char* filename, int components, int bpp, dsp_stream_p* stream);
 
 /**
 * \brief Convert a bayer pattern dsp_t array into a contiguos component array
@@ -1396,6 +1416,48 @@ DLL_EXPORT void dsp_file_write_fits_bayer(char *filename, int components, int bp
 * \return The new dsp_t array
 */
 DLL_EXPORT dsp_t* dsp_file_bayer_2_composite(dsp_t *src, int red, int width, int height);
+
+/**
+* \brief Calculate offsets, rotation and scaling of two streams giving reference alignment point
+* \param ref the reference stream
+* \param to_align the stream to be aligned
+* \param tolerance number of decimals allowed
+* \param target_score the minimum matching score to reach
+* \return The alignment mask (bit1: translated, bit2: scaled, bit3: rotated)
+*/
+DLL_EXPORT int dsp_align_get_offset(dsp_stream_p ref, dsp_stream_p to_align, double tolerance, double target_score);
+
+/**
+* \brief Callback function for qsort for double type ascending ordering
+* \param arg1 the first comparison element
+* \param arg2 the second comparison element
+* \return 1 if arg1 is greater than arg2, -1 if arg2 is greater than arg1
+*/
+DLL_EXPORT int dsp_qsort_double_asc (const void *arg1, const void *arg2);
+
+/**
+* \brief Callback function for qsort for double type descending ordering
+* \param arg1 the first comparison element
+* \param arg2 the second comparison element
+* \return 1 if arg2 is greater than arg1, -1 if arg1 is greater than arg2
+*/
+DLL_EXPORT int dsp_qsort_double_desc (const void *arg1, const void *arg2);
+
+/**
+* \brief Callback function for qsort for dsp_star ascending ordering by their diameters
+* \param arg1 the first comparison element
+* \param arg2 the second comparison element
+* \return 1 if arg1 diameter is greater than arg2, -1 if arg2 diameter is greater than arg1
+*/
+DLL_EXPORT int dsp_qsort_star_diameter_asc (const void *arg1, const void *arg2);
+
+/**
+* \brief Callback function for qsort for dsp_star descending ordering by their diameters
+* \param arg1 the first comparison element
+* \param arg2 the second comparison element
+* \return 1 if arg2 diameter is greater than arg1, -1 if arg1 diameter is greater than arg2
+*/
+DLL_EXPORT int dsp_qsort_star_diameter_desc (const void *arg1, const void *arg2);
 
 /**\}*/
 /**\}*/

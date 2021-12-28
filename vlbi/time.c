@@ -61,18 +61,21 @@ timespec_t vlbi_time_J2000time_to_timespec(double secs)
     return ret;
 }
 
-timespec_t vlbi_time_string_to_timespec(char *time)
+timespec_t vlbi_time_string_to_timespec(const char *time)
 {
-    time[4] = 0;
-    time[7] = 0;
-    time[10] = 0;
-    time[13] = 0;
-    time[16] = 0;
-    int Y = (int)atoi(time);
-    int M = (int)atoi(&time[5]);
-    int D = (int)atoi(&time[8]);
-    int H = (int)atoi(&time[11]);
-    int m = (int)atoi(&time[14]);
-    double s = (double)atof(&time[17]);
+    char *timestr = (char *)malloc(strlen(time)+1);
+    strcpy(timestr, time);
+    timestr[4] = 0;
+    timestr[7] = 0;
+    timestr[10] = 0;
+    timestr[13] = 0;
+    timestr[16] = 0;
+    int Y = (int)atoi(timestr);
+    int M = (int)atoi(&timestr[5]);
+    int D = (int)atoi(&timestr[8]);
+    int H = (int)atoi(&timestr[11]);
+    int m = (int)atoi(&timestr[14]);
+    double s = (double)atof(&timestr[17]);
+    free(timestr);
     return vlbi_time_mktimespec(Y, M, D, H, m, floor(s), (s-floor(s))*100000000.0);
 }
