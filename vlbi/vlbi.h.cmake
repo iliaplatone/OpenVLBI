@@ -158,35 +158,6 @@ inline double vlbi_default_delegate(double x, double y) {
     return x*y;
 }
 
-/**
-* \brief A magnitude calculator delegate for vlbi_get_uv_plot
-*
-* \param x The real part
-* \param y The imaginary part
-* \return The magnitude of this correlation
-*/
-inline double vlbi_magnitude_delegate(double x, double y) {
-    return sqrt(pow(x, 2)+pow(y, 2));
-}
-
-/**
-* \brief A phase calculator delegate for vlbi_get_uv_plot
-*
-* \param x The real part
-* \param y The imaginary part
-* \return The phase of this correlation
-*/
-inline double vlbi_phase_delegate(double x, double y) {
-    double mag = sqrt(pow(x, 2)+pow(y, 2));
-    double rad = 0.0;
-    if(mag > 0.0) {
-        rad = acos (y / (mag > 0.0 ? mag : 1.0));
-        if(x < 0 && rad != 0)
-            rad = M_PI*2-rad;
-    }
-    return rad;
-}
-
 #ifndef Min
 ///if max() is not present you can use this one
 #define Min(a,b) \
