@@ -158,6 +158,37 @@ inline double vlbi_default_delegate(double x, double y) {
     return x*y;
 }
 
+/**
+* \brief A magnitude calculator delegate for vlbi_get_uv_plot
+*
+* \param x The real part
+* \param y The imaginary part
+* \return The magnitude of this correlation
+* \sa vlbi_set_baseline_buffer
+*/
+inline double vlbi_magnitude_delegate(double x, double y) {
+    return sqrt(pow(x, 2)+pow(y, 2));
+}
+
+/**
+* \brief A phase calculator delegate for vlbi_get_uv_plot
+*
+* \param x The real part
+* \param y The imaginary part
+* \return The phase of this correlation
+* \sa vlbi_set_baseline_buffer
+*/
+inline double vlbi_phase_delegate(double x, double y) {
+    double mag = sqrt(pow(x, 2)+pow(y, 2));
+    double rad = 0.0;
+    if(mag > 0.0) {
+        rad = acos (y / (mag > 0.0 ? mag : 1.0));
+        if(x < 0 && rad != 0)
+            rad = M_PI*2-rad;
+    }
+    return rad;
+}
+
 #ifndef Min
 ///if max() is not present you can use this one
 #define Min(a,b) \
@@ -464,10 +495,10 @@ DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 * \param ctx The OpenVLBI context
 * \param node1 The name of the first node
 * \param node2 The name of the second node
-* \param buffer The buffer with correlated data
+* \param buffer The buffer with complex correlated data
 * \param len The length of the buffer
 */
-DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, dsp_t *buffer, int len);
+DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, fftw_complex *buffer, int len);
 
 /**
 * \brief Set the location of the reference station.
