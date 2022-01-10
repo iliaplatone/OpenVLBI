@@ -915,6 +915,49 @@ inline const char* itostr(const char *prefix, int n)
 #define SDFITS_COLUMN_TSYS (char*[]){"TSYS", FITS_ELEMENT_FLOATING_POINT_64_BIT, FITS_MEASURE_UNIT_KELVIN, "", "system, not receiver, temperature"}
 ///Data buffer
 #define SDFITS_COLUMN_DATA (char*[]){"DATA", "", "", "", ""}
+
+///OBSMODE
+///average
+#define OBSTYPE_LINE "LINE"
+///continuum
+#define OBSTYPE_CONT "CONT"
+///pulses
+#define OBSTYPE_PULS "PULS"
+///position switch
+#define OBSMODE_PSSW "PSSW"
+///frequency switch
+#define OBSMODE_FQSW "FQSW"
+///beam switch
+#define OBSMODE_BMSW "BMSW"
+///phase-lock switch
+#define OBSMODE_PLSW "PLSW"
+///load switch
+#define OBSMODE_LDSW "LDSW"
+///total power
+#define OBSMODE_TLPW "TLPW"
+
+///TEMPSCAL
+#define TEMPSCAL_TB "TB"
+#define TEMPSCAL_TA "TA"
+#define TEMPSCAL_TA_TR "TA*TR"
+#define TEMPSCAL_TR "TR*"
+
+///TRX, as for TSYS
+///Single Side Band
+#define TSYS_SSB "SSB"
+///Double Side Band
+#define TSYS_DSB "DSB"
+
+///VELDEF
+#define VELDEF_RADI "*RADI"
+#define VELDEF_OPTI "OPTI"
+#define VELDEF_RELA "RELA"
+#define VELDEF_LSR "LSR"
+#define VELDEF_HELO "HELO"
+#define VELDEF_EART "EART"
+#define VELDEF_BARI "BARI"
+#define VELDEF_OBS "-OBS"
+
 ///Set to ''
 #define SDFITS_KEYWORD_TTYPE(n) {itostr("TTYPE", n),"8A", "", "", "Set to ''"}
 ///shall have the value '' or ''
@@ -1005,7 +1048,7 @@ inline const char* itostr(const char *prefix, int n)
 #define SDFITS_COLUMN_BMAJ (char*[]){"BMAJ", FITS_ELEMENT_FLOATING_POINT_64_BIT, "", "", "Large main-beam FWHM"}
 ///Small main-beam FWHM
 #define SDFITS_COLUMN_BMIN (char*[]){"BMIN", FITS_ELEMENT_FLOATING_POINT_64_BIT, "", "", "Small main-beam FWHM"}
-///Beam position angle
+///Beam position angle, measured East of North
 #define SDFITS_COLUMN_BPA (char*[]){"BPA", FITS_ELEMENT_FLOATING_POINT_64_BIT, "", "", "Beam position angle"}
 ///Site longitude (Degrees)
 #define SDFITS_COLUMN_SITELONG (char*[]){"SITELONG", FITS_ELEMENT_FLOATING_POINT_64_BIT, FITS_MEASURE_UNIT_DEGREE, "", "Site longitude"}
