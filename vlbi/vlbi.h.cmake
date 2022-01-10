@@ -36,7 +36,6 @@ extern "C" {
 #include <assert.h>
 #include <pthread.h>
 #include <dsp.h>
-#include <fitsio.h>
 
 #ifndef DLL_EXPORT
 #define DLL_EXPORT extern

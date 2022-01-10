@@ -16,12 +16,23 @@
 *   Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+#ifndef _FITS_EXTENSIONS_H
+#define _FITS_EXTENSIONS_H
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
+#ifndef DLL_EXPORT
+#define DLL_EXPORT extern
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include <vlbi.h>
-
+#include <fitsio.h>
 ///Returns non-zero decimal conversion of integer into string with a prefix
 inline const char* itostr(const char *prefix, int n)
 {
@@ -126,9 +137,9 @@ typedef enum
 
 ///FITS-IDI global keywords
 ///Name/type of correlator
-#define FITSIDI_COLUMN_CORRELAT {"CORRELAT", "A", "Name/type of correlator" }
+#define FITSIDI_COLUMN_CORRELAT {"CORRELAT", FITS_ELEMENT_CHARACTER_STRING, "Name/type of correlator"}
 ///Version number of the correlator software that produced the file
-#define FITSIDI_COLUMN_FXCORVER {"FXCORVER", "A", "Version number of the correlator software that produced the file" }
+#define FITSIDI_COLUMN_FXCORVER {"FXCORVER", FITS_ELEMENT_CHARACTER_STRING, "Version number of the correlator software that produced the file"}
 
 ///FITS-IDI common table keywords
 ///Revision number of the table definition
@@ -166,164 +177,164 @@ typedef enum
 
 ///Random parameters for the FITS-IDI UV_DATA table
 ///seconds u baseline coordinate (-SIN system)
-#define FITSIDI_UV_DATA_COLUMN_UU {"UU", "1D", "seconds u baseline coordinate (-SIN system)" }
+#define FITSIDI_UV_DATA_COLUMN_UU {"UU", "1D", "seconds u baseline coordinate (-SIN system)"}
 ///seconds v baseline coordinate (-SIN system)
-#define FITSIDI_UV_DATA_COLUMN_VV {"VV", "1D", "seconds v baseline coordinate (-SIN system)" }
+#define FITSIDI_UV_DATA_COLUMN_VV {"VV", "1D", "seconds v baseline coordinate (-SIN system)"}
 ///seconds w baseline coordinate (-SIN system)
-#define FITSIDI_UV_DATA_COLUMN_WW {"WW", "1D", "seconds w baseline coordinate (-SIN system)" }
+#define FITSIDI_UV_DATA_COLUMN_WW {"WW", "1D", "seconds w baseline coordinate (-SIN system)"}
 ///seconds u baseline coordinate (-SIN system)
-#define FITSIDI_UV_DATA_COLUMN_UU___SIN {"UU---SIN", "1D", "seconds u baseline coordinate (-SIN system)" }
+#define FITSIDI_UV_DATA_COLUMN_UU___SIN {"UU---SIN", "1D", "seconds u baseline coordinate (-SIN system)"}
 ///seconds v baseline coordinate (-SIN system)
-#define FITSIDI_UV_DATA_COLUMN_VV___SIN {"VV---SIN", "1D", "seconds v baseline coordinate (-SIN system)" }
+#define FITSIDI_UV_DATA_COLUMN_VV___SIN {"VV---SIN", "1D", "seconds v baseline coordinate (-SIN system)"}
 ///seconds w baseline coordinate (-SIN system)
-#define FITSIDI_UV_DATA_COLUMN_WW___SIN {"WW---SIN", "1D", "seconds w baseline coordinate (-SIN system)" }
+#define FITSIDI_UV_DATA_COLUMN_WW___SIN {"WW---SIN", "1D", "seconds w baseline coordinate (-SIN system)"}
 ///seconds u baseline coordinate (-NCP system)
-#define FITSIDI_UV_DATA_COLUMN_UU___NCP {"UU---NCP", "1D", "seconds u baseline coordinate (-NCP system)" }
+#define FITSIDI_UV_DATA_COLUMN_UU___NCP {"UU---NCP", "1D", "seconds u baseline coordinate (-NCP system)"}
 ///seconds v baseline coordinate (-NCP system)
-#define FITSIDI_UV_DATA_COLUMN_VV___NCP {"VV---NCP", "1D", "seconds v baseline coordinate (-NCP system)" }
+#define FITSIDI_UV_DATA_COLUMN_VV___NCP {"VV---NCP", "1D", "seconds v baseline coordinate (-NCP system)"}
 ///seconds w baseline coordinate (-NCP system)
-#define FITSIDI_UV_DATA_COLUMN_WW___NCP {"WW---NCP", "1D", "seconds w baseline coordinate (-NCP system)" }
+#define FITSIDI_UV_DATA_COLUMN_WW___NCP {"WW---NCP", "1D", "seconds w baseline coordinate (-NCP system)"}
 ///days Julian date at 0 hours
-#define FITSIDI_UV_DATA_COLUMN_DATE {"DATE", "1D", "days Julian date at 0 hours" }
+#define FITSIDI_UV_DATA_COLUMN_DATE {"DATE", "1D", "days Julian date at 0 hours"}
 ///days Time elapsed since 0 hours
-#define FITSIDI_UV_DATA_COLUMN_TIME {"TIME", "1D", "days Time elapsed since 0 hours" }
+#define FITSIDI_UV_DATA_COLUMN_TIME {"TIME", "1D", "days Time elapsed since 0 hours"}
 ///Baseline number
-#define FITSIDI_UV_DATA_COLUMN_BASELINE {"BASELINE", "1J", "Baseline number" }
+#define FITSIDI_UV_DATA_COLUMN_BASELINE {"BASELINE", "1J", "Baseline number"}
 ///Array number
-#define FITSIDI_UV_DATA_COLUMN_ARRAY {"ARRAY", "1J", "Array number" }
+#define FITSIDI_UV_DATA_COLUMN_ARRAY {"ARRAY", "1J", "Array number"}
 ///Source ID number
-#define FITSIDI_UV_DATA_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number" }
+#define FITSIDI_UV_DATA_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number"}
 ///Frequency setup ID number
-#define FITSIDI_UV_DATA_COLUMN_FREQID {"FREQID", "1J", "Frequency setup ID number" }
+#define FITSIDI_UV_DATA_COLUMN_FREQID {"FREQID", "1J", "Frequency setup ID number"}
 ///seconds Integration time
-#define FITSIDI_UV_DATA_COLUMN_INTTIM {"INTTIM", "1D", "seconds Integration time" }
+#define FITSIDI_UV_DATA_COLUMN_INTTIM {"INTTIM", "1D", "seconds Integration time"}
 ///Weights
-#define FITSIDI_UV_DATA_COLUMN_WEIGHT(nstokes, nband) {"WEIGHT", itostr(itostr("E", nstokes)",", nband), "Weights"}
+#define FITSIDI_UV_DATA_COLUMN_WEIGHT(nstokes, nband) {"WEIGHT", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nstokes)",", nband), "Weights"}
 
 ///Mandatory keywords for the FITS-IDI UV_DATA table
 ///2
-#define FITSIDI_UV_DATA_KEYWORD_TABREV {"TABREV", "I", "2" }
+#define FITSIDI_UV_DATA_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "2"}
 
 ///NMATRIX shall be present with the value 1
-#define FITSIDI_UV_DATA_KEYWORD_NMATRIX {"NMATRIX", "I", "NMATRIX shall be present with the value 1" }
+#define FITSIDI_UV_DATA_KEYWORD_NMATRIX {"NMATRIX", FITS_ELEMENT_SIGNED_INT_16_BIT, "NMATRIX shall be present with the value 1"}
 ///M = number axes in regular matrix, Number pixels on axis m = 1 to M
-#define FITSIDI_UV_DATA_KEYWORD_MAXIS(m) {itostr("MAXIS", m), "I", "M = number axes in regular matrix, Number pixels on axis m = 1 to M" }
+#define FITSIDI_UV_DATA_KEYWORD_MAXIS(m) {itostr("MAXIS", m), FITS_ELEMENT_SIGNED_INT_16_BIT, "M = number axes in regular matrix, Number pixels on axis m = 1 to M"}
+///Set to 'T' — column n contains the visibility matrix
+#define FITSIDI_UV_DATA_KEYWORD_TMATX(n) {itostr("TMATX", n), FITS_ELEMENT_CHARACTER_STRING, "Set to 'T'"}
 ///Set to 'FLUX'
 #define FITSIDI_UV_DATA_KEYWORD_TTYPE(n) {itostr("TTYPE", n), "8A", "Set to 'FLUX'"}
-///Set to 'T' — column n contains the visibility matrix
-#define FITSIDI_UV_DATA_KEYWORD_TMATX(n) {itostr("TMATX", n), "A", "Set to 'T'"}
 ///shall have the value 'JY' or 'UNCALIB'
 #define FITSIDI_UV_DATA_KEYWORD_TUNIT(n) {itostr("TUNIT", n), "8A", "shall have the value 'JY' or 'UNCALIB'"}
 ///Name of regular axis m = 1 to M
-#define FITSIDI_UV_DATA_KEYWORD_CTYPE(m) {itostr("CTYPE", m), "A", "Name of regular axis m = 1 to M" }
+#define FITSIDI_UV_DATA_KEYWORD_CTYPE(m) {itostr("CTYPE", m), FITS_ELEMENT_CHARACTER_STRING, "Name of regular axis m = 1 to M"}
 ///Coordinate increment on axis m = 1 to M
-#define FITSIDI_UV_DATA_KEYWORD_CDELT(m) {itostr("CDELT", m), "E", "Coordinate increment on axis m = 1 to M" }
+#define FITSIDI_UV_DATA_KEYWORD_CDELT(m) {itostr("CDELT", m), FITS_ELEMENT_FLOATING_POINT_32_BIT, "Coordinate increment on axis m = 1 to M"}
 ///Reference pixel on axis m = 1 to M
-#define FITSIDI_UV_DATA_KEYWORD_CRPIX(m) {itostr("CRPIX", m), "E", "Reference pixel on axis m = 1 to M" }
+#define FITSIDI_UV_DATA_KEYWORD_CRPIX(m) {itostr("CRPIX", m), FITS_ELEMENT_FLOATING_POINT_32_BIT, "Reference pixel on axis m = 1 to M"}
 ///Coordinate value at reference pixel on axis m = 1 to M
-#define FITSIDI_UV_DATA_KEYWORD_CRVAL(m) {itostr("CRVAL", m), "E", "Coordinate value at reference pixel on axis m = 1 to M" }
+#define FITSIDI_UV_DATA_KEYWORD_CRVAL(m) {itostr("CRVAL", m), FITS_ELEMENT_FLOATING_POINT_32_BIT, "Coordinate value at reference pixel on axis m = 1 to M"}
 ///The number of Stokes parameters
-#define FITSIDI_UV_DATA_KEYWORD_NO_STKD {"NO_STKD", "I", "The number of Stokes parameters" }
+#define FITSIDI_UV_DATA_KEYWORD_NO_STKD {"NO_STKD", FITS_ELEMENT_SIGNED_INT_16_BIT, "The number of Stokes parameters"}
 ///The first Stokes parameter coordinate value
-#define FITSIDI_UV_DATA_KEYWORD_STK_1 {"STK_1", "I", "The first Stokes parameter coordinate value" }
+#define FITSIDI_UV_DATA_KEYWORD_STK_1 {"STK_1", FITS_ELEMENT_SIGNED_INT_16_BIT, "The first Stokes parameter coordinate value"}
 ///The number of bands
-#define FITSIDI_UV_DATA_KEYWORD_NO_BAND {"NO_BAND", "I", "The number of bands" }
+#define FITSIDI_UV_DATA_KEYWORD_NO_BAND {"NO_BAND", FITS_ELEMENT_SIGNED_INT_16_BIT, "The number of bands"}
 ///The number of spectral channels per band
-#define FITSIDI_UV_DATA_KEYWORD_NO_CHAN {"NO_CHAN", "I", "The number of spectral channels per band" }
+#define FITSIDI_UV_DATA_KEYWORD_NO_CHAN {"NO_CHAN", FITS_ELEMENT_SIGNED_INT_16_BIT, "The number of spectral channels per band"}
 ///The file reference frequency in Hz
-#define FITSIDI_UV_DATA_KEYWORD_REF_FREQ {"REF_FREQ", "E", "The file reference frequency in Hz" }
+#define FITSIDI_UV_DATA_KEYWORD_REF_FREQ {"REF_FREQ", FITS_ELEMENT_FLOATING_POINT_32_BIT, "The file reference frequency in Hz"}
 ///The channel bandwidth in Hz for the first band in the frequency setup with frequency ID number 1
-#define FITSIDI_UV_DATA_KEYWORD_CHAN_BW {"CHAN_BW", "E", "The channel bandwidth in Hz for the first band in the frequency setup with frequency ID number 1" }
+#define FITSIDI_UV_DATA_KEYWORD_CHAN_BW {"CHAN_BW", FITS_ELEMENT_FLOATING_POINT_32_BIT, "The channel bandwidth in Hz for the first band in the frequency setup with frequency ID number 1"}
 ///The reference pixel for the frequency axis
-#define FITSIDI_UV_DATA_KEYWORD_REF_PIXL {"REF_PIXL", "E", "The reference pixel for the frequency axis" }
+#define FITSIDI_UV_DATA_KEYWORD_REF_PIXL {"REF_PIXL", FITS_ELEMENT_FLOATING_POINT_32_BIT, "The reference pixel for the frequency axis"}
 ///Mean equinox
-#define FITSIDI_UV_DATA_KEYWORD_EQUINOX {"EQUINOX", "8A", "Mean equinox" }
+#define FITSIDI_UV_DATA_KEYWORD_EQUINOX {"EQUINOX", "8A", "Mean equinox"}
 ///Type of data weights
-#define FITSIDI_UV_DATA_KEYWORD_WEIGHTYP {"WEIGHTYP", "8A", "Type of data weights" }
+#define FITSIDI_UV_DATA_KEYWORD_WEIGHTYP {"WEIGHTYP", "8A", "Type of data weights"}
 
 ///Columns for the FITS-IDI ARRAY_GEOMETRY table
 ///Antenna name
-#define FITSIDI_ARRAY_GEOMETRY_COLUMN_ANNAME {"ANNAME", "8A", "Antenna name" }
+#define FITSIDI_ARRAY_GEOMETRY_COLUMN_ANNAME {"ANNAME", "8A", "Antenna name"}
 ///meters Antenna station coordinates (x, y, z)
-#define FITSIDI_ARRAY_GEOMETRY_COLUMN_STABXYZ {"STABXYZ", "3D", "meters Antenna station coordinates (x, y, z)" }
+#define FITSIDI_ARRAY_GEOMETRY_COLUMN_STABXYZ {"STABXYZ", "3D", "meters Antenna station coordinates (x, y, z)"}
 ///meters/s First-order derivatives of the station coordinates with respect to time
-#define FITSIDI_ARRAY_GEOMETRY_COLUMN_DERXYZ {"DERXYZ", "3E", "meters/s First-order derivatives of the station coordinates with respect to time" }
+#define FITSIDI_ARRAY_GEOMETRY_COLUMN_DERXYZ {"DERXYZ", "3E", "meters/s First-order derivatives of the station coordinates with respect to time"}
 ///Orbital parameters
-#define FITSIDI_ARRAY_GEOMETRY_COLUMN_ORBPARM(norb) {"ORBPARM", itostr("D", norb), "Orbital parameters"}
+#define FITSIDI_ARRAY_GEOMETRY_COLUMN_ORBPARM(norb) {"ORBPARM", itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, norb), "Orbital parameters"}
 ///Antenna number
-#define FITSIDI_ARRAY_GEOMETRY_COLUMN_NOSTA {"NOSTA", "1I", "Antenna number" }
+#define FITSIDI_ARRAY_GEOMETRY_COLUMN_NOSTA {"NOSTA", "1I", "Antenna number"}
 ///Mount type
-#define FITSIDI_ARRAY_GEOMETRY_COLUMN_MNTSTA {"MNTSTA", "1J", "Mount type" }
+#define FITSIDI_ARRAY_GEOMETRY_COLUMN_MNTSTA {"MNTSTA", "1J", "Mount type"}
 ///meters Axis offset
-#define FITSIDI_ARRAY_GEOMETRY_COLUMN_STAXOF {"STAXOF", "3E", "meters Axis offset" }
+#define FITSIDI_ARRAY_GEOMETRY_COLUMN_STAXOF {"STAXOF", "3E", "meters Axis offset"}
 ///meters Antenna diameter
-#define FITSIDI_ARRAY_GEOMETRY_COLUMN_DIAMETER {"DIAMETER", "1E", "meters Antenna diameter" }
+#define FITSIDI_ARRAY_GEOMETRY_COLUMN_DIAMETER {"DIAMETER", "1E", "meters Antenna diameter"}
 
 ///Mandatory keywords for the FITS-IDI ARRAY_GEOMETRY table
 ///1
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_TABREV {"TABREV", "I", "1" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "1"}
 ///Array number
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_EXTVER {"EXTVER", "I", "Array number" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_EXTVER {"EXTVER", FITS_ELEMENT_SIGNED_INT_16_BIT, "Array number"}
 ///Array name
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_ARRNAM {"ARRNAM", "A", "Array name" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_ARRNAM {"ARRNAM", FITS_ELEMENT_CHARACTER_STRING, "Array name"}
 ///Coordinate frame
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_FRAME {"FRAME", "A", "Coordinate frame" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_FRAME {"FRAME", FITS_ELEMENT_CHARACTER_STRING, "Coordinate frame"}
 ///x coordinate of array center (m)
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_ARRAYX {"ARRAYX", "E", "x coordinate of array center (m)" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_ARRAYX {"ARRAYX", FITS_ELEMENT_FLOATING_POINT_32_BIT, "x coordinate of array center (m)"}
 ///y coordinate of array center (m)
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_ARRAYY {"ARRAYY", "E", "y coordinate of array center (m)" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_ARRAYY {"ARRAYY", FITS_ELEMENT_FLOATING_POINT_32_BIT, "y coordinate of array center (m)"}
 ///z coordinate of array center (m)
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_ARRAYZ {"ARRAYZ", "E", "z coordinate of array center (m)" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_ARRAYZ {"ARRAYZ", FITS_ELEMENT_FLOATING_POINT_32_BIT, "z coordinate of array center (m)"}
 ///norb= number orbital parameters in table
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_NUMORB {"NUMORB", "I", "norb= number orbital parameters in table" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_NUMORB {"NUMORB", FITS_ELEMENT_SIGNED_INT_16_BIT, "norb= number orbital parameters in table"}
 ///Reference frequency (Hz)
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_FREQ {"FREQ", "E", "Reference frequency (Hz)" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_FREQ {"FREQ", FITS_ELEMENT_FLOATING_POINT_32_BIT, "Reference frequency (Hz)"}
 ///Time system
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_TIMESYS {"TIMESYS", "A", "Time system" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_TIMESYS {"TIMESYS", FITS_ELEMENT_CHARACTER_STRING, "Time system"}
 ///Reference date
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_RDATE {"RDATE", "D", "Reference date" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_RDATE {"RDATE", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Reference date"}
 ///GST at 0h on reference date (degrees)
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_GSTIA0 {"GSTIA0", "E", "GST at 0h on reference date (degrees)" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_GSTIA0 {"GSTIA0", FITS_ELEMENT_FLOATING_POINT_32_BIT, "GST at 0h on reference date (degrees)"}
 ///Earth's rotation rate (degrees/day)
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_DEGPDY {"DEGPDY", "E", "Earth's rotation rate (degrees/day)" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_DEGPDY {"DEGPDY", FITS_ELEMENT_FLOATING_POINT_32_BIT, "Earth's rotation rate (degrees/day)"}
 ///UT1 - UTC (sec)
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_UT1UTC {"UT1UTC", "E", "UT1 - UTC (sec)" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_UT1UTC {"UT1UTC", FITS_ELEMENT_FLOATING_POINT_32_BIT, "UT1 - UTC (sec)"}
 ///IAT - UTC (sec)
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_IATUTC {"IATUTC", "E", "IAT - UTC (sec)" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_IATUTC {"IATUTC", FITS_ELEMENT_FLOATING_POINT_32_BIT, "IAT - UTC (sec)"}
 ///x coordinate of North Pole (arc seconds)
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_POLARX {"POLARX", "E", "x coordinate of North Pole (arc seconds)" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_POLARX {"POLARX", FITS_ELEMENT_FLOATING_POINT_32_BIT, "x coordinate of North Pole (arc seconds)"}
 ///y coordinate of North Pole (arc seconds)
-#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_POLARY {"POLARY", "E", "y coordinate of North Pole (arc seconds)" }
+#define FITSIDI_ARRAY_GEOMETRY_KEYWORD_POLARY {"POLARY", FITS_ELEMENT_FLOATING_POINT_32_BIT, "y coordinate of North Pole (arc seconds)"}
 
 ///Columns for the FITS-IDI ANTENNA table
 ///days Central time of period covered by record
-#define FITSIDI_ANTENNA_COLUMN_TIME {"TIME", "1D", "days Central time of period covered by record" }
+#define FITSIDI_ANTENNA_COLUMN_TIME {"TIME", "1D", "days Central time of period covered by record"}
 ///days Duration of period covered by record
-#define FITSIDI_ANTENNA_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of period covered by record" }
+#define FITSIDI_ANTENNA_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of period covered by record"}
 ///Antenna name
-#define FITSIDI_ANTENNA_COLUMN_ANNAME {"ANNAME", "8A", "Antenna name" }
+#define FITSIDI_ANTENNA_COLUMN_ANNAME {"ANNAME", "8A", "Antenna name"}
 ///Antenna number
-#define FITSIDI_ANTENNA_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number" }
+#define FITSIDI_ANTENNA_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number"}
 ///Array number
-#define FITSIDI_ANTENNA_COLUMN_ARRAY {"ARRAY", "1J", "Array number" }
+#define FITSIDI_ANTENNA_COLUMN_ARRAY {"ARRAY", "1J", "Array number"}
 ///Frequency setup number
-#define FITSIDI_ANTENNA_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_ANTENNA_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///Number of digitizer levels
-#define FITSIDI_ANTENNA_COLUMN_NO_LEVELS {"NO_LEVELS", "1J", "Number of digitizer levels" }
+#define FITSIDI_ANTENNA_COLUMN_NO_LEVELS {"NO_LEVELS", "1J", "Number of digitizer levels"}
 ///Feed A polarization label
-#define FITSIDI_ANTENNA_COLUMN_POLTYA {"POLTYA", "1A", "Feed A polarization label" }
+#define FITSIDI_ANTENNA_COLUMN_POLTYA {"POLTYA", "1A", "Feed A polarization label"}
 ///degrees Feed A orientation
-#define FITSIDI_ANTENNA_COLUMN_POLAA(nband) {"POLAA", itostr("E", nband), "degrees Feed A orientation"}
+#define FITSIDI_ANTENNA_COLUMN_POLAA(nband) {"POLAA", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "degrees Feed A orientation"}
 ///Feed A polarization parameters
-#define FITSIDI_ANTENNA_COLUMN_POLCALA(npcal, nband) {"POLCALA", itostr(itostr("E", npcal)",", nband), "Feed A polarization parameters"}
+#define FITSIDI_ANTENNA_COLUMN_POLCALA(npcal, nband) {"POLCALA", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, npcal)",", nband), "Feed A polarization parameters"}
 ///Feed B polarization label
-#define FITSIDI_ANTENNA_COLUMN_POLTYB {"POLTYB", "1A", "Feed B polarization label" }
+#define FITSIDI_ANTENNA_COLUMN_POLTYB {"POLTYB", "1A", "Feed B polarization label"}
 ///degrees Feed B orientation
-#define FITSIDI_ANTENNA_COLUMN_POLAB(nband) {"POLAB", itostr("E", nband), "degrees Feed B orientation"}
+#define FITSIDI_ANTENNA_COLUMN_POLAB(nband) {"POLAB", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "degrees Feed B orientation"}
 ///Feed B polarization parameters
-#define FITSIDI_ANTENNA_COLUMN_POLCALB(npcal, nband) {"POLCALB", itostr(itostr("E", npcal)",", nband), "Feed B polarization parameters"}
+#define FITSIDI_ANTENNA_COLUMN_POLCALB(npcal, nband) {"POLCALB", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, npcal)",", nband), "Feed B polarization parameters"}
 ///degrees / m Antenna beam fwhm
-#define FITSIDI_ANTENNA_COLUMN_BEAMFWHM(nband) {"BEAMFWHM", itostr("E", nband), "degrees / m Antenna beam fwhm"}
+#define FITSIDI_ANTENNA_COLUMN_BEAMFWHM(nband) {"BEAMFWHM", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "degrees / m Antenna beam fwhm"}
 
 ///Polarization parameters
 ///Linear approximation for circular feeds
@@ -335,27 +346,27 @@ typedef enum
 
 ///Mandatory keywords for the FITS-IDI ANTENNA table
 ///1
-#define FITSIDI_ANTENNA_KEYWORD_TABREV {"TABREV", "I", "1" }
+#define FITSIDI_ANTENNA_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "1"}
 ///npcal = 0 or 2, number of polarization calibration constants
-#define FITSIDI_ANTENNA_KEYWORD_NOPCAL {"NOPCAL", "I", "npcal = 0 or 2, number of polarization calibration constants" }
+#define FITSIDI_ANTENNA_KEYWORD_NOPCAL {"NOPCAL", FITS_ELEMENT_SIGNED_INT_16_BIT, "npcal = 0 or 2, number of polarization calibration constants"}
 ///The feed polarization parameterization
-#define FITSIDI_ANTENNA_KEYWORD_POLTYPE {"POLTYPE", "A", "The feed polarization parameterization" }
+#define FITSIDI_ANTENNA_KEYWORD_POLTYPE {"POLTYPE", FITS_ELEMENT_CHARACTER_STRING, "The feed polarization parameterization"}
 
 ///Columns for the FITS-IDI FREQUENCY table
 ///Frequency setup number
-#define FITSIDI_FREQUENCY_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_FREQUENCY_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///Hz Frequency offsets
-#define FITSIDI_FREQUENCY_COLUMN_BANDFREQ(nband) {"BANDFREQ", itostr("D", nband), "Hz Frequency offsets"}
+#define FITSIDI_FREQUENCY_COLUMN_BANDFREQ(nband) {"BANDFREQ", itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, nband), "Hz Frequency offsets"}
 ///Hz Individual channel widths
-#define FITSIDI_FREQUENCY_COLUMN_CH_WIDTH(nband) {"CH_WIDTH", itostr("E", nband), "Hz Individual channel widths"}
+#define FITSIDI_FREQUENCY_COLUMN_CH_WIDTH(nband) {"CH_WIDTH", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Hz Individual channel widths"}
 ///Hz Total bandwidths of bands
-#define FITSIDI_FREQUENCY_COLUMN_TOTAL_BANDWIDTH(nband) {"TOTAL_BANDWIDTH", itostr("E", nband), "Hz Total bandwidths of bands"}
+#define FITSIDI_FREQUENCY_COLUMN_TOTAL_BANDWIDTH(nband) {"TOTAL_BANDWIDTH", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Hz Total bandwidths of bands"}
 ///Sideband flag
-#define FITSIDI_FREQUENCY_COLUMN_SIDEBAND(nband) {"SIDEBAND", itostr("J", nband), "Sideband flag"}
+#define FITSIDI_FREQUENCY_COLUMN_SIDEBAND(nband) {"SIDEBAND", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "Sideband flag"}
 
 ///Mandatory keywords for the FITS-IDI FREQUENCY table
 ///1
-#define FITSIDI_FREQUENCY_KEYWORD_TABREV {"TABREV", "I", "1" }
+#define FITSIDI_FREQUENCY_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "1"}
 
 ///Frames of reference for VELTYP
 ///Local standard of rest
@@ -369,135 +380,135 @@ typedef enum
 
 ///Columns for the FITS-IDI SOURCE table
 ///Source ID number
-#define FITSIDI_SOURCE_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number" }
+#define FITSIDI_SOURCE_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number"}
 ///Source name
-#define FITSIDI_SOURCE_COLUMN_SOURCE {"SOURCE", "16A", "Source name" }
+#define FITSIDI_SOURCE_COLUMN_SOURCE {"SOURCE", "16A", "Source name"}
 ///Source name numeric qualifier
-#define FITSIDI_SOURCE_COLUMN_QUAL {"QUAL", "1J", "Source name numeric qualifier" }
+#define FITSIDI_SOURCE_COLUMN_QUAL {"QUAL", "1J", "Source name numeric qualifier"}
 ///Calibrator code
-#define FITSIDI_SOURCE_COLUMN_CALCODE {"CALCODE", "4A", "Calibrator code" }
+#define FITSIDI_SOURCE_COLUMN_CALCODE {"CALCODE", "4A", "Calibrator code"}
 ///Frequency setup number
-#define FITSIDI_SOURCE_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_SOURCE_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///Jy Stokes I flux density
-#define FITSIDI_SOURCE_COLUMN_IFLUX(nband) {"IFLUX", itostr("E", nband), "Jy Stokes I flux density"}
+#define FITSIDI_SOURCE_COLUMN_IFLUX(nband) {"IFLUX", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Jy Stokes I flux density"}
 ///Jy Stokes Q flux density
-#define FITSIDI_SOURCE_COLUMN_QFLUX(nband) {"QFLUX", itostr("E", nband), "Jy Stokes Q flux density"}
+#define FITSIDI_SOURCE_COLUMN_QFLUX(nband) {"QFLUX", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Jy Stokes Q flux density"}
 ///Jy Stokes U flux density
-#define FITSIDI_SOURCE_COLUMN_UFLUX(nband) {"UFLUX", itostr("E", nband), "Jy Stokes U flux density"}
+#define FITSIDI_SOURCE_COLUMN_UFLUX(nband) {"UFLUX", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Jy Stokes U flux density"}
 ///Jy Stokes V flux density
-#define FITSIDI_SOURCE_COLUMN_VFLUX(nband) {"VFLUX", itostr("E", nband), "Jy Stokes V flux density"}
+#define FITSIDI_SOURCE_COLUMN_VFLUX(nband) {"VFLUX", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Jy Stokes V flux density"}
 ///Jy Spectral index for each band
-#define FITSIDI_SOURCE_COLUMN_ALPHA(nband) {"ALPHA", itostr("E", nband), "Jy Spectral index for each band"}
+#define FITSIDI_SOURCE_COLUMN_ALPHA(nband) {"ALPHA", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Jy Spectral index for each band"}
 ///Hz Frequency offset for each band
-#define FITSIDI_SOURCE_COLUMN_FREQOFF(nband) {"FREQOFF", itostr("E", nband), "Hz Frequency offset for each band"}
+#define FITSIDI_SOURCE_COLUMN_FREQOFF(nband) {"FREQOFF", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Hz Frequency offset for each band"}
 ///degrees Right ascension at mean equinox
-#define FITSIDI_SOURCE_COLUMN_RAEPO {"RAEPO", "1D", "degrees Right ascension at mean equinox" }
+#define FITSIDI_SOURCE_COLUMN_RAEPO {"RAEPO", "1D", "degrees Right ascension at mean equinox"}
 ///degrees Declination at mean equinox
-#define FITSIDI_SOURCE_COLUMN_DECEPO {"DECEPO", "1D", "degrees Declination at mean equinox" }
+#define FITSIDI_SOURCE_COLUMN_DECEPO {"DECEPO", "1D", "degrees Declination at mean equinox"}
 ///Mean equinox
-#define FITSIDI_SOURCE_COLUMN_EQUINOX {"EQUINOX", "8A", "Mean equinox" }
+#define FITSIDI_SOURCE_COLUMN_EQUINOX {"EQUINOX", "8A", "Mean equinox"}
 ///degrees Apparent right ascension
-#define FITSIDI_SOURCE_COLUMN_RAAPP {"RAAPP", "1D", "degrees Apparent right ascension" }
+#define FITSIDI_SOURCE_COLUMN_RAAPP {"RAAPP", "1D", "degrees Apparent right ascension"}
 ///degrees Apparent declination
-#define FITSIDI_SOURCE_COLUMN_DECAPP {"DECAPP", "1D", "degrees Apparent declination" }
+#define FITSIDI_SOURCE_COLUMN_DECAPP {"DECAPP", "1D", "degrees Apparent declination"}
 ///meters/sec Systemic velocity for each band
-#define FITSIDI_SOURCE_COLUMN_SYSVEL(nband) {"SYSVEL", itostr("D", nband), "meters/sec Systemic velocity for each band"}
+#define FITSIDI_SOURCE_COLUMN_SYSVEL(nband) {"SYSVEL", itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, nband), "meters/sec Systemic velocity for each band"}
 ///Velocity type
-#define FITSIDI_SOURCE_COLUMN_VELTYP {"VELTYP", "8A", "Velocity type" }
+#define FITSIDI_SOURCE_COLUMN_VELTYP {"VELTYP", "8A", "Velocity type"}
 ///Velocity definition
-#define FITSIDI_SOURCE_COLUMN_VELDEF {"VELDEF", "8A", "Velocity definition" }
+#define FITSIDI_SOURCE_COLUMN_VELDEF {"VELDEF", "8A", "Velocity definition"}
 ///Hz Line rest frequency for each band
-#define FITSIDI_SOURCE_COLUMN_RESTFREQ(nband) {"RESTFREQ", itostr("D", nband), "Hz Line rest frequency for each band"}
+#define FITSIDI_SOURCE_COLUMN_RESTFREQ(nband) {"RESTFREQ", itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, nband), "Hz Line rest frequency for each band"}
 ///degrees/day Proper motion in right ascension
-#define FITSIDI_SOURCE_COLUMN_PMRA {"PMRA", "1D", "degrees/day Proper motion in right ascension" }
+#define FITSIDI_SOURCE_COLUMN_PMRA {"PMRA", "1D", "degrees/day Proper motion in right ascension"}
 ///degrees/day Proper motion in declination
-#define FITSIDI_SOURCE_COLUMN_PMDEC {"PMDEC", "1D", "degrees/day Proper motion in declination" }
+#define FITSIDI_SOURCE_COLUMN_PMDEC {"PMDEC", "1D", "degrees/day Proper motion in declination"}
 ///arcseconds Parallax of source
-#define FITSIDI_SOURCE_COLUMN_PARALLAX {"PARALLAX", "1E", "arcseconds Parallax of source" }
+#define FITSIDI_SOURCE_COLUMN_PARALLAX {"PARALLAX", "1E", "arcseconds Parallax of source"}
 ///years Epoch of observation
-#define FITSIDI_SOURCE_COLUMN_EPOCH {"EPOCH", "1D", "years Epoch of observation" }
+#define FITSIDI_SOURCE_COLUMN_EPOCH {"EPOCH", "1D", "years Epoch of observation"}
 
 ///Mandatory keywords for the FITS-IDI SOURCE table
 ///1
-#define FITSIDI_SOURCE_KEYWORD_TABREV {"TABREV", "I", "1" }
+#define FITSIDI_SOURCE_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "1"}
 
 ///Columns for the FITS-IDI INTERFEROMETER_MODEL table
 ///days Starting time of interval
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_TIME {"TIME", "1D", "days Starting time of interval" }
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_TIME {"TIME", "1D", "days Starting time of interval"}
 ///days Duration of interval
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval" }
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval"}
 ///Source ID number
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number" }
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number"}
 ///Antenna number
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number" }
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number"}
 ///Array number
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_ARRAY {"ARRAY", "1J", "Array number" }
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_ARRAY {"ARRAY", "1J", "Array number"}
 ///Frequency setup number
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///rad m−2 Ionospheric Faraday rotation
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_I_FAR_ROT {"I.FAR.ROT", "1E", "rad m−2 Ionospheric Faraday rotation" }
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_I_FAR_ROT {"I.FAR.ROT", "1E", "rad m−2 Ionospheric Faraday rotation"}
 ///Hz Time variable frequency offsets
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_FREQ_VAR(nband) {"FREQ.VAR", itostr("E", nband), "Hz Time variable frequency offsets"}
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_FREQ_VAR(nband) {"FREQ.VAR", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Hz Time variable frequency offsets"}
 ///turns Phase delay polynomials for polarization 1
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_PDELAY_1(npoly , nband) {"PDELAY_1", itostr(itostr("D", npoly )",", nband), "turns Phase delay polynomials for polarization 1"}
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_PDELAY_1(npoly , nband) {"PDELAY_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, npoly )",", nband), "turns Phase delay polynomials for polarization 1"}
 ///seconds Group delay polynomials for polarization 1
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_GDELAY_1(npoly , nband) {"GDELAY_1", itostr(itostr("D", npoly )",", nband), "seconds Group delay polynomials for polarization 1"}
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_GDELAY_1(npoly , nband) {"GDELAY_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, npoly )",", nband), "seconds Group delay polynomials for polarization 1"}
 ///Hz Phase delay rate polynomials for polarization 1
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_PRATE_1(npoly , nband) {"PRATE_1", itostr(itostr("D", npoly )",", nband), "Hz Phase delay rate polynomials for polarization 1"}
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_PRATE_1(npoly , nband) {"PRATE_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, npoly )",", nband), "Hz Phase delay rate polynomials for polarization 1"}
 ///sec/sec Group delay rate polynomials for polarization 1
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_GRATE_1(npoly , nband) {"GRATE_1", itostr(itostr("D", npoly )",", nband), "sec/sec Group delay rate polynomials for polarization 1"}
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_GRATE_1(npoly , nband) {"GRATE_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, npoly )",", nband), "sec/sec Group delay rate polynomials for polarization 1"}
 ///sec m−2 Dispersive delay for polarization 1
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_DISP_1 {"DISP_1", "1E", "sec m−2 Dispersive delay for polarization 1" }
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_DISP_1 {"DISP_1", "1E", "sec m−2 Dispersive delay for polarization 1"}
 ///sec m−2/sec Rate of change of dispersive delay for polarization 1
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_DDISP_1 {"DDISP_1", "1E", "sec m−2/sec Rate of change of dispersive delay for polarization 1" }
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_DDISP_1 {"DDISP_1", "1E", "sec m−2/sec Rate of change of dispersive delay for polarization 1"}
 ///turns Phase delay polynomials for polarization 2
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_PDELAY_2(npoly , nband) {"PDELAY_2", itostr(itostr("D", npoly )",", nband), "turns Phase delay polynomials for polarization 2"}
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_PDELAY_2(npoly , nband) {"PDELAY_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, npoly )",", nband), "turns Phase delay polynomials for polarization 2"}
 ///seconds Group delay polynomials for polarization 2
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_GDELAY_2(npoly , nband) {"GDELAY_2", itostr(itostr("D", npoly )",", nband), "seconds Group delay polynomials for polarization 2"}
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_GDELAY_2(npoly , nband) {"GDELAY_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, npoly )",", nband), "seconds Group delay polynomials for polarization 2"}
 ///Hz Phase delay rate polynomials for polarization 2
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_PRATE_2(npoly , nband) {"PRATE_2", itostr(itostr("D", npoly )",", nband), "Hz Phase delay rate polynomials for polarization 2"}
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_PRATE_2(npoly , nband) {"PRATE_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, npoly )",", nband), "Hz Phase delay rate polynomials for polarization 2"}
 ///sec/sec Group delay rate polynomials for polarization 2
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_GRATE_2(npoly , nband) {"GRATE_2", itostr(itostr("D", npoly )",", nband), "sec/sec Group delay rate polynomials for polarization 2"}
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_GRATE_2(npoly , nband) {"GRATE_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, npoly )",", nband), "sec/sec Group delay rate polynomials for polarization 2"}
 ///sec m−2 Dispersive delay for polarization 2
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_DISP_2 {"DISP_2", "1E", "sec m−2 Dispersive delay for polarization 2" }
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_DISP_2 {"DISP_2", "1E", "sec m−2 Dispersive delay for polarization 2"}
 ///sec m−2/sec Rate of change of dispersive delay for polarization 2
-#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_DDISP_2 {"DDISP_2", "1E", "sec m−2/sec Rate of change of dispersive delay for polarization 2" }
+#define FITSIDI_INTERFEROMETER_MODEL_COLUMN_DDISP_2 {"DDISP_2", "1E", "sec m−2/sec Rate of change of dispersive delay for polarization 2"}
 
 ///Mandatory keywords for the FITS-IDI INTERFEROMETER_MODEL table
 ///2
-#define FITSIDI_INTERFEROMETER_MODEL_KEYWORD_TABREV {"TABREV", "I", "2" }
+#define FITSIDI_INTERFEROMETER_MODEL_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "2"}
 ///Number of polynomial terms npoly
-#define FITSIDI_INTERFEROMETER_MODEL_KEYWORD_NPOLY {"NPOLY", "I", "Number of polynomial terms npoly" }
+#define FITSIDI_INTERFEROMETER_MODEL_KEYWORD_NPOLY {"NPOLY", FITS_ELEMENT_SIGNED_INT_16_BIT, "Number of polynomial terms npoly"}
 ///Number of polarizations
-#define FITSIDI_INTERFEROMETER_MODEL_KEYWORD_NO_POL {"NO_POL", "I", "Number of polarizations" }
+#define FITSIDI_INTERFEROMETER_MODEL_KEYWORD_NO_POL {"NO_POL", FITS_ELEMENT_SIGNED_INT_16_BIT, "Number of polarizations"}
 
 ///Columns for the FITS-IDI SYSTEM_TEMPERATURE table
 ///days Central time of interval
-#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TIME {"TIME", "1D", "days Central time of interval" }
+#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TIME {"TIME", "1D", "days Central time of interval"}
 ///days Duration of interval
-#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval" }
+#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval"}
 ///Source ID number
-#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number" }
+#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number"}
 ///Antenna number
-#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number" }
+#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number"}
 ///Array number
-#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_ARRAY {"ARRAY", "1J", "Array number" }
+#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_ARRAY {"ARRAY", "1J", "Array number"}
 ///Frequency setup number
-#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///Kelvin System temperatures for polarization 1
-#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TSYS_1(nband) {"TSYS_1", itostr("E", nband), "Kelvin System temperatures for polarization 1"}
+#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TSYS_1(nband) {"TSYS_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Kelvin System temperatures for polarization 1"}
 ///Kelvin Antenna temperatures for polarization 1
-#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TANT_1(nband) {"TANT_1", itostr("E", nband), "Kelvin Antenna temperatures for polarization 1"}
+#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TANT_1(nband) {"TANT_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Kelvin Antenna temperatures for polarization 1"}
 ///Kelvin System temperatures for polarization 2
-#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TSYS_2(nband) {"TSYS_2", itostr("E", nband), "Kelvin System temperatures for polarization 2"}
+#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TSYS_2(nband) {"TSYS_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Kelvin System temperatures for polarization 2"}
 ///Kelvin Antenna temperatures for polarization 2
-#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TANT_2(nband) {"TANT_2", itostr("E", nband), "Kelvin Antenna temperatures for polarization 2"}
+#define FITSIDI_SYSTEM_TEMPERATURE_COLUMN_TANT_2(nband) {"TANT_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Kelvin Antenna temperatures for polarization 2"}
 
 ///Mandatory keywords for the FITS-IDI SYSTEM_TEMPERATURE table
 ///1
-#define FITSIDI_SYSTEM_TEMPERATURE_KEYWORD_TABREV {"TABREV", "I", "1" }
+#define FITSIDI_SYSTEM_TEMPERATURE_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "1"}
 ///Number of polarizations in the table
-#define FITSIDI_SYSTEM_TEMPERATURE_KEYWORD_NO_POL {"NO_POL", "I", "Number of polarizations in the table" }
+#define FITSIDI_SYSTEM_TEMPERATURE_KEYWORD_NO_POL {"NO_POL", FITS_ELEMENT_SIGNED_INT_16_BIT, "Number of polarizations in the table"}
 
 ///Types for x and y values
 typedef enum
@@ -543,95 +554,95 @@ typedef enum
 
 ///Columns for the FITS-IDI GAIN_CURVE table
 ///Antenna number
-#define FITSIDI_GAIN_CURVE_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number" }
+#define FITSIDI_GAIN_CURVE_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number"}
 ///Array number
-#define FITSIDI_GAIN_CURVE_COLUMN_ARRAY {"ARRAY", "1J", "Array number" }
+#define FITSIDI_GAIN_CURVE_COLUMN_ARRAY {"ARRAY", "1J", "Array number"}
 ///Frequency setup number
-#define FITSIDI_GAIN_CURVE_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_GAIN_CURVE_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///Gain curve types for polarization 1
-#define FITSIDI_GAIN_CURVE_COLUMN_TYPE_1(nband) {"TYPE_1", itostr("J", nband), "Gain curve types for polarization 1"}
+#define FITSIDI_GAIN_CURVE_COLUMN_TYPE_1(nband) {"TYPE_1", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "Gain curve types for polarization 1"}
 ///Number of terms or entries for polarization 1
-#define FITSIDI_GAIN_CURVE_COLUMN_NTERM_1(nband) {"NTERM_1", itostr("J", nband), "Number of terms or entries for polarization 1"}
+#define FITSIDI_GAIN_CURVE_COLUMN_NTERM_1(nband) {"NTERM_1", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "Number of terms or entries for polarization 1"}
 ///x value types for polarization 1
-#define FITSIDI_GAIN_CURVE_COLUMN_X_TYP_1(nband) {"X_TYP_1", itostr("J", nband), "x value types for polarization 1"}
+#define FITSIDI_GAIN_CURVE_COLUMN_X_TYP_1(nband) {"X_TYP_1", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "x value types for polarization 1"}
 ///y value types for polarization 1
-#define FITSIDI_GAIN_CURVE_COLUMN_Y_TYP_1(nband) {"Y_TYP_1", itostr("J", nband), "y value types for polarization 1"}
+#define FITSIDI_GAIN_CURVE_COLUMN_Y_TYP_1(nband) {"Y_TYP_1", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "y value types for polarization 1"}
 ///x values for polarization 1
-#define FITSIDI_GAIN_CURVE_COLUMN_X_VAL_1(nband) {"X_VAL_1", itostr("E", nband), "x values for polarization 1"}
+#define FITSIDI_GAIN_CURVE_COLUMN_X_VAL_1(nband) {"X_VAL_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "x values for polarization 1"}
 ///y values for polarization 1
-#define FITSIDI_GAIN_CURVE_COLUMN_Y_VAL_1(ntab, nband) {"Y_VAL_1", itostr(itostr("E", ntab)",", nband), "y values for polarization 1"}
+#define FITSIDI_GAIN_CURVE_COLUMN_Y_VAL_1(ntab, nband) {"Y_VAL_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, ntab)",", nband), "y values for polarization 1"}
 ///Relative gain values for polarization 1
-#define FITSIDI_GAIN_CURVE_COLUMN_GAIN_1(ntab, nband) {"GAIN_1", itostr(itostr("E", ntab)",", nband), "Relative gain values for polarization 1"}
+#define FITSIDI_GAIN_CURVE_COLUMN_GAIN_1(ntab, nband) {"GAIN_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, ntab)",", nband), "Relative gain values for polarization 1"}
 ///K/Jy Sensitivities for polarization 1
-#define FITSIDI_GAIN_CURVE_COLUMN_SENS_1(nband) {"SENS_1", itostr("E", nband), "K/Jy Sensitivities for polarization 1"}
+#define FITSIDI_GAIN_CURVE_COLUMN_SENS_1(nband) {"SENS_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "K/Jy Sensitivities for polarization 1"}
 ///Gain curve types for polarization 2
-#define FITSIDI_GAIN_CURVE_COLUMN_TYPE_2(nband) {"TYPE_2", itostr("J", nband), "Gain curve types for polarization 2"}
+#define FITSIDI_GAIN_CURVE_COLUMN_TYPE_2(nband) {"TYPE_2", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "Gain curve types for polarization 2"}
 ///Number of terms or entries for polarization 2
-#define FITSIDI_GAIN_CURVE_COLUMN_NTERM_2(nband) {"NTERM_2", itostr("J", nband), "Number of terms or entries for polarization 2"}
+#define FITSIDI_GAIN_CURVE_COLUMN_NTERM_2(nband) {"NTERM_2", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "Number of terms or entries for polarization 2"}
 ///x value types for polarization 2
-#define FITSIDI_GAIN_CURVE_COLUMN_X_TYP_2(nband) {"X_TYP_2", itostr("J", nband), "x value types for polarization 2"}
+#define FITSIDI_GAIN_CURVE_COLUMN_X_TYP_2(nband) {"X_TYP_2", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "x value types for polarization 2"}
 ///y value types for polarization 2
-#define FITSIDI_GAIN_CURVE_COLUMN_Y_TYP_2(nband) {"Y_TYP_2", itostr("J", nband), "y value types for polarization 2"}
+#define FITSIDI_GAIN_CURVE_COLUMN_Y_TYP_2(nband) {"Y_TYP_2", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "y value types for polarization 2"}
 ///x values for polarization 2
-#define FITSIDI_GAIN_CURVE_COLUMN_X_VAL_2(nband) {"X_VAL_2", itostr("E", nband), "x values for polarization 2"}
+#define FITSIDI_GAIN_CURVE_COLUMN_X_VAL_2(nband) {"X_VAL_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "x values for polarization 2"}
 ///y values for polarization 2
-#define FITSIDI_GAIN_CURVE_COLUMN_Y_VAL_2(ntab, nband) {"Y_VAL_2", itostr(itostr("E", ntab)",", nband), "y values for polarization 2"}
+#define FITSIDI_GAIN_CURVE_COLUMN_Y_VAL_2(ntab, nband) {"Y_VAL_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, ntab)",", nband), "y values for polarization 2"}
 ///Relative gain values for polarization 2
-#define FITSIDI_GAIN_CURVE_COLUMN_GAIN_2(ntab, nband) {"GAIN_2", itostr(itostr("E", ntab)",", nband), "Relative gain values for polarization 2"}
+#define FITSIDI_GAIN_CURVE_COLUMN_GAIN_2(ntab, nband) {"GAIN_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, ntab)",", nband), "Relative gain values for polarization 2"}
 ///K/Jy Sensitivities for polarization 2
-#define FITSIDI_GAIN_CURVE_COLUMN_SENS_2(nband) {"SENS_2", itostr("E", nband), "K/Jy Sensitivities for polarization 2"}
+#define FITSIDI_GAIN_CURVE_COLUMN_SENS_2(nband) {"SENS_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "K/Jy Sensitivities for polarization 2"}
 
 ///Mandatory keywords for the FITS-IDI GAIN_CURVE table
 ///1
-#define FITSIDI_GAIN_CURVE_KEYWORD_TABREV {"TABREV", "I", "1" }
+#define FITSIDI_GAIN_CURVE_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "1"}
 ///Number of polarizations in the table
-#define FITSIDI_GAIN_CURVE_KEYWORD_NO_POL {"NO_POL", "I", "Number of polarizations in the table" }
+#define FITSIDI_GAIN_CURVE_KEYWORD_NO_POL {"NO_POL", FITS_ELEMENT_SIGNED_INT_16_BIT, "Number of polarizations in the table"}
 ///Number of tabulated values ntab
-#define FITSIDI_GAIN_CURVE_KEYWORD_NO_TABS {"NO_TABS", "I", "Number of tabulated values ntab" }
+#define FITSIDI_GAIN_CURVE_KEYWORD_NO_TABS {"NO_TABS", FITS_ELEMENT_SIGNED_INT_16_BIT, "Number of tabulated values ntab"}
 
 ///Columns for the FITS-IDI PHASE-CAL table
 ///days Central time of interval
-#define FITSIDI_PHASE_CAL_COLUMN_TIME {"TIME", "1D", "days Central time of interval" }
+#define FITSIDI_PHASE_CAL_COLUMN_TIME {"TIME", "1D", "days Central time of interval"}
 ///days Duration of interval
-#define FITSIDI_PHASE_CAL_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval" }
+#define FITSIDI_PHASE_CAL_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval"}
 ///Source ID number
-#define FITSIDI_PHASE_CAL_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number" }
+#define FITSIDI_PHASE_CAL_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number"}
 ///Antenna number
-#define FITSIDI_PHASE_CAL_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number" }
+#define FITSIDI_PHASE_CAL_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number"}
 ///Array number
-#define FITSIDI_PHASE_CAL_COLUMN_ARRAY {"ARRAY", "1J", "Array number" }
+#define FITSIDI_PHASE_CAL_COLUMN_ARRAY {"ARRAY", "1J", "Array number"}
 ///Frequency setup number
-#define FITSIDI_PHASE_CAL_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_PHASE_CAL_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///seconds Cable calibration measurement
-#define FITSIDI_PHASE_CAL_COLUMN_CABLE_CAL {"CABLE_CAL", "1D", "seconds Cable calibration measurement" }
+#define FITSIDI_PHASE_CAL_COLUMN_CABLE_CAL {"CABLE_CAL", "1D", "seconds Cable calibration measurement"}
 ///percent State counts for polarization 1
 #define FITSIDI_PHASE_CAL_COLUMN_STATE_1(nband) {"STATE_1", itostr("E4,", nband), "percent State counts for polarization 1"}
 ///Hz Phase-cal tone frequencies for polarization 1
-#define FITSIDI_PHASE_CAL_COLUMN_PC_FREQ_1(ntone, nband) {"PC_FREQ_1", itostr(itostr("D", ntone)",", nband), "Hz Phase-cal tone frequencies for polarization 1"}
+#define FITSIDI_PHASE_CAL_COLUMN_PC_FREQ_1(ntone, nband) {"PC_FREQ_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, ntone)",", nband), "Hz Phase-cal tone frequencies for polarization 1"}
 ///Real parts of phase-cal measurements for polarization 1
-#define FITSIDI_PHASE_CAL_COLUMN_PC_REAL_1(ntone, nband) {"PC_REAL_1", itostr(itostr("E", ntone)",", nband), "Real parts of phase-cal measurements for polarization 1"}
+#define FITSIDI_PHASE_CAL_COLUMN_PC_REAL_1(ntone, nband) {"PC_REAL_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, ntone)",", nband), "Real parts of phase-cal measurements for polarization 1"}
 ///Imaginary parts of phase-cal measurements for polarization 1
-#define FITSIDI_PHASE_CAL_COLUMN_PC_IMAG_1(ntone, nband) {"PC_IMAG_1", itostr(itostr("E", ntone)",", nband), "Imaginary parts of phase-cal measurements for polarization 1"}
+#define FITSIDI_PHASE_CAL_COLUMN_PC_IMAG_1(ntone, nband) {"PC_IMAG_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, ntone)",", nband), "Imaginary parts of phase-cal measurements for polarization 1"}
 ///sec/sec Phase-cal rates for polarization 1
-#define FITSIDI_PHASE_CAL_COLUMN_PC_RATE_1(ntone, nband) {"PC_RATE_1", itostr(itostr("E", ntone)",", nband), "sec/sec Phase-cal rates for polarization 1"}
+#define FITSIDI_PHASE_CAL_COLUMN_PC_RATE_1(ntone, nband) {"PC_RATE_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, ntone)",", nband), "sec/sec Phase-cal rates for polarization 1"}
 ///percent State counts for polarization 2
 #define FITSIDI_PHASE_CAL_COLUMN_STATE_2(nband) {"STATE_2", itostr("E4,", nband), "percent State counts for polarization 2"}
 ///Hz Phase-cal tone frequencies for polarization 2
-#define FITSIDI_PHASE_CAL_COLUMN_PC_FREQ_2(ntone, nband) {"PC_FREQ_2", itostr(itostr("D", ntone)",", nband), "Hz Phase-cal tone frequencies for polarization 2"}
+#define FITSIDI_PHASE_CAL_COLUMN_PC_FREQ_2(ntone, nband) {"PC_FREQ_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, ntone)",", nband), "Hz Phase-cal tone frequencies for polarization 2"}
 ///Real parts of phase-cal measurements for polarization 2
-#define FITSIDI_PHASE_CAL_COLUMN_PC_REAL_2(ntone, nband) {"PC_REAL_2", itostr(itostr("E", ntone)",", nband), "Real parts of phase-cal measurements for polarization 2"}
+#define FITSIDI_PHASE_CAL_COLUMN_PC_REAL_2(ntone, nband) {"PC_REAL_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, ntone)",", nband), "Real parts of phase-cal measurements for polarization 2"}
 ///Imaginary parts of phase-cal measurements for polarization 2
-#define FITSIDI_PHASE_CAL_COLUMN_PC_IMAG_2(ntone, nband) {"PC_IMAG_2", itostr(itostr("E", ntone)",", nband), "Imaginary parts of phase-cal measurements for polarization 2"}
+#define FITSIDI_PHASE_CAL_COLUMN_PC_IMAG_2(ntone, nband) {"PC_IMAG_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, ntone)",", nband), "Imaginary parts of phase-cal measurements for polarization 2"}
 ///sec/sec Phase-cal rates for polarization 2
-#define FITSIDI_PHASE_CAL_COLUMN_PC_RATE_2(ntone, nband) {"PC_RATE_2", itostr(itostr("E", ntone)",", nband), "sec/sec Phase-cal rates for polarization 2"}
+#define FITSIDI_PHASE_CAL_COLUMN_PC_RATE_2(ntone, nband) {"PC_RATE_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, ntone)",", nband), "sec/sec Phase-cal rates for polarization 2"}
 
 ///Mandatory keywords for the FITS-IDI PHASE-CAL table
 ///2
-#define FITSIDI_PHASE_CAL_KEYWORD_TABREV {"TABREV", "I", "2" }
+#define FITSIDI_PHASE_CAL_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "2"}
 ///Number of polarizations in the table
-#define FITSIDI_PHASE_CAL_KEYWORD_NO_POL {"NO_POL", "I", "Number of polarizations in the table" }
+#define FITSIDI_PHASE_CAL_KEYWORD_NO_POL {"NO_POL", FITS_ELEMENT_SIGNED_INT_16_BIT, "Number of polarizations in the table"}
 ///Number of tones ntone
-#define FITSIDI_PHASE_CAL_KEYWORD_NO_TABS {"NO_TABS", "I", "Number of tones ntone" }
+#define FITSIDI_PHASE_CAL_KEYWORD_NO_TABS {"NO_TABS", FITS_ELEMENT_SIGNED_INT_16_BIT, "Number of tones ntone"}
 
 ///Recommended SEVERITY codes
 typedef enum
@@ -648,376 +659,384 @@ typedef enum
 
 ///Columns for the FITS-IDI FLAG table
 ///Source ID number
-#define FITSIDI_FLAG_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number" }
+#define FITSIDI_FLAG_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number"}
 ///Array number
-#define FITSIDI_FLAG_COLUMN_ARRAY {"ARRAY", "1J", "Array number" }
+#define FITSIDI_FLAG_COLUMN_ARRAY {"ARRAY", "1J", "Array number"}
 ///Antenna numbers
-#define FITSIDI_FLAG_COLUMN_ANTS {"ANTS", "2J", "Antenna numbers" }
+#define FITSIDI_FLAG_COLUMN_ANTS {"ANTS", "2J", "Antenna numbers"}
 ///Frequency setup number
-#define FITSIDI_FLAG_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_FLAG_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///days Time range
-#define FITSIDI_FLAG_COLUMN_TIMERANG {"TIMERANG", "2E", "days Time range" }
+#define FITSIDI_FLAG_COLUMN_TIMERANG {"TIMERANG", "2E", "days Time range"}
 ///Band flags
-#define FITSIDI_FLAG_COLUMN_BANDS(nband) {"BANDS", itostr("J", nband), "Band flags"}
+#define FITSIDI_FLAG_COLUMN_BANDS(nband) {"BANDS", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "Band flags"}
 ///Channel range
-#define FITSIDI_FLAG_COLUMN_CHANS {"CHANS", "2J", "Channel range" }
+#define FITSIDI_FLAG_COLUMN_CHANS {"CHANS", "2J", "Channel range"}
 ///Polarization flags
-#define FITSIDI_FLAG_COLUMN_PFLAGS {"PFLAGS", "4J", "Polarization flags" }
+#define FITSIDI_FLAG_COLUMN_PFLAGS {"PFLAGS", "4J", "Polarization flags"}
 ///Reason for flag
-#define FITSIDI_FLAG_COLUMN_REASON(n) { "REASON", itostr("", n)"A", "Reason for flag" }
+#define FITSIDI_FLAG_COLUMN_REASON(n) { "REASON", itostr("", n)FITS_ELEMENT_CHARACTER_STRING, "Reason for flag"}
 ///Severity code
-#define FITSIDI_FLAG_COLUMN_SEVERITY {"SEVERITY", "1J", "Severity code" }
+#define FITSIDI_FLAG_COLUMN_SEVERITY {"SEVERITY", "1J", "Severity code"}
 
 ///Mandatory keywords for the FITS-IDI FLAG table
 ///2
-#define FITSIDI_FLAG_KEYWORD_TABREV {"TABREV", "I", "2" }
+#define FITSIDI_FLAG_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "2"}
 
 ///Columns for the FITS-IDI WEATHER table
 ///days Central time of interval
-#define FITSIDI_WEATHER_COLUMN_TIME {"TIME", "1D", "days Central time of interval" }
+#define FITSIDI_WEATHER_COLUMN_TIME {"TIME", "1D", "days Central time of interval"}
 ///days Duration of interval
-#define FITSIDI_WEATHER_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval" }
+#define FITSIDI_WEATHER_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval"}
 ///Antenna number
-#define FITSIDI_WEATHER_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number" }
+#define FITSIDI_WEATHER_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number"}
 ///Centigrade Surface air temperature
-#define FITSIDI_WEATHER_COLUMN_TEMPERATURE {"TEMPERATURE", "1E", "Centigrade Surface air temperature" }
+#define FITSIDI_WEATHER_COLUMN_TEMPERATURE {"TEMPERATURE", "1E", "Centigrade Surface air temperature"}
 ///millibar Surface air pressure
-#define FITSIDI_WEATHER_COLUMN_PRESSURE {"PRESSURE", "1E", "millibar Surface air pressure" }
+#define FITSIDI_WEATHER_COLUMN_PRESSURE {"PRESSURE", "1E", "millibar Surface air pressure"}
 ///Centigrade Dewpoint temperature
-#define FITSIDI_WEATHER_COLUMN_DEWPOINT {"DEWPOINT", "1E", "Centigrade Dewpoint temperature" }
+#define FITSIDI_WEATHER_COLUMN_DEWPOINT {"DEWPOINT", "1E", "Centigrade Dewpoint temperature"}
 ///m s−1 Wind velocity
-#define FITSIDI_WEATHER_COLUMN_WIND_VELOCITY {"WIND_VELOCITY", "1E", "m s−1 Wind velocity" }
+#define FITSIDI_WEATHER_COLUMN_WIND_VELOCITY {"WIND_VELOCITY", "1E", "m s−1 Wind velocity"}
 ///degrees Wind direction East from North
-#define FITSIDI_WEATHER_COLUMN_WIND_DIRECTION {"WIND_DIRECTION", "1E", "degrees Wind direction East from North" }
+#define FITSIDI_WEATHER_COLUMN_WIND_DIRECTION {"WIND_DIRECTION", "1E", "degrees Wind direction East from North"}
 ///m−2 Water column
-#define FITSIDI_WEATHER_COLUMN_WVR_H2O {"WVR_H2O", "1E", "m−2 Water column" }
+#define FITSIDI_WEATHER_COLUMN_WVR_H2O {"WVR_H2O", "1E", "m−2 Water column"}
 ///m−2 Electron column
-#define FITSIDI_WEATHER_COLUMN_IONOS_ELECTRON {"IONOS_ELECTRON", "1E", "m−2 Electron column" }
+#define FITSIDI_WEATHER_COLUMN_IONOS_ELECTRON {"IONOS_ELECTRON", "1E", "m−2 Electron column"}
 
 ///Mandatory keywords for the FITS-IDI WEATHER table
 ///2
-#define FITSIDI_WEATHER_KEYWORD_TABREV {"TABREV", "I", "2" }
+#define FITSIDI_WEATHER_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "2"}
 ///Reference date
-#define FITSIDI_WEATHER_KEYWORD_RDATE {"RDATE", "D", "Reference date" }
+#define FITSIDI_WEATHER_KEYWORD_RDATE {"RDATE", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Reference date"}
 
 ///Columns for the FITS-IDI BASELINE table
 ///days Central time of interval
-#define FITSIDI_BASELINE_COLUMN_TIME {"TIME", "1D", "days Central time of interval" }
+#define FITSIDI_BASELINE_COLUMN_TIME {"TIME", "1D", "days Central time of interval"}
 ///Source ID number
-#define FITSIDI_BASELINE_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number" }
+#define FITSIDI_BASELINE_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number"}
 ///Array number
-#define FITSIDI_BASELINE_COLUMN_ARRAY {"ARRAY", "1J", "Array number" }
+#define FITSIDI_BASELINE_COLUMN_ARRAY {"ARRAY", "1J", "Array number"}
 ///Antenna numbers forming baseline
-#define FITSIDI_BASELINE_COLUMN_ANTENNA_NOS {"ANTENNA_NOS.", "2J", "Antenna numbers forming baseline" }
+#define FITSIDI_BASELINE_COLUMN_ANTENNA_NOS {"ANTENNA_NOS.", "2J", "Antenna numbers forming baseline"}
 ///Frequency setup number
-#define FITSIDI_BASELINE_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_BASELINE_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///Real part of multiplicative correction
-#define FITSIDI_BASELINE_COLUMN_REAL_M(nstokes, nband) {"REAL_M", itostr(itostr("E", nstokes)",", nband), "Real part of multiplicative correction"}
+#define FITSIDI_BASELINE_COLUMN_REAL_M(nstokes, nband) {"REAL_M", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nstokes)",", nband), "Real part of multiplicative correction"}
 ///Imaginary part of multiplicative correction
-#define FITSIDI_BASELINE_COLUMN_IMAG_M(nstokes, nband) {"IMAG_M", itostr(itostr("E", nstokes)",", nband), "Imaginary part of multiplicative correction"}
+#define FITSIDI_BASELINE_COLUMN_IMAG_M(nstokes, nband) {"IMAG_M", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nstokes)",", nband), "Imaginary part of multiplicative correction"}
 ///Real part of additive correction
-#define FITSIDI_BASELINE_COLUMN_REAL_A(nstokes, nband) {"REAL_A", itostr(itostr("E", nstokes)",", nband), "Real part of additive correction"}
+#define FITSIDI_BASELINE_COLUMN_REAL_A(nstokes, nband) {"REAL_A", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nstokes)",", nband), "Real part of additive correction"}
 ///Imaginary part of additive correction
-#define FITSIDI_BASELINE_COLUMN_IMAG_A(nstokes, nband) {"IMAG_A", itostr(itostr("E", nstokes)",", nband), "Imaginary part of additive correction"}
+#define FITSIDI_BASELINE_COLUMN_IMAG_A(nstokes, nband) {"IMAG_A", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nstokes)",", nband), "Imaginary part of additive correction"}
 
 ///Mandatory keywords for the FITS-IDI BASELINE table
 ///1
-#define FITSIDI_BASELINE_KEYWORD_TABREV {"TABREV", "I", "1" }
+#define FITSIDI_BASELINE_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "1"}
 ///Maximum antenna number in the table
-#define FITSIDI_BASELINE_KEYWORD_NO_ANT {"NO_ANT", "I", "Maximum antenna number in the table" }
+#define FITSIDI_BASELINE_KEYWORD_NO_ANT {"NO_ANT", FITS_ELEMENT_SIGNED_INT_16_BIT, "Maximum antenna number in the table"}
 
 ///Columns for the FITS-IDI BANDPASS table
 ///days Central time of interval
-#define FITSIDI_BANDPASS_COLUMN_TIME {"TIME", "1D", "days Central time of interval" }
+#define FITSIDI_BANDPASS_COLUMN_TIME {"TIME", "1D", "days Central time of interval"}
 ///days Duration of interval
-#define FITSIDI_BANDPASS_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval" }
+#define FITSIDI_BANDPASS_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval"}
 ///Source ID number
-#define FITSIDI_BANDPASS_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number" }
+#define FITSIDI_BANDPASS_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number"}
 ///Antenna number
-#define FITSIDI_BANDPASS_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number" }
+#define FITSIDI_BANDPASS_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number"}
 ///Array number
-#define FITSIDI_BANDPASS_COLUMN_ARRAY {"ARRAY", "1J", "Array number" }
+#define FITSIDI_BANDPASS_COLUMN_ARRAY {"ARRAY", "1J", "Array number"}
 ///Frequency setup number
-#define FITSIDI_BANDPASS_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_BANDPASS_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///Hz Channel bandwidth
-#define FITSIDI_BANDPASS_COLUMN_BANDWIDTH {"BANDWIDTH", "1E", "Hz Channel bandwidth" }
+#define FITSIDI_BANDPASS_COLUMN_BANDWIDTH {"BANDWIDTH", "1E", "Hz Channel bandwidth"}
 ///Hz Frequency of each band
-#define FITSIDI_BANDPASS_COLUMN_BAND_FREQ(nband) {"BAND_FREQ", itostr("D", nband), "Hz Frequency of each band"}
+#define FITSIDI_BANDPASS_COLUMN_BAND_FREQ(nband) {"BAND_FREQ", itostr(FITS_ELEMENT_FLOATING_POINT_64_BIT, nband), "Hz Frequency of each band"}
 ///Reference antenna for polarization 1
-#define FITSIDI_BANDPASS_COLUMN_REFANT_1 {"REFANT_1", "1J", "Reference antenna for polarization 1" }
+#define FITSIDI_BANDPASS_COLUMN_REFANT_1 {"REFANT_1", "1J", "Reference antenna for polarization 1"}
 ///Real part of bandpass correction for polarization 1
-#define FITSIDI_BANDPASS_COLUMN_BREAL_1(nbach, nband) {"BREAL_1", itostr(itostr("E", nbach)",", nband), "Real part of bandpass correction for polarization 1"}
+#define FITSIDI_BANDPASS_COLUMN_BREAL_1(nbach, nband) {"BREAL_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nbach)",", nband), "Real part of bandpass correction for polarization 1"}
 ///Imaginary part of bandpass correction for polarization 1
-#define FITSIDI_BANDPASS_COLUMN_BIMAG_1(nbach, nband) {"BIMAG_1", itostr(itostr("E", nbach)",", nband), "Imaginary part of bandpass correction for polarization 1"}
+#define FITSIDI_BANDPASS_COLUMN_BIMAG_1(nbach, nband) {"BIMAG_1", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nbach)",", nband), "Imaginary part of bandpass correction for polarization 1"}
 ///Reference antenna for polarization 2
-#define FITSIDI_BANDPASS_COLUMN_REFANT_2 {"REFANT_2", "1J", "Reference antenna for polarization 2" }
+#define FITSIDI_BANDPASS_COLUMN_REFANT_2 {"REFANT_2", "1J", "Reference antenna for polarization 2"}
 ///Real part of bandpass correction for polarization 2
-#define FITSIDI_BANDPASS_COLUMN_BREAL_2(nbach, nband) {"BREAL_2", itostr(itostr("E", nbach)",", nband), "Real part of bandpass correction for polarization 2"}
+#define FITSIDI_BANDPASS_COLUMN_BREAL_2(nbach, nband) {"BREAL_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nbach)",", nband), "Real part of bandpass correction for polarization 2"}
 ///Imaginary part of bandpass correction for polarization 2
-#define FITSIDI_BANDPASS_COLUMN_BIMAG_2(nbach, nband) {"BIMAG_2", itostr(itostr("E", nbach)",", nband), "Imaginary part of bandpass correction for polarization 2"}
+#define FITSIDI_BANDPASS_COLUMN_BIMAG_2(nbach, nband) {"BIMAG_2", itostr(itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nbach)",", nband), "Imaginary part of bandpass correction for polarization 2"}
 
 ///Mandatory keywords for the FITS-IDI BANDPASS table
 ///1
-#define FITSIDI_BANDPASS_KEYWORD_TABREV {"TABREV", "I", "1" }
+#define FITSIDI_BANDPASS_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "1"}
 ///Maximum antenna number in the table
-#define FITSIDI_BANDPASS_KEYWORD_NO_ANT {"NO_ANT", "I", "Maximum antenna number in the table" }
+#define FITSIDI_BANDPASS_KEYWORD_NO_ANT {"NO_ANT", FITS_ELEMENT_SIGNED_INT_16_BIT, "Maximum antenna number in the table"}
 ///Number of polarizations in the table
-#define FITSIDI_BANDPASS_KEYWORD_NO_POL {"NO_POL", "I", "Number of polarizations in the table" }
+#define FITSIDI_BANDPASS_KEYWORD_NO_POL {"NO_POL", FITS_ELEMENT_SIGNED_INT_16_BIT, "Number of polarizations in the table"}
 ///Number of spectral channels in the table
-#define FITSIDI_BANDPASS_KEYWORD_NO_BACH {"NO_BACH", "I", "Number of spectral channels in the table" }
+#define FITSIDI_BANDPASS_KEYWORD_NO_BACH {"NO_BACH", FITS_ELEMENT_SIGNED_INT_16_BIT, "Number of spectral channels in the table"}
 ///Data channel number for first channel in the table
-#define FITSIDI_BANDPASS_KEYWORD_STRT_CHN {"STRT_CHN", "I", "Data channel number for first channel in the table" }
+#define FITSIDI_BANDPASS_KEYWORD_STRT_CHN {"STRT_CHN", FITS_ELEMENT_SIGNED_INT_16_BIT, "Data channel number for first channel in the table"}
 
 ///Columns for the FITS-IDI CALIBRATION table
 ///days Central time of interval
-#define FITSIDI_CALIBRATION_COLUMN_TIME {"TIME", "1D", "days Central time of interval" }
+#define FITSIDI_CALIBRATION_COLUMN_TIME {"TIME", "1D", "days Central time of interval"}
 ///days Duration of interval
-#define FITSIDI_CALIBRATION_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval" }
+#define FITSIDI_CALIBRATION_COLUMN_TIME_INTERVAL {"TIME_INTERVAL", "1E", "days Duration of interval"}
 ///Source ID number
-#define FITSIDI_CALIBRATION_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number" }
+#define FITSIDI_CALIBRATION_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number"}
 ///Antenna number
-#define FITSIDI_CALIBRATION_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number" }
+#define FITSIDI_CALIBRATION_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number"}
 ///Array number
-#define FITSIDI_CALIBRATION_COLUMN_ARRAY {"ARRAY", "1J", "Array number" }
+#define FITSIDI_CALIBRATION_COLUMN_ARRAY {"ARRAY", "1J", "Array number"}
 ///Frequency setup number
-#define FITSIDI_CALIBRATION_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_CALIBRATION_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///Kelvin System temperature for polarization 1
-#define FITSIDI_CALIBRATION_COLUMN_TSYS_1(nband) {"TSYS_1", itostr("E", nband), "Kelvin System temperature for polarization 1"}
+#define FITSIDI_CALIBRATION_COLUMN_TSYS_1(nband) {"TSYS_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Kelvin System temperature for polarization 1"}
 ///Kelvin Antenna temperature for polarization 1
-#define FITSIDI_CALIBRATION_COLUMN_TANT_1(nband) {"TANT_1", itostr("E", nband), "Kelvin Antenna temperature for polarization 1"}
+#define FITSIDI_CALIBRATION_COLUMN_TANT_1(nband) {"TANT_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Kelvin Antenna temperature for polarization 1"}
 ///Kelvin/Jy Sensitivity at polarization 1
-#define FITSIDI_CALIBRATION_COLUMN_SENSITIVITY_1(nband) {"SENSITIVITY_1", itostr("E", nband), "Kelvin/Jy Sensitivity at polarization 1"}
+#define FITSIDI_CALIBRATION_COLUMN_SENSITIVITY_1(nband) {"SENSITIVITY_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Kelvin/Jy Sensitivity at polarization 1"}
 ///radians Phase at polarization 1
-#define FITSIDI_CALIBRATION_COLUMN_PHASE_1(nband) {"PHASE_1", itostr("E", nband), "radians Phase at polarization 1"}
+#define FITSIDI_CALIBRATION_COLUMN_PHASE_1(nband) {"PHASE_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "radians Phase at polarization 1"}
 ///sec/sec Rate of change of delay of polarization 1
-#define FITSIDI_CALIBRATION_COLUMN_RATE_1(nband) {"RATE_1", itostr("E", nband), "sec/sec Rate of change of delay of polarization 1"}
+#define FITSIDI_CALIBRATION_COLUMN_RATE_1(nband) {"RATE_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "sec/sec Rate of change of delay of polarization 1"}
 ///seconds Delay of polarization 1
-#define FITSIDI_CALIBRATION_COLUMN_DELAY_1(nband) {"DELAY_1", itostr("E", nband), "seconds Delay of polarization 1"}
+#define FITSIDI_CALIBRATION_COLUMN_DELAY_1(nband) {"DELAY_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "seconds Delay of polarization 1"}
 ///Complex gain real part for polarization 1
-#define FITSIDI_CALIBRATION_COLUMN_REAL_1(nband) {"REAL_1", itostr("E", nband), "Complex gain real part for polarization 1"}
+#define FITSIDI_CALIBRATION_COLUMN_REAL_1(nband) {"REAL_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Complex gain real part for polarization 1"}
 ///Complex gain imaginary part for polarization 1
-#define FITSIDI_CALIBRATION_COLUMN_IMAG_1(nband) {"IMAG_1", itostr("E", nband), "Complex gain imaginary part for polarization 1"}
+#define FITSIDI_CALIBRATION_COLUMN_IMAG_1(nband) {"IMAG_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Complex gain imaginary part for polarization 1"}
 ///Reliability weight of complex gain for polarization 1
-#define FITSIDI_CALIBRATION_COLUMN_WEIGHT_1(nband) {"WEIGHT_1", itostr("E", nband), "Reliability weight of complex gain for polarization 1"}
+#define FITSIDI_CALIBRATION_COLUMN_WEIGHT_1(nband) {"WEIGHT_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Reliability weight of complex gain for polarization 1"}
 ///Reference antenna for polarization 1
-#define FITSIDI_CALIBRATION_COLUMN_REFANT_1(nband) {"REFANT_1", itostr("J", nband), "Reference antenna for polarization 1"}
+#define FITSIDI_CALIBRATION_COLUMN_REFANT_1(nband) {"REFANT_1", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "Reference antenna for polarization 1"}
 ///Kelvin System temperature for polarization 2
-#define FITSIDI_CALIBRATION_COLUMN_TSYS_2(nband) {"TSYS_2", itostr("E", nband), "Kelvin System temperature for polarization 2"}
+#define FITSIDI_CALIBRATION_COLUMN_TSYS_2(nband) {"TSYS_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Kelvin System temperature for polarization 2"}
 ///Kelvin Antenna temperature for polarization 2
-#define FITSIDI_CALIBRATION_COLUMN_TANT_2(nband) {"TANT_2", itostr("E", nband), "Kelvin Antenna temperature for polarization 2"}
+#define FITSIDI_CALIBRATION_COLUMN_TANT_2(nband) {"TANT_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Kelvin Antenna temperature for polarization 2"}
 ///Kelvin/Jy Sensitivity at polarization 2
-#define FITSIDI_CALIBRATION_COLUMN_SENSITIVITY_2(nband) {"SENSITIVITY_2", itostr("E", nband), "Kelvin/Jy Sensitivity at polarization 2"}
+#define FITSIDI_CALIBRATION_COLUMN_SENSITIVITY_2(nband) {"SENSITIVITY_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Kelvin/Jy Sensitivity at polarization 2"}
 ///radians Phase at polarization 2
-#define FITSIDI_CALIBRATION_COLUMN_PHASE_2(nband) {"PHASE_2", itostr("E", nband), "radians Phase at polarization 2"}
+#define FITSIDI_CALIBRATION_COLUMN_PHASE_2(nband) {"PHASE_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "radians Phase at polarization 2"}
 ///sec/sec Rate of change of delay of polarization 2
-#define FITSIDI_CALIBRATION_COLUMN_RATE_2(nband) {"RATE_2", itostr("E", nband), "sec/sec Rate of change of delay of polarization 2"}
+#define FITSIDI_CALIBRATION_COLUMN_RATE_2(nband) {"RATE_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "sec/sec Rate of change of delay of polarization 2"}
 ///seconds Delay of polarization 2
-#define FITSIDI_CALIBRATION_COLUMN_DELAY_2(nband) {"DELAY_2", itostr("E", nband), "seconds Delay of polarization 2"}
+#define FITSIDI_CALIBRATION_COLUMN_DELAY_2(nband) {"DELAY_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "seconds Delay of polarization 2"}
 ///Complex gain real part for polarization 2
-#define FITSIDI_CALIBRATION_COLUMN_REAL_2(nband) {"REAL_2", itostr("E", nband), "Complex gain real part for polarization 2"}
+#define FITSIDI_CALIBRATION_COLUMN_REAL_2(nband) {"REAL_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Complex gain real part for polarization 2"}
 ///Complex gain imaginary part for polarization 2
-#define FITSIDI_CALIBRATION_COLUMN_IMAG_2(nband) {"IMAG_2", itostr("E", nband), "Complex gain imaginary part for polarization 2"}
+#define FITSIDI_CALIBRATION_COLUMN_IMAG_2(nband) {"IMAG_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Complex gain imaginary part for polarization 2"}
 ///Reliability weight of complex gain for polarization 2
-#define FITSIDI_CALIBRATION_COLUMN_WEIGHT_2(nband) {"WEIGHT_2", itostr("E", nband), "Reliability weight of complex gain for polarization 2"}
+#define FITSIDI_CALIBRATION_COLUMN_WEIGHT_2(nband) {"WEIGHT_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Reliability weight of complex gain for polarization 2"}
 ///Reference antenna for polarization 2
-#define FITSIDI_CALIBRATION_COLUMN_REFANT_2(nband) {"REFANT_2", itostr("J", nband), "Reference antenna for polarization 2"}
+#define FITSIDI_CALIBRATION_COLUMN_REFANT_2(nband) {"REFANT_2", itostr(FITS_ELEMENT_SIGNED_INT_32_BIT, nband), "Reference antenna for polarization 2"}
 
 ///Mandatory keywords for the FITS-IDI CALIBRATION table
 ///1
-#define FITSIDI_CALIBRATION_KEYWORD_TABREV {"TABREV", "I", "1" }
+#define FITSIDI_CALIBRATION_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "1"}
 ///Maximum antenna number in the table
-#define FITSIDI_CALIBRATION_KEYWORD_NO_ANT {"NO_ANT", "I", "Maximum antenna number in the table" }
+#define FITSIDI_CALIBRATION_KEYWORD_NO_ANT {"NO_ANT", FITS_ELEMENT_SIGNED_INT_16_BIT, "Maximum antenna number in the table"}
 ///Number of polarizations in the table
-#define FITSIDI_CALIBRATION_KEYWORD_NO_POL {"NO_POL", "I", "Number of polarizations in the table" }
+#define FITSIDI_CALIBRATION_KEYWORD_NO_POL {"NO_POL", FITS_ELEMENT_SIGNED_INT_16_BIT, "Number of polarizations in the table"}
 
 ///Columns for the FITS-IDI MODEL_COMPS table
 ///days Central time of interval
-#define FITSIDI_MODEL_COMPS_COLUMN_TIME {"TIME", "1D", "days Central time of interval" }
+#define FITSIDI_MODEL_COMPS_COLUMN_TIME {"TIME", "1D", "days Central time of interval"}
 ///Source ID number
-#define FITSIDI_MODEL_COMPS_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number" }
+#define FITSIDI_MODEL_COMPS_COLUMN_SOURCE_ID {"SOURCE_ID", "1J", "Source ID number"}
 ///Antenna number
-#define FITSIDI_MODEL_COMPS_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number" }
+#define FITSIDI_MODEL_COMPS_COLUMN_ANTENNA_NO {"ANTENNA_NO", "1J", "Antenna number"}
 ///Array number
-#define FITSIDI_MODEL_COMPS_COLUMN_ARRAY {"ARRAY", "1J", "Array number" }
+#define FITSIDI_MODEL_COMPS_COLUMN_ARRAY {"ARRAY", "1J", "Array number"}
 ///Frequency setup number
-#define FITSIDI_MODEL_COMPS_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number" }
+#define FITSIDI_MODEL_COMPS_COLUMN_FREQID {"FREQID", "1J", "Frequency setup number"}
 ///sec Atmospheric delay
-#define FITSIDI_MODEL_COMPS_COLUMN_ATMOS {"ATMOS", "1D", "sec Atmospheric delay" }
+#define FITSIDI_MODEL_COMPS_COLUMN_ATMOS {"ATMOS", "1D", "sec Atmospheric delay"}
 ///sec/sec Time derivative of atmospheric delay
-#define FITSIDI_MODEL_COMPS_COLUMN_DATMOS {"DATMOS", "1D", "sec/sec Time derivative of atmospheric delay" }
+#define FITSIDI_MODEL_COMPS_COLUMN_DATMOS {"DATMOS", "1D", "sec/sec Time derivative of atmospheric delay"}
 ///sec Group delay
-#define FITSIDI_MODEL_COMPS_COLUMN_GDELAY {"GDELAY", "1D", "sec Group delay" }
+#define FITSIDI_MODEL_COMPS_COLUMN_GDELAY {"GDELAY", "1D", "sec Group delay"}
 ///sec/sec Rate of change of group delay
-#define FITSIDI_MODEL_COMPS_COLUMN_GRATE {"GRATE", "1D", "sec/sec Rate of change of group delay" }
+#define FITSIDI_MODEL_COMPS_COLUMN_GRATE {"GRATE", "1D", "sec/sec Rate of change of group delay"}
 ///sec “Clock” epoch error
-#define FITSIDI_MODEL_COMPS_COLUMN_CLOCK_1 {"CLOCK_1", "1D", "sec “Clock” epoch error" }
+#define FITSIDI_MODEL_COMPS_COLUMN_CLOCK_1 {"CLOCK_1", "1D", "sec “Clock” epoch error"}
 ///sec/sec Time derivative of clock error
-#define FITSIDI_MODEL_COMPS_COLUMN_DCLOCK_1 {"DCLOCK_1", "1D", "sec/sec Time derivative of clock error" }
+#define FITSIDI_MODEL_COMPS_COLUMN_DCLOCK_1 {"DCLOCK_1", "1D", "sec/sec Time derivative of clock error"}
 ///Hz LO offset
-#define FITSIDI_MODEL_COMPS_COLUMN_LO_OFFSET_1(nband) {"LO_OFFSET_1", itostr("E", nband), "Hz LO offset"}
+#define FITSIDI_MODEL_COMPS_COLUMN_LO_OFFSET_1(nband) {"LO_OFFSET_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Hz LO offset"}
 ///Hz/sec Time derivative of LO offset
-#define FITSIDI_MODEL_COMPS_COLUMN_DLO_OFFSET_1(nband) {"DLO_OFFSET_1", itostr("E", nband), "Hz/sec Time derivative of LO offset"}
+#define FITSIDI_MODEL_COMPS_COLUMN_DLO_OFFSET_1(nband) {"DLO_OFFSET_1", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Hz/sec Time derivative of LO offset"}
 ///sec m−2 Dispersive delay
-#define FITSIDI_MODEL_COMPS_COLUMN_DISP_1 {"DISP_1", "1E", "sec m−2 Dispersive delay" }
+#define FITSIDI_MODEL_COMPS_COLUMN_DISP_1 {"DISP_1", "1E", "sec m−2 Dispersive delay"}
 ///sec m−2/sec Time derivative of dispersive delay
-#define FITSIDI_MODEL_COMPS_COLUMN_DDISP_1 {"DDISP_1", "1E", "sec m−2/sec Time derivative of dispersive delay" }
+#define FITSIDI_MODEL_COMPS_COLUMN_DDISP_1 {"DDISP_1", "1E", "sec m−2/sec Time derivative of dispersive delay"}
 ///sec “Clock” epoch error
-#define FITSIDI_MODEL_COMPS_COLUMN_CLOCK_2 {"CLOCK_2", "1D", "sec “Clock” epoch error" }
+#define FITSIDI_MODEL_COMPS_COLUMN_CLOCK_2 {"CLOCK_2", "1D", "sec “Clock” epoch error"}
 ///sec/sec Time derivative of clock error
-#define FITSIDI_MODEL_COMPS_COLUMN_DCLOCK_2 {"DCLOCK_2", "1D", "sec/sec Time derivative of clock error" }
+#define FITSIDI_MODEL_COMPS_COLUMN_DCLOCK_2 {"DCLOCK_2", "1D", "sec/sec Time derivative of clock error"}
 ///Hz LO offset
-#define FITSIDI_MODEL_COMPS_COLUMN_LO_OFFSET_2(nband) {"LO_OFFSET_2", itostr("E", nband), "Hz LO offset"}
+#define FITSIDI_MODEL_COMPS_COLUMN_LO_OFFSET_2(nband) {"LO_OFFSET_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Hz LO offset"}
 ///Hz/sec Time derivative of LO offset
-#define FITSIDI_MODEL_COMPS_COLUMN_DLO_OFFSET_2(nband) {"DLO_OFFSET_2", itostr("E", nband), "Hz/sec Time derivative of LO offset"}
+#define FITSIDI_MODEL_COMPS_COLUMN_DLO_OFFSET_2(nband) {"DLO_OFFSET_2", itostr(FITS_ELEMENT_FLOATING_POINT_32_BIT, nband), "Hz/sec Time derivative of LO offset"}
 ///sec m−2 Dispersive delay
-#define FITSIDI_MODEL_COMPS_COLUMN_DISP_2 {"DISP_2", "1E", "sec m−2 Dispersive delay" }
+#define FITSIDI_MODEL_COMPS_COLUMN_DISP_2 {"DISP_2", "1E", "sec m−2 Dispersive delay"}
 ///sec m−2/sec Time derivative of dispersive delay
-#define FITSIDI_MODEL_COMPS_COLUMN_DDISP_2 {"DDISP_2", "1E", "sec m−2/sec Time derivative of dispersive delay" }
+#define FITSIDI_MODEL_COMPS_COLUMN_DDISP_2 {"DDISP_2", "1E", "sec m−2/sec Time derivative of dispersive delay"}
 
 ///Mandatory keywords for the FITS-IDI MODEL_COMPS table
 ///1
-#define FITSIDI_MODEL_COMPS_KEYWORD_TABREV {"TABREV", "I", "1" }
+#define FITSIDI_MODEL_COMPS_KEYWORD_TABREV {"TABREV", FITS_ELEMENT_SIGNED_INT_16_BIT, "1"}
 ///Reference date
-#define FITSIDI_MODEL_COMPS_KEYWORD_RDATE {"RDATE", "D", "Reference date" }
+#define FITSIDI_MODEL_COMPS_KEYWORD_RDATE {"RDATE", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Reference date"}
 ///Number of polarizations in the table
-#define FITSIDI_MODEL_COMPS_KEYWORD_NO_POL {"NO_POL", "I", "Number of polarizations in the table" }
+#define FITSIDI_MODEL_COMPS_KEYWORD_NO_POL {"NO_POL", FITS_ELEMENT_SIGNED_INT_16_BIT, "Number of polarizations in the table"}
 ///FFT size
-#define FITSIDI_MODEL_COMPS_KEYWORD_FFT_SIZE {"FFT_SIZE", "I", "FFT size" }
+#define FITSIDI_MODEL_COMPS_KEYWORD_FFT_SIZE {"FFT_SIZE", FITS_ELEMENT_SIGNED_INT_16_BIT, "FFT size"}
 ///Oversampling factor
-#define FITSIDI_MODEL_COMPS_KEYWORD_OVERSAMP {"OVERSAMP", "I", "Oversampling factor" }
+#define FITSIDI_MODEL_COMPS_KEYWORD_OVERSAMP {"OVERSAMP", FITS_ELEMENT_SIGNED_INT_16_BIT, "Oversampling factor"}
 ///Zero padding factor
-#define FITSIDI_MODEL_COMPS_KEYWORD_ZERO_PAD {"ZERO_PAD", "I", "Zero padding factor" }
+#define FITSIDI_MODEL_COMPS_KEYWORD_ZERO_PAD {"ZERO_PAD", FITS_ELEMENT_SIGNED_INT_16_BIT, "Zero padding factor"}
 ///Tapering function ('HANNING' or 'UNIFORM')
-#define FITSIDI_MODEL_COMPS_KEYWORD_TAPER_FN {"TAPER_FN", "A", "Tapering function ('HANNING' or 'UNIFORM')" }
+#define FITSIDI_MODEL_COMPS_KEYWORD_TAPER_FN {"TAPER_FN", FITS_ELEMENT_CHARACTER_STRING, "Tapering function ('HANNING' or 'UNIFORM')"}
 
 ///SDFITS Convention Table
 #define FITS_TABLE_SDFITS "SINGLE DISH"
 
 ///SDFITS columns
 ///common FITS usage
-#define SDFITS_COLUMN_OBJECT {"OBJECT", "8A", "common FITS usage" }
+#define SDFITS_COLUMN_OBJECT {"OBJECT", "8A", "common FITS usage"}
 ///common FITS keyword
-#define SDFITS_COLUMN_TELESCOP {"TELESCOP", "8A", "common FITS keyword" }
+#define SDFITS_COLUMN_TELESCOP {"TELESCOP", "8A", "common FITS keyword"}
 ///resolution may differ from spacing
-#define SDFITS_COLUMN_FREQRES {"FREQRES", "D", "resolution may differ from spacing" }
+#define SDFITS_COLUMN_FREQRES {"FREQRES", FITS_ELEMENT_FLOATING_POINT_64_BIT, "resolution may differ from spacing"}
 ///of backend, not one channel
-#define SDFITS_COLUMN_BANDWID {"BANDWID", "D", "of backend, not one channel" }
+#define SDFITS_COLUMN_BANDWID {"BANDWID", FITS_ELEMENT_FLOATING_POINT_64_BIT, "of backend, not one channel"}
 ///common FITS usage; JD preferable?
-#define SDFITS_COLUMN_DATE_OBS {"DATE-OBS", "8A", "common FITS usage; JD preferable?" }
+#define SDFITS_COLUMN_DATE_OBS {"DATE-OBS", "8A", "common FITS usage; JD preferable?"}
 ///UT time of day; UT seconds since Oh UT
-#define SDFITS_COLUMN_TIME {"TIME", "D", "UT time of day; UT seconds since Oh UT" }
+#define SDFITS_COLUMN_TIME {"TIME", FITS_ELEMENT_FLOATING_POINT_64_BIT, "UT time of day; UT seconds since Oh UT"}
 ///effective integration time
-#define SDFITS_COLUMN_EXPOSURE {"EXPOSURE", "D", "effective integration time" }
+#define SDFITS_COLUMN_EXPOSURE {"EXPOSURE", FITS_ELEMENT_FLOATING_POINT_64_BIT, "effective integration time"}
 ///system, not receiver, temperature
-#define SDFITS_COLUMN_TSYS {"TSYS", "D", "system, not receiver, temperature" }
-#define SDFITS_COLUMN_DATA "DATA"
-#define SDFITS_COLUMN_TDIM(n) (itostr("TDIM", n))
-#define SDFITS_COLUMN_TUNIT(n) (itostr("TUNIT", n))
-#define SDFITS_COLUMN_CTYPE(n) (itostr("CTYPE", n))
-#define SDFITS_COLUMN_CDELT(n) (itostr("CDELT", n))
-#define SDFITS_COLUMN_CRPIX(n) (itostr("CRPIX", n))
-#define SDFITS_COLUMN_CRVAL(n) (itostr("CRVAL", n))
-#define SDFITS_COLUMN_CRPIX(n) (itostr("CRPIX", n))
+#define SDFITS_COLUMN_TSYS {"TSYS", FITS_ELEMENT_FLOATING_POINT_64_BIT, "system, not receiver, temperature"}
+///Data buffer
+#define SDFITS_COLUMN_DATA {"DATA", "", ""}
+///Set to 'FLUX'
+#define SDFITS_KEYWORD_TTYPE(n) {itostr("TTYPE", n), "8A", "Set to 'FLUX'"}
+///shall have the value 'JY' or 'UNCALIB'
+#define SDFITS_KEYWORD_TUNIT(n) {itostr("TUNIT", n), "8A", "shall have the value 'JY' or 'UNCALIB'"}
+///Size in pixels of data buffer
+#define SDFITS_KEYWORD_TDIM(n) {itostr("TDIM", n), FITS_ELEMENT_FLOATING_POINT_32_BIT, "Size in pixels of data buffer"}
+///Name of regular axis m = 1 to M
+#define SDFITS_KEYWORD_CTYPE(m) {itostr("CTYPE", m), FITS_ELEMENT_CHARACTER_STRING, "Name of regular axis m = 1 to M"}
+///Coordinate increment on axis m = 1 to M
+#define SDFITS_KEYWORD_CDELT(m) {itostr("CDELT", m), FITS_ELEMENT_FLOATING_POINT_32_BIT, "Coordinate increment on axis m = 1 to M"}
+///Reference pixel on axis m = 1 to M
+#define SDFITS_KEYWORD_CRPIX(m) {itostr("CRPIX", m), FITS_ELEMENT_FLOATING_POINT_32_BIT, "Reference pixel on axis m = 1 to M"}
+///Coordinate value at reference pixel on axis m = 1 to M
+#define SDFITS_KEYWORD_CRVAL(m) {itostr("CRVAL", m), FITS_ELEMENT_FLOATING_POINT_32_BIT, "Coordinate value at reference pixel on axis m = 1 to M"}
 
 ///SDFITS columns
 ///Observer name;
-#define SDFITS_COLUMN_OBSERVER {"OBSERVER", "8A", "Observer name;" }
+#define SDFITS_COLUMN_OBSERVER {"OBSERVER", "8A", "Observer name;"}
 ///Observer & operator initials;
-#define SDFITS_COLUMN_OBSID {"OBSID", "8A", "Observer & operator initials;" }
+#define SDFITS_COLUMN_OBSID {"OBSID", "8A", "Observer & operator initials;"}
 ///Project ID;
-#define SDFITS_COLUMN_PROJID {"PROJID", "8A", "Project ID;" }
+#define SDFITS_COLUMN_PROJID {"PROJID", "8A", "Project ID;"}
 ///Scan number
-#define SDFITS_COLUMN_SCAN {"SCAN", "D", "Scan number" }
+#define SDFITS_COLUMN_SCAN {"SCAN", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Scan number"}
 ///Type of data, observing mode;
-#define SDFITS_COLUMN_OBSMODE {"OBSMODE", "8A", "Type of data, observing mode;" }
+#define SDFITS_COLUMN_OBSMODE {"OBSMODE", "8A", "Type of data, observing mode;"}
 ///Helpful description;
-#define SDFITS_COLUMN_MOLECULE {"MOLECULE", "8A", "Helpful description;" }
+#define SDFITS_COLUMN_MOLECULE {"MOLECULE", "8A", "Helpful description;"}
 ///As appropriate;
-#define SDFITS_COLUMN_TRANSITI {"TRANSITI", "8A", "As appropriate;" }
+#define SDFITS_COLUMN_TRANSITI {"TRANSITI", "8A", "As appropriate;"}
 ///Normalization of TA;
-#define SDFITS_COLUMN_TEMPSCAL {"TEMPSCAL", "8A", "Normalization of TA;" }
+#define SDFITS_COLUMN_TEMPSCAL {"TEMPSCAL", "8A", "Normalization of TA;"}
 ///
-#define SDFITS_COLUMN_FRONTEND {"FRONTEND", "8A", "" }
+#define SDFITS_COLUMN_FRONTEND {"FRONTEND", "8A", ""}
 ///Calibration Temp (K)
-#define SDFITS_COLUMN_TCAL {"TCAL", "D", "Calibration Temp (K)" }
+#define SDFITS_COLUMN_TCAL {"TCAL", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Calibration Temp (K)"}
 ///Hot load temperature (K)
-#define SDFITS_COLUMN_THOT {"THOT", "D", "Hot load temperature (K)" }
+#define SDFITS_COLUMN_THOT {"THOT", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Hot load temperature (K)"}
 ///Cold load temperature (K)
-#define SDFITS_COLUMN_TCOLD {"TCOLD", "D", "Cold load temperature (K)" }
+#define SDFITS_COLUMN_TCOLD {"TCOLD", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Cold load temperature (K)"}
 ///Receiver Temp (K), Float
-#define SDFITS_COLUMN_TRX {"TRX", "D", "Receiver Temp (K), Float" }
+#define SDFITS_COLUMN_TRX {"TRX", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Receiver Temp (K), Float"}
 ///Velocity definition & frame;
-#define SDFITS_COLUMN_VELDEF {"VELDEF", "8A", "Velocity definition & frame;" }
+#define SDFITS_COLUMN_VELDEF {"VELDEF", "8A", "Velocity definition & frame;"}
 ///radial velocity correction; Vref - Vtel
-#define SDFITS_COLUMN_VCORR {"VCORR", "D", "radial velocity correction; Vref - Vtel" }
+#define SDFITS_COLUMN_VCORR {"VCORR", FITS_ELEMENT_FLOATING_POINT_64_BIT, "radial velocity correction; Vref - Vtel"}
 ///Observed Frequency (Hz)
-#define SDFITS_COLUMN_OBSFREQ {"OBSFREQ", "D", "Observed Frequency (Hz)" }
+#define SDFITS_COLUMN_OBSFREQ {"OBSFREQ", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Observed Frequency (Hz)"}
 ///Image sideband freq (Hz)
-#define SDFITS_COLUMN_IMAGFREQ {"IMAGFREQ", "D", "Image sideband freq (Hz)" }
+#define SDFITS_COLUMN_IMAGFREQ {"IMAGFREQ", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Image sideband freq (Hz)"}
 ///LST (seconds) at start of scan
-#define SDFITS_COLUMN_LST {"LST", "D", "LST (seconds) at start of scan" }
+#define SDFITS_COLUMN_LST {"LST", FITS_ELEMENT_FLOATING_POINT_64_BIT, "LST (seconds) at start of scan"}
 ///LST (seconds) at start of scan
-#define SDFITS_COLUMN_LST {"LST", "D", "LST (seconds) at start of scan" }
+#define SDFITS_COLUMN_LST {"LST", FITS_ELEMENT_FLOATING_POINT_64_BIT, "LST (seconds) at start of scan"}
 ///Commanded Azimuth (Degrees)
-#define SDFITS_COLUMN_AZIMUTH {"AZIMUTH", "D", "Commanded Azimuth (Degrees)" }
+#define SDFITS_COLUMN_AZIMUTH {"AZIMUTH", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Commanded Azimuth (Degrees)"}
 ///Commanded Elevation (Degrees)
-#define SDFITS_COLUMN_ELEVATIO {"ELEVATIO", "D", "Commanded Elevation (Degrees)" }
+#define SDFITS_COLUMN_ELEVATIO {"ELEVATIO", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Commanded Elevation (Degrees)"}
 ///Opacity at signal freq
-#define SDFITS_COLUMN_TAU {"TAU", "D", "Opacity at signal freq" }
+#define SDFITS_COLUMN_TAU {"TAU", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Opacity at signal freq"}
 ///Opacity at image freq
-#define SDFITS_COLUMN_TAUIMAGE {"TAUIMAGE", "D", "Opacity at image freq" }
+#define SDFITS_COLUMN_TAUIMAGE {"TAUIMAGE", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Opacity at image freq"}
 ///Opacity per unit air mass
-#define SDFITS_COLUMN_TAUZENIT {"TAUZENIT", "D", "Opacity per unit air mass" }
+#define SDFITS_COLUMN_TAUZENIT {"TAUZENIT", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Opacity per unit air mass"}
 ///Decimal fraction 0..1
-#define SDFITS_COLUMN_HUMIDITY {"HUMIDITY", "D", "Decimal fraction 0..1" }
+#define SDFITS_COLUMN_HUMIDITY {"HUMIDITY", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Decimal fraction 0..1"}
 ///Ambient Temp (K)
-#define SDFITS_COLUMN_TAMBIENT {"TAMBIENT", "D", "Ambient Temp (K)" }
+#define SDFITS_COLUMN_TAMBIENT {"TAMBIENT", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Ambient Temp (K)"}
 ///Barometer reading mm Hg
-#define SDFITS_COLUMN_PRESSURE {"PRESSURE", "D", "Barometer reading mm Hg" }
+#define SDFITS_COLUMN_PRESSURE {"PRESSURE", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Barometer reading mm Hg"}
 ///Dew point (K)
-#define SDFITS_COLUMN_DEWPOINT {"DEWPOINT", "D", "Dew point (K)" }
+#define SDFITS_COLUMN_DEWPOINT {"DEWPOINT", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Dew point (K)"}
 ///Wind speed m/s
-#define SDFITS_COLUMN_WINDSPEE {"WINDSPEE", "D", "Wind speed m/s" }
+#define SDFITS_COLUMN_WINDSPEE {"WINDSPEE", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Wind speed m/s"}
 ///Degrees West of North
-#define SDFITS_COLUMN_WINDDIRE {"WINDDIRE", "D", "Degrees West of North" }
+#define SDFITS_COLUMN_WINDDIRE {"WINDDIRE", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Degrees West of North"}
 ///Main-beam efficiency
-#define SDFITS_COLUMN_BEAMEFF {"BEAMEFF", "D", "Main-beam efficiency" }
+#define SDFITS_COLUMN_BEAMEFF {"BEAMEFF", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Main-beam efficiency"}
 ///Antenna Aperature Efficiency
-#define SDFITS_COLUMN_APEREFF {"APEREFF", "D", "Antenna Aperature Efficiency" }
+#define SDFITS_COLUMN_APEREFF {"APEREFF", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Antenna Aperature Efficiency"}
 ///Rear spillover
-#define SDFITS_COLUMN_ETAL {"ETAL", "D", "Rear spillover" }
+#define SDFITS_COLUMN_ETAL {"ETAL", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Rear spillover"}
 ///Accounts for forward loss
-#define SDFITS_COLUMN_ETAFSS {"ETAFSS", "D", "Accounts for forward loss" }
+#define SDFITS_COLUMN_ETAFSS {"ETAFSS", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Accounts for forward loss"}
 ///K per Jy
-#define SDFITS_COLUMN_ANTGAIN {"ANTGAIN", "D", "K per Jy" }
+#define SDFITS_COLUMN_ANTGAIN {"ANTGAIN", FITS_ELEMENT_FLOATING_POINT_64_BIT, "K per Jy"}
 ///Large main-beam FWHM
-#define SDFITS_COLUMN_BMAJ {"BMAJ", "D", "Large main-beam FWHM" }
+#define SDFITS_COLUMN_BMAJ {"BMAJ", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Large main-beam FWHM"}
 ///Small main-beam FWHM
-#define SDFITS_COLUMN_BMIN {"BMIN", "D", "Small main-beam FWHM" }
+#define SDFITS_COLUMN_BMIN {"BMIN", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Small main-beam FWHM"}
 ///Beam position angle
-#define SDFITS_COLUMN_BPA {"BPA", "D", "Beam position angle" }
+#define SDFITS_COLUMN_BPA {"BPA", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Beam position angle"}
 ///Site longitude (Degrees)
-#define SDFITS_COLUMN_SITELONG {"SITELONG", "D", "Site longitude (Degrees)" }
+#define SDFITS_COLUMN_SITELONG {"SITELONG", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Site longitude (Degrees)"}
 ///Site latitude (Degrees)
-#define SDFITS_COLUMN_SITELAT {"SITELAT", "D", "Site latitude (Degrees)" }
+#define SDFITS_COLUMN_SITELAT {"SITELAT", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Site latitude (Degrees)"}
 ///site elevation in meters
-#define SDFITS_COLUMN_SITEELEV {"SITEELEV", "D", "site elevation in meters" }
+#define SDFITS_COLUMN_SITEELEV {"SITEELEV", FITS_ELEMENT_FLOATING_POINT_64_BIT, "site elevation in meters"}
 ///Epoch of observation (year)
-#define SDFITS_COLUMN_EPOCH {"EPOCH", "D", "Epoch of observation (year)" }
+#define SDFITS_COLUMN_EPOCH {"EPOCH", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Epoch of observation (year)"}
 ///Equinox of coords (year)
-#define SDFITS_COLUMN_EQUINOX {"EQUINOX", "D", "Equinox of coords (year)" }
+#define SDFITS_COLUMN_EQUINOX {"EQUINOX", FITS_ELEMENT_FLOATING_POINT_64_BIT, "Equinox of coords (year)"}
 
 ///Global keywords for the SDFITS SINGLE DISH table
 ///Designation of Telescope.
-#define SDFITS_KEYWORD_TELESCOP "TELESCOP"
+#define SDFITS_KEYWORD_TELESCOP {"TELESCOP", "8A", ""}
 ///Name of observer.
-#define SDFITS_KEYWORD_OBSERVER "OBSERVER"
+#define SDFITS_KEYWORD_OBSERVER {"OBSERVER", "8A", ""}
 ///UT date of observation (dd/mm/yy) .
-#define SDFITS_KEYWORD_DATE_OBS "DATE-OBS"
+#define SDFITS_KEYWORD_DATE_OBS {"DATE-OBS", "8A", ""}
 ///Max spectral value (K) - for whole file.
-#define SDFITS_KEYWORD_DATAMAX "DATAMAX"
+#define SDFITS_KEYWORD_DATAMAX {"DATAMAX", FITS_ELEMENT_FLOATING_POINT_64_BIT, ""}
 ///Min spectral value (K) - for whole file.
-#define SDFITS_KEYWORD_DATAMIN "DATAMIN"
+#define SDFITS_KEYWORD_DATAMIN {"DATAMIN", FITS_ELEMENT_FLOATING_POINT_64_BIT, ""}
 
 void vlbi_update_fits_key(fitsfile *fptr, int type, char* name, void *p, char* explanation, int *status);
 long vlbi_alloc_fits_rows(fitsfile *fptr, unsigned long num_rows);
@@ -1026,3 +1045,11 @@ int vlbi_append_fits_col(fitsfile *fptr, char* name, char* format);
 void vlbi_delete_fits_col(fitsfile *fptr, char* name);
 fitsfile* vlbi_create_fits_(size_t *size, void **buf);
 int vlbi_close_fits(fitsfile *fptr);
+dsp_stream_p vlbi_read_sdfits(char *filename);
+dsp_stream_p vlbi_read_fits(char *filename);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif //_FITS_EXTENSIONS_H
