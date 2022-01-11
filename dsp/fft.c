@@ -30,7 +30,7 @@ static void dsp_fourier_dft_phase(dsp_stream_p stream)
     stream->phase->buf = dsp_fourier_complex_array_get_phase(stream->dft, stream->len);
 }
 
-static void dsp_fourier_2dsp(dsp_stream_p stream)
+void dsp_fourier_2dsp(dsp_stream_p stream)
 {
     int x, y;
     fftw_complex *dft = (fftw_complex*)malloc(sizeof(fftw_complex) * stream->len);
@@ -53,7 +53,7 @@ static void dsp_fourier_2dsp(dsp_stream_p stream)
     dsp_buffer_shift(stream->phase);
 }
 
-static void dsp_fourier_2fftw(dsp_stream_p stream)
+void dsp_fourier_2fftw(dsp_stream_p stream)
 {
     int x, y;
     dsp_buffer_shift(stream->magnitude);

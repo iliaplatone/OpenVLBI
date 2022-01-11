@@ -57,9 +57,9 @@ typedef struct _vlbi_thread_t
     pthread_t th;
 } vlbi_thread_t;
 
-char* vlbi_get_version()
+const char* vlbi_get_version()
 {
-    return (char*)VLBI_VERSION_STRING;
+    return VLBI_VERSION_STRING;
 }
 
 static void vlbi_wait_threads(int *thread_cnt)
