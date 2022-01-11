@@ -154,11 +154,18 @@ class Server
         int GetModels(char** names);
 
         /**
-        * \brief Create a new node from a monodimensional FITS file, give it a name and add it to the current context.
+        * \brief Create a new node from a monodimensional image FITS file, give it a name and add it to the current context.
         * \param name The name of the new node
         * \param b64 The file buffer base64 encoded
         */
         void AddNode(char *name, char *b64);
+
+        /**
+        * \brief Create as many nodes as the rows number of an SDFITS file, give it a name and add it to the current context.
+        * \param name The name of the new node
+        * \param b64 The file buffer base64 encoded
+        */
+        void AddNodes(char *name, char *b64);
 
         /**
         * \brief Create a new node from a its raw data, give it a name and add it to the current context.

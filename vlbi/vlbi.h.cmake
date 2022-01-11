@@ -468,13 +468,23 @@ DLL_EXPORT void vlbi_del_node(vlbi_context ctx, char* name);
 DLL_EXPORT int vlbi_get_nodes(void *ctx, vlbi_node** nodes);
 
 /**
-* \brief Add a node from a fits file stored into a memory buffer.
+* \brief Add a node from a 2d image fits file.
 * \param ctx The OpenVLBI context
 * \param filename The filename of the fits to read
 * \param name The name of the newly created model
 * \param geo whether to consider the file coordinates as geographic or relative to the context station
 */
 DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, char* name, int geo);
+
+
+/**
+* \brief Add nodes from each row of a single dish fits -SDFITS- file.
+* \param ctx The OpenVLBI context
+* \param filename The filename of the sdfits to read
+* \param name The name of the newly created model
+* \param geo whether to consider the file coordinates as geographic or relative to the context station
+*/
+DLL_EXPORT void vlbi_add_nodes_from_sdfits(void *ctx, char *filename, char* name, int geo);
 
 /**\}*/
 /**
