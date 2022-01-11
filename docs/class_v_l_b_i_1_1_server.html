@@ -125,8 +125,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memdesc:afee29d00a052e84b127df1eb0bbc5265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the names of all the models of the current context.  <a href="class_v_l_b_i_1_1_server.html#afee29d00a052e84b127df1eb0bbc5265">More...</a><br /></td></tr>
 <tr class="separator:afee29d00a052e84b127df1eb0bbc5265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a772e31199d963187b4c2699d202cf459"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a772e31199d963187b4c2699d202cf459">AddNode</a> (char *name, char *b64)</td></tr>
-<tr class="memdesc:a772e31199d963187b4c2699d202cf459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new node from a monodimensional FITS file, give it a name and add it to the current context.  <a href="class_v_l_b_i_1_1_server.html#a772e31199d963187b4c2699d202cf459">More...</a><br /></td></tr>
+<tr class="memdesc:a772e31199d963187b4c2699d202cf459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new node from a monodimensional image FITS file, give it a name and add it to the current context.  <a href="class_v_l_b_i_1_1_server.html#a772e31199d963187b4c2699d202cf459">More...</a><br /></td></tr>
 <tr class="separator:a772e31199d963187b4c2699d202cf459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f7f3c61938dfb3aa01699c0435d580f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#a1f7f3c61938dfb3aa01699c0435d580f">AddNodes</a> (char *name, char *b64)</td></tr>
+<tr class="memdesc:a1f7f3c61938dfb3aa01699c0435d580f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create as many nodes as the rows number of an SDFITS file, give it a name and add it to the current context.  <a href="class_v_l_b_i_1_1_server.html#a1f7f3c61938dfb3aa01699c0435d580f">More...</a><br /></td></tr>
+<tr class="separator:a1f7f3c61938dfb3aa01699c0435d580f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd8ead79c7fbb04c9638085370e43a86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#acd8ead79c7fbb04c9638085370e43a86">AddNode</a> (char *name, <a class="el" href="group___d_s_p___types.html#gaed2bb55a5ec25c68e1fbf547580651aa">dsp_location</a> *locations, void *buf, int len, timespec starttime, bool geo)</td></tr>
 <tr class="memdesc:acd8ead79c7fbb04c9638085370e43a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new node from a its raw data, give it a name and add it to the current context.  <a href="class_v_l_b_i_1_1_server.html#acd8ead79c7fbb04c9638085370e43a86">More...</a><br /></td></tr>
 <tr class="separator:acd8ead79c7fbb04c9638085370e43a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,7 +164,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memdesc:a63204c751ce10a1a644805ef4535db68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the sampling frequency, do this before calling <a class="el" href="class_v_l_b_i_1_1_server.html#afaa382b568b5fe65c9a00ba3ddc84a94" title="Plot the current observation into a new model.">Plot()</a>  <a href="class_v_l_b_i_1_1_server.html#a63204c751ce10a1a644805ef4535db68">More...</a><br /></td></tr>
 <tr class="separator:a63204c751ce10a1a644805ef4535db68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac556044b8d787c872ffab17b03d94e5a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ac556044b8d787c872ffab17b03d94e5a">SetBps</a> (int value)</td></tr>
-<tr class="memdesc:ac556044b8d787c872ffab17b03d94e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bytes per sample, do this before calling <a class="el" href="class_v_l_b_i_1_1_server.html#a772e31199d963187b4c2699d202cf459" title="Create a new node from a monodimensional FITS file, give it a name and add it to the current context.">AddNode()</a>  <a href="class_v_l_b_i_1_1_server.html#ac556044b8d787c872ffab17b03d94e5a">More...</a><br /></td></tr>
+<tr class="memdesc:ac556044b8d787c872ffab17b03d94e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the bytes per sample, do this before calling <a class="el" href="class_v_l_b_i_1_1_server.html#a772e31199d963187b4c2699d202cf459" title="Create a new node from a monodimensional image FITS file, give it a name and add it to the current co...">AddNode()</a>  <a href="class_v_l_b_i_1_1_server.html#ac556044b8d787c872ffab17b03d94e5a">More...</a><br /></td></tr>
 <tr class="separator:ac556044b8d787c872ffab17b03d94e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6e5573ba57ed82f0aa4e19d49b132ec"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_v_l_b_i_1_1_server.html#ad6e5573ba57ed82f0aa4e19d49b132ec">SetWidth</a> (int value)</td></tr>
 <tr class="memdesc:ad6e5573ba57ed82f0aa4e19d49b132ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the plot width, do this before calling <a class="el" href="class_v_l_b_i_1_1_server.html#afaa382b568b5fe65c9a00ba3ddc84a94" title="Plot the current observation into a new model.">Plot()</a>  <a href="class_v_l_b_i_1_1_server.html#ad6e5573ba57ed82f0aa4e19d49b132ec">More...</a><br /></td></tr>
@@ -362,6 +365,41 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
     <tr><td class="paramname">len</td><td>The number of elements </td></tr>
     <tr><td class="paramname">starttime</td><td>The UTC time of the first element </td></tr>
     <tr><td class="paramname">geo</td><td>If 1, consider all elements of location as geographic coordinates, if 0 as relative to the current context' station location </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1f7f3c61938dfb3aa01699c0435d580f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f7f3c61938dfb3aa01699c0435d580f">&#9670;&nbsp;</a></span>AddNodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VLBI::Server::AddNodes </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>b64</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the new node </td></tr>
+    <tr><td class="paramname">b64</td><td>The file buffer base64 encoded </td></tr>
   </table>
   </dd>
 </dl>
@@ -1356,7 +1394,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 24 2021 17:28:43 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 11 2022 16:12:12 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -74,9 +74,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gad8463ac0e307bb75bcef9c293cc5bd92">vlbi_get_baselines</a> (void *ctx, <a class="el" href="structvlbi__baseline.html">vlbi_baseline</a> **baselines)</td></tr>
 <tr class="memdesc:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all baselines of the current OpenVLBI context.  <a href="group___v_l_b_i___baselines.html#gad8463ac0e307bb75bcef9c293cc5bd92">More...</a><br /></td></tr>
 <tr class="separator:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf234b285a6e5e7616971046673241bdd"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gaf234b285a6e5e7616971046673241bdd">vlbi_set_baseline_buffer</a> (void *ctx, char *node1, char *node2, dsp_t *buffer, int len)</td></tr>
-<tr class="memdesc:gaf234b285a6e5e7616971046673241bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the buffer of a single baseline with already correlated data.  <a href="group___v_l_b_i___baselines.html#gaf234b285a6e5e7616971046673241bdd">More...</a><br /></td></tr>
-<tr class="separator:gaf234b285a6e5e7616971046673241bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac6d13f0d0a8510515d48ac94e693c4b8"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gac6d13f0d0a8510515d48ac94e693c4b8">vlbi_set_baseline_buffer</a> (void *ctx, char *node1, char *node2, fftw_complex *buffer, int len)</td></tr>
+<tr class="memdesc:gac6d13f0d0a8510515d48ac94e693c4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the buffer of a single baseline with already correlated data.  <a href="group___v_l_b_i___baselines.html#gac6d13f0d0a8510515d48ac94e693c4b8">More...</a><br /></td></tr>
+<tr class="separator:gac6d13f0d0a8510515d48ac94e693c4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf57dbbb14efe53d31db2306389b0233c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gaf57dbbb14efe53d31db2306389b0233c">vlbi_set_location</a> (void *ctx, double lat, double lon, double el)</td></tr>
 <tr class="memdesc:gaf57dbbb14efe53d31db2306389b0233c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the location of the reference station.  <a href="group___v_l_b_i___baselines.html#gaf57dbbb14efe53d31db2306389b0233c">More...</a><br /></td></tr>
 <tr class="separator:gaf57dbbb14efe53d31db2306389b0233c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,8 +199,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaf234b285a6e5e7616971046673241bdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf234b285a6e5e7616971046673241bdd">&#9670;&nbsp;</a></span>vlbi_set_baseline_buffer()</h2>
+<a id="gac6d13f0d0a8510515d48ac94e693c4b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac6d13f0d0a8510515d48ac94e693c4b8">&#9670;&nbsp;</a></span>vlbi_set_baseline_buffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +226,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">dsp_t *&#160;</td>
+          <td class="paramtype">fftw_complex *&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -247,7 +247,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">node1</td><td>The name of the first node </td></tr>
     <tr><td class="paramname">node2</td><td>The name of the second node </td></tr>
-    <tr><td class="paramname">buffer</td><td>The buffer with correlated data </td></tr>
+    <tr><td class="paramname">buffer</td><td>The buffer with complex correlated data </td></tr>
     <tr><td class="paramname">len</td><td>The length of the buffer </td></tr>
   </table>
   </dd>
@@ -307,7 +307,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 24 2021 17:28:43 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 11 2022 16:12:12 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
