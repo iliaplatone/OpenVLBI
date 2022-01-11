@@ -60,6 +60,24 @@ void VLBI::Server::AddNode(const char *name, char *b64)
     }
 }
 
+void VLBI::Server::AddNodes(const char *name, char *b64)
+{
+    char filename[128];
+    strcpy(filename, "tmp_nodeXXXXXX");
+    int fd = mkstemp(filename);
+    if(fd > -1)
+    {
+        size_t b64len = strlen(b64);
+        char* buf = (char*)malloc(b64len * 3 / 4 + 4);
+        size_t len = (size_t)from64tobits_fast(buf, b64, (int)b64len);
+        write(fd, buf, len);
+        free(buf);
+        close(fd);
+        vlbi_add_nodes_from_sdfits(GetContext(), filename, name, true);
+        unlink(filename);
+    }
+}
+
 void VLBI::Server::AddNode(const char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
 {
     dsp_stream_p node = dsp_stream_new();

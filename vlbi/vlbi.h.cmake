@@ -165,6 +165,7 @@ inline double vlbi_default_delegate(double x, double y) {
 * \param x The real part
 * \param y The imaginary part
 * \return The magnitude of this correlation
+* \sa vlbi_set_baseline_buffer
 */
 inline double vlbi_magnitude_delegate(double x, double y) {
     return sqrt(pow(x, 2)+pow(y, 2));
@@ -176,6 +177,7 @@ inline double vlbi_magnitude_delegate(double x, double y) {
 * \param x The real part
 * \param y The imaginary part
 * \return The phase of this correlation
+* \sa vlbi_set_baseline_buffer
 */
 inline double vlbi_phase_delegate(double x, double y) {
     double mag = sqrt(pow(x, 2)+pow(y, 2));
@@ -487,13 +489,23 @@ DLL_EXPORT void vlbi_del_node(vlbi_context ctx, const char *name);
 DLL_EXPORT int vlbi_get_nodes(void *ctx, vlbi_node** nodes);
 
 /**
-* \brief Add a node from a fits file stored into a memory buffer.
+* \brief Add a node from a 2d image fits file.
 * \param ctx The OpenVLBI context
 * \param filename The filename of the fits to read
 * \param name The name of the newly created model
 * \param geo whether to consider the file coordinates as geographic or relative to the context station
 */
 DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, const char *name, int geo);
+
+
+/**
+* \brief Add nodes from each row of a single dish fits -SDFITS- file.
+* \param ctx The OpenVLBI context
+* \param filename The filename of the sdfits to read
+* \param name The name of the newly created model
+* \param geo whether to consider the file coordinates as geographic or relative to the context station
+*/
+DLL_EXPORT void vlbi_add_nodes_from_sdfits(void *ctx, char *filename, const char* name, int geo);
 
 /**\}*/
 /**
@@ -514,7 +526,7 @@ DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 * \param ctx The OpenVLBI context
 * \param node1 The name of the first node
 * \param node2 The name of the second node
-* \param buffer The buffer with correlated data
+* \param buffer The buffer with complex correlated data
 * \param len The length of the buffer
 */
 DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, const char* node1, const char* node2, dsp_t *buffer, int len);

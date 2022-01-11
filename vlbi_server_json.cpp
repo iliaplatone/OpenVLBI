@@ -111,6 +111,26 @@ void JSONServer::Parse()
                 }
             }
         }
+        if(!strcmp(n, "sdfits"))
+        {
+            if(v->u.object.length == 2)
+            {
+                char *name = nullptr;
+                char *base64 = nullptr;
+                for(int y = 0; y < 2; y ++)
+                {
+                    if(!strcmp(values[y].name, "name"))
+                    {
+                        name = values[y].value->u.string.ptr;
+                    }
+                    if(!strcmp(values[y].name, "buffer"))
+                    {
+                        base64 = values[y].value->u.string.ptr;
+                        AddNodes(name, base64);
+                    }
+                }
+            }
+        }
         if(!strcmp(n, "node"))
         {
             if(v->u.object.length == 5)
