@@ -88,19 +88,19 @@ class Server
         * \brief Add a new OpenVLBI context by giving it a name. VLBI::Server has an internal context collection
         * \param name The name of the new context
         */
-        void AddContext(char *name);
+        void AddContext(const char *name);
 
         /**
         * \brief Delete an existing OpenVLBI context by name.
         * \param name The name of the context to be deleted
         */
-        void DelContext(char *name);
+        void DelContext(const char *name);
 
         /**
         * \brief Set the current OpenVLBI context by passing its name.
         * \param name The name of the context
         */
-        void SetContext(char *name);
+        void SetContext(const char *name);
 
         /**
         * \brief Obtain the current OpenVLBI context object.
@@ -123,14 +123,14 @@ class Server
         * \param format The format of the new model, can be one of png, jpeg or fits
         * \param b64 The file buffer base64 encoded
         */
-        void AddModel(char* name, char *format, char *b64);
+        void AddModel(const char *name, char *format, char *b64);
 
         /**
         * \brief Obtain the dsp_stream_p object of a model by passing its name.
         * \param name The name of the model
         * \return The dsp_stream_p object representing the model
         */
-        dsp_stream_p GetModel(char *name);
+        dsp_stream_p GetModel(const char *name);
 
         /**
         * \brief Obtain the base64 encoded file buffer of a model by passing its name.
@@ -138,13 +138,13 @@ class Server
         * \param format The format of the picture exported, can be one of png, jpeg or fits
         * \return The file buffer base64 encoded
         */
-        char* GetModel(char *name, char *format);
+        char* GetModel(const char *name, char *format);
 
         /**
         * \brief Delete from the current context an existing model by name.
         * \param name The name of the model to be deleted
         */
-        void DelModel(char* name);
+        void DelModel(const char *name);
 
         /**
         * \brief Get the names of all the models of the current context.
@@ -158,14 +158,14 @@ class Server
         * \param name The name of the new node
         * \param b64 The file buffer base64 encoded
         */
-        void AddNode(char *name, char *b64);
+        void AddNode(const char *name, char *b64);
 
         /**
         * \brief Create as many nodes as the rows number of an SDFITS file, give it a name and add it to the current context.
         * \param name The name of the new node
         * \param b64 The file buffer base64 encoded
         */
-        void AddNodes(char *name, char *b64);
+        void AddNodes(const char *name, char *b64);
 
         /**
         * \brief Create a new node from a its raw data, give it a name and add it to the current context.
@@ -176,20 +176,20 @@ class Server
         * \param starttime The UTC time of the first element
         * \param geo If 1, consider all elements of location as geographic coordinates, if 0 as relative to the current context' station location
         */
-        void AddNode(char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo);
+        void AddNode(const char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo);
 
         /**
         * \brief Delete from the current context an existing node by name.
         * \param name The name of the node to be deleted
         */
-        void DelNode(char *name);
+        void DelNode(const char *name);
 
         /**
         * \brief Plot the current observation into a new model.
         * \param name The name of the new model
         * \param flags The vlbi_plot_flags that characterize this observation
         */
-        void Plot(char *name, int flags);
+        void Plot(const char *name, int flags);
 
         /**
         * \brief Obtain an inverse fourier transform from the magnitude and phase models passed.
@@ -197,7 +197,7 @@ class Server
         * \param magnitude The name of the model used as magnitude
         * \param phase The name of the model used as phase
         */
-        void Idft(char *name, char *magnitude, char *phase);
+        void Idft(const char *name, const char *magnitude, const char *phase);
 
         /**
         * \brief Save the magnitude and phase to new models obtained by the fourier transform of the model passed.
@@ -205,7 +205,7 @@ class Server
         * \param magnitude The name of the new model that will contain the magnitude
         * \param phase The name of the new model that will contain the phase
         */
-        void Dft(char *name, char *magnitude, char *phase);
+        void Dft(const char *name, const char *magnitude, const char *phase);
 
         /**
         * \brief Mask a model with another model by multiplication
@@ -213,13 +213,13 @@ class Server
         * \param model The name of the model to be masked
         * \param mask The name of the mask model
         */
-        void Mask(char *name, char *model, char *mask);
+        void Mask(const char *name, const char *model, const char *mask);
 
         /**
         * \brief Shift a model by its dimension in-place
         * \param name The name of the model
         */
-        void Shift(char *name);
+        void Shift(const char *name);
 
         /**
         * \brief Set the target right ascension coordinate, do this before calling Plot()

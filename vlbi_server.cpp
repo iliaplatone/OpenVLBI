@@ -42,7 +42,7 @@ static double fillone_delegate(double x, double y)
     return 1.0;
 }
 
-void VLBI::Server::AddNode(char *name, char *b64)
+void VLBI::Server::AddNode(const char *name, char *b64)
 {
     char filename[128];
     strcpy(filename, "tmp_nodeXXXXXX");
@@ -60,7 +60,7 @@ void VLBI::Server::AddNode(char *name, char *b64)
     }
 }
 
-void VLBI::Server::AddNodes(char *name, char *b64)
+void VLBI::Server::AddNodes(const char *name, char *b64)
 {
     char filename[128];
     strcpy(filename, "tmp_nodeXXXXXX");
@@ -78,7 +78,7 @@ void VLBI::Server::AddNodes(char *name, char *b64)
     }
 }
 
-void VLBI::Server::AddNode(char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
+void VLBI::Server::AddNode(const char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
 {
     dsp_stream_p node = dsp_stream_new();
     int len = bytelen * 8 / abs(Bps);
@@ -112,12 +112,12 @@ void VLBI::Server::AddNode(char *name, dsp_location *locations, void *buf, int b
     vlbi_add_node(GetContext(), node, name, geo);
 }
 
-void VLBI::Server::DelNode(char *name)
+void VLBI::Server::DelNode(const char *name)
 {
     vlbi_del_node(GetContext(), name);
 }
 
-void VLBI::Server::Plot(char *name, int flags)
+void VLBI::Server::Plot(const char *name, int flags)
 {
     double coords[3] = { Ra, Dec };
     vlbi_get_uv_plot(GetContext(), name, w, h, coords, Freq, SampleRate, (flags & plot_flags_synced) != 0,
@@ -125,32 +125,32 @@ void VLBI::Server::Plot(char *name, int flags)
                      (flags & plot_flags_uv_coverage) != 0 ? fillone_delegate : vlbi_default_delegate);
 }
 
-void VLBI::Server::Idft(char *model, char *magnitude, char *phase)
+void VLBI::Server::Idft(const char *model, const char *magnitude, const char *phase)
 {
     vlbi_get_ifft(GetContext(), model, magnitude, phase);
 }
 
-void VLBI::Server::Dft(char *model, char *magnitude, char *phase)
+void VLBI::Server::Dft(const char *model, const char *magnitude, const char *phase)
 {
     vlbi_get_fft(GetContext(), model, magnitude, phase);
 }
 
-void VLBI::Server::Mask(char *name, char *model, char *mask)
+void VLBI::Server::Mask(const char *name, const char *model, const char *mask)
 {
     vlbi_apply_mask(GetContext(), name, model, mask);
 }
 
-void VLBI::Server::Shift(char *name)
+void VLBI::Server::Shift(const char *name)
 {
     vlbi_shift(GetContext(), name);
 }
 
-dsp_stream_p VLBI::Server::GetModel(char *name)
+dsp_stream_p VLBI::Server::GetModel(const char *name)
 {
     return vlbi_get_model(GetContext(), name);
 }
 
-char* VLBI::Server::GetModel(char *name, char *format)
+char* VLBI::Server::GetModel(const char *name, char *format)
 {
     char filename[128];
     int channels = 1;
@@ -208,12 +208,12 @@ int VLBI::Server::GetModels(char** names)
     return 0;
 }
 
-void VLBI::Server::DelModel(char* name)
+void VLBI::Server::DelModel(const char *name)
 {
     vlbi_del_model(GetContext(), name);
 }
 
-void VLBI::Server::AddModel(char* name, char *format, char *b64)
+void VLBI::Server::AddModel(const char *name, char *format, char *b64)
 {
     char filename[128];
     int fd = -1;
@@ -287,7 +287,7 @@ void VLBI::Server::Parse()
             else if(!strcmp(arg, "mask"))
             {
                 char *t = strtok(value, ",");
-                char *name = t;
+                const char *name = t;
                 if(name == nullptr)
                 {
                     return;
@@ -387,7 +387,7 @@ void VLBI::Server::Parse()
             else if(!strcmp(arg, "model"))
             {
                 char *t = strtok(value, ",");
-                char *name = t;
+                const char *name = t;
                 if(name == nullptr)
                 {
                     return;
@@ -452,7 +452,7 @@ void VLBI::Server::Parse()
             {
                 int flags = 0;
                 char *t = strtok(value, ",");
-                char *name = t;
+                const char *name = t;
                 if(name == nullptr)
                 {
                     return;
@@ -542,7 +542,7 @@ void VLBI::Server::Parse()
             else if(!strcmp(arg, "model"))
             {
                 char *t = strtok(value, ",");
-                char *name = t;
+                const char *name = t;
                 if(name == nullptr)
                 {
                     return;
@@ -580,12 +580,12 @@ void VLBI::Server::Parse()
     }
 }
 
-void VLBI::Server::AddContext(char* name)
+void VLBI::Server::AddContext(const char *name)
 {
     if(!contexts->ContainsKey(name)) contexts->Add(vlbi_init(), name);
 }
 
-void VLBI::Server::SetContext(char* name)
+void VLBI::Server::SetContext(const char *name)
 {
     if(contexts->ContainsKey(name))
     {
@@ -600,12 +600,12 @@ vlbi_context VLBI::Server::GetContext()
     return nullptr;
 }
 
-void VLBI::Server::DelContext(char* name)
+void VLBI::Server::DelContext(const char *name)
 {
     if(contexts->ContainsKey(name))
     {
         vlbi_context ctx = contexts->Get(name);
-        contexts->Remove(name);
+        contexts->Remove(ctx);
         vlbi_exit(ctx);
     }
 }

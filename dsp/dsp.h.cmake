@@ -382,6 +382,18 @@ DLL_EXPORT void dsp_fourier_dft(dsp_stream_p stream, int exp);
 DLL_EXPORT void dsp_fourier_idft(dsp_stream_p stream);
 
 /**
+* \brief Fill the magnitude and phase buffers with the current data in stream->dft
+* \param stream the inout stream.
+*/
+DLL_EXPORT void dsp_fourier_2dsp(dsp_stream_p stream);
+
+/**
+* \brief Obtain the complex fourier tranform from the current magnitude and phase buffers
+* \param stream the inout stream.
+*/
+DLL_EXPORT void dsp_fourier_2fftw(dsp_stream_p stream);
+
+/**
 * \brief Obtain a complex array from phase and magnitude arrays
 * \param mag the input magnitude array.
 * \param phi the input phase array.

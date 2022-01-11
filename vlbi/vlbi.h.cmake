@@ -209,14 +209,25 @@ inline double vlbi_phase_delegate(double x, double y) {
 ( log(a) / log(b) )
 #endif
 
+#ifndef hz2rad
+///Get the frequency in radians/s
+#define hz2rad(hz) (2.0*M_PI*hz)
+#endif
+
+#ifndef sin2cos
 ///Get the cosine of a sine value
 #define sin2cos(s) cos(asin(s))
+#endif
 
+#ifndef cos2sin
 ///Get the sine from a cosine value
 #define cos2sin(c) sin(acos(c))
+#endif
 
+#ifndef VLBI_VERSION_STRING
 ///The current OpenVLBI version
 #define VLBI_VERSION_STRING "@VLBI_VERSION_STRING@"
+#endif
 
 #ifndef CIRCLE_DEG
 ///degrees in a circle
@@ -293,6 +304,10 @@ inline double vlbi_phase_delegate(double x, double y) {
 #ifndef EULER
 ///Our Euler constant
 #define EULER 2.71828182845904523536028747135266249775724709369995
+#endif
+#ifndef PLANK
+///Our Plank constant
+#define PLANK 6.62607015E-34
 #endif
 #ifndef ROOT2
 ///Our square root of 2 constant
@@ -421,9 +436,9 @@ inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) { M
 
 /**
 * \brief Print the current version of OpenVLBI.
-* \return char* The Version string
+* \return The Version string
 */
-DLL_EXPORT char* vlbi_get_version(void);
+DLL_EXPORT const char *vlbi_get_version(void);
 
 /**
 * \brief Initialize a OpenVLBI instance.
@@ -450,14 +465,14 @@ DLL_EXPORT void vlbi_exit(vlbi_context ctx);
 * \param name A friendly name of this stream
 * \param geographic_coordinates Whether to use geographic coordinates
 */
-DLL_EXPORT void vlbi_add_node(vlbi_context ctx, dsp_stream_p Stream, char* name, int geographic_coordinates);
+DLL_EXPORT void vlbi_add_node(vlbi_context ctx, dsp_stream_p Stream, const char *name, int geographic_coordinates);
 
 /**
 * \brief Remove a stream from the current OpenVLBI context.
 * \param ctx The OpenVLBI context
 * \param name The friendly name of the stream to be removed
 */
-DLL_EXPORT void vlbi_del_node(vlbi_context ctx, char* name);
+DLL_EXPORT void vlbi_del_node(vlbi_context ctx, const char *name);
 
 /**
 * \brief List all nodes of the current OpenVLBI context.
@@ -474,7 +489,7 @@ DLL_EXPORT int vlbi_get_nodes(void *ctx, vlbi_node** nodes);
 * \param name The name of the newly created model
 * \param geo whether to consider the file coordinates as geographic or relative to the context station
 */
-DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, char* name, int geo);
+DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, const char *name, int geo);
 
 
 /**
@@ -484,7 +499,7 @@ DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, char* name, i
 * \param name The name of the newly created model
 * \param geo whether to consider the file coordinates as geographic or relative to the context station
 */
-DLL_EXPORT void vlbi_add_nodes_from_sdfits(void *ctx, char *filename, char* name, int geo);
+DLL_EXPORT void vlbi_add_nodes_from_sdfits(void *ctx, char *filename, const char *name, int geo);
 
 /**\}*/
 /**
@@ -501,14 +516,14 @@ DLL_EXPORT void vlbi_add_nodes_from_sdfits(void *ctx, char *filename, char* name
 DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 
 /**
-* \brief Fill the buffer of a single baseline with already correlated data.
+* \brief Fill the buffer of a single baseline with complex visibility data.
 * \param ctx The OpenVLBI context
 * \param node1 The name of the first node
 * \param node2 The name of the second node
-* \param buffer The buffer with complex correlated data
+* \param buffer The buffer with complex complex visibility data
 * \param len The length of the buffer
 */
-DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, char* node1, char* node2, fftw_complex *buffer, int len);
+DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, fftw_complex *buffer, int len);
 
 /**
 * \brief Set the location of the reference station.
@@ -551,7 +566,7 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, char* node1
 * \param moving_baseline if 1 the location field of all the dsp_stream_p is an array of dsp_location for each element of the dsp_stream_p->buf array.
 * \param delegate The delegate function to be executed on each node stream buffer element.
 */
-DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
+DLL_EXPORT void vlbi_get_uv_plot(void *ctx, const char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate);
 
 /**
 * \brief Add a model into the current OpenVLBI context.
@@ -559,14 +574,14 @@ DLL_EXPORT void vlbi_get_uv_plot(void *ctx, char *name, int u, int v, double *ta
 * \param Stream The OpenVLBI stream to add
 * \param name A friendly name of this model
 */
-DLL_EXPORT void vlbi_add_model(vlbi_context ctx, dsp_stream_p Stream, char* name);
+DLL_EXPORT void vlbi_add_model(vlbi_context ctx, dsp_stream_p Stream, const char *name);
 
 /**
 * \brief Remove a model from the current OpenVLBI context.
 * \param ctx The OpenVLBI context
 * \param name The friendly name of the model to be removed
 */
-DLL_EXPORT void vlbi_del_model(vlbi_context ctx, char* name);
+DLL_EXPORT void vlbi_del_model(vlbi_context ctx, const char *name);
 
 /**
 * \brief List all models of the current OpenVLBI context.
@@ -582,7 +597,7 @@ DLL_EXPORT int vlbi_get_models(void *ctx, dsp_stream_p** models);
 * \param name The name of the chosen model
 * \return the model chosen as dsp_stream_p
 */
-DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, char* name);
+DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, const char *name);
 
 /**
 * \brief Save into name an inverse fourier transform of the uv plot using its current magnitude and phase components.
@@ -591,7 +606,7 @@ DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, char* name);
 * \param magnitude The magnitude model.
 * \param phase The phase model.
 */
-DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char *name, char *magnitude, char *phase);
+DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, const char *phase);
 
 /**
 * \brief Get the fourier transform of the given model and save its magnitude and phase components into two new models named so.
@@ -600,7 +615,7 @@ DLL_EXPORT void vlbi_get_ifft(vlbi_context ctx, char *name, char *magnitude, cha
 * \param magnitude The name of the model where to save the magnitude.
 * \param phase The name of the model where to save the phase.
 */
-DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, char *model, char *magnitude, char *phase);
+DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, const char *model, const char *magnitude, const char *phase);
 
 /**
 * \brief Mask the stream with the content of the mask stream, by multiplication of each element.
@@ -609,14 +624,14 @@ DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, char *model, char *magnitude, cha
 * \param model The name of the model containing the data to be masked.
 * \param mask The name of the model containing the mask.
 */
-DLL_EXPORT void vlbi_apply_mask(vlbi_context ctx, char* name, char* model, char* mask);
+DLL_EXPORT void vlbi_apply_mask(vlbi_context ctx, const char *name, const char *model, const char *mask);
 
 /**
 * \brief Shift a model by its dimensions.
 * \param ctx The OpenVLBI context
 * \param name The name of the model to be shifted.
 */
-DLL_EXPORT void vlbi_shift(vlbi_context ctx, char* name);
+DLL_EXPORT void vlbi_shift(vlbi_context ctx, const char *name);
 
 /**
 * \brief Add a model from a png file.
@@ -624,7 +639,7 @@ DLL_EXPORT void vlbi_shift(vlbi_context ctx, char* name);
 * \param filename The file name of the picture to read
 * \param name The name of the newly created model.
 */
-DLL_EXPORT void vlbi_add_model_from_png(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_add_model_from_png(void *ctx, char *filename, const char *name);
 
 /**
 * \brief Add a model from a jpeg file.
@@ -632,7 +647,7 @@ DLL_EXPORT void vlbi_add_model_from_png(void *ctx, char *filename, char* name);
 * \param filename The file name of the picture to read
 * \param name The name of the newly created model.
 */
-DLL_EXPORT void vlbi_add_model_from_jpeg(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_add_model_from_jpeg(void *ctx, char *filename, const char *name);
 
 /**
 * \brief Add a model from a fits file.
@@ -640,7 +655,7 @@ DLL_EXPORT void vlbi_add_model_from_jpeg(void *ctx, char *filename, char* name);
 * \param filename The file name of the picture to read
 * \param name The name of the newly created model.
 */
-DLL_EXPORT void vlbi_add_model_from_fits(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_add_model_from_fits(void *ctx, char *filename, const char *name);
 
 /**
 * \brief Write a model to a png file.
@@ -648,7 +663,7 @@ DLL_EXPORT void vlbi_add_model_from_fits(void *ctx, char *filename, char* name);
 * \param filename The file name of the picture to write
 * \param name The name of the model chosen.
 */
-DLL_EXPORT void vlbi_get_model_to_png(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_get_model_to_png(void *ctx, char *filename, const char *name);
 
 /**
 * \brief Write a model to a jpeg file.
@@ -656,7 +671,7 @@ DLL_EXPORT void vlbi_get_model_to_png(void *ctx, char *filename, char* name);
 * \param filename The file name of the picture to write
 * \param name The name of the model chosen.
 */
-DLL_EXPORT void vlbi_get_model_to_jpeg(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_get_model_to_jpeg(void *ctx, char *filename, const char *name);
 
 /**
 * \brief Write a model to a fits file.
@@ -664,7 +679,7 @@ DLL_EXPORT void vlbi_get_model_to_jpeg(void *ctx, char *filename, char* name);
 * \param filename The file name of the picture to write
 * \param name The name of the model chosen.
 */
-DLL_EXPORT void vlbi_get_model_to_fits(void *ctx, char *filename, char* name);
+DLL_EXPORT void vlbi_get_model_to_fits(void *ctx, char *filename, const char *name);
 
 /**\}*/
 
@@ -766,7 +781,7 @@ DLL_EXPORT double vlbi_time_J2000time_to_lst(double secs_since_J2000, double Lon
 * \param time String containing the time to be converted
 * \return the timespec struct containing the date and time specified.
 */
-DLL_EXPORT timespec_t vlbi_time_string_to_timespec(char* time);
+DLL_EXPORT timespec_t vlbi_time_string_to_timespec(const char *time);
 
 /**
 * \brief Obtain a timespec struct containing the date and time specified by a J2000 time

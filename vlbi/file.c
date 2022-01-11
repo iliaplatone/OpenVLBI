@@ -228,6 +228,7 @@ int extfits_get_element_size(int typecode)
         case TUINT:
         case TFLOAT:
             typesize *= 4;
+            break;
         case TLONG:
         case TULONG:
         case TDOUBLE:
