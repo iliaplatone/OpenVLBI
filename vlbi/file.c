@@ -64,12 +64,12 @@ static int f_scansexa(const char *str0, /* input string */
     return (0);
 }
 
-void vlbi_update_fits_key(fitsfile *fptr, int type, char* name, void *p, char* explanation, int *status)
+void extfits_update_fits_key(fitsfile *fptr, int type, char* name, void *p, char* explanation, int *status)
 {
     fits_update_key(fptr, type, name, p, explanation, status);
 }
 
-long vlbi_alloc_fits_rows(fitsfile *fptr, unsigned long num_rows)
+long extfits_alloc_fits_rows(fitsfile *fptr, unsigned long num_rows)
 {
     int status = 0;
     long nrows = 0;
@@ -79,7 +79,7 @@ long vlbi_alloc_fits_rows(fitsfile *fptr, unsigned long num_rows)
 }
 
 
-int vlbi_fill_fits_col(fitsfile *fptr, char* name, unsigned char *buf, unsigned long num_rows)
+int extfits_fill_fits_col(fitsfile *fptr, char* name, unsigned char *buf, unsigned long num_rows)
 {
     int status = 0;
     int typecode = 0;
@@ -87,7 +87,7 @@ int vlbi_fill_fits_col(fitsfile *fptr, char* name, unsigned char *buf, unsigned 
     long width = 0;
 
     int ncol = 0;
-    long nrow = vlbi_alloc_fits_rows(fptr, num_rows);
+    long nrow = extfits_alloc_fits_rows(fptr, num_rows);
     fits_get_colnum(fptr, CASESEN, (char*)(name), &ncol, &status);
     if(status != COL_NOT_FOUND)
     {
@@ -97,7 +97,7 @@ int vlbi_fill_fits_col(fitsfile *fptr, char* name, unsigned char *buf, unsigned 
     return status;
 }
 
-int vlbi_append_fits_col(fitsfile *fptr, char* name, char* format)
+int extfits_append_fits_col(fitsfile *fptr, char* name, char* format)
 {
     int status = 0;
     int ncols = 0;
@@ -110,7 +110,7 @@ int vlbi_append_fits_col(fitsfile *fptr, char* name, char* format)
     return ncols;
 }
 
-void vlbi_delete_fits_col(fitsfile *fptr, char* name)
+void extfits_delete_fits_col(fitsfile *fptr, char* name)
 {
     int status = 0;
     int ncol = 0;
@@ -119,7 +119,7 @@ void vlbi_delete_fits_col(fitsfile *fptr, char* name)
         fits_delete_col(fptr, ncol, &status);
 }
 
-fitsfile* vlbi_create_fits(size_t *size, void **buf)
+fitsfile* extfits_create_fits(size_t *size, void **buf)
 {
     fitsfile *fptr = NULL;
 
@@ -172,12 +172,185 @@ fitsfile* vlbi_create_fits(size_t *size, void **buf)
     return fptr;
 }
 
-int vlbi_close_fits(fitsfile *fptr)
+int extfits_close_fits(fitsfile *fptr)
 {
     int status = 0;
     fits_close_file(fptr, &status);
 
     return status;
+}
+
+int extfits_check_column(fitsfile *fptr, char* column, char **expected, int expected_n, int rown)
+{
+    int err = 1, n = 0, anynul = 0, status = 0, x, y, typecode;
+    long repeat = 1;
+    long width;
+    char **value = (char **)malloc(sizeof(char*));
+    value[0] = (char*) malloc(150);
+    if(column == NULL || expected == NULL)
+        goto err_return;
+    fits_get_colname(fptr, 0, column, value[0], &n, &status);
+    if(status)
+        goto err_return;
+    fits_get_coltype(fptr, n, &typecode, &repeat, &width, &status);
+    if(typecode != TSTRING)
+        goto err_return;
+    free(value[0]);
+    value = (char **)realloc(value, sizeof(char*)*(size_t)repeat);
+    for(x = 0; x < repeat; x++) {
+        value[x] = (char*) malloc((size_t)width);
+        fits_read_col_str(fptr, n, rown, 1, 1, NULL, value, &anynul, &status);
+        for(y = 0; y < expected_n; y++) {
+            if(!strcmp(value[x], expected[y])) {
+                err &= 1;
+                break;
+            }
+        }
+    }
+err_return:
+    for(x = 0; x < repeat; x++)
+        free(value[x]);
+    free(value);
+    return err;
+}
+
+int extfits_get_element_size(int typecode)
+{
+    int typesize = 1;
+
+    switch(typecode)
+    {
+        case TSHORT:
+        case TUSHORT:
+            typesize *= 2;
+            break;
+        case TINT:
+        case TUINT:
+        case TFLOAT:
+            typesize *= 4;
+        case TLONG:
+        case TULONG:
+        case TDOUBLE:
+        case TCOMPLEX:
+            typesize *= 8;
+            break;
+        case TDBLCOMPLEX:
+            typesize *= 16;
+            break;
+        default:
+            break;
+    }
+
+    return typesize;
+}
+
+int extfits_read_img(fitsfile * fptr, dsp_stream_p stream, int bpp, int nelements)
+{
+    int status = 0;
+    int anynul = 0;
+    void *array = malloc((size_t)(abs(bpp) * nelements / 8));
+    switch(bpp)
+    {
+        case BYTE_IMG:
+            fits_read_img(fptr, TBYTE, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((unsigned char*)array), stream->buf, nelements);
+            break;
+        case SHORT_IMG:
+            fits_read_img(fptr, TUSHORT, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((short*)array), stream->buf, nelements);
+            break;
+        case USHORT_IMG:
+            fits_read_img(fptr, TUSHORT, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((unsigned short*)array), stream->buf, nelements);
+            break;
+        case LONG_IMG:
+            fits_read_img(fptr, TULONG, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((int*)array), stream->buf, nelements);
+            break;
+        case ULONG_IMG:
+            fits_read_img(fptr, TULONG, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((unsigned int*)array), stream->buf, nelements);
+            break;
+        case LONGLONG_IMG:
+            fits_read_img(fptr, TLONGLONG, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((long*)array), stream->buf, nelements);
+            break;
+        case FLOAT_IMG:
+            fits_read_img(fptr, TFLOAT, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((float*)array), stream->buf, nelements);
+            break;
+        case DOUBLE_IMG:
+            fits_read_img(fptr, TDOUBLE, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((double*)array), stream->buf, nelements);
+            break;
+    }
+    free(array);
+    if(status || anynul)
+        return -1;
+    return 0;
+}
+
+int extfits_read_col(fitsfile * fptr, dsp_stream_p stream, int n, int rown, int typecode, long repeat, long width, int nelements)
+{
+    int status = 0;
+    int anynul = 0;
+    void *array = malloc((size_t)(extfits_get_element_size(typecode) * nelements * repeat * width));
+    switch(typecode)
+    {
+        case TBIT:
+        case TBYTE:
+        case TSBYTE:
+        case TLOGICAL:
+        case TSTRING:
+            fits_read_col(fptr, TBYTE, n, rown, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_stretch(((unsigned char*)(array)), (long)nelements, 0, dsp_t_max);
+            dsp_buffer_copy(((unsigned char*)array), stream->buf, nelements);
+            break;
+        case TSHORT:
+            fits_read_col(fptr, TSHORT, n, rown, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((short*)array), stream->buf, nelements);
+            break;
+        case TUSHORT:
+            fits_read_col(fptr, TUSHORT, n, rown, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((unsigned short*)array), stream->buf, nelements);
+            break;
+        case TINT:
+            fits_read_col(fptr, TINT, n, rown, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((int*)array), stream->buf, nelements);
+            break;
+        case TUINT:
+            fits_read_col(fptr, TUINT, n, rown, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((unsigned int*)array), stream->buf, nelements);
+            break;
+        case TLONG:
+            fits_read_col(fptr, TLONG, n, rown, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((long*)array), stream->buf, nelements);
+            break;
+        case TULONG:
+            fits_read_col(fptr, TULONG, n, rown, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((unsigned long*)array), stream->buf, nelements);
+            break;
+        case TFLOAT:
+            fits_read_col(fptr, TFLOAT, n, rown, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((float*)array), stream->buf, nelements);
+            break;
+        case TDOUBLE:
+            fits_read_col(fptr, TDOUBLE, n, rown, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((double*)array), stream->buf, nelements);
+            break;
+        case TCOMPLEX:
+            fits_read_col(fptr, TCOMPLEX, n, rown, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((float*)array), stream->dft.buf, nelements*2);
+            break;
+        case TDBLCOMPLEX:
+            fits_read_col(fptr, TDBLCOMPLEX, n, rown, 1, (long)nelements, NULL, array, &anynul, &status);
+            dsp_buffer_copy(((double*)array), stream->dft.buf, nelements*2);
+            break;
+    }
+    free(array);
+    if(status || anynul)
+        return -1;
+    return 0;
 }
 
 dsp_stream_p extfits_read_fits(char *filename)
@@ -191,8 +364,6 @@ dsp_stream_p extfits_read_fits(char *filename)
     char error_status[64];
     dsp_stream_p stream = dsp_stream_new();
     int dim, nelements = 1;
-    int anynul = 0;
-    void *array;
     int dims;
     long naxes[3] = { 1, 1, 1 };
 
@@ -217,63 +388,11 @@ dsp_stream_p extfits_read_fits(char *filename)
 
     for(dim = 0; dim < dims; dim++)
     {
-        dsp_stream_add_dim(stream, naxes[dim]);
+        dsp_stream_add_dim(stream, (int)naxes[dim]);
     }
     dsp_stream_alloc_buffer(stream, stream->len);
     nelements = stream->len;
-    array = malloc(abs(bpp) * nelements / 8);
-    switch(bpp)
-    {
-        case BYTE_IMG:
-            fits_read_img(fptr, TBYTE, 1, (long)nelements, NULL, array, &anynul, &status);
-            dsp_buffer_stretch(((unsigned char*)(array)), (long)nelements, 0, dsp_t_max);
-            dsp_buffer_copy(((unsigned char*)array), stream->buf, nelements);
-            break;
-        case SHORT_IMG:
-            fits_read_img(fptr, TUSHORT, 1, (long)nelements, NULL, array, &anynul, &status);
-            if(abs(bpp) > 8 * sizeof(dsp_t))
-                dsp_buffer_stretch(((short*)(array)), (long)nelements, 0, dsp_t_max);
-            dsp_buffer_copy(((short*)array), stream->buf, nelements);
-            break;
-        case USHORT_IMG:
-            fits_read_img(fptr, TUSHORT, 1, (long)nelements, NULL, array, &anynul, &status);
-            if(abs(bpp) > 8 * sizeof(dsp_t))
-                dsp_buffer_stretch(((unsigned short*)(array)), (long)nelements, 0, dsp_t_max);
-            dsp_buffer_copy(((unsigned short*)array), stream->buf, nelements);
-            break;
-        case LONG_IMG:
-            fits_read_img(fptr, TULONG, 1, (long)nelements, NULL, array, &anynul, &status);
-            if(abs(bpp) > 8 * sizeof(dsp_t))
-                dsp_buffer_stretch(((int*)(array)), (long)nelements, 0, dsp_t_max);
-            dsp_buffer_copy(((int*)array), stream->buf, nelements);
-            break;
-        case ULONG_IMG:
-            fits_read_img(fptr, TULONG, 1, (long)nelements, NULL, array, &anynul, &status);
-            if(abs(bpp) > 8 * sizeof(dsp_t))
-                dsp_buffer_stretch(((unsigned int*)(array)), (long)nelements, 0, dsp_t_max);
-            dsp_buffer_copy(((unsigned int*)array), stream->buf, nelements);
-            break;
-        case LONGLONG_IMG:
-            fits_read_img(fptr, TLONGLONG, 1, (long)nelements, NULL, array, &anynul, &status);
-            if(abs(bpp) > 8 * sizeof(dsp_t))
-                dsp_buffer_stretch(((long*)(array)), (long)nelements, 0, dsp_t_max);
-            dsp_buffer_copy(((long*)array), stream->buf, nelements);
-            break;
-        case FLOAT_IMG:
-            fits_read_img(fptr, TFLOAT, 1, (long)nelements, NULL, array, &anynul, &status);
-            if(abs(bpp) > 8 * sizeof(dsp_t))
-                dsp_buffer_stretch(((float*)(array)), (long)nelements, 0, dsp_t_max);
-            dsp_buffer_copy(((float*)array), stream->buf, nelements);
-            break;
-        case DOUBLE_IMG:
-            fits_read_img(fptr, TDOUBLE, 1, (long)nelements, NULL, array, &anynul, &status);
-            if(abs(bpp) > 8 * sizeof(dsp_t))
-                dsp_buffer_stretch(((double*)(array)), (long)nelements, 0, dsp_t_max);
-            dsp_buffer_copy(((double*)array), stream->buf, nelements);
-            break;
-    }
-    free(array);
-    if(status || anynul)
+    if(extfits_read_img(fptr, stream, bpp, nelements))
         goto fail;
 
     ffgkey(fptr, "EPOCH", value, comment, &status);
@@ -350,72 +469,146 @@ fail:
     return NULL;
 }
 
-dsp_stream_p extfits_read_sdfits(char *filename)
+dsp_stream_p* extfits_read_sdfits(char *filename, long *nstreams)
 {
     fitsfile *fptr = (fitsfile*)malloc(sizeof(fitsfile));
     memset(fptr, 0, sizeof(fitsfile));
     int status = 0;
+    int sdfits_hdu = 0;
+    long nrows = 0;
+    long nrow = 0;
+    int ncols = 0;
+    int nfield = 0;
+    int k = 0;
+    int i = 0;
+    int n = 0;
+    int r = 0;
+    int dims;
+    int dim, nelements = 1;
+    int anynul = 0;
+    long naxes[3] = { 1, 1, 1 };
+    fitsext_column* columns = (fitsext_column*)malloc(sizeof(fitsext_column));
     char value[150];
     char comment[150];
     char error_status[64];
-    dsp_stream_p stream = NULL;// TODO: dsp_stream_new();
+    dsp_stream_p *stream = NULL;
 
     fits_open_file(&fptr, filename, READONLY, &status);
-
     if (status)
     {
         goto fail;
     }
 
-    int sdfits_hdu = IMAGE_HDU;
+    ffgkey(fptr, FITS_KEYWORD_EXTEND.name, value, comment, &status);
+    if(status || strcmp(value, FITS_KEYWORD_EXTEND.value))
+    {
+        goto fail;
+    }
+
+    ffgkey(fptr, SDFITS_KEYWORD_TELESCOP.name, value, comment, &status);
+    if (!status)
+    {
+    }
+    status = 0;
+
+    ffgkey(fptr, SDFITS_KEYWORD_OBSERVER.name, value, comment, &status);
+    if (!status)
+    {
+    }
+    status = 0;
+
+    ffgkey(fptr, SDFITS_KEYWORD_DATE_OBS.name, value, comment, &status);
+    if (!status)
+    {
+    }
+    status = 0;
+
+    ffgkey(fptr, SDFITS_KEYWORD_DATAMAX.name, value, comment, &status);
+    if (!status)
+    {
+    }
+    status = 0;
+
+    ffgkey(fptr, SDFITS_KEYWORD_DATAMIN.name, value, comment, &status);
+    if (!status)
+    {
+    }
+    status = 0;
+
     fits_movabs_hdu(fptr, 1, &sdfits_hdu, &status);
+    if(status || sdfits_hdu != BINARY_TBL)
+    {
+        goto fail;
+    }
+
+    fits_read_key_str(fptr, "EXTNAME", value, comment, &status);
+    if(status || strcmp(value, FITS_TABLE_SDFITS))
+    {
+        goto fail;
+    }
+
+    fits_read_key_str(fptr, SDFITS_KEYWORD_NMATRIX.name, value, NULL, &status);
+    if(status || strcmp(value, SDFITS_KEYWORD_NMATRIX.value)) {
+        goto fail;
+    }
+
+    fits_get_num_rows(fptr, &nrows, &status);
     if(status)
     {
         goto fail;
     }
 
-    ffgkey(fptr, FITS_KEYWORD_EXTEND[0], value, comment, &status);
-    if(status || strcmp(value, FITS_KEYWORD_EXTEND[3]))
-    {
-        goto fail;
-    }
+    stream = (dsp_stream_p*)realloc(stream, sizeof(dsp_stream_p)*(size_t)nrows);
 
-    ffgkey(fptr, SDFITS_KEYWORD_TELESCOP[0], value, comment, &status);
-    if (!status)
-    {
-    }
-    status = 0;
-
-    ffgkey(fptr, SDFITS_KEYWORD_OBSERVER[0], value, comment, &status);
-    if (!status)
-    {
-    }
-    status = 0;
-
-    ffgkey(fptr, SDFITS_KEYWORD_DATE_OBS[0], value, comment, &status);
-    if (!status)
-    {
-    }
-    status = 0;
-
-    ffgkey(fptr, SDFITS_KEYWORD_DATAMAX[0], value, comment, &status);
-    if (!status)
-    {
-    }
-    status = 0;
-
-    ffgkey(fptr, SDFITS_KEYWORD_DATAMIN[0], value, comment, &status);
-    if (!status)
-    {
-    }
-    status = 0;
-    sdfits_hdu = BINARY_TBL;
-    fits_movabs_hdu(fptr, 1, &sdfits_hdu, &status);
+    fits_get_num_cols(fptr, &ncols, &status);
     if(status)
     {
         goto fail;
     }
-
+    columns = (fitsext_column*)realloc(columns, sizeof(fitsext_column)*((size_t)ncols+1));
+    for(r = 0; r < nrows; r++) {
+        for(k = 0; k < ncols; k++) {
+            columns[k].name = (char*)malloc(150);
+            columns[k].format = (char*)malloc(150);
+            columns[k].unit = (char*)malloc(150);
+            columns[k].value = (char*)malloc(150);
+            columns[k].comment = (char*)malloc(150);
+            columns[k].typecode = 0;
+            columns[k].repeat = 0;
+            columns[k].width = 0;
+            status = 0;
+            for(i = 0; strcmp(SDFITS_TABLE_MAIN[i].name, ""); i++)
+            {
+                fits_get_colname(fptr, 0, SDFITS_TABLE_MAIN[i].name, value, &n, &status);
+                if(!status && strcmp(SDFITS_TABLE_MAIN[i].name, "")) {
+                    strcpy(columns[nfield].name, value);
+                    fits_get_eqcoltype(fptr, n, &columns[nfield].typecode, &columns[nfield].repeat, &columns[nfield].width, &status);
+                    if(status) continue;
+                    if(extfits_check_column(fptr, columns[nfield].name, columns[nfield].expected, 0, r))
+                        continue;
+                    if(!status && dims > 0 && !strcasecmp(value, "DATA")) {
+                        fits_read_tdim(fptr, n, 2, &dims, naxes, &status);
+                        stream[nrow] = dsp_stream_new();
+                        for(dim = 0; dim < dims; dim++)
+                        {
+                            dsp_stream_add_dim(stream[nrow], (int)naxes[dim]);
+                        }
+                        dsp_stream_alloc_buffer(stream[nrow], stream[nrow]->len);
+                        nelements = stream[nrow]->len;
+                        extfits_read_col(fptr, stream[nrow], n, r, columns[nfield].typecode, columns[nfield].repeat, columns[nfield].width, nelements);
+                        if(status || anynul) {
+                            dsp_stream_free_buffer(stream[nrow]);
+                            dsp_stream_free(stream[nrow]);
+                            continue;
+                        }
+                        nrow++;
+                    }
+                    nfield++;
+                }
+            }
+        }
+    }
+    *nstreams = nrow;
     status = 0;
     fits_close_file(fptr, &status);
     if(status)

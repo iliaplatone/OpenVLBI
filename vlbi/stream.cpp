@@ -583,11 +583,15 @@ void vlbi_add_node_from_fits(void *ctx, char *filename, char* name, int geo)
         nodes->Add(new VLBINode(stream, name, nodes->Count, geo == 1));
 }
 
-void vlbi_add_node_from_sdfits(void *ctx, char *filename, char* name, int geo)
+void vlbi_add_nodes_from_sdfits(void *ctx, char *filename, char* name, int geo)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    dsp_stream_p stream = extfits_read_sdfits(filename);
+    long n = 0;
+    dsp_stream_p *stream = extfits_read_sdfits(filename, &n);
     if(stream != nullptr)
-        nodes->Add(new VLBINode(stream, name, nodes->Count, geo == 1));
+    {
+        for(int i = 0; i < n; i++)
+            nodes->Add(new VLBINode(stream[i], name, nodes->Count, geo == 1));
+    }
 }
