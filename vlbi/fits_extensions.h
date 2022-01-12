@@ -930,6 +930,7 @@ typedef struct
 #define OBSTYPE_CONT "CONT"
 ///pulses
 #define OBSTYPE_PULS "PULS"
+
 ///position switch
 #define OBSMODE_PSSW "PSSW"
 ///frequency switch
@@ -943,17 +944,52 @@ typedef struct
 ///total power
 #define OBSMODE_TLPW "TLPW"
 
+///average
+#define OBSMODE_LINE_PSSW OBSTYPE_LINE OBSMODE_PSSW
+///frequency switch
+#define OBSMODE_LINE_FQSW OBSTYPE_LINE OBSMODE_FQSW
+///beam switch
+#define OBSMODE_LINE_BMSW OBSTYPE_LINE OBSMODE_BMSW
+///phase-lock switch
+#define OBSMODE_LINE_PLSW OBSTYPE_LINE OBSMODE_PLSW
+///load switch
+#define OBSMODE_LINE_LDSW OBSTYPE_LINE OBSMODE_LDSW
+///total power
+#define OBSMODE_LINE_TLPW OBSTYPE_LINE OBSMODE_TLPW
+
+///continuum
+///position switch
+#define OBSMODE_CONT_PSSW OBSTYPE_CONT OBSMODE_PSSW
+///frequency switch
+#define OBSMODE_CONT_FQSW OBSTYPE_CONT OBSMODE_FQSW
+///beam switch
+#define OBSMODE_CONT_BMSW OBSTYPE_CONT OBSMODE_BMSW
+///phase-lock switch
+#define OBSMODE_CONT_PLSW OBSTYPE_CONT OBSMODE_PLSW
+///load switch
+#define OBSMODE_CONT_LDSW OBSTYPE_CONT OBSMODE_LDSW
+///total power
+#define OBSMODE_CONT_TLPW OBSTYPE_CONT OBSMODE_TLPW
+
+///pulses
+///position switch
+#define OBSMODE_PULS_PSSW OBSTYPE_PULS OBSMODE_PSSW
+///frequency switch
+#define OBSMODE_PULS_FQSW OBSTYPE_PULS OBSMODE_FQSW
+///beam switch
+#define OBSMODE_PULS_BMSW OBSTYPE_PULS OBSMODE_BMSW
+///phase-lock switch
+#define OBSMODE_PULS_PLSW OBSTYPE_PULS OBSMODE_PLSW
+///load switch
+#define OBSMODE_PULS_LDSW OBSTYPE_PULS OBSMODE_LDSW
+///total power
+#define OBSMODE_PULS_TLPW OBSTYPE_PULS OBSMODE_TLPW
+
 ///TEMPSCAL
 #define TEMPSCAL_TB "TB"
 #define TEMPSCAL_TA "TA"
 #define TEMPSCAL_TA_TR "TA*TR"
 #define TEMPSCAL_TR "TR*"
-
-///TRX, as for TSYS
-///Single Side Band
-#define TSYS_SSB "SSB"
-///Double Side Band
-#define TSYS_DSB "DSB"
 
 ///VELDEF
 #define VELDEF_RADI "*RADI"
@@ -964,12 +1000,13 @@ typedef struct
 #define VELDEF_EART "EART"
 #define VELDEF_BARI "BARI"
 #define VELDEF_OBS "-OBS"
+
 ///NMATRIX shall be present with the value 1
-#define SDFITS_KEYWORD_NMATRIX (fitsext_column){"NMATRIX", FITS_ELEMENT_SIGNED_INT_16_BIT, "", "1", "NMATRIX shall be present with the value 1", {""}, 0, 0, 0}
+#define SDFITS_KEYWORD_NMATRIX (fitsext_column){"NMATRIX", FITS_ELEMENT_SIGNED_INT_16_BIT, "", "1", "NMATRIX shall be present with the value 1", {"1"}, 0, 0, 0}
 ///M = number axes in regular matrix, Number pixels on axis m = 1 to M
 #define SDFITS_KEYWORD_MAXIS(m) (fitsext_column){"MAXIS" itostr(m), FITS_ELEMENT_SIGNED_INT_16_BIT, "", "", "M = number axes in regular matrix, Number pixels on axis m = 1 to M", {""}, 0, 0, 0}
 ///Set to 'T' — column n contains the data matrix
-#define SDFITS_KEYWORD_TMATX(n) (fitsext_column){"TMATX" itostr(n), FITS_ELEMENT_CHARACTER_STRING, "", "T", "Set to 'T'", {""}, 0, 0, 0}
+#define SDFITS_KEYWORD_TMATX(n) (fitsext_column){"TMATX" itostr(n), FITS_ELEMENT_CHARACTER_STRING, "", "T", "Set to 'T'", {"T"}, 0, 0, 0}
 #define SDFITS_KEYWORD_TTYPE(n) (fitsext_column){"TTYPE" itostr(n),"8A", "", "", "Set to ''", {""}, 0, 0, 0}
 #define SDFITS_KEYWORD_TFORM(n) (fitsext_column){"TFORM" itostr(n),"8A", "", "", "", {""}, 0, 0, 0}
 ///shall have the value '' or ''
@@ -995,7 +1032,7 @@ typedef struct
 ///Scan number
 #define SDFITS_COLUMN_SCAN (fitsext_column){"SCAN", FITS_ELEMENT_FLOATING_POINT_64_BIT, "", "", "Scan number", {""}, 0, 0, 0}
 ///Type of data, observing mode;
-#define SDFITS_COLUMN_OBSMODE (fitsext_column){"OBSMODE", "8A", "", "", "Type of data, observing mode", {""}, 0, 0, 0}
+#define SDFITS_COLUMN_OBSMODE (fitsext_column){"OBSMODE", "8A", "", "", "Type of data, observing mode", {OBSMODE_LINE_PSSW, OBSMODE_LINE_FQSW, OBSMODE_LINE_BMSW, OBSMODE_LINE_PLSW, OBSMODE_LINE_LDSW, OBSMODE_LINE_TLPW, OBSMODE_CONT_PSSW, OBSMODE_CONT_FQSW, OBSMODE_CONT_BMSW, OBSMODE_CONT_PLSW, OBSMODE_CONT_LDSW, OBSMODE_CONT_TLPW, OBSMODE_PULS_PSSW, OBSMODE_PULS_FQSW, OBSMODE_PULS_BMSW, OBSMODE_PULS_PLSW, OBSMODE_PULS_LDSW, OBSMODE_PULS_TLPW}, 0, 0, 0}
 ///Molecule observed or detected;
 #define SDFITS_COLUMN_MOLECULE (fitsext_column){"MOLECULE", "8A", "", "", "Molecule observed or detected", {""}, 0, 0, 0}
 ///As appropriate;
@@ -1013,7 +1050,7 @@ typedef struct
 ///Receiver Temp (K), Float
 #define SDFITS_COLUMN_TRX (fitsext_column){"TRX", FITS_ELEMENT_FLOATING_POINT_64_BIT, FITS_MEASURE_UNIT_KELVIN, "", "Receiver Temp, Float", {""}, 0, 0, 0}
 ///Velocity definition & frame;
-#define SDFITS_COLUMN_VELDEF (fitsext_column){"VELDEF", "8A", "", "", "Velocity definition & frame", {""}, 0, 0, 0}
+#define SDFITS_COLUMN_VELDEF (fitsext_column){"VELDEF", "8A", "", "", "Velocity definition & frame", {VELDEF_RADI, VELDEF_OPTI, VELDEF_RELA, VELDEF_LSR, VELDEF_HELO, VELDEF_EART, VELDEF_BARI, VELDEF_OBS}, 0, 0, 0}
 ///radial velocity correction; Vref - Vtel
 #define SDFITS_COLUMN_VCORR (fitsext_column){"VCORR", FITS_ELEMENT_FLOATING_POINT_64_BIT, "", "", "radial velocity correction; Vref - Vtel", {""}, 0, 0, 0}
 ///Observed Frequency (Hz)

@@ -147,48 +147,6 @@ typedef struct timespec timespec_t;
 */
 /**\{*/
 
-/**
-* \brief A placeholder delegate that simply multiplies the values received from vlbi_get_uv_plot
-*
-* \param x lowest index baseline's node current value
-* \param y highest index baseline's node current value
-* \return the result of the operation done
-*/
-inline double vlbi_default_delegate(double x, double y) {
-    return x*y;
-}
-
-/**
-* \brief A magnitude calculator delegate for vlbi_get_uv_plot
-*
-* \param x The real part
-* \param y The imaginary part
-* \return The magnitude of this correlation
-* \sa vlbi_set_baseline_buffer
-*/
-inline double vlbi_magnitude_delegate(double x, double y) {
-    return sqrt(pow(x, 2)+pow(y, 2));
-}
-
-/**
-* \brief A phase calculator delegate for vlbi_get_uv_plot
-*
-* \param x The real part
-* \param y The imaginary part
-* \return The phase of this correlation
-* \sa vlbi_set_baseline_buffer
-*/
-inline double vlbi_phase_delegate(double x, double y) {
-    double mag = sqrt(pow(x, 2)+pow(y, 2));
-    double rad = 0.0;
-    if(mag > 0.0) {
-        rad = acos (y / (mag > 0.0 ? mag : 1.0));
-        if(x < 0 && rad != 0)
-            rad = M_PI*2-rad;
-    }
-    return rad;
-}
-
 #ifndef Min
 ///if max() is not present you can use this one
 #define Min(a,b) \
@@ -212,6 +170,41 @@ inline double vlbi_phase_delegate(double x, double y) {
 #ifndef hz2rad
 ///Get the frequency in radians/s
 #define hz2rad(hz) (2.0*M_PI*hz)
+#endif
+
+#ifndef sinpsin
+///Sum two sine
+#define sinpsin(r1, r2) (2.0*sin((r1+r2)/2.0)*cos((r1-r2)/2.0))
+#endif
+
+#ifndef sinmsin
+///Subtract a sine from a sine
+#define sinmsin(r1, r2) (2.0*cos((r1+r2)/2.0)*sin((r1-r2)/2.0))
+#endif
+
+#ifndef cospcos
+///Sum two cosine
+#define cospcos(r1, r2) (2.0*cos((r1+r2)/2.0)*cos((r1-r2)/2.0))
+#endif
+
+#ifndef cosmcos
+///Subtract a cosine from a cosine
+#define cosmcos(r1, r2) (-2.0*sin((r1+r2)/2.0)*sin((r1-r2)/2.0))
+#endif
+
+#ifndef sinxsin
+///Multiply a sine to a sine
+#define sinxsin(r1, r2) ((cos(r1-r2)-cos(r1+r2))/2.0)
+#endif
+
+#ifndef cosxcos
+///Multiply a cosine to a cosine
+#define cosxcos(r1, r2) ((cos(r1+r2)+cos(r1-r2))/2.0)
+#endif
+
+#ifndef sinxcos
+///Multiply a sine to a cosine
+#define sinxcos(r1, r2) ((sin(r1+r2)+sin(r1-r2))/2.0)
 #endif
 
 #ifndef sin2cos
@@ -419,6 +412,71 @@ inline double vlbi_phase_delegate(double x, double y) {
 #endif
 ///reference means speed (radiation speed, to calculate wavelengths, delays) defaults as LIGHTSPEED
 extern double SPEED_MEAN;
+
+/**
+* \brief A placeholder delegate that simply multiplies the values received from vlbi_get_uv_plot
+*
+* \param x lowest index baseline's node current value
+* \param y highest index baseline's node current value
+* \return the result of the operation done
+*/
+inline double vlbi_default_delegate(double x, double y) {
+    return x*y;
+}
+
+/**
+* \brief A magnitude calculator delegate for vlbi_get_uv_plot
+*
+* \param x The real part
+* \param y The imaginary part
+* \return The magnitude of this correlation
+* \sa vlbi_set_baseline_buffer
+*/
+inline double vlbi_magnitude_delegate(double x, double y) {
+    return sqrt(pow(x, 2)+pow(y, 2));
+}
+
+/**
+* \brief A phase calculator delegate for vlbi_get_uv_plot
+*
+* \param x The real part
+* \param y The imaginary part
+* \return The phase of this correlation
+* \sa vlbi_set_baseline_buffer
+*/
+inline double vlbi_phase_delegate(double x, double y) {
+    double mag = sqrt(pow(x, 2)+pow(y, 2));
+    double rad = 0.0;
+    if(mag > 0.0) {
+        rad = acos (y / (mag > 0.0 ? mag : 1.0));
+        if(x < 0 && rad != 0)
+            rad = M_PI*2-rad;
+    }
+    return rad;
+}
+
+/**
+* \brief A magnitude correlator delegate for vlbi_get_uv_plot
+*
+* \param x lowest index baseline's node magnitude value
+* \param y highest index baseline's node magnitude value
+* \return the magnitude cross-correlation
+*/
+inline double vlbi_magnitude_correlator_delegate(double x, double y) {
+    return x*y;
+}
+
+/**
+* \brief A phase correlator delegate for vlbi_get_uv_plot
+*
+* \param x lowest index baseline's node phase value
+* \param y highest index baseline's node phase value
+* \return the phase cross-correlation
+*/
+inline double vlbi_phase_correlator_delegate(double x, double y) {
+    return sinxsin(x, y);
+}
+
 ///The maximum number of threads allowed
 extern unsigned long int MAX_THREADS;
 /**\}*/
