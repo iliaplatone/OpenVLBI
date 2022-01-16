@@ -150,15 +150,15 @@ typedef struct timespec timespec_t;
 #ifndef Min
 ///if max() is not present you can use this one
 #define Min(a,b) \
-   ({ __typeof__ (a) _a = (a); \
-       __typeof__ (b) _b = (b); \
+   ({ __typeof (a) _a = (a); \
+       __typeof (b) _b = (b); \
      _a < _b ? _a : _b; })
 #endif
 #ifndef Max
 ///if max() is not present you can use this one
 #define Max(a,b) \
-   ({ __typeof__ (a) _a = (a); \
-       __typeof__ (b) _b = (b); \
+   ({ __typeof (a) _a = (a); \
+       __typeof (b) _b = (b); \
      _a > _b ? _a : _b; })
 #endif
 #ifndef Log
@@ -965,6 +965,21 @@ DLL_EXPORT double vlbi_astro_estimate_size_transient(double transient_object_vel
  * \return The distance of the object adjusted by its current redshift
  */
 DLL_EXPORT double vlbi_astro_redshift_adjust(double distance, double redshift);
+
+/**
+ * \brief Returns the distance of a far object adjusted with its measured redshift
+ * \param filename The file name of the FITS file to open
+ * \return A pointer to a dsp_stream filled with the needed data contained into the FITS file
+ */
+DLL_EXPORT dsp_stream_p vlbi_file_read_fits(char *filename);
+
+/**
+ * \brief Returns the distance of a far object adjusted with its measured redshift
+ * \param filename The file name of the FITS file to open
+ * \param n the number of rows extracted and converted into dsp_stream structs
+ * \return A pointer array to dsp_stream structs filled with the needed data contained into the SDFITS file rows
+ */
+DLL_EXPORT dsp_stream_p *vlbi_file_read_sdfits(char * filename, long *n);
 
 /**\}*/
 /**\defgroup Server*/

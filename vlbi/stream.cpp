@@ -26,9 +26,9 @@
 #include <base64.h>
 #include "fits_extensions.h"
 
-pthread_mutex_t mutex;
-pthread_mutexattr_t mutexattr;
-bool mutex_initialized = false;
+static pthread_mutex_t mutex;
+static pthread_mutexattr_t mutexattr;
+static bool mutex_initialized = false;
 
 static void init_mutex()
 {
@@ -254,7 +254,7 @@ int vlbi_get_nodes(void *ctx, vlbi_node** output)
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     if(nodes->Count > 0)
     {
-        vlbi_node* out = (vlbi_node*)malloc(sizeof(vlbi_node) * nodes->Count);
+        vlbi_node* out = (vlbi_node*)malloc(sizeof(vlbi_node) * (size_t)nodes->Count);
         for(int x = 0; x < nodes->Count; x++)
         {
             out[x].GeographicLocation = nodes->At(x)->getGeographicLocation();
@@ -427,8 +427,8 @@ void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, co
             d++;
     if(mag->dims == d)
     {
-        dsp_buffer_stretch(phi->buf, phi->len, 0.0, M_PI * 2.0);
-        dsp_buffer_stretch(mag->buf, mag->len, 0.0, dsp_t_max);
+        dsp_buffer_stretch(phi->buf, phi->len, 0, M_PI * 2.0);
+        dsp_buffer_stretch(mag->buf, mag->len, 0, dsp_t_max);
         dsp_stream_p ifft = dsp_stream_copy(mag);
         ifft->phase = phi;
         ifft->magnitude = mag;
@@ -579,7 +579,7 @@ void vlbi_add_node_from_fits(void *ctx, char *filename, const char *name, int ge
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    dsp_stream_p stream = extfits_read_fits(filename);
+    dsp_stream_p stream = vlbi_file_read_fits(filename);
     if(stream != nullptr)
         nodes->Add(new VLBINode(stream, name, nodes->Count, geo == 1));
 }
@@ -589,7 +589,7 @@ void vlbi_add_nodes_from_sdfits(void *ctx, char *filename, const char *name, int
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     long n = 0;
-    dsp_stream_p *stream = extfits_read_sdfits(filename, &n);
+    dsp_stream_p *stream = vlbi_file_read_sdfits(filename, &n);
     if(stream != nullptr)
     {
         for(int i = 0; i < n; i++)
