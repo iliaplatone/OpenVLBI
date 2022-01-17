@@ -1,5 +1,5 @@
 /*   libDSP - a digital signal processing library
- *   Copyright © 2017-2021  Ilia Platone
+ *   Copyright © 2017-2022  Ilia Platone
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Lesser General Public
@@ -38,6 +38,7 @@ extern "C" {
 #include <assert.h>
 #include <pthread.h>
 #include <fftw3.h>
+#include <fits_extensions.h>
 
 
 /**
@@ -52,7 +53,7 @@ extern "C" {
 *
 * \author Ilia Platone
 * \version 1.0.0
-* \date 2017-2021
+* \date 2017-2022
 * \copyright GNU GPL3 Public License.
 */
 /**\{*/
