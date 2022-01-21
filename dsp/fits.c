@@ -34,18 +34,13 @@ long dsp_fits_alloc_fits_rows(fitsfile *fptr, unsigned long num_rows)
 }
 
 
-int dsp_fits_fill_fits_col(fitsfile *fptr, char* name, unsigned char *buf, long num_elements, unsigned long rown)
+int dsp_fits_fill_fits_col(fitsfile *fptr, char* name, unsigned char *buf, int typecode, long num_elements, unsigned long rown)
 {
     int status = 0;
-    int typecode = 0;
-    long repeat = 0;
-    long width = 0;
-
     int ncol = 0;
     fits_get_colnum(fptr, CASESEN, (char*)(name), &ncol, &status);
     if(status != COL_NOT_FOUND)
     {
-        fits_get_eqcoltype(fptr, ncol, &typecode, &repeat, &width, &status);
         fits_write_col(fptr, typecode, ncol, rown, 1, num_elements, buf, &status);
     }
     return status;

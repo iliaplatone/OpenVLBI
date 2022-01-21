@@ -78,10 +78,6 @@ dsp_stream_p * vlbi_file_read_sdfits(char * filename, long *n)
     for(r = 0; r < nrows; r++)
     {
         stream[r] = dsp_stream_new();
-        for(dim = 0; dim < dims; dim++)
-        {
-            dsp_stream_add_dim(stream[r], (int)sizes[dim]);
-        }
         int k = 0;
         dsp_fits_row row = rows[r];
         for(k = 0; strcmp(SDFITS_COLUMN_OBJCTRA.name, row.columns[k].name); k++);
@@ -92,7 +88,7 @@ dsp_stream_p * vlbi_file_read_sdfits(char * filename, long *n)
         f_scansexa(row.columns[k].value, &stream[r]->target[1]);
         for(k = 0; strcmp(SDFITS_COLUMN_OBSFREQ.name, row.columns[k].name); k++);
         stream[r]->wavelength = *((double*)row.columns[k].value);
-        stream[r]->wavelength = LIGHTSPEED / stream[r]->wavelength;
+        stream[r]->wavelength = SPEED_MEAN / stream[r]->wavelength;
         for(k = 0; strcmp(SDFITS_COLUMN_SITELAT.name, row.columns[k].name); k++);
         stream[r]->location[0].geographic.lat = *((double*)row.columns[k].value);
         for(k = 0; strcmp(SDFITS_COLUMN_SITELONG.name, row.columns[k].name); k++);
@@ -114,6 +110,10 @@ dsp_stream_p * vlbi_file_read_sdfits(char * filename, long *n)
         dsp_fits_read_typecode(row.columns[k].format, &typecode, &width, &repeat);
         dsp_stream_add_dim(stream[r], (int)width);
         dsp_stream_add_dim(stream[r], (int)repeat);
+        for(dim = 0; dim < dims; dim++)
+        {
+            dsp_stream_add_dim(stream[r], (int)sizes[dim]);
+        }
         dsp_stream_alloc_buffer(stream[r], stream[r]->len);
 
         stream[r]->samplerate /= stream[r]->len;

@@ -167,16 +167,106 @@ typedef struct
 
 #define FITS_KEYWORD_EXTEND (dsp_fits_keyword){"EXTEND", "A", "", "T", "", (char*[]){""}}
 
-void dsp_fits_update_fits_key(fitsfile *fptr, int type, char* name, void *p, char* explanation, int *status);
+/**
+* \brief Create or update a new fits header key
+* \param fptr The fits file pointer created by dsp_fits_create_fits
+* \param type The typecode of the value
+* \param name The keyword to be updated
+* \param value The new value of the specified keyword
+* \param comment The keyword or assigned value description or explanation
+* \param status This variable will be updated with the status of the update operation
+*/
+void dsp_fits_update_fits_key(fitsfile *fptr, int type, char* name, void *value, char* comment, int *status);
+
+/**
+* \brief Convert an RGB color dsp_t array into a dsp_stream_p array each element containing the single components
+* \param fptr The fits file pointer created by dsp_fits_create_fits
+* \param num_rows The number of rows to be allocated
+* \return The number of rows incremented by the allocated ones
+* \sa dsp_fits_create_fits
+*/
 long dsp_fits_alloc_fits_rows(fitsfile *fptr, unsigned long num_rows);
-int dsp_fits_fill_fits_col(fitsfile *fptr, char* name, unsigned char *buf, long num_elements, unsigned long rown);
+
+/**
+* \brief Fill a column at the given row position with the valued buffer
+* \param fptr The fits file pointer created by dsp_fits_create_fits
+* \param name The name of the column
+* \param buf The buffer that will be copied into the selected field.
+* \param typecode The element type size
+* \param num_elements The total field size in elements, this should take into account the width and repeat multipliers
+* \param rown The row number where the field is located
+* \return non-zero if any error occured
+* \sa dsp_fits_create_fits
+*/
+int dsp_fits_fill_fits_col(fitsfile *fptr, char* name, unsigned char *buf, int typecode, long num_elements,
+                           unsigned long rown);
+
+/**
+* \brief Add a column to the binary table
+* \param fptr The fits file pointer created by dsp_fits_create_fits
+* \param name The name of the column
+* \param format This field should indicate the element size, width of each element and repetition eventually
+* \return non-zero if any error occured
+*/
 int dsp_fits_append_fits_col(fitsfile *fptr, char* name, char* format);
+
+/**
+* \brief Delete a column from the binary table
+* \param fptr The fits file pointer created by dsp_fits_create_fits
+* \param name The name of the column
+*/
 void dsp_fits_delete_fits_col(fitsfile *fptr, char* name);
+
+/**
+* \brief Obtain the single element size in bytes
+* \param typecode The typecode of each single element
+* \return the size of the single element
+*/
 size_t dsp_fits_get_element_size(int typecode);
+
+/**
+* \brief Decode a typecode format string
+* \param typestr The element format string
+* \param typecode This function will return the typecode to this variable
+* \param width This function will return the width to this variable
+* \param repeat This function will return the repeatition count to this variable
+* \return non-zero if any error occured
+*/
 int dsp_fits_read_typecode(char* typestr, int *typecode, long *width, long *repeat);
+
+/**
+* \brief Obtain the value of the specified field
+* \param fptr The fits file pointer created by dsp_fits_create_fits
+* \param column The column name of the selected field
+* \param rown The row position of the field
+* \param retval A preallocated buffer where the field value will be stored into
+* \return non-zero if any error occured
+*/
 int dsp_fits_get_value(fitsfile *fptr, char* column, long rown, void **retval);
+
+/**
+* \brief Check if the value of the specified field corresponds to a subset of values
+* \param fptr The fits file pointer created by dsp_fits_create_fits
+* \param column The column name of the selected field
+* \param expected A buffer array containing expected values, terminating with an empty value
+* \param rown The row position of the field
+* \return zero if any of the values was matched
+*/
 int dsp_fits_check_column(fitsfile *fptr, char* column, char **expected, long rown);
-fitsfile* dsp_fits_create_fits_(size_t *size, void **buf);
+
+/**
+* \brief Create an open fits file pointer to be updated later
+* \param size This variable will contain the initial size of the fits file pointer
+* \param buf This buffer will contain the fits memfile
+* \return fitsfile the fits file pointer
+*/
+fitsfile* dsp_fits_create_fits(size_t *size, void **buf);
+
+/**
+* \brief Close a fits file pointer
+* \param fptr The fits file pointer created by dsp_fits_create_fits
+* \return non-zero if any error occured
+*/
 int dsp_fits_close_fits(fitsfile *fptr);
 
 #ifdef __cplusplus
