@@ -17,5 +17,22 @@
 *   Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include "dsp.h"
+#ifndef _FITS_EXTENSIONS_H
+#define _FITS_EXTENSIONS_H
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
+#ifndef DLL_EXPORT
+#define DLL_EXPORT extern
+#endif
+
+#include <sdfits.h>
+#include <fitsidi.h>
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif //_FITS_EXTENSIONS_H

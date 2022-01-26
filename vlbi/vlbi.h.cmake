@@ -1,5 +1,5 @@
 /*  OpenVLBI - Open Source Very Long Baseline Interferometry
-*   Copyright © 2017-2021  Ilia Platone
+*   Copyright © 2017-2022  Ilia Platone
 *
 *   This program is free software; you can redistribute it and/or
 *   modify it under the terms of the GNU Lesser General Public
@@ -65,7 +65,7 @@ extern "C" {
  *
  * \author Ilia Platone
  * \version @VLBI_VERSION_STRING@
- * \date 2017-2021
+ * \date 2017-2022
  * \copyright GNU Lesser GPL3 Public License.
  *
  *\{*/
@@ -148,60 +148,18 @@ typedef struct timespec timespec_t;
 */
 /**\{*/
 
-/**
-* \brief A placeholder delegate that simply multiplies the values received from vlbi_get_uv_plot
-*
-* \param x lowest index baseline's node current value
-* \param y highest index baseline's node current value
-* \return the result of the operation done
-*/
-inline double vlbi_default_delegate(double x, double y) {
-    return x*y;
-}
-
-/**
-* \brief A magnitude calculator delegate for vlbi_get_uv_plot
-*
-* \param x The real part
-* \param y The imaginary part
-* \return The magnitude of this correlation
-* \sa vlbi_set_baseline_buffer
-*/
-inline double vlbi_magnitude_delegate(double x, double y) {
-    return sqrt(pow(x, 2)+pow(y, 2));
-}
-
-/**
-* \brief A phase calculator delegate for vlbi_get_uv_plot
-*
-* \param x The real part
-* \param y The imaginary part
-* \return The phase of this correlation
-* \sa vlbi_set_baseline_buffer
-*/
-inline double vlbi_phase_delegate(double x, double y) {
-    double mag = sqrt(pow(x, 2)+pow(y, 2));
-    double rad = 0.0;
-    if(mag > 0.0) {
-        rad = acos (y / (mag > 0.0 ? mag : 1.0));
-        if(x < 0 && rad != 0)
-            rad = M_PI*2-rad;
-    }
-    return rad;
-}
-
 #ifndef Min
 ///if max() is not present you can use this one
 #define Min(a,b) \
-   ({ __typeof__ (a) _a = (a); \
-       __typeof__ (b) _b = (b); \
+   ({ __typeof (a) _a = (a); \
+       __typeof (b) _b = (b); \
      _a < _b ? _a : _b; })
 #endif
 #ifndef Max
 ///if max() is not present you can use this one
 #define Max(a,b) \
-   ({ __typeof__ (a) _a = (a); \
-       __typeof__ (b) _b = (b); \
+   ({ __typeof (a) _a = (a); \
+       __typeof (b) _b = (b); \
      _a > _b ? _a : _b; })
 #endif
 #ifndef Log
@@ -213,6 +171,41 @@ inline double vlbi_phase_delegate(double x, double y) {
 #ifndef hz2rad
 ///Get the frequency in radians/s
 #define hz2rad(hz) (2.0*M_PI*hz)
+#endif
+
+#ifndef sinpsin
+///Sum two sine
+#define sinpsin(r1, r2) (2.0*sin((r1+r2)/2.0)*cos((r1-r2)/2.0))
+#endif
+
+#ifndef sinmsin
+///Subtract a sine from a sine
+#define sinmsin(r1, r2) (2.0*cos((r1+r2)/2.0)*sin((r1-r2)/2.0))
+#endif
+
+#ifndef cospcos
+///Sum two cosine
+#define cospcos(r1, r2) (2.0*cos((r1+r2)/2.0)*cos((r1-r2)/2.0))
+#endif
+
+#ifndef cosmcos
+///Subtract a cosine from a cosine
+#define cosmcos(r1, r2) (-2.0*sin((r1+r2)/2.0)*sin((r1-r2)/2.0))
+#endif
+
+#ifndef sinxsin
+///Multiply a sine to a sine
+#define sinxsin(r1, r2) ((cos(r1-r2)-cos(r1+r2))/2.0)
+#endif
+
+#ifndef cosxcos
+///Multiply a cosine to a cosine
+#define cosxcos(r1, r2) ((cos(r1+r2)+cos(r1-r2))/2.0)
+#endif
+
+#ifndef sinxcos
+///Multiply a sine to a cosine
+#define sinxcos(r1, r2) ((sin(r1+r2)+sin(r1-r2))/2.0)
 #endif
 
 #ifndef sin2cos
@@ -425,6 +418,71 @@ inline double vlbi_phase_delegate(double x, double y) {
 #endif
 ///reference means speed (radiation speed, to calculate wavelengths, delays) defaults as LIGHTSPEED
 extern double SPEED_MEAN;
+
+/**
+* \brief A placeholder delegate that simply multiplies the values received from vlbi_get_uv_plot
+*
+* \param x lowest index baseline's node current value
+* \param y highest index baseline's node current value
+* \return the result of the operation done
+*/
+inline double vlbi_default_delegate(double x, double y) {
+    return x*y;
+}
+
+/**
+* \brief A magnitude calculator delegate for vlbi_get_uv_plot
+*
+* \param x The real part
+* \param y The imaginary part
+* \return The magnitude of this correlation
+* \sa vlbi_set_baseline_buffer
+*/
+inline double vlbi_magnitude_delegate(double x, double y) {
+    return sqrt(pow(x, 2)+pow(y, 2));
+}
+
+/**
+* \brief A phase calculator delegate for vlbi_get_uv_plot
+*
+* \param x The real part
+* \param y The imaginary part
+* \return The phase of this correlation
+* \sa vlbi_set_baseline_buffer
+*/
+inline double vlbi_phase_delegate(double x, double y) {
+    double mag = sqrt(pow(x, 2)+pow(y, 2));
+    double rad = 0.0;
+    if(mag > 0.0) {
+        rad = acos (y / (mag > 0.0 ? mag : 1.0));
+        if(x < 0 && rad != 0)
+            rad = M_PI*2-rad;
+    }
+    return rad;
+}
+
+/**
+* \brief A magnitude correlator delegate for vlbi_get_uv_plot
+*
+* \param x lowest index baseline's node magnitude value
+* \param y highest index baseline's node magnitude value
+* \return the magnitude cross-correlation
+*/
+inline double vlbi_magnitude_correlator_delegate(double x, double y) {
+    return x*y;
+}
+
+/**
+* \brief A phase correlator delegate for vlbi_get_uv_plot
+*
+* \param x lowest index baseline's node phase value
+* \param y highest index baseline's node phase value
+* \return the phase cross-correlation
+*/
+inline double vlbi_phase_correlator_delegate(double x, double y) {
+    return sinxsin(x, y);
+}
+
 ///The maximum number of threads allowed
 extern unsigned long int MAX_THREADS;
 /**\}*/
@@ -444,7 +502,7 @@ inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) { M
 * \brief Print the current version of OpenVLBI.
 * \return The Version string
 */
-DLL_EXPORT const char* vlbi_get_version(void);
+DLL_EXPORT const char *vlbi_get_version(void);
 
 /**
 * \brief Initialize a OpenVLBI instance.
@@ -505,7 +563,7 @@ DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, const char *n
 * \param name The name of the newly created model
 * \param geo whether to consider the file coordinates as geographic or relative to the context station
 */
-DLL_EXPORT void vlbi_add_nodes_from_sdfits(void *ctx, char *filename, const char* name, int geo);
+DLL_EXPORT void vlbi_add_nodes_from_sdfits(void *ctx, char *filename, const char *name, int geo);
 
 /**\}*/
 /**
@@ -522,14 +580,14 @@ DLL_EXPORT void vlbi_add_nodes_from_sdfits(void *ctx, char *filename, const char
 DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 
 /**
-* \brief Fill the buffer of a single baseline with already correlated data.
+* \brief Fill the buffer of a single baseline with complex visibility data.
 * \param ctx The OpenVLBI context
 * \param node1 The name of the first node
 * \param node2 The name of the second node
-* \param buffer The buffer with complex correlated data
+* \param buffer The buffer with complex complex visibility data
 * \param len The length of the buffer
 */
-DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, const char* node1, const char* node2, dsp_t *buffer, int len);
+DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, fftw_complex *buffer, int len);
 
 /**
 * \brief Set the location of the reference station.
@@ -630,7 +688,7 @@ DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, const char *model, const char *ma
 * \param model The name of the model containing the data to be masked.
 * \param mask The name of the model containing the mask.
 */
-DLL_EXPORT void vlbi_apply_mask(vlbi_context ctx, const char *name, const char* model, const char* mask);
+DLL_EXPORT void vlbi_apply_mask(vlbi_context ctx, const char *name, const char *model, const char *mask);
 
 /**
 * \brief Shift a model by its dimensions.
@@ -787,7 +845,7 @@ DLL_EXPORT double vlbi_time_J2000time_to_lst(double secs_since_J2000, double Lon
 * \param time String containing the time to be converted
 * \return the timespec struct containing the date and time specified.
 */
-DLL_EXPORT timespec_t vlbi_time_string_to_timespec(const char* time);
+DLL_EXPORT timespec_t vlbi_time_string_to_timespec(const char *time);
 
 /**
 * \brief Obtain a timespec struct containing the date and time specified by a J2000 time
@@ -985,6 +1043,21 @@ DLL_EXPORT double vlbi_astro_estimate_size_transient(double transient_object_vel
  * \return The distance of the object adjusted by its current redshift
  */
 DLL_EXPORT double vlbi_astro_redshift_adjust(double distance, double redshift);
+
+/**
+ * \brief Returns the distance of a far object adjusted with its measured redshift
+ * \param filename The file name of the FITS file to open
+ * \return A pointer to a dsp_stream filled with the needed data contained into the FITS file
+ */
+DLL_EXPORT dsp_stream_p vlbi_file_read_fits(char *filename);
+
+/**
+ * \brief Returns the distance of a far object adjusted with its measured redshift
+ * \param filename The file name of the FITS file to open
+ * \param n the number of rows extracted and converted into dsp_stream structs
+ * \return A pointer array to dsp_stream structs filled with the needed data contained into the SDFITS file rows
+ */
+DLL_EXPORT dsp_stream_p *vlbi_file_read_sdfits(char * filename, long *n);
 
 /**\}*/
 /**\defgroup Server*/

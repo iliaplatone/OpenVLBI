@@ -1,5 +1,5 @@
 /*   libDSP - a digital signal processing library
- *   Copyright © 2017-2021  Ilia Platone
+ *   Copyright © 2017-2022  Ilia Platone
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Lesser General Public
@@ -38,6 +38,7 @@ extern "C" {
 #include <assert.h>
 #include <pthread.h>
 #include <fftw3.h>
+#include <fits_extensions.h>
 
 
 /**
@@ -52,8 +53,13 @@ extern "C" {
 *
 * \author Ilia Platone
 * \version 1.0.0
+<<<<<<< HEAD
 * \date 2017-2021
 * \copyright GNU Lesser GPL3 Public License.
+=======
+* \date 2017-2022
+* \copyright GNU GPL3 Public License.
+>>>>>>> refs/heads/master
 */
 /**\{*/
 
@@ -125,15 +131,15 @@ else if(x<=dsp_debug)fprintf(stderr, "%s", str); \
 ///if min() is not present you can use this one
 #ifndef Min
 #define Min(a,b) \
-   ({ __typeof__ (a) _a = (a); \
-       __typeof__ (a) _b = (b); \
+   ({ __typeof (a) _a = (a); \
+       __typeof (a) _b = (b); \
      _a < _b ? _a : _b; })
 #endif
 ///if max() is not present you can use this one
 #ifndef Max
 #define Max(a,b) \
-   ({ __typeof__ (a) _a = (a); \
-       __typeof__ (a) _b = (b); \
+   ({ __typeof (a) _a = (a); \
+       __typeof (a) _b = (b); \
      _a > _b ? _a : _b; })
 #endif
 ///Logarithm of a with arbitrary base b
@@ -402,6 +408,18 @@ DLL_EXPORT void dsp_fourier_dft(dsp_stream_p stream, int exp);
 DLL_EXPORT void dsp_fourier_idft(dsp_stream_p stream);
 
 /**
+* \brief Fill the magnitude and phase buffers with the current data in stream->dft
+* \param stream the inout stream.
+*/
+DLL_EXPORT void dsp_fourier_2dsp(dsp_stream_p stream);
+
+/**
+* \brief Obtain the complex fourier tranform from the current magnitude and phase buffers
+* \param stream the inout stream.
+*/
+DLL_EXPORT void dsp_fourier_2fftw(dsp_stream_p stream);
+
+/**
 * \brief Obtain a complex array from phase and magnitude arrays
 * \param mag the input magnitude array.
 * \param phi the input phase array.
@@ -504,7 +522,7 @@ DLL_EXPORT void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p ma
 #define dsp_stats_min(buf, len)\
 ({\
     int i;\
-    __typeof__(buf[0]) min = (__typeof__(buf[0]))buf[0];\
+    __typeof(buf[0]) min = (__typeof(buf[0]))buf[0];\
     for(i = 0; i < len; i++) {\
         min = Min(buf[i], min);\
     }\
@@ -522,7 +540,7 @@ DLL_EXPORT void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p ma
 #define dsp_stats_max(buf, len)\
 ({\
     int i;\
-    __typeof__(buf[0]) max = (__typeof__(buf[0]))buf[0];\
+    __typeof(buf[0]) max = (__typeof(buf[0]))buf[0];\
     for(i = 0; i < len; i++) {\
         max = Max(buf[i], max);\
     }\
@@ -540,8 +558,8 @@ DLL_EXPORT void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p ma
 #define dsp_stats_mid(buf, len)\
 ({\
     int i;\
-    __typeof__(buf[0]) min = dsp_stats_min(buf, len);\
-    (__typeof__(buf[0]))(min - dsp_stats_max(buf, len)) / 2.0 + min;\
+    __typeof(buf[0]) min = dsp_stats_min(buf, len);\
+    (__typeof(buf[0]))(min - dsp_stats_max(buf, len)) / 2.0 + min;\
 })
 #endif
 
@@ -555,7 +573,7 @@ DLL_EXPORT void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p ma
 #define dsp_stats_minimum_index(buf, len)\
 ({\
     int i;\
-    __typeof__(buf[0]) min = dsp_stats_min(buf, len);\
+    __typeof(buf[0]) min = dsp_stats_min(buf, len);\
     for(i = 0; i < len; i++) {\
         if(buf[i] == min) break;\
     }\
@@ -573,7 +591,7 @@ DLL_EXPORT void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p ma
 #define dsp_stats_maximum_index(buf, len)\
 ({\
     int i;\
-    __typeof__(buf[0]) max = dsp_stats_max(buf, len);\
+    __typeof(buf[0]) max = dsp_stats_max(buf, len);\
     for(i = 0; i < len; i++) {\
         if(buf[i] == max) break;\
     }\
@@ -688,9 +706,9 @@ DLL_EXPORT void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p ma
 */
 #define dsp_stats_compare(in1, in2, len)\
 ({\
-    __typeof__(in1[0]) out = 0;\
+    __typeof(in1[0]) out = 0;\
     for(int i = 0; i < len; i++) {\
-        out += in1[i] - (__typeof__(in1[0]))in2[i];\
+        out += in1[i] - (__typeof(in1[0]))in2[i];\
     }\
     out;\
     })
@@ -734,14 +752,14 @@ DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
 #define dsp_buffer_stretch(buf, len, _mn, _mx)\
 ({\
     int k;\
-    __typeof__(buf[0]) __mn = dsp_stats_min(buf, len);\
-    __typeof__(buf[0]) __mx = dsp_stats_max(buf, len);\
+    __typeof(buf[0]) __mn = dsp_stats_min(buf, len);\
+    __typeof(buf[0]) __mx = dsp_stats_max(buf, len);\
     double oratio = (_mx - _mn);\
     double iratio = (__mx - __mn);\
     if(iratio == 0) iratio = 1;\
     for(k = 0; k < len; k++) {\
         buf[k] -= __mn;\
-        buf[k] = (__typeof__(buf[0]))((double)buf[k] * oratio / iratio);\
+        buf[k] = (__typeof(buf[0]))((double)buf[k] * oratio / iratio);\
         buf[k] += _mn;\
     }\
 })
@@ -758,7 +776,7 @@ DLL_EXPORT void dsp_buffer_removemean(dsp_stream_p stream);
 ({\
     int k;\
     for(k = 0; k < len; k++) {\
-        buf[k] = (__typeof__(buf[0]))(_val);\
+        buf[k] = (__typeof(buf[0]))(_val);\
     }\
 })
 #endif
@@ -934,7 +952,7 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
     ({ \
         int i = (len - 1) / 2; \
         int j = i + 1; \
-        __typeof__(buf[0]) _x; \
+        __typeof(buf[0]) _x; \
         while(i >= 0) \
         { \
           _x = buf[j]; \
@@ -955,18 +973,18 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
 #define dsp_buffer_swap(in, len) \
     ({ \
         int k; \
-        switch(sizeof(((__typeof__ (in[0])*)in)[0])) { \
+        switch(sizeof(((__typeof (in[0])*)in)[0])) { \
         case 2: \
             for(k = 0; k < len; k++) \
-                ((__typeof__ (in[0])*)in)[k] = __bswap_16(((__typeof__ (in[0])*)in)[k]); \
+                ((__typeof (in[0])*)in)[k] = __bswap_16(((__typeof (in[0])*)in)[k]); \
             break; \
         case 3: \
             for(k = 0; k < len; k++) \
-            ((__typeof__ (in[0])*)in)[k] = __bswap_32(((__typeof__ (in[0])*)in)[k]); \
+            ((__typeof (in[0])*)in)[k] = __bswap_32(((__typeof (in[0])*)in)[k]); \
             break; \
         case 4: \
             for(k = 0; k < len; k++) \
-                ((__typeof__ (in[0])*)in)[k] = __bswap_64(((__typeof__ (in[0])*)in)[k]); \
+                ((__typeof (in[0])*)in)[k] = __bswap_64(((__typeof (in[0])*)in)[k]); \
             break; \
         } \
     })
@@ -985,7 +1003,7 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
     ({ \
         int k; \
         for(k = 0; k < len; k++) { \
-        ((__typeof__ (out[0])*)out)[k] = (__typeof__ (out[0]))((__typeof__ (in[0])*)in)[k]; \
+        ((__typeof (out[0])*)out)[k] = (__typeof (out[0]))((__typeof (in[0])*)in)[k]; \
         } \
     })
 #endif
@@ -1007,7 +1025,7 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
     int k; \
     int t; \
         for(k = 0, t = 0; k < inlen && t < outlen; k+=instep, t+=outstep) { \
-        ((__typeof__ (out[0])*)out)[t] = (__typeof__ (out[0]))((__typeof__ (in[0])*)in)[k]; \
+        ((__typeof (out[0])*)out)[t] = (__typeof (out[0]))((__typeof (in[0])*)in)[k]; \
         } \
     })
 #endif

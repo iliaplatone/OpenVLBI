@@ -1,6 +1,6 @@
 /*
 *   DSP API - a digital signal processing library for astronomy usage
-*   Copyright © 2017-2021  Ilia Platone
+*   Copyright © 2017-2022  Ilia Platone
 *
 *   This program is free software; you can redistribute it and/or
 *   modify it under the terms of the GNU Lesser General Public
@@ -30,7 +30,7 @@ static void dsp_fourier_dft_phase(dsp_stream_p stream)
     stream->phase->buf = dsp_fourier_complex_array_get_phase(stream->dft, stream->len);
 }
 
-static void dsp_fourier_2dsp(dsp_stream_p stream)
+void dsp_fourier_2dsp(dsp_stream_p stream)
 {
     int x, y;
     fftw_complex *dft = (fftw_complex*)malloc(sizeof(fftw_complex) * stream->len);
@@ -53,7 +53,7 @@ static void dsp_fourier_2dsp(dsp_stream_p stream)
     dsp_buffer_shift(stream->phase);
 }
 
-static void dsp_fourier_2fftw(dsp_stream_p stream)
+void dsp_fourier_2fftw(dsp_stream_p stream)
 {
     int x, y;
     dsp_buffer_shift(stream->magnitude);
