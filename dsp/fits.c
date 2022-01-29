@@ -54,7 +54,7 @@ int dsp_fits_append_fits_col(fitsfile *fptr, char* name, char* format)
     if(status == COL_NOT_FOUND)
     {
         fits_get_num_cols(fptr, &ncols, &status);
-        fits_insert_col(fptr, ncols++, (char*)(name), (char*)(format), &status);
+        fits_insert_col(fptr, ncols++, name, format, &status);
     }
     return ncols;
 }
@@ -273,6 +273,17 @@ size_t dsp_fits_get_element_size(int typecode)
     }
 
     return typesize;
+}
+
+int dsp_fits_append_table(fitsfile* fptr, dsp_fits_column *columns, int ncols, char* tablename)
+{
+    int status = 0;
+    int x = 0;
+    fits_update_key(fptr, TSTRING, "EXTNAME", tablename, "", &status);
+    for(x = 0; x < ncols; x++) {
+        dsp_fits_append_fits_col(fptr, columns[x].name, columns[x].format);
+    }
+    return status;
 }
 
 dsp_fits_row* dsp_fits_read_sdfits(char *filename, long *num_rows, long *maxes, long **maxis)

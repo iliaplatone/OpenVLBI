@@ -166,6 +166,7 @@ typedef struct
 #define EXTFITS_KEYWORD_OBJCTDEC (dsp_fits_column){"OBJCTDEC", EXTFITS_ELEMENT_STRING.typestr, EXTFITS_MEASURE_UNIT_DEGREE, "", "Target declination coordinate", (char*[]){""}}
 
 #define FITS_KEYWORD_EXTEND (dsp_fits_keyword){"EXTEND", "A", "", "T", "", (char*[]){""}}
+#define FITS_KEYWORD_EXTNAME (dsp_fits_keyword){"EXTNAME", "", "", "", "", (char*[]){""}}
 
 /**
 * \brief Create or update a new fits header key
@@ -261,6 +262,15 @@ int dsp_fits_check_column(fitsfile *fptr, char* column, char **expected, long ro
 * \return fitsfile the fits file pointer
 */
 fitsfile* dsp_fits_create_fits(size_t *size, void **buf);
+
+/**
+* \brief Add a binary table extension into a fits file
+* \param fptr Pointer to a fits file
+* \param columns An array of dsp_fits_column structs
+* \param tablename The extension table name
+* \return non-zero if any error occured
+*/
+int dsp_fits_add_table(fitsfile* fptr, dsp_fits_column *columns, int ncols,  const char* tablename);
 
 /**
 * \brief Close a fits file pointer
