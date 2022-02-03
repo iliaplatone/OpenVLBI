@@ -292,14 +292,6 @@ typedef struct timespec timespec_t;
 ///Our Avogadro constant
 #define AVOGADRO 6.02214076E+23
 #endif
-#ifndef BOLTSMANN
-///Our Boltsmann constant
-#define BOLTSMANN 1.380649E-23
-#endif
-#ifndef GAS_R
-///Our Gas universal constant
-#define GAS_R (BOLTSMANN * AVOGADRO)
-#endif
 #ifndef EULER
 ///Our Euler constant
 #define EULER 2.71828182845904523536028747135266249775724709369995
@@ -307,6 +299,18 @@ typedef struct timespec timespec_t;
 #ifndef PLANK
 ///Our Plank constant
 #define PLANK 6.62607015E-34
+#endif
+#ifndef BOLTSMANN
+///Our Boltsmann constant
+#define BOLTSMANN 1.380649E-23
+#endif
+#ifndef STEPHAN_BOLTSMANN
+///Our Stephan-Boltsmann constant
+#define STEPHAN_BOLTSMANN (2.0*pow(M_PI, 5)*pow(BOLTSMANN, 2)/(pow(LIGHTSPEED, 2)*15*pow(PLANK, 3)))
+#endif
+#ifndef GAS_R
+///Our Gas universal constant
+#define GAS_R (BOLTSMANN * AVOGADRO)
 #endif
 #ifndef ROOT2
 ///Our square root of 2 constant

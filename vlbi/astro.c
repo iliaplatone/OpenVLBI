@@ -62,7 +62,7 @@ dsp_stream_p vlbi_astro_load_spectrum(char *filename)
     if(!f) return NULL;
     pinfo("loading spectrum from %s\n", filename);
     fseek(f, 0, SEEK_END);
-    long fsize = ftell(f);
+    size_t fsize = (size_t)ftell(f);
     fseek(f, 0, SEEK_SET);
     char *buf = malloc(fsize + 1);
     fread(buf, fsize, 1, f);
@@ -139,7 +139,7 @@ dsp_stream_p vlbi_astro_load_spectrum(char *filename)
     dsp_stream_alloc_buffer(spectrum, 1);
     free(line.center.location);
     free(buf);
-    qsort(spectrum->stars, spectrum->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
+    qsort(spectrum->stars, (size_t)spectrum->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
     return spectrum;
 }
 
@@ -156,10 +156,9 @@ int vlbi_astro_load_spectra_catalog(char *path, dsp_stream_p **catalog, int *cat
     }
     FILE *f = fopen(path, "r");
     if(!f) return -ENOENT;
-    int n = 0;
     pinfo("loading catalog from %s\n", path);
     fseek(f, 0, SEEK_END);
-    long fsize = ftell(f);
+    size_t fsize = (size_t)ftell(f);
     fseek(f, 0, SEEK_SET);
     char *buf = malloc(fsize + 1);
     fread(buf, fsize, 1, f);
@@ -193,7 +192,7 @@ int vlbi_astro_load_spectra_catalog(char *path, dsp_stream_p **catalog, int *cat
                     spectrum->stars[x].diameter /= refsize;
                 (*catalog)[(*catalog_size)+w] = spectrum;
                 w++;
-                *catalog = (dsp_stream_p*)realloc(*catalog, sizeof(dsp_stream_p)*((*catalog_size)+w+1));
+                *catalog = (dsp_stream_p*)realloc(*catalog, sizeof(dsp_stream_p)*(size_t)((*catalog_size)+w+1));
             }
         }
     }
@@ -210,10 +209,10 @@ dsp_stream_p vlbi_astro_create_reference_catalog(dsp_stream_p *catalog, int cata
     dsp_stream_alloc_buffer(stream, stream->len);
     for(int c = 0; c < catalog_size; c++) {
         dsp_stream_p element = catalog[c];
-        qsort(element->stars, element->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
+        qsort(element->stars, (size_t)element->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
         for(int s = 0; s < element->stars_count; s++)
             dsp_stream_add_star(stream, element->stars[s]);
-        qsort(stream->stars, stream->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
+        qsort(stream->stars, (size_t)stream->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
     }
     return stream;
 }
@@ -260,7 +259,7 @@ void vlbi_astro_scan_spectrum(dsp_stream_p stream, int sample_size)
         }
     }
     free(star.center.location);
-    qsort(stream->stars, stream->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
+    qsort(stream->stars, (size_t)stream->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
 }
 
 dsp_align_info vlbi_astro_align_spectra(dsp_stream_p spectrum, dsp_stream_p catalog, int max_lines, double decimals, double min_score)

@@ -1,3 +1,10 @@
+libopenvlbi (1.22.4) unstable; urgency=medium
+
+  * Added spectral catalogs
+  * Reading nodes from sdfits
+
+ -- Ilia Platone <info@iliaplatone.com>  Thu, 03 Feb 2022 12:26:26 +0100
+
 libopenvlbi (1.22.3) unstable; urgency=medium
 
   * Minor bugfixes
