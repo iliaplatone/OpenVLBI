@@ -30,8 +30,9 @@ extern "C" {
 #ifndef _WIN32
 #include <endian.h>
 #else
-#define __bswap_16(a) htons(a)
-#define __bswap_32(a) ntohl(a)
+#define __bswap_16(a) __builtin_bswap16(a)
+#define __bswap_32(a) __builtin_bswap32(a)
+#define __bswap_64(a) __builtin_bswap64(a)
 #endif
 #include <stdio.h>
 #include <stdlib.h>
