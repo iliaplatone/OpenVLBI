@@ -27,7 +27,12 @@ extern "C" {
 #define DLL_EXPORT extern
 #endif
 
+#ifndef _WIN32
 #include <endian.h>
+#else
+#define __bswap_16(a) htons(a)
+#define __bswap_32(a) ntohl(a)
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -981,10 +986,6 @@ DLL_EXPORT void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t 
         case 3: \
             for(k = 0; k < len; k++) \
             ((__typeof (in[0])*)in)[k] = __bswap_32(((__typeof (in[0])*)in)[k]); \
-            break; \
-        case 4: \
-            for(k = 0; k < len; k++) \
-                ((__typeof (in[0])*)in)[k] = __bswap_64(((__typeof (in[0])*)in)[k]); \
             break; \
         } \
     })
