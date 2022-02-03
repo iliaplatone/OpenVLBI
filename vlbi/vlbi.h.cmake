@@ -170,7 +170,7 @@ typedef struct timespec timespec_t;
 
 #ifndef hz2rad
 ///Get the frequency in radians/s
-#define hz2rad(hz) (2.0*M_PI*hz)
+#define hz2rad(hz) (2.0*PI*hz)
 #endif
 
 #ifndef sinpsin
@@ -242,7 +242,7 @@ typedef struct timespec timespec_t;
 #endif
 #ifndef RAD_AS
 ///arcseconds per radian
-#define RAD_AS (CIRCLE_AS/(M_PI*2.0))
+#define RAD_AS (CIRCLE_AS/(PI*2.0))
 #endif
 #ifndef ONE_SECOND_TICKS
 ///Many architectures reach 100 ns clock resolutions
@@ -306,7 +306,7 @@ typedef struct timespec timespec_t;
 #endif
 #ifndef STEPHAN_BOLTSMANN
 ///Our Stephan-Boltsmann constant
-#define STEPHAN_BOLTSMANN (2.0*pow(M_PI, 5)*pow(BOLTSMANN, 2)/(pow(LIGHTSPEED, 2)*15*pow(PLANK, 3)))
+#define STEPHAN_BOLTSMANN (2.0*pow(PI, 5)*pow(BOLTSMANN, 2)/(pow(LIGHTSPEED, 2)*15*pow(PLANK, 3)))
 #endif
 #ifndef GAS_R
 ///Our Gas universal constant
@@ -460,7 +460,7 @@ inline double vlbi_phase_delegate(double x, double y) {
     if(mag > 0.0) {
         rad = acos (y / (mag > 0.0 ? mag : 1.0));
         if(x < 0 && rad != 0)
-            rad = M_PI*2-rad;
+            rad = PI*2-rad;
     }
     return rad;
 }
