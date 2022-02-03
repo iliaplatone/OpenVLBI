@@ -58,13 +58,8 @@ extern "C" {
 *
 * \author Ilia Platone
 * \version 1.0.0
-<<<<<<< HEAD
-* \date 2017-2021
-* \copyright GNU Lesser GPL3 Public License.
-=======
 * \date 2017-2022
-* \copyright GNU GPL3 Public License.
->>>>>>> refs/heads/master
+* \copyright GNU Lesser GPL3 Public License.
 */
 /**\{*/
 
