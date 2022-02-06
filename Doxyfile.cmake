@@ -758,7 +758,7 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  =  @CMAKE_CURRENT_BINARY_DIR@/vlbi.h @CMAKE_CURRENT_SOURCE_DIR@/vlbi_server.h @CMAKE_CURRENT_BINARY_DIR@/dsp.h @CMAKE_CURRENT_SOURCE_DIR@/dsp/fits.h @CMAKE_CURRENT_SOURCE_DIR@/dsp/sdfits.h @CMAKE_CURRENT_SOURCE_DIR@/dsp/fitsidi.h
+INPUT                  =  @CMAKE_CURRENT_BINARY_DIR@/vlbi.h @CMAKE_CURRENT_SOURCE_DIR@/vlbi_server.h @CMAKE_CURRENT_BINARY_DIR@/dsp.h @CMAKE_CURRENT_SOURCE_DIR@/dsp/fits_extensions.h @CMAKE_CURRENT_SOURCE_DIR@/dsp/fits.h @CMAKE_CURRENT_SOURCE_DIR@/dsp/sdfits.h @CMAKE_CURRENT_SOURCE_DIR@/dsp/fitsidi.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses

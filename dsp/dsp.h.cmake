@@ -43,8 +43,6 @@ extern "C" {
 #include <assert.h>
 #include <pthread.h>
 #include <fftw3.h>
-#include <fits_extensions.h>
-
 
 /**
  * \defgroup DSP Digital Signal Processing API
@@ -62,7 +60,6 @@ extern "C" {
 * \copyright GNU Lesser GPL3 Public License.
 */
 /**\{*/
-
 /**
  * \defgroup DSP_Defines DSP API defines
 */
@@ -1474,6 +1471,7 @@ DLL_EXPORT int dsp_qsort_star_diameter_asc (const void *arg1, const void *arg2);
 DLL_EXPORT int dsp_qsort_star_diameter_desc (const void *arg1, const void *arg2);
 
 /**\}*/
+#include <fits_extensions.h>
 /**\}*/
 
 #ifdef  __cplusplus

@@ -28,8 +28,23 @@ extern "C" {
 #define DLL_EXPORT extern
 #endif
 
+/**
+ * \defgroup dsp_FitsExtensions DSP API FITS Extensions functions
+*/
+/**\{*/
+/**
+ * \defgroup dsp_FitsExtensionSDFITS DSP API SDFITS Extension
+*/
+/**\{*/
 #include <sdfits.h>
+/**\}*/
+/**
+ * \defgroup dsp_FitsExtensionFITSIDI DSP API FITSIDI Extension
+*/
+/**\{*/
 #include <fitsidi.h>
+/**\}*/
+/**\}*/
 
 #ifdef __cplusplus
 }
