@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['name_569',['Name',['../structvlbi__node.html#ae2609b20e785660dceb9397f69f274e6',1,'vlbi_node::Name()'],['../structvlbi__baseline.html#a1719db627b870126ccfaa2f926f2aa9d',1,'vlbi_baseline::Name()'],['../structdsp__stream__t.html#a0b5f7589eb4066ad7e8cb17800f8ac54',1,'dsp_stream_t::name()']]],
-  ['node1_570',['Node1',['../structvlbi__baseline.html#ab9b1ac7e0f9d2dab00236b4abcbcf12b',1,'vlbi_baseline']]],
-  ['node2_571',['Node2',['../structvlbi__baseline.html#a3f2cc666a17cb23587ec265577b48541',1,'vlbi_baseline']]]
+  ['magnitude_624',['magnitude',['../structdsp__stream__t.html#a7a2637533bdc7b363dcea9e3c2cc59b4',1,'dsp_stream_t']]],
+  ['max_5fthreads_625',['MAX_THREADS',['../group___v_l_b_i___defines.html#ga5e198f8ff4faf2bafa36449b38a2d444',1,'vlbi.h']]]
 ];

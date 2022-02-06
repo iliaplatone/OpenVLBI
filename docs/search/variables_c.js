@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['ra_576',['Ra',['../structvlbi__baseline.html#ad0fe725f861618e78817a43a36e7fcdb',1,'vlbi_baseline']]],
-  ['radians_577',['radians',['../structdsp__align__info__t.html#a58deea46f6307c17241f13e3b869675a',1,'dsp_align_info_t']]],
-  ['ratios_578',['ratios',['../structdsp__triangle__t.html#ad7870c32610bc91930d03b63ec09b48e',1,'dsp_triangle_t']]],
-  ['real_579',['real',['../uniondsp__complex.html#aeeffe41b9bb26cb61284740485107ef4',1,'dsp_complex']]],
-  ['red_580',['red',['../structdsp__stream__t.html#a517949bf72f39b594e2db973861947b2',1,'dsp_stream_t']]],
-  ['relative_581',['relative',['../structvlbi__baseline.html#a083bcfe10e5a959e8c8f74f8a4c8626b',1,'vlbi_baseline']]],
-  ['roi_582',['ROI',['../structdsp__stream__t.html#ae4945adcbb1cc9fef407a62d6109a312',1,'dsp_stream_t']]]
+  ['parent_630',['parent',['../structdsp__stream__t.html#a40dc327cb0be8479a2d9af06a6996fe7',1,'dsp_stream_t']]],
+  ['phase_631',['phase',['../structdsp__stream__t.html#a00752458b299d33e40cd81c6e50d9115',1,'dsp_stream_t']]],
+  ['pixel_5fsizes_632',['pixel_sizes',['../structdsp__stream__t.html#a233ee0e0aac827d9acd06a0d0e91a16a',1,'dsp_stream_t']]]
 ];

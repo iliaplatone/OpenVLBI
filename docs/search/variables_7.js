@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['len_564',['len',['../structdsp__region__t.html#abc3a9cc8d50f83aadfd7918cfe55400a',1,'dsp_region_t::len()'],['../structdsp__stream__t.html#ae70fe5a0900517af50bcd7f4747dc0b9',1,'dsp_stream_t::len()']]],
-  ['location_565',['Location',['../structvlbi__node.html#adfd691456979c6f7879f6c63364c311e',1,'vlbi_node::Location()'],['../structdsp__point__t.html#a48786092544110623e9749601975f153',1,'dsp_point_t::location()'],['../structdsp__stream__t.html#aa520280fea3c499d7c6f67c1c4a8d240',1,'dsp_stream_t::location()']]],
-  ['locked_566',['locked',['../structvlbi__baseline.html#a4003cec20271797ae5f13dd6b54df7bd',1,'vlbi_baseline']]]
+  ['imaginary_618',['imaginary',['../uniondsp__complex.html#a18b3fbc0788b3216ce7fc7cc0cb891eb',1,'dsp_complex']]],
+  ['index_619',['index',['../structdsp__triangle__t.html#a6642375ca84fcfcc354b28d1479ed73d',1,'dsp_triangle_t::index()'],['../structvlbi__node.html#ad34f4ab7781676fb9e9ad8c07cad5e7d',1,'vlbi_node::Index()']]],
+  ['is_5fcopy_620',['is_copy',['../structdsp__stream__t.html#ad5b94d84110e6e5488d524acb78b3af9',1,'dsp_stream_t']]]
 ];

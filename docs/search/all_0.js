@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['addcontext_0',['AddContext',['../class_v_l_b_i_1_1_server.html#a89ec91f35e26d991023a86c1f81e1020',1,'VLBI::Server']]],
-  ['addmodel_1',['AddModel',['../class_v_l_b_i_1_1_server.html#a0d917aaaf9b20c1a4f5c0be57747a56d',1,'VLBI::Server']]],
-  ['addnode_2',['AddNode',['../class_v_l_b_i_1_1_server.html#a772e31199d963187b4c2699d202cf459',1,'VLBI::Server::AddNode(char *name, char *b64)'],['../class_v_l_b_i_1_1_server.html#acd8ead79c7fbb04c9638085370e43a86',1,'VLBI::Server::AddNode(char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo)']]],
-  ['addnodes_3',['AddNodes',['../class_v_l_b_i_1_1_server.html#a1f7f3c61938dfb3aa01699c0435d580f',1,'VLBI::Server']]],
+  ['addcontext_0',['AddContext',['../class_v_l_b_i_1_1_server.html#a1d311f7871254752891ab57dc769c4d1',1,'VLBI::Server']]],
+  ['addmodel_1',['AddModel',['../class_v_l_b_i_1_1_server.html#a6d9bf212c75600ba293a4298c9428a60',1,'VLBI::Server']]],
+  ['addnode_2',['AddNode',['../class_v_l_b_i_1_1_server.html#ac29f2c427add0b09aacbf485c5c6276c',1,'VLBI::Server::AddNode(const char *name, char *b64)'],['../class_v_l_b_i_1_1_server.html#a0abe0eedc759f6c47dc3b4e6aadd843f',1,'VLBI::Server::AddNode(const char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo)']]],
+  ['addnodes_3',['AddNodes',['../class_v_l_b_i_1_1_server.html#ace407599f8e5fc805958a85728032913',1,'VLBI::Server']]],
   ['airy_4',['AIRY',['../group___v_l_b_i___defines.html#ga963837a7692d6d69b67653927dfc53aa',1,'vlbi.h']]],
   ['align_5finfo_5',['align_info',['../structdsp__stream__t.html#a8e3dc381a797450dbd2710e55a44821a',1,'dsp_stream_t']]],
   ['arg_6',['arg',['../structdsp__stream__t.html#a05451c3c028f37397421d1ff5f4cba0c',1,'dsp_stream_t']]],

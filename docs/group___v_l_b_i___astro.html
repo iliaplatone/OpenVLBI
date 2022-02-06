@@ -80,12 +80,39 @@ Functions</h2></td></tr>
 <tr class="memitem:gaa85a320d517878c761bec90edc9a5dbb"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#gaa85a320d517878c761bec90edc9a5dbb">vlbi_astro_get_alt_az_coordinates</a> (double hour_angle, double dec, double latitude, double *alt, double *az)</td></tr>
 <tr class="memdesc:gaa85a320d517878c761bec90edc9a5dbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns alt-azimuth coordinates of an object.  <a href="group___v_l_b_i___astro.html#gaa85a320d517878c761bec90edc9a5dbb">More...</a><br /></td></tr>
 <tr class="separator:gaa85a320d517878c761bec90edc9a5dbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9f7f7adaa3591d74805cf22d7e628e4c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#ga9f7f7adaa3591d74805cf22d7e628e4c">vlbi_astro_spectra_ratio</a> (double *spectrum0, double *spectrum, int spectrum_size)</td></tr>
-<tr class="memdesc:ga9f7f7adaa3591d74805cf22d7e628e4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the mean ratio between two common-range spectra.  <a href="group___v_l_b_i___astro.html#ga9f7f7adaa3591d74805cf22d7e628e4c">More...</a><br /></td></tr>
-<tr class="separator:ga9f7f7adaa3591d74805cf22d7e628e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ec7d6a5dceefba0c97888846cfcc555"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#ga4ec7d6a5dceefba0c97888846cfcc555">vlbi_astro_load_spectrum</a> (char *filename)</td></tr>
+<tr class="memdesc:ga4ec7d6a5dceefba0c97888846cfcc555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a spectrum file.  <a href="group___v_l_b_i___astro.html#ga4ec7d6a5dceefba0c97888846cfcc555">More...</a><br /></td></tr>
+<tr class="separator:ga4ec7d6a5dceefba0c97888846cfcc555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5c0c02cea62c8875ec2592dde2b26509"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#ga5c0c02cea62c8875ec2592dde2b26509">vlbi_astro_load_spectra_catalog</a> (char *path, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> **catalog, int *catalog_size)</td></tr>
+<tr class="memdesc:ga5c0c02cea62c8875ec2592dde2b26509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a spectrum file catalog.  <a href="group___v_l_b_i___astro.html#ga5c0c02cea62c8875ec2592dde2b26509">More...</a><br /></td></tr>
+<tr class="separator:ga5c0c02cea62c8875ec2592dde2b26509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0463d811b09004c4a97170975f2a4521"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#ga0463d811b09004c4a97170975f2a4521">vlbi_astro_create_reference_catalog</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *catalog, int catalog_size)</td></tr>
+<tr class="memdesc:ga0463d811b09004c4a97170975f2a4521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a dsp_stream_p containing all the spectral lines of all elements of a catalog.  <a href="group___v_l_b_i___astro.html#ga0463d811b09004c4a97170975f2a4521">More...</a><br /></td></tr>
+<tr class="separator:ga0463d811b09004c4a97170975f2a4521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa81f071f297eac58fa079ab93cb11eab"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#gaa81f071f297eac58fa079ab93cb11eab">vlbi_astro_save_spectrum</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, char *filename)</td></tr>
+<tr class="memdesc:gaa81f071f297eac58fa079ab93cb11eab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a spectrum stream into a file.  <a href="group___v_l_b_i___astro.html#gaa81f071f297eac58fa079ab93cb11eab">More...</a><br /></td></tr>
+<tr class="separator:gaa81f071f297eac58fa079ab93cb11eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa363d798968bf62ccd0911351c0d3123"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#gaa363d798968bf62ccd0911351c0d3123">vlbi_astro_scan_spectrum</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, int sample_size)</td></tr>
+<tr class="memdesc:gaa363d798968bf62ccd0911351c0d3123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan a dsp_stream_p and detect the relevant spectral lines.  <a href="group___v_l_b_i___astro.html#gaa363d798968bf62ccd0911351c0d3123">More...</a><br /></td></tr>
+<tr class="separator:gaa363d798968bf62ccd0911351c0d3123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga397fc7b498bf31ac56bc042ded0d2e0c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="group___d_s_p___types.html#ga8a50c6e2cc04b1fdc15cab83db4e888b">dsp_align_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#ga397fc7b498bf31ac56bc042ded0d2e0c">vlbi_astro_align_spectra</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> spectrum, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> catalog, int max_lines, double decimals, double min_score)</td></tr>
+<tr class="memdesc:ga397fc7b498bf31ac56bc042ded0d2e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Align a spectrum to a reference catalog.  <a href="group___v_l_b_i___astro.html#ga397fc7b498bf31ac56bc042ded0d2e0c">More...</a><br /></td></tr>
+<tr class="separator:ga397fc7b498bf31ac56bc042ded0d2e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b2214d53a4c288bae93a1a5627b09f4"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#ga1b2214d53a4c288bae93a1a5627b09f4">vlbi_astro_diff_spectra</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> spectrum0, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> spectrum, double decades)</td></tr>
+<tr class="memdesc:ga1b2214d53a4c288bae93a1a5627b09f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare a spectrum to a reference one.  <a href="group___v_l_b_i___astro.html#ga1b2214d53a4c288bae93a1a5627b09f4">More...</a><br /></td></tr>
+<tr class="separator:ga1b2214d53a4c288bae93a1a5627b09f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga71429bcf9d9c82ef0ed5dd75b5dfb0dc"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#ga71429bcf9d9c82ef0ed5dd75b5dfb0dc">vlbi_astro_flux_ratio</a> (double flux0, double flux, double delta_spectrum)</td></tr>
 <tr class="memdesc:ga71429bcf9d9c82ef0ed5dd75b5dfb0dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the flux ratio of two objects.  <a href="group___v_l_b_i___astro.html#ga71429bcf9d9c82ef0ed5dd75b5dfb0dc">More...</a><br /></td></tr>
 <tr class="separator:ga71429bcf9d9c82ef0ed5dd75b5dfb0dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6cdcce945cc97031b06a67507a3a6c66"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#ga6cdcce945cc97031b06a67507a3a6c66">vlbi_astro_estimate_brightness_temperature</a> (double wavelength, double flux)</td></tr>
+<tr class="memdesc:ga6cdcce945cc97031b06a67507a3a6c66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate the brightness temperature from a flux.  <a href="group___v_l_b_i___astro.html#ga6cdcce945cc97031b06a67507a3a6c66">More...</a><br /></td></tr>
+<tr class="separator:ga6cdcce945cc97031b06a67507a3a6c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00e6b80838831965cc57cb4ac5c26386"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#ga00e6b80838831965cc57cb4ac5c26386">vlbi_astro_estimate_temperature</a> (double wavelength, double flux)</td></tr>
+<tr class="memdesc:ga00e6b80838831965cc57cb4ac5c26386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate the physical temperature with a given flux.  <a href="group___v_l_b_i___astro.html#ga00e6b80838831965cc57cb4ac5c26386">More...</a><br /></td></tr>
+<tr class="separator:ga00e6b80838831965cc57cb4ac5c26386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c5a15d2247793838d1e7fd63f0af454"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#ga3c5a15d2247793838d1e7fd63f0af454">vlbi_astro_estimate_flux</a> (double wavelength, double temperature)</td></tr>
+<tr class="memdesc:ga3c5a15d2247793838d1e7fd63f0af454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate the flux from a physical temperature.  <a href="group___v_l_b_i___astro.html#ga3c5a15d2247793838d1e7fd63f0af454">More...</a><br /></td></tr>
+<tr class="separator:ga3c5a15d2247793838d1e7fd63f0af454"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab3905d4d5f0424ab17f4a29ff24da870"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#gab3905d4d5f0424ab17f4a29ff24da870">vlbi_astro_estimate_temperature_ratio</a> (double rad_ratio, double flux_ratio)</td></tr>
 <tr class="memdesc:gab3905d4d5f0424ab17f4a29ff24da870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the temperature ratio of two objects.  <a href="group___v_l_b_i___astro.html#gab3905d4d5f0424ab17f4a29ff24da870">More...</a><br /></td></tr>
 <tr class="separator:gab3905d4d5f0424ab17f4a29ff24da870"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,9 +137,72 @@ Functions</h2></td></tr>
 <tr class="memitem:gab28ffb82e4aa2aeb55f18024a1e5bfe3"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#gab28ffb82e4aa2aeb55f18024a1e5bfe3">vlbi_astro_redshift_adjust</a> (double distance, double redshift)</td></tr>
 <tr class="memdesc:gab28ffb82e4aa2aeb55f18024a1e5bfe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance of a far object adjusted with its measured redshift.  <a href="group___v_l_b_i___astro.html#gab28ffb82e4aa2aeb55f18024a1e5bfe3">More...</a><br /></td></tr>
 <tr class="separator:gab28ffb82e4aa2aeb55f18024a1e5bfe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac41ee4c3286304422ed567be26297207"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#gac41ee4c3286304422ed567be26297207">vlbi_file_read_fits</a> (char *filename)</td></tr>
+<tr class="memdesc:gac41ee4c3286304422ed567be26297207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance of a far object adjusted with its measured redshift.  <a href="group___v_l_b_i___astro.html#gac41ee4c3286304422ed567be26297207">More...</a><br /></td></tr>
+<tr class="separator:gac41ee4c3286304422ed567be26297207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae6d4753ba20af0ca7ca91bf2eaa7ed87"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#gae6d4753ba20af0ca7ca91bf2eaa7ed87">vlbi_file_read_sdfits</a> (char *filename, long *n)</td></tr>
+<tr class="memdesc:gae6d4753ba20af0ca7ca91bf2eaa7ed87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance of a far object adjusted with its measured redshift.  <a href="group___v_l_b_i___astro.html#gae6d4753ba20af0ca7ca91bf2eaa7ed87">More...</a><br /></td></tr>
+<tr class="separator:gae6d4753ba20af0ca7ca91bf2eaa7ed87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga397fc7b498bf31ac56bc042ded0d2e0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga397fc7b498bf31ac56bc042ded0d2e0c">&#9670;&nbsp;</a></span>vlbi_astro_align_spectra()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT <a class="el" href="group___d_s_p___types.html#ga8a50c6e2cc04b1fdc15cab83db4e888b">dsp_align_info</a> vlbi_astro_align_spectra </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>spectrum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>catalog</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_lines</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>decimals</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>min_score</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spectrum</td><td>The spectrum to analyze </td></tr>
+    <tr><td class="paramname">catalog</td><td>A catalog of spectra to compare </td></tr>
+    <tr><td class="paramname">max_lines</td><td>The perfomance-needed limit of lines used for comparison </td></tr>
+    <tr><td class="paramname">decimals</td><td>The number of decimals used in comparison </td></tr>
+    <tr><td class="paramname">min_score</td><td>The trigger matching score percent to reach </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An dsp_align_info structure containing the calculated offset and scale ratio </dd></dl>
+
+</div>
+</div>
 <a id="ga8427a4368f0436925db2e09810f700a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga8427a4368f0436925db2e09810f700a1">&#9670;&nbsp;</a></span>vlbi_astro_alt_az_from_ra_dec()</h2>
 
@@ -180,6 +270,121 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ga0463d811b09004c4a97170975f2a4521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0463d811b09004c4a97170975f2a4521">&#9670;&nbsp;</a></span>vlbi_astro_create_reference_catalog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> vlbi_astro_create_reference_catalog </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *&#160;</td>
+          <td class="paramname"><em>catalog</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>catalog_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">catalog</td><td>A catalog of spectra </td></tr>
+    <tr><td class="paramname">catalog_size</td><td>The size of the catalog </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A dsp_stream_p structure containing all the spectral lines of the catalog spectra </dd></dl>
+
+</div>
+</div>
+<a id="ga1b2214d53a4c288bae93a1a5627b09f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1b2214d53a4c288bae93a1a5627b09f4">&#9670;&nbsp;</a></span>vlbi_astro_diff_spectra()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT double vlbi_astro_diff_spectra </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>spectrum0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>spectrum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>decades</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spectrum0</td><td>The reference spectrum </td></tr>
+    <tr><td class="paramname">spectrum</td><td>The spectrum to analyze </td></tr>
+    <tr><td class="paramname">decades</td><td>The number of decades used in comparison </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An estimation of the temperature difference between the two spectra </dd></dl>
+
+</div>
+</div>
+<a id="ga6cdcce945cc97031b06a67507a3a6c66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6cdcce945cc97031b06a67507a3a6c66">&#9670;&nbsp;</a></span>vlbi_astro_estimate_brightness_temperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT double vlbi_astro_estimate_brightness_temperature </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>wavelength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>flux</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wavelength</td><td>The radiation wavelength in meters </td></tr>
+    <tr><td class="paramname">flux</td><td>The measured radiation flux </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An estimation of the brightness temperature in Kelvin </dd></dl>
 
 </div>
 </div>
@@ -252,6 +457,42 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The ratio of the distance of the two objects </dd></dl>
+
+</div>
+</div>
+<a id="ga3c5a15d2247793838d1e7fd63f0af454"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3c5a15d2247793838d1e7fd63f0af454">&#9670;&nbsp;</a></span>vlbi_astro_estimate_flux()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT double vlbi_astro_estimate_flux </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>wavelength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>temperature</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wavelength</td><td>The radiation wavelength in meters </td></tr>
+    <tr><td class="paramname">temperature</td><td>The measured temperature in Kelvin </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An estimation of the temperature the flux on the indicated wavelength </dd></dl>
 
 </div>
 </div>
@@ -396,6 +637,42 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The distance ran by the object during the transit time </dd></dl>
+
+</div>
+</div>
+<a id="ga00e6b80838831965cc57cb4ac5c26386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga00e6b80838831965cc57cb4ac5c26386">&#9670;&nbsp;</a></span>vlbi_astro_estimate_temperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT double vlbi_astro_estimate_temperature </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>wavelength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>flux</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wavelength</td><td>The radiation wavelength in meters </td></tr>
+    <tr><td class="paramname">flux</td><td>The measured radiation flux </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An estimation of the physical temperature in Kelvin </dd></dl>
 
 </div>
 </div>
@@ -570,6 +847,73 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga5c0c02cea62c8875ec2592dde2b26509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5c0c02cea62c8875ec2592dde2b26509">&#9670;&nbsp;</a></span>vlbi_astro_load_spectra_catalog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT int vlbi_astro_load_spectra_catalog </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> **&#160;</td>
+          <td class="paramname"><em>catalog</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>catalog_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The path of the folder containing index.txt </td></tr>
+    <tr><td class="paramname">catalog</td><td>A pointer to an array of dsp_stream_p to be allocated and filled </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of spectra correctly parsed </dd></dl>
+
+</div>
+</div>
+<a id="ga4ec7d6a5dceefba0c97888846cfcc555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4ec7d6a5dceefba0c97888846cfcc555">&#9670;&nbsp;</a></span>vlbi_astro_load_spectrum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> vlbi_astro_load_spectrum </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The spectrum file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a dsp_stream_p containgin the spectral lines in the spectrum file </dd></dl>
+
+</div>
+</div>
 <a id="gab28ffb82e4aa2aeb55f18024a1e5bfe3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gab28ffb82e4aa2aeb55f18024a1e5bfe3">&#9670;&nbsp;</a></span>vlbi_astro_redshift_adjust()</h2>
 
@@ -606,29 +950,23 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga9f7f7adaa3591d74805cf22d7e628e4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9f7f7adaa3591d74805cf22d7e628e4c">&#9670;&nbsp;</a></span>vlbi_astro_spectra_ratio()</h2>
+<a id="gaa81f071f297eac58fa079ab93cb11eab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa81f071f297eac58fa079ab93cb11eab">&#9670;&nbsp;</a></span>vlbi_astro_save_spectrum()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">DLL_EXPORT double vlbi_astro_spectra_ratio </td>
+          <td class="memname">DLL_EXPORT void vlbi_astro_save_spectrum </td>
           <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>spectrum0</em>, </td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>spectrum</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>spectrum_size</em>&#160;</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -639,20 +977,114 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spectrum0</td><td>The reference spectrum </td></tr>
-    <tr><td class="paramname">spectrum</td><td>The target spectrum </td></tr>
-    <tr><td class="paramname">spectrum_size</td><td>The size of the spectra arrays </td></tr>
+    <tr><td class="paramname">stream</td><td>The stream containing a spectrum </td></tr>
+    <tr><td class="paramname">filename</td><td>The file name where to save the acquired spectrum </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The ratio of the two spectra </dd></dl>
+
+</div>
+</div>
+<a id="gaa363d798968bf62ccd0911351c0d3123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa363d798968bf62ccd0911351c0d3123">&#9670;&nbsp;</a></span>vlbi_astro_scan_spectrum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void vlbi_astro_scan_spectrum </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sample_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>The stream containing a spectrum </td></tr>
+    <tr><td class="paramname">sample_size</td><td>The sampling size used for detection </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac41ee4c3286304422ed567be26297207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac41ee4c3286304422ed567be26297207">&#9670;&nbsp;</a></span>vlbi_file_read_fits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> vlbi_file_read_fits </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The file name of the FITS file to open </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a dsp_stream filled with the needed data contained into the FITS file </dd></dl>
+
+</div>
+</div>
+<a id="gae6d4753ba20af0ca7ca91bf2eaa7ed87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae6d4753ba20af0ca7ca91bf2eaa7ed87">&#9670;&nbsp;</a></span>vlbi_file_read_sdfits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>* vlbi_file_read_sdfits </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long *&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The file name of the FITS file to open </td></tr>
+    <tr><td class="paramname">n</td><td>the number of rows extracted and converted into dsp_stream structs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer array to dsp_stream structs filled with the needed data contained into the SDFITS file rows </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 11 2022 16:12:12 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 5 2022 17:49:14 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -196,7 +196,7 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    ({ \</div>
 <div class="line">        int k; \</div>
 <div class="line">        for(k = 0; k &lt; len; k++) { \</div>
-<div class="line">        ((__typeof__ (out[0])*)out)[k] = (__typeof__ (out[0]))((__typeof__ (in[0])*)in)[k]; \</div>
+<div class="line">        ((__typeof (out[0])*)out)[k] = (__typeof (out[0]))((__typeof (in[0])*)in)[k]; \</div>
 <div class="line">        } \</div>
 <div class="line">    })</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
@@ -263,7 +263,7 @@ Functions</h2></td></tr>
 <div class="line">    int k; \</div>
 <div class="line">    int t; \</div>
 <div class="line">        for(k = 0, t = 0; k &lt; inlen &amp;&amp; t &lt; outlen; k+=instep, t+=outstep) { \</div>
-<div class="line">        ((__typeof__ (out[0])*)out)[t] = (__typeof__ (out[0]))((__typeof__ (in[0])*)in)[k]; \</div>
+<div class="line">        ((__typeof (out[0])*)out)[t] = (__typeof (out[0]))((__typeof (in[0])*)in)[k]; \</div>
 <div class="line">        } \</div>
 <div class="line">    })</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
@@ -363,7 +363,7 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    ({ \</div>
 <div class="line">        int i = (len - 1) / 2; \</div>
 <div class="line">        int j = i + 1; \</div>
-<div class="line">        __typeof__(buf[0]) _x; \</div>
+<div class="line">        __typeof(buf[0]) _x; \</div>
 <div class="line">        while(i &gt;= 0) \</div>
 <div class="line">        { \</div>
 <div class="line">          _x = buf[j]; \</div>
@@ -417,7 +417,7 @@ Functions</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">({\</div>
 <div class="line">    int k;\</div>
 <div class="line">    for(k = 0; k &lt; len; k++) {\</div>
-<div class="line">        buf[k] = (__typeof__(buf[0]))(_val);\</div>
+<div class="line">        buf[k] = (__typeof(buf[0]))(_val);\</div>
 <div class="line">    }\</div>
 <div class="line">})</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
@@ -470,14 +470,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">({\</div>
 <div class="line">    int k;\</div>
-<div class="line">    __typeof__(buf[0]) __mn = <a class="code" href="group__dsp___stats.html#ga188a626cbaa63ccaa1403e63885a23dd">dsp_stats_min</a>(buf, len);\</div>
-<div class="line">    __typeof__(buf[0]) __mx = <a class="code" href="group__dsp___stats.html#ga9205dc9d9f963ceb4581f97ba584b977">dsp_stats_max</a>(buf, len);\</div>
+<div class="line">    __typeof(buf[0]) __mn = <a class="code" href="group__dsp___stats.html#ga188a626cbaa63ccaa1403e63885a23dd">dsp_stats_min</a>(buf, len);\</div>
+<div class="line">    __typeof(buf[0]) __mx = <a class="code" href="group__dsp___stats.html#ga9205dc9d9f963ceb4581f97ba584b977">dsp_stats_max</a>(buf, len);\</div>
 <div class="line">    double oratio = (_mx - _mn);\</div>
 <div class="line">    double iratio = (__mx - __mn);\</div>
 <div class="line">    if(iratio == 0) iratio = 1;\</div>
 <div class="line">    for(k = 0; k &lt; len; k++) {\</div>
 <div class="line">        buf[k] -= __mn;\</div>
-<div class="line">        buf[k] = (__typeof__(buf[0]))((<span class="keywordtype">double</span>)buf[k] * oratio / iratio);\</div>
+<div class="line">        buf[k] = (__typeof(buf[0]))((<span class="keywordtype">double</span>)buf[k] * oratio / iratio);\</div>
 <div class="line">        buf[k] += _mn;\</div>
 <div class="line">    }\</div>
 <div class="line">})</div>
@@ -520,18 +520,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    ({ \</div>
 <div class="line">        int k; \</div>
-<div class="line">        switch(<span class="keyword">sizeof</span>(((__typeof__ (in[0])*)in)[0])) { \</div>
+<div class="line">        switch(<span class="keyword">sizeof</span>(((__typeof (in[0])*)in)[0])) { \</div>
 <div class="line">        case 2: \</div>
 <div class="line">            for(k = 0; k &lt; len; k++) \</div>
-<div class="line">                ((__typeof__ (in[0])*)in)[k] = __bswap_16(((__typeof__ (in[0])*)in)[k]); \</div>
+<div class="line">                ((__typeof (in[0])*)in)[k] = __bswap_16(((__typeof (in[0])*)in)[k]); \</div>
 <div class="line">            break; \</div>
 <div class="line">        case 3: \</div>
 <div class="line">            for(k = 0; k &lt; len; k++) \</div>
-<div class="line">            ((__typeof__ (in[0])*)in)[k] = __bswap_32(((__typeof__ (in[0])*)in)[k]); \</div>
-<div class="line">            break; \</div>
-<div class="line">        case 4: \</div>
-<div class="line">            for(k = 0; k &lt; len; k++) \</div>
-<div class="line">                ((__typeof__ (in[0])*)in)[k] = __bswap_64(((__typeof__ (in[0])*)in)[k]); \</div>
+<div class="line">            ((__typeof (in[0])*)in)[k] = __bswap_32(((__typeof (in[0])*)in)[k]); \</div>
 <div class="line">            break; \</div>
 <div class="line">        } \</div>
 <div class="line">    })</div>
@@ -1337,13 +1333,13 @@ Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="agroup___d_s_p___defines_html_ga4886a8f966a69949cefc46a6a3468006"><div class="ttname"><a href="group___d_s_p___defines.html#ga4886a8f966a69949cefc46a6a3468006">Max</a></div><div class="ttdeci">#define Max(a, b)</div><div class="ttdoc">if max() is not present you can use this one</div><div class="ttdef"><b>Definition:</b> dsp.h:134</div></div>
-<div class="ttc" id="agroup__dsp___stats_html_ga188a626cbaa63ccaa1403e63885a23dd"><div class="ttname"><a href="group__dsp___stats.html#ga188a626cbaa63ccaa1403e63885a23dd">dsp_stats_min</a></div><div class="ttdeci">#define dsp_stats_min(buf, len)</div><div class="ttdoc">Gets the minimum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:484</div></div>
-<div class="ttc" id="agroup___d_s_p___defines_html_ga9e04209162ea72f9985338596262b657"><div class="ttname"><a href="group___d_s_p___defines.html#ga9e04209162ea72f9985338596262b657">Min</a></div><div class="ttdeci">#define Min(a, b)</div><div class="ttdoc">if min() is not present you can use this one</div><div class="ttdef"><b>Definition:</b> dsp.h:127</div></div>
-<div class="ttc" id="agroup__dsp___stats_html_ga9205dc9d9f963ceb4581f97ba584b977"><div class="ttname"><a href="group__dsp___stats.html#ga9205dc9d9f963ceb4581f97ba584b977">dsp_stats_max</a></div><div class="ttdeci">#define dsp_stats_max(buf, len)</div><div class="ttdoc">Gets the maximum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:502</div></div>
+<div class="ttc" id="agroup___d_s_p___defines_html_ga4886a8f966a69949cefc46a6a3468006"><div class="ttname"><a href="group___d_s_p___defines.html#ga4886a8f966a69949cefc46a6a3468006">Max</a></div><div class="ttdeci">#define Max(a, b)</div><div class="ttdoc">if max() is not present you can use this one</div><div class="ttdef"><b>Definition:</b> dsp.h:140</div></div>
+<div class="ttc" id="agroup__dsp___stats_html_ga188a626cbaa63ccaa1403e63885a23dd"><div class="ttname"><a href="group__dsp___stats.html#ga188a626cbaa63ccaa1403e63885a23dd">dsp_stats_min</a></div><div class="ttdeci">#define dsp_stats_min(buf, len)</div><div class="ttdoc">Gets the minimum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:522</div></div>
+<div class="ttc" id="agroup___d_s_p___defines_html_ga9e04209162ea72f9985338596262b657"><div class="ttname"><a href="group___d_s_p___defines.html#ga9e04209162ea72f9985338596262b657">Min</a></div><div class="ttdeci">#define Min(a, b)</div><div class="ttdoc">if min() is not present you can use this one</div><div class="ttdef"><b>Definition:</b> dsp.h:133</div></div>
+<div class="ttc" id="agroup__dsp___stats_html_ga9205dc9d9f963ceb4581f97ba584b977"><div class="ttname"><a href="group__dsp___stats.html#ga9205dc9d9f963ceb4581f97ba584b977">dsp_stats_max</a></div><div class="ttdeci">#define dsp_stats_max(buf, len)</div><div class="ttdoc">Gets the maximum value of the input stream.</div><div class="ttdef"><b>Definition:</b> dsp.h:540</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 11 2022 16:12:12 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 5 2022 17:49:14 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

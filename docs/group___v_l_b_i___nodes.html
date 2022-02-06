@@ -71,26 +71,26 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga9e99d6986d48745e327677d44b5e65aa"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga9e99d6986d48745e327677d44b5e65aa">vlbi_add_node</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> Stream, char *name, int geographic_coordinates)</td></tr>
-<tr class="memdesc:ga9e99d6986d48745e327677d44b5e65aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a stream into the current OpenVLBI context.  <a href="group___v_l_b_i___nodes.html#ga9e99d6986d48745e327677d44b5e65aa">More...</a><br /></td></tr>
-<tr class="separator:ga9e99d6986d48745e327677d44b5e65aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7409f0daf699703181fbb1838d352b7a"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga7409f0daf699703181fbb1838d352b7a">vlbi_del_node</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, char *name)</td></tr>
-<tr class="memdesc:ga7409f0daf699703181fbb1838d352b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a stream from the current OpenVLBI context.  <a href="group___v_l_b_i___nodes.html#ga7409f0daf699703181fbb1838d352b7a">More...</a><br /></td></tr>
-<tr class="separator:ga7409f0daf699703181fbb1838d352b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4065e7251b49214299c7a76c2b6e65c4"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga4065e7251b49214299c7a76c2b6e65c4">vlbi_add_node</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> Stream, const char *name, int geographic_coordinates)</td></tr>
+<tr class="memdesc:ga4065e7251b49214299c7a76c2b6e65c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a stream into the current OpenVLBI context.  <a href="group___v_l_b_i___nodes.html#ga4065e7251b49214299c7a76c2b6e65c4">More...</a><br /></td></tr>
+<tr class="separator:ga4065e7251b49214299c7a76c2b6e65c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacc87fbbf03f3c538e115459e4e4127eb"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#gacc87fbbf03f3c538e115459e4e4127eb">vlbi_del_node</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, const char *name)</td></tr>
+<tr class="memdesc:gacc87fbbf03f3c538e115459e4e4127eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a stream from the current OpenVLBI context.  <a href="group___v_l_b_i___nodes.html#gacc87fbbf03f3c538e115459e4e4127eb">More...</a><br /></td></tr>
+<tr class="separator:gacc87fbbf03f3c538e115459e4e4127eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae4c60f784c7a446d5032e0df056eb79c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#gae4c60f784c7a446d5032e0df056eb79c">vlbi_get_nodes</a> (void *ctx, <a class="el" href="structvlbi__node.html">vlbi_node</a> **nodes)</td></tr>
 <tr class="memdesc:gae4c60f784c7a446d5032e0df056eb79c"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all nodes of the current OpenVLBI context.  <a href="group___v_l_b_i___nodes.html#gae4c60f784c7a446d5032e0df056eb79c">More...</a><br /></td></tr>
 <tr class="separator:gae4c60f784c7a446d5032e0df056eb79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga80904445a9b616a8e78f63cb2a788231"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga80904445a9b616a8e78f63cb2a788231">vlbi_add_node_from_fits</a> (void *ctx, char *filename, char *name, int geo)</td></tr>
-<tr class="memdesc:ga80904445a9b616a8e78f63cb2a788231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a node from a 2d image fits file.  <a href="group___v_l_b_i___nodes.html#ga80904445a9b616a8e78f63cb2a788231">More...</a><br /></td></tr>
-<tr class="separator:ga80904445a9b616a8e78f63cb2a788231"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga668146489d3797050066b60c11c95e73"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga668146489d3797050066b60c11c95e73">vlbi_add_nodes_from_sdfits</a> (void *ctx, char *filename, char *name, int geo)</td></tr>
-<tr class="memdesc:ga668146489d3797050066b60c11c95e73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add nodes from each row of a single dish fits -SDFITS- file.  <a href="group___v_l_b_i___nodes.html#ga668146489d3797050066b60c11c95e73">More...</a><br /></td></tr>
-<tr class="separator:ga668146489d3797050066b60c11c95e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e8f6e33f5a7e4b5b0981dd50a34172f"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga4e8f6e33f5a7e4b5b0981dd50a34172f">vlbi_add_node_from_fits</a> (void *ctx, char *filename, const char *name, int geo)</td></tr>
+<tr class="memdesc:ga4e8f6e33f5a7e4b5b0981dd50a34172f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a node from a 2d image fits file.  <a href="group___v_l_b_i___nodes.html#ga4e8f6e33f5a7e4b5b0981dd50a34172f">More...</a><br /></td></tr>
+<tr class="separator:ga4e8f6e33f5a7e4b5b0981dd50a34172f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8967e4927fb7f5daf65be4b1022d6c9b"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga8967e4927fb7f5daf65be4b1022d6c9b">vlbi_add_nodes_from_sdfits</a> (void *ctx, char *filename, const char *name, int geo)</td></tr>
+<tr class="memdesc:ga8967e4927fb7f5daf65be4b1022d6c9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add nodes from each row of a single dish fits -SDFITS- file.  <a href="group___v_l_b_i___nodes.html#ga8967e4927fb7f5daf65be4b1022d6c9b">More...</a><br /></td></tr>
+<tr class="separator:ga8967e4927fb7f5daf65be4b1022d6c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga9e99d6986d48745e327677d44b5e65aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9e99d6986d48745e327677d44b5e65aa">&#9670;&nbsp;</a></span>vlbi_add_node()</h2>
+<a id="ga4065e7251b49214299c7a76c2b6e65c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4065e7251b49214299c7a76c2b6e65c4">&#9670;&nbsp;</a></span>vlbi_add_node()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -110,7 +110,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
@@ -138,8 +138,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga80904445a9b616a8e78f63cb2a788231"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga80904445a9b616a8e78f63cb2a788231">&#9670;&nbsp;</a></span>vlbi_add_node_from_fits()</h2>
+<a id="ga4e8f6e33f5a7e4b5b0981dd50a34172f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4e8f6e33f5a7e4b5b0981dd50a34172f">&#9670;&nbsp;</a></span>vlbi_add_node_from_fits()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,7 +159,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
@@ -187,8 +187,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga668146489d3797050066b60c11c95e73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga668146489d3797050066b60c11c95e73">&#9670;&nbsp;</a></span>vlbi_add_nodes_from_sdfits()</h2>
+<a id="ga8967e4927fb7f5daf65be4b1022d6c9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8967e4927fb7f5daf65be4b1022d6c9b">&#9670;&nbsp;</a></span>vlbi_add_nodes_from_sdfits()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,7 +208,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
@@ -236,8 +236,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga7409f0daf699703181fbb1838d352b7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7409f0daf699703181fbb1838d352b7a">&#9670;&nbsp;</a></span>vlbi_del_node()</h2>
+<a id="gacc87fbbf03f3c538e115459e4e4127eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacc87fbbf03f3c538e115459e4e4127eb">&#9670;&nbsp;</a></span>vlbi_del_node()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -251,7 +251,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
@@ -310,7 +310,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 11 2022 16:12:12 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 5 2022 17:49:14 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

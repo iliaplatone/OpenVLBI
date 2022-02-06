@@ -74,15 +74,15 @@ Functions</h2></td></tr>
 <tr class="memitem:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gad8463ac0e307bb75bcef9c293cc5bd92">vlbi_get_baselines</a> (void *ctx, <a class="el" href="structvlbi__baseline.html">vlbi_baseline</a> **baselines)</td></tr>
 <tr class="memdesc:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all baselines of the current OpenVLBI context.  <a href="group___v_l_b_i___baselines.html#gad8463ac0e307bb75bcef9c293cc5bd92">More...</a><br /></td></tr>
 <tr class="separator:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac6d13f0d0a8510515d48ac94e693c4b8"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gac6d13f0d0a8510515d48ac94e693c4b8">vlbi_set_baseline_buffer</a> (void *ctx, char *node1, char *node2, fftw_complex *buffer, int len)</td></tr>
-<tr class="memdesc:gac6d13f0d0a8510515d48ac94e693c4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the buffer of a single baseline with already correlated data.  <a href="group___v_l_b_i___baselines.html#gac6d13f0d0a8510515d48ac94e693c4b8">More...</a><br /></td></tr>
-<tr class="separator:gac6d13f0d0a8510515d48ac94e693c4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4b09c4ce131d7c5f39c72e96621a08b"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gad4b09c4ce131d7c5f39c72e96621a08b">vlbi_set_baseline_buffer</a> (void *ctx, const char *node1, const char *node2, fftw_complex *buffer, int len)</td></tr>
+<tr class="memdesc:gad4b09c4ce131d7c5f39c72e96621a08b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the buffer of a single baseline with complex visibility data.  <a href="group___v_l_b_i___baselines.html#gad4b09c4ce131d7c5f39c72e96621a08b">More...</a><br /></td></tr>
+<tr class="separator:gad4b09c4ce131d7c5f39c72e96621a08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf57dbbb14efe53d31db2306389b0233c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gaf57dbbb14efe53d31db2306389b0233c">vlbi_set_location</a> (void *ctx, double lat, double lon, double el)</td></tr>
 <tr class="memdesc:gaf57dbbb14efe53d31db2306389b0233c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the location of the reference station.  <a href="group___v_l_b_i___baselines.html#gaf57dbbb14efe53d31db2306389b0233c">More...</a><br /></td></tr>
 <tr class="separator:gaf57dbbb14efe53d31db2306389b0233c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0cef76b33739ef82614e1902f54b7eb8"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#ga0cef76b33739ef82614e1902f54b7eb8">vlbi_get_offsets</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, double J2000Time, char *node1, char *node2, double Ra, double Dec, double *offset1, double *offset2)</td></tr>
-<tr class="memdesc:ga0cef76b33739ef82614e1902f54b7eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the offsets of a single baseline nodes to the farest node to the target.  <a href="group___v_l_b_i___baselines.html#ga0cef76b33739ef82614e1902f54b7eb8">More...</a><br /></td></tr>
-<tr class="separator:ga0cef76b33739ef82614e1902f54b7eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa663a7f2129960bcb0f5d5cc7713eba5"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gaa663a7f2129960bcb0f5d5cc7713eba5">vlbi_get_offsets</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, double J2000Time, const char *node1, const char *node2, double Ra, double Dec, double *offset1, double *offset2)</td></tr>
+<tr class="memdesc:gaa663a7f2129960bcb0f5d5cc7713eba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the offsets of a single baseline nodes to the farest node to the target.  <a href="group___v_l_b_i___baselines.html#gaa663a7f2129960bcb0f5d5cc7713eba5">More...</a><br /></td></tr>
+<tr class="separator:gaa663a7f2129960bcb0f5d5cc7713eba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -122,8 +122,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga0cef76b33739ef82614e1902f54b7eb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0cef76b33739ef82614e1902f54b7eb8">&#9670;&nbsp;</a></span>vlbi_get_offsets()</h2>
+<a id="gaa663a7f2129960bcb0f5d5cc7713eba5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa663a7f2129960bcb0f5d5cc7713eba5">&#9670;&nbsp;</a></span>vlbi_get_offsets()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -143,13 +143,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>node1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>node2</em>, </td>
         </tr>
         <tr>
@@ -199,8 +199,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gac6d13f0d0a8510515d48ac94e693c4b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac6d13f0d0a8510515d48ac94e693c4b8">&#9670;&nbsp;</a></span>vlbi_set_baseline_buffer()</h2>
+<a id="gad4b09c4ce131d7c5f39c72e96621a08b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad4b09c4ce131d7c5f39c72e96621a08b">&#9670;&nbsp;</a></span>vlbi_set_baseline_buffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,13 +214,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>node1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>node2</em>, </td>
         </tr>
         <tr>
@@ -247,7 +247,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">node1</td><td>The name of the first node </td></tr>
     <tr><td class="paramname">node2</td><td>The name of the second node </td></tr>
-    <tr><td class="paramname">buffer</td><td>The buffer with complex correlated data </td></tr>
+    <tr><td class="paramname">buffer</td><td>The buffer with complex complex visibility data </td></tr>
     <tr><td class="paramname">len</td><td>The length of the buffer </td></tr>
   </table>
   </dd>
@@ -307,7 +307,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 11 2022 16:12:12 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 5 2022 17:49:14 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

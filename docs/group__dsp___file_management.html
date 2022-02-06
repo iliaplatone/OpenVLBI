@@ -71,30 +71,30 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga905e2fb90746a76491964d1ba685cb89"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga905e2fb90746a76491964d1ba685cb89">dsp_file_read_fits</a> (char *filename, int *channels, int stretch)</td></tr>
-<tr class="memdesc:ga905e2fb90746a76491964d1ba685cb89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a FITS file and fill a dsp_stream_p with its content.  <a href="group__dsp___file_management.html#ga905e2fb90746a76491964d1ba685cb89">More...</a><br /></td></tr>
-<tr class="separator:ga905e2fb90746a76491964d1ba685cb89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6f08ed9d683b877fca5cd47cdf0d8c0a"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga6f08ed9d683b877fca5cd47cdf0d8c0a">dsp_file_write_fits</a> (char *filename, int bpp, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
-<tr class="memdesc:ga6f08ed9d683b877fca5cd47cdf0d8c0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the dsp_stream_p into a FITS file,.  <a href="group__dsp___file_management.html#ga6f08ed9d683b877fca5cd47cdf0d8c0a">More...</a><br /></td></tr>
-<tr class="separator:ga6f08ed9d683b877fca5cd47cdf0d8c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa485f14949b3a5f3076268b8cd58c923"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gaa485f14949b3a5f3076268b8cd58c923">dsp_file_write_fits_composite</a> (char *filename, int components, int bpp, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *stream)</td></tr>
-<tr class="memdesc:gaa485f14949b3a5f3076268b8cd58c923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the components dsp_stream_p array into a JPEG file,.  <a href="group__dsp___file_management.html#gaa485f14949b3a5f3076268b8cd58c923">More...</a><br /></td></tr>
-<tr class="separator:gaa485f14949b3a5f3076268b8cd58c923"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga38b3bdf37e7abe145b94be95c8d9bfa3"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga38b3bdf37e7abe145b94be95c8d9bfa3">dsp_file_read_jpeg</a> (char *filename, int *channels, int stretch)</td></tr>
-<tr class="memdesc:ga38b3bdf37e7abe145b94be95c8d9bfa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a JPEG file and fill a array of dsp_stream_p with its content, each color channel has its own stream in this array and an additional grayscale at end will be added.  <a href="group__dsp___file_management.html#ga38b3bdf37e7abe145b94be95c8d9bfa3">More...</a><br /></td></tr>
-<tr class="separator:ga38b3bdf37e7abe145b94be95c8d9bfa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0ddced8955a87006e94c083014efd5b4"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga0ddced8955a87006e94c083014efd5b4">dsp_file_write_jpeg</a> (char *filename, int quality, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
-<tr class="memdesc:ga0ddced8955a87006e94c083014efd5b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the stream into a JPEG file,.  <a href="group__dsp___file_management.html#ga0ddced8955a87006e94c083014efd5b4">More...</a><br /></td></tr>
-<tr class="separator:ga0ddced8955a87006e94c083014efd5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab9bf363c4418908fc0b81cc583c9c80a"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gab9bf363c4418908fc0b81cc583c9c80a">dsp_file_write_jpeg_composite</a> (char *filename, int components, int quality, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *stream)</td></tr>
-<tr class="memdesc:gab9bf363c4418908fc0b81cc583c9c80a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the components dsp_stream_p array into a JPEG file,.  <a href="group__dsp___file_management.html#gab9bf363c4418908fc0b81cc583c9c80a">More...</a><br /></td></tr>
-<tr class="separator:gab9bf363c4418908fc0b81cc583c9c80a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa36570c70f254fc42ca8557799ef292f"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gaa36570c70f254fc42ca8557799ef292f">dsp_file_read_png</a> (char *filename, int *channels, int stretch)</td></tr>
-<tr class="memdesc:gaa36570c70f254fc42ca8557799ef292f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a PNG file and fill a array of dsp_stream_p with its content, each color channel has its own stream in this array and an additional grayscale at end will be added.  <a href="group__dsp___file_management.html#gaa36570c70f254fc42ca8557799ef292f">More...</a><br /></td></tr>
-<tr class="separator:gaa36570c70f254fc42ca8557799ef292f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga65e80478c908b3ac4cf96708cdc056a7"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga65e80478c908b3ac4cf96708cdc056a7">dsp_file_write_png_composite</a> (char *filename, int components, int compression, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *stream)</td></tr>
-<tr class="memdesc:ga65e80478c908b3ac4cf96708cdc056a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the components dsp_stream_p array into a PNG file,.  <a href="group__dsp___file_management.html#ga65e80478c908b3ac4cf96708cdc056a7">More...</a><br /></td></tr>
-<tr class="separator:ga65e80478c908b3ac4cf96708cdc056a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb7515eed754b41fdcf25937a7ffd46e"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gadb7515eed754b41fdcf25937a7ffd46e">dsp_file_read_fits</a> (const char *filename, int *channels, int stretch)</td></tr>
+<tr class="memdesc:gadb7515eed754b41fdcf25937a7ffd46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a FITS file and fill a dsp_stream_p with its content.  <a href="group__dsp___file_management.html#gadb7515eed754b41fdcf25937a7ffd46e">More...</a><br /></td></tr>
+<tr class="separator:gadb7515eed754b41fdcf25937a7ffd46e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf5ba31397273638707653409c6b44299"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gaf5ba31397273638707653409c6b44299">dsp_file_write_fits</a> (const char *filename, int bpp, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
+<tr class="memdesc:gaf5ba31397273638707653409c6b44299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the dsp_stream_p into a FITS file,.  <a href="group__dsp___file_management.html#gaf5ba31397273638707653409c6b44299">More...</a><br /></td></tr>
+<tr class="separator:gaf5ba31397273638707653409c6b44299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7bfbadc5976500976fca469d85683899"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga7bfbadc5976500976fca469d85683899">dsp_file_write_fits_composite</a> (const char *filename, int components, int bpp, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *stream)</td></tr>
+<tr class="memdesc:ga7bfbadc5976500976fca469d85683899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the components dsp_stream_p array into a JPEG file,.  <a href="group__dsp___file_management.html#ga7bfbadc5976500976fca469d85683899">More...</a><br /></td></tr>
+<tr class="separator:ga7bfbadc5976500976fca469d85683899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca7d743e70c7ae95f6cba3f7637a9afa"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gaca7d743e70c7ae95f6cba3f7637a9afa">dsp_file_read_jpeg</a> (const char *filename, int *channels, int stretch)</td></tr>
+<tr class="memdesc:gaca7d743e70c7ae95f6cba3f7637a9afa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a JPEG file and fill a array of dsp_stream_p with its content, each color channel has its own stream in this array and an additional grayscale at end will be added.  <a href="group__dsp___file_management.html#gaca7d743e70c7ae95f6cba3f7637a9afa">More...</a><br /></td></tr>
+<tr class="separator:gaca7d743e70c7ae95f6cba3f7637a9afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa48e65233699614ab0d5c9970c98d80f"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gaa48e65233699614ab0d5c9970c98d80f">dsp_file_write_jpeg</a> (const char *filename, int quality, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
+<tr class="memdesc:gaa48e65233699614ab0d5c9970c98d80f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the stream into a JPEG file,.  <a href="group__dsp___file_management.html#gaa48e65233699614ab0d5c9970c98d80f">More...</a><br /></td></tr>
+<tr class="separator:gaa48e65233699614ab0d5c9970c98d80f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bca513938c9cd3cccffe5efd05efed0"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga1bca513938c9cd3cccffe5efd05efed0">dsp_file_write_jpeg_composite</a> (const char *filename, int components, int quality, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *stream)</td></tr>
+<tr class="memdesc:ga1bca513938c9cd3cccffe5efd05efed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the components dsp_stream_p array into a JPEG file,.  <a href="group__dsp___file_management.html#ga1bca513938c9cd3cccffe5efd05efed0">More...</a><br /></td></tr>
+<tr class="separator:ga1bca513938c9cd3cccffe5efd05efed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12b7f83f14f52a0062c018f5f3fc8f48"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga12b7f83f14f52a0062c018f5f3fc8f48">dsp_file_read_png</a> (const char *filename, int *channels, int stretch)</td></tr>
+<tr class="memdesc:ga12b7f83f14f52a0062c018f5f3fc8f48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a PNG file and fill a array of dsp_stream_p with its content, each color channel has its own stream in this array and an additional grayscale at end will be added.  <a href="group__dsp___file_management.html#ga12b7f83f14f52a0062c018f5f3fc8f48">More...</a><br /></td></tr>
+<tr class="separator:ga12b7f83f14f52a0062c018f5f3fc8f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad26f388ee5ce6382afe2a0fce1cf292c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gad26f388ee5ce6382afe2a0fce1cf292c">dsp_file_write_png_composite</a> (const char *filename, int components, int compression, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *stream)</td></tr>
+<tr class="memdesc:gad26f388ee5ce6382afe2a0fce1cf292c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the components dsp_stream_p array into a PNG file,.  <a href="group__dsp___file_management.html#gad26f388ee5ce6382afe2a0fce1cf292c">More...</a><br /></td></tr>
+<tr class="separator:gad26f388ee5ce6382afe2a0fce1cf292c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga641a6bc7f8762a6194560fc0135dc6a4"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT dsp_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga641a6bc7f8762a6194560fc0135dc6a4">dsp_file_bayer_2_gray</a> (dsp_t *src, int width, int height)</td></tr>
 <tr class="memdesc:ga641a6bc7f8762a6194560fc0135dc6a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a bayer pattern dsp_t array into a grayscale array.  <a href="group__dsp___file_management.html#ga641a6bc7f8762a6194560fc0135dc6a4">More...</a><br /></td></tr>
 <tr class="separator:ga641a6bc7f8762a6194560fc0135dc6a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,15 +113,80 @@ Functions</h2></td></tr>
 <tr class="memitem:gabc8a0f6fbb0eaadb7f3666c97cdc9936"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT dsp_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gabc8a0f6fbb0eaadb7f3666c97cdc9936">dsp_file_composite_2_bayer</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *src, int red, int width, int height)</td></tr>
 <tr class="memdesc:gabc8a0f6fbb0eaadb7f3666c97cdc9936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a component dsp_stream_p array into a bayer dsp_t array.  <a href="group__dsp___file_management.html#gabc8a0f6fbb0eaadb7f3666c97cdc9936">More...</a><br /></td></tr>
 <tr class="separator:gabc8a0f6fbb0eaadb7f3666c97cdc9936"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa040479a86417402968be1f56c8f8985"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gaa040479a86417402968be1f56c8f8985">dsp_file_write_fits_bayer</a> (char *filename, int components, int bpp, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *stream)</td></tr>
-<tr class="memdesc:gaa040479a86417402968be1f56c8f8985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a FITS file from a dsp_stream_p array.  <a href="group__dsp___file_management.html#gaa040479a86417402968be1f56c8f8985">More...</a><br /></td></tr>
-<tr class="separator:gaa040479a86417402968be1f56c8f8985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6889b5e7df536ea0bbff19831b75bfca"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga6889b5e7df536ea0bbff19831b75bfca">dsp_file_write_fits_bayer</a> (const char *filename, int components, int bpp, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> *stream)</td></tr>
+<tr class="memdesc:ga6889b5e7df536ea0bbff19831b75bfca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a FITS file from a dsp_stream_p array.  <a href="group__dsp___file_management.html#ga6889b5e7df536ea0bbff19831b75bfca">More...</a><br /></td></tr>
+<tr class="separator:ga6889b5e7df536ea0bbff19831b75bfca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafb382c7a80321d3dbf305e330dedc08e"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT dsp_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gafb382c7a80321d3dbf305e330dedc08e">dsp_file_bayer_2_composite</a> (dsp_t *src, int red, int width, int height)</td></tr>
 <tr class="memdesc:gafb382c7a80321d3dbf305e330dedc08e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a bayer pattern dsp_t array into a contiguos component array.  <a href="group__dsp___file_management.html#gafb382c7a80321d3dbf305e330dedc08e">More...</a><br /></td></tr>
 <tr class="separator:gafb382c7a80321d3dbf305e330dedc08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad12c3e6448a1a29732486559490aa67"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gaad12c3e6448a1a29732486559490aa67">dsp_align_get_offset</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> ref, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> to_align, double tolerance, double target_score)</td></tr>
+<tr class="memdesc:gaad12c3e6448a1a29732486559490aa67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate offsets, rotation and scaling of two streams giving reference alignment point.  <a href="group__dsp___file_management.html#gaad12c3e6448a1a29732486559490aa67">More...</a><br /></td></tr>
+<tr class="separator:gaad12c3e6448a1a29732486559490aa67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5dc0bb9d1272f75b1b840170e21d6016"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga5dc0bb9d1272f75b1b840170e21d6016">dsp_qsort_double_asc</a> (const void *arg1, const void *arg2)</td></tr>
+<tr class="memdesc:ga5dc0bb9d1272f75b1b840170e21d6016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for qsort for double type ascending ordering.  <a href="group__dsp___file_management.html#ga5dc0bb9d1272f75b1b840170e21d6016">More...</a><br /></td></tr>
+<tr class="separator:ga5dc0bb9d1272f75b1b840170e21d6016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6fc200592bd0f3669e321dad358d848"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gaf6fc200592bd0f3669e321dad358d848">dsp_qsort_double_desc</a> (const void *arg1, const void *arg2)</td></tr>
+<tr class="memdesc:gaf6fc200592bd0f3669e321dad358d848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for qsort for double type descending ordering.  <a href="group__dsp___file_management.html#gaf6fc200592bd0f3669e321dad358d848">More...</a><br /></td></tr>
+<tr class="separator:gaf6fc200592bd0f3669e321dad358d848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb9af4270f49ce3c01908b994b10d58f"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gacb9af4270f49ce3c01908b994b10d58f">dsp_qsort_star_diameter_asc</a> (const void *arg1, const void *arg2)</td></tr>
+<tr class="memdesc:gacb9af4270f49ce3c01908b994b10d58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for qsort for dsp_star ascending ordering by their diameters.  <a href="group__dsp___file_management.html#gacb9af4270f49ce3c01908b994b10d58f">More...</a><br /></td></tr>
+<tr class="separator:gacb9af4270f49ce3c01908b994b10d58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadcd43f6006132f1d647196c6e442ef57"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gadcd43f6006132f1d647196c6e442ef57">dsp_qsort_star_diameter_desc</a> (const void *arg1, const void *arg2)</td></tr>
+<tr class="memdesc:gadcd43f6006132f1d647196c6e442ef57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for qsort for dsp_star descending ordering by their diameters.  <a href="group__dsp___file_management.html#gadcd43f6006132f1d647196c6e442ef57">More...</a><br /></td></tr>
+<tr class="separator:gadcd43f6006132f1d647196c6e442ef57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="gaad12c3e6448a1a29732486559490aa67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaad12c3e6448a1a29732486559490aa67">&#9670;&nbsp;</a></span>dsp_align_get_offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT int dsp_align_get_offset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>ref</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>to_align</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>tolerance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>target_score</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ref</td><td>the reference stream </td></tr>
+    <tr><td class="paramname">to_align</td><td>the stream to be aligned </td></tr>
+    <tr><td class="paramname">tolerance</td><td>number of decimals allowed </td></tr>
+    <tr><td class="paramname">target_score</td><td>the minimum matching score to reach </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The alignment mask (bit1: translated, bit2: scaled, bit3: rotated) </dd></dl>
+
+</div>
+</div>
 <a id="ga092a4869aacbad1b8136919a884ccb23"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga092a4869aacbad1b8136919a884ccb23">&#9670;&nbsp;</a></span>dsp_buffer_components_to_rgb()</h2>
 
@@ -428,8 +493,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga905e2fb90746a76491964d1ba685cb89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga905e2fb90746a76491964d1ba685cb89">&#9670;&nbsp;</a></span>dsp_file_read_fits()</h2>
+<a id="gadb7515eed754b41fdcf25937a7ffd46e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadb7515eed754b41fdcf25937a7ffd46e">&#9670;&nbsp;</a></span>dsp_file_read_fits()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -437,7 +502,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>* dsp_file_read_fits </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -471,8 +536,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga38b3bdf37e7abe145b94be95c8d9bfa3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga38b3bdf37e7abe145b94be95c8d9bfa3">&#9670;&nbsp;</a></span>dsp_file_read_jpeg()</h2>
+<a id="gaca7d743e70c7ae95f6cba3f7637a9afa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaca7d743e70c7ae95f6cba3f7637a9afa">&#9670;&nbsp;</a></span>dsp_file_read_jpeg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -480,7 +545,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>* dsp_file_read_jpeg </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -514,8 +579,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaa36570c70f254fc42ca8557799ef292f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa36570c70f254fc42ca8557799ef292f">&#9670;&nbsp;</a></span>dsp_file_read_png()</h2>
+<a id="ga12b7f83f14f52a0062c018f5f3fc8f48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga12b7f83f14f52a0062c018f5f3fc8f48">&#9670;&nbsp;</a></span>dsp_file_read_png()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -523,7 +588,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>* dsp_file_read_png </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -557,8 +622,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga6f08ed9d683b877fca5cd47cdf0d8c0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6f08ed9d683b877fca5cd47cdf0d8c0a">&#9670;&nbsp;</a></span>dsp_file_write_fits()</h2>
+<a id="gaf5ba31397273638707653409c6b44299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf5ba31397273638707653409c6b44299">&#9670;&nbsp;</a></span>dsp_file_write_fits()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -566,7 +631,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">DLL_EXPORT void dsp_file_write_fits </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -599,8 +664,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaa040479a86417402968be1f56c8f8985"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa040479a86417402968be1f56c8f8985">&#9670;&nbsp;</a></span>dsp_file_write_fits_bayer()</h2>
+<a id="ga6889b5e7df536ea0bbff19831b75bfca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6889b5e7df536ea0bbff19831b75bfca">&#9670;&nbsp;</a></span>dsp_file_write_fits_bayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -608,7 +673,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">DLL_EXPORT void dsp_file_write_fits_bayer </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -648,8 +713,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaa485f14949b3a5f3076268b8cd58c923"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa485f14949b3a5f3076268b8cd58c923">&#9670;&nbsp;</a></span>dsp_file_write_fits_composite()</h2>
+<a id="ga7bfbadc5976500976fca469d85683899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7bfbadc5976500976fca469d85683899">&#9670;&nbsp;</a></span>dsp_file_write_fits_composite()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -657,7 +722,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">DLL_EXPORT void dsp_file_write_fits_composite </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -697,8 +762,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga0ddced8955a87006e94c083014efd5b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0ddced8955a87006e94c083014efd5b4">&#9670;&nbsp;</a></span>dsp_file_write_jpeg()</h2>
+<a id="gaa48e65233699614ab0d5c9970c98d80f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa48e65233699614ab0d5c9970c98d80f">&#9670;&nbsp;</a></span>dsp_file_write_jpeg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -706,7 +771,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">DLL_EXPORT void dsp_file_write_jpeg </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -739,8 +804,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gab9bf363c4418908fc0b81cc583c9c80a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab9bf363c4418908fc0b81cc583c9c80a">&#9670;&nbsp;</a></span>dsp_file_write_jpeg_composite()</h2>
+<a id="ga1bca513938c9cd3cccffe5efd05efed0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1bca513938c9cd3cccffe5efd05efed0">&#9670;&nbsp;</a></span>dsp_file_write_jpeg_composite()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -748,7 +813,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">DLL_EXPORT void dsp_file_write_jpeg_composite </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -788,8 +853,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga65e80478c908b3ac4cf96708cdc056a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga65e80478c908b3ac4cf96708cdc056a7">&#9670;&nbsp;</a></span>dsp_file_write_png_composite()</h2>
+<a id="gad26f388ee5ce6382afe2a0fce1cf292c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad26f388ee5ce6382afe2a0fce1cf292c">&#9670;&nbsp;</a></span>dsp_file_write_png_composite()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -797,7 +862,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">DLL_EXPORT void dsp_file_write_png_composite </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -834,6 +899,150 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ga5dc0bb9d1272f75b1b840170e21d6016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5dc0bb9d1272f75b1b840170e21d6016">&#9670;&nbsp;</a></span>dsp_qsort_double_asc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT int dsp_qsort_double_asc </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>arg2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg1</td><td>the first comparison element </td></tr>
+    <tr><td class="paramname">arg2</td><td>the second comparison element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if arg1 is greater than arg2, -1 if arg2 is greater than arg1 </dd></dl>
+
+</div>
+</div>
+<a id="gaf6fc200592bd0f3669e321dad358d848"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf6fc200592bd0f3669e321dad358d848">&#9670;&nbsp;</a></span>dsp_qsort_double_desc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT int dsp_qsort_double_desc </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>arg2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg1</td><td>the first comparison element </td></tr>
+    <tr><td class="paramname">arg2</td><td>the second comparison element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if arg2 is greater than arg1, -1 if arg1 is greater than arg2 </dd></dl>
+
+</div>
+</div>
+<a id="gacb9af4270f49ce3c01908b994b10d58f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacb9af4270f49ce3c01908b994b10d58f">&#9670;&nbsp;</a></span>dsp_qsort_star_diameter_asc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT int dsp_qsort_star_diameter_asc </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>arg2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg1</td><td>the first comparison element </td></tr>
+    <tr><td class="paramname">arg2</td><td>the second comparison element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if arg1 diameter is greater than arg2, -1 if arg2 diameter is greater than arg1 </dd></dl>
+
+</div>
+</div>
+<a id="gadcd43f6006132f1d647196c6e442ef57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadcd43f6006132f1d647196c6e442ef57">&#9670;&nbsp;</a></span>dsp_qsort_star_diameter_desc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT int dsp_qsort_star_diameter_desc </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>arg1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>arg2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg1</td><td>the first comparison element </td></tr>
+    <tr><td class="paramname">arg2</td><td>the second comparison element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if arg2 diameter is greater than arg1, -1 if arg1 diameter is greater than arg2 </dd></dl>
 
 </div>
 </div>
@@ -890,7 +1099,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 11 2022 16:12:12 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 5 2022 17:49:14 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

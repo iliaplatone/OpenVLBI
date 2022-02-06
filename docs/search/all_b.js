@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['name_213',['Name',['../structvlbi__node.html#ae2609b20e785660dceb9397f69f274e6',1,'vlbi_node::Name()'],['../structvlbi__baseline.html#a1719db627b870126ccfaa2f926f2aa9d',1,'vlbi_baseline::Name()'],['../structdsp__stream__t.html#a0b5f7589eb4066ad7e8cb17800f8ac54',1,'dsp_stream_t::name()']]],
-  ['node1_214',['Node1',['../structvlbi__baseline.html#ab9b1ac7e0f9d2dab00236b4abcbcf12b',1,'vlbi_baseline']]],
-  ['node2_215',['Node2',['../structvlbi__baseline.html#a3f2cc666a17cb23587ec265577b48541',1,'vlbi_baseline']]],
-  ['nodes_20api_216',['Nodes API',['../group___v_l_b_i___nodes.html',1,'']]]
+  ['m2au_220',['M2AU',['../group___v_l_b_i___defines.html#gab90d1daee1fd77c36f54ce6b4fb73b12',1,'vlbi.h']]],
+  ['m2ly_221',['M2LY',['../group___v_l_b_i___defines.html#gafa59220a5c333d5f9add04ad3d31fcb2',1,'vlbi.h']]],
+  ['m2parsec_222',['M2PARSEC',['../group___v_l_b_i___defines.html#ga772569c972df72abd381b0c5ab698302',1,'vlbi.h']]],
+  ['magnitude_223',['magnitude',['../structdsp__stream__t.html#a7a2637533bdc7b363dcea9e3c2cc59b4',1,'dsp_stream_t']]],
+  ['mask_224',['Mask',['../class_v_l_b_i_1_1_server.html#a3396f03bdaeaace5293b2c1921edb93d',1,'VLBI::Server']]],
+  ['max_225',['Max',['../group___d_s_p___defines.html#ga4886a8f966a69949cefc46a6a3468006',1,'dsp.h']]],
+  ['max_5fthreads_226',['MAX_THREADS',['../group___v_l_b_i___defines.html#ga5e198f8ff4faf2bafa36449b38a2d444',1,'vlbi.h']]],
+  ['min_227',['Min',['../group___d_s_p___defines.html#ga9e04209162ea72f9985338596262b657',1,'dsp.h']]],
+  ['models_20api_228',['Models API',['../group___v_l_b_i___models.html',1,'']]]
 ];

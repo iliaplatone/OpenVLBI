@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eserver_351',['~Server',['../class_v_l_b_i_1_1_server.html#a7f9f2313b8f36179ec13e9a38995af9e',1,'VLBI::Server']]]
+  ['xyz_386',['xyz',['../uniondsp__location__t.html#a101fc25bb71ab6b664b69e92dd2259ef',1,'dsp_location_t']]]
 ];

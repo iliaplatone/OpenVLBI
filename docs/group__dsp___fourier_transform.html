@@ -77,6 +77,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ga18a3e61c7775bd836d6d5894e21c6833"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fourier_transform.html#ga18a3e61c7775bd836d6d5894e21c6833">dsp_fourier_idft</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
 <tr class="memdesc:ga18a3e61c7775bd836d6d5894e21c6833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform an inverse discrete Fourier Transform of a dsp_stream.  <a href="group__dsp___fourier_transform.html#ga18a3e61c7775bd836d6d5894e21c6833">More...</a><br /></td></tr>
 <tr class="separator:ga18a3e61c7775bd836d6d5894e21c6833"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga92f610af5351f3bd7bab457ffaeeecfb"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fourier_transform.html#ga92f610af5351f3bd7bab457ffaeeecfb">dsp_fourier_2dsp</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
+<tr class="memdesc:ga92f610af5351f3bd7bab457ffaeeecfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the magnitude and phase buffers with the current data in stream-&gt;dft.  <a href="group__dsp___fourier_transform.html#ga92f610af5351f3bd7bab457ffaeeecfb">More...</a><br /></td></tr>
+<tr class="separator:ga92f610af5351f3bd7bab457ffaeeecfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga13cfee224a0c54ebc406425c235495a5"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fourier_transform.html#ga13cfee224a0c54ebc406425c235495a5">dsp_fourier_2fftw</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
+<tr class="memdesc:ga13cfee224a0c54ebc406425c235495a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the complex fourier tranform from the current magnitude and phase buffers.  <a href="group__dsp___fourier_transform.html#ga13cfee224a0c54ebc406425c235495a5">More...</a><br /></td></tr>
+<tr class="separator:ga13cfee224a0c54ebc406425c235495a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga03f1eb219e2c8d19b74b94963c17e9d8"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="uniondsp__complex.html">dsp_complex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fourier_transform.html#ga03f1eb219e2c8d19b74b94963c17e9d8">dsp_fourier_phase_mag_array_get_complex</a> (double *mag, double *phi, int len)</td></tr>
 <tr class="memdesc:ga03f1eb219e2c8d19b74b94963c17e9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain a complex array from phase and magnitude arrays.  <a href="group__dsp___fourier_transform.html#ga03f1eb219e2c8d19b74b94963c17e9d8">More...</a><br /></td></tr>
 <tr class="separator:ga03f1eb219e2c8d19b74b94963c17e9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -89,6 +95,54 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga92f610af5351f3bd7bab457ffaeeecfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga92f610af5351f3bd7bab457ffaeeecfb">&#9670;&nbsp;</a></span>dsp_fourier_2dsp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void dsp_fourier_2dsp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>the inout stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga13cfee224a0c54ebc406425c235495a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga13cfee224a0c54ebc406425c235495a5">&#9670;&nbsp;</a></span>dsp_fourier_2fftw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void dsp_fourier_2fftw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>the inout stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ga62cc8637fcc4dec6d05ec38688bb9683"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga62cc8637fcc4dec6d05ec38688bb9683">&#9670;&nbsp;</a></span>dsp_fourier_complex_array_get_magnitude()</h2>
 
@@ -266,7 +320,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 11 2022 16:12:12 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 5 2022 17:49:14 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

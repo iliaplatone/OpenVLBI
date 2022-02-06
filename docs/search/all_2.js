@@ -10,6 +10,9 @@ var searchData=
   ['complex_24',['complex',['../uniondsp__complex.html#a0e9317be51e2422d3213ab834d99005d',1,'dsp_complex']]],
   ['coordinates_25',['coordinates',['../uniondsp__location__t.html#a8af8968a2c9a879a883fdd6498aa3c03',1,'dsp_location_t']]],
   ['cos2sin_26',['cos2sin',['../group___v_l_b_i___defines.html#ga58f9af438635a2e70be97e316236193f',1,'vlbi.h']]],
-  ['currentcontext_27',['CurrentContext',['../class_v_l_b_i_1_1_server.html#a75183c5df719a95d1e4b6df962fdcaeb',1,'VLBI::Server']]],
-  ['core_20vlbi_20functions_28',['Core VLBI functions',['../group___v_l_b_i___functions.html',1,'']]]
+  ['cosmcos_27',['cosmcos',['../group___v_l_b_i___defines.html#ga1035ec0890cc9683519b652420dbd590',1,'vlbi.h']]],
+  ['cospcos_28',['cospcos',['../group___v_l_b_i___defines.html#gac2d74e33e12fe69a18e13ab408c29838',1,'vlbi.h']]],
+  ['cosxcos_29',['cosxcos',['../group___v_l_b_i___defines.html#ga09bd7b3323df4f36eb73167ef5c0b960',1,'vlbi.h']]],
+  ['currentcontext_30',['CurrentContext',['../class_v_l_b_i_1_1_server.html#a75183c5df719a95d1e4b6df962fdcaeb',1,'VLBI::Server']]],
+  ['core_20vlbi_20functions_31',['Core VLBI functions',['../group___v_l_b_i___functions.html',1,'']]]
 ];

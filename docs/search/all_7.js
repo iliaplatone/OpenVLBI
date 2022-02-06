@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['idft_191',['Idft',['../class_v_l_b_i_1_1_server.html#ad34f7550029bbbccfa084b82feaefe8c',1,'VLBI::Server']]],
-  ['imaginary_192',['imaginary',['../uniondsp__complex.html#a18b3fbc0788b3216ce7fc7cc0cb891eb',1,'dsp_complex']]],
-  ['index_193',['index',['../structdsp__triangle__t.html#a6642375ca84fcfcc354b28d1479ed73d',1,'dsp_triangle_t::index()'],['../structvlbi__node.html#ad34f4ab7781676fb9e9ad8c07cad5e7d',1,'vlbi_node::Index()']]],
-  ['init_194',['Init',['../class_v_l_b_i_1_1_server.html#a92cd5bfb6314ded325382b984dbefb62',1,'VLBI::Server']]],
-  ['is_5fcopy_195',['is_copy',['../structdsp__stream__t.html#ad5b94d84110e6e5488d524acb78b3af9',1,'dsp_stream_t']]]
+  ['hz2rad_206',['hz2rad',['../group___v_l_b_i___defines.html#ga37fb9c2e4cb1396e5b44d5ae9044ba6f',1,'vlbi.h']]]
 ];

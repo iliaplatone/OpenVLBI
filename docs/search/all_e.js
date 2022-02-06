@@ -1,14 +1,16 @@
 var searchData=
 [
-  ['references_235',['References',['../page__references.html',1,'']]],
-  ['ra_236',['Ra',['../structvlbi__baseline.html#ad0fe725f861618e78817a43a36e7fcdb',1,'vlbi_baseline']]],
-  ['rad2as_237',['RAD2AS',['../group___v_l_b_i___defines.html#ga2b11a81dc75e39dcbfdc36fcc6b5ebc3',1,'vlbi.h']]],
-  ['rad_5fas_238',['RAD_AS',['../group___v_l_b_i___defines.html#gad6b384bd38eaff378444e38bb44e8e7e',1,'vlbi.h']]],
-  ['radians_239',['radians',['../structdsp__align__info__t.html#a58deea46f6307c17241f13e3b869675a',1,'dsp_align_info_t']]],
-  ['ratios_240',['ratios',['../structdsp__triangle__t.html#ad7870c32610bc91930d03b63ec09b48e',1,'dsp_triangle_t']]],
-  ['real_241',['real',['../uniondsp__complex.html#aeeffe41b9bb26cb61284740485107ef4',1,'dsp_complex']]],
-  ['red_242',['red',['../structdsp__stream__t.html#a517949bf72f39b594e2db973861947b2',1,'dsp_stream_t']]],
-  ['relative_243',['relative',['../structvlbi__baseline.html#a083bcfe10e5a959e8c8f74f8a4c8626b',1,'vlbi_baseline']]],
-  ['roi_244',['ROI',['../structdsp__stream__t.html#ae4945adcbb1cc9fef407a62d6109a312',1,'dsp_stream_t']]],
-  ['root2_245',['ROOT2',['../group___v_l_b_i___defines.html#ga5ad3e7aa8c959da6685a19d86c5f01a0',1,'vlbi.h']]]
+  ['parent_239',['parent',['../structdsp__stream__t.html#a40dc327cb0be8479a2d9af06a6996fe7',1,'dsp_stream_t']]],
+  ['parse_240',['Parse',['../class_v_l_b_i_1_1_server.html#afd7eb27b2ea842c5fc480f8a5e41242c',1,'VLBI::Server']]],
+  ['parsec_241',['PARSEC',['../group___v_l_b_i___defines.html#gae57a4c58450b7b417b5e456171208170',1,'vlbi.h']]],
+  ['parsec2m_242',['PARSEC2M',['../group___v_l_b_i___defines.html#gafe68bad8c92e23373852e9d3fce1e137',1,'vlbi.h']]],
+  ['phase_243',['phase',['../structdsp__stream__t.html#a00752458b299d33e40cd81c6e50d9115',1,'dsp_stream_t']]],
+  ['pi_244',['PI',['../group___v_l_b_i___defines.html#ga598a3330b3c21701223ee0ca14316eca',1,'vlbi.h']]],
+  ['pixel_5fsizes_245',['pixel_sizes',['../structdsp__stream__t.html#a233ee0e0aac827d9acd06a0d0e91a16a',1,'dsp_stream_t']]],
+  ['plank_246',['PLANK',['../group___v_l_b_i___defines.html#gab6f918b8028f65da43a46da84cbf08db',1,'vlbi.h']]],
+  ['plot_247',['Plot',['../class_v_l_b_i_1_1_server.html#ac0f084d6abc2f9e25ca0fd7d165bc9c2',1,'VLBI::Server']]],
+  ['plot_5fflags_5fmoving_5fbaseline_248',['plot_flags_moving_baseline',['../group___server.html#gga161d2cf9689d908a700b752985cabe4aa9c70ebdfe101a362c1e648062bd51f1d',1,'VLBI']]],
+  ['plot_5fflags_5fsynced_249',['plot_flags_synced',['../group___server.html#gga161d2cf9689d908a700b752985cabe4aaddf9975d58df674350024d45c3bfe9b7',1,'VLBI']]],
+  ['plot_5fflags_5fuv_5fcoverage_250',['plot_flags_uv_coverage',['../group___server.html#gga161d2cf9689d908a700b752985cabe4aa788882381e7aaceb6941db47fdff824c',1,'VLBI']]],
+  ['parallax_20calculators_251',['Parallax calculators',['../group___v_l_b_i___matrix.html',1,'']]]
 ];

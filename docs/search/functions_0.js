@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['addcontext_364',['AddContext',['../class_v_l_b_i_1_1_server.html#a89ec91f35e26d991023a86c1f81e1020',1,'VLBI::Server']]],
-  ['addmodel_365',['AddModel',['../class_v_l_b_i_1_1_server.html#a0d917aaaf9b20c1a4f5c0be57747a56d',1,'VLBI::Server']]],
-  ['addnode_366',['AddNode',['../class_v_l_b_i_1_1_server.html#a772e31199d963187b4c2699d202cf459',1,'VLBI::Server::AddNode(char *name, char *b64)'],['../class_v_l_b_i_1_1_server.html#acd8ead79c7fbb04c9638085370e43a86',1,'VLBI::Server::AddNode(char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo)']]],
-  ['addnodes_367',['AddNodes',['../class_v_l_b_i_1_1_server.html#a1f7f3c61938dfb3aa01699c0435d580f',1,'VLBI::Server']]]
+  ['addcontext_400',['AddContext',['../class_v_l_b_i_1_1_server.html#a1d311f7871254752891ab57dc769c4d1',1,'VLBI::Server']]],
+  ['addmodel_401',['AddModel',['../class_v_l_b_i_1_1_server.html#a6d9bf212c75600ba293a4298c9428a60',1,'VLBI::Server']]],
+  ['addnode_402',['AddNode',['../class_v_l_b_i_1_1_server.html#ac29f2c427add0b09aacbf485c5c6276c',1,'VLBI::Server::AddNode(const char *name, char *b64)'],['../class_v_l_b_i_1_1_server.html#a0abe0eedc759f6c47dc3b4e6aadd843f',1,'VLBI::Server::AddNode(const char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo)']]],
+  ['addnodes_403',['AddNodes',['../class_v_l_b_i_1_1_server.html#ace407599f8e5fc805958a85728032913',1,'VLBI::Server']]]
 ];

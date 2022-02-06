@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['offset_217',['offset',['../structdsp__offset__t.html#aa829075218a519d7905c1ff769ba92d8',1,'dsp_offset_t::offset()'],['../structdsp__align__info__t.html#afac188d2d5726bda04185c1cdfc8c246',1,'dsp_align_info_t::offset()']]],
-  ['one_5fmicrosecond_5fticks_218',['ONE_MICROSECOND_TICKS',['../group___v_l_b_i___defines.html#ga287b1981081608aa35278af80c06885d',1,'vlbi.h']]],
-  ['one_5fmillisecond_5fticks_219',['ONE_MILLISECOND_TICKS',['../group___v_l_b_i___defines.html#gaec3ed40c02c74885e9ca1b3d9bd14661',1,'vlbi.h']]],
-  ['one_5fsecond_5fticks_220',['ONE_SECOND_TICKS',['../group___v_l_b_i___defines.html#ga1f2ffe7431ba5b3dff680049c808f85f',1,'vlbi.h']]],
-  ['openvlbi_20servers_221',['OpenVLBI servers',['../page__open_v_l_b_i.html',1,'']]],
-  ['openvlbi_20server_20c_2b_2b_20api_222',['OpenVLBI Server C++ API',['../group___server.html',1,'']]]
+  ['name_229',['name',['../structdsp__star__t.html#a9bd2faaa868d0420c3db136a734d4c3f',1,'dsp_star_t::name()'],['../structdsp__stream__t.html#a0b5f7589eb4066ad7e8cb17800f8ac54',1,'dsp_stream_t::name()'],['../structvlbi__node.html#ae2609b20e785660dceb9397f69f274e6',1,'vlbi_node::Name()'],['../structvlbi__baseline.html#a1719db627b870126ccfaa2f926f2aa9d',1,'vlbi_baseline::Name()']]],
+  ['node1_230',['Node1',['../structvlbi__baseline.html#ab9b1ac7e0f9d2dab00236b4abcbcf12b',1,'vlbi_baseline']]],
+  ['node2_231',['Node2',['../structvlbi__baseline.html#a3f2cc666a17cb23587ec265577b48541',1,'vlbi_baseline']]],
+  ['nodes_20api_232',['Nodes API',['../group___v_l_b_i___nodes.html',1,'']]]
 ];

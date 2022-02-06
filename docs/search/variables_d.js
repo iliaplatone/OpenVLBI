@@ -1,13 +1,10 @@
 var searchData=
 [
-  ['samplerate_583',['SampleRate',['../structvlbi__baseline.html#aefe632eee76611eaf381a786050ee6ce',1,'vlbi_baseline::SampleRate()'],['../structdsp__stream__t.html#a04bc4a7d413e7a229c53a665e792783a',1,'dsp_stream_t::samplerate()']]],
-  ['score_584',['score',['../structdsp__align__info__t.html#acd1936097cf5b8d8550ee1e9c3799b1e',1,'dsp_align_info_t']]],
-  ['sizes_585',['sizes',['../structdsp__triangle__t.html#a6cfcf4753491d5da0a431f79e93a7a98',1,'dsp_triangle_t::sizes()'],['../structdsp__stream__t.html#a463d2fd45653ca521ee84f48068b6da5',1,'dsp_stream_t::sizes()']]],
-  ['snr_586',['SNR',['../structdsp__stream__t.html#abd4550117d0bdc649d018b84dd0b96c7',1,'dsp_stream_t']]],
-  ['speed_5fmean_587',['SPEED_MEAN',['../group___v_l_b_i___defines.html#gad823739a4d170e31de67ba71474e4dfc',1,'vlbi.h']]],
-  ['stars_588',['stars',['../structdsp__triangle__t.html#a6cabff9e9b92720abfb177b0e615d89e',1,'dsp_triangle_t::stars()'],['../structdsp__stream__t.html#a6752a57287d9fcc7dcad9b1571bfabcb',1,'dsp_stream_t::stars()']]],
-  ['stars_5fcount_589',['stars_count',['../structdsp__stream__t.html#a793767575fa574d60d3ff09acdab8155',1,'dsp_stream_t']]],
-  ['start_590',['start',['../structdsp__region__t.html#a3d10923a10d3ba5deab4be86d088ae81',1,'dsp_region_t']]],
-  ['starttimeutc_591',['starttimeutc',['../structdsp__stream__t.html#a692b42650d2d2c3be4a48c9e9be18764',1,'dsp_stream_t']]],
-  ['stream_592',['Stream',['../structvlbi__node.html#a583243baefd10b4cbca043946f546c88',1,'vlbi_node::Stream()'],['../structvlbi__baseline.html#a49974ea4e7e15c987a82836ed046da2e',1,'vlbi_baseline::Stream()']]]
+  ['ra_633',['Ra',['../structvlbi__baseline.html#ad0fe725f861618e78817a43a36e7fcdb',1,'vlbi_baseline']]],
+  ['radians_634',['radians',['../structdsp__align__info__t.html#a58deea46f6307c17241f13e3b869675a',1,'dsp_align_info_t']]],
+  ['ratios_635',['ratios',['../structdsp__triangle__t.html#ad7870c32610bc91930d03b63ec09b48e',1,'dsp_triangle_t']]],
+  ['real_636',['real',['../uniondsp__complex.html#aeeffe41b9bb26cb61284740485107ef4',1,'dsp_complex']]],
+  ['red_637',['red',['../structdsp__stream__t.html#a517949bf72f39b594e2db973861947b2',1,'dsp_stream_t']]],
+  ['relative_638',['relative',['../structvlbi__baseline.html#a083bcfe10e5a959e8c8f74f8a4c8626b',1,'vlbi_baseline']]],
+  ['roi_639',['ROI',['../structdsp__stream__t.html#ae4945adcbb1cc9fef407a62d6109a312',1,'dsp_stream_t']]]
 ];

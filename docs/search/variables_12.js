@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xyz_601',['xyz',['../uniondsp__location__t.html#a101fc25bb71ab6b664b69e92dd2259ef',1,'dsp_location_t']]]
+  ['wavelength_657',['wavelength',['../structdsp__stream__t.html#a2ea9e7b74ca02ca5d17de2f0eb41c6e1',1,'dsp_stream_t::wavelength()'],['../structvlbi__baseline.html#a439048384cf94d81d749cf25e1ca0135',1,'vlbi_baseline::WaveLength()']]]
 ];
