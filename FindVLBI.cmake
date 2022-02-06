@@ -1,52 +1,83 @@
-# - Try to find VLBI
+# - Try to find libopenvlbi
 # Once done this will define
 #
-#  VLBI_FOUND - system has VLBI
-#  VLBI_INCLUDE_DIR - the VLBI include directory
-#  VLBI_LIBRARIES - Link these to use VLBI
-#  VLBI_VERSION_STRING - Human readable version number of ahp_xc
-#  VLBI_VERSION_MAJOR  - Major version number of ahp_xc
-#  VLBI_VERSION_MINOR  - Minor version number of ahp_xc
-
-# Copyright (c) 2017, Ilia Platone, <info@iliaplatone.com>
-# Based on FindLibfacile by Carsten Niehaus, <cniehaus@gmx.de>
+#  VLBI_FOUND - system has libopenvlbi
+#  VLBI_INCLUDE_DIRS - the libopenvlbi include directories
+#  VLBI_LIBRARIES - Link these to use libopenvlbi
+#  VLBI_DEFINITIONS - Compiler switches required for using libopenvlbi
 #
-# Redistribution and use is allowed according to the terms of the BSD license.
-# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+#  VLBI_HAS_VLBI_VERSION - defined when libopenvlbi has vlbi_get_version()
 
-if (VLBI_LIBRARIES)
+#=============================================================================
+# Copyright (c) 2022 Ilia Platone <info@iliaplatone.com>
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+# 1. Redistributions of source code must retain the copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+# 3. The name of the author may not be used to endorse or promote products
+#    derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+# IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+# NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+# THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#=============================================================================
 
-  # in cache already
-  set(VLBI_FOUND TRUE)
-  message(STATUS "Found VLBI: ${VLBI_LIBRARIES}")
+find_package(PkgConfig)
+pkg_check_modules(VLBI QUIET libopenvlbi)
 
+find_path(VLBI_INCLUDE_DIR
+  NAMES
+    vlbi.h
+  HINTS
+    ${VLBI_INCLUDE_DIRS}
+  PATH_SUFFIXES
+    OpenVLBI
+)
 
-else (VLBI_LIBRARIES)
+find_library(VLBI_LIBRARY
+  NAMES
+    ${VLBI_LIBRARIES}
+    openvlbi
+  HINTS
+    ${VLBI_LIBRARY_DIRS}
+)
 
-  find_library(VLBI_LIBRARIES NAMES openvlbi
-    PATHS
-    ${_obLinkDir}
-    ${GNUWIN32_DIR}/lib
-    /usr/local/lib
-  )
+set(VLBI_INCLUDE_DIRS ${VLBI_INCLUDE_DIR})
+set(VLBI_LIBRARIES ${VLBI_LIBRARY})
 
-  if(VLBI_LIBRARIES)
-    set(VLBI_FOUND TRUE)
-  else (VLBI_LIBRARIES)
-    set(VLBI_FOUND FALSE)
-  endif(VLBI_LIBRARIES)
+include(FindPackageHandleStandardArgs)
+find_package_handle_standard_args(VLBI
+  FOUND_VAR
+    VLBI_FOUND
+  REQUIRED_VARS
+    VLBI_LIBRARY
+    VLBI_INCLUDE_DIR
+  VERSION_VAR
+    VLBI_VERSION
+)
 
+mark_as_advanced(VLBI_INCLUDE_DIRS VLBI_LIBRARIES)
 
-  if (VLBI_FOUND)
-    if (NOT VLBI_FIND_QUIETLY)
-      message(STATUS "Found VLBI: ${VLBI_LIBRARIES}")
-    endif (NOT VLBI_FIND_QUIETLY)
-  else (VLBI_FOUND)
-    if (VLBI_FIND_REQUIRED)
-      message(FATAL_ERROR "VLBI not found. Please install libahp_xc-dev")
-    endif (VLBI_FIND_REQUIRED)
-  endif (VLBI_FOUND)
-
-  mark_as_advanced(VLBI_LIBRARIES)
-  
-endif (VLBI_LIBRARIES)
+if(VLBI_FOUND)
+  include(CheckCXXSourceCompiles)
+  include(CMakePushCheckState)
+  cmake_push_check_state(RESET)
+  set(CMAKE_REQUIRED_INCLUDES ${VLBI_INCLUDE_DIRS})
+  set(CMAKE_REQUIRED_LIBRARIES ${VLBI_LIBRARIES})
+  check_cxx_source_compiles("#include <vlbi.h>
+    int main() { vlbi_get_version(); return 0; }" VLBI_HAS_VLBI_VERSION)
+  cmake_pop_check_state()
+endif()
