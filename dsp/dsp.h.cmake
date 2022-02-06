@@ -1471,8 +1471,8 @@ DLL_EXPORT int dsp_qsort_star_diameter_asc (const void *arg1, const void *arg2);
 DLL_EXPORT int dsp_qsort_star_diameter_desc (const void *arg1, const void *arg2);
 
 /**\}*/
+/// \defgroup dsp_FitsExtensions
 #include <fits_extensions.h>
-/**\}*/
 
 #ifdef  __cplusplus
 }

@@ -31,10 +31,6 @@ extern "C" {
 #include <fitsio.h>
 
 /**
- * \defgroup DSP Digital Signal Processing API
-*/
-/**\{*/
-/**
  * \defgroup dsp_FitsExtensions DSP API FITS Extensions functions
 */
 /**\{*/
@@ -287,9 +283,8 @@ int dsp_fits_add_table(fitsfile* fptr, dsp_fits_column *columns, int ncols,  con
 * \return non-zero if any error occured
 */
 int dsp_fits_close_fits(fitsfile *fptr);
+/**\}*/
 
-/**\}*/
-/**\}*/
 #ifdef __cplusplus
 }
 #endif

@@ -32,18 +32,10 @@ extern "C" {
  * \defgroup dsp_FitsExtensions DSP API FITS Extensions functions
 */
 /**\{*/
-/**
- * \defgroup dsp_FitsExtensionSDFITS DSP API SDFITS Extension
-*/
-/**\{*/
+/// \defgroup dsp_FitsExtensionSDFITS DSP API SDFITS Extension
 #include <sdfits.h>
-/**\}*/
-/**
- * \defgroup dsp_FitsExtensionFITSIDI DSP API FITSIDI Extension
-*/
-/**\{*/
+/// \defgroup dsp_FitsExtensionFITSIDI DSP API FITSIDI Extension
 #include <fitsidi.h>
-/**\}*/
 /**\}*/
 
 #ifdef __cplusplus
