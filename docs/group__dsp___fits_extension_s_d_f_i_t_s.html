@@ -62,14 +62,506 @@ $(function() {
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">DSP API SDFITS Extension<div class="ingroups"><a class="el" href="group___v_l_b_i.html">Very Long Baseline Interferometry API</a> &raquo; <a class="el" href="group___d_s_p.html">Digital Signal Processing API</a> &raquo; <a class="el" href="group__dsp___fits_extensions.html">DSP API FITS Extensions functions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gac0d4f8c306b7a92a566245ce7ecc2906"><td class="memItemLeft" align="right" valign="top"><a id="gac0d4f8c306b7a92a566245ce7ecc2906"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac0d4f8c306b7a92a566245ce7ecc2906">FITS_TABLE_SDFITS</a>&#160;&#160;&#160;&quot;SINGLE DISH&quot;</td></tr>
+<tr class="memdesc:gac0d4f8c306b7a92a566245ce7ecc2906"><td class="mdescLeft">&#160;</td><td class="mdescRight">SDFITS Convention Table. <br /></td></tr>
+<tr class="separator:gac0d4f8c306b7a92a566245ce7ecc2906"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9d7160b2d633d307adfe2a842ba8c90"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gad9d7160b2d633d307adfe2a842ba8c90">SDFITS_COLUMN_OBJECT</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;OBJECT&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;common FITS usage&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="separator:gad9d7160b2d633d307adfe2a842ba8c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga396cfada7e1718267f78a5fa518c88d7"><td class="memItemLeft" align="right" valign="top"><a id="ga396cfada7e1718267f78a5fa518c88d7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga396cfada7e1718267f78a5fa518c88d7">SDFITS_COLUMN_TELESCOP</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TELESCOP&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;common FITS keyword&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga396cfada7e1718267f78a5fa518c88d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">common FITS keyword <br /></td></tr>
+<tr class="separator:ga396cfada7e1718267f78a5fa518c88d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaee5c147a79c733a6a2d494bc909972c"><td class="memItemLeft" align="right" valign="top"><a id="gaaee5c147a79c733a6a2d494bc909972c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaaee5c147a79c733a6a2d494bc909972c">SDFITS_COLUMN_FREQRES</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;FREQRES&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, <a class="el" href="group__dsp___fits_extensions.html#ga90721506f7523ece88b76210003971e1">EXTFITS_MEASURE_UNIT_HZ</a>, &quot;&quot;, &quot;resolution may differ from spacing of backend, not one channel&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gaaee5c147a79c733a6a2d494bc909972c"><td class="mdescLeft">&#160;</td><td class="mdescRight">resolution may differ from spacing of backend, not one channel <br /></td></tr>
+<tr class="separator:gaaee5c147a79c733a6a2d494bc909972c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafa0eabd59b2b9f4c5031fc07caa2aa63"><td class="memItemLeft" align="right" valign="top"><a id="gafa0eabd59b2b9f4c5031fc07caa2aa63"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gafa0eabd59b2b9f4c5031fc07caa2aa63">SDFITS_COLUMN_DATE_OBS</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;DATE-OBS&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;common FITS usage; JD preferable?&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gafa0eabd59b2b9f4c5031fc07caa2aa63"><td class="mdescLeft">&#160;</td><td class="mdescRight">common FITS usage; JD preferable? <br /></td></tr>
+<tr class="separator:gafa0eabd59b2b9f4c5031fc07caa2aa63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1167fbda50bf589d294087fd02a2ee36"><td class="memItemLeft" align="right" valign="top"><a id="ga1167fbda50bf589d294087fd02a2ee36"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga1167fbda50bf589d294087fd02a2ee36">SDFITS_COLUMN_TIME</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TIME&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_SECOND, &quot;&quot;, &quot;UT time of day; UT seconds since Oh UT&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga1167fbda50bf589d294087fd02a2ee36"><td class="mdescLeft">&#160;</td><td class="mdescRight">UT time of day; UT seconds since Oh UT. <br /></td></tr>
+<tr class="separator:ga1167fbda50bf589d294087fd02a2ee36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3c7b5aba6386cfdc69cd9a5ffa300a3"><td class="memItemLeft" align="right" valign="top"><a id="gac3c7b5aba6386cfdc69cd9a5ffa300a3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac3c7b5aba6386cfdc69cd9a5ffa300a3">SDFITS_COLUMN_EXPOSURE</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;EXPOSURE&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_SECOND, &quot;&quot;, &quot;effective integration time&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gac3c7b5aba6386cfdc69cd9a5ffa300a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">effective integration time <br /></td></tr>
+<tr class="separator:gac3c7b5aba6386cfdc69cd9a5ffa300a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3fc4bf177e9864f15343cb1b4ea73cc9"><td class="memItemLeft" align="right" valign="top"><a id="ga3fc4bf177e9864f15343cb1b4ea73cc9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga3fc4bf177e9864f15343cb1b4ea73cc9">SDFITS_COLUMN_TSYS</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TSYS&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_KELVIN, &quot;&quot;, &quot;system, not receiver, temperature&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga3fc4bf177e9864f15343cb1b4ea73cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">system, not receiver, temperature <br /></td></tr>
+<tr class="separator:ga3fc4bf177e9864f15343cb1b4ea73cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga86cc10db91eb0cb38ad9905234bf971b"><td class="memItemLeft" align="right" valign="top"><a id="ga86cc10db91eb0cb38ad9905234bf971b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga86cc10db91eb0cb38ad9905234bf971b">SDFITS_COLUMN_OBJCTRA</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;OBJCTRA&quot;, EXTFITS_ELEMENT_STRING.typestr, EXTFITS_MEASURE_UNIT_DEGREE, &quot;&quot;, &quot;Target right ascension coordinate&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga86cc10db91eb0cb38ad9905234bf971b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Target right ascension coordinate. <br /></td></tr>
+<tr class="separator:ga86cc10db91eb0cb38ad9905234bf971b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad5b470737348ce273e92b43daf37f6a"><td class="memItemLeft" align="right" valign="top"><a id="gaad5b470737348ce273e92b43daf37f6a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaad5b470737348ce273e92b43daf37f6a">SDFITS_COLUMN_OBJCTDEC</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;OBJCTDEC&quot;, EXTFITS_ELEMENT_STRING.typestr, EXTFITS_MEASURE_UNIT_DEGREE, &quot;&quot;, &quot;Target declination coordinate&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gaad5b470737348ce273e92b43daf37f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Target declination coordinate. <br /></td></tr>
+<tr class="separator:gaad5b470737348ce273e92b43daf37f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga98d520bf59b03b1ff23fb815eb3bd7a8"><td class="memItemLeft" align="right" valign="top"><a id="ga98d520bf59b03b1ff23fb815eb3bd7a8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga98d520bf59b03b1ff23fb815eb3bd7a8">SDFITS_COLUMN_DATA</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;DATA&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga98d520bf59b03b1ff23fb815eb3bd7a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data buffer. <br /></td></tr>
+<tr class="separator:ga98d520bf59b03b1ff23fb815eb3bd7a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a09ef19ee126f0db14d3321521a1305"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7a09ef19ee126f0db14d3321521a1305">OBSTYPE_LINE</a>&#160;&#160;&#160;&quot;LINE&quot;</td></tr>
+<tr class="separator:ga7a09ef19ee126f0db14d3321521a1305"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadfb672ae4f212552456569a20e0b918d"><td class="memItemLeft" align="right" valign="top"><a id="gadfb672ae4f212552456569a20e0b918d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gadfb672ae4f212552456569a20e0b918d">OBSTYPE_CONT</a>&#160;&#160;&#160;&quot;CONT&quot;</td></tr>
+<tr class="memdesc:gadfb672ae4f212552456569a20e0b918d"><td class="mdescLeft">&#160;</td><td class="mdescRight">continuum <br /></td></tr>
+<tr class="separator:gadfb672ae4f212552456569a20e0b918d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac719f38a0746e3ce0fd550598cb76904"><td class="memItemLeft" align="right" valign="top"><a id="gac719f38a0746e3ce0fd550598cb76904"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac719f38a0746e3ce0fd550598cb76904">OBSTYPE_PULS</a>&#160;&#160;&#160;&quot;PULS&quot;</td></tr>
+<tr class="memdesc:gac719f38a0746e3ce0fd550598cb76904"><td class="mdescLeft">&#160;</td><td class="mdescRight">pulses <br /></td></tr>
+<tr class="separator:gac719f38a0746e3ce0fd550598cb76904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7cad1e51b08f90495639ec5852130bfe"><td class="memItemLeft" align="right" valign="top"><a id="ga7cad1e51b08f90495639ec5852130bfe"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7cad1e51b08f90495639ec5852130bfe">OBSMODE_PSSW</a>&#160;&#160;&#160;&quot;PSSW&quot;</td></tr>
+<tr class="memdesc:ga7cad1e51b08f90495639ec5852130bfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">position switch <br /></td></tr>
+<tr class="separator:ga7cad1e51b08f90495639ec5852130bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1970681832011432724884e260a31451"><td class="memItemLeft" align="right" valign="top"><a id="ga1970681832011432724884e260a31451"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga1970681832011432724884e260a31451">OBSMODE_FQSW</a>&#160;&#160;&#160;&quot;FQSW&quot;</td></tr>
+<tr class="memdesc:ga1970681832011432724884e260a31451"><td class="mdescLeft">&#160;</td><td class="mdescRight">frequency switch <br /></td></tr>
+<tr class="separator:ga1970681832011432724884e260a31451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf163ec5516a332be85688fa74595281c"><td class="memItemLeft" align="right" valign="top"><a id="gaf163ec5516a332be85688fa74595281c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaf163ec5516a332be85688fa74595281c">OBSMODE_BMSW</a>&#160;&#160;&#160;&quot;BMSW&quot;</td></tr>
+<tr class="memdesc:gaf163ec5516a332be85688fa74595281c"><td class="mdescLeft">&#160;</td><td class="mdescRight">beam switch <br /></td></tr>
+<tr class="separator:gaf163ec5516a332be85688fa74595281c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7296cb0f8e62d202209e950be9f2bc99"><td class="memItemLeft" align="right" valign="top"><a id="ga7296cb0f8e62d202209e950be9f2bc99"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7296cb0f8e62d202209e950be9f2bc99">OBSMODE_PLSW</a>&#160;&#160;&#160;&quot;PLSW&quot;</td></tr>
+<tr class="memdesc:ga7296cb0f8e62d202209e950be9f2bc99"><td class="mdescLeft">&#160;</td><td class="mdescRight">phase-lock switch <br /></td></tr>
+<tr class="separator:ga7296cb0f8e62d202209e950be9f2bc99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2c279bfe7ca7689959a07e254fb45e1"><td class="memItemLeft" align="right" valign="top"><a id="gac2c279bfe7ca7689959a07e254fb45e1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac2c279bfe7ca7689959a07e254fb45e1">OBSMODE_LDSW</a>&#160;&#160;&#160;&quot;LDSW&quot;</td></tr>
+<tr class="memdesc:gac2c279bfe7ca7689959a07e254fb45e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">load switch <br /></td></tr>
+<tr class="separator:gac2c279bfe7ca7689959a07e254fb45e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b62d162bfb7c7ce9cb0f472bec7a5bb"><td class="memItemLeft" align="right" valign="top"><a id="ga0b62d162bfb7c7ce9cb0f472bec7a5bb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga0b62d162bfb7c7ce9cb0f472bec7a5bb">OBSMODE_TLPW</a>&#160;&#160;&#160;&quot;TLPW&quot;</td></tr>
+<tr class="memdesc:ga0b62d162bfb7c7ce9cb0f472bec7a5bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">total power <br /></td></tr>
+<tr class="separator:ga0b62d162bfb7c7ce9cb0f472bec7a5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c07aefac38e6f09685e93a4cd75e328"><td class="memItemLeft" align="right" valign="top"><a id="ga3c07aefac38e6f09685e93a4cd75e328"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga3c07aefac38e6f09685e93a4cd75e328">OBSMODE_LINE_PSSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7a09ef19ee126f0db14d3321521a1305">OBSTYPE_LINE</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7cad1e51b08f90495639ec5852130bfe">OBSMODE_PSSW</a></td></tr>
+<tr class="memdesc:ga3c07aefac38e6f09685e93a4cd75e328"><td class="mdescLeft">&#160;</td><td class="mdescRight">average <br /></td></tr>
+<tr class="separator:ga3c07aefac38e6f09685e93a4cd75e328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18899d6e6cee5abe6e97ab77ced9a7d8"><td class="memItemLeft" align="right" valign="top"><a id="ga18899d6e6cee5abe6e97ab77ced9a7d8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga18899d6e6cee5abe6e97ab77ced9a7d8">OBSMODE_LINE_FQSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7a09ef19ee126f0db14d3321521a1305">OBSTYPE_LINE</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga1970681832011432724884e260a31451">OBSMODE_FQSW</a></td></tr>
+<tr class="memdesc:ga18899d6e6cee5abe6e97ab77ced9a7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">frequency switch <br /></td></tr>
+<tr class="separator:ga18899d6e6cee5abe6e97ab77ced9a7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f334519dca9a251f10d5772dec3786f"><td class="memItemLeft" align="right" valign="top"><a id="ga0f334519dca9a251f10d5772dec3786f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga0f334519dca9a251f10d5772dec3786f">OBSMODE_LINE_BMSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7a09ef19ee126f0db14d3321521a1305">OBSTYPE_LINE</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaf163ec5516a332be85688fa74595281c">OBSMODE_BMSW</a></td></tr>
+<tr class="memdesc:ga0f334519dca9a251f10d5772dec3786f"><td class="mdescLeft">&#160;</td><td class="mdescRight">beam switch <br /></td></tr>
+<tr class="separator:ga0f334519dca9a251f10d5772dec3786f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3904f85d637db008a164b41f1ec6edb1"><td class="memItemLeft" align="right" valign="top"><a id="ga3904f85d637db008a164b41f1ec6edb1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga3904f85d637db008a164b41f1ec6edb1">OBSMODE_LINE_PLSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7a09ef19ee126f0db14d3321521a1305">OBSTYPE_LINE</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7296cb0f8e62d202209e950be9f2bc99">OBSMODE_PLSW</a></td></tr>
+<tr class="memdesc:ga3904f85d637db008a164b41f1ec6edb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">phase-lock switch <br /></td></tr>
+<tr class="separator:ga3904f85d637db008a164b41f1ec6edb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa0b1aedf7909dc7998233fa074a93310"><td class="memItemLeft" align="right" valign="top"><a id="gaa0b1aedf7909dc7998233fa074a93310"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaa0b1aedf7909dc7998233fa074a93310">OBSMODE_LINE_LDSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7a09ef19ee126f0db14d3321521a1305">OBSTYPE_LINE</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac2c279bfe7ca7689959a07e254fb45e1">OBSMODE_LDSW</a></td></tr>
+<tr class="memdesc:gaa0b1aedf7909dc7998233fa074a93310"><td class="mdescLeft">&#160;</td><td class="mdescRight">load switch <br /></td></tr>
+<tr class="separator:gaa0b1aedf7909dc7998233fa074a93310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2f85ab18d85e56688acd5b77f42e02e"><td class="memItemLeft" align="right" valign="top"><a id="gab2f85ab18d85e56688acd5b77f42e02e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gab2f85ab18d85e56688acd5b77f42e02e">OBSMODE_LINE_TLPW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7a09ef19ee126f0db14d3321521a1305">OBSTYPE_LINE</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga0b62d162bfb7c7ce9cb0f472bec7a5bb">OBSMODE_TLPW</a></td></tr>
+<tr class="memdesc:gab2f85ab18d85e56688acd5b77f42e02e"><td class="mdescLeft">&#160;</td><td class="mdescRight">total power <br /></td></tr>
+<tr class="separator:gab2f85ab18d85e56688acd5b77f42e02e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf93d70568172df575a3db49284fc1ec8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaf93d70568172df575a3db49284fc1ec8">OBSMODE_CONT_PSSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gadfb672ae4f212552456569a20e0b918d">OBSTYPE_CONT</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7cad1e51b08f90495639ec5852130bfe">OBSMODE_PSSW</a></td></tr>
+<tr class="separator:gaf93d70568172df575a3db49284fc1ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae06b778dfe44da400e660fd51c80e257"><td class="memItemLeft" align="right" valign="top"><a id="gae06b778dfe44da400e660fd51c80e257"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gae06b778dfe44da400e660fd51c80e257">OBSMODE_CONT_FQSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gadfb672ae4f212552456569a20e0b918d">OBSTYPE_CONT</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga1970681832011432724884e260a31451">OBSMODE_FQSW</a></td></tr>
+<tr class="memdesc:gae06b778dfe44da400e660fd51c80e257"><td class="mdescLeft">&#160;</td><td class="mdescRight">frequency switch <br /></td></tr>
+<tr class="separator:gae06b778dfe44da400e660fd51c80e257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5ef2bc779e9d8d1513d607eabe9e56c9"><td class="memItemLeft" align="right" valign="top"><a id="ga5ef2bc779e9d8d1513d607eabe9e56c9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga5ef2bc779e9d8d1513d607eabe9e56c9">OBSMODE_CONT_BMSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gadfb672ae4f212552456569a20e0b918d">OBSTYPE_CONT</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaf163ec5516a332be85688fa74595281c">OBSMODE_BMSW</a></td></tr>
+<tr class="memdesc:ga5ef2bc779e9d8d1513d607eabe9e56c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">beam switch <br /></td></tr>
+<tr class="separator:ga5ef2bc779e9d8d1513d607eabe9e56c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd7f7ecd2800c8078cc8123b3ae92984"><td class="memItemLeft" align="right" valign="top"><a id="gabd7f7ecd2800c8078cc8123b3ae92984"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gabd7f7ecd2800c8078cc8123b3ae92984">OBSMODE_CONT_PLSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gadfb672ae4f212552456569a20e0b918d">OBSTYPE_CONT</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7296cb0f8e62d202209e950be9f2bc99">OBSMODE_PLSW</a></td></tr>
+<tr class="memdesc:gabd7f7ecd2800c8078cc8123b3ae92984"><td class="mdescLeft">&#160;</td><td class="mdescRight">phase-lock switch <br /></td></tr>
+<tr class="separator:gabd7f7ecd2800c8078cc8123b3ae92984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac804295374c18608033d312b84909c92"><td class="memItemLeft" align="right" valign="top"><a id="gac804295374c18608033d312b84909c92"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac804295374c18608033d312b84909c92">OBSMODE_CONT_LDSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gadfb672ae4f212552456569a20e0b918d">OBSTYPE_CONT</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac2c279bfe7ca7689959a07e254fb45e1">OBSMODE_LDSW</a></td></tr>
+<tr class="memdesc:gac804295374c18608033d312b84909c92"><td class="mdescLeft">&#160;</td><td class="mdescRight">load switch <br /></td></tr>
+<tr class="separator:gac804295374c18608033d312b84909c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8b38bc8522d0a033616b09b1294c4204"><td class="memItemLeft" align="right" valign="top"><a id="ga8b38bc8522d0a033616b09b1294c4204"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga8b38bc8522d0a033616b09b1294c4204">OBSMODE_CONT_TLPW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gadfb672ae4f212552456569a20e0b918d">OBSTYPE_CONT</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga0b62d162bfb7c7ce9cb0f472bec7a5bb">OBSMODE_TLPW</a></td></tr>
+<tr class="memdesc:ga8b38bc8522d0a033616b09b1294c4204"><td class="mdescLeft">&#160;</td><td class="mdescRight">total power <br /></td></tr>
+<tr class="separator:ga8b38bc8522d0a033616b09b1294c4204"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac277e787c07e30a6dc5cc133dde41a2e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac277e787c07e30a6dc5cc133dde41a2e">OBSMODE_PULS_PSSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac719f38a0746e3ce0fd550598cb76904">OBSTYPE_PULS</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7cad1e51b08f90495639ec5852130bfe">OBSMODE_PSSW</a></td></tr>
+<tr class="separator:gac277e787c07e30a6dc5cc133dde41a2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae898935abc61ca4272fbeb315279ecd9"><td class="memItemLeft" align="right" valign="top"><a id="gae898935abc61ca4272fbeb315279ecd9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gae898935abc61ca4272fbeb315279ecd9">OBSMODE_PULS_FQSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac719f38a0746e3ce0fd550598cb76904">OBSTYPE_PULS</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga1970681832011432724884e260a31451">OBSMODE_FQSW</a></td></tr>
+<tr class="memdesc:gae898935abc61ca4272fbeb315279ecd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">frequency switch <br /></td></tr>
+<tr class="separator:gae898935abc61ca4272fbeb315279ecd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe834daffe2b24c91c57836f498070ee"><td class="memItemLeft" align="right" valign="top"><a id="gafe834daffe2b24c91c57836f498070ee"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gafe834daffe2b24c91c57836f498070ee">OBSMODE_PULS_BMSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac719f38a0746e3ce0fd550598cb76904">OBSTYPE_PULS</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaf163ec5516a332be85688fa74595281c">OBSMODE_BMSW</a></td></tr>
+<tr class="memdesc:gafe834daffe2b24c91c57836f498070ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">beam switch <br /></td></tr>
+<tr class="separator:gafe834daffe2b24c91c57836f498070ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4b60422bfe5df1e297d5f3df0c0c30a3"><td class="memItemLeft" align="right" valign="top"><a id="ga4b60422bfe5df1e297d5f3df0c0c30a3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga4b60422bfe5df1e297d5f3df0c0c30a3">OBSMODE_PULS_PLSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac719f38a0746e3ce0fd550598cb76904">OBSTYPE_PULS</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7296cb0f8e62d202209e950be9f2bc99">OBSMODE_PLSW</a></td></tr>
+<tr class="memdesc:ga4b60422bfe5df1e297d5f3df0c0c30a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">phase-lock switch <br /></td></tr>
+<tr class="separator:ga4b60422bfe5df1e297d5f3df0c0c30a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4744bf3d6caa2ad9d5aba4cf91ad68b"><td class="memItemLeft" align="right" valign="top"><a id="gad4744bf3d6caa2ad9d5aba4cf91ad68b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gad4744bf3d6caa2ad9d5aba4cf91ad68b">OBSMODE_PULS_LDSW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac719f38a0746e3ce0fd550598cb76904">OBSTYPE_PULS</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac2c279bfe7ca7689959a07e254fb45e1">OBSMODE_LDSW</a></td></tr>
+<tr class="memdesc:gad4744bf3d6caa2ad9d5aba4cf91ad68b"><td class="mdescLeft">&#160;</td><td class="mdescRight">load switch <br /></td></tr>
+<tr class="separator:gad4744bf3d6caa2ad9d5aba4cf91ad68b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a124965978e16d5b56e167afa772ad7"><td class="memItemLeft" align="right" valign="top"><a id="ga8a124965978e16d5b56e167afa772ad7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga8a124965978e16d5b56e167afa772ad7">OBSMODE_PULS_TLPW</a>&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac719f38a0746e3ce0fd550598cb76904">OBSTYPE_PULS</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga0b62d162bfb7c7ce9cb0f472bec7a5bb">OBSMODE_TLPW</a></td></tr>
+<tr class="memdesc:ga8a124965978e16d5b56e167afa772ad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">total power <br /></td></tr>
+<tr class="separator:ga8a124965978e16d5b56e167afa772ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0bf1fa6d63709f2bc5ee805118f77fdb"><td class="memItemLeft" align="right" valign="top"><a id="ga0bf1fa6d63709f2bc5ee805118f77fdb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga0bf1fa6d63709f2bc5ee805118f77fdb">TEMPSCAL_TB</a>&#160;&#160;&#160;&quot;TB&quot;</td></tr>
+<tr class="memdesc:ga0bf1fa6d63709f2bc5ee805118f77fdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">TEMPSCAL. <br /></td></tr>
+<tr class="separator:ga0bf1fa6d63709f2bc5ee805118f77fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac0eab264d657e40374c33edf74e775d2"><td class="memItemLeft" align="right" valign="top"><a id="gac0eab264d657e40374c33edf74e775d2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac0eab264d657e40374c33edf74e775d2">VELDEF_RADI</a>&#160;&#160;&#160;&quot;*RADI&quot;</td></tr>
+<tr class="memdesc:gac0eab264d657e40374c33edf74e775d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">VELDEF. <br /></td></tr>
+<tr class="separator:gac0eab264d657e40374c33edf74e775d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb7dca95d88404e762906325e9daabc3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gafb7dca95d88404e762906325e9daabc3">SDFITS_COLUMN_OBSERVER</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;OBSERVER&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;Observer name&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="separator:gafb7dca95d88404e762906325e9daabc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e9fe51c38f9d8689382e575115017d0"><td class="memItemLeft" align="right" valign="top"><a id="ga5e9fe51c38f9d8689382e575115017d0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga5e9fe51c38f9d8689382e575115017d0">SDFITS_COLUMN_OBSID</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;OBSID&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;Observer &amp; operator initials&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga5e9fe51c38f9d8689382e575115017d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Observer &amp; operator initials;. <br /></td></tr>
+<tr class="separator:ga5e9fe51c38f9d8689382e575115017d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09542c08bce61c518be6697ecf552c07"><td class="memItemLeft" align="right" valign="top"><a id="ga09542c08bce61c518be6697ecf552c07"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga09542c08bce61c518be6697ecf552c07">SDFITS_COLUMN_PROJID</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;PROJID&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;Project ID&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga09542c08bce61c518be6697ecf552c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Project ID;. <br /></td></tr>
+<tr class="separator:ga09542c08bce61c518be6697ecf552c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64b78e7f67327e8b46c1267248e335e1"><td class="memItemLeft" align="right" valign="top"><a id="ga64b78e7f67327e8b46c1267248e335e1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga64b78e7f67327e8b46c1267248e335e1">SDFITS_COLUMN_SCAN</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;SCAN&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;&quot;, &quot;&quot;, &quot;Scan number&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga64b78e7f67327e8b46c1267248e335e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan number. <br /></td></tr>
+<tr class="separator:ga64b78e7f67327e8b46c1267248e335e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60d2fde9fb6c47d7806372d5e66fb61b"><td class="memItemLeft" align="right" valign="top"><a id="ga60d2fde9fb6c47d7806372d5e66fb61b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga60d2fde9fb6c47d7806372d5e66fb61b">SDFITS_COLUMN_OBSMODE</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;OBSMODE&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;Type of data, observing mode&quot;, (char*[]){<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga3c07aefac38e6f09685e93a4cd75e328">OBSMODE_LINE_PSSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga18899d6e6cee5abe6e97ab77ced9a7d8">OBSMODE_LINE_FQSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga0f334519dca9a251f10d5772dec3786f">OBSMODE_LINE_BMSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga3904f85d637db008a164b41f1ec6edb1">OBSMODE_LINE_PLSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaa0b1aedf7909dc7998233fa074a93310">OBSMODE_LINE_LDSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gab2f85ab18d85e56688acd5b77f42e02e">OBSMODE_LINE_TLPW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaf93d70568172df575a3db49284fc1ec8">OBSMODE_CONT_PSSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gae06b778dfe44da400e660fd51c80e257">OBSMODE_CONT_FQSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga5ef2bc779e9d8d1513d607eabe9e56c9">OBSMODE_CONT_BMSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gabd7f7ecd2800c8078cc8123b3ae92984">OBSMODE_CONT_PLSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac804295374c18608033d312b84909c92">OBSMODE_CONT_LDSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga8b38bc8522d0a033616b09b1294c4204">OBSMODE_CONT_TLPW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac277e787c07e30a6dc5cc133dde41a2e">OBSMODE_PULS_PSSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gae898935abc61ca4272fbeb315279ecd9">OBSMODE_PULS_FQSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gafe834daffe2b24c91c57836f498070ee">OBSMODE_PULS_BMSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga4b60422bfe5df1e297d5f3df0c0c30a3">OBSMODE_PULS_PLSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gad4744bf3d6caa2ad9d5aba4cf91ad68b">OBSMODE_PULS_LDSW</a>, <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga8a124965978e16d5b56e167afa772ad7">OBSMODE_PULS_TLPW</a>}}</td></tr>
+<tr class="memdesc:ga60d2fde9fb6c47d7806372d5e66fb61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of data, observing mode;. <br /></td></tr>
+<tr class="separator:ga60d2fde9fb6c47d7806372d5e66fb61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69718ff627efbbddd6385b50a5f6dd0d"><td class="memItemLeft" align="right" valign="top"><a id="ga69718ff627efbbddd6385b50a5f6dd0d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga69718ff627efbbddd6385b50a5f6dd0d">SDFITS_COLUMN_MOLECULE</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;MOLECULE&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;Molecule observed or detected&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga69718ff627efbbddd6385b50a5f6dd0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Molecule observed or detected;. <br /></td></tr>
+<tr class="separator:ga69718ff627efbbddd6385b50a5f6dd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19f9530ddb380c03a5ef4a8115cc8af8"><td class="memItemLeft" align="right" valign="top"><a id="ga19f9530ddb380c03a5ef4a8115cc8af8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga19f9530ddb380c03a5ef4a8115cc8af8">SDFITS_COLUMN_TRANSITI</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TRANSITI&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;As appropriate&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga19f9530ddb380c03a5ef4a8115cc8af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">As appropriate;. <br /></td></tr>
+<tr class="separator:ga19f9530ddb380c03a5ef4a8115cc8af8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1477fd66e8b4450ee7cb213f974e16d2"><td class="memItemLeft" align="right" valign="top"><a id="ga1477fd66e8b4450ee7cb213f974e16d2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga1477fd66e8b4450ee7cb213f974e16d2">SDFITS_COLUMN_TEMPSCAL</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TEMPSCAL&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;Normalization of TA&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga1477fd66e8b4450ee7cb213f974e16d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalization of TA;. <br /></td></tr>
+<tr class="separator:ga1477fd66e8b4450ee7cb213f974e16d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga328f691223d3ffd06591b0ac549b5f0c"><td class="memItemLeft" align="right" valign="top"><a id="ga328f691223d3ffd06591b0ac549b5f0c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga328f691223d3ffd06591b0ac549b5f0c">SDFITS_COLUMN_TCAL</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TCAL&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_KELVIN, &quot;&quot;, &quot;Calibration Temp&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga328f691223d3ffd06591b0ac549b5f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calibration Temp (K) <br /></td></tr>
+<tr class="separator:ga328f691223d3ffd06591b0ac549b5f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacc493017ce48e67241e4c1552fad0b2d"><td class="memItemLeft" align="right" valign="top"><a id="gacc493017ce48e67241e4c1552fad0b2d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gacc493017ce48e67241e4c1552fad0b2d">SDFITS_COLUMN_THOT</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;THOT&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_KELVIN, &quot;&quot;, &quot;Hot load temperature&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gacc493017ce48e67241e4c1552fad0b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hot load temperature (K) <br /></td></tr>
+<tr class="separator:gacc493017ce48e67241e4c1552fad0b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga769764faff912cd9cd386b9c2753714f"><td class="memItemLeft" align="right" valign="top"><a id="ga769764faff912cd9cd386b9c2753714f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga769764faff912cd9cd386b9c2753714f">SDFITS_COLUMN_TCOLD</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TCOLD&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_KELVIN, &quot;&quot;, &quot;Cold load temperature&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga769764faff912cd9cd386b9c2753714f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cold load temperature (K) <br /></td></tr>
+<tr class="separator:ga769764faff912cd9cd386b9c2753714f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae21b700a6cf3e48d46b5a1ce84bc080f"><td class="memItemLeft" align="right" valign="top"><a id="gae21b700a6cf3e48d46b5a1ce84bc080f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gae21b700a6cf3e48d46b5a1ce84bc080f">SDFITS_COLUMN_TRX</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TRX&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_KELVIN, &quot;&quot;, &quot;Receiver Temp, Float&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gae21b700a6cf3e48d46b5a1ce84bc080f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receiver Temp (K), Float. <br /></td></tr>
+<tr class="separator:gae21b700a6cf3e48d46b5a1ce84bc080f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d290848db1b220645920e23473ca724"><td class="memItemLeft" align="right" valign="top"><a id="ga8d290848db1b220645920e23473ca724"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga8d290848db1b220645920e23473ca724">SDFITS_COLUMN_VELDEF</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;VELDEF&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;Velocity definition &amp; frame&quot;, (char*[]){<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac0eab264d657e40374c33edf74e775d2">VELDEF_RADI</a>, VELDEF_OPTI, VELDEF_RELA, VELDEF_LSR, VELDEF_HELO, VELDEF_EART, VELDEF_BARI, VELDEF_OBS, &quot;&quot;}}</td></tr>
+<tr class="memdesc:ga8d290848db1b220645920e23473ca724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velocity definition &amp; frame;. <br /></td></tr>
+<tr class="separator:ga8d290848db1b220645920e23473ca724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa1e0fba06d4b504756741f85a90022c6"><td class="memItemLeft" align="right" valign="top"><a id="gaa1e0fba06d4b504756741f85a90022c6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaa1e0fba06d4b504756741f85a90022c6">SDFITS_COLUMN_VCORR</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;VCORR&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;&quot;, &quot;&quot;, &quot;radial velocity correction; Vref - Vtel&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gaa1e0fba06d4b504756741f85a90022c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">radial velocity correction; Vref - Vtel <br /></td></tr>
+<tr class="separator:gaa1e0fba06d4b504756741f85a90022c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa3314e987ee5b7b5e5950abcf35e7c07"><td class="memItemLeft" align="right" valign="top"><a id="gaa3314e987ee5b7b5e5950abcf35e7c07"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaa3314e987ee5b7b5e5950abcf35e7c07">SDFITS_COLUMN_OBSFREQ</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;OBSFREQ&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, <a class="el" href="group__dsp___fits_extensions.html#ga90721506f7523ece88b76210003971e1">EXTFITS_MEASURE_UNIT_HZ</a>, &quot;&quot;, &quot;Observed Frequency&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gaa3314e987ee5b7b5e5950abcf35e7c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Observed Frequency (Hz) <br /></td></tr>
+<tr class="separator:gaa3314e987ee5b7b5e5950abcf35e7c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa39dceb2aeff799cc5b81dab73f36ac9"><td class="memItemLeft" align="right" valign="top"><a id="gaa39dceb2aeff799cc5b81dab73f36ac9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaa39dceb2aeff799cc5b81dab73f36ac9">SDFITS_COLUMN_IMAGFREQ</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;IMAGFREQ&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, <a class="el" href="group__dsp___fits_extensions.html#ga90721506f7523ece88b76210003971e1">EXTFITS_MEASURE_UNIT_HZ</a>, &quot;&quot;, &quot;Image sideband freq&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gaa39dceb2aeff799cc5b81dab73f36ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Image sideband freq (Hz) <br /></td></tr>
+<tr class="separator:gaa39dceb2aeff799cc5b81dab73f36ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79af71eb5db81a0dac4d2ee7c4447464"><td class="memItemLeft" align="right" valign="top"><a id="ga79af71eb5db81a0dac4d2ee7c4447464"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga79af71eb5db81a0dac4d2ee7c4447464">SDFITS_COLUMN_LST</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;LST&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_SECOND, &quot;&quot;, &quot;LST at start of scan&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga79af71eb5db81a0dac4d2ee7c4447464"><td class="mdescLeft">&#160;</td><td class="mdescRight">LST (seconds) at start of scan. <br /></td></tr>
+<tr class="separator:ga79af71eb5db81a0dac4d2ee7c4447464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79af71eb5db81a0dac4d2ee7c4447464"><td class="memItemLeft" align="right" valign="top"><a id="ga79af71eb5db81a0dac4d2ee7c4447464"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga79af71eb5db81a0dac4d2ee7c4447464">SDFITS_COLUMN_LST</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;LST&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_SECOND, &quot;&quot;, &quot;LST at start of scan&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga79af71eb5db81a0dac4d2ee7c4447464"><td class="mdescLeft">&#160;</td><td class="mdescRight">LST (seconds) at start of scan. <br /></td></tr>
+<tr class="separator:ga79af71eb5db81a0dac4d2ee7c4447464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60d4210baab923d99c4f17e585d8a505"><td class="memItemLeft" align="right" valign="top"><a id="ga60d4210baab923d99c4f17e585d8a505"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga60d4210baab923d99c4f17e585d8a505">SDFITS_COLUMN_AZIMUTH</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;AZIMUTH&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_DEGREE, &quot;&quot;, &quot;Commanded Azimuth&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga60d4210baab923d99c4f17e585d8a505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commanded Azimuth (Degrees) <br /></td></tr>
+<tr class="separator:ga60d4210baab923d99c4f17e585d8a505"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5b3b3952738d7ee83491b81fcf0bdf5"><td class="memItemLeft" align="right" valign="top"><a id="gad5b3b3952738d7ee83491b81fcf0bdf5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gad5b3b3952738d7ee83491b81fcf0bdf5">SDFITS_COLUMN_ELEVATIO</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;ELEVATIO&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_DEGREE, &quot;&quot;, &quot;Commanded Elevation&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gad5b3b3952738d7ee83491b81fcf0bdf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commanded Elevation (Degrees) <br /></td></tr>
+<tr class="separator:gad5b3b3952738d7ee83491b81fcf0bdf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga17e59c380e0b9bbb1bf3623887aaf30b"><td class="memItemLeft" align="right" valign="top"><a id="ga17e59c380e0b9bbb1bf3623887aaf30b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga17e59c380e0b9bbb1bf3623887aaf30b">SDFITS_COLUMN_TAU</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TAU&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_PERCENT, &quot;&quot;, &quot;Opacity at signal freq&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga17e59c380e0b9bbb1bf3623887aaf30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opacity at signal freq. <br /></td></tr>
+<tr class="separator:ga17e59c380e0b9bbb1bf3623887aaf30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab9c254a31b7d33797a2b849e7cd0c62b"><td class="memItemLeft" align="right" valign="top"><a id="gab9c254a31b7d33797a2b849e7cd0c62b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gab9c254a31b7d33797a2b849e7cd0c62b">SDFITS_COLUMN_TAUIMAGE</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TAUIMAGE&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_PERCENT, &quot;&quot;, &quot;Opacity at image freq&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gab9c254a31b7d33797a2b849e7cd0c62b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opacity at image freq. <br /></td></tr>
+<tr class="separator:gab9c254a31b7d33797a2b849e7cd0c62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga772fc447ea0b31b9d8c885d50c06bf34"><td class="memItemLeft" align="right" valign="top"><a id="ga772fc447ea0b31b9d8c885d50c06bf34"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga772fc447ea0b31b9d8c885d50c06bf34">SDFITS_COLUMN_TAUZENIT</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TAUZENIT&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_PERCENT, &quot;&quot;, &quot;Opacity per unit air mass&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga772fc447ea0b31b9d8c885d50c06bf34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opacity per unit air mass. <br /></td></tr>
+<tr class="separator:ga772fc447ea0b31b9d8c885d50c06bf34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52d0dd7f8bf90eacde079d87267def30"><td class="memItemLeft" align="right" valign="top"><a id="ga52d0dd7f8bf90eacde079d87267def30"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga52d0dd7f8bf90eacde079d87267def30">SDFITS_COLUMN_HUMIDITY</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;HUMIDITY&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;&quot;, &quot;&quot;, &quot;Decimal fraction 0..1&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga52d0dd7f8bf90eacde079d87267def30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decimal fraction 0..1. <br /></td></tr>
+<tr class="separator:ga52d0dd7f8bf90eacde079d87267def30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4910ac3de8f1f1fad81edfe3e95ad55f"><td class="memItemLeft" align="right" valign="top"><a id="ga4910ac3de8f1f1fad81edfe3e95ad55f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga4910ac3de8f1f1fad81edfe3e95ad55f">SDFITS_COLUMN_TAMBIENT</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;TAMBIENT&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_KELVIN, &quot;&quot;, &quot;Ambient Temp (K)&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga4910ac3de8f1f1fad81edfe3e95ad55f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ambient Temp (K) <br /></td></tr>
+<tr class="separator:ga4910ac3de8f1f1fad81edfe3e95ad55f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6bbf2cb51c8d0ec4cb386461fe90bf6f"><td class="memItemLeft" align="right" valign="top"><a id="ga6bbf2cb51c8d0ec4cb386461fe90bf6f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga6bbf2cb51c8d0ec4cb386461fe90bf6f">SDFITS_COLUMN_PRESSURE</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;PRESSURE&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;mm Hg&quot;, &quot;&quot;, &quot;Barometer reading &quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga6bbf2cb51c8d0ec4cb386461fe90bf6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Barometer reading mm Hg. <br /></td></tr>
+<tr class="separator:ga6bbf2cb51c8d0ec4cb386461fe90bf6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga662be41fcdcd1e3478c566ade325c1d0"><td class="memItemLeft" align="right" valign="top"><a id="ga662be41fcdcd1e3478c566ade325c1d0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga662be41fcdcd1e3478c566ade325c1d0">SDFITS_COLUMN_DEWPOINT</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;DEWPOINT&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_KELVIN, &quot;&quot;, &quot;Dew point&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga662be41fcdcd1e3478c566ade325c1d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dew point (K) <br /></td></tr>
+<tr class="separator:ga662be41fcdcd1e3478c566ade325c1d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf76a5ac142eb8984468e1ae325771dfb"><td class="memItemLeft" align="right" valign="top"><a id="gaf76a5ac142eb8984468e1ae325771dfb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaf76a5ac142eb8984468e1ae325771dfb">SDFITS_COLUMN_WINDSPEE</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;WINDSPEE&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;m/s&quot;, &quot;&quot;, &quot;Wind speed&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gaf76a5ac142eb8984468e1ae325771dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wind speed m/s. <br /></td></tr>
+<tr class="separator:gaf76a5ac142eb8984468e1ae325771dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2ea3f9074d46ebaea6892a6c82da9a2"><td class="memItemLeft" align="right" valign="top"><a id="gae2ea3f9074d46ebaea6892a6c82da9a2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gae2ea3f9074d46ebaea6892a6c82da9a2">SDFITS_COLUMN_WINDDIRE</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;WINDDIRE&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_DEGREE, &quot;&quot;, &quot;Degrees West of North&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gae2ea3f9074d46ebaea6892a6c82da9a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees West of North. <br /></td></tr>
+<tr class="separator:gae2ea3f9074d46ebaea6892a6c82da9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a64878a9acef885691718bafa7cbf52"><td class="memItemLeft" align="right" valign="top"><a id="ga1a64878a9acef885691718bafa7cbf52"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga1a64878a9acef885691718bafa7cbf52">SDFITS_COLUMN_BEAMEFF</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;BEAMEFF&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_PERCENT, &quot;&quot;, &quot;Main-beam efficiency&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga1a64878a9acef885691718bafa7cbf52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main-beam efficiency. <br /></td></tr>
+<tr class="separator:ga1a64878a9acef885691718bafa7cbf52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d94410db62d221036bb81eec317f9bb"><td class="memItemLeft" align="right" valign="top"><a id="ga3d94410db62d221036bb81eec317f9bb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga3d94410db62d221036bb81eec317f9bb">SDFITS_COLUMN_APEREFF</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;APEREFF&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_PERCENT, &quot;&quot;, &quot;Antenna Aperature Efficiency&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga3d94410db62d221036bb81eec317f9bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Antenna Aperature Efficiency. <br /></td></tr>
+<tr class="separator:ga3d94410db62d221036bb81eec317f9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga057a52e843724c6b5bc6c0ad7d03428d"><td class="memItemLeft" align="right" valign="top"><a id="ga057a52e843724c6b5bc6c0ad7d03428d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga057a52e843724c6b5bc6c0ad7d03428d">SDFITS_COLUMN_ETAL</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;ETAL&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;&quot;, &quot;&quot;, &quot;Rear spillover&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga057a52e843724c6b5bc6c0ad7d03428d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rear spillover. <br /></td></tr>
+<tr class="separator:ga057a52e843724c6b5bc6c0ad7d03428d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49eefc0c9ce7210667e9bd4172f8356c"><td class="memItemLeft" align="right" valign="top"><a id="ga49eefc0c9ce7210667e9bd4172f8356c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga49eefc0c9ce7210667e9bd4172f8356c">SDFITS_COLUMN_ETAFSS</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;ETAFSS&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;&quot;, &quot;&quot;, &quot;Accounts for forward loss&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga49eefc0c9ce7210667e9bd4172f8356c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accounts for forward loss. <br /></td></tr>
+<tr class="separator:ga49eefc0c9ce7210667e9bd4172f8356c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga47f94826ff4d933a896ca6d6c9e6550d"><td class="memItemLeft" align="right" valign="top"><a id="ga47f94826ff4d933a896ca6d6c9e6550d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga47f94826ff4d933a896ca6d6c9e6550d">SDFITS_COLUMN_ANTGAIN</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;ANTGAIN&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;K/Jy&quot;, &quot;&quot;, &quot;&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga47f94826ff4d933a896ca6d6c9e6550d"><td class="mdescLeft">&#160;</td><td class="mdescRight">K per Jy. <br /></td></tr>
+<tr class="separator:ga47f94826ff4d933a896ca6d6c9e6550d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad118d8c3a3d4a2d291f2a8e7e6872ca7"><td class="memItemLeft" align="right" valign="top"><a id="gad118d8c3a3d4a2d291f2a8e7e6872ca7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gad118d8c3a3d4a2d291f2a8e7e6872ca7">SDFITS_COLUMN_BMAJ</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;BMAJ&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;&quot;, &quot;&quot;, &quot;Large main-beam FWHM&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gad118d8c3a3d4a2d291f2a8e7e6872ca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Large main-beam FWHM. <br /></td></tr>
+<tr class="separator:gad118d8c3a3d4a2d291f2a8e7e6872ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49785cc00e84dff8862d7f47cae880b1"><td class="memItemLeft" align="right" valign="top"><a id="ga49785cc00e84dff8862d7f47cae880b1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga49785cc00e84dff8862d7f47cae880b1">SDFITS_COLUMN_BMIN</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;BMIN&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;&quot;, &quot;&quot;, &quot;Small main-beam FWHM&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga49785cc00e84dff8862d7f47cae880b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Small main-beam FWHM. <br /></td></tr>
+<tr class="separator:ga49785cc00e84dff8862d7f47cae880b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac9d31034fdec4f7d62c4340dafcdb57"><td class="memItemLeft" align="right" valign="top"><a id="gaac9d31034fdec4f7d62c4340dafcdb57"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaac9d31034fdec4f7d62c4340dafcdb57">SDFITS_COLUMN_BPA</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;BPA&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_DEGREE, &quot;&quot;, &quot;Beam position angle&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gaac9d31034fdec4f7d62c4340dafcdb57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Beam position angle, measured East of North. <br /></td></tr>
+<tr class="separator:gaac9d31034fdec4f7d62c4340dafcdb57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8e113dd82c8e97ace7fb42236081d6f3"><td class="memItemLeft" align="right" valign="top"><a id="ga8e113dd82c8e97ace7fb42236081d6f3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga8e113dd82c8e97ace7fb42236081d6f3">SDFITS_COLUMN_SITELONG</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;SITELONG&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_DEGREE, &quot;&quot;, &quot;Site longitude&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga8e113dd82c8e97ace7fb42236081d6f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Site longitude (Degrees) <br /></td></tr>
+<tr class="separator:ga8e113dd82c8e97ace7fb42236081d6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga71f4c29817a4cd8fbba861bcc8bffbbd"><td class="memItemLeft" align="right" valign="top"><a id="ga71f4c29817a4cd8fbba861bcc8bffbbd"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga71f4c29817a4cd8fbba861bcc8bffbbd">SDFITS_COLUMN_SITELAT</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;SITELAT&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_DEGREE, &quot;&quot;, &quot;Site latitude&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga71f4c29817a4cd8fbba861bcc8bffbbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Site latitude (Degrees) <br /></td></tr>
+<tr class="separator:ga71f4c29817a4cd8fbba861bcc8bffbbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9bdd01b3606c763f067c74a68e998d74"><td class="memItemLeft" align="right" valign="top"><a id="ga9bdd01b3606c763f067c74a68e998d74"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga9bdd01b3606c763f067c74a68e998d74">SDFITS_COLUMN_SITEELEV</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;SITEELEV&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_METER, &quot;&quot;, &quot;site elevation&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga9bdd01b3606c763f067c74a68e998d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">site elevation in meters <br /></td></tr>
+<tr class="separator:ga9bdd01b3606c763f067c74a68e998d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga740609e088c88bfe900276e2ec9cfb96"><td class="memItemLeft" align="right" valign="top"><a id="ga740609e088c88bfe900276e2ec9cfb96"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga740609e088c88bfe900276e2ec9cfb96">SDFITS_COLUMN_EPOCH</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;EPOCH&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_YEAR, &quot;&quot;, &quot;Epoch of observation&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga740609e088c88bfe900276e2ec9cfb96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Epoch of observation (year) <br /></td></tr>
+<tr class="separator:ga740609e088c88bfe900276e2ec9cfb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5fbb4c9ce2c4ac39024b37dc74a12a9"><td class="memItemLeft" align="right" valign="top"><a id="gae5fbb4c9ce2c4ac39024b37dc74a12a9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gae5fbb4c9ce2c4ac39024b37dc74a12a9">SDFITS_COLUMN_EQUINOX</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;EQUINOX&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, EXTFITS_MEASURE_UNIT_YEAR, &quot;&quot;, &quot;Equinox of coords&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gae5fbb4c9ce2c4ac39024b37dc74a12a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equinox of coords (year) <br /></td></tr>
+<tr class="separator:gae5fbb4c9ce2c4ac39024b37dc74a12a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf61087fc3f064d5c2e203857b5ade65c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaf61087fc3f064d5c2e203857b5ade65c">SDFITS_KEYWORD_TELESCOP</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__keyword.html">dsp_fits_keyword</a>){&quot;TELESCOP&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="separator:gaf61087fc3f064d5c2e203857b5ade65c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4105cadc80a717d751b17a3fff988ba"><td class="memItemLeft" align="right" valign="top"><a id="gad4105cadc80a717d751b17a3fff988ba"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gad4105cadc80a717d751b17a3fff988ba">SDFITS_KEYWORD_OBSERVER</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__keyword.html">dsp_fits_keyword</a>){&quot;OBSERVER&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gad4105cadc80a717d751b17a3fff988ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of observer. <br /></td></tr>
+<tr class="separator:gad4105cadc80a717d751b17a3fff988ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5fa76e9d2fa2da2dcaf637559d0f4a8d"><td class="memItemLeft" align="right" valign="top"><a id="ga5fa76e9d2fa2da2dcaf637559d0f4a8d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga5fa76e9d2fa2da2dcaf637559d0f4a8d">SDFITS_KEYWORD_DATE_OBS</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__keyword.html">dsp_fits_keyword</a>){&quot;DATE-OBS&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:ga5fa76e9d2fa2da2dcaf637559d0f4a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">UT date of observation (dd/mm/yy) . <br /></td></tr>
+<tr class="separator:ga5fa76e9d2fa2da2dcaf637559d0f4a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab7ef13a7fe6b70af9cfe9a4c52c4f4dc"><td class="memItemLeft" align="right" valign="top"><a id="gab7ef13a7fe6b70af9cfe9a4c52c4f4dc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gab7ef13a7fe6b70af9cfe9a4c52c4f4dc">SDFITS_KEYWORD_DATAMAX</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__keyword.html">dsp_fits_keyword</a>){&quot;DATAMAX&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;&quot;, &quot;&quot;, &quot;&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gab7ef13a7fe6b70af9cfe9a4c52c4f4dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max spectral value (K) - for whole file. <br /></td></tr>
+<tr class="separator:gab7ef13a7fe6b70af9cfe9a4c52c4f4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb9641df9943b0c84ce069a29a3490da"><td class="memItemLeft" align="right" valign="top"><a id="gaeb9641df9943b0c84ce069a29a3490da"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaeb9641df9943b0c84ce069a29a3490da">SDFITS_KEYWORD_DATAMIN</a>&#160;&#160;&#160;(<a class="el" href="structdsp__fits__keyword.html">dsp_fits_keyword</a>){&quot;DATAMIN&quot;, EXTFITS_ELEMENT_DOUBLE.typestr, &quot;&quot;, &quot;&quot;, &quot;&quot;, (char*[]){&quot;&quot;}}</td></tr>
+<tr class="memdesc:gaeb9641df9943b0c84ce069a29a3490da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min spectral value (K) - for whole file. <br /></td></tr>
+<tr class="separator:gaeb9641df9943b0c84ce069a29a3490da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaf3fa9ee2632d592016c79927909bebc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdsp__fits__row.html">dsp_fits_row</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaf3fa9ee2632d592016c79927909bebc4">dsp_fits_read_sdfits</a> (char *filename, long *nstreams, long *maxes, long **maxis)</td></tr>
+<tr class="memdesc:gaf3fa9ee2632d592016c79927909bebc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">read a fits file containing a SDFITS Extension  <a href="group__dsp___fits_extension_s_d_f_i_t_s.html#gaf3fa9ee2632d592016c79927909bebc4">More...</a><br /></td></tr>
+<tr class="separator:gaf3fa9ee2632d592016c79927909bebc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="gaf93d70568172df575a3db49284fc1ec8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf93d70568172df575a3db49284fc1ec8">&#9670;&nbsp;</a></span>OBSMODE_CONT_PSSW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBSMODE_CONT_PSSW&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gadfb672ae4f212552456569a20e0b918d">OBSTYPE_CONT</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7cad1e51b08f90495639ec5852130bfe">OBSMODE_PSSW</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>continuum position switch </p>
+
+</div>
+</div>
+<a id="gac277e787c07e30a6dc5cc133dde41a2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac277e787c07e30a6dc5cc133dde41a2e">&#9670;&nbsp;</a></span>OBSMODE_PULS_PSSW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBSMODE_PULS_PSSW&#160;&#160;&#160;<a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#gac719f38a0746e3ce0fd550598cb76904">OBSTYPE_PULS</a> <a class="el" href="group__dsp___fits_extension_s_d_f_i_t_s.html#ga7cad1e51b08f90495639ec5852130bfe">OBSMODE_PSSW</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>pulses position switch </p>
+
+</div>
+</div>
+<a id="ga7a09ef19ee126f0db14d3321521a1305"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7a09ef19ee126f0db14d3321521a1305">&#9670;&nbsp;</a></span>OBSTYPE_LINE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OBSTYPE_LINE&#160;&#160;&#160;&quot;LINE&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>OBSMODE average </p>
+
+</div>
+</div>
+<a id="gad9d7160b2d633d307adfe2a842ba8c90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad9d7160b2d633d307adfe2a842ba8c90">&#9670;&nbsp;</a></span>SDFITS_COLUMN_OBJECT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDFITS_COLUMN_OBJECT&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;OBJECT&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;common FITS usage&quot;, (char*[]){&quot;&quot;}}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SDFITS columns common FITS usage </p>
+
+</div>
+</div>
+<a id="gafb7dca95d88404e762906325e9daabc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafb7dca95d88404e762906325e9daabc3">&#9670;&nbsp;</a></span>SDFITS_COLUMN_OBSERVER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDFITS_COLUMN_OBSERVER&#160;&#160;&#160;(<a class="el" href="structdsp__fits__column.html">dsp_fits_column</a>){&quot;OBSERVER&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;Observer name&quot;, (char*[]){&quot;&quot;}}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>SDFITS columns Observer name </p>
+
+</div>
+</div>
+<a id="gaf61087fc3f064d5c2e203857b5ade65c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf61087fc3f064d5c2e203857b5ade65c">&#9670;&nbsp;</a></span>SDFITS_KEYWORD_TELESCOP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDFITS_KEYWORD_TELESCOP&#160;&#160;&#160;(<a class="el" href="structdsp__fits__keyword.html">dsp_fits_keyword</a>){&quot;TELESCOP&quot;, &quot;8A&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, (char*[]){&quot;&quot;}}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Global keywords for the SDFITS SINGLE DISH table Designation of Telescope. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gaf3fa9ee2632d592016c79927909bebc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf3fa9ee2632d592016c79927909bebc4">&#9670;&nbsp;</a></span>dsp_fits_read_sdfits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdsp__fits__row.html">dsp_fits_row</a>* dsp_fits_read_sdfits </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long *&#160;</td>
+          <td class="paramname"><em>nstreams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long *&#160;</td>
+          <td class="paramname"><em>maxes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long **&#160;</td>
+          <td class="paramname"><em>maxis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The file name of the fits to read </td></tr>
+    <tr><td class="paramname">nstreams</td><td>The number of streams of the data matrix passed by reference </td></tr>
+    <tr><td class="paramname">maxes</td><td>The number of dimensions of the data matrix passed by reference </td></tr>
+    <tr><td class="paramname">maxis</td><td>The sizes of the data matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structdsp__fits__row.html">dsp_fits_row</a> pointer describing the fits file content </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 6 2022 18:34:36 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 6 2022 19:01:56 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
