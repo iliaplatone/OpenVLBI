@@ -1,9 +1,24 @@
 var searchData=
 [
-  ['earthradiusequatorial_184',['EARTHRADIUSEQUATORIAL',['../group___v_l_b_i___defines.html#ga71ccbca3782aac77f43e59804f5612c8',1,'vlbi.h']]],
-  ['earthradiusmean_185',['EARTHRADIUSMEAN',['../group___v_l_b_i___defines.html#gab3b8cde7ae2e1047cc22782433f062ef',1,'vlbi.h']]],
-  ['earthradiuspolar_186',['EARTHRADIUSPOLAR',['../group___v_l_b_i___defines.html#gaa3a4ba7312315cfd14a62b7ee1d19da9',1,'vlbi.h']]],
-  ['electron_187',['ELECTRON',['../group___v_l_b_i___defines.html#ga50d771bd4f817dcba9c9c36c18cf3234',1,'vlbi.h']]],
-  ['err_188',['err',['../structdsp__align__info__t.html#a1b016e34ccff700572cda06e0f7abd0b',1,'dsp_align_info_t']]],
-  ['euler_189',['EULER',['../group___v_l_b_i___defines.html#ga7f4ee7567f891560bb62dfbda5f93088',1,'vlbi.h']]]
+  ['earthradiusequatorial_199',['EARTHRADIUSEQUATORIAL',['../group___v_l_b_i___defines.html#ga71ccbca3782aac77f43e59804f5612c8',1,'vlbi.h']]],
+  ['earthradiusmean_200',['EARTHRADIUSMEAN',['../group___v_l_b_i___defines.html#gab3b8cde7ae2e1047cc22782433f062ef',1,'vlbi.h']]],
+  ['earthradiuspolar_201',['EARTHRADIUSPOLAR',['../group___v_l_b_i___defines.html#gaa3a4ba7312315cfd14a62b7ee1d19da9',1,'vlbi.h']]],
+  ['electron_202',['ELECTRON',['../group___v_l_b_i___defines.html#ga50d771bd4f817dcba9c9c36c18cf3234',1,'vlbi.h']]],
+  ['err_203',['err',['../structdsp__align__info__t.html#a1b016e34ccff700572cda06e0f7abd0b',1,'dsp_align_info_t']]],
+  ['euler_204',['EULER',['../group___v_l_b_i___defines.html#ga7f4ee7567f891560bb62dfbda5f93088',1,'vlbi.h']]],
+  ['extfits_5felement_5fstring_205',['EXTFITS_ELEMENT_STRING',['../group__dsp___fits_extensions.html#gad4e569d8d8cdfbb0f4c041c42122adb8',1,'fits.h']]],
+  ['extfits_5fkeyword_5fcdelt_206',['EXTFITS_KEYWORD_CDELT',['../group__dsp___fits_extensions.html#gaf6ee477547d195c1556215efc0a802f8',1,'fits.h']]],
+  ['extfits_5fkeyword_5fcrpix_207',['EXTFITS_KEYWORD_CRPIX',['../group__dsp___fits_extensions.html#gac96a39716a494153e3f025cbf9ac0848',1,'fits.h']]],
+  ['extfits_5fkeyword_5fcrval_208',['EXTFITS_KEYWORD_CRVAL',['../group__dsp___fits_extensions.html#ga7159690b8763be59cd1f1a4f81291fa5',1,'fits.h']]],
+  ['extfits_5fkeyword_5fctype_209',['EXTFITS_KEYWORD_CTYPE',['../group__dsp___fits_extensions.html#gac605927539d22f8d66488e6f0ef2d045',1,'fits.h']]],
+  ['extfits_5fkeyword_5fmaxis_210',['EXTFITS_KEYWORD_MAXIS',['../group__dsp___fits_extensions.html#ga26c21924df892e3a6a4e6d00d78567b6',1,'fits.h']]],
+  ['extfits_5fkeyword_5fnmatrix_211',['EXTFITS_KEYWORD_NMATRIX',['../group__dsp___fits_extensions.html#ga86d689d7c7886079a9ea42221cbca53b',1,'fits.h']]],
+  ['extfits_5fkeyword_5fobjctdec_212',['EXTFITS_KEYWORD_OBJCTDEC',['../group__dsp___fits_extensions.html#gaf4d42049649b70a2e75afb2cfc2b5dcc',1,'fits.h']]],
+  ['extfits_5fkeyword_5fobjctra_213',['EXTFITS_KEYWORD_OBJCTRA',['../group__dsp___fits_extensions.html#gab4808be49591132e61b0ab44df436d38',1,'fits.h']]],
+  ['extfits_5fkeyword_5ftdim_214',['EXTFITS_KEYWORD_TDIM',['../group__dsp___fits_extensions.html#ga5cca3119e710343e91ef04a32747dcf7',1,'fits.h']]],
+  ['extfits_5fkeyword_5ftform_215',['EXTFITS_KEYWORD_TFORM',['../group__dsp___fits_extensions.html#ga878e6aebe2d1c0601b97cb209a5a7d8f',1,'fits.h']]],
+  ['extfits_5fkeyword_5ftmatx_216',['EXTFITS_KEYWORD_TMATX',['../group__dsp___fits_extensions.html#ga3f5d3fca15c90f2d3575843dad620e7b',1,'fits.h']]],
+  ['extfits_5fkeyword_5fttype_217',['EXTFITS_KEYWORD_TTYPE',['../group__dsp___fits_extensions.html#gaacf8fc2c22aac469703de5584a023431',1,'fits.h']]],
+  ['extfits_5fkeyword_5ftunit_218',['EXTFITS_KEYWORD_TUNIT',['../group__dsp___fits_extensions.html#gac3cf96c47ce73c7bc6ba1ff1a109c77a',1,'fits.h']]],
+  ['extfits_5fmeasure_5funit_5fhz_219',['EXTFITS_MEASURE_UNIT_HZ',['../group__dsp___fits_extensions.html#ga90721506f7523ece88b76210003971e1',1,'fits.h']]]
 ];
