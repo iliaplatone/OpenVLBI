@@ -175,37 +175,37 @@ typedef struct timespec timespec_t;
 
 #ifndef sinpsin
 ///Sum two sine
-#define sinpsin(r1, r2) (2.0*sin((r1+r2)/2.0)*cos((r1-r2)/2.0))
+#define sinpsin(s1, s2) (2.0*sin((asin(s1)+asin(s2))/2.0)*cos((asin(s1)-asin(s2))/2.0))
 #endif
 
 #ifndef sinmsin
 ///Subtract a sine from a sine
-#define sinmsin(r1, r2) (2.0*cos((r1+r2)/2.0)*sin((r1-r2)/2.0))
+#define sinmsin(s1, s2) (2.0*cos((asin(s1)+asin(s2))/2.0)*sin((asin(s1)-asin(s2))/2.0))
 #endif
 
 #ifndef cospcos
 ///Sum two cosine
-#define cospcos(r1, r2) (2.0*cos((r1+r2)/2.0)*cos((r1-r2)/2.0))
+#define cospcos(c1, c2) (2.0*cos((acos(s1)+acos(s2))/2.0)*cos((acos(s1)-acos(s2))/2.0))
 #endif
 
 #ifndef cosmcos
 ///Subtract a cosine from a cosine
-#define cosmcos(r1, r2) (-2.0*sin((r1+r2)/2.0)*sin((r1-r2)/2.0))
+#define cosmcos(c1, c2) (2.0*sin((acos(s1)+acos(s2))/2.0)*sin((acos(s1)-acos(s2))/2.0))
 #endif
 
 #ifndef sinxsin
 ///Multiply a sine to a sine
-#define sinxsin(r1, r2) ((cos(r1-r2)-cos(r1+r2))/2.0)
+#define sinxsin(s1, s2) ((cos(asin(s1)-asin(s2))-cos(asin(s1)+asin(s2)))/2.0)
 #endif
 
 #ifndef cosxcos
 ///Multiply a cosine to a cosine
-#define cosxcos(r1, r2) ((cos(r1+r2)+cos(r1-r2))/2.0)
+#define cosxcos(c1, c2) ((cos(acos(s1)+acos(s2))+cos(acos(s1)-acos(s2)))/2.0)
 #endif
 
 #ifndef sinxcos
 ///Multiply a sine to a cosine
-#define sinxcos(r1, r2) ((sin(r1+r2)+sin(r1-r2))/2.0)
+#define sinxcos(s, c) ((sin(asin(s)+acos(c))+sin(asin(s)-acos(c)))/2.0)
 #endif
 
 #ifndef sin2cos
