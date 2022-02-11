@@ -30,6 +30,10 @@ extern "C" {
 
 #include <fitsio.h>
 
+/**
+ * \defgroup dsp_FitsExtensions DSP API FITS Extensions functions
+*/
+/**\{*/
 typedef struct
 {
     char typestr[8];
@@ -267,6 +271,7 @@ fitsfile* dsp_fits_create_fits(size_t *size, void **buf);
 * \brief Add a binary table extension into a fits file
 * \param fptr Pointer to a fits file
 * \param columns An array of dsp_fits_column structs
+* \param ncols The dsp_fits_column array length
 * \param tablename The extension table name
 * \return non-zero if any error occured
 */
@@ -278,6 +283,7 @@ int dsp_fits_add_table(fitsfile* fptr, dsp_fits_column *columns, int ncols,  con
 * \return non-zero if any error occured
 */
 int dsp_fits_close_fits(fitsfile *fptr);
+/**\}*/
 
 #ifdef __cplusplus
 }

@@ -23,7 +23,10 @@
 #ifdef  __cplusplus
 extern "C" {
 #endif
+#include <fits.h>
 
+/// \defgroup dsp_FitsExtensionFITSIDI DSP API FITSIDI Extension
+/**\{*/
 ///Antenna polarizations
 ///I
 #define EXTFITS_STOKE_I "1"
@@ -819,7 +822,16 @@ extern "C" {
 ///Tapering function ('HANNING' or 'UNIFORM')
 #define FITSIDI_MODEL_COMPS_KEYWORD_TAPER_FN (dsp_fits_keyword){"TAPER_FN", EXTFITS_ELEMENT_STRING.typestr, "", "", "Tapering function ('HANNING' or 'UNIFORM')", (char*[]){""}}
 
+/**
+* \brief read a fits file containing a FITS-IDI Extension
+* \param filename The file name of the fits to read
+* \param nstreams The number of streams of the data matrix passed by reference
+* \param maxes The number of dimensions of the data matrix passed by reference
+* \param maxis The sizes of the data matrix
+* \return dsp_fits_row pointer describing the fits file content
+*/
 dsp_fits_row *dsp_fits_read_fitsidi(char *filename, long *nstreams, long *maxes, long **maxis);
+/**\}*/
 
 #ifdef __cplusplus
 }

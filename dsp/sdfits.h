@@ -23,9 +23,10 @@
 #ifdef  __cplusplus
 extern "C" {
 #endif
-
 #include <fits.h>
 
+/// \defgroup dsp_FitsExtensionSDFITS DSP API SDFITS Extension
+/**\{*/
 ///SDFITS Convention Table
 #define FITS_TABLE_SDFITS "SINGLE DISH"
 
@@ -285,7 +286,16 @@ SDFITS_COLUMN_EQUINOX, \
 ///Min spectral value (K) - for whole file.
 #define SDFITS_KEYWORD_DATAMIN (dsp_fits_keyword){"DATAMIN", EXTFITS_ELEMENT_DOUBLE.typestr, "", "", "", (char*[]){""}}
 
+/**
+* \brief read a fits file containing a SDFITS Extension
+* \param filename The file name of the fits to read
+* \param nstreams The number of streams of the data matrix passed by reference
+* \param maxes The number of dimensions of the data matrix passed by reference
+* \param maxis The sizes of the data matrix
+* \return dsp_fits_row pointer describing the fits file content
+*/
 dsp_fits_row *dsp_fits_read_sdfits(char *filename, long *nstreams, long *maxes, long **maxis);
+/**\}*/
 
 #ifdef __cplusplus
 }
