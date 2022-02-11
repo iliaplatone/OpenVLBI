@@ -35,9 +35,6 @@
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #=============================================================================
 
-find_package(PkgConfig)
-pkg_check_modules(VLBI QUIET libopenvlbi)
-
 find_path(VLBI_INCLUDE_DIR
   NAMES
     vlbi.h
