@@ -12,9 +12,10 @@ find_package(PNG REQUIRED)
 find_package(JPEG REQUIRED)
 find_package(FFTW3 REQUIRED)
 find_package(Threads REQUIRED)
-option(WITH_INDI_SERVER "Add INDI client for OpenVLBI" ON)
-option(WITH_DUMMY_SERVER "Add dummy client for OpenVLBI" ON)
-option(WITH_JSON_SERVER "Add JSON client for OpenVLBI" ON)
+option(WITH_VLBI_SERVER "Add OpenVLBI servers" ON)
+option(WITH_INDI_SERVER "Add INDI server for OpenVLBI" ON)
+option(WITH_DUMMY_SERVER "Add dummy server for OpenVLBI" ON)
+option(WITH_JSON_SERVER "Add JSON server for OpenVLBI" ON)
 
 set (VLBI_VERSION_MAJOR 1)
 set (VLBI_VERSION_MINOR 22)
@@ -77,7 +78,6 @@ SET(dsp_C_SRC
 
 execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 add_library(openvlbi SHARED ${dsp_C_SRC} ${vlbi_C_SRCS} ${vlbi_CXX_SRCS})
-add_library(openvlbi_server STATIC ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server.cpp)
 set_target_properties(openvlbi PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
 target_link_libraries(openvlbi ${FFTW3_LIBRARIES} ${M_LIB} ${CFITSIO_LIBRARIES} ${JPEG_LIBRARIES} ${PNG_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
 
@@ -90,6 +90,8 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/dsp/sdfits.h DESTINATION ${CMAKE_INSTA
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/dsp/fitsidi.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/cat DESTINATION ${DATA_INSTALL_DIR})
 install(TARGETS openvlbi LIBRARY DESTINATION ${LIB_INSTALL_DIR})
+if(WITH_VLBI_SERVER)
+add_library(openvlbi_server STATIC ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server.cpp)
 install(TARGETS openvlbi_server ARCHIVE DESTINATION ${LIB_INSTALL_DIR})
 
 if(WITH_JSON_SERVER)
@@ -118,3 +120,4 @@ add_executable(vlbi_server_dummy ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_dummy.c
 target_link_libraries(vlbi_server_dummy openvlbi openvlbi_server ${M_LIB} ${ZLIB_LIBRARY})
 install(TARGETS vlbi_server_dummy RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(WITH_DUMMY_SERVER)
+endif(WITH_VLBI_SERVER)
