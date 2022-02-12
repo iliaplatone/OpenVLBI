@@ -11,5 +11,6 @@ var searchData=
   ['astronomicalunit_8',['ASTRONOMICALUNIT',['../group___v_l_b_i___defines.html#gae142c73b835eb6613d233abe46bbd5f7',1,'vlbi.h']]],
   ['au2m_9',['AU2M',['../group___v_l_b_i___defines.html#ga9b83fceb1e6c9c9edd254a515ab69040',1,'vlbi.h']]],
   ['avogadro_10',['AVOGADRO',['../group___v_l_b_i___defines.html#ga29763ca81b8e5a8c64dac560ade56b66',1,'vlbi.h']]],
-  ['astronomy_20specific_11',['Astronomy specific',['../group___v_l_b_i___astro.html',1,'']]]
+  ['axes_5fdefinition_11',['axes_definition',['../structdsp__fits__matrix.html#a853337faa9b45fa0e4c7cfb72882e408',1,'dsp_fits_matrix']]],
+  ['astronomy_20specific_12',['Astronomy specific',['../group___v_l_b_i___astro.html',1,'']]]
 ];
