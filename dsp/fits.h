@@ -34,67 +34,110 @@ extern "C" {
  * \defgroup dsp_FitsExtensions DSP API FITS Extensions functions
 */
 /**\{*/
+///FITS format
 typedef struct
 {
+    ///String format
     char typestr[8];
+    ///FITSIO typecode
     int typecode;
+    ///Number of repetitions
     long repeat;
+    ///Width of each element
     long width;
 } dsp_fits_format;
 
+///FITS keyword
 typedef struct
 {
+    ///Name of the keyword
     char *name;
+    ///Format of the content of the keyword
     char *format;
+    ///Measure unit of the value
     char *unit;
+    ///Value
     char *value;
+    ///Description of the keyword or value
     char *comment;
+    ///Expected value if checking when read
     char ** expected;
 } dsp_fits_keyword;
 
+///Binary table FITS extension column
 typedef struct
 {
+    ///Name of the column (title, TTYPE)
     char *name;
+    ///Format string of the content of the column (TFORM)
     char *format;
+    ///Measure unit of the column elements (TUNIT)
     char *unit;
+    ///Default initial value
     char *value;
+    ///Description of the column or data
     char *comment;
+    ///Expected values if checking when read
     char ** expected;
 } dsp_fits_column;
 
+///Binary table FITS extension row
 typedef struct
 {
+    ///Columns array
     dsp_fits_column* columns;
+    ///Columns data
     size_t num_columns;
 } dsp_fits_row;
 
+///Binary table FITS Matrix axis
 typedef struct
 {
+    ///Axis name
     char *name;
+    ///Axis format string
     char *format;
+    ///Axis measure unit string
     char *unit;
+    ///Axis default value
     char *value;
+    ///Axis description
     char *comment;
+    ///Data definition
     struct
     {
+        ///Data name
         dsp_fits_keyword name;
+        ///Data increment step
         dsp_fits_keyword increment;
+        ///Data reference pixel
         dsp_fits_keyword refpix;
+        ///Data reference pixel value
         dsp_fits_keyword value;
     } definition;
 } dsp_fits_axis;
 
+///Binary table FITS Matrix
 typedef struct
 {
+    ///Matrix name
     char *name;
+    ///Matrix format string
     char *format;
+    ///Matrix measure unit string
     char *value;
+    ///Matrix description
     char *comment;
+    ///Axes definition
     struct
     {
+        ///Axes name
         dsp_fits_keyword name;
+        ///Axes format
         dsp_fits_keyword format;
+        ///Axes measure unit
         dsp_fits_keyword unit;
+        ///Axes quantity
         dsp_fits_keyword dims;
     } axes_definition;
 } dsp_fits_matrix;

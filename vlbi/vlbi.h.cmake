@@ -905,6 +905,7 @@ DLL_EXPORT dsp_stream_p vlbi_astro_load_spectrum(char *filename);
  * \brief Load a spectrum file catalog
  * \param path The path of the folder containing index.txt
  * \param catalog A pointer to an array of dsp_stream_p to be allocated and filled
+ * \param catalog_size The catalog number of elements passed by reference
  * \return The number of spectra correctly parsed
  */
 DLL_EXPORT int vlbi_astro_load_spectra_catalog(char *path, dsp_stream_p **catalog, int *catalog_size);
