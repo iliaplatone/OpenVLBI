@@ -79,10 +79,25 @@ DLL_EXPORT unsigned long int dsp_max_threads(unsigned long value);
 
 #ifndef DSP_DEBUG
 #define DSP_DEBUG
-DLL_EXPORT unsigned long int dsp_max_threads(unsigned long value);
+/**
+* \brief set the debug level
+* \param value the debug level
+*/
 DLL_EXPORT void dsp_set_debug_level(int value);
-DLL_EXPORT void dsp_set_app_name(char* name);
+/**
+* \brief get the debug level
+* \return The current debug level
+*/
 DLL_EXPORT int dsp_get_debug_level();
+/**
+* \brief set the application name
+* \param value the application name to be printed on logs
+*/
+DLL_EXPORT void dsp_set_app_name(char* name);
+/**
+* \brief get the application name
+* \return The current application name printed on logs
+*/
 DLL_EXPORT char* dsp_get_app_name();
 #define DSP_DEBUG_INFO 0
 #define DSP_DEBUG_ERROR 1
