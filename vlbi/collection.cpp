@@ -33,8 +33,8 @@ VLBICollection::~VLBICollection()
 
 void VLBICollection::Add(intptr_t el, const char* name)
 {
-    if(ContainsKey(name))
-        RemoveKey(name);
+    if(!ContainsKey(name))
+        return;
     VLBIElement item;
     item.item = el;
     item.name = (char*)malloc(strlen(name));

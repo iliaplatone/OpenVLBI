@@ -258,11 +258,8 @@ void vlbi_add_model(void *ctx, dsp_stream_p stream, const char *name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    dsp_stream_p old = vlbi_get_model(ctx, name);
-    if(old != nullptr) {
-        vlbi_del_model(ctx, name);
-    }
-    nodes->getModels()->Add(stream, name);
+    if(!nodes->ContainsKey(name))
+        nodes->getModels()->Add(stream, name);
 }
 
 int vlbi_get_models(void *ctx, dsp_stream_p** output)
@@ -400,7 +397,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     for(int i = 0; i < baselines->Count; i++)
         pthread_join(threads[i], nullptr);
     pgarb("aperture synthesis plotting completed\n");
-    vlbi_add_model(ctx, dsp_stream_copy(parent), name);
+    vlbi_add_model(ctx, parent, name);
 }
 
 void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, const char *phase)
