@@ -161,7 +161,7 @@ void BaselineCollection::setWidth(int w)
 void BaselineCollection::setHeight(int h)
 {
     height = h;
-    dsp_stream_set_dim(getStream(), 0, h);
+    dsp_stream_set_dim(getStream(), 1, h);
     dsp_stream_alloc_buffer(getStream(), getStream()->len);
     dsp_buffer_set(getStream()->buf, getStream()->len, 0);
 }
