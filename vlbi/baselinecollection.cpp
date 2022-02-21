@@ -143,10 +143,10 @@ void BaselineCollection:: setDec(double dec)
 
 void BaselineCollection::SetFrequency(double frequency)
 {
-    Stream->wavelength = SPEED_MEAN / frequency;
+    Stream->wavelength = vlbi_astro_mean_speed(0) / frequency;
     for(int i = 0; i < Count; i++)
     {
-        At(i)->setWaveLength(SPEED_MEAN / frequency);
+        At(i)->setWaveLength(vlbi_astro_mean_speed(0) / frequency);
     }
 }
 

@@ -621,7 +621,7 @@ static void sighandler(int signum)
 int main(int argc, char** argv)
 {
     int opt;
-    dsp_app_name = argv[0];
+    dsp_set_app_name(argv[0]);
     while ((opt = getopt(argc, argv, "t:f:o:")) != -1)
     {
         switch (opt)

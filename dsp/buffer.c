@@ -247,8 +247,8 @@ static void* dsp_buffer_median_th(void* arg)
     int cur_th = arguments->cur_th;
     int size = arguments->size;
     int median = arguments->median;
-    int start = cur_th * stream->len / DSP_MAX_THREADS;
-    int end = start + stream->len / DSP_MAX_THREADS;
+    int start = cur_th * stream->len / dsp_max_threads(0);
+    int end = start + stream->len / dsp_max_threads(0);
     end = Min(stream->len, end);
     int x, y, dim, idx;
     dsp_t* sorted = (dsp_t*)malloc(pow(size, stream->dims) * sizeof(dsp_t));
@@ -283,15 +283,15 @@ void dsp_buffer_median(dsp_stream_p in, int size, int median)
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
-    pthread_t *th = (pthread_t *)malloc(sizeof(pthread_t)*DSP_MAX_THREADS);
+    pthread_t *th = (pthread_t *)malloc(sizeof(pthread_t)*dsp_max_threads(0));
     struct {
        int cur_th;
        int size;
        int median;
        dsp_stream_p stream;
        dsp_stream_p box;
-    } thread_arguments[DSP_MAX_THREADS];
-    for(y = 0; y < DSP_MAX_THREADS; y++)
+    } thread_arguments[dsp_max_threads(0)];
+    for(y = 0; y < dsp_max_threads(0); y++)
     {
         thread_arguments[y].cur_th = y;
         thread_arguments[y].size = size;
@@ -303,7 +303,7 @@ void dsp_buffer_median(dsp_stream_p in, int size, int median)
         dsp_stream_alloc_buffer(thread_arguments[y].box, thread_arguments[y].box->len);
         pthread_create(&th[y], NULL, dsp_buffer_median_th, &thread_arguments[y]);
     }
-    for(y = 0; y < DSP_MAX_THREADS; y++)
+    for(y = 0; y < dsp_max_threads(0); y++)
         pthread_join(th[y], NULL);
     free(th);
     stream->parent = NULL;
@@ -325,8 +325,8 @@ static void* dsp_buffer_sigma_th(void* arg)
     dsp_stream_p box = arguments->box;
     int cur_th = arguments->cur_th;
     int size = arguments->size;
-    int start = cur_th * stream->len / DSP_MAX_THREADS;
-    int end = start + stream->len / DSP_MAX_THREADS;
+    int start = cur_th * stream->len / dsp_max_threads(0);
+    int end = start + stream->len / dsp_max_threads(0);
     end = Min(stream->len, end);
     int x, y, dim, idx;
     dsp_t* sigma = (dsp_t*)malloc(pow(size, stream->dims) * sizeof(dsp_t));
@@ -360,14 +360,14 @@ void dsp_buffer_sigma(dsp_stream_p in, int size)
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
-    pthread_t *th = (pthread_t *)malloc(sizeof(pthread_t)*DSP_MAX_THREADS);
+    pthread_t *th = (pthread_t *)malloc(sizeof(pthread_t)*dsp_max_threads(0));
     struct {
        int cur_th;
        int size;
        dsp_stream_p stream;
        dsp_stream_p box;
-    } thread_arguments[DSP_MAX_THREADS];
-    for(y = 0; y < DSP_MAX_THREADS; y++)
+    } thread_arguments[dsp_max_threads(0)];
+    for(y = 0; y < dsp_max_threads(0); y++)
     {
         thread_arguments[y].cur_th = y;
         thread_arguments[y].size = size;
@@ -377,7 +377,7 @@ void dsp_buffer_sigma(dsp_stream_p in, int size)
             dsp_stream_add_dim(thread_arguments[y].box, size);
         pthread_create(&th[y], NULL, dsp_buffer_sigma_th, &thread_arguments[y]);
     }
-    for(y = 0; y < DSP_MAX_THREADS; y++)
+    for(y = 0; y < dsp_max_threads(0); y++)
         pthread_join(th[y], NULL);
     free(th);
     stream->parent = NULL;

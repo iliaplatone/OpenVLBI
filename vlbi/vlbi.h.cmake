@@ -420,8 +420,6 @@ typedef struct timespec timespec_t;
 */
 #define AS2RAD(as) (as / RAD_AS);
 #endif
-///reference means speed (radiation speed, to calculate wavelengths, delays) defaults as LIGHTSPEED
-extern double SPEED_MEAN;
 
 /**
 * \brief A placeholder delegate that simply multiplies the values received from vlbi_get_uv_plot
@@ -487,8 +485,6 @@ inline double vlbi_phase_correlator_delegate(double x, double y) {
     return sinxsin(x, y);
 }
 
-///The maximum number of threads allowed
-extern unsigned long int MAX_THREADS;
 /**\}*/
 /**
  * \defgroup VLBI_Functions Core VLBI functions
@@ -500,7 +496,7 @@ extern unsigned long int MAX_THREADS;
 * \param value if greater than 1, set a maximum number of threads allowed
 * \return The current or new number of threads allowed during runtime
 */
-inline unsigned long int vlbi_max_threads(unsigned long value) { if(value>0) { MAX_THREADS = value; DSP_MAX_THREADS = value; } return MAX_THREADS; }
+DLL_EXPORT unsigned long int vlbi_max_threads(unsigned long value);
 
 /**
 * \brief Print the current version of OpenVLBI.
@@ -863,6 +859,13 @@ DLL_EXPORT timespec_t vlbi_time_J2000time_to_timespec(double secs_since_J2000);
  * \defgroup VLBI_Astro Astronomy specific
 */
 /**\{*/
+
+/**
+ * \brief Obtain or set the reference constant speed of the radiation to measure
+ * \param speed The speed constant value (Light meters per second for example)
+ * \return if speed is less or equal to zero, return the last set or default value, otherwise the value just passed as argument
+*/
+DLL_EXPORT double vlbi_astro_mean_speed(double speed);
 
 /**
  * \brief Obtain the altitude and azimuth coordinate of a celestial coordinate at a specific time

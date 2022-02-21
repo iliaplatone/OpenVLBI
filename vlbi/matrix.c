@@ -18,11 +18,9 @@
 
 #include <vlbi.h>
 
-double SPEED_MEAN = LIGHTSPEED;
-
 double vlbi_matrix_estimate_resolution_zero(double frequency)
 {
-    return AIRY * SPEED_MEAN / frequency;
+    return AIRY * vlbi_astro_mean_speed(0) / frequency;
 }
 
 double vlbi_matrix_estimate_resolution(double resolution_zero, double baseline)
@@ -49,7 +47,7 @@ double* vlbi_matrix_calc_uv_coordinates(double *proj, double wavelength)
     double* uv = (double*)calloc(sizeof(double), 3);
     uv[0] = proj[0] * AIRY / wavelength;
     uv[1] = proj[1] * AIRY / wavelength;
-    uv[2] = proj[2] / SPEED_MEAN;
+    uv[2] = proj[2] / vlbi_astro_mean_speed(0);
     return uv;
 }
 

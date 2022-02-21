@@ -18,6 +18,26 @@
 
 #include <vlbi.h>
 
+static unsigned long MAX_THREADS = 1;
+static double SPEED_MEAN = LIGHTSPEED;
+
+unsigned long int vlbi_max_threads(unsigned long value)
+{
+    if(value>0) {
+        MAX_THREADS = value;
+        dsp_max_threads(value);
+    }
+    return MAX_THREADS;
+}
+
+double vlbi_astro_mean_speed(double speed)
+{
+    if(speed > 0.0) {
+        SPEED_MEAN = speed;
+    }
+    return SPEED_MEAN;
+}
+
 void vlbi_astro_alt_az_from_ra_dec(double J2000time, double Ra, double Dec, double Lat, double Long, double* Alt, double *Az)
 {
     double lst = vlbi_time_J2000time_to_lst(J2000time, Long);

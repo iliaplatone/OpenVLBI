@@ -18,9 +18,41 @@
 */
 
 #include "dsp.h"
-int dsp_debug = 0;
-char* dsp_app_name = NULL;
-int DSP_MAX_THREADS = 1;
+static int dsp_debug = 0;
+static char* dsp_app_name = NULL;
+
+static int DSP_MAX_THREADS = 1;
+
+static unsigned long MAX_THREADS = 1;
+
+unsigned long int dsp_max_threads(unsigned long value)
+{
+    if(value>0) {
+        MAX_THREADS = value;
+        DSP_MAX_THREADS = value;
+    }
+    return MAX_THREADS;
+}
+
+void dsp_set_debug_level(int value)
+{
+    dsp_debug = value;
+}
+
+void dsp_set_app_name(char* name)
+{
+    dsp_app_name = name;
+}
+
+int dsp_get_debug_level()
+{
+    return dsp_debug;
+}
+
+char* dsp_get_app_name()
+{
+    return dsp_app_name;
+}
 
 void dsp_stream_alloc_buffer(dsp_stream_p stream, int len)
 {
@@ -456,8 +488,8 @@ static void* dsp_stream_scale_th(void* arg)
     dsp_stream_p stream = arguments->stream;
     dsp_stream_p in = stream->parent;
     int cur_th = arguments->cur_th;
-    int start = cur_th * stream->len / DSP_MAX_THREADS;
-    int end = start + stream->len / DSP_MAX_THREADS;
+    int start = cur_th * stream->len / vlbi_max_threads(0);
+    int end = start + stream->len / vlbi_max_threads(0);
     end = Min(stream->len, end);
     int y, d;
     for(y = start; y < end; y++)
@@ -485,18 +517,18 @@ void dsp_stream_scale(dsp_stream_p in)
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
-    pthread_t *th = malloc(sizeof(pthread_t)*DSP_MAX_THREADS);
+    pthread_t *th = malloc(sizeof(pthread_t)*vlbi_max_threads(0));
     struct {
        int cur_th;
        dsp_stream_p stream;
-    } thread_arguments[DSP_MAX_THREADS];
-    for(y = 0; y < DSP_MAX_THREADS; y++)
+    } thread_arguments[vlbi_max_threads(0)];
+    for(y = 0; y < vlbi_max_threads(0); y++)
     {
         thread_arguments[y].cur_th = y;
         thread_arguments[y].stream = stream;
         pthread_create(&th[y], NULL, dsp_stream_scale_th, &thread_arguments[y]);
     }
-    for(y = 0; y < DSP_MAX_THREADS; y++)
+    for(y = 0; y < vlbi_max_threads(0); y++)
         pthread_join(th[y], NULL);
     free(th);
     stream->parent = NULL;
@@ -515,8 +547,8 @@ static void* dsp_stream_rotate_th(void* arg)
     dsp_stream_p stream = arguments->stream;
     dsp_stream_p in = stream->parent;
     int cur_th = arguments->cur_th;
-    int start = cur_th * stream->len / DSP_MAX_THREADS;
-    int end = start + stream->len / DSP_MAX_THREADS;
+    int start = cur_th * stream->len / vlbi_max_threads(0);
+    int end = start + stream->len / vlbi_max_threads(0);
     end = Min(stream->len, end);
     int y;
     for(y = start; y < end; y++)
@@ -551,17 +583,17 @@ void dsp_stream_rotate(dsp_stream_p in)
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
     int y;
-    pthread_t *th = malloc(sizeof(pthread_t)*DSP_MAX_THREADS);
+    pthread_t *th = malloc(sizeof(pthread_t)*vlbi_max_threads(0));
     struct {
        int cur_th;
        dsp_stream_p stream;
-    } thread_arguments[DSP_MAX_THREADS];
-    for(y = 0; y < DSP_MAX_THREADS; y++) {
+    } thread_arguments[vlbi_max_threads(0)];
+    for(y = 0; y < vlbi_max_threads(0); y++) {
         thread_arguments[y].cur_th = y;
         thread_arguments[y].stream = stream;
         pthread_create(&th[y], NULL, dsp_stream_rotate_th, &thread_arguments[y]);
     }
-    for(y = 0; y < DSP_MAX_THREADS; y++)
+    for(y = 0; y < vlbi_max_threads(0); y++)
         pthread_join(th[y], NULL);
     free(th);
     dsp_buffer_copy(stream->buf, in->buf, stream->len);

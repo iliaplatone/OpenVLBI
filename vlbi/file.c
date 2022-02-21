@@ -88,7 +88,7 @@ dsp_stream_p * vlbi_file_read_sdfits(char * filename, long *n)
         f_scansexa(row.columns[k].value, &stream[r]->target[1]);
         for(k = 0; strcmp(SDFITS_COLUMN_OBSFREQ.name, row.columns[k].name); k++);
         stream[r]->wavelength = *((double*)row.columns[k].value);
-        stream[r]->wavelength = SPEED_MEAN / stream[r]->wavelength;
+        stream[r]->wavelength = vlbi_astro_mean_speed(0) / stream[r]->wavelength;
         for(k = 0; strcmp(SDFITS_COLUMN_SITELAT.name, row.columns[k].name); k++);
         stream[r]->location[0].geographic.lat = *((double*)row.columns[k].value);
         for(k = 0; strcmp(SDFITS_COLUMN_SITELONG.name, row.columns[k].name); k++);
@@ -300,7 +300,7 @@ dsp_stream_p vlbi_file_read_fits(char *filename)
     ffgkey(fptr, "FREQ", value, comment, &status);
     if (!status)
     {
-        stream->wavelength = SPEED_MEAN / atof(value);
+        stream->wavelength = vlbi_astro_mean_speed(0) / atof(value);
     }
     status = 0;
 

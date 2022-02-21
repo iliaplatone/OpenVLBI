@@ -70,16 +70,24 @@ extern "C" {
 #define dsp_t_max 255
 #define dsp_t_min -dsp_t_max
 
-extern int DSP_MAX_THREADS;
+/**
+* \brief get/set the maximum number of threads allowed
+* \param value if greater than 1, set a maximum number of threads allowed
+* \return The current or new number of threads allowed during runtime
+*/
+DLL_EXPORT unsigned long int dsp_max_threads(unsigned long value);
 
-extern int dsp_debug;
 #ifndef DSP_DEBUG
 #define DSP_DEBUG
+DLL_EXPORT unsigned long int dsp_max_threads(unsigned long value);
+DLL_EXPORT void dsp_set_debug_level(int value);
+DLL_EXPORT void dsp_set_app_name(char* name);
+DLL_EXPORT int dsp_get_debug_level();
+DLL_EXPORT char* dsp_get_app_name();
 #define DSP_DEBUG_INFO 0
 #define DSP_DEBUG_ERROR 1
 #define DSP_DEBUG_WARNING 2
 #define DSP_DEBUG_DEBUG 3
-extern char* dsp_app_name;
 #define pdbg(x, ...) ({ \
 char str[500]; \
 struct timespec ts; \
@@ -101,12 +109,12 @@ switch(x) { \
     sprintf(&str[strlen(str)], "INFO]"); \
         break; \
 } \
-if(dsp_app_name != NULL) \
-    sprintf(&str[strlen(str)], "[%s]", dsp_app_name); \
+if(dsp_get_app_name() != NULL) \
+    sprintf(&str[strlen(str)], "[%s]", dsp_get_app_name()); \
 sprintf(&str[strlen(str)], " "); \
 sprintf(&str[strlen(str)], __VA_ARGS__); \
 if(x==DSP_DEBUG_INFO)fprintf(stdout, "%s", str); \
-else if(x<=dsp_debug)fprintf(stderr, "%s", str); \
+else if(x<=dsp_get_debug_level())fprintf(stderr, "%s", str); \
 })
 #define pinfo(...) pdbg(DSP_DEBUG_INFO, __VA_ARGS__)
 #define perr(...) pdbg(DSP_DEBUG_ERROR, __VA_ARGS__)

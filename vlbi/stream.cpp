@@ -44,8 +44,6 @@ static void destroy_mutex()
     mutex_initialized = false;
 }
 
-unsigned long int MAX_THREADS = DSP_MAX_THREADS;
-
 static NodeCollection *vlbi_nodes = new NodeCollection();
 
 typedef struct _vlbi_thread_t
