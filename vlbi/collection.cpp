@@ -33,7 +33,7 @@ VLBICollection::~VLBICollection()
 
 void VLBICollection::Add(intptr_t el, const char* name)
 {
-    if(!ContainsKey(name))
+    if(ContainsKey(name))
         return;
     VLBIElement item;
     item.item = el;
