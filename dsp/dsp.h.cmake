@@ -1175,6 +1175,16 @@ DLL_EXPORT void dsp_stream_del_child(dsp_stream_p stream, int n);
 DLL_EXPORT void dsp_stream_add_dim(dsp_stream_p stream, int len);
 
 /**
+* \brief Set a dimension size to a DSP stream
+* \param stream the target DSP stream.
+* \param dim the index of the dimension to modify
+* \param len the size of the dimension to modify
+* \sa dsp_stream_new
+* \sa dsp_stream_add_dim
+*/
+DLL_EXPORT void dsp_stream_set_dim(dsp_stream_p stream, int dim, int size);
+
+/**
 * \brief Remove the dimension with index n to a DSP stream
 * \param stream the target DSP stream.
 * \param n the index of the dimension to remove

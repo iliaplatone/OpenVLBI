@@ -26,7 +26,7 @@
 #include <vlbi.h>
 
 struct VLBIElement {
-    void* item;
+    intptr_t item;
     char *name;
 };
 
@@ -35,15 +35,15 @@ class VLBICollection
 public:
 	VLBICollection();
 	~VLBICollection();
-	void Add(void* element, const char *name = "");
-	void* Get(const char *name);
+    void Add(intptr_t element, const char *name = "");
+    intptr_t Get(const char *name);
 	void RemoveKey(const char* name);
-	void Remove(void* element);
+    void Remove(intptr_t element);
 	void RemoveAt(int index);
-	void* At(int index);
-	bool Contains(void* element);
+    intptr_t At(int index);
+    bool Contains(intptr_t element);
 	bool ContainsKey(const char* name);
-	int IndexOf(void* element);
+    int IndexOf(intptr_t element);
 
 	int Count;
 

@@ -219,6 +219,7 @@ static void* fillplane(void *arg)
 
 void* vlbi_init()
 {
+    init_mutex();
     return new NodeCollection();
 }
 
@@ -227,6 +228,7 @@ void vlbi_exit(void* ctx)
     NodeCollection *nodes = (NodeCollection*)ctx;
     nodes->~NodeCollection();
     nodes = nullptr;
+    destroy_mutex();
 }
 
 void vlbi_set_location(void *ctx, double lat, double lon, double el)
@@ -364,8 +366,7 @@ void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, f
     char name[150];
     sprintf(name, "%s_%s", node1, node2);
     VLBIBaseline *b = nodes->getBaselines()->Get(name);
-    b->getStream()->sizes[0] = len;
-    b->getStream()->len = len;
+    dsp_stream_set_dim(b->getStream(), 0, len);
     dsp_stream_alloc_buffer(b->getStream(), b->getStream()->len);
     dsp_buffer_copy(((double*)buffer), b->getStream()->dft.buf, len);
     dsp_fourier_2dsp(b->getStream());
@@ -389,7 +390,6 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     parent->child_count = 0;
     pgarb("%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
     baselines->SetDelegate(delegate);
-    init_mutex();
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
@@ -408,7 +408,6 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         vlbi_start_thread(fillplane, &argument, &parent->child_count);
     }
     vlbi_wait_threads(&parent->child_count);
-    destroy_mutex();
     pgarb("aperture synthesis plotting completed\n");
     vlbi_add_model(ctx, parent, name);
 }

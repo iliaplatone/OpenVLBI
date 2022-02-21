@@ -22,6 +22,8 @@
 VLBINode::VLBINode(dsp_stream_p stream, const char* name, int index, bool geographic_coordinates)
 {
     Stream = stream;
+    Stream->magnitude = dsp_stream_new();
+    Stream->phase = dsp_stream_new();
     getStream()->align_info.dims = getStream()->dims;
     dsp_stream_add_dim(getStream(), 1);
     dsp_stream_alloc_buffer(getStream(), getStream()->len);

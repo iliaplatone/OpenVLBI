@@ -52,8 +52,8 @@ public:
     inline NodeCollection *getNodes() { return Nodes; }
     inline int getWidth() { return width; }
     inline int getHeight() { return height; }
-    inline void setWidth(int w) { width = w; int h = getHeight(); getStream()->len = 1; getStream()->dims = 0; dsp_stream_add_dim(getStream(), w); dsp_stream_add_dim(getStream(), h); dsp_stream_alloc_buffer(getStream(), getStream()->len); dsp_buffer_set(getStream()->buf, getStream()->len, 0); }
-    inline void setHeight(int h) { height = h; int w = getWidth(); getStream()->len = 1; getStream()->dims = 0; dsp_stream_add_dim(getStream(), w); dsp_stream_add_dim(getStream(), h); dsp_stream_alloc_buffer(getStream(), getStream()->len); dsp_buffer_set(getStream()->buf, getStream()->len, 0); }
+    void setWidth(int w);
+    void setHeight(int h);
     inline bool isRelative() { return relative; }
 
 protected:

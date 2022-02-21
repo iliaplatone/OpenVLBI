@@ -21,6 +21,8 @@
 VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
 {
     Stream = dsp_stream_new();
+    Stream->magnitude = dsp_stream_new();
+    Stream->phase = dsp_stream_new();
     dsp_stream_add_dim(getStream(), 1);
     dsp_stream_alloc_buffer(getStream(), getStream()->len);
     Name = (char*)calloc(150, 1);

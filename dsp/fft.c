@@ -144,11 +144,12 @@ void dsp_fourier_dft(dsp_stream_p stream, int exp)
         stream->magnitude = dsp_stream_copy(stream);
     dsp_buffer_set(stream->dft.buf, stream->len * 2, 0);
     dsp_buffer_copy(stream->buf, buf, stream->len);
-    dsp_buffer_reverse(stream->sizes, stream->dims);
+    int *sizes = (int*)malloc(sizeof(int)*stream->dims);
+    dsp_buffer_reverse(sizes, stream->dims);
     fftw_plan plan = fftw_plan_dft_r2c(stream->dims, stream->sizes, buf, stream->dft.fftw, FFTW_ESTIMATE_PATIENT);
     fftw_execute(plan);
     fftw_free(plan);
-    dsp_buffer_reverse(stream->sizes, stream->dims);
+    free(sizes);
     free(buf);
     dsp_fourier_2dsp(stream);
     for(int u = 0; u < stream->len; u++)
@@ -196,11 +197,12 @@ void dsp_fourier_idft(dsp_stream_p stream)
         free(pos);
     }
     dsp_fourier_2fftw(stream);
-    dsp_buffer_reverse(stream->sizes, stream->dims);
+    int *sizes = (int*)malloc(sizeof(int)*stream->dims);
+    dsp_buffer_reverse(sizes, stream->dims);
     fftw_plan plan = fftw_plan_dft_c2r(stream->dims, stream->sizes, stream->dft.fftw, buf, FFTW_ESTIMATE_PATIENT);
     fftw_execute(plan);
     fftw_free(plan);
-    dsp_buffer_reverse(stream->sizes, stream->dims);
+    free(sizes);
     dsp_buffer_stretch(buf, stream->len, mn, mx);
     dsp_buffer_copy(buf, stream->buf, stream->len);
     free(buf);

@@ -31,8 +31,10 @@ VLBICollection::~VLBICollection()
     Items = 0;
 }
 
-void VLBICollection::Add(void* el, const char* name)
+void VLBICollection::Add(intptr_t el, const char* name)
 {
+    if(ContainsKey(name))
+        RemoveKey(name);
     VLBIElement item;
     item.item = el;
     item.name = (char*)malloc(strlen(name));
@@ -42,7 +44,7 @@ void VLBICollection::Add(void* el, const char* name)
     Items[Count - 1] = item;
 }
 
-void VLBICollection::Remove(void* el)
+void VLBICollection::Remove(intptr_t el)
 {
     if(!Contains(el))
         return;
@@ -70,36 +72,36 @@ void VLBICollection::RemoveKey(const char* name)
     Defrag();
 }
 
-void* VLBICollection::Get(const char* name)
+intptr_t VLBICollection::Get(const char* name)
 {
     for(int i = 0; i < Count; i++)
     {
         if(!strcmp(Items[i].name, name))
         {
-            return (void*)Items[i].item;
+            return (intptr_t)Items[i].item;
         }
     }
-    return nullptr;
+    return 0;
 }
 
 void VLBICollection::RemoveAt(int index)
 {
     if(index >= Count)
         return;
-    Items[index].item = nullptr;
+    Items[index].item = 0;
     Defrag();
 }
 
-void* VLBICollection::At(int index)
+intptr_t VLBICollection::At(int index)
 {
     if(index < 0 || index >= Count)
     {
-        return nullptr;
+        return 0;
     }
-    return (void*)Items[index].item;
+    return (intptr_t)Items[index].item;
 }
 
-int VLBICollection::IndexOf(void* el)
+int VLBICollection::IndexOf(intptr_t el)
 {
     int ret = -1;
     for(int i = 0; i < Count; i++)
@@ -126,7 +128,7 @@ bool VLBICollection::ContainsKey(const char* el)
     return ret;
 }
 
-bool VLBICollection::Contains(void* el)
+bool VLBICollection::Contains(intptr_t el)
 {
     bool ret = false;
     for(int i = 0; i < Count; i++)

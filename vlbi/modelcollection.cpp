@@ -31,7 +31,7 @@ ModelCollection::~ModelCollection()
 void ModelCollection::Add(dsp_stream_p element, const char *name)
 {
     strcpy(element->name, name);
-    VLBICollection::Add(element, name);
+    VLBICollection::Add((intptr_t)element, name);
 }
 
 void ModelCollection::RemoveKey(const char* name)
@@ -46,7 +46,7 @@ dsp_stream_p ModelCollection::Get(const char* name)
 
 void ModelCollection::Remove(dsp_stream_p element)
 {
-    VLBICollection::Remove(element);
+    VLBICollection::Remove((intptr_t)element);
 }
 
 void ModelCollection::RemoveAt(int index)
@@ -61,7 +61,7 @@ dsp_stream_p  ModelCollection::At(int index)
 
 bool ModelCollection::Contains(dsp_stream_p element)
 {
-    return VLBICollection::Contains(element);
+    return VLBICollection::Contains((intptr_t)element);
 }
 
 bool ModelCollection::ContainsKey(const char* element)
@@ -71,6 +71,6 @@ bool ModelCollection::ContainsKey(const char* element)
 
 int ModelCollection::IndexOf(dsp_stream_p element)
 {
-    return VLBICollection::IndexOf(element);
+    return VLBICollection::IndexOf((intptr_t)element);
 }
 

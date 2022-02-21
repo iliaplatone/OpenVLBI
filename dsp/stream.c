@@ -226,6 +226,27 @@ void dsp_stream_add_dim(dsp_stream_p stream, int size)
 }
 
 /**
+ * @brief dsp_stream_set_dim
+ * @param stream
+ * @param dim
+ * @param size
+ */
+void dsp_stream_set_dim(dsp_stream_p stream, int dim, int size)
+{
+    int d = 0;
+    if(dim < stream->dims) {
+        stream->sizes[dim] = size;
+        stream->len = 1;
+        for(d = 0; d < stream->dims; d++)
+            stream->len *= stream->sizes[d];
+        if(stream->magnitude != NULL)
+            dsp_stream_set_dim(stream->magnitude, dim, size);
+        if(stream->phase != NULL)
+            dsp_stream_set_dim(stream->phase, dim, size);
+    }
+}
+
+/**
  * @brief dsp_stream_del_dim
  * @param stream
  * @param index
