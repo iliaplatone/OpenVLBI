@@ -65,7 +65,7 @@ void BaselineCollection::Update()
 void BaselineCollection::Add(VLBIBaseline * element)
 {
     element->getStream()->parent = Stream;
-    VLBICollection::Add((intptr_t)element, element->getName());
+    VLBICollection::Add(element, element->getName());
 }
 
 void BaselineCollection::RemoveKey(const char* name)
@@ -86,7 +86,7 @@ VLBIBaseline * BaselineCollection::Get(const char* name)
 
 void BaselineCollection::Remove(VLBIBaseline *element)
 {
-    VLBICollection::Remove((intptr_t)element);
+    VLBICollection::Remove(element);
 }
 
 void BaselineCollection::RemoveAt(int index)
@@ -101,7 +101,7 @@ VLBIBaseline * BaselineCollection::At(int index)
 
 bool BaselineCollection::Contains(VLBIBaseline *element)
 {
-    return VLBICollection::Contains((intptr_t)element);
+    return VLBICollection::Contains(element);
 }
 
 bool BaselineCollection::ContainsKey(const char* element)
@@ -111,7 +111,7 @@ bool BaselineCollection::ContainsKey(const char* element)
 
 int BaselineCollection::IndexOf(VLBIBaseline *element)
 {
-    return VLBICollection::IndexOf((intptr_t)element);
+    return VLBICollection::IndexOf(element);
 }
 
 void BaselineCollection::SetTarget(double *target)
@@ -148,22 +148,6 @@ void BaselineCollection::SetFrequency(double frequency)
     {
         At(i)->setWaveLength(vlbi_astro_mean_speed(0) / frequency);
     }
-}
-
-void BaselineCollection::setWidth(int w)
-{
-    width = w;
-    dsp_stream_set_dim(getStream(), 0, w);
-    dsp_stream_alloc_buffer(getStream(), getStream()->len);
-    dsp_buffer_set(getStream()->buf, getStream()->len, 0);
-}
-
-void BaselineCollection::setHeight(int h)
-{
-    height = h;
-    dsp_stream_set_dim(getStream(), 1, h);
-    dsp_stream_alloc_buffer(getStream(), getStream()->len);
-    dsp_buffer_set(getStream()->buf, getStream()->len, 0);
 }
 
 void BaselineCollection::setRelative(bool rel)

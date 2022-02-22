@@ -18,17 +18,7 @@
 
 #include <vlbi.h>
 
-static unsigned long MAX_THREADS = 1;
 static double SPEED_MEAN = LIGHTSPEED;
-
-unsigned long int vlbi_max_threads(unsigned long value)
-{
-    if(value>0) {
-        MAX_THREADS = value;
-        dsp_max_threads(value);
-    }
-    return MAX_THREADS;
-}
 
 double vlbi_astro_mean_speed(double speed)
 {

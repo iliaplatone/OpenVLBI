@@ -22,12 +22,14 @@
 
 static void dsp_fourier_dft_magnitude(dsp_stream_p stream)
 {
-    stream->magnitude->buf = dsp_fourier_complex_array_get_magnitude(stream->dft, stream->len);
+    if(stream->magnitude)
+        stream->magnitude->buf = dsp_fourier_complex_array_get_magnitude(stream->dft, stream->len);
 }
 
 static void dsp_fourier_dft_phase(dsp_stream_p stream)
 {
-    stream->phase->buf = dsp_fourier_complex_array_get_phase(stream->dft, stream->len);
+    if(stream->phase)
+        stream->phase->buf = dsp_fourier_complex_array_get_phase(stream->dft, stream->len);
 }
 
 void dsp_fourier_2dsp(dsp_stream_p stream)
@@ -56,6 +58,7 @@ void dsp_fourier_2dsp(dsp_stream_p stream)
 void dsp_fourier_2fftw(dsp_stream_p stream)
 {
     int x, y;
+    if(!stream->phase || !stream->magnitude) return;
     dsp_buffer_shift(stream->magnitude);
     dsp_buffer_shift(stream->phase);
     stream->dft = dsp_fourier_phase_mag_array_get_complex(stream->magnitude->buf, stream->phase->buf, stream->len);

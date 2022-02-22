@@ -28,6 +28,16 @@
 static pthread_mutex_t mutex;
 static pthread_mutexattr_t mutexattr;
 static bool mutex_initialized = false;
+static unsigned long MAX_THREADS = 1;
+
+unsigned long int vlbi_max_threads(unsigned long value)
+{
+    if(value>0) {
+        MAX_THREADS = value;
+        dsp_max_threads(value);
+    }
+    return MAX_THREADS;
+}
 
 static void init_mutex()
 {
@@ -45,14 +55,6 @@ static void destroy_mutex()
 }
 
 static NodeCollection *vlbi_nodes = new NodeCollection();
-
-typedef struct _vlbi_thread_t
-{
-    void *(*__start_routine) (void *);
-    void* arg;
-    int* thread_cnt;
-    pthread_t th;
-} vlbi_thread_t;
 
 const char* vlbi_get_version()
 {
@@ -114,6 +116,7 @@ static void* fillplane(void *arg)
         NodeCollection *nodes;
         bool moving_baseline;
         bool nodelay;
+        int *num_threads;
     };
     if(arg == nullptr)return nullptr;
     args *argument = (args*)arg;
@@ -190,6 +193,7 @@ static void* fillplane(void *arg)
         s = l + 1;
         i = s - e;
     }
+    *argument->num_threads = (*argument->num_threads)-1;
     return nullptr;
 }
 
@@ -376,6 +380,8 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     pgarb("%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
     baselines->SetDelegate(delegate);
     pthread_t *threads = (pthread_t*)malloc(sizeof(pthread_t)*baselines->Count);
+    int threads_running = 0;
+    int max_threads = (int)vlbi_max_threads(0);
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
@@ -386,12 +392,17 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
             NodeCollection *nodes;
             bool moving_baseline;
             bool nodelay;
+            int *num_threads;
         };
         args argument;
         argument.b = b;
         argument.nodes = nodes;
         argument.moving_baseline = moving_baseline;
         argument.nodelay = nodelay;
+        argument.num_threads = &threads_running;
+        while(threads_running > max_threads - 1)
+            usleep(100);
+        threads_running++;
         pthread_create(&threads[i], nullptr, fillplane, &argument);
     }
     for(int i = 0; i < baselines->Count; i++)

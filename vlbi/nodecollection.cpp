@@ -36,7 +36,7 @@ NodeCollection::~NodeCollection()
 
 void NodeCollection::Add(VLBINode * element)
 {
-    VLBICollection::Add((intptr_t)element, element->getName());
+    VLBICollection::Add(element, element->getName());
     baselines->Update();
 }
 
@@ -53,7 +53,7 @@ VLBINode * NodeCollection::Get(const char* name)
 
 void NodeCollection::Remove(VLBINode *element)
 {
-    VLBICollection::Remove((intptr_t)element);
+    VLBICollection::Remove(element);
     baselines->Update();
 }
 
@@ -70,7 +70,7 @@ VLBINode * NodeCollection::At(int index)
 
 bool NodeCollection::Contains(VLBINode *element)
 {
-    return VLBICollection::Contains((intptr_t)element);
+    return VLBICollection::Contains(element);
 }
 
 bool NodeCollection::ContainsKey(const char* element)
@@ -80,7 +80,7 @@ bool NodeCollection::ContainsKey(const char* element)
 
 int NodeCollection::IndexOf(VLBINode *element)
 {
-    return VLBICollection::IndexOf((intptr_t)element);
+    return VLBICollection::IndexOf(element);
 }
 
 void NodeCollection::setRelative(bool value)
