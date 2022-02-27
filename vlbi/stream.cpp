@@ -32,7 +32,8 @@ static unsigned long MAX_THREADS = 1;
 
 unsigned long int vlbi_max_threads(unsigned long value)
 {
-    if(value>0) {
+    if(value > 0)
+    {
         MAX_THREADS = value;
         dsp_max_threads(value);
     }
@@ -116,7 +117,7 @@ static void* fillplane(void *arg)
         NodeCollection *nodes;
         bool moving_baseline;
         bool nodelay;
-        int *num_threads;
+        int *nthreads;
     };
     if(arg == nullptr)return nullptr;
     args *argument = (args*)arg;
@@ -193,7 +194,7 @@ static void* fillplane(void *arg)
         s = l + 1;
         i = s - e;
     }
-    *argument->num_threads = (*argument->num_threads)-1;
+    (*argument->nthreads)--;
     return nullptr;
 }
 
@@ -287,7 +288,8 @@ dsp_stream_p vlbi_get_model(void *ctx, const char *name)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p model = nodes->getModels()->Get(name);
-    if(model != nullptr) {
+    if(model != nullptr)
+    {
         dsp_buffer_stretch(model->buf, model->len, 0.0, dsp_t_max);
         return model;
     }
@@ -298,7 +300,8 @@ void vlbi_del_model(void *ctx, const char *name)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p model = nodes->getModels()->Get(name);
-    if(model != nullptr) {
+    if(model != nullptr)
+    {
         nodes->getModels()->Remove(model);
         dsp_stream_free_buffer(model);
         dsp_stream_free(model);
@@ -379,7 +382,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     parent->child_count = 0;
     pgarb("%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
     baselines->SetDelegate(delegate);
-    pthread_t *threads = (pthread_t*)malloc(sizeof(pthread_t)*baselines->Count);
+    pthread_t *threads = (pthread_t*)malloc(sizeof(pthread_t) * baselines->Count);
     int threads_running = 0;
     int max_threads = (int)vlbi_max_threads(0);
     for(int i = 0; i < baselines->Count; i++)
@@ -392,21 +395,21 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
             NodeCollection *nodes;
             bool moving_baseline;
             bool nodelay;
-            int *num_threads;
+            int *nthreads;
         };
         args argument;
         argument.b = b;
         argument.nodes = nodes;
         argument.moving_baseline = moving_baseline;
         argument.nodelay = nodelay;
-        argument.num_threads = &threads_running;
+        argument.nthreads = &threads_running;
         while(threads_running > max_threads - 1)
             usleep(100);
         threads_running++;
         pthread_create(&threads[i], nullptr, fillplane, &argument);
     }
-    for(int i = 0; i < baselines->Count; i++)
-        pthread_join(threads[i], nullptr);
+    while(threads_running > 0)
+        usleep(10000);
     pgarb("aperture synthesis plotting completed\n");
     vlbi_add_model(ctx, parent, name);
 }
@@ -487,7 +490,8 @@ void vlbi_add_model_from_png(void *ctx, char *filename, const char *name)
     file = dsp_file_read_png(filename, &channels, 0);
     if(file != nullptr)
     {
-        for(int c = 0; c < channels; c++) {
+        for(int c = 0; c < channels; c++)
+        {
             vlbi_add_model(nodes, dsp_stream_copy(file[channels]), name);
             dsp_stream_free_buffer(file[c]);
             dsp_stream_free(file[c]);
@@ -505,7 +509,8 @@ void vlbi_add_model_from_jpeg(void *ctx, char *filename, const char *name)
     file = dsp_file_read_jpeg(filename, &channels, 0);
     if(file != nullptr)
     {
-        for(int c = 0; c < channels; c++) {
+        for(int c = 0; c < channels; c++)
+        {
             vlbi_add_model(nodes, dsp_stream_copy(file[channels]), name);
             dsp_stream_free_buffer(file[c]);
             dsp_stream_free(file[c]);
@@ -523,7 +528,8 @@ void vlbi_add_model_from_fits(void *ctx, char *filename, const char *name)
     file = dsp_file_read_fits(filename, &channels, 0);
     if(file != nullptr)
     {
-        for(int c = 0; c < channels; c++) {
+        for(int c = 0; c < channels; c++)
+        {
             vlbi_add_model(nodes, dsp_stream_copy(file[channels]), name);
             dsp_stream_free_buffer(file[c]);
             dsp_stream_free(file[c]);
