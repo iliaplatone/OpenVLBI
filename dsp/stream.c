@@ -509,8 +509,8 @@ static void* dsp_stream_scale_th(void* arg)
     dsp_stream_p stream = arguments->stream;
     dsp_stream_p in = stream->parent;
     int cur_th = arguments->cur_th;
-    int start = cur_th * stream->len / vlbi_max_threads(0);
-    int end = start + stream->len / vlbi_max_threads(0);
+    int start = cur_th * stream->len / dsp_max_threads(0);
+    int end = start + stream->len / dsp_max_threads(0);
     end = Min(stream->len, end);
     int y, d;
     for(y = start; y < end; y++)
@@ -538,18 +538,18 @@ void dsp_stream_scale(dsp_stream_p in)
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
-    pthread_t *th = malloc(sizeof(pthread_t)*vlbi_max_threads(0));
+    pthread_t *th = malloc(sizeof(pthread_t)*dsp_max_threads(0));
     struct {
        int cur_th;
        dsp_stream_p stream;
-    } thread_arguments[vlbi_max_threads(0)];
-    for(y = 0; y < vlbi_max_threads(0); y++)
+    } thread_arguments[dsp_max_threads(0)];
+    for(y = 0; y < dsp_max_threads(0); y++)
     {
         thread_arguments[y].cur_th = y;
         thread_arguments[y].stream = stream;
         pthread_create(&th[y], NULL, dsp_stream_scale_th, &thread_arguments[y]);
     }
-    for(y = 0; y < vlbi_max_threads(0); y++)
+    for(y = 0; y < dsp_max_threads(0); y++)
         pthread_join(th[y], NULL);
     free(th);
     stream->parent = NULL;
@@ -568,8 +568,8 @@ static void* dsp_stream_rotate_th(void* arg)
     dsp_stream_p stream = arguments->stream;
     dsp_stream_p in = stream->parent;
     int cur_th = arguments->cur_th;
-    int start = cur_th * stream->len / vlbi_max_threads(0);
-    int end = start + stream->len / vlbi_max_threads(0);
+    int start = cur_th * stream->len / dsp_max_threads(0);
+    int end = start + stream->len / dsp_max_threads(0);
     end = Min(stream->len, end);
     int y;
     for(y = start; y < end; y++)
@@ -604,17 +604,17 @@ void dsp_stream_rotate(dsp_stream_p in)
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
     int y;
-    pthread_t *th = malloc(sizeof(pthread_t)*vlbi_max_threads(0));
+    pthread_t *th = malloc(sizeof(pthread_t)*dsp_max_threads(0));
     struct {
        int cur_th;
        dsp_stream_p stream;
-    } thread_arguments[vlbi_max_threads(0)];
-    for(y = 0; y < vlbi_max_threads(0); y++) {
+    } thread_arguments[dsp_max_threads(0)];
+    for(y = 0; y < dsp_max_threads(0); y++) {
         thread_arguments[y].cur_th = y;
         thread_arguments[y].stream = stream;
         pthread_create(&th[y], NULL, dsp_stream_rotate_th, &thread_arguments[y]);
     }
-    for(y = 0; y < vlbi_max_threads(0); y++)
+    for(y = 0; y < dsp_max_threads(0); y++)
         pthread_join(th[y], NULL);
     free(th);
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
