@@ -23,7 +23,7 @@ double* dsp_stats_histogram(dsp_stream_p stream, int size)
 {
     int k;
     double* out = (double*)malloc(sizeof(double)*size);
-    long* tmp = (long*)malloc(sizeof(long)*stream->len);
+    double* tmp = (double*)malloc(sizeof(double)*stream->len);
     dsp_buffer_copy(stream->buf, tmp, stream->len);
     dsp_buffer_stretch(tmp, stream->len, 0, size);
     dsp_t mx = 0;
@@ -31,9 +31,10 @@ double* dsp_stats_histogram(dsp_stream_p stream, int size)
     double  diff = mx - mn;
     diff /= size;
     for(k = 0; k < size; k++) {
-        out[k] = (double)dsp_stats_val_count(tmp, stream->len, k);
+        out[(long)tmp[k]] ++;
     }
     free(tmp);
+    dsp_buffer_stretch(out, size, 0, size);
     return out;
 }
 
