@@ -1,0 +1,5 @@
+2016.3319  1 H1 Hydrogen1
+3928.6149  1 H2 Hydrogen2
+699.9997  1 H3 Hydrogen3
+355.9793  1 H4 Hydrogen4
+861.061000000001  1 H5 Hydrogen5

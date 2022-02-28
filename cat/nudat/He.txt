@@ -1,0 +1,6 @@
+10656.31049  2 He2 Helium2
+1222.7284  2 He3 Helium3
+1060.08585000001  2 He4 Helium4
+1472.2391  2 He5 Helium5
+1894.7947  2 He6 Helium6
+532.412  2 He7 Helium7
