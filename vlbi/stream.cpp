@@ -122,17 +122,17 @@ static void* fillplane(void *arg)
     };
     if(arg == nullptr)return nullptr;
     args *argument = (args*)arg;
+    double stack = (*argument->nthreads);
     VLBIBaseline *b = argument->b;
     if(b == nullptr)return nullptr;
+    bool moving_baseline = argument->moving_baseline;
+    bool nodelay = argument->nodelay;
     NodeCollection *nodes = argument->nodes;
     if(nodes == nullptr)return nullptr;
     BaselineCollection *baselines = nodes->getBaselines();
     if(baselines == nullptr)return nullptr;
     dsp_stream_p parent = baselines->getStream();
     if(parent == nullptr)return nullptr;
-    double stack = (*argument->nthreads);
-    bool moving_baseline = argument->moving_baseline;
-    bool nodelay = argument->nodelay;
     int u = parent->sizes[0];
     int v = parent->sizes[1];
     double st = b->getStartTime();
@@ -410,8 +410,8 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         threads_running++;
         pthread_create(&threads[i], nullptr, fillplane, &argument);
     }
-    for(int i = 0; i < baselines->Count; i++)
-        pthread_join(threads[i], nullptr);
+    while(threads_running > 0)
+        usleep(100);
     free(threads);
     pgarb("aperture synthesis plotting completed\n");
     vlbi_add_model(ctx, parent, name);
