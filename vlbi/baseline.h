@@ -74,8 +74,9 @@ public:
     inline void setRelative(bool rel) { relative = rel; }
     inline bool isRelative() { return relative; }
     inline dsp_location* stationLocation() { return &station; }
-
+    inline fftw_complex *getBufferData();
 private:
+    fftw_complex* dft;
     dsp_location station;
     bool relative { false };
     bool locked { false };

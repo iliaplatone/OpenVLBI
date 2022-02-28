@@ -44,7 +44,7 @@ double VLBIBaseline::Correlate(double time)
     if(!Locked())
         return 0.0;
     int idx = (time - getStartTime()) / getSampleRate();
-    if(idx > 0 && idx < getStream()->len)
+    if(idx >= 0 && idx < getStream()->len)
         return dsp_correlation_delegate(getNode1()->getStream()->dft.fftw[idx][0], getNode2()->getStream()->dft.fftw[idx][1]);
     return 0.0;
 }

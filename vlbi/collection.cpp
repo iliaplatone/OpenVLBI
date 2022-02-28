@@ -114,12 +114,12 @@ int VLBICollection::IndexOf(void* el)
     return ret;
 }
 
-bool VLBICollection::ContainsKey(const char* el)
+bool VLBICollection::ContainsKey(const char* name)
 {
     bool ret = false;
     for(int i = 0; i < Count; i++)
     {
-        if(!strcmp(el, Items[i].name))
+        if(!strcmp(name, Items[i].name))
         {
             ret = true;
             break;

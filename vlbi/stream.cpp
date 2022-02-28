@@ -74,6 +74,7 @@ static double getDelay(double time, NodeCollection *nodes, VLBINode *n1, VLBINod
     b->getProjection();
     double delay = b->getDelay();
     b->~VLBIBaseline();
+    delete b;
     return delay;
 }
 
@@ -179,6 +180,7 @@ static void* fillplane(void *arg)
             idx = (int)(U + V * u);
             if(idx != oldidx)
             {
+
                 oldidx = idx;
                 val = b->Locked() ? b->Correlate(time) : b->Correlate(time + offset1, time + offset2);
                 if(mutex_initialized)
@@ -190,6 +192,7 @@ static void* fillplane(void *arg)
                 }
                 e = s;
                 fprintf(stderr, "\r%.3lfs %.3lf %d  ", (time - st), (time - st) * 100.0 / (et - st - tau), i);
+
             }
         }
         s = l + 1;
@@ -287,9 +290,9 @@ int vlbi_get_models(void *ctx, dsp_stream_p** output)
 dsp_stream_p vlbi_get_model(void *ctx, const char *name)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    dsp_stream_p model = nodes->getModels()->Get(name);
-    if(model != nullptr)
+    if(nodes->getModels()->ContainsKey(name))
     {
+        dsp_stream_p model = nodes->getModels()->Get(name);
         dsp_buffer_stretch(model->buf, model->len, 0.0, dsp_t_max);
         return model;
     }
@@ -403,13 +406,16 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         argument.moving_baseline = moving_baseline;
         argument.nodelay = nodelay;
         argument.nthreads = &threads_running;
-        while(threads_running > max_threads - 1)
+        while(threads_running >= max_threads)
             usleep(100);
+        usleep(100000);
         threads_running++;
         pthread_create(&threads[i], nullptr, fillplane, &argument);
+        usleep(10000);
     }
     while(threads_running > 0)
-        usleep(10000);
+        usleep(100);
+    free(threads);
     pgarb("aperture synthesis plotting completed\n");
     vlbi_add_model(ctx, parent, name);
 }
