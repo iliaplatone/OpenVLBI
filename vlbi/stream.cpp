@@ -121,6 +121,7 @@ static void* fillplane(void *arg)
     };
     if(arg == nullptr)return nullptr;
     args *argument = (args*)arg;
+    double stack = (*argument->nthreads);
     VLBIBaseline *b = argument->b;
     if(b == nullptr)return nullptr;
     bool moving_baseline = argument->moving_baseline;
@@ -184,7 +185,7 @@ static void* fillplane(void *arg)
                 {
                     while(pthread_mutex_trylock(&mutex))
                         usleep(100);
-                    parent->buf[idx] = val;
+                    parent->buf[idx] = (parent->buf[idx]+val/stack)/(stack+1);
                     pthread_mutex_unlock(&mutex);
                 }
                 e = s;
@@ -263,8 +264,7 @@ void vlbi_add_model(void *ctx, dsp_stream_p stream, const char *name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    if(!nodes->ContainsKey(name))
-        nodes->getModels()->Add(stream, name);
+    nodes->getModels()->Add(stream, name);
 }
 
 int vlbi_get_models(void *ctx, dsp_stream_p** output)
