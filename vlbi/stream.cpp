@@ -362,6 +362,15 @@ void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, f
     b->Lock();
 }
 
+dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char *node1, const char *node2)
+{
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    char name[150];
+    sprintf(name, "%s_%s", node1, node2);
+    VLBIBaseline *b = nodes->getBaselines()->Get(name);
+    return b->getStream();
+}
+
 void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *target, double freq, double sr, int nodelay,
                       int moving_baseline, vlbi_func2_t delegate)
 {
