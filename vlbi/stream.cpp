@@ -356,8 +356,8 @@ void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, f
     sprintf(name, "%s_%s", node1, node2);
     VLBIBaseline *b = nodes->getBaselines()->Get(name);
     dsp_stream_set_dim(b->getStream(), 0, len);
-    dsp_stream_alloc_buffer(b->getStream(), b->getStream()->len);
-    dsp_buffer_copy(((double*)buffer), b->getStream()->dft.buf, len);
+    dsp_stream_alloc_buffer(b->getStream(), len);
+    b->getStream()->dft.fftw = buffer;
     dsp_fourier_2dsp(b->getStream());
     b->Lock();
 }
