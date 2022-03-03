@@ -1,3 +1,9 @@
+libopenvlbi (1.22.7) unstable; urgency=medium
+
+  * Fix issue in setting visibilities
+
+ -- Ilia Platone <info@iliaplatone.com>  Thu, 03 Mar 2022 21:24:11 +0100
+
 libopenvlbi (1.22.6) unstable; urgency=medium
 
   * Added NuDat catalog
