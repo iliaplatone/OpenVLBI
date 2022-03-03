@@ -15,7 +15,7 @@ find_package(Threads REQUIRED)
 option(WITH_VLBI_SERVER "Add OpenVLBI servers" ON)
 option(WITH_INDI_SERVER "Add INDI server for OpenVLBI" ON)
 option(WITH_DUMMY_SERVER "Add dummy server for OpenVLBI" ON)
-option(WITH_JSON_SERVER "Add JSON server for OpenVLBI" ON)
+option(WITH_JSON_SERVER "Add JSON server for OpenVLBI" OFF)
 
 set (VLBI_VERSION_MAJOR 1)
 set (VLBI_VERSION_MINOR 22)
