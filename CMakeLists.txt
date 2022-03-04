@@ -7,7 +7,6 @@ include(GNUInstallDirs)
 include(ExternalProject)
 
 find_package(CFITSIO REQUIRED)
-find_package(ZLIB REQUIRED)
 find_package(PNG REQUIRED)
 find_package(JPEG REQUIRED)
 find_package(FFTW3 REQUIRED)
