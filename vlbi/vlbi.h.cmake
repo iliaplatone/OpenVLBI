@@ -532,6 +532,14 @@ DLL_EXPORT void vlbi_exit(vlbi_context ctx);
 DLL_EXPORT void vlbi_add_node(vlbi_context ctx, dsp_stream_p Stream, const char *name, int geographic_coordinates);
 
 /**
+* \brief Get a stream from the current OpenVLBI context.
+* \param ctx The OpenVLBI context
+* \param name The name of this stream
+* \return The OpenVLBI stream representing this node
+*/
+DLL_EXPORT dsp_stream_p vlbi_get_node(void *ctx, const char *name);
+
+/**
 * \brief Remove a stream from the current OpenVLBI context.
 * \param ctx The OpenVLBI context
 * \param name The friendly name of the stream to be removed

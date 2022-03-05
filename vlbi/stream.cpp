@@ -231,6 +231,13 @@ void vlbi_add_node(void *ctx, dsp_stream_p stream, const char *name, int geo)
     nodes->Add(new VLBINode(stream, name, nodes->Count, geo == 1));
 }
 
+dsp_stream_p vlbi_get_node(void *ctx, const char *name)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    return nodes->Get(name)->getStream();
+}
+
 int vlbi_get_nodes(void *ctx, vlbi_node** output)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;

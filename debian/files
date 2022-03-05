@@ -1,0 +1,5 @@
+libopenvlbi-dbgsym_1.22.4_amd64.ddeb debug optional automatic=yes
+libopenvlbi_1.22.4_amd64.buildinfo misc optional
+libopenvlbi_1.22.4_amd64.deb libs optional
+openvlbi-bin-dbgsym_1.22.4_amd64.ddeb debug optional automatic=yes
+openvlbi-bin_1.22.4_amd64.deb misc optional
