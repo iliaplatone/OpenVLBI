@@ -362,6 +362,7 @@ void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, f
     char name[150];
     sprintf(name, "%s_%s", node1, node2);
     VLBIBaseline *b = nodes->getBaselines()->Get(name);
+    if(b == nullptr) return;
     dsp_stream_set_dim(b->getStream(), 0, len);
     dsp_stream_alloc_buffer(b->getStream(), len);
     b->getStream()->dft.fftw = buffer;
@@ -374,6 +375,7 @@ void vlbi_set_baseline_stream(void *ctx, const char *node1, const char *node2, d
     char name[150];
     sprintf(name, "%s_%s", node1, node2);
     VLBIBaseline *b = nodes->getBaselines()->Get(name);
+    if(b == nullptr) return;
     b->setStream(stream);
     b->Lock();
 }
@@ -384,7 +386,9 @@ dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char *node1, const char *
     char name[150];
     sprintf(name, "%s_%s", node1, node2);
     VLBIBaseline *b = nodes->getBaselines()->Get(name);
-    return b->getStream();
+    if(b != nullptr)
+        return b->getStream();
+    return nullptr;
 }
 
 void vlbi_unlock_baseline(void *ctx, const char *node1, const char *node2)
@@ -393,6 +397,7 @@ void vlbi_unlock_baseline(void *ctx, const char *node1, const char *node2)
     char name[150];
     sprintf(name, "%s_%s", node1, node2);
     VLBIBaseline *b = nodes->getBaselines()->Get(name);
+    if(b == nullptr) return;
     b->Unlock();
 }
 
