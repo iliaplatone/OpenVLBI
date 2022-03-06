@@ -4,8 +4,8 @@
 #include <signal.h>
 #include <vlbi.h>
 #include <fitsio2.h>
-#include <json.h>
 #include <base64.h>
+#include "json.h"
 #include "vlbi_server_json.h"
 
 JSONServer::JSONServer()

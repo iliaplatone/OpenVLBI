@@ -27,9 +27,8 @@ If everything will be successful three .deb packages will be built and installed
 ## Other OSes
 
 You'll need CMake to build OpenVLBI, and some developement packages:
-+ **libopenvlbi**:libfftw3
-+ **vlbi_server_json**: libjsonparser
-+ **vlbi_server_indi**: libindi libnova libcfitsio
++ **libopenvlbi**:libfftw3 libcfitsio libjpeg libpng
++ **vlbi_server_indi**: libindi libnova
 + **tests and scripts**: jq
 
 # Using OpenVLBI

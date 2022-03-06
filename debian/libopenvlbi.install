@@ -1,4 +1,4 @@
 usr/share/OpenVLBI
 usr/include/OpenVLBI
-usr/lib/*/libopenvlbi*.so*
-usr/lib/*/libopenvlbi*.a
+usr/lib/*/*so*
+usr/lib/*/*.a
