@@ -30,6 +30,8 @@ VLBINode::VLBINode(dsp_stream_p stream, const char* name, int index, bool geogra
         Stream->phase = dsp_stream_copy(Stream);
         dsp_buffer_set(Stream->phase->buf, Stream->phase->len, 0.0);
     }
+    if(getStream()->dims < 2)
+        dsp_stream_add_dim(getStream(), 1);
     Name = (char*)calloc(150, 1);
     sprintf(Name, "%s", name);
     Index = index;

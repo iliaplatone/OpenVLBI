@@ -386,9 +386,8 @@ dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char *node1, const char *
     char name[150];
     sprintf(name, "%s_%s", node1, node2);
     VLBIBaseline *b = nodes->getBaselines()->Get(name);
-    if(b != nullptr)
-        return b->getStream();
-    return nullptr;
+    if(b == nullptr) return nullptr;
+    return b->getStream();
 }
 
 void vlbi_unlock_baseline(void *ctx, const char *node1, const char *node2)
