@@ -198,7 +198,8 @@ dsp_stream_p dsp_stream_copy(dsp_stream_p stream)
     memcpy(dest->ROI, stream->ROI, sizeof(dsp_region) * stream->dims);
     memcpy(dest->pixel_sizes, stream->pixel_sizes, sizeof(double) * stream->dims);
     memcpy(dest->target, stream->target, sizeof(double) * 3);
-    memcpy(dest->location, stream->location, sizeof(dsp_location) * 1);
+    if(dest->location != NULL)
+        memcpy(dest->location, stream->location, sizeof(dsp_location) * stream->len);
     if(dest->buf != NULL)
         memcpy(dest->buf, stream->buf, sizeof(dsp_t) * stream->len);
     if(dest->dft.buf != NULL)

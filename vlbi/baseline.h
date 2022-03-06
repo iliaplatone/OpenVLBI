@@ -66,9 +66,21 @@ public:
     inline VLBINode* getNode1() { return Node1; }
     inline VLBINode* getNode2() { return Node2; }
     inline dsp_stream_p getStream() { return Stream; }
+    inline void freeStream() {
+        dsp_stream_free_buffer(getStream());
+        dsp_stream_free(getStream());
+    }
     inline void setStream(dsp_stream_p stream)
     {
         Stream = stream;
+        if(Stream->magnitude == nullptr) {
+            Stream->magnitude = dsp_stream_copy(Stream);
+            dsp_buffer_set(Stream->magnitude->buf, Stream->magnitude->len, 0.0);
+        }
+        if(Stream->phase == nullptr) {
+            Stream->phase = dsp_stream_copy(Stream);
+            dsp_buffer_set(Stream->phase->buf, Stream->phase->len, 0.0);
+        }
     }
     inline void setDelegate(vlbi_func2_t delegate) { dsp_correlation_delegate = delegate; }
 
