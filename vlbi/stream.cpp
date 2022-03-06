@@ -368,6 +368,16 @@ void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, f
     b->Lock();
 }
 
+void vlbi_set_baseline_stream(void *ctx, const char *node1, const char *node2, dsp_stream_p stream)
+{
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    char name[150];
+    sprintf(name, "%s_%s", node1, node2);
+    VLBIBaseline *b = nodes->getBaselines()->Get(name);
+    b->setStream(stream);
+    b->Lock();
+}
+
 dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char *node1, const char *node2)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;

@@ -63,10 +63,14 @@ public:
     inline void setWaveLength(double wavelength) { WaveLength = wavelength; getStream()->wavelength = wavelength; getNode1()->setWaveLength(WaveLength); getNode2()->setWaveLength(WaveLength); }
     inline void setSampleRate(double samplerate) { SampleRate = samplerate; getStream()->samplerate = samplerate; getNode1()->setSampleRate(SampleRate); getNode2()->setSampleRate(SampleRate); }
 
-    VLBINode* getNode1() { return Node1; }
-    VLBINode* getNode2() { return Node2; }
-    dsp_stream_p getStream() { return Stream; }
-    void setDelegate(vlbi_func2_t delegate) { dsp_correlation_delegate = delegate; }
+    inline VLBINode* getNode1() { return Node1; }
+    inline VLBINode* getNode2() { return Node2; }
+    inline dsp_stream_p getStream() { return Stream; }
+    inline void setStream(dsp_stream_p stream)
+    {
+        Stream = stream;
+    }
+    inline void setDelegate(vlbi_func2_t delegate) { dsp_correlation_delegate = delegate; }
 
     inline bool Locked() { return locked; }
     inline void Lock() { locked = true; }

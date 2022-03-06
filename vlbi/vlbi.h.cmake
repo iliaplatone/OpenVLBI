@@ -589,6 +589,9 @@ DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 
 /**
 * \brief Fill the buffer of a single baseline with complex visibility data.
+* This function locks this baeline and the data passed here will overwrite the
+* correlated visibilities from its nodes.
+*
 * \param ctx The OpenVLBI context
 * \param node1 The name of the first node
 * \param node2 The name of the second node
@@ -598,13 +601,25 @@ DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, fftw_complex *buffer, int len);
 
 /**
-* \brief Obtain the baseline dsp_stream  structure with complex visibility data.
+* \brief Obtain the baseline dsp_stream structure containing the complex visibility data.
 * \param ctx The OpenVLBI context
 * \param node1 The name of the first node
 * \param node2 The name of the second node
 * \return The dsp_stream structure pointer containing the visibility data
 */
 DLL_EXPORT dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char *node1, const char *node2);
+
+/**
+* \brief Set the baseline dsp_stream structure containing the complex visibility data.
+* This function locks this baeline and the data passed here will overwrite the
+* correlated visibilities from its nodes.
+*
+* \param ctx The OpenVLBI context
+* \param node1 The name of the first node
+* \param node2 The name of the second node
+* \param stream The dsp_stream structure pointer containing the visibility data
+*/
+DLL_EXPORT void vlbi_set_baseline_stream(void *ctx, const char *node1, const char *node2, dsp_stream_p stream);
 
 /**
 * \brief Set the location of the reference station.

@@ -39,6 +39,10 @@ class VLBINode
         {
             return Stream;
         }
+        inline void setStream(dsp_stream_p stream)
+        {
+            Stream = stream;
+        }
 
         inline double* getTarget()
         {
