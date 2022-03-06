@@ -610,6 +610,14 @@ DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, const char *node1, const cha
 DLL_EXPORT dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char *node1, const char *node2);
 
 /**
+* \brief Unlock the baseline and get visibility from its nodes correlations.
+* \param ctx The OpenVLBI context
+* \param node1 The name of the first node
+* \param node2 The name of the second node
+*/
+DLL_EXPORT void vlbi_unlock_baseline(void *ctx, const char *node1, const char *node2);
+
+/**
 * \brief Set the baseline dsp_stream structure containing the complex visibility data.
 * This function locks this baeline and the data passed here will overwrite the
 * correlated visibilities from its nodes.

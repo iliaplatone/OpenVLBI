@@ -118,7 +118,8 @@ class VLBINode
         }
         inline void setLocation(int x)
         {
-            setLocation(getStream()->location[x].xyz.x, getStream()->location[x].xyz.y, getStream()->location[x].xyz.z);
+            if(getStream()->len > x)
+                setLocation(getStream()->location[x].xyz.x, getStream()->location[x].xyz.y, getStream()->location[x].xyz.z);
         }
         inline void setLocation(double x_or_lat, double y_or_lon, double z_or_el)
         {
