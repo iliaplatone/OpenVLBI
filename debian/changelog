@@ -1,3 +1,9 @@
+libopenvlbi (1.22.8) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Ilia Platone <info@iliaplatone.com>  Sun, 06 Mar 2022 19:50:48 +0100
+
 libopenvlbi (1.22.7) unstable; urgency=medium
 
   * Fix issue in setting visibilities
