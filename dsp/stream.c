@@ -66,6 +66,11 @@ void dsp_stream_alloc_buffer(dsp_stream_p stream, int len)
     } else {
         stream->dft.fftw = (fftw_complex*)malloc(sizeof(fftw_complex) * len);
     }
+    if(stream->location != NULL) {
+        stream->location = (dsp_location*)realloc(stream->location, sizeof(dsp_location) * (stream->len));
+    } else {
+        stream->location = (dsp_location*)malloc(sizeof(dsp_location) * (stream->len));
+    }
     if(stream->magnitude != NULL)
         dsp_stream_alloc_buffer(stream->magnitude, len);
     if(stream->phase != NULL)
