@@ -40,6 +40,8 @@ VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
 
 VLBIBaseline::~VLBIBaseline()
 {
+    dsp_stream_free_buffer(getStream());
+    dsp_stream_free(getStream());
     free(getName());
 }
 
