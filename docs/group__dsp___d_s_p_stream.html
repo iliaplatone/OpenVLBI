@@ -116,6 +116,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gab01d4c42bda4b0b9fe736fc74da3e79d"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___d_s_p_stream.html#gab01d4c42bda4b0b9fe736fc74da3e79d">dsp_stream_add_dim</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, int len)</td></tr>
 <tr class="memdesc:gab01d4c42bda4b0b9fe736fc74da3e79d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a dimension with length len to a DSP stream.  <a href="group__dsp___d_s_p_stream.html#gab01d4c42bda4b0b9fe736fc74da3e79d">More...</a><br /></td></tr>
 <tr class="separator:gab01d4c42bda4b0b9fe736fc74da3e79d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ce3b54b9c504d8a51fa54a3e3dcbd33"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___d_s_p_stream.html#ga1ce3b54b9c504d8a51fa54a3e3dcbd33">dsp_stream_set_dim</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, int dim, int size)</td></tr>
+<tr class="memdesc:ga1ce3b54b9c504d8a51fa54a3e3dcbd33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a dimension size to a DSP stream.  <a href="group__dsp___d_s_p_stream.html#ga1ce3b54b9c504d8a51fa54a3e3dcbd33">More...</a><br /></td></tr>
+<tr class="separator:ga1ce3b54b9c504d8a51fa54a3e3dcbd33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5f1a4fe39084560c5458254c816908c4"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___d_s_p_stream.html#ga5f1a4fe39084560c5458254c816908c4">dsp_stream_del_dim</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, int n)</td></tr>
 <tr class="memdesc:ga5f1a4fe39084560c5458254c816908c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the dimension with index n to a DSP stream.  <a href="group__dsp___d_s_p_stream.html#ga5f1a4fe39084560c5458254c816908c4">More...</a><br /></td></tr>
 <tr class="separator:ga5f1a4fe39084560c5458254c816908c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -833,6 +836,51 @@ dsp_stream_exec_multidim </dd></dl>
 
 </div>
 </div>
+<a id="ga1ce3b54b9c504d8a51fa54a3e3dcbd33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1ce3b54b9c504d8a51fa54a3e3dcbd33">&#9670;&nbsp;</a></span>dsp_stream_set_dim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void dsp_stream_set_dim </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>the target DSP stream. </td></tr>
+    <tr><td class="paramname">dim</td><td>the index of the dimension to modify </td></tr>
+    <tr><td class="paramname">len</td><td>the size of the dimension to modify </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__dsp___d_s_p_stream.html#ga822aec4e60347496b54f085bf36cf85b" title="Allocate a new DSP stream type.">dsp_stream_new</a> </dd>
+<dd>
+<a class="el" href="group__dsp___d_s_p_stream.html#gab01d4c42bda4b0b9fe736fc74da3e79d" title="Add a dimension with length len to a DSP stream.">dsp_stream_add_dim</a> </dd></dl>
+
+</div>
+</div>
 <a id="ga3e9dc55fb259b5041e0523181f5ecb02"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga3e9dc55fb259b5041e0523181f5ecb02">&#9670;&nbsp;</a></span>dsp_stream_set_position()</h2>
 
@@ -903,7 +951,7 @@ dsp_stream_exec_multidim </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 12 2022 14:30:11 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 7 2022 01:18:46 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

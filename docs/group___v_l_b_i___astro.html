@@ -71,6 +71,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:gad2ca989ecb9db117ec667adfb7d05f40"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#gad2ca989ecb9db117ec667adfb7d05f40">vlbi_astro_mean_speed</a> (double speed)</td></tr>
+<tr class="memdesc:gad2ca989ecb9db117ec667adfb7d05f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain or set the reference constant speed of the radiation to measure.  <a href="group___v_l_b_i___astro.html#gad2ca989ecb9db117ec667adfb7d05f40">More...</a><br /></td></tr>
+<tr class="separator:gad2ca989ecb9db117ec667adfb7d05f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8427a4368f0436925db2e09810f700a1"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___astro.html#ga8427a4368f0436925db2e09810f700a1">vlbi_astro_alt_az_from_ra_dec</a> (double J2000time, double Ra, double Dec, double Lat, double Long, double *Alt, double *Az)</td></tr>
 <tr class="memdesc:ga8427a4368f0436925db2e09810f700a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the altitude and azimuth coordinate of a celestial coordinate at a specific time.  <a href="group___v_l_b_i___astro.html#ga8427a4368f0436925db2e09810f700a1">More...</a><br /></td></tr>
 <tr class="separator:ga8427a4368f0436925db2e09810f700a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -915,6 +918,31 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gad2ca989ecb9db117ec667adfb7d05f40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad2ca989ecb9db117ec667adfb7d05f40">&#9670;&nbsp;</a></span>vlbi_astro_mean_speed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT double vlbi_astro_mean_speed </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>speed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">speed</td><td>The speed constant value (Light meters per second for example) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>if speed is less or equal to zero, return the last set or default value, otherwise the value just passed as argument </dd></dl>
+
+</div>
+</div>
 <a id="gab28ffb82e4aa2aeb55f18024a1e5bfe3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gab28ffb82e4aa2aeb55f18024a1e5bfe3">&#9670;&nbsp;</a></span>vlbi_astro_redshift_adjust()</h2>
 
@@ -1085,7 +1113,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 12 2022 14:30:11 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 7 2022 01:18:46 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
