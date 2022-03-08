@@ -13,8 +13,8 @@ if [ "$os" == "Debian" ] || [ "$os" == "Ubuntu" ]; then
  apt-get install -y libindi-dev libnova-dev libfftw3-dev libjpeg-dev libpng-dev libcfitsio-dev cdbs cmake dpkg-dev build-essential fakeroot devscripts jq
  dpkg-buildpackage  -b -rfakeroot -us -uc;
  mkdir -p packages
- mv ../libopenvlbi_${version}_${arch}.deb packages/
- mv ../openvlbi-bin_${version}_${arch}.deb packages/
- dpkg -i packages/libopenvlbi_${version}_${arch}.deb
- dpkg -i packages/openvlbi-bin_${version}_${arch}.deb
+ mv ../libopenvlbi1_${version}_*.deb packages/
+ mv ../libopenvlbi-dev_${version}_*.deb packages/
+ mv ../openvlbi-bin_${version}_*.deb packages/
+ mv ../openvlbi-data_${version}_*.deb packages/
 fi

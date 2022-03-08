@@ -1,4 +1,3 @@
-usr/share/OpenVLBI
+usr/share/doc/libopenvlbi-dev/html
 usr/include/OpenVLBI
-usr/lib/*/*so*
 usr/lib/*/*.a
