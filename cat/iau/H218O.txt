@@ -1,1 +1,1 @@
-10900  547390168 H218O  Water vapour
+547390168  10900 H218O Water vapour  

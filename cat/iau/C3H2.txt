@@ -1,1 +1,1 @@
-800  16343698304 C3H2  Cyclopropenylidene
+16343698304  800 C3H2 Cyclopropenylidene   

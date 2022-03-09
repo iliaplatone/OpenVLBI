@@ -1,4 +1,4 @@
-70  185948823710 OH  Hydroxyl radical
-73  180012067957 OH  Hydroxyl radical
-72  179800785553 OH  Hydroxyl radical
-74  174244249155 OH  Hydroxyl radical
+185948823710  70 OH Hydroxyl radical  
+180012067957  73 OH Hydroxyl radical  
+179800785553  72 OH Hydroxyl radical  
+174244249155  74 OH Hydroxyl radical  

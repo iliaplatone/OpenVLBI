@@ -1,1 +1,1 @@
-100  34595495779 3HeII  Ionized Helium Isotope
+34595495779  100 3HeII Ionized Helium Isotope 

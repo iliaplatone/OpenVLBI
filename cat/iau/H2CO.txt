@@ -1,3 +1,3 @@
-209  62073201426 H2CO  Formaldehyde
-600  20692466731 H2CO  Formaldehyde
-2900  2128603081 H2CO  Formaldehyde
+62073201426  209 H2CO Formaldehyde   
+20692466731  600 H2CO Formaldehyde   
+2128603081  2900 H2CO Formaldehyde   

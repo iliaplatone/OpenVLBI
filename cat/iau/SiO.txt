@@ -1,7 +1,7 @@
-1000  7050788071 SiO  Silicon monoxide
-900  7001061581 SiO  Silicon monoxide
-1000  6991428591 SiO  Silicon monoxide
-1000  6952192801 SiO  Silicon monoxide
-1000  6903842529 SiO  Silicon monoxide
-1700  3476136706 SiO  Silicon monoxide
-1700  3451961011 SiO  Silicon monoxide
+7050788071  1000 SiO Silicon monoxide  
+7001061581  900 SiO Silicon monoxide  
+6991428591  1000 SiO Silicon monoxide  
+6952192801  1000 SiO Silicon monoxide  
+6903842529  1000 SiO Silicon monoxide  
+3476136706  1700 SiO Silicon monoxide  
+3451961011  1700 SiO Silicon monoxide  
