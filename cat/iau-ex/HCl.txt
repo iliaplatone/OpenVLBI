@@ -1,2 +1,2 @@
-12600  479637236 HCl  Hydrogen chloride
-12600  478916990 HCl  Hydrogen chloride
+12600  479637236 HCl Hydrogen chloride  
+12600  478916990 HCl Hydrogen chloride  

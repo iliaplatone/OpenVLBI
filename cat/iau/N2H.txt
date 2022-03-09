@@ -1,3 +1,3 @@
-3217554875  2000 N2H Diazenylium   
-1072560500  5600 N2H Dyazenulium   
-804440521  7500 N2H Dyazenulium   
+2000  3217554875 N2H Diazenylium   
+5600  1072560500 N2H Dyazenulium   
+7500  804440521 N2H Dyazenulium   

@@ -1,4 +1,4 @@
-2720415041  4800 13CO Carbon monoxide  
-1360226035  9500 13CO Carbon monoxide  
-906848902  6700 13CO Carbon monoxide  
-680163937  8900 13CO Carbon monoxide  
+4800  2720415041 13CO Carbon monoxide  
+9500  1360226035 13CO Carbon monoxide  
+6700  906848902 13CO Carbon monoxide  
+8900  680163937 13CO Carbon monoxide  

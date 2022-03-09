@@ -1,5 +1,5 @@
-2200  2641343242 CN  Cyano radical
-4600  1323002903 CN  Cyano radical
-4600  1321836234 CN  Cyano radical
-6800  881664729 CN  Cyano radical
-6800  881094659 CN  Cyano radical
+2200  2641343242 CN Cyano radical  
+4600  1323002903 CN Cyano radical  
+4600  1321836234 CN Cyano radical  
+6800  881664729 CN Cyano radical  
+6800  881094659 CN Cyano radical  

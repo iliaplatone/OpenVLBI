@@ -1,2 +1,2 @@
-2200  2668165950 C17O  Carbon monoxide
-4500  1334106722 C17O  Carbon monoxide
+2200  2668165950 C17O Carbon monoxide  
+4500  1334106722 C17O Carbon monoxide  

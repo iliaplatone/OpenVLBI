@@ -1,2 +1,2 @@
-12600  479744691 SiH  Silicon hydride
-12600  477604680 SiH  Silicon hydride
+12600  479744691 SiH Silicon hydride  
+12600  477604680 SiH Silicon hydride  

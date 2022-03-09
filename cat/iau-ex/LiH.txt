@@ -1,2 +1,2 @@
-8900  675273636 LiH  Lithium hydride
-17800  338175361 LiH  Lithium hydride
+8900  675273636 LiH Lithium hydride  
+17800  338175361 LiH Lithium hydride  

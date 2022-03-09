@@ -1,6 +1,6 @@
-1500  4073820600 CH3CN  Methyl cyanide
-1900  3259322222 CH3CN  Methyl cyanide
-2200  2716003424 CH3CN  Methyl cyanide
-3000  2037048705 CH3CN  Methyl cyanide
-4400  1358370901 CH3CN  Methyl cyanide
-5200  1164242555 CH3CN  Methyl cyanide
+1500  4073820600 CH3CN Methyl cyanide  
+1900  3259322222 CH3CN Methyl cyanide  
+2200  2716003424 CH3CN Methyl cyanide  
+3000  2037048705 CH3CN Methyl cyanide  
+4400  1358370901 CH3CN Methyl cyanide  
+5200  1164242555 CH3CN Methyl cyanide  

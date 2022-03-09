@@ -1,5 +1,5 @@
-6119337388  1000 CS Carbon monosulphide  
-3059699921  4300 CS Carbon monosulphide  
-2039834645  3000 CS Carbon monosulphide  
-1223877470  4800 CS Carbon monosulphide  
-874328730  6900 CS Carbon monosulphide  
+1000  6119337388 CS Carbon monosulphide  
+4300  3059699921 CS Carbon monosulphide  
+3000  2039834645 CS Carbon monosulphide  
+4800  1223877470 CS Carbon monosulphide  
+6900  874328730 CS Carbon monosulphide  

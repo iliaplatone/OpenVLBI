@@ -1,2 +1,2 @@
-3306631717  1900 HNC Hydrogen isocyanide  
-1102255150  5400 HNC Hydrogen isocyanide  
+1900  3306631717 HNC Hydrogen isocyanide  
+5400  1102255150 HNC Hydrogen isocyanide  

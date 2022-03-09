@@ -1,3 +1,3 @@
-6900  870717700 MgH  Magnesium hydride
-13800  436315613 MgH  Magnesium hydride
-13800  435808195 MgH  Magnesium hydride
+6900  870717700 MgH Magnesium hydride  
+13800  436315613 MgH Magnesium hydride  
+13800  435808195 MgH Magnesium hydride  

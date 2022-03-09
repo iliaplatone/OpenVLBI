@@ -1,2 +1,2 @@
-3400  1776442628 H2S  Hydrogen sulphide
-9000  662685863 H2S  Hyrogen Sulphide
+3400  1776442628 H2S Hydrogen sulphide  
+9000  662685863 H2S Hyrogen Sulphide  

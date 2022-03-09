@@ -1,2 +1,2 @@
-17400  345821268 SH  Sulpher hydride
-17600  342541656 SH  Sulpher hydride
+17400  345821268 SH Sulpher hydride  
+17600  342541656 SH Sulpher hydride  

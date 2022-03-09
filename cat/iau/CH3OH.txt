@@ -1,1 +1,1 @@
-24617544588  200 CH3OH Methanol   
+200  24617544588 CH3OH Methanol   
