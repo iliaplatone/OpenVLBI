@@ -99,6 +99,13 @@ DLL_EXPORT void dsp_set_app_name(char* name);
 * \return The current application name printed on logs
 */
 DLL_EXPORT char* dsp_get_app_name();
+/**
+* \brief log a message to stderr or stdout
+* \param x The log level
+* \param str The string to print
+*/
+DLL_EXPORT void dsp_print(int x, char* str);
+
 #define DSP_DEBUG_INFO 0
 #define DSP_DEBUG_ERROR 1
 #define DSP_DEBUG_WARNING 2
@@ -128,8 +135,7 @@ if(dsp_get_app_name() != NULL) \
     sprintf(&str[strlen(str)], "[%s]", dsp_get_app_name()); \
 sprintf(&str[strlen(str)], " "); \
 sprintf(&str[strlen(str)], __VA_ARGS__); \
-if(x==DSP_DEBUG_INFO)fprintf(stdout, "%s", str); \
-else if(x<=dsp_get_debug_level())fprintf(stderr, "%s", str); \
+dsp_print(x, str); \
 })
 #define pinfo(...) pdbg(DSP_DEBUG_INFO, __VA_ARGS__)
 #define perr(...) pdbg(DSP_DEBUG_ERROR, __VA_ARGS__)

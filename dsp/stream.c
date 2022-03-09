@@ -34,6 +34,12 @@ unsigned long int dsp_max_threads(unsigned long value)
     return MAX_THREADS;
 }
 
+void dsp_print(int x, char* str)
+{
+if(x==DSP_DEBUG_INFO)fprintf(stdout, "%s", str);
+else if(x<=dsp_get_debug_level())fprintf(stderr, "%s", str);
+}
+
 void dsp_set_debug_level(int value)
 {
     dsp_debug = value;
