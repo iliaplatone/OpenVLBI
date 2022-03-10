@@ -263,8 +263,11 @@ void vlbi_del_node(void *ctx, const char *name)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     VLBINode* node = nodes->Get(name);
-    nodes->Remove(node);
-    node->~VLBINode();
+    if(node != nullptr)
+    {
+        nodes->RemoveKey(name);
+        node->~VLBINode();
+    }
 }
 
 void vlbi_add_model(void *ctx, dsp_stream_p stream, const char *name)
@@ -406,20 +409,18 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     if(nodes == nullptr)return;
-    pgarb("%d nodes, %d baselines\n", nodes->Count, nodes->Count * (nodes->Count - 1) / 2);
     BaselineCollection *baselines = nodes->getBaselines();
     if(baselines == nullptr)return;
+    dsp_stream_p parent = baselines->getStream();
+    dsp_buffer_set(parent->buf, parent->len, 0.0);
     baselines->setWidth(u);
     baselines->setHeight(v);
     baselines->SetFrequency(freq);
     baselines->SetSampleRate(sr);
     baselines->setRa(target[0]);
     baselines->setDec(target[1]);
-    dsp_stream_p parent = dsp_stream_copy(baselines->getStream());
-    if(parent == nullptr)return;
-    dsp_buffer_set(parent->buf, parent->len, 0.0);
     parent->child_count = 0;
-    pgarb("%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
+    pgarb("%d nodes, %d baselines\n", nodes->Count, baselines->Count);
     baselines->SetDelegate(delegate);
     pthread_t *threads = (pthread_t*)malloc(sizeof(pthread_t) * baselines->Count);
     int threads_running = 0;
@@ -443,16 +444,21 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         argument.nodelay = nodelay;
         argument.nthreads = &threads_running;
         while(threads_running > max_threads - 1)
-            usleep(100);
+            usleep(100000);
         threads_running++;
         pthread_create(&threads[i], nullptr, fillplane, &argument);
     }
     while(threads_running > 0)
-        usleep(10000);
-    pgarb("aperture synthesis plotting completed\n");
+        usleep(100);
     dsp_stream_p model = vlbi_get_model(ctx, name);
     if(model == nullptr)
+    {
         vlbi_add_model(ctx, dsp_stream_copy(parent), name);
+        model = vlbi_get_model(ctx, name);
+    }
+    dsp_buffer_set(model->buf, model->len, 0.0);
+    dsp_buffer_copy(parent->buf, model->buf, model->len);
+    pgarb("aperture synthesis plotting completed\n");
 }
 
 void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, const char *phase)
@@ -467,12 +473,11 @@ void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, co
             d++;
     if(mag->dims == d)
     {
-        dsp_buffer_stretch(phi->buf, phi->len, 0, PI * 2.0);
-        dsp_buffer_stretch(mag->buf, mag->len, 0, dsp_t_max);
-
         dsp_stream_p ifft = vlbi_get_model(ctx, name);
         if(ifft == nullptr)
             ifft = dsp_stream_copy(mag);
+        dsp_buffer_stretch(phi->buf, phi->len, 0, PI * 2.0);
+        dsp_buffer_stretch(mag->buf, mag->len, 0, dsp_t_max);
         ifft->phase = phi;
         ifft->magnitude = mag;
         dsp_fourier_idft(ifft);

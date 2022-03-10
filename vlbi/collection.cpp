@@ -46,6 +46,7 @@ void VLBICollection::Add(void* el, const char* name)
 
 void VLBICollection::Remove(void* el)
 {
+    if(!Items) return;
     if(!Contains(el))
         return;
     for(int i = 0; i < Count; i++)
@@ -60,6 +61,7 @@ void VLBICollection::Remove(void* el)
 
 void VLBICollection::RemoveKey(const char* name)
 {
+    if(!Items) return;
     if(!ContainsKey(name))
         return;
     for(int i = 0; i < Count; i++)
@@ -74,6 +76,7 @@ void VLBICollection::RemoveKey(const char* name)
 
 void* VLBICollection::Get(const char* name)
 {
+    if(!Items) return nullptr;
     for(int i = 0; i < Count; i++)
     {
         if(!strcmp(Items[i].name, name))
@@ -86,6 +89,7 @@ void* VLBICollection::Get(const char* name)
 
 void VLBICollection::RemoveAt(int index)
 {
+    if(!Items) return;
     if(index >= Count)
         return;
     Items[index].item = nullptr;
@@ -94,6 +98,7 @@ void VLBICollection::RemoveAt(int index)
 
 void* VLBICollection::At(int index)
 {
+    if(!Items) return nullptr;
     if(index < 0 || index >= Count)
     {
         return nullptr;
@@ -103,6 +108,7 @@ void* VLBICollection::At(int index)
 
 int VLBICollection::IndexOf(void* el)
 {
+    if(!Items) return -1;
     int ret = -1;
     for(int i = 0; i < Count; i++)
     {
@@ -116,6 +122,7 @@ int VLBICollection::IndexOf(void* el)
 
 bool VLBICollection::ContainsKey(const char* name)
 {
+    if(!Items) return false;
     bool ret = false;
     for(int i = 0; i < Count; i++)
     {
@@ -130,6 +137,7 @@ bool VLBICollection::ContainsKey(const char* name)
 
 bool VLBICollection::Contains(void* el)
 {
+    if(!Items) return false;
     bool ret = false;
     for(int i = 0; i < Count; i++)
     {
@@ -143,6 +151,7 @@ bool VLBICollection::Contains(void* el)
 
 void VLBICollection::Defrag()
 {
+    if(!Items) return;
     int count = Count;
     Count = 0;
     for(int i = 0; i < count; i++)

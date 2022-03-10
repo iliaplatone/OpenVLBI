@@ -19,50 +19,95 @@
 #ifndef _BASELINECOLLECTION_H
 #define _BASELINECOLLECTION_H
 
-#include <collection.h>
-#include <baseline.h>
-#include <nodecollection.h>
+#include "collection.h"
+#include "baseline.h"
+#include "nodecollection.h"
 
 class BaselineCollection : public VLBICollection
 {
-public:
-    BaselineCollection(NodeCollection *nodes);
-    ~BaselineCollection();
-    void Update();
-    void Add(VLBIBaseline *element);
-    void Remove(VLBIBaseline *element);
-    void RemoveAt(int index);
-    VLBIBaseline *Get(const char* name);
-    void RemoveKey(const char* element);
-    void Clear();
-    VLBIBaseline * At(int index);
-    bool Contains(VLBIBaseline *element);
-    bool ContainsKey(const char *element);
-    int IndexOf(VLBIBaseline *element);
-    void SetTarget(double *target);
-    void setRa(double ra);
-    void setDec(double dec);
-    inline double getRa() { return Ra; }
-    inline double getDec() { return Dec; }
-    void SetFrequency(double frequency);
-    void SetSampleRate(double samplerate);
-    void SetDelegate(vlbi_func2_t delegate);
-    void setRelative(bool rel);
-    inline dsp_stream_p getStream() { return Stream; }
-    inline NodeCollection *getNodes() { return Nodes; }
-    inline int getWidth() { return width; }
-    inline int getHeight() { return height; }
-    inline void setWidth(int w) { width = w; int h = getHeight(); getStream()->len = 1; getStream()->dims = 0; dsp_stream_add_dim(getStream(), w); dsp_stream_add_dim(getStream(), h); dsp_stream_alloc_buffer(getStream(), getStream()->len); dsp_buffer_set(getStream()->buf, getStream()->len, 0); }
-    inline void setHeight(int h) { height = h; int w = getWidth(); getStream()->len = 1; getStream()->dims = 0; dsp_stream_add_dim(getStream(), w); dsp_stream_add_dim(getStream(), h); dsp_stream_alloc_buffer(getStream(), getStream()->len); dsp_buffer_set(getStream()->buf, getStream()->len, 0); }
-    inline bool isRelative() { return relative; }
+    public:
+        BaselineCollection(NodeCollection *nodes);
+        ~BaselineCollection();
+        void Update();
+        void Add(VLBIBaseline *element);
+        void Remove(VLBIBaseline *element);
+        void RemoveAt(int index);
+        VLBIBaseline *Get(const char* name);
+        void RemoveKey(const char* element);
+        void Clear();
+        VLBIBaseline * At(int index);
+        bool Contains(VLBIBaseline *element);
+        bool ContainsKey(const char *element);
+        int IndexOf(VLBIBaseline *element);
+        void SetTarget(double *target);
+        void setRa(double ra);
+        void setDec(double dec);
+        inline double getRa()
+        {
+            return Ra;
+        }
+        inline double getDec()
+        {
+            return Dec;
+        }
+        void SetFrequency(double frequency);
+        void SetSampleRate(double samplerate);
+        void SetDelegate(vlbi_func2_t delegate);
+        void setRelative(bool rel);
+        inline void setStream(dsp_stream_p stream)
+        {
+            Stream = stream;
+        }
+        inline dsp_stream_p getStream()
+        {
+            return Stream;
+        }
+        inline NodeCollection *getNodes()
+        {
+            return Nodes;
+        }
+        inline int getWidth()
+        {
+            return width;
+        }
+        inline int getHeight()
+        {
+            return height;
+        }
+        inline void setWidth(int w)
+        {
+            width = w;
+            int h = getHeight();
+            getStream()->len = 1;
+            getStream()->dims = 0;
+            dsp_stream_add_dim(getStream(), w);
+            dsp_stream_add_dim(getStream(), h);
+            dsp_stream_alloc_buffer(getStream(), getStream()->len);
+            dsp_buffer_set(getStream()->buf, getStream()->len, 0);
+        }
+        inline void setHeight(int h)
+        {
+            height = h;
+            int w = getWidth();
+            getStream()->len = 1;
+            getStream()->dims = 0;
+            dsp_stream_add_dim(getStream(), w);
+            dsp_stream_add_dim(getStream(), h);
+            dsp_stream_alloc_buffer(getStream(), getStream()->len);
+            dsp_buffer_set(getStream()->buf, getStream()->len, 0);
+        }
+        inline bool isRelative()
+        {
+            return relative;
+        }
 
-protected:
-    bool relative;
-    double Ra, Dec;
-    NodeCollection *Nodes;
-    int width { 128 };
-    int height { 128 };
-    dsp_stream_p Stream;
+    protected:
+        bool relative;
+        double Ra, Dec;
+        NodeCollection *Nodes;
+        int width { 128 };
+        int height { 128 };
+        dsp_stream_p Stream;
 };
 
 #endif //_BASELINECOLLECTION_H

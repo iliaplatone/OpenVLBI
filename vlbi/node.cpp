@@ -22,11 +22,13 @@
 VLBINode::VLBINode(dsp_stream_p stream, const char* name, int index, bool geographic_coordinates)
 {
     Stream = stream;
-    if(Stream->magnitude == nullptr) {
+    if(Stream->magnitude == nullptr)
+    {
         Stream->magnitude = dsp_stream_copy(Stream);
         dsp_buffer_set(Stream->magnitude->buf, Stream->magnitude->len, 0.0);
     }
-    if(Stream->phase == nullptr) {
+    if(Stream->phase == nullptr)
+    {
         Stream->phase = dsp_stream_copy(Stream);
         dsp_buffer_set(Stream->phase->buf, Stream->phase->len, 0.0);
     }
@@ -41,9 +43,6 @@ VLBINode::VLBINode(dsp_stream_p stream, const char* name, int index, bool geogra
 
 VLBINode::~VLBINode()
 {
-    dsp_stream_free_buffer(getStream());
-    dsp_stream_free(getStream());
-    free(getName());
 }
 
 void VLBINode::setSampleRate(double samplerate)

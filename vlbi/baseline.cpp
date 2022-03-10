@@ -23,11 +23,13 @@ VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
     Stream = dsp_stream_new();
     dsp_stream_add_dim(getStream(), 1);
     dsp_stream_alloc_buffer(getStream(), getStream()->len);
-    if(Stream->magnitude == nullptr) {
+    if(Stream->magnitude == nullptr)
+    {
         Stream->magnitude = dsp_stream_copy(Stream);
         dsp_buffer_set(Stream->magnitude->buf, Stream->magnitude->len, 0.0);
     }
-    if(Stream->phase == nullptr) {
+    if(Stream->phase == nullptr)
+    {
         Stream->phase = dsp_stream_copy(Stream);
         dsp_buffer_set(Stream->phase->buf, Stream->phase->len, 0.0);
     }
@@ -40,9 +42,6 @@ VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
 
 VLBIBaseline::~VLBIBaseline()
 {
-    dsp_stream_free_buffer(getStream());
-    dsp_stream_free(getStream());
-    free(getName());
 }
 
 double VLBIBaseline::Correlate(double time)

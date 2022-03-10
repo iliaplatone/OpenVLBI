@@ -320,7 +320,7 @@ void JSONServer::Parse()
                         i++;
                     }
                 }
-                if(i == 2)
+                if(i == 3)
                 {
                     AddModel(name, format, base64);
                 }

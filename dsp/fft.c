@@ -208,5 +208,7 @@ void dsp_fourier_idft(dsp_stream_p stream)
     free(sizes);
     dsp_buffer_stretch(buf, stream->len, mn, mx);
     dsp_buffer_copy(buf, stream->buf, stream->len);
+    dsp_buffer_shift(stream->magnitude);
+    dsp_buffer_shift(stream->phase);
     free(buf);
 }
