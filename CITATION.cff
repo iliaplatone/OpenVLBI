@@ -5,7 +5,7 @@ authors:
   given-names: "Ilia"
   orcid: "https://orcid.org/0000-0002-8527-4611"
 title: "OpenVLBI"
-version: 1.22.8
+version: 1.22.9
 doi: 10.5281/zenodo.5775142
 date-released: 2021-12-24
 url: "https://github.com/iliaplatone/OpenVLBI"
