@@ -476,11 +476,15 @@ void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, co
         dsp_stream_p ifft = vlbi_get_model(ctx, name);
         if(ifft == nullptr)
             ifft = dsp_stream_copy(mag);
-        dsp_buffer_stretch(phi->buf, phi->len, 0, PI * 2.0);
-        dsp_buffer_stretch(mag->buf, mag->len, 0, dsp_t_max);
-        ifft->phase = phi;
-        ifft->magnitude = mag;
+        ifft->phase = dsp_stream_copy(phi);
+        ifft->magnitude = dsp_stream_copy(mag);
+        dsp_buffer_stretch(ifft->phase->buf, ifft->phase->len, 0, PI * 2.0);
+        dsp_buffer_stretch(ifft->magnitude->buf, ifft->magnitude->len, 0, dsp_t_max);
         dsp_fourier_idft(ifft);
+        dsp_stream_free_buffer(ifft->phase);
+        dsp_stream_free(ifft->phase);
+        dsp_stream_free_buffer(ifft->magnitude);
+        dsp_stream_free(ifft->magnitude);
         vlbi_add_model(ctx, ifft, name);
     }
 }
