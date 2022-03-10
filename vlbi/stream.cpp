@@ -185,7 +185,7 @@ static void* fillplane(void *arg)
                 {
                     while(pthread_mutex_trylock(&mutex))
                         usleep(100);
-                    parent->buf[idx] = (parent->buf[idx]+val/stack)/(stack+1);
+                    parent->buf[idx] = (parent->buf[idx] + val / stack) / (stack + 1);
                     pthread_mutex_unlock(&mutex);
                 }
                 e = s;
@@ -415,8 +415,9 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     baselines->SetSampleRate(sr);
     baselines->setRa(target[0]);
     baselines->setDec(target[1]);
-    dsp_stream_p parent = baselines->getStream();
+    dsp_stream_p parent = dsp_stream_copy(baselines->getStream());
     if(parent == nullptr)return;
+    dsp_buffer_set(parent->buf, parent->len, 0.0);
     parent->child_count = 0;
     pgarb("%d nodes\n%d baselines\n", nodes->Count, baselines->Count);
     baselines->SetDelegate(delegate);
@@ -449,7 +450,9 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     while(threads_running > 0)
         usleep(10000);
     pgarb("aperture synthesis plotting completed\n");
-    vlbi_add_model(ctx, parent, name);
+    dsp_stream_p model = vlbi_get_model(ctx, name);
+    if(model == nullptr)
+        vlbi_add_model(ctx, dsp_stream_copy(parent), name);
 }
 
 void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, const char *phase)
@@ -581,7 +584,7 @@ void vlbi_get_model_to_png(void *ctx, char *filename, const char *name)
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     int components = 1;
-    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(components+1));
+    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(components + 1));
     dsp_stream_p model = nodes->getModels()->Get(name);
     for(int c = 0; c <= components; c++)
         file[c] = model;
@@ -594,7 +597,7 @@ void vlbi_get_model_to_jpeg(void *ctx, char *filename, const char *name)
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     int components = 1;
-    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(components+1));
+    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(components + 1));
     dsp_stream_p model = nodes->getModels()->Get(name);
     for(int c = 0; c <= components; c++)
         file[c] = model;
@@ -607,7 +610,7 @@ void vlbi_get_model_to_fits(void *ctx, char *filename, const char *name)
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     int components = 1;
-    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(components+1));
+    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(components + 1));
     dsp_stream_p model = nodes->getModels()->Get(name);
     for(int c = 0; c <= components; c++)
         file[c] = model;
