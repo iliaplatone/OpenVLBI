@@ -117,7 +117,9 @@ static void* fillplane(void *arg)
         NodeCollection *nodes;
         bool moving_baseline;
         bool nodelay;
+        int *stop;
         int *nthreads;
+        double *percent;
     };
     if(arg == nullptr)return nullptr;
     args *argument = (args*)arg;
@@ -150,6 +152,8 @@ static void* fillplane(void *arg)
     double val;
     for(time = st; time < et; time += tau * i, l++)
     {
+        if(*argument->stop)
+            break;
         for (x = 0; x < nodes->Count; x++)
         {
             if(moving_baseline)
@@ -189,11 +193,11 @@ static void* fillplane(void *arg)
                     pthread_mutex_unlock(&mutex);
                 }
                 e = s;
-                fprintf(stderr, "\r%.3lfs %.3lf %d  ", (time - st), (time - st) * 100.0 / (et - st - tau), i);
             }
         }
         s = l + 1;
         i = s - e;
+        (*argument->percent) += (tau * i) / (et - st) / baselines->Count;
     }
     (*argument->nthreads)--;
     return nullptr;
@@ -404,13 +408,19 @@ void vlbi_unlock_baseline(void *ctx, const char *node1, const char *node2)
 }
 
 void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *target, double freq, double sr, int nodelay,
-                      int moving_baseline, vlbi_func2_t delegate)
+                      int moving_baseline, vlbi_func2_t delegate, int *interrupt, double *percent)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     if(nodes == nullptr)return;
     BaselineCollection *baselines = nodes->getBaselines();
     if(baselines == nullptr)return;
+    int *stop = new int(0);
+    if(interrupt != nullptr)
+        stop = interrupt;
+    double *percentage = new double(0);
+    if(percent != nullptr)
+        percentage = percent;
     dsp_stream_p parent = baselines->getStream();
     dsp_buffer_set(parent->buf, parent->len, 0.0);
     baselines->setWidth(u);
@@ -435,7 +445,9 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
             NodeCollection *nodes;
             bool moving_baseline;
             bool nodelay;
+            int *stop;
             int *nthreads;
+            double *percent;
         };
         args argument;
         argument.b = b;
@@ -443,13 +455,17 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         argument.moving_baseline = moving_baseline;
         argument.nodelay = nodelay;
         argument.nthreads = &threads_running;
+        argument.stop = stop;
+        argument.percent = percentage;
         while(threads_running > max_threads - 1)
             usleep(100000);
         threads_running++;
         pthread_create(&threads[i], nullptr, fillplane, &argument);
     }
-    while(threads_running > 0)
+    while(threads_running > 0) {
+        fprintf(stderr, "\r%.3lf%%", *percentage);
         usleep(100);
+    }
     dsp_stream_p model = vlbi_get_model(ctx, name);
     if(model == nullptr)
     {
