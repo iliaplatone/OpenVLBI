@@ -42,8 +42,6 @@ VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
 
 VLBIBaseline::~VLBIBaseline()
 {
-    dsp_stream_free_buffer(Stream);
-    dsp_stream_free(Stream);
 }
 
 double VLBIBaseline::Correlate(double time)

@@ -14,4 +14,5 @@ if [ "$os" == "Debian" ] || [ "$os" == "Ubuntu" ]; then
  mv ../libopenvlbi-dev_${version}_*.deb packages/
  mv ../openvlbi-bin_${version}_*.deb packages/
  mv ../openvlbi-data_${version}_*.deb packages/
+ dpkg -i packages/openvlbi-bin_${version}_*.deb
 fi
