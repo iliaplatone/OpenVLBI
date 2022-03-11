@@ -58,7 +58,7 @@ var searchData=
   ['vlbi_5fget_5fnode_853',['vlbi_get_node',['../group___v_l_b_i___nodes.html#ga065775abf9414c0741851d27def3c753',1,'vlbi.h']]],
   ['vlbi_5fget_5fnodes_854',['vlbi_get_nodes',['../group___v_l_b_i___nodes.html#gae4c60f784c7a446d5032e0df056eb79c',1,'vlbi.h']]],
   ['vlbi_5fget_5foffsets_855',['vlbi_get_offsets',['../group___v_l_b_i___baselines.html#gaa663a7f2129960bcb0f5d5cc7713eba5',1,'vlbi.h']]],
-  ['vlbi_5fget_5fuv_5fplot_856',['vlbi_get_uv_plot',['../group___v_l_b_i___models.html#ga099892cd31f0c2eb4915f5e5ff9ebfce',1,'vlbi.h']]],
+  ['vlbi_5fget_5fuv_5fplot_856',['vlbi_get_uv_plot',['../group___v_l_b_i___models.html#ga18834efcd89476ce73eb36027fcea24f',1,'vlbi.h']]],
   ['vlbi_5fget_5fversion_857',['vlbi_get_version',['../group___v_l_b_i___functions.html#ga3e1d3ad3a7fb29104cf88f36000cb7f9',1,'vlbi.h']]],
   ['vlbi_5finit_858',['vlbi_init',['../group___v_l_b_i___functions.html#gaee569edd6bdf37b90c385df9a6400ac1',1,'vlbi.h']]],
   ['vlbi_5fmagnitude_5fcorrelator_5fdelegate_859',['vlbi_magnitude_correlator_delegate',['../group___v_l_b_i___defines.html#ga7d0c1c1d769742965516ef725c04df4e',1,'vlbi.h']]],
