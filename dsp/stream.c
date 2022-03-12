@@ -49,9 +49,9 @@ void dsp_set_stderr(FILE *f)
 
 void dsp_print(int x, char* str)
 {
-    if(x == DSP_DEBUG_INFO && out != NULL && 0)
+    if(x == DSP_DEBUG_INFO && out != NULL)
         fprintf(out, "%s", str);
-    else if(x <= dsp_get_debug_level() && err != NULL && 0)
+    else if(x <= dsp_get_debug_level() && err != NULL)
         fprintf(err, "%s", str);
 }
 

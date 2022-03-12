@@ -197,9 +197,15 @@ static void* fillplane(void *arg)
         }
         s = l + 1;
         i = s - e;
+        while(pthread_mutex_trylock(&mutex))
+            usleep(100);
         (*argument->percent) += (tau * i) / (et - st) / baselines->Count;
+        pthread_mutex_unlock(&mutex);
     }
+    while(pthread_mutex_trylock(&mutex))
+        usleep(100);
     (*argument->nthreads)--;
+    pthread_mutex_unlock(&mutex);
     return nullptr;
 }
 
@@ -435,35 +441,38 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     pthread_t *threads = (pthread_t*)malloc(sizeof(pthread_t) * baselines->Count);
     int threads_running = 0;
     int max_threads = (int)vlbi_max_threads(0);
+    struct args
+    {
+        VLBIBaseline *b;
+        NodeCollection *nodes;
+        bool moving_baseline;
+        bool nodelay;
+        int *stop;
+        int *nthreads;
+        double *percent;
+    };
+    args *argument = new args[baselines->Count];
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
         if(b == nullptr)continue;
-        struct args
-        {
-            VLBIBaseline *b;
-            NodeCollection *nodes;
-            bool moving_baseline;
-            bool nodelay;
-            int *stop;
-            int *nthreads;
-            double *percent;
-        };
-        args argument;
-        argument.b = b;
-        argument.nodes = nodes;
-        argument.moving_baseline = moving_baseline;
-        argument.nodelay = nodelay;
-        argument.nthreads = &threads_running;
-        argument.stop = stop;
-        argument.percent = percentage;
+        argument[i].b = b;
+        argument[i].nodes = nodes;
+        argument[i].moving_baseline = moving_baseline;
+        argument[i].nodelay = nodelay;
+        argument[i].nthreads = &threads_running;
+        argument[i].stop = stop;
+        argument[i].percent = percentage;
         while(threads_running > max_threads - 1)
             usleep(100000);
         threads_running++;
-        pthread_create(&threads[i], nullptr, fillplane, &argument);
+        pthread_create(&threads[i], nullptr, fillplane, &argument[i]);
     }
     while(threads_running > 0) {
-        usleep(100);
+        while(pthread_mutex_trylock(&mutex))
+            usleep(100);
+        //pgarb("\r%.3lf%%", *percentage);
+        pthread_mutex_unlock(&mutex);
     }
     dsp_stream_p model = vlbi_get_model(ctx, name);
     if(model == nullptr)
