@@ -156,9 +156,8 @@ dsp_stream_p* dsp_file_read_fits(const char* filename, int *channels, int stretc
     }
 fail:
     if(status) {
-        fits_report_error(stderr, status); /* print out any error messages */
         fits_get_errstatus(status, error_status);
-        fprintf(stderr, "FITS Error: %s\n", error_status);
+        perr("FITS Error: %s\n", error_status);
     }
     return NULL;
 }
@@ -224,7 +223,7 @@ void dsp_file_write_fits(const char* filename, int bpp, dsp_stream_p stream)
             break;
 
         default:
-            fprintf(stderr, "Unsupported bits per sample value %d", bpp);
+            perr("Unsupported bits per sample value %d", bpp);
             goto fail;
     }
 
@@ -255,9 +254,8 @@ void dsp_file_write_fits(const char* filename, int bpp, dsp_stream_p stream)
 
 fail_fptr:
     if(status) {
-        fits_report_error(stderr, status);
         fits_get_errstatus(status, error_status);
-        fprintf(stderr, "FITS Error: %s\n", error_status);
+        perr("FITS Error: %s\n", error_status);
     }
 fail:
     dsp_stream_free_buffer(tmp);
@@ -332,7 +330,7 @@ void dsp_file_write_fits_composite(const char* filename, int components, int bpp
             break;
 
             default:
-                fprintf(stderr, "Unsupported bits per sample value %d", bpp);
+                perr("Unsupported bits per sample value %d", bpp);
                 break;
         }
         dsp_stream_free_buffer(tmp);
@@ -366,9 +364,8 @@ void dsp_file_write_fits_composite(const char* filename, int components, int bpp
 
 fail_fptr:
     if(status) {
-        fits_report_error(stderr, status);
         fits_get_errstatus(status, error_status);
-        fprintf(stderr, "FITS Error: %s\n", error_status);
+        perr("FITS Error: %s\n", error_status);
     }
     free(naxes);
     free (buf);
@@ -443,7 +440,7 @@ void dsp_file_write_fits_bayer(const char* filename, int components, int bpp, ds
             break;
 
             default:
-                fprintf(stderr, "Unsupported bits per sample value %d", bpp);
+                perr("Unsupported bits per sample value %d", bpp);
                 break;
         }
     }
@@ -509,9 +506,8 @@ void dsp_file_write_fits_bayer(const char* filename, int components, int bpp, ds
 
 fail_fptr:
     if(status) {
-        fits_report_error(stderr, status);
         fits_get_errstatus(status, error_status);
-        fprintf(stderr, "FITS Error: %s\n", error_status);
+        perr("FITS Error: %s\n", error_status);
     }
     free(naxes);
     free (data);
@@ -575,7 +571,7 @@ void dsp_file_write_jpeg(const char* filename, int quality, dsp_stream_p stream)
     cinfo.err = jpeg_std_error(&jerr);
     jpeg_create_compress(&cinfo);
     if ((outfile = fopen(filename, "wb")) == NULL) {
-        fprintf(stderr, "can't open %s\n", filename);
+        perr("can't open %s\n", filename);
         return;
     }
     jpeg_stdio_dest(&cinfo, outfile);
@@ -620,7 +616,7 @@ void dsp_file_write_jpeg_composite(const char* filename, int components, int qua
     FILE * outfile;
     cinfo.err = jpeg_std_error(&jerr);
     if ((outfile = fopen(filename, "wb")) == NULL) {
-        fprintf(stderr, "can't open %s\n", filename);
+        perr("can't open %s\n", filename);
         return;
     }
     jpeg_create_compress(&cinfo);
@@ -724,7 +720,7 @@ void dsp_file_write_png_composite(const char* filename, int components, int comp
         return;
     FILE * outfile;
     if ((outfile = fopen(filename, "wb")) == NULL) {
-        fprintf(stderr, "can't open %s\n", filename);
+        perr("can't open %s\n", filename);
         return;
     }
     png_init_io(png, outfile);

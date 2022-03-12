@@ -88,7 +88,6 @@ fitsfile* dsp_fits_create_fits(size_t *size, void **buf)
 
     if (status)
     {
-        fits_report_error(stderr, status); /* print out any error messages */
         fits_get_errstatus(status, error_status);
         perr("FITS Error: %s", error_status);
         if(memptr != NULL)
@@ -97,7 +96,6 @@ fitsfile* dsp_fits_create_fits(size_t *size, void **buf)
     }
     if (status)
     {
-        fits_report_error(stderr, status); /* print out any error messages */
         fits_get_errstatus(status, error_status);
         perr("FITS Error: %s", error_status);
         if(memptr != NULL)
@@ -107,7 +105,6 @@ fitsfile* dsp_fits_create_fits(size_t *size, void **buf)
 
     if (status)
     {
-        fits_report_error(stderr, status); /* print out any error messages */
         fits_get_errstatus(status, error_status);
         perr("FITS Error: %s", error_status);
         if(memptr != NULL)
@@ -462,9 +459,8 @@ fail:
     free(columns);
     if(status)
     {
-        fits_report_error(stderr, status); /* print out any error messages */
         fits_get_errstatus(status, error_status);
-        fprintf(stderr, "FITS Error: %s\n", error_status);
+        perr("FITS Error: %s\n", error_status);
     }
     return NULL;
 }

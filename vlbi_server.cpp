@@ -636,7 +636,7 @@ int main(int argc, char** argv)
                 VLBI::server->SetOutput(fopen (optarg, "a"));
                 break;
             default:
-                fprintf(stderr, "Usage: %s [-t max_threads] [-f obs_file] [-o obs_file]\n", argv[0]);
+                perr("Usage: %s [-t max_threads] [-f obs_file] [-o obs_file]\n", argv[0]);
                 exit(EXIT_FAILURE);
         }
     }

@@ -91,7 +91,7 @@ DLL_EXPORT void dsp_set_debug_level(int value);
 DLL_EXPORT int dsp_get_debug_level();
 /**
 * \brief set the application name
-* \param value the application name to be printed on logs
+* \param name the application name to be printed on logs
 */
 DLL_EXPORT void dsp_set_app_name(char* name);
 /**
@@ -1184,7 +1184,7 @@ DLL_EXPORT void dsp_stream_add_dim(dsp_stream_p stream, int len);
 * \brief Set a dimension size to a DSP stream
 * \param stream the target DSP stream.
 * \param dim the index of the dimension to modify
-* \param len the size of the dimension to modify
+* \param size the size of the dimension to modify
 * \sa dsp_stream_new
 * \sa dsp_stream_add_dim
 */

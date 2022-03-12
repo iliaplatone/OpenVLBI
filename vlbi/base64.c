@@ -39,6 +39,7 @@
 #include "base64.h"
 #include "base64_luts.h"
 #include <stdio.h>
+#include <dsp.h>
 
 /* convert inlen raw bytes at in to base64 string (NUL-terminated) at out. 
  * out size should be at least 4*inlen/3 + 4.
@@ -169,8 +170,8 @@ u#include <cstring>
 
 static void usage(char *me)
 {
-    fprintf(stderr, "Purpose: convert stdin to/from base64 on stdout\n");
-    fprintf(stderr, "Usage: %s {-t,-f}\n", me);
+    perr("Purpose: convert stdin to/from base64 on stdout\n");
+    perr("Usage: %s {-t,-f}\n", me);
     exit(1);
 }
 
@@ -228,7 +229,7 @@ int main(int ac, char *av[])
         nraw = from64tobits_fast(raw, b64, nb64);
         if (nraw < 0)
         {
-            fprintf(stderr, "base64 conversion error: %d\n", nraw);
+            perr("base64 conversion error: %d\n", nraw);
             return (1);
         }
 
@@ -270,19 +271,19 @@ int main(int ac, char *av[])
     nrawback = from64tobits_fast(rawback, b64, nrawin);
     if (nrawback < 0)
     {
-        fprintf(stderr, "base64 error: %d\n", nrawback);
+        perr("base64 error: %d\n", nrawback);
         return (1);
     }
     if (nrawback != nrawin)
     {
-        fprintf(stderr, "base64 back length %d != %d\n", nrawback, nrawin);
+        perr("base64 back length %d != %d\n", nrawback, nrawin);
         return (1);
     }
 
     /* compare */
     if (memcmp(rawback, rawin, nrawin))
     {
-        fprintf(stderr, "compare error\n");
+        perr("compare error\n");
         return (1);
     }
 

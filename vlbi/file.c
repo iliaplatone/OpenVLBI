@@ -312,9 +312,8 @@ dsp_stream_p vlbi_file_read_fits(char *filename)
 fail:
     if(status)
     {
-        fits_report_error(stderr, status); /* print out any error messages */
         fits_get_errstatus(status, error_status);
-        fprintf(stderr, "FITS Error: %s\n", error_status);
+        perr("FITS Error: %s\n", error_status);
     }
     return NULL;
 }

@@ -38,7 +38,7 @@ void JSONServer::Parse()
                                        error);
     if(!value)
     {
-        fprintf(stderr, "error parsing JSON: %s\n", error);
+        perr("error parsing JSON: %s\n", error);
         return;
     }
     for(unsigned int x = 0; x < value->u.object.length; x++)
