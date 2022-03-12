@@ -471,7 +471,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     while(threads_running > 0) {
         while(pthread_mutex_trylock(&mutex))
             usleep(100);
-        pgarb("\r%.3lf%%", *percentage);
+        pgarb("%.3lf%%\n", *percentage);
         pthread_mutex_unlock(&mutex);
     }
     free(argument);
