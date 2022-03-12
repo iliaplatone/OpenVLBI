@@ -25,6 +25,9 @@ static int DSP_MAX_THREADS = 1;
 
 static unsigned long MAX_THREADS = 1;
 
+static FILE *out = NULL;
+static FILE *err = NULL;
+
 unsigned long int dsp_max_threads(unsigned long value)
 {
     if(value>0) {
@@ -34,10 +37,22 @@ unsigned long int dsp_max_threads(unsigned long value)
     return MAX_THREADS;
 }
 
+void dsp_set_stdout(FILE *f)
+{
+    out = f;
+}
+
+void dsp_set_stderr(FILE *f)
+{
+    err = f;
+}
+
 void dsp_print(int x, char* str)
 {
-if(x==DSP_DEBUG_INFO)fprintf(stdout, "%s", str);
-else if(x<=dsp_get_debug_level())fprintf(stderr, "%s", str);
+    if(x == DSP_DEBUG_INFO && out != NULL)
+        fprintf(out, "%s", str);
+    else if(x <= dsp_get_debug_level() && err != NULL)
+        fprintf(err, "%s", str);
 }
 
 void dsp_set_debug_level(int value)
