@@ -463,7 +463,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         pthread_create(&threads[i], nullptr, fillplane, &argument);
     }
     while(threads_running > 0) {
-        fprintf(stderr, "\r%.3lf%%", *percentage);
+        pgarb("\r%.3lf%%", *percentage);
         usleep(100);
     }
     dsp_stream_p model = vlbi_get_model(ctx, name);
@@ -492,6 +492,8 @@ void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, co
         dsp_stream_p ifft = vlbi_get_model(ctx, name);
         if(ifft == nullptr)
             ifft = dsp_stream_copy(mag);
+        dsp_buffer_set(ifft->buf, ifft->len, 0);
+        ifft->buf[0] = dsp_t_max;
         ifft->phase = dsp_stream_copy(phi);
         ifft->magnitude = dsp_stream_copy(mag);
         dsp_buffer_stretch(ifft->phase->buf, ifft->phase->len, 0, PI * 2.0);
