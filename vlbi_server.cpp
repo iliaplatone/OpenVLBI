@@ -15,8 +15,6 @@ VLBI::Server::Server()
 {
     input = stdin;
     output = stdout;
-    dsp_set_stdout(stderr);
-    dsp_set_stderr(stderr);
     Ra = 0;
     Dec = 0;
     Freq = 1420000000;
