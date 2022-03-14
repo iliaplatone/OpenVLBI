@@ -38,7 +38,7 @@ void dsp_fourier_2dsp(dsp_stream_p stream)
     fftw_complex *dft = (fftw_complex*)malloc(sizeof(fftw_complex) * stream->len);
     memcpy(dft, stream->dft.fftw, sizeof(fftw_complex) * stream->len);
     y = 0;
-    for(x = 0; x < stream->len; x++) {
+    for(x = 0; x < stream->len && y < stream->len; x++) {
         int *pos = dsp_stream_get_position(stream, x);
         if(pos[0] <= stream->sizes[0] / 2) {
             stream->dft.fftw[x][0] = dft[y][0];
