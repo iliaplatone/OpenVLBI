@@ -15,8 +15,6 @@ VLBI::Server::Server()
 {
     input = stdin;
     output = stdout;
-    dsp_set_stdout(stderr);
-    dsp_set_stderr(stderr);
     Ra = 0;
     Dec = 0;
     Freq = 1420000000;
@@ -624,6 +622,8 @@ int main(int argc, char** argv)
 {
     int opt;
     dsp_set_app_name(argv[0]);
+    dsp_set_stdout(stderr);
+    dsp_set_stderr(stderr);
     while ((opt = getopt(argc, argv, "t:f:o:")) != -1)
     {
         switch (opt)

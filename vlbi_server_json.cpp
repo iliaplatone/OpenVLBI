@@ -32,9 +32,9 @@ void JSONServer::Parse()
     if(strlen(str) <= 0)
         return;
     char error[json_error_max];
-    json_settings settings;
+    json_settings settings = {0};
     json_value *value = json_parse_ex (&settings,
-                                       str, len - 2,
+                                       str, len-2,
                                        error);
     if(!value)
     {

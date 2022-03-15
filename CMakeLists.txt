@@ -96,7 +96,7 @@ add_library(openvlbi_server STATIC ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server.cpp)
 install(TARGETS openvlbi_server ARCHIVE DESTINATION ${LIB_INSTALL_DIR})
 
 if(WITH_JSON_SERVER)
-add_executable(vlbi_server_json ${CMAKE_CURRENT_SOURCE_DIR}/json.c ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_json.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp)
+add_executable(vlbi_server_json ${CMAKE_CURRENT_SOURCE_DIR}/json.h ${CMAKE_CURRENT_SOURCE_DIR}/json.c ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_json.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp)
 target_link_libraries(vlbi_server_json openvlbi openvlbi_server ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
 install(TARGETS vlbi_server_json RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(WITH_JSON_SERVER)

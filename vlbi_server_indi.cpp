@@ -17,7 +17,7 @@ int INDIServer::Init(int argc, char** argv)
     }
     else
     {
-        fprintf(stderr, "usage: %s hostname port\n", argv[0]);
+        perr("usage: %s hostname port\n", argv[0]);
         return 0;
     }
     return 1;
@@ -293,11 +293,11 @@ void INDIServer::newSwitch(ISwitchVectorProperty *svp)
     {
         if(svp->sp[0].s == ISS_ON)
         {
-            fprintf(stderr, "Device %s connected.\n", svp->device);
+            perr("Device %s connected.\n", svp->device);
         }
         if(svp->sp[0].s == ISS_OFF)
         {
-            fprintf(stderr, "Device %s disconnected.\n", svp->device);
+            perr("Device %s disconnected.\n", svp->device);
         }
     }
     INDI_UNUSED(svp);
@@ -309,23 +309,23 @@ void INDIServer::newNumber(INumberVectorProperty *nvp)
         return;
     if(!strcmp(nvp->name, "SENSOR_INTEGRATION"))
     {
-        fprintf(stderr, "Capture left: %lf.\n", nvp->np[0].value);
+        perr("Capture left: %lf.\n", nvp->np[0].value);
         if(nvp->np[0].value < 1.0)
         {
-            fprintf(stderr, "Capture complete.\n");
+            perr("Capture complete.\n");
         }
     }
     if(!strcmp(nvp->name, "CCD_EXPOSURE"))
     {
-        fprintf(stderr, "Exposure left: %lf.\n", nvp->np[0].value);
+        perr("Exposure left: %lf.\n", nvp->np[0].value);
         if(nvp->np[0].value < 1.0)
         {
-            fprintf(stderr, "Exposure complete.\n");
+            perr("Exposure complete.\n");
         }
     }
     if(!strcmp(nvp->name, "EQUATORIAL_EOD_COORDS"))
     {
-        fprintf(stderr, "Current coordinates: RA:%lf DEC:%lf.\n", nvp->np[0].value, nvp->np[1].value);
+        perr("Current coordinates: RA:%lf DEC:%lf.\n", nvp->np[0].value, nvp->np[1].value);
     }
     INDI_UNUSED(nvp);
 }
@@ -348,12 +348,12 @@ void INDIServer::newMessage(INDI::BaseDevice *dp, int messageID)
 
 void INDIServer::serverConnected()
 {
-    fprintf(stderr, "Connected to server\n");
+    perr("Connected to server\n");
 }
 
 void INDIServer::serverDisconnected(int exit_code)
 {
-    fprintf(stderr, "Disconnected from server\n");
+    perr("Disconnected from server\n");
     INDI_UNUSED(exit_code);
 }
 
