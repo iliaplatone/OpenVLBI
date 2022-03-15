@@ -203,7 +203,7 @@ static void* fillplane(void *arg)
                     unlock_mutex();
                 }
                 e = s;
-                double k = (t - st) / (et - st);
+                double k = 100.0 * (t - st) / (et - st);
                 pinfo("%.3lf%%\n", k);
             }
         }
