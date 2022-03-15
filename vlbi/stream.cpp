@@ -24,6 +24,7 @@
 #include <baselinecollection.h>
 #include <modelcollection.h>
 #include <base64.h>
+#include <thread>
 
 static pthread_mutex_t mutex;
 static pthread_mutexattr_t mutexattr;
@@ -53,6 +54,17 @@ static void destroy_mutex()
     pthread_mutex_destroy(&mutex);
     pthread_mutexattr_destroy(&mutexattr);
     mutex_initialized = false;
+}
+
+static void lock_mutex()
+{
+    while(pthread_mutex_trylock(&mutex))
+        usleep(100);
+}
+
+static void unlock_mutex()
+{
+    pthread_mutex_unlock(&mutex);
 }
 
 static NodeCollection *vlbi_nodes = new NodeCollection();
@@ -139,7 +151,7 @@ static void* fillplane(void *arg)
     double st = b->getStartTime();
     double et = b->getEndTime();
     double tau = 1.0 / b->getSampleRate();
-    double time;
+    double t;
     int l = 0;
     int e = 0;
     int s = 0;
@@ -150,7 +162,7 @@ static void* fillplane(void *arg)
     int oldidx = 0;
     int x;
     double val;
-    for(time = st; time < et; time += tau * i, l++)
+    for(t = st; t < et; t += tau * i, l++)
     {
         if(*argument->stop)
             break;
@@ -171,10 +183,10 @@ static void* fillplane(void *arg)
         }
         else
         {
-            vlbi_get_offsets((void*)nodes, time, b->getNode1()->getName(), b->getNode2()->getName(), b->getRa(), b->getDec(), &offset1,
+            vlbi_get_offsets((void*)nodes, t, b->getNode1()->getName(), b->getNode2()->getName(), b->getRa(), b->getDec(), &offset1,
                              &offset2);
         }
-        b->setTime(time);
+        b->setTime(t);
         b->getProjection();
         int U = (int)b->getU() + u / 2;
         int V = (int)b->getV() + v / 2;
@@ -184,28 +196,22 @@ static void* fillplane(void *arg)
             if(idx != oldidx)
             {
                 oldidx = idx;
-                val = b->Locked() ? b->Correlate(time) : b->Correlate(time + offset1, time + offset2);
+                val = b->Locked() ? b->Correlate(t) : b->Correlate(t + offset1, t + offset2);
                 if(mutex_initialized)
                 {
-                    while(pthread_mutex_trylock(&mutex))
-                        usleep(100);
+                    lock_mutex();
                     parent->buf[idx] = (parent->buf[idx] + val / stack) / (stack + 1);
-                    pthread_mutex_unlock(&mutex);
+                    unlock_mutex();
                 }
                 e = s;
             }
         }
         s = l + 1;
         i = s - e;
-        while(pthread_mutex_trylock(&mutex))
-            usleep(100);
         (*argument->percent) += (tau * i) / (et - st) / baselines->Count;
-        pthread_mutex_unlock(&mutex);
+        pinfo("%.3lf%%\n", *argument->percent);
     }
-    while(pthread_mutex_trylock(&mutex))
-        usleep(100);
     (*argument->nthreads)--;
-    pthread_mutex_unlock(&mutex);
     return nullptr;
 }
 
@@ -469,10 +475,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         pthread_create(&threads[i], nullptr, fillplane, &argument[i]);
     }
     while(threads_running > 0) {
-        while(pthread_mutex_trylock(&mutex))
-            usleep(100);
-        pgarb("%.3lf%%\n", *percentage);
-        pthread_mutex_unlock(&mutex);
+        usleep(1000);
     }
     free(argument);
     dsp_stream_p model = vlbi_get_model(ctx, name);
