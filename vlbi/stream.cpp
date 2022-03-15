@@ -131,7 +131,6 @@ static void* fillplane(void *arg)
         bool nodelay;
         int *stop;
         int *nthreads;
-        double *percent;
     };
     if(arg == nullptr)return nullptr;
     args *argument = (args*)arg;
@@ -200,16 +199,16 @@ static void* fillplane(void *arg)
                 if(mutex_initialized)
                 {
                     lock_mutex();
-                    parent->buf[idx] = (parent->buf[idx] + val / stack) / (stack + 1);
+                    parent->buf[idx] = (parent->buf[idx]+val/stack)/(stack+1);
                     unlock_mutex();
                 }
                 e = s;
+                double k = (t - st) / (et - st);
+                pinfo("%.3lf%%\n", k);
             }
         }
         s = l + 1;
         i = s - e;
-        (*argument->percent) += (tau * i) / (et - st) / baselines->Count;
-        pinfo("%.3lf%%\n", *argument->percent);
     }
     (*argument->nthreads)--;
     return nullptr;
@@ -420,7 +419,7 @@ void vlbi_unlock_baseline(void *ctx, const char *node1, const char *node2)
 }
 
 void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *target, double freq, double sr, int nodelay,
-                      int moving_baseline, vlbi_func2_t delegate, int *interrupt, double *percent)
+                      int moving_baseline, vlbi_func2_t delegate, int *interrupt)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -430,9 +429,6 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     int *stop = new int(0);
     if(interrupt != nullptr)
         stop = interrupt;
-    double *percentage = new double(0);
-    if(percent != nullptr)
-        percentage = percent;
     dsp_stream_p parent = baselines->getStream();
     dsp_buffer_set(parent->buf, parent->len, 0.0);
     baselines->setWidth(u);
@@ -455,7 +451,6 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         bool nodelay;
         int *stop;
         int *nthreads;
-        double *percent;
     };
     args *argument = new args[baselines->Count];
     for(int i = 0; i < baselines->Count; i++)
@@ -468,7 +463,6 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         argument[i].nodelay = nodelay;
         argument[i].nthreads = &threads_running;
         argument[i].stop = stop;
-        argument[i].percent = percentage;
         while(threads_running > max_threads - 1)
             usleep(100000);
         threads_running++;

@@ -669,10 +669,9 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char*
 * \param nodelay if 1 no delay calculation should be done. streams entered are already synced.
 * \param moving_baseline if 1 the location field of all the dsp_stream_p is an array of dsp_location for each element of the dsp_stream_p->buf array.
 * \param interrupt If the value pointed by this parameter changes to 1, then abort plotting.
-* \param percent Percent of completion passed by reference.
 * \param delegate The delegate function to be executed on each node stream buffer element.
 */
-DLL_EXPORT void vlbi_get_uv_plot(void *ctx, const char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate, int *interrupt, double *percent);
+DLL_EXPORT void vlbi_get_uv_plot(void *ctx, const char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, vlbi_func2_t delegate, int *interrupt);
 
 /**
 * \brief Add a model into the current OpenVLBI context.

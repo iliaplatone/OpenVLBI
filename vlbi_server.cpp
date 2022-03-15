@@ -122,7 +122,7 @@ void VLBI::Server::Plot(const char *name, int flags)
     double coords[3] = { Ra, Dec };
     vlbi_get_uv_plot(GetContext(), name, w, h, coords, Freq, SampleRate, (flags & plot_flags_synced) != 0,
                      (flags & plot_flags_moving_baseline) != 0,
-                     (flags & plot_flags_uv_coverage) != 0 ? fillone_delegate : vlbi_default_delegate, nullptr, nullptr);
+                     (flags & plot_flags_uv_coverage) != 0 ? fillone_delegate : vlbi_default_delegate, nullptr);
 }
 
 void VLBI::Server::Idft(const char *model, const char *magnitude, const char *phase)
