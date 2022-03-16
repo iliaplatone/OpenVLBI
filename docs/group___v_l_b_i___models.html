@@ -71,9 +71,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga18834efcd89476ce73eb36027fcea24f"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___models.html#ga18834efcd89476ce73eb36027fcea24f">vlbi_get_uv_plot</a> (void *ctx, const char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, <a class="el" href="group___v_l_b_i___types.html#ga372e6573a910d3275046540c39f3dc39">vlbi_func2_t</a> delegate, int *interrupt, double *percent)</td></tr>
-<tr class="memdesc:ga18834efcd89476ce73eb36027fcea24f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill a fourier plane with an aperture synthesis projection of the baselines during the integration time and save it into a new model with the given name.  <a href="group___v_l_b_i___models.html#ga18834efcd89476ce73eb36027fcea24f">More...</a><br /></td></tr>
-<tr class="separator:ga18834efcd89476ce73eb36027fcea24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8fc7b48388231d420f83dbd336cb9dd"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___models.html#gae8fc7b48388231d420f83dbd336cb9dd">vlbi_get_uv_plot</a> (void *ctx, const char *name, int u, int v, double *target, double freq, double sr, int nodelay, int moving_baseline, <a class="el" href="group___v_l_b_i___types.html#ga372e6573a910d3275046540c39f3dc39">vlbi_func2_t</a> delegate, int *interrupt)</td></tr>
+<tr class="memdesc:gae8fc7b48388231d420f83dbd336cb9dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill a fourier plane with an aperture synthesis projection of the baselines during the integration time and save it into a new model with the given name.  <a href="group___v_l_b_i___models.html#gae8fc7b48388231d420f83dbd336cb9dd">More...</a><br /></td></tr>
+<tr class="separator:gae8fc7b48388231d420f83dbd336cb9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3524d0485b393ec1fd9a47799ee28999"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___models.html#ga3524d0485b393ec1fd9a47799ee28999">vlbi_add_model</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> Stream, const char *name)</td></tr>
 <tr class="memdesc:ga3524d0485b393ec1fd9a47799ee28999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a model into the current OpenVLBI context.  <a href="group___v_l_b_i___models.html#ga3524d0485b393ec1fd9a47799ee28999">More...</a><br /></td></tr>
 <tr class="separator:ga3524d0485b393ec1fd9a47799ee28999"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -667,8 +667,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga18834efcd89476ce73eb36027fcea24f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga18834efcd89476ce73eb36027fcea24f">&#9670;&nbsp;</a></span>vlbi_get_uv_plot()</h2>
+<a id="gae8fc7b48388231d420f83dbd336cb9dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae8fc7b48388231d420f83dbd336cb9dd">&#9670;&nbsp;</a></span>vlbi_get_uv_plot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -737,13 +737,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>interrupt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>percent</em>&#160;</td>
+          <td class="paramname"><em>interrupt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -764,7 +758,6 @@ Functions</h2></td></tr>
     <tr><td class="paramname">nodelay</td><td>if 1 no delay calculation should be done. streams entered are already synced. </td></tr>
     <tr><td class="paramname">moving_baseline</td><td>if 1 the location field of all the dsp_stream_p is an array of dsp_location for each element of the dsp_stream_p-&gt;buf array. </td></tr>
     <tr><td class="paramname">interrupt</td><td>If the value pointed by this parameter changes to 1, then abort plotting. </td></tr>
-    <tr><td class="paramname">percent</td><td>Percent of completion passed by reference. </td></tr>
     <tr><td class="paramname">delegate</td><td>The delegate function to be executed on each node stream buffer element. </td></tr>
   </table>
   </dd>
@@ -810,7 +803,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 12 2022 00:21:29 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 16 2022 00:30:15 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
