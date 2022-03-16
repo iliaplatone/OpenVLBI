@@ -137,7 +137,6 @@ static void* dsp_stream_dft_th(void* arg)
 }
 void dsp_fourier_dft(dsp_stream_p stream, int exp)
 {
-    int d;
     if(exp < 1)
         return;
     double* buf = (double*)malloc(sizeof(double) * stream->len);
@@ -155,15 +154,6 @@ void dsp_fourier_dft(dsp_stream_p stream, int exp)
     free(sizes);
     free(buf);
     dsp_fourier_2dsp(stream);
-    for(int u = 0; u < stream->len; u++)
-    {
-        double dist = 0.0;
-        int* pos = dsp_stream_get_position(stream, u);
-        for(d  = 0; d < stream->dims; d++)
-            dist += pow(stream->sizes[d] / 2 - pos[d], 2);
-        stream->magnitude->buf[u] *= sqrt(dist) + 1;
-        free(pos);
-    }
     if(exp > 1) {
         exp--;
         pthread_t th[2];
@@ -184,21 +174,11 @@ void dsp_fourier_dft(dsp_stream_p stream, int exp)
 
 void dsp_fourier_idft(dsp_stream_p stream)
 {
-    int d = 0;
     double *buf = (double*)malloc(sizeof(double)*stream->len);
     dsp_t mn = dsp_stats_min(stream->buf, stream->len);
     dsp_t mx = dsp_stats_max(stream->buf, stream->len);
     dsp_buffer_set(buf, stream->len, 0);
     free(stream->dft.buf);
-    for(int u = 0; u < stream->len; u++)
-    {
-        double dist = 0.0;
-        int* pos = dsp_stream_get_position(stream, u);
-        for(d  = 0; d < stream->dims; d++)
-            dist += pow(stream->sizes[d] / 2 - pos[d], 2);
-        stream->magnitude->buf[u] /= sqrt(dist) + 1;
-        free(pos);
-    }
     dsp_fourier_2fftw(stream);
     int *sizes = (int*)malloc(sizeof(int)*stream->dims);
     dsp_buffer_reverse(sizes, stream->dims);

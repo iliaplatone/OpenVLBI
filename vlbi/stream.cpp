@@ -502,6 +502,8 @@ void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, co
         ifft->magnitude = dsp_stream_copy(mag);
         dsp_buffer_stretch(ifft->phase->buf, ifft->phase->len, 0, PI * 2.0);
         dsp_buffer_stretch(ifft->magnitude->buf, ifft->magnitude->len, 0, dsp_t_max);
+        dsp_buffer_set(ifft->buf, ifft->len, 0.0);
+        ifft->buf[0] = dsp_t_max;
         dsp_fourier_idft(ifft);
         dsp_stream_free_buffer(ifft->phase);
         dsp_stream_free(ifft->phase);
