@@ -12,7 +12,7 @@ find_package(JPEG REQUIRED)
 find_package(FFTW3 REQUIRED)
 find_package(Threads REQUIRED)
 option(WITH_VLBI_SERVER "Add OpenVLBI servers" ON)
-option(WITH_INDI_SERVER "Add INDI server for OpenVLBI" Off)
+option(WITH_INDI_SERVER "Add INDI server for OpenVLBI" ON)
 option(WITH_DUMMY_SERVER "Add dummy server for OpenVLBI" ON)
 option(WITH_JSON_SERVER "Add JSON server for OpenVLBI" ON)
 
