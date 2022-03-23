@@ -225,7 +225,7 @@ typedef struct timespec timespec_t;
 
 #ifndef VLBI_CATALOG_PATH
 ///The path where the catalogs are stored
-#define VLBI_CATALOG_PATH "@CATALOG_DIR@"
+#define VLBI_CATALOG_PATH "@VLBI_CATALOG_PATH@"
 #endif
 
 #ifndef CIRCLE_DEG
