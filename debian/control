@@ -17,6 +17,27 @@ Standards-Version: 3.9.5
 Homepage: http://iliaplatone.github.io/OpenVLBI/
 Vcs-Git: git://github.com/iliaplatone/OpenVLBI.git
 
+Package: libopendsp1
+Section: libs
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends},
+Pre-Depends: ${misc:Pre-Depends}
+Description: OpenDSP signal processing library
+    OpenDSP is an open source signal processing library.
+    It contains methods and routines for signal processing
+    in imaging and radio astronomy.
+
+Package: libopendsp-dev
+Section: libs
+Architecture: any
+Depends: libopendsp1 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends},
+Pre-Depends: ${misc:Pre-Depends}
+Description: OpenDSP signal processing library - development files
+    OpenDSP is an open source signal processing library.
+    It contains methods and routines for signal processing
+    in imaging and radio astronomy.
+
 Package: libopenvlbi1
 Section: libs
 Architecture: any
@@ -25,20 +46,31 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
 Pre-Depends: ${misc:Pre-Depends}
 Description: OpenVLBI Correlator
     OpenVLBI is an open source correlator for astronomical interferometers.
-    with OpenVLBI astronomers can join together more telescopes to observe    
+    with OpenVLBI astronomers can join together more telescopes to observe
     celestial objects at great resolution.
-    OpenVLBI can be used with radio antennas or optical sensors. 
+    OpenVLBI can be used with radio antennas or optical sensors.
 
 Package: libopenvlbi-dev
 Section: libs
 Architecture: any
-Depends: libopenvlbi1 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends},
+Depends: libopenvlbi1 (= ${binary:Version}), libopendsp1, libopendsp-dev (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends},
 Pre-Depends: ${misc:Pre-Depends}
 Description: OpenVLBI Correlator - development files
     OpenVLBI is an open source correlator for astronomical interferometers.
-    with OpenVLBI astronomers can join together more telescopes to observe    
+    with OpenVLBI astronomers can join together more telescopes to observe
     celestial objects at great resolution.
-    OpenVLBI can be used with radio antennas or optical sensors. 
+    OpenVLBI can be used with radio antennas or optical sensors.
+
+Package: libopenvlbi-doc
+Section: libs
+Architecture: any
+Depends: libopenvlbi-dev (= ${source:Version}), libopendsp-dev (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends},
+Pre-Depends: ${misc:Pre-Depends}
+Description: OpenVLBI Correlator - documentation
+    OpenVLBI is an open source correlator for astronomical interferometers.
+    with OpenVLBI astronomers can join together more telescopes to observe
+    celestial objects at great resolution.
+    OpenVLBI can be used with radio antennas or optical sensors.
 
 Package: openvlbi-data
 Section: libs
