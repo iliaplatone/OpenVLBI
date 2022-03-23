@@ -96,7 +96,7 @@ Description: OpenVLBI correlator - runtime
 
 Package: openvlbi
 Architecture: any
-Depends: openvlbi-bin (>= ${source:Version}), openvlbi-data (>= ${source:Version}), libopenvlbi1 (>= ${source:Version}), libopenvlbi-dev (>= ${source:Version}), ${shlibs:Depends}, ${misc:Depends},
+Depends: openvlbi-bin (>= ${source:Version}), openvlbi-data (>= ${source:Version}), libopendsp1 (>= ${source:Version}), libopendsp-dev (>= ${source:Version}), libopenvlbi1 (>= ${source:Version}), libopenvlbi-dev (>= ${source:Version}), ${shlibs:Depends}, ${misc:Depends},
 Description: OpenVLBI correlator
     OpenVLBI is an open source correlator for astronomical interferometers.
     with OpenVLBI astronomers can join together more telescopes to observe    
