@@ -732,6 +732,15 @@ DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, const char *model, const char *ma
 DLL_EXPORT void vlbi_apply_mask(vlbi_context ctx, const char *name, const char *model, const char *mask);
 
 /**
+* \brief Stack two models into a new one.
+* \param ctx The OpenVLBI context
+* \param name The name of the newly created model.
+* \param model1 The name of the first model to stack.
+* \param model2 The name of the second model to stack.
+*/
+DLL_EXPORT void vlbi_stack_models(vlbi_context ctx, const char *name, const char *model1, const char *model2);
+
+/**
 * \brief Shift a model by its dimensions.
 * \param ctx The OpenVLBI context
 * \param name The name of the model to be shifted.

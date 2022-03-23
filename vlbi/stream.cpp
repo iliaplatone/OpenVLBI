@@ -548,6 +548,24 @@ void vlbi_apply_mask(vlbi_context ctx, const char *name, const char *stream, con
     dsp_stream_free(masked);
 }
 
+void vlbi_stack_models(vlbi_context ctx, const char *name, const char *model1, const char *model2)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    dsp_stream_p stacked = dsp_stream_copy(nodes->getModels()->Get(model1));
+    dsp_stream_p model = nodes->getModels()->Get(model2);
+    if(stacked->dims == model->dims)
+    {
+        dsp_buffer_stretch(model->buf, model->len, 0.0, 1.0);
+        dsp_buffer_div1(stacked, 2);
+        dsp_buffer_div1(model, 2);
+        dsp_buffer_sum(stacked, model->buf, fmin(stacked->len, model->len));
+        vlbi_add_model(ctx, stacked, name);
+    }
+    dsp_stream_free_buffer(model);
+    dsp_stream_free(model);
+}
+
 void vlbi_shift(vlbi_context ctx, const char *name)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
