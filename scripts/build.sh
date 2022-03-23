@@ -13,11 +13,15 @@ if [ "$os" == "Debian" ] || [ "$os" == "Ubuntu" ]; then
  apt-get install -y doxygen libindi-dev libnova-dev libfftw3-dev libcfitsio-dev cdbs cmake dpkg-dev build-essential fakeroot devscripts jq
  dpkg-buildpackage  -b -rfakeroot -us -uc;
  mkdir -p packages
+ mv ../libopendsp1_${version}_*.deb packages/
+ mv ../libopendsp-dev_${version}_*.deb packages/
  mv ../libopenvlbi1_${version}_*.deb packages/
  mv ../libopenvlbi-dev_${version}_*.deb packages/
  mv ../openvlbi-bin_${version}_*.deb packages/
  mv ../openvlbi-data_${version}_*.deb packages/
  dpkg -i \
+  packages/libopendsp1_${version}_*.deb \
+  packages/libopendsp-dev_${version}_*.deb \
   packages/libopenvlbi1_${version}_*.deb \
   packages/libopenvlbi-dev_${version}_*.deb \
   packages/openvlbi-data_${version}_*.deb \
