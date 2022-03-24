@@ -1,2 +1,3 @@
 usr/include/OpenVLBI/*vlbi*.h
 usr/lib/*/*.a
+usr/share/cmake-*
