@@ -1,3 +1,3 @@
 usr/include/OpenVLBI/dsp.h
 usr/include/OpenVLBI/*fits*.h
-usr/share/cmake-*
+usr/share/cmake-*/Modules/FindDSP.cmake
