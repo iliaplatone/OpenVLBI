@@ -77,7 +77,7 @@ SET(dsp_C_SRC
     )
 
 execute_process (COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
-add_library(opendsp SHARED ${dsp_C_SRC} ${vlbi_CXX_SRCS})
+add_library(opendsp SHARED ${dsp_C_SRC})
 set_target_properties(opendsp PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
 target_link_libraries(opendsp ${FFTW3_LIBRARIES} ${M_LIB} ${CFITSIO_LIBRARIES} ${JPEG_LIBRARIES} ${PNG_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
 add_library(openvlbi SHARED ${vlbi_C_SRCS} ${vlbi_CXX_SRCS})
