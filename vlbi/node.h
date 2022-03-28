@@ -42,6 +42,8 @@ class VLBINode
         inline void setStream(dsp_stream_p stream)
         {
             Stream = stream;
+            if(getStream()->dims < 2)
+                dsp_stream_add_dim(getStream(), 1);
             if(Stream->magnitude == nullptr) {
                 Stream->magnitude = dsp_stream_copy(Stream);
                 dsp_buffer_set(Stream->magnitude->buf, Stream->magnitude->len, 0.0);

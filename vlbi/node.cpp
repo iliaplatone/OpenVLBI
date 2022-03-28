@@ -21,19 +21,7 @@
 
 VLBINode::VLBINode(dsp_stream_p stream, const char* name, int index, bool geographic_coordinates)
 {
-    Stream = stream;
-    if(Stream->magnitude == nullptr)
-    {
-        Stream->magnitude = dsp_stream_copy(Stream);
-        dsp_buffer_set(Stream->magnitude->buf, Stream->magnitude->len, 0.0);
-    }
-    if(Stream->phase == nullptr)
-    {
-        Stream->phase = dsp_stream_copy(Stream);
-        dsp_buffer_set(Stream->phase->buf, Stream->phase->len, 0.0);
-    }
-    if(getStream()->dims < 2)
-        dsp_stream_add_dim(getStream(), 1);
+    setStream(stream);
     Name = (char*)calloc(150, 1);
     sprintf(Name, "%s", name);
     Index = index;
