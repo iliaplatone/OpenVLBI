@@ -24,7 +24,7 @@ double* dsp_stats_histogram(dsp_stream_p stream, int size)
     int k;
     double* out = (double*)malloc(sizeof(double)*size);
     double* tmp = (double*)malloc(sizeof(double)*stream->len);
-    dsp_buffer_set(out, stream->len, 0.0);
+    dsp_buffer_set(out, size, 0.0);
     dsp_buffer_copy(stream->buf, tmp, stream->len);
     dsp_buffer_stretch(tmp, stream->len, 0, size-1);
     for(k = 0; k < stream->len; k++) {
