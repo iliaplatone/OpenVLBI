@@ -556,11 +556,28 @@ void vlbi_stack_models(vlbi_context ctx, const char *name, const char *model1, c
     dsp_stream_p model = nodes->getModels()->Get(model2);
     if(stacked->dims == model->dims)
     {
-        dsp_buffer_stretch(model->buf, model->len, 0.0, 1.0);
         dsp_buffer_div1(stacked, 2);
         dsp_buffer_div1(model, 2);
         dsp_buffer_sum(stacked, model->buf, fmin(stacked->len, model->len));
         vlbi_add_model(ctx, stacked, name);
+    }
+    dsp_stream_free_buffer(model);
+    dsp_stream_free(model);
+}
+
+void vlbi_diff_models(vlbi_context ctx, const char *name, const char *model1, const char *model2)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    dsp_stream_p diff = dsp_stream_copy(nodes->getModels()->Get(model1));
+    dsp_stream_p model = nodes->getModels()->Get(model2);
+    dsp_t mn = dsp_stats_min(model->buf, model->len);
+    dsp_t mx = dsp_stats_max(model->buf, model->len);
+    if(diff->dims == model->dims)
+    {
+        dsp_buffer_sub(diff, model->buf, fmin(diff->len, model->len));
+        dsp_buffer_stretch(diff->buf, diff->len, mn, mx);
+        vlbi_add_model(ctx, diff, name);
     }
     dsp_stream_free_buffer(model);
     dsp_stream_free(model);
