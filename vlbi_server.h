@@ -49,7 +49,9 @@ typedef enum
     ///This will fill all baselines projected pixels with ones
     plot_flags_uv_coverage = 2,
     ///This indicates that the nodes are synced already and no delay calculation will be done
-    plot_flags_synced = 4
+    plot_flags_synced = 4,
+    ///This will use a custom visibility delegate
+    plot_flags_custom_delegate = 8,
 } vlbi_plot_flags;
 
 /**
@@ -383,7 +385,23 @@ class Server
             return output;
         }
 
+        /**
+        * \brief Set the delegate function
+        * \param The new delegate
+        */
+        inline void setDelegate(vlbi_func2_t func)
+        {
+            delegate = func;
+        }
+
+        /**
+        * \brief Get the current delegate function
+        * \return The current delegate
+        */
+        inline vlbi_func2_t getDelegate() { return delegate; }
+
     private:
+        vlbi_func2_t delegate;
         double Ra;
         double Dec;
         double Freq;

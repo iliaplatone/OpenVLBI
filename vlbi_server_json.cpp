@@ -5,6 +5,20 @@
 #include <vlbi.h>
 #include <fitsio2.h>
 #include <base64.h>
+#include "strings.h"
+#include "mjs.h"
+char *js_code_str;
+
+static double js_callback(double a, double b) {
+  struct mjs *mjs = mjs_create();
+  int idx = strlen(js_code_str);
+  char *str = (char*)malloc(strlen(js_code_str)+100);
+  sprintf(&str[idx], "function callback(a, b) { %s }; callback(%018.08lf, %018.08lf);", js_code_str, a, b);
+  mjs_val_t result;
+  mjs_exec(mjs, str, &result);
+  return (double)result;
+}
+
 #include "json.h"
 #include "vlbi_server_json.h"
 
@@ -248,6 +262,18 @@ void JSONServer::Parse()
                             flags |= plot_flags_uv_coverage;
                         if(!strcmp(values[y].value->u.string.ptr, "raw"))
                             flags &= ~plot_flags_uv_coverage;
+                        if(!strcmp(values[y].value->u.string.ptr, "custom")) {
+                            flags |= plot_flags_custom_delegate;
+                            for(int z = 0; z < 2; z ++)
+                            {
+                                if(!strcmp(values[y].value->u.object.values[z].name, "code"))
+                                {
+                                    js_code_str = v->u.string.ptr;
+                                    setDelegate(js_callback);
+                                    i++;
+                                }
+                            }
+                        }
                         i++;
                     }
                     if(!strcmp(values[y].name, "adjust_delays"))

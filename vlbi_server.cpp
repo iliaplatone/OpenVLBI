@@ -35,7 +35,7 @@ VLBI::Server::~Server()
     }
 }
 
-static double fillone_delegate(double x, double y)
+static double coverage_delegate(double x, double y)
 {
     (void)x;
     (void)y;
@@ -120,9 +120,12 @@ void VLBI::Server::DelNode(const char *name)
 void VLBI::Server::Plot(const char *name, int flags)
 {
     double coords[3] = { Ra, Dec };
+    if((flags & plot_flags_custom_delegate) == 0) {
+        setDelegate((flags & plot_flags_uv_coverage) != 0 ? coverage_delegate : vlbi_default_delegate);
+    }
     vlbi_get_uv_plot(GetContext(), name, w, h, coords, Freq, SampleRate, (flags & plot_flags_synced) != 0,
                      (flags & plot_flags_moving_baseline) != 0,
-                     (flags & plot_flags_uv_coverage) != 0 ? fillone_delegate : vlbi_default_delegate, nullptr);
+                     getDelegate(), nullptr);
 }
 
 void VLBI::Server::Idft(const char *model, const char *magnitude, const char *phase)
