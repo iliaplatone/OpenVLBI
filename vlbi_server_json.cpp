@@ -7,7 +7,7 @@
 #include <base64.h>
 #include "strings.h"
 #include "mjs.h"
-char *js_code_str;
+static char *js_code_str;
 
 static double js_callback(double a, double b) {
   struct mjs *mjs = mjs_create();
@@ -79,7 +79,7 @@ void JSONServer::Parse()
             {
                 double lat = 0, lon = 0, el = 0;
                 int i = 0;
-                for(int y = 0; y < 3; y ++)
+                for(int y = 0; y < (int)v->u.object.length; y ++)
                 {
                     if(!strcmp(values[y].name, "latitude"))
                     {
@@ -111,7 +111,7 @@ void JSONServer::Parse()
             {
                 char *name = nullptr;
                 char *base64 = nullptr;
-                for(int y = 0; y < 2; y ++)
+                for(int y = 0; y < (int)v->u.object.length; y ++)
                 {
                     if(!strcmp(values[y].name, "name"))
                     {
@@ -131,7 +131,7 @@ void JSONServer::Parse()
             {
                 char *name = nullptr;
                 char *base64 = nullptr;
-                for(int y = 0; y < 2; y ++)
+                for(int y = 0; y < (int)v->u.object.length; y ++)
                 {
                     if(!strcmp(values[y].name, "name"))
                     {
@@ -155,7 +155,7 @@ void JSONServer::Parse()
                 char *locations = nullptr;
                 int buflen = 0;
                 int locationslen = 0;
-                for(int y = 0; y < 5; y ++)
+                for(int y = 0; y < (int)v->u.object.length; y ++)
                 {
                     if(!strcmp(values[y].name, "name"))
                     {
@@ -197,11 +197,11 @@ void JSONServer::Parse()
         }
         if(!strcmp(n, "plot"))
         {
-            if(v->u.object.length == 8)
+            if(v->u.object.length >= 8)
             {
                 int flags = 0;
                 char *name = nullptr;
-                for(int y = 0; y < 8; y ++)
+                for(int y = 0; y < (int)v->u.object.length; y ++)
                 {
                     if(!strcmp(values[y].name, "name"))
                     {
@@ -260,12 +260,12 @@ void JSONServer::Parse()
                     {
                         if(!strcmp(values[y].value->u.string.ptr, "coverage"))
                             flags |= plot_flags_uv_coverage;
-                        if(!strcmp(values[y].value->u.string.ptr, "raw"))
+                        else if(!strcmp(values[y].value->u.string.ptr, "default"))
                             flags &= ~plot_flags_uv_coverage;
-                        if(!strcmp(values[y].value->u.string.ptr, "custom")) {
-                            for(int z = 0; z < 8; z ++)
+                        else {
+                            for(int z = 0; z < (int)values[y].value->u.object.length; z ++)
                             {
-                                if(!strcmp(values[z].name, "code"))
+                                if(!strcmp(values[z].name, values[y].value->u.string.ptr))
                                 {
                                     js_code_str = v->u.string.ptr;
                                     setDelegate(js_callback);
@@ -285,7 +285,7 @@ void JSONServer::Parse()
                         i++;
                     }
                 }
-                if(i == 8)
+                if(i >= 8)
                 {
                     Plot(name, flags);
                 }
@@ -297,7 +297,7 @@ void JSONServer::Parse()
             {
                 char* name = nullptr;
                 char* format = nullptr;
-                for(int y = 0; y < 2; y ++)
+                for(int y = 0; y < (int)v->u.object.length; y ++)
                 {
                     if(!strcmp(values[y].name, "name"))
                     {
@@ -327,7 +327,7 @@ void JSONServer::Parse()
                 char* name = nullptr;
                 char* format = nullptr;
                 char* base64 = nullptr;
-                for(int y = 0; y < 3; y ++)
+                for(int y = 0; y < (int)v->u.object.length; y ++)
                 {
                     if(!strcmp(values[y].name, "name"))
                     {
@@ -359,7 +359,7 @@ void JSONServer::Parse()
                 char* idft = nullptr;
                 char* magnitude = nullptr;
                 char* phase = nullptr;
-                for(int y = 0; y < 4; y ++)
+                for(int y = 0; y < (int)v->u.object.length; y ++)
                 {
                     if(!strcmp(values[y].name, "inverse"))
                     {
