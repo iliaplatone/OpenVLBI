@@ -263,14 +263,13 @@ void JSONServer::Parse()
                         if(!strcmp(values[y].value->u.string.ptr, "raw"))
                             flags &= ~plot_flags_uv_coverage;
                         if(!strcmp(values[y].value->u.string.ptr, "custom")) {
-                            flags |= plot_flags_custom_delegate;
-                            for(int z = 0; z < 2; z ++)
+                            for(int z = 0; z < 8; z ++)
                             {
-                                if(!strcmp(values[y].value->u.object.values[z].name, "code"))
+                                if(!strcmp(values[z].name, "code"))
                                 {
                                     js_code_str = v->u.string.ptr;
                                     setDelegate(js_callback);
-                                    i++;
+                                    flags |= plot_flags_custom_delegate;
                                 }
                             }
                         }
