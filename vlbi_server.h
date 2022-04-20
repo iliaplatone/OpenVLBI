@@ -218,6 +218,22 @@ class Server
         void Mask(const char *name, const char *model, const char *mask);
 
         /**
+        * \brief Stack a model with another model
+        * \param name The name of the new model
+        * \param model1 The name of the first model to be stacked
+        * \param model2 The name of the second model to be stacked
+        */
+        void Stack(const char *name, const char *model1, const char *model2);
+
+        /**
+        * \brief Diff a model with another model
+        * \param name The name of the new model
+        * \param model1 The name of the first model
+        * \param model2 The name of the second model to be subtracted from model1
+        */
+        void Diff(const char *name, const char *model1, const char *model2);
+
+        /**
         * \brief Shift a model by its dimension in-place
         * \param name The name of the model
         */

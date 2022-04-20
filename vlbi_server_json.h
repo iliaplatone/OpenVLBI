@@ -15,6 +15,7 @@ class JSONServer : public VLBI::Server
         void Parse() override;
 
     private:
+        bool CheckMask(unsigned long mask, int n);
         bool nodelay;
         bool relative;
         vlbi_node node;

@@ -138,6 +138,16 @@ void VLBI::Server::Dft(const char *model, const char *magnitude, const char *pha
     vlbi_get_fft(GetContext(), model, magnitude, phase);
 }
 
+void VLBI::Server::Stack(const char *name, const char *model1, const char *model2)
+{
+    vlbi_stack_models(GetContext(), name, model1, model2);
+}
+
+void VLBI::Server::Diff(const char *name, const char *model1, const char *model2)
+{
+    vlbi_diff_models(GetContext(), name, model1, model2);
+}
+
 void VLBI::Server::Mask(const char *name, const char *model, const char *mask)
 {
     vlbi_apply_mask(GetContext(), name, model, mask);
