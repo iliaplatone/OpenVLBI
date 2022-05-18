@@ -21,8 +21,6 @@
 static int dsp_debug = 0;
 static char* dsp_app_name = NULL;
 
-static int DSP_MAX_THREADS = 1;
-
 static unsigned long MAX_THREADS = 1;
 
 static FILE *out = NULL;
@@ -32,7 +30,6 @@ unsigned long int dsp_max_threads(unsigned long value)
 {
     if(value>0) {
         MAX_THREADS = value;
-        DSP_MAX_THREADS = value;
     }
     return MAX_THREADS;
 }
