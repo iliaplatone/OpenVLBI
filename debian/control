@@ -30,7 +30,7 @@ Description: OpenDSP signal processing library
 
 Package: libopendsp-dev
 Section: libs
-Architecture: same
+Architecture: any
 Depends: libopendsp1 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends},
 Pre-Depends: ${misc:Pre-Depends}
 Description: OpenDSP signal processing library - development files
