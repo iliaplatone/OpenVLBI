@@ -30,7 +30,7 @@ Description: OpenDSP signal processing library
 
 Package: libopendsp-dev
 Section: libs
-Architecture: any
+Architecture: same
 Depends: libopendsp1 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends},
 Pre-Depends: ${misc:Pre-Depends}
 Description: OpenDSP signal processing library - development files
@@ -63,7 +63,7 @@ Description: OpenVLBI Correlator - development files
 
 Package: libopenvlbi-doc
 Section: libs
-Architecture: any
+Architecture: all
 Depends: libopenvlbi-dev (= ${source:Version}), libopendsp-dev (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends},
 Pre-Depends: ${misc:Pre-Depends}
 Description: OpenVLBI Correlator - documentation
