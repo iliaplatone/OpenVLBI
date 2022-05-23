@@ -23,6 +23,8 @@ Architecture: any
 Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends},
 Pre-Depends: ${misc:Pre-Depends}
+Replaces: libopenvlbi1 (<< 1.23)
+Breaks: libopenvlbi1 (<< 1.23)
 Description: OpenDSP signal processing library
     OpenDSP is an open source signal processing library.
     It contains methods and routines for signal processing
@@ -33,6 +35,8 @@ Section: libs
 Architecture: any
 Depends: libopendsp1 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends},
 Pre-Depends: ${misc:Pre-Depends}
+Replaces: libopenvlbi1-dev (<< 1.23)
+Breaks: libopenvlbi1-dev (<< 1.23)
 Description: OpenDSP signal processing library - development files
     OpenDSP is an open source signal processing library.
     It contains methods and routines for signal processing
@@ -44,6 +48,8 @@ Architecture: any
 Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends},
 Pre-Depends: ${misc:Pre-Depends}
+Replaces: libopenvlbi1 (<< 1.23)
+Breaks: libopenvlbi1 (<< 1.23)
 Description: OpenVLBI Correlator
     OpenVLBI is an open source correlator for astronomical interferometers.
     with OpenVLBI astronomers can join together more telescopes to observe
@@ -55,6 +61,8 @@ Section: libs
 Architecture: any
 Depends: libopenvlbi1 (= ${binary:Version}), libopendsp1, libopendsp-dev (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends},
 Pre-Depends: ${misc:Pre-Depends}
+Replaces: libopenvlbi1-dev (<< 1.23)
+Breaks: libopenvlbi1-dev (<< 1.23)
 Description: OpenVLBI Correlator - development files
     OpenVLBI is an open source correlator for astronomical interferometers.
     with OpenVLBI astronomers can join together more telescopes to observe
@@ -78,6 +86,8 @@ Architecture: all
 Multi-Arch: foreign
 Depends: ${shlibs:Depends}, ${misc:Depends},
 Pre-Depends: ${misc:Pre-Depends}
+Replaces: libopenvlbi1 (<< 1.23)
+Breaks: libopenvlbi1 (<< 1.23)
 Description: OpenVLBI correlator - data
     OpenVLBI is an open source correlator for astronomical interferometers.
     with OpenVLBI astronomers can join together more telescopes to observe    
