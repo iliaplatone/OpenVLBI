@@ -23,6 +23,8 @@
 
 void dsp_buffer_shift(dsp_stream_p stream)
 {
+    if(stream == NULL)
+        return;
     if(stream->dims == 0)
         return;
     dsp_t* tmp = (dsp_t*)malloc(sizeof(dsp_t) * stream->len);
@@ -46,6 +48,8 @@ void dsp_buffer_shift(dsp_stream_p stream)
 
 void dsp_buffer_removemean(dsp_stream_p stream)
 {
+    if(stream == NULL)
+        return;
     int k;
 
     dsp_t mean = dsp_stats_mean(stream->buf, stream->len);
@@ -56,6 +60,8 @@ void dsp_buffer_removemean(dsp_stream_p stream)
 
 void dsp_buffer_sub(dsp_stream_p stream, dsp_t* in, int inlen)
 {
+    if(stream == NULL)
+        return;
     int len = Min(stream->len, inlen);
 
 	int k;
@@ -67,6 +73,8 @@ void dsp_buffer_sub(dsp_stream_p stream, dsp_t* in, int inlen)
 
 void dsp_buffer_sum(dsp_stream_p stream, dsp_t* in, int inlen)
 {
+    if(stream == NULL)
+        return;
     int len = Min(stream->len, inlen);
 
     int k;
@@ -78,6 +86,8 @@ void dsp_buffer_sum(dsp_stream_p stream, dsp_t* in, int inlen)
 
 void dsp_buffer_max(dsp_stream_p stream, dsp_t* in, int inlen)
 {
+    if(stream == NULL)
+        return;
     int len = Min(stream->len, inlen);
 
     int k;
@@ -89,6 +99,8 @@ void dsp_buffer_max(dsp_stream_p stream, dsp_t* in, int inlen)
 
 void dsp_buffer_min(dsp_stream_p stream, dsp_t* in, int inlen)
 {
+    if(stream == NULL)
+        return;
     int len = Min(stream->len, inlen);
 
     int k;
@@ -100,6 +112,8 @@ void dsp_buffer_min(dsp_stream_p stream, dsp_t* in, int inlen)
 
 void dsp_buffer_div(dsp_stream_p stream, dsp_t* in, int inlen)
 {
+    if(stream == NULL)
+        return;
     int len = Min(stream->len, inlen);
 
 	int k;
@@ -111,6 +125,8 @@ void dsp_buffer_div(dsp_stream_p stream, dsp_t* in, int inlen)
 
 void dsp_buffer_mul(dsp_stream_p stream, dsp_t* in, int inlen)
 {
+    if(stream == NULL)
+        return;
     int len = Min(stream->len, inlen);
 
     int k;
@@ -122,6 +138,8 @@ void dsp_buffer_mul(dsp_stream_p stream, dsp_t* in, int inlen)
 
 void dsp_buffer_pow(dsp_stream_p stream, dsp_t* in, int inlen)
 {
+    if(stream == NULL)
+        return;
     int len = Min(stream->len, inlen);
 
     int k;
@@ -133,6 +151,8 @@ void dsp_buffer_pow(dsp_stream_p stream, dsp_t* in, int inlen)
 
 void dsp_buffer_log(dsp_stream_p stream, dsp_t* in, int inlen)
 {
+    if(stream == NULL)
+        return;
     int len = Min(stream->len, inlen);
 
     int k;
@@ -144,6 +164,8 @@ void dsp_buffer_log(dsp_stream_p stream, dsp_t* in, int inlen)
 
 void dsp_buffer_1sub(dsp_stream_p stream, dsp_t val)
 {
+    if(stream == NULL)
+        return;
     int k;
 
     for(k = 0; k < stream->len; k++) {
@@ -154,6 +176,8 @@ void dsp_buffer_1sub(dsp_stream_p stream, dsp_t val)
 
 void dsp_buffer_sub1(dsp_stream_p stream, dsp_t val)
 {
+    if(stream == NULL)
+        return;
     int k;
 
     for(k = 0; k < stream->len; k++) {
@@ -164,6 +188,8 @@ void dsp_buffer_sub1(dsp_stream_p stream, dsp_t val)
 
 void dsp_buffer_sum1(dsp_stream_p stream, dsp_t val)
 {
+    if(stream == NULL)
+        return;
 	int k;
 
     for(k = 0; k < stream->len; k++) {
@@ -174,6 +200,8 @@ void dsp_buffer_sum1(dsp_stream_p stream, dsp_t val)
 
 void dsp_buffer_1div(dsp_stream_p stream, double val)
 {
+    if(stream == NULL)
+        return;
     int k;
 
     for(k = 0; k < stream->len; k++) {
@@ -184,6 +212,8 @@ void dsp_buffer_1div(dsp_stream_p stream, double val)
 
 void dsp_buffer_div1(dsp_stream_p stream, double val)
 {
+    if(stream == NULL)
+        return;
     int k;
 
     for(k = 0; k < stream->len; k++) {
@@ -194,6 +224,8 @@ void dsp_buffer_div1(dsp_stream_p stream, double val)
 
 void dsp_buffer_mul1(dsp_stream_p stream, double val)
 {
+    if(stream == NULL)
+        return;
     int k;
 
     for(k = 0; k < stream->len; k++) {
@@ -204,6 +236,8 @@ void dsp_buffer_mul1(dsp_stream_p stream, double val)
 
 void dsp_buffer_pow1(dsp_stream_p stream, double val)
 {
+    if(stream == NULL)
+        return;
     int k;
 
     for(k = 0; k < stream->len; k++) {
@@ -214,6 +248,8 @@ void dsp_buffer_pow1(dsp_stream_p stream, double val)
 
 void dsp_buffer_log1(dsp_stream_p stream, double val)
 {
+    if(stream == NULL)
+        return;
     int k;
 
     for(k = 0; k < stream->len; k++) {
@@ -279,6 +315,8 @@ static void* dsp_buffer_median_th(void* arg)
 
 void dsp_buffer_median(dsp_stream_p in, int size, int median)
 {
+    if(in == NULL)
+        return;
     int y, d;
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
@@ -356,6 +394,8 @@ static void* dsp_buffer_sigma_th(void* arg)
 
 void dsp_buffer_sigma(dsp_stream_p in, int size)
 {
+    if(in == NULL)
+        return;
     int y, d;
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
@@ -388,6 +428,8 @@ void dsp_buffer_sigma(dsp_stream_p in, int size)
 
 void dsp_buffer_deviate(dsp_stream_p stream, dsp_t* deviation, dsp_t mindeviation, dsp_t maxdeviation)
 {
+    if(stream == NULL)
+        return;
     dsp_stream_p tmp = dsp_stream_copy(stream);
     int k;
     for(k = 1; k < stream->len; k++) {

@@ -21,6 +21,8 @@
 
 double* dsp_stats_histogram(dsp_stream_p stream, int size)
 {
+    if(stream == NULL)
+        return NULL;
     int k;
     double* out = (double*)malloc(sizeof(double)*size);
     double* tmp = (double*)malloc(sizeof(double)*stream->len);

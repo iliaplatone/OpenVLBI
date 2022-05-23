@@ -20,6 +20,10 @@
 #include "dsp.h"
 
 void dsp_convolution_convolution(dsp_stream_p stream, dsp_stream_p matrix) {
+    if(stream == NULL)
+        return;
+    if(matrix == NULL)
+        return;
     int x, y, d;
     dsp_t mn = dsp_stats_min(stream->buf, stream->len);
     dsp_t mx = dsp_stats_max(stream->buf, stream->len);
@@ -39,6 +43,10 @@ void dsp_convolution_convolution(dsp_stream_p stream, dsp_stream_p matrix) {
 }
 
 void dsp_convolution_correlation(dsp_stream_p stream, dsp_stream_p matrix) {
+    if(stream == NULL)
+        return;
+    if(matrix == NULL)
+        return;
     int x, y, d;
     dsp_t mn = dsp_stats_min(stream->buf, stream->len);
     dsp_t mx = dsp_stats_max(stream->buf, stream->len);
