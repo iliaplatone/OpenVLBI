@@ -422,7 +422,7 @@ void JSONServer::Parse()
                 }
                 if(!strcmp(values[y].name, "model"))
                 {
-                    name = values[y].value->u.string.ptr;
+                    model = values[y].value->u.string.ptr;
                     mask |= 1 << 2;
                 }
                 if(!strcmp(values[y].name, "arg"))
