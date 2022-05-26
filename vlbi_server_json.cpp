@@ -38,7 +38,7 @@ int JSONServer::Init(int argc, char** argv)
 
 bool JSONServer::CheckMask(unsigned long mask, int n)
 {
-    return (mask ^ ((1<<n)-1)) == 0;
+    return ((mask & ((1<<n)-1)) ^ ((1<<n)-1)) == 0;
 }
 
 void JSONServer::Parse()
