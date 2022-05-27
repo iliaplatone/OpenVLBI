@@ -601,10 +601,10 @@ void vlbi_add_model_from_png(void *ctx, char *filename, const char *name)
     {
         for(int c = 0; c < channels; c++)
         {
-            vlbi_add_model(nodes, dsp_stream_copy(file[channels]), name);
             dsp_stream_free_buffer(file[c]);
             dsp_stream_free(file[c]);
         }
+        vlbi_add_model(nodes, dsp_stream_copy(file[channels]), name);
         free(file);
     }
 }
@@ -620,10 +620,10 @@ void vlbi_add_model_from_jpeg(void *ctx, char *filename, const char *name)
     {
         for(int c = 0; c < channels; c++)
         {
-            vlbi_add_model(nodes, dsp_stream_copy(file[c]), name);
             dsp_stream_free_buffer(file[c]);
             dsp_stream_free(file[c]);
         }
+        vlbi_add_model(nodes, dsp_stream_copy(file[channels]), name);
         free(file);
     }
 }
@@ -639,10 +639,10 @@ void vlbi_add_model_from_fits(void *ctx, char *filename, const char *name)
     {
         for(int c = 0; c < channels; c++)
         {
-            vlbi_add_model(nodes, dsp_stream_copy(file[c]), name);
             dsp_stream_free_buffer(file[c]);
             dsp_stream_free(file[c]);
         }
+        vlbi_add_model(nodes, dsp_stream_copy(file[channels]), name);
         free(file);
     }
 }
