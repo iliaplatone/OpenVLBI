@@ -10,7 +10,7 @@ Build-Depends: debhelper (>= 8.1.3~),
  libcfitsio-dev,
  libpng-dev,
  libjpeg-dev,
- libindi-dev,
+ libindi-dev|indi-full,
  libnova-dev,
  doxygen
 Standards-Version: 3.9.5
