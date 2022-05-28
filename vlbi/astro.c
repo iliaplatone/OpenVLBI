@@ -75,7 +75,8 @@ dsp_stream_p vlbi_astro_load_spectrum(char *filename)
     size_t fsize = (size_t)ftell(f);
     fseek(f, 0, SEEK_SET);
     char *buf = malloc(fsize + 1);
-    fread(buf, fsize, 1, f);
+    size_t nread = fread(buf, fsize, 1, f);
+    (void)nread;
     fclose(f);
 
     double w = 0;
@@ -87,7 +88,7 @@ dsp_stream_p vlbi_astro_load_spectrum(char *filename)
     line.center.location = (double*)malloc(sizeof(double)*2);
     line.center.location[1] = 0;
     char str[150];
-    int c = 0;
+    size_t c = 0;
     while(c < fsize) {
         int k = 0;
         while (buf[c] != '\n') {
@@ -171,12 +172,13 @@ int vlbi_astro_load_spectra_catalog(char *path, dsp_stream_p **catalog, int *cat
     size_t fsize = (size_t)ftell(f);
     fseek(f, 0, SEEK_SET);
     char *buf = malloc(fsize + 1);
-    fread(buf, fsize, 1, f);
+    size_t nread = fread(buf, fsize, 1, f);
+    (void)nread;
     fclose(f);
     int w = 0, x = 0;
     char str[150];
     char *dir = dirname(path);
-    int c = 0;
+    size_t c = 0;
     while(c < fsize) {
         int k = 0;
         while (buf[c] != '\n') {

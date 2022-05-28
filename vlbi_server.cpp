@@ -52,7 +52,8 @@ void VLBI::Server::AddNode(const char *name, char *b64)
         size_t b64len = strlen(b64);
         char* buf = (char*)malloc(b64len * 3 / 4 + 4);
         size_t len = (size_t)from64tobits_fast(buf, b64, (int)b64len);
-        write(fd, buf, len);
+        ssize_t written = write(fd, buf, len);
+        (void)written;
         free(buf);
         close(fd);
         vlbi_add_node_from_fits(GetContext(), filename, name, true);
@@ -70,7 +71,8 @@ void VLBI::Server::AddNodes(const char *name, char *b64)
         size_t b64len = strlen(b64);
         char* buf = (char*)malloc(b64len * 3 / 4 + 4);
         size_t len = (size_t)from64tobits_fast(buf, b64, (int)b64len);
-        write(fd, buf, len);
+        ssize_t written = write(fd, buf, len);
+        (void)written;
         free(buf);
         close(fd);
         vlbi_add_nodes_from_sdfits(GetContext(), filename, name, true);
@@ -193,7 +195,8 @@ char* VLBI::Server::GetModel(const char *name, char *format)
         rewind(f);
         len -= ftell(f);
         buf = (unsigned char*)malloc((size_t)len);
-        fread(buf, (size_t)len, 1, f);
+        size_t nread = fread(buf, (size_t)len, 1, f);
+        (void)nread;
         fclose(f);
         unlink(filename);
         outlen = len * 4 / 3 + 4;
@@ -241,7 +244,8 @@ void VLBI::Server::AddModel(const char *name, char *format, char *b64)
         {
             buf = (char*)malloc(b64len * 3 / 4 + 4);
             size_t len = (size_t)from64tobits_fast(buf, b64, (int)b64len);
-            write(fd, buf, len);
+            ssize_t written = write(fd, buf, len);
+            (void)written;
             free(buf);
             close(fd);
             if(!strcmp(format, "fits"))
@@ -269,7 +273,8 @@ void VLBI::Server::Parse()
     char *arg = nullptr;
     char *value = nullptr;
     char *str = nullptr;
-    getdelim(&str, &len, (int)'\n', f);
+    ssize_t ofs = getdelim(&str, &len, (int)'\n', f);
+    (void)ofs;
     if(str == nullptr)
         return;
     if (len == 0)

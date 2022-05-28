@@ -452,7 +452,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         int *stop;
         int *nthreads;
     };
-    args *argument = new args[baselines->Count];
+    args *argument = (args*)malloc(sizeof(args) * (size_t)baselines->Count);
     for(int i = 0; i < baselines->Count; i++)
     {
         VLBIBaseline *b = baselines->At(i);
@@ -600,15 +600,12 @@ void vlbi_add_model_from_png(void *ctx, char *filename, const char *name)
     char *model = (char*)malloc(strlen(name)+5);
     if(file != nullptr)
     {
-        for(int c = 0; c < channels; c++)
-        {
-            if(channels > 1)
+        if(channels > 1) {
+            for(int c = 0; c < channels; c++)
+            {
                 sprintf(model, "%s_%d", name, c);
-            else
-                strcpy(model, name);
-            vlbi_add_model(nodes, dsp_stream_copy(file[c]), model);
-            dsp_stream_free_buffer(file[c]);
-            dsp_stream_free(file[c]);
+                vlbi_add_model(nodes, file[c], model);
+            }
         }
         free(file);
     }
@@ -624,16 +621,14 @@ void vlbi_add_model_from_jpeg(void *ctx, char *filename, const char *name)
     char *model = (char*)malloc(strlen(name)+5);
     if(file != nullptr)
     {
-        for(int c = 0; c < channels; c++)
-        {
-            if(channels > 1)
+        if(channels > 1) {
+            for(int c = 0; c < channels; c++)
+            {
                 sprintf(model, "%s_%d", name, c);
-            else
-                strcpy(model, name);
-            vlbi_add_model(nodes, dsp_stream_copy(file[c]), model);
-            dsp_stream_free_buffer(file[c]);
-            dsp_stream_free(file[c]);
+                vlbi_add_model(nodes, file[c], model);
+            }
         }
+        vlbi_add_model(nodes, file[channels], name);
         free(file);
     }
 }
@@ -648,16 +643,14 @@ void vlbi_add_model_from_fits(void *ctx, char *filename, const char *name)
     char *model = (char*)malloc(strlen(name)+5);
     if(file != nullptr)
     {
-        for(int c = 0; c < channels; c++)
-        {
-            if(channels > 1)
+        if(channels > 1) {
+            for(int c = 0; c < channels; c++)
+            {
                 sprintf(model, "%s_%d", name, c);
-            else
-                strcpy(model, name);
-            vlbi_add_model(nodes, dsp_stream_copy(file[c]), model);
-            dsp_stream_free_buffer(file[c]);
-            dsp_stream_free(file[c]);
+                vlbi_add_model(nodes, file[c], model);
+            }
         }
+        vlbi_add_model(nodes, dsp_stream_copy(file[channels]), name);
         free(file);
     }
 }
@@ -666,12 +659,26 @@ void vlbi_get_model_to_png(void *ctx, char *filename, const char *name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    int components = 1;
-    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(components + 1));
-    dsp_stream_p model = nodes->getModels()->Get(name);
-    for(int c = 0; c <= components; c++)
-        file[c] = model;
-    dsp_file_write_png_composite(filename, components, 9, file);
+    int components = 0;
+    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p));
+    char *modelname = (char*)malloc(strlen(name)+5);
+    int c = 0;
+    sprintf(modelname, "%s_%d", name, c);
+    dsp_stream_p model = nodes->getModels()->Get(modelname);
+    if(model == nullptr) {
+        file = (dsp_stream_p*)realloc(file, sizeof(dsp_stream_p)* (size_t)(components+1));
+        model = nodes->getModels()->Get(name);
+        if(model != nullptr)
+            file[components++] = model;
+    }
+    while(model != nullptr) {
+        file = (dsp_stream_p*)realloc(file, sizeof(dsp_stream_p)* (size_t)(components+1));
+        sprintf(modelname, "%s_%d", name, components);
+        file[components++] = model;
+        model = nodes->getModels()->Get(modelname);
+    }
+    if(components > 0)
+        dsp_file_write_png_composite(filename, components, 9, file);
     free(file);
 }
 
@@ -679,12 +686,26 @@ void vlbi_get_model_to_jpeg(void *ctx, char *filename, const char *name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    int components = 1;
-    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(components + 1));
-    dsp_stream_p model = nodes->getModels()->Get(name);
-    for(int c = 0; c <= components; c++)
-        file[c] = model;
-    dsp_file_write_jpeg_composite(filename, components, 90, file);
+    int components = 0;
+    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p));
+    char *modelname = (char*)malloc(strlen(name)+5);
+    int c = 0;
+    sprintf(modelname, "%s_%d", name, c);
+    dsp_stream_p model = nodes->getModels()->Get(modelname);
+    if(model == nullptr) {
+        file = (dsp_stream_p*)realloc(file, sizeof(dsp_stream_p)* (size_t)(components+1));
+        model = nodes->getModels()->Get(name);
+        if(model != nullptr)
+            file[components++] = model;
+    }
+    while(model != nullptr) {
+        file = (dsp_stream_p*)realloc(file, sizeof(dsp_stream_p)* (size_t)(components+1));
+        sprintf(modelname, "%s_%d", name, components);
+        file[components++] = model;
+        model = nodes->getModels()->Get(modelname);
+    }
+    if(components > 0)
+        dsp_file_write_jpeg_composite(filename, components, 90, file);
     free(file);
 }
 
@@ -692,12 +713,26 @@ void vlbi_get_model_to_fits(void *ctx, char *filename, const char *name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    int components = 1;
-    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(components + 1));
-    dsp_stream_p model = nodes->getModels()->Get(name);
-    for(int c = 0; c <= components; c++)
-        file[c] = model;
-    dsp_file_write_fits_composite(filename, components, 16, file);
+    int components = 0;
+    dsp_stream_p* file = (dsp_stream_p*)malloc(sizeof(dsp_stream_p));
+    char *modelname = (char*)malloc(strlen(name)+5);
+    int c = 0;
+    sprintf(modelname, "%s_%d", name, c);
+    dsp_stream_p model = nodes->getModels()->Get(modelname);
+    if(model == nullptr) {
+        file = (dsp_stream_p*)realloc(file, sizeof(dsp_stream_p)* (size_t)(components+1));
+        model = nodes->getModels()->Get(name);
+        if(model != nullptr)
+            file[components++] = model;
+    }
+    while(model != nullptr) {
+        file = (dsp_stream_p*)realloc(file, sizeof(dsp_stream_p)* (size_t)(components+1));
+        sprintf(modelname, "%s_%d", name, components);
+        file[components++] = model;
+        model = nodes->getModels()->Get(modelname);
+    }
+    if(components > 0)
+        dsp_file_write_fits_composite(filename, components, 16, file);
     free(file);
 }
 

@@ -77,12 +77,14 @@ typedef struct
 
 static void * default_alloc (size_t size, int zero, void * user_data)
 {
-   return zero ? calloc (1, size) : malloc (size);
+    (void)user_data;
+    return zero ? calloc (1, size) : malloc (size);
 }
 
 static void default_free (void * ptr, void * user_data)
 {
-   free (ptr);
+    (void)user_data;
+    free (ptr);
 }
 
 static void * json_alloc (json_state * state, unsigned long size, int zero)
