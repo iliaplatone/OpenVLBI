@@ -1,4 +1,46 @@
-1200  265118 Ge I
-850  270963 Ge I
-650  275459 Ge I
-750  303906 Ge I
+1.900 D 999.10090 Ge Germanium 2
+2.100 D 1016.63810 Ge Germanium 2
+0.350 D 1017.05920 Ge Germanium 2
+0.690 D 1055.02520 Ge Germanium 2
+1.300 D 1075.07150 Ge Germanium 2
+19.000 D 1237.05800 Ge Germanium 2
+22.000 D 1261.90410 Ge Germanium 2
+3.500 D 1264.70870 Ge Germanium 2
+3.400 D 1602.48640 Ge Germanium 2
+6.500 D 1649.19430 Ge Germanium 2
+0.700 C 1944.73130 Ge Germanium 1
+0.280 C 1955.1150 Ge Germanium 1
+0.250 C 1988.2680 Ge Germanium 1
+0.550 C 1998.8870 Ge Germanium 1
+1.100 C 2042.36760 Ge Germanium 1
+0.850 C 2065.87480 Ge Germanium 1
+1.200 C 2069.31670 Ge Germanium 1
+0.400 C 2086.68470 Ge Germanium 1
+0.970 C 2094.92370 Ge Germanium 1
+0.170 C 2106.49180 Ge Germanium 1
+0.032 C 2256.69950 Ge Germanium 1
+0.960 C 2418.10180 Ge Germanium 1
+0.130 C 2498.71560 Ge Germanium 1
+0.100 C 2533.99190 Ge Germanium 1
+0.051 C 2589.96230 Ge Germanium 1
+0.710 C 2593.30930 Ge Germanium 1
+2.000 C 2651.96130 Ge Germanium 1
+0.850 C 2652.35770 Ge Germanium 1
+0.610 C 2692.14000 Ge Germanium 1
+2.800 C 2710.42700 Ge Germanium 1
+1.100 C 2755.40200 Ge Germanium 1
+2.800 C 3039.95150 Ge Germanium 1
+0.031 C 3125.72230 Ge Germanium 1
+0.290 C 3270.43140 Ge Germanium 1
+0.210 C 4227.75280 Ge Germanium 1
+0.095 C 4687.14000 Ge Germanium 1
+0.460 D 4743.13190 Ge Germanium 2
+0.510 D 4815.95400 Ge Germanium 2
+0.086 D 4825.44540 Ge Germanium 2
+1.900 D 5133.18150 Ge Germanium 2
+0.130 D 5179.9020 Ge Germanium 2
+2.000 D 5180.08980 Ge Germanium 2
+0.920 D 5895.02180 Ge Germanium 2
+0.840 D 6022.70880 Ge Germanium 2
+0.440 D 6338.12860 Ge Germanium 2
+0.850 D 6485.97290 Ge Germanium 2

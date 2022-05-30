@@ -1,19 +1,165 @@
-420  272778 Eu II
-190  280284 Eu II
-340  281394 Eu II
-200  282078 Eu II
-320  290668 Eu II
-110  321281 Eu I
-550  368842 Eu II
-1700 cw 372494 Eu II
-3400 cw 381967 Eu II
-2400 cw 390710 Eu II
-2800 cw 393048 Eu II
-2000 cw 397896 Eu II
-2200 cw 412970 Eu II
-4000 cw 420505 Eu II
-900 cw 443556 Eu II
-200  452257 Eu II
-750  459403 Eu I
-650  462722 Eu I
-550  466188 Eu I
+0.220 C+ 2373.5550 Eu Europium 1
+0.230 C+ 2376.0230 Eu Europium 1
+0.230 C+ 2380.3660 Eu Europium 1
+0.008 E 2620.0500 Eu Europium 1
+0.007 E 2644.6030 Eu Europium 1
+0.014 C+ 2660.1890 Eu Europium 1
+0.014 E 2683.3790 Eu Europium 1
+0.160 C+ 2710.7840 Eu Europium 1
+0.137 C+ 2724.7610 Eu Europium 1
+0.650  2728.590 Eu Europium 2
+0.036 C+ 2732.1740 Eu Europium 1
+0.042 C+ 2733.4070 Eu Europium 1
+0.054 C+ 2736.0580 Eu Europium 1
+0.014 C+ 2739.3780 Eu Europium 1
+0.119 C+ 2744.0970 Eu Europium 1
+0.057 C+ 2746.4210 Eu Europium 1
+0.060 C+ 2748.6430 Eu Europium 1
+0.012 E 2773.7170 Eu Europium 1
+0.550  2814.770 Eu Europium 2
+0.032 C+ 2879.6930 Eu Europium 1
+0.116 C+ 2893.3500 Eu Europium 1
+0.115 C+ 2893.8610 Eu Europium 1
+0.017 C+ 2894.6860 Eu Europium 1
+0.410  2907.530 Eu Europium 2
+0.081 C+ 2909.8450 Eu Europium 1
+0.018 C+ 2959.7490 Eu Europium 1
+0.040 B+ 3059.8640 Eu Europium 1
+0.010 C+ 3067.8240 Eu Europium 1
+0.065 C+ 3107.0630 Eu Europium 1
+0.330 B 3112.3300 Eu Europium 1
+0.008 C+ 3169.1950 Eu Europium 1
+0.004 C 3186.4730 Eu Europium 1
+0.119 C+ 3211.4940 Eu Europium 1
+0.341 B+ 3213.7320 Eu Europium 1
+0.169 B+ 3214.6730 Eu Europium 1
+0.010 C+ 3236.0420 Eu Europium 1
+0.022 C 3242.3210 Eu Europium 1
+0.016 C+ 3246.9470 Eu Europium 1
+0.022 C 3248.4750 Eu Europium 1
+0.035 B+ 3323.2100 Eu Europium 1
+0.412 B+ 3335.2720 Eu Europium 1
+0.015 B+ 3351.3600 Eu Europium 1
+0.003 C+ 3354.6620 Eu Europium 1
+0.009 C+ 3458.0270 Eu Europium 1
+0.010 C+ 3468.8640 Eu Europium 1
+0.008 C+ 3590.2840 Eu Europium 1
+0.130  3689.470 Eu Europium 2
+0.450  3726.000 Eu Europium 2
+1.270  3820.750 Eu Europium 2
+1.370  3908.210 Eu Europium 2
+1.070  3931.590 Eu Europium 2
+0.890  3973.080 Eu Europium 2
+0.680  4130.860 Eu Europium 2
+0.710  4206.230 Eu Europium 2
+0.084 C+ 4331.190 Eu Europium 1
+0.310  4436.810 Eu Europium 2
+0.099  4523.840 Eu Europium 2
+1.830 B+ 4595.320 Eu Europium 1
+1.610 B+ 4595.320 Eu Europium 1
+1.560 B+ 4628.520 Eu Europium 1
+1.520 B+ 4663.190 Eu Europium 1
+0.178 B+ 4902.230 Eu Europium 1
+0.365 B+ 5014.570 Eu Europium 1
+0.451 B+ 5024.310 Eu Europium 1
+0.057 B+ 5069.360 Eu Europium 1
+0.184 B+ 5115.800 Eu Europium 1
+0.196 B+ 5130.530 Eu Europium 1
+0.397 B+ 5134.950 Eu Europium 1
+0.292 B+ 5161.510 Eu Europium 1
+0.247 B+ 5168.140 Eu Europium 1
+0.396 B+ 5216.550 Eu Europium 1
+0.191 B+ 5224.940 Eu Europium 1
+0.135 B+ 5267.870 Eu Europium 1
+0.700 B+ 5273.430 Eu Europium 1
+0.068 B 5273.950 Eu Europium 1
+0.310 B+ 5284.290 Eu Europium 1
+0.030 C+ 5288.720 Eu Europium 1
+0.087 B 5295.150 Eu Europium 1
+0.138 B+ 5353.180 Eu Europium 1
+0.379 B+ 5354.330 Eu Europium 1
+0.233 B+ 5359.100 Eu Europium 1
+0.202 C+ 5362.320 Eu Europium 1
+0.297 B+ 5363.100 Eu Europium 1
+0.221 C+ 5394.440 Eu Europium 1
+0.312 B+ 5404.270 Eu Europium 1
+0.226 B+ 5428.4520 Eu Europium 1
+0.333 B+ 5453.030 Eu Europium 1
+0.310 B+ 5454.460 Eu Europium 1
+0.102 B+ 5473.8450 Eu Europium 1
+0.178 B+ 5490.1780 Eu Europium 1
+0.067 C+ 5496.7270 Eu Europium 1
+0.038 B+ 5528.1620 Eu Europium 1
+0.027 C+ 5534.790 Eu Europium 1
+0.332 B+ 5548.980 Eu Europium 1
+0.195 B+ 5571.880 Eu Europium 1
+0.280 B+ 5578.690 Eu Europium 1
+0.200 B+ 5581.580 Eu Europium 1
+0.171 B+ 5587.790 Eu Europium 1
+0.085 C+ 5588.380 Eu Europium 1
+0.019 B 5601.350 Eu Europium 1
+0.026 B 5620.370 Eu Europium 1
+0.119 B+ 5634.100 Eu Europium 1
+0.007 B+ 5647.3620 Eu Europium 1
+0.080 B+ 5675.420 Eu Europium 1
+0.055 C+ 5732.460 Eu Europium 1
+0.280 B 5740.5920 Eu Europium 1
+0.011 B+ 5766.800 Eu Europium 1
+0.051 B 5801.880 Eu Europium 1
+0.510 B+ 5832.600 Eu Europium 1
+0.019 C 5911.580 Eu Europium 1
+0.066 B 5928.160 Eu Europium 1
+0.109 B+ 5965.410 Eu Europium 1
+0.308 B+ 5968.750 Eu Europium 1
+0.185 B+ 5974.400 Eu Europium 1
+0.025 C 5984.800 Eu Europium 1
+0.334 B+ 5994.490 Eu Europium 1
+0.229 B 6014.230 Eu Europium 1
+0.010 B+ 6019.820 Eu Europium 1
+0.251 B 6030.670 Eu Europium 1
+0.211 B+ 6059.040 Eu Europium 1
+0.130 B 6077.260 Eu Europium 1
+0.133 B+ 6085.520 Eu Europium 1
+0.171 B+ 6101.040 Eu Europium 1
+0.131 B+ 6120.470 Eu Europium 1
+0.068 B 6126.370 Eu Europium 1
+0.200 B+ 6189.840 Eu Europium 1
+0.093 B+ 6196.780 Eu Europium 1
+0.030 B 6209.320 Eu Europium 1
+0.016 B 6232.230 Eu Europium 1
+0.066 B+ 6235.450 Eu Europium 1
+0.026 B+ 6252.200 Eu Europium 1
+0.219 B+ 6263.980 Eu Europium 1
+0.001 C+ 6268.680 Eu Europium 1
+0.014 B+ 6287.690 Eu Europium 1
+0.002 B+ 6293.080 Eu Europium 1
+0.134 B+ 6301.510 Eu Europium 1
+0.013 B 6315.530 Eu Europium 1
+0.075 B+ 6337.570 Eu Europium 1
+0.160 B+ 6351.800 Eu Europium 1
+0.047 B+ 6357.650 Eu Europium 1
+0.059 B+ 6371.010 Eu Europium 1
+0.200 B+ 6385.620 Eu Europium 1
+0.175 B+ 6402.700 Eu Europium 1
+0.038 B+ 6407.880 Eu Europium 1
+0.334 B+ 6411.810 Eu Europium 1
+0.233 B+ 6413.090 Eu Europium 1
+0.032 C+ 6441.710 Eu Europium 1
+0.203 B+ 6459.740 Eu Europium 1
+0.124 B+ 6503.350 Eu Europium 1
+0.105 B+ 6521.390 Eu Europium 1
+0.101 B+ 6569.680 Eu Europium 1
+0.080 B 6595.610 Eu Europium 1
+0.150 B+ 6695.810 Eu Europium 1
+0.040 B 6746.740 Eu Europium 1
+0.006 B+ 6866.430 Eu Europium 1
+0.002 B+ 7108.440 Eu Europium 1
+0.025 C+ 7177.530 Eu Europium 1
+0.031 B 7264.770 Eu Europium 1
+0.014 C+ 7315.650 Eu Europium 1
+0.020 C+ 7391.200 Eu Europium 1
+0.019 C+ 7472.590 Eu Europium 1
+0.014 C 7820.360 Eu Europium 1
+0.046 B 8645.040 Eu Europium 1
+0.006 C+ 8784.870 Eu Europium 1
+0.023 C+ 8872.740 Eu Europium 1

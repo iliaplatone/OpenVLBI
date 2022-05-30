@@ -1,8 +1,18 @@
-1200  324270 Pd I
-2600  340458 Pd I
-1400  342124 Pd I
-1100  348115 Pd I
-1300  351694 Pd I
-1300  355308 Pd I
-2200  360955 Pd I
-2200  363470 Pd I
+3.360  1162.17000 Pd Palladium 2
+13.900  1183.40030 Pd Palladium 2
+6.620  1196.40510 Pd Palladium 2
+4.540  1203.96450 Pd Palladium 2
+2.630  1218.62190 Pd Palladium 2
+3.970  1237.06770 Pd Palladium 2
+4.680  1320.02290 Pd Palladium 2
+0.578  1363.68920 Pd Palladium 2
+2.540  1367.70390 Pd Palladium 2
+1.270  1374.84810 Pd Palladium 2
+0.111  2448.64740 Pd Palladium 1
+0.118  2477.16080 Pd Palladium 1
+0.169  2763.90620 Pd Palladium 1
+0.770  3243.63400 Pd Palladium 1
+1.340  3405.55330 Pd Palladium 1
+0.300  3461.72940 Pd Palladium 1
+1.030  3517.94950 Pd Palladium 1
+0.820  3610.57530 Pd Palladium 1

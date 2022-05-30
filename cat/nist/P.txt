@@ -1,54 +1,174 @@
-060  253565 P I
-110  262803 Pt I
-280  265945 Pt I
-200  270240 Pt I
-160  270589 Pt I
-139  271904 Pt I
-180  273396 Pt I
-1000  280199 Pb I
-140  283030 Pt I
-950  283306 Pb I
-170  292979 Pt I
-180  299797 Pt I
-320  306471 Pt I
-1200  324270 Pd I
-2600  340458 Pd I
-1400  342124 Pd I
-1100  348115 Pd I
-1300  351694 Pd I
-1300  355308 Pd I
-2200  360955 Pd I
-2200  363470 Pd I
-1400  368348 Pb I
-140  381617 Pr II
-120 ec 385083 Pr II
-100  385281 Pr II
-180 c 387723 Pr II
-320  390843 Pr II
-130 c 391886 Pr II
-100  392546 Pr II
-140 c 396483 Pr II
-100 ec 396526 Pr II
-190 ec 398206 Pr II
-120  398972 Pr II
-140  399483 Pr II
-170  400871 Pr II
-200  405485 Pr II
-200  405654 Pr II
-3400  405783 Pb I
-300  406282 Pr II
-260 ec 410075 Pr II
-150 ec 411848 Pr II
-130 ec 414126 Pr II
-240  414314 Pr II
-150 ec 416419 Pr II
-460  417942 Pr II
-220  418952 Pr II
-220 c 420674 Pr II
-340  422298 Pr II
-340  422533 Pr II
-130  430576 Pr II
-120  433391 Pr II
-100  435185 Pr II
-110  436833 Pr II
-150  440884 Pr II
+7.600 D 255.590 P Phosphorus 5
+7.300 D 255.670 P Phosphorus 5
+11.000 D+ 328.470 P Phosphorus 5
+11.000 D+ 328.780 P Phosphorus 5
+11.000 D 371.2990 P Phosphorus 4
+15.000 D 371.5040 P Phosphorus 4
+20.000 D 372.0010 P Phosphorus 4
+15.000 D 388.3180 P Phosphorus 4
+1.100 C 410.030 P Phosphorus 5
+17.000 C 410.030 P Phosphorus 5
+0.550 E 444.2450 P Phosphorus 4
+0.750 E 445.1580 P Phosphorus 4
+35.000 C 475.600 P Phosphorus 5
+2.400 C 475.600 P Phosphorus 5
+25.000 C 542.570 P Phosphorus 5
+49.000 C 544.920 P Phosphorus 5
+5.500 C 629.0080 P Phosphorus 4
+16.500 C 629.9140 P Phosphorus 4
+27.300 C 631.7790 P Phosphorus 4
+6.300 C+ 673.900 P Phosphorus 5
+91.000 C+ 673.900 P Phosphorus 5
+35.000 E 756.5100 P Phosphorus 4
+24.200 C 776.3530 P Phosphorus 4
+26.300 B 823.1790 P Phosphorus 4
+19.500 C 824.7300 P Phosphorus 4
+35.200 B 824.7300 P Phosphorus 4
+1.300 D 827.9320 P Phosphorus 4
+46.400 B 827.9320 P Phosphorus 4
+11.600 C 827.9320 P Phosphorus 4
+48.000 D 847.0190 P Phosphorus 4
+66.000 D 849.7990 P Phosphorus 4
+16.000 D 850.3920 P Phosphorus 4
+31.000 C 865.450 P Phosphorus 5
+36.200 C 871.390 P Phosphorus 5
+84.000 D 877.4760 P Phosphorus 4
+39.400 B 950.6550 P Phosphorus 4
+15.000 C 997.620 P Phosphorus 5
+16.000 C 1000.380 P Phosphorus 5
+7.700 C+ 1025.5630 P Phosphorus 4
+10.100 C+ 1028.0960 P Phosphorus 4
+7.500 C+ 1030.5170 P Phosphorus 4
+22.600 C+ 1030.5170 P Phosphorus 4
+29.900 C+ 1033.1110 P Phosphorus 4
+12.400 C+ 1035.5170 P Phosphorus 4
+12.000 C 1117.980 P Phosphorus 5
+32.400 C 1118.5510 P Phosphorus 4
+11.600 C 1128.010 P Phosphorus 5
+0.500 C 1301.870 P Phosphorus 2
+1.500 C 1304.470 P Phosphorus 2
+0.370 C 1304.680 P Phosphorus 2
+0.380 C 1305.480 P Phosphorus 2
+0.620 C 1309.870 P Phosphorus 2
+1.100 C 1310.700 P Phosphorus 2
+0.550 D 1334.8080 P Phosphorus 3
+0.640 D 1344.3270 P Phosphorus 3
+0.110 D 1344.8450 P Phosphorus 3
+6.600 C 1379.620 P Phosphorus 5
+13.000 C 1385.050 P Phosphorus 5
+0.072 D 1532.510 P Phosphorus 2
+0.096 C+ 1535.900 P Phosphorus 2
+0.054 D 1536.390 P Phosphorus 2
+0.127 C+ 1542.290 P Phosphorus 2
+0.390 D 1671.6800 P Phosphorus 1
+0.400 D 1674.5910 P Phosphorus 1
+0.390 D 1679.6950 P Phosphorus 1
+2.170 C 1774.9510 P Phosphorus 1
+2.140 C 1782.8380 P Phosphorus 1
+2.130 C 1787.6560 P Phosphorus 1
+0.232 C 1858.8860 P Phosphorus 1
+2.640 C 1859.3930 P Phosphorus 1
+1.800 E 1888.5230 P Phosphorus 4
+0.211 C 2136.1390 P Phosphorus 1
+2.830 C 2136.8560 P Phosphorus 1
+3.180 C 2149.8210 P Phosphorus 1
+0.485 C 2153.6170 P Phosphorus 1
+0.580 C 2154.7570 P Phosphorus 1
+0.006 E 2236.4260 P Phosphorus 1
+6.400 C 2425.140 P Phosphorus 5
+7.400 C 2441.670 P Phosphorus 5
+1.200 C 2441.980 P Phosphorus 5
+0.200 C 2534.7380 P Phosphorus 1
+0.950 C 2536.3650 P Phosphorus 1
+0.710 C 2554.0280 P Phosphorus 1
+0.300 C 2555.6810 P Phosphorus 1
+2.340 C 3176.010 P Phosphorus 5
+2.280 C 3204.970 P Phosphorus 5
+3.900 D 3220.2370 P Phosphorus 3
+0.770 D 3234.4690 P Phosphorus 3
+4.600 D 3234.5350 P Phosphorus 3
+2.130 C+ 3348.6980 P Phosphorus 4
+2.090 C+ 3365.4340 P Phosphorus 4
+2.100 D 3372.0900 P Phosphorus 4
+0.750 D 3905.9180 P Phosphorus 3
+1.200 D 3958.7610 P Phosphorus 3
+0.100 D 4058.5860 P Phosphorus 3
+0.900 D 4060.4580 P Phosphorus 3
+0.990 D 4081.2360 P Phosphorus 3
+1.500 D 4223.3840 P Phosphorus 3
+1.400 D 4247.9160 P Phosphorus 3
+0.840 C 4250.8520 P Phosphorus 4
+0.400 D 4386.580 P Phosphorus 2
+1.600 D 4421.950 P Phosphorus 2
+1.300 D 4476.520 P Phosphorus 2
+1.400 D 4500.500 P Phosphorus 2
+0.180 D 4532.080 P Phosphorus 2
+0.970 D 4559.350 P Phosphorus 2
+1.700 D 4589.330 P Phosphorus 2
+1.600 D 4591.150 P Phosphorus 2
+1.900 D 4603.370 P Phosphorus 2
+0.300 D 4628.000 P Phosphorus 2
+0.210 D 4659.610 P Phosphorus 2
+0.110 D 4865.780 P Phosphorus 2
+0.190 D 4928.580 P Phosphorus 2
+0.630 D 4944.910 P Phosphorus 2
+0.780 D 4955.770 P Phosphorus 2
+0.580 D 4971.100 P Phosphorus 2
+0.029 E 5080.7970 P Phosphorus 1
+0.029 E 5099.6420 P Phosphorus 1
+0.005 E 5102.3960 P Phosphorus 1
+0.034 E 5111.0520 P Phosphorus 1
+0.015 E 5156.2800 P Phosphorus 1
+0.350 D 5192.860 P Phosphorus 2
+1.000 D 5254.980 P Phosphorus 2
+0.058 E 5295.0120 P Phosphorus 1
+0.550 D 5297.600 P Phosphorus 2
+0.240 D 5317.550 P Phosphorus 2
+0.320 D 5346.240 P Phosphorus 2
+0.073 E 5347.3380 P Phosphorus 1
+0.110 D 5379.700 P Phosphorus 2
+0.230 D 5388.380 P Phosphorus 2
+0.930 D 5411.220 P Phosphorus 2
+0.690 D 5427.420 P Phosphorus 2
+0.330 D 5452.250 P Phosphorus 2
+0.038 E 5459.8220 P Phosphorus 1
+0.057 E 5479.1940 P Phosphorus 1
+0.150 D 5485.070 P Phosphorus 2
+0.370 D 5501.260 P Phosphorus 2
+0.110 D 5508.720 P Phosphorus 2
+0.450 D 5542.680 P Phosphorus 2
+0.190 D 5584.820 P Phosphorus 2
+0.150 D 5589.890 P Phosphorus 2
+0.150 D 5729.300 P Phosphorus 2
+0.510 D 6025.850 P Phosphorus 2
+0.370 D 6035.710 P Phosphorus 2
+0.680 D 6044.790 P Phosphorus 2
+0.690 D 6057.180 P Phosphorus 2
+0.270 D 6089.510 P Phosphorus 2
+0.160 D 6167.300 P Phosphorus 2
+0.017 E 6234.010 P Phosphorus 2
+0.050 E 6719.2650 P Phosphorus 1
+0.051 E 7160.3400 P Phosphorus 1
+0.050 E 7167.4400 P Phosphorus 1
+0.047 E 7178.6380 P Phosphorus 1
+0.330 D 7847.790 P Phosphorus 2
+0.079 D 8639.9510 P Phosphorus 1
+0.091 D 8743.9300 P Phosphorus 1
+0.050 D 9178.3370 P Phosphorus 1
+0.096 D 9307.490 P Phosphorus 1
+0.140 D 9528.340 P Phosphorus 1
+0.081 D 9566.0620 P Phosphorus 1
+0.110 D 9596.130 P Phosphorus 1
+0.044 E 9611.680 P Phosphorus 1
+0.035 E 9737.4200 P Phosphorus 1
+0.220 D 9753.440 P Phosphorus 1
+0.045 D 9792.890 P Phosphorus 1
+0.180 D 9799.540 P Phosphorus 1
+0.180 D 9906.400 P Phosphorus 1
+0.110 D 9979.410 P Phosphorus 1
+0.210 D 10087.030 P Phosphorus 1
+0.088 D 10514.460 P Phosphorus 1
+0.150 D 10532.410 P Phosphorus 1
+0.170 D 10599.800 P Phosphorus 1
+0.110 D 10684.330 P Phosphorus 1
+0.060 D 10816.090 P Phosphorus 1

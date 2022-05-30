@@ -1,17 +1,108 @@
-360  332309 Rh I
-480  339685 Rh I
-700  343489 Rh I
-500  346204 Rh I
-400  347066 Rh I
-400  347478 Rh I
-500  350252 Rh I
-750  352802 Rh I
-400  358310 Rh I
-400  359619 Rh I
-500  359715 Rh I
-700  365799 Rh I
-800  369236 Rh I
-650  370091 Rh I
-420  379931 Rh I
-500  385652 Rh I
-360  437480 Rh I
+0.048 C 3084.860 Rh Rhodium 1
+0.045 D 3115.810 Rh Rhodium 1
+0.110 C 3122.670 Rh Rhodium 1
+0.046 C+ 3124.610 Rh Rhodium 1
+0.033 D+ 3138.620 Rh Rhodium 1
+0.030 C 3189.970 Rh Rhodium 1
+0.043 C+ 3198.050 Rh Rhodium 1
+0.125 C+ 3264.080 Rh Rhodium 1
+0.200 C+ 3272.550 Rh Rhodium 1
+0.240 C+ 3281.500 Rh Rhodium 1
+0.138 C+ 3281.500 Rh Rhodium 1
+0.440 C+ 3284.520 Rh Rhodium 1
+0.102 C+ 3290.090 Rh Rhodium 1
+0.630 B 3324.050 Rh Rhodium 1
+0.054 C+ 3332.050 Rh Rhodium 1
+0.035 C+ 3339.500 Rh Rhodium 1
+0.123 C+ 3361.770 Rh Rhodium 1
+0.106 C+ 3369.350 Rh Rhodium 1
+0.650 B+ 3397.790 Rh Rhodium 1
+0.121 C+ 3400.680 Rh Rhodium 1
+1.320 B+ 3435.870 Rh Rhodium 1
+0.620 B+ 3463.030 Rh Rhodium 1
+0.840 B 3471.650 Rh Rhodium 1
+0.330 B 3479.910 Rh Rhodium 1
+0.009 D+ 3485.040 Rh Rhodium 1
+0.211 B 3499.730 Rh Rhodium 1
+0.430 B+ 3503.520 Rh Rhodium 1
+0.336 B 3508.320 Rh Rhodium 1
+0.850 B+ 3529.030 Rh Rhodium 1
+0.166 B 3539.150 Rh Rhodium 1
+0.460 B 3544.960 Rh Rhodium 1
+0.222 B 3550.550 Rh Rhodium 1
+0.182 B 3571.200 Rh Rhodium 1
+0.260 C+ 3584.120 Rh Rhodium 1
+0.548 B+ 3597.220 Rh Rhodium 1
+0.590 B+ 3598.180 Rh Rhodium 1
+0.890 B+ 3613.500 Rh Rhodium 1
+0.084 B 3621.490 Rh Rhodium 1
+0.060 C+ 3655.910 Rh Rhodium 1
+0.880 B+ 3659.030 Rh Rhodium 1
+0.084 C+ 3667.260 Rh Rhodium 1
+0.323 B+ 3691.750 Rh Rhodium 1
+0.910 B+ 3693.410 Rh Rhodium 1
+0.390 B 3701.960 Rh Rhodium 1
+0.082 B+ 3714.080 Rh Rhodium 1
+0.137 B 3789.550 Rh Rhodium 1
+0.420 B 3794.300 Rh Rhodium 1
+0.550 B+ 3800.390 Rh Rhodium 1
+0.062 C+ 3807.840 Rh Rhodium 1
+0.580 B+ 3819.270 Rh Rhodium 1
+0.860 B 3823.340 Rh Rhodium 1
+0.620 B 3829.570 Rh Rhodium 1
+0.570 B 3834.980 Rh Rhodium 1
+0.590 C+ 3857.610 Rh Rhodium 1
+0.007 D+ 3873.490 Rh Rhodium 1
+0.037 C+ 3878.440 Rh Rhodium 1
+0.002 D 3914.620 Rh Rhodium 1
+0.062 C+ 3923.300 Rh Rhodium 1
+0.157 C+ 3935.340 Rh Rhodium 1
+0.720 B+ 3943.840 Rh Rhodium 1
+0.540 B 3959.980 Rh Rhodium 1
+0.109 B+ 3985.530 Rh Rhodium 1
+0.046 C+ 3996.740 Rh Rhodium 1
+0.028 C+ 4054.580 Rh Rhodium 1
+0.010 C 4057.490 Rh Rhodium 1
+0.143 C+ 4083.930 Rh Rhodium 1
+0.069 B 4098.680 Rh Rhodium 1
+0.098 C+ 4122.840 Rh Rhodium 1
+0.172 B 4130.030 Rh Rhodium 1
+0.101 C+ 4136.440 Rh Rhodium 1
+0.038 C+ 4197.680 Rh Rhodium 1
+0.162 C+ 4212.330 Rh Rhodium 1
+0.007 C 4245.640 Rh Rhodium 1
+0.009 C+ 4279.800 Rh Rhodium 1
+0.061 C+ 4289.920 Rh Rhodium 1
+0.017 C+ 4374.270 Rh Rhodium 1
+0.164 B 4376.030 Rh Rhodium 1
+0.025 C+ 4381.150 Rh Rhodium 1
+0.005 D+ 4493.730 Rh Rhodium 1
+0.014 C 4529.990 Rh Rhodium 1
+0.005 D 4550.010 Rh Rhodium 1
+0.040 C 4552.920 Rh Rhodium 1
+0.011 C 4566.470 Rh Rhodium 1
+0.010 C 4570.280 Rh Rhodium 1
+0.020 C+ 4609.410 Rh Rhodium 1
+0.006 D+ 4676.340 Rh Rhodium 1
+0.003 D+ 4722.320 Rh Rhodium 1
+0.005 D+ 4746.440 Rh Rhodium 1
+0.006 C 4756.910 Rh Rhodium 1
+0.002 D 4843.780 Rh Rhodium 1
+0.030 C+ 4965.100 Rh Rhodium 1
+0.010 C 4979.140 Rh Rhodium 1
+0.010 C 4980.570 Rh Rhodium 1
+0.005 D+ 5092.050 Rh Rhodium 1
+0.003 D+ 5122.120 Rh Rhodium 1
+0.004 D+ 5132.190 Rh Rhodium 1
+0.010 C 5156.980 Rh Rhodium 1
+0.002 D 5185.630 Rh Rhodium 1
+0.006 D+ 5214.180 Rh Rhodium 1
+0.004 D 5293.610 Rh Rhodium 1
+0.010 D+ 5391.940 Rh Rhodium 1
+0.005 E 5426.230 Rh Rhodium 1
+0.013 E 5600.970 Rh Rhodium 1
+0.005 E 5687.960 Rh Rhodium 1
+0.011 E 5808.520 Rh Rhodium 1
+0.021 D 5985.260 Rh Rhodium 1
+0.004 E 6321.280 Rh Rhodium 1
+0.004 E 6967.590 Rh Rhodium 1

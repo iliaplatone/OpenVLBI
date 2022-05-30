@@ -1,1 +1,6 @@
-070  238576 Te I
+4.080  1699.900 Te Tellurium 1
+3.120  2143.490 Te Tellurium 1
+0.128  2259.730 Te Tellurium 1
+0.404  2384.010 Te Tellurium 1
+0.808  2386.520 Te Tellurium 1
+0.011  2531.500 Te Tellurium 1

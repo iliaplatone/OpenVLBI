@@ -1,1 +1,499 @@
-1500  253652 Hg I
+0.100  782.4940 Hg Mercury 2
+0.310  787.7570 Hg Mercury 2
+0.190  802.4690 Hg Mercury 2
+1.400  821.3290 Hg Mercury 2
+0.580  893.0850 Hg Mercury 2
+13.000  915.8190 Hg Mercury 2
+6.500  923.3770 Hg Mercury 2
+7.000  940.7360 Hg Mercury 2
+16.000  942.6300 Hg Mercury 2
+20.000  962.7110 Hg Mercury 2
+6.800  969.1420 Hg Mercury 2
+0.010  1022.9650 Hg Mercury 2
+1.600  1027.5700 Hg Mercury 2
+0.001  1029.9080 Hg Mercury 2
+0.082  1033.7370 Hg Mercury 2
+0.160  1034.6910 Hg Mercury 2
+3.000  1039.6310 Hg Mercury 2
+0.520  1062.7800 Hg Mercury 2
+0.230  1070.3690 Hg Mercury 2
+0.092  1073.3370 Hg Mercury 2
+0.030  1074.4160 Hg Mercury 2
+0.150  1083.6460 Hg Mercury 2
+0.210  1096.8040 Hg Mercury 2
+0.380  1105.8780 Hg Mercury 2
+0.200  1122.3350 Hg Mercury 2
+0.032  1137.7000 Hg Mercury 2
+0.092  1141.0420 Hg Mercury 2
+0.230  1156.7950 Hg Mercury 2
+0.780  1160.3820 Hg Mercury 2
+0.470  1162.1970 Hg Mercury 2
+0.900  1203.7060 Hg Mercury 2
+0.460  1233.4330 Hg Mercury 2
+0.035  1257.4040 Hg Mercury 2
+0.430  1264.5410 Hg Mercury 2
+3.700  1278.4440 Hg Mercury 2
+0.340  1284.9120 Hg Mercury 2
+0.220  1294.6650 Hg Mercury 2
+6.500  1307.9280 Hg Mercury 2
+1.400  1309.1350 Hg Mercury 2
+0.037  1313.9640 Hg Mercury 2
+6.700  1321.7130 Hg Mercury 2
+6.300  1323.0420 Hg Mercury 2
+5.400  1331.7370 Hg Mercury 2
+9.100  1347.7750 Hg Mercury 2
+0.880  1349.6890 Hg Mercury 2
+22.000  1350.2680 Hg Mercury 2
+0.150  1352.1860 Hg Mercury 2
+1.400  1352.4960 Hg Mercury 2
+2.100  1354.2890 Hg Mercury 2
+11.000  1356.9820 Hg Mercury 2
+0.250  1357.2760 Hg Mercury 2
+6.600  1359.2030 Hg Mercury 2
+16.000  1361.2630 Hg Mercury 2
+3.500  1368.1940 Hg Mercury 2
+5.700  1372.5730 Hg Mercury 2
+15.000  1382.2030 Hg Mercury 2
+0.700  1389.8120 Hg Mercury 2
+6.000  1393.7910 Hg Mercury 2
+16.000  1400.4610 Hg Mercury 2
+20.000  1404.5340 Hg Mercury 2
+1.800  1406.9400 Hg Mercury 2
+18.000  1414.4200 Hg Mercury 2
+11.000  1417.0050 Hg Mercury 2
+7.300  1419.3930 Hg Mercury 2
+0.850  1429.9920 Hg Mercury 2
+1.600  1446.9610 Hg Mercury 2
+1.100  1459.4820 Hg Mercury 2
+2.100  1474.0290 Hg Mercury 2
+3.800  1477.7760 Hg Mercury 2
+0.890  1486.5630 Hg Mercury 2
+3.500  1491.5450 Hg Mercury 2
+4.000  1496.9970 Hg Mercury 2
+12.000  1497.7670 Hg Mercury 2
+0.720  1509.1350 Hg Mercury 2
+9.300  1511.6220 Hg Mercury 2
+3.000  1527.5010 Hg Mercury 2
+0.060  1530.2980 Hg Mercury 2
+3.800  1533.5890 Hg Mercury 2
+1.800  1539.1400 Hg Mercury 2
+1.600  1539.7080 Hg Mercury 2
+12.000  1541.9100 Hg Mercury 2
+0.300  1545.1840 Hg Mercury 2
+2.400  1561.1490 Hg Mercury 2
+8.200  1561.4790 Hg Mercury 2
+1.800  1566.6020 Hg Mercury 2
+1.300  1577.6210 Hg Mercury 2
+7.000  1581.7480 Hg Mercury 2
+3.000  1584.6740 Hg Mercury 2
+9.000  1589.5810 Hg Mercury 2
+6.200  1593.9320 Hg Mercury 2
+3.200  1596.9040 Hg Mercury 2
+6.300  1599.6010 Hg Mercury 2
+10.000  1601.5410 Hg Mercury 2
+4.000  1605.3110 Hg Mercury 2
+6.200  1611.7630 Hg Mercury 2
+13.000  1614.0830 Hg Mercury 2
+4.000  1617.7030 Hg Mercury 2
+2.800  1619.2790 Hg Mercury 2
+0.180  1621.5490 Hg Mercury 2
+3.700  1622.1410 Hg Mercury 2
+0.200  1623.8740 Hg Mercury 2
+2.000  1634.0940 Hg Mercury 2
+0.880  1635.8010 Hg Mercury 2
+0.160  1638.7230 Hg Mercury 2
+1.200  1640.4430 Hg Mercury 2
+8.800  1641.6570 Hg Mercury 2
+1.100  1644.5140 Hg Mercury 2
+0.630  1649.6620 Hg Mercury 2
+12.000  1649.9370 Hg Mercury 2
+2.000  1653.6090 Hg Mercury 2
+3.400  1655.4380 Hg Mercury 2
+11.000  1662.5310 Hg Mercury 2
+3.300  1663.8500 Hg Mercury 2
+3.200  1667.0900 Hg Mercury 2
+0.320  1672.5370 Hg Mercury 2
+0.520  1674.3780 Hg Mercury 2
+0.200  1675.5810 Hg Mercury 2
+0.012  1675.8090 Hg Mercury 2
+0.100  1688.7280 Hg Mercury 2
+2.300  1695.1140 Hg Mercury 2
+0.400  1702.6120 Hg Mercury 2
+0.900  1703.5270 Hg Mercury 2
+0.055  1705.4330 Hg Mercury 2
+0.023  1707.1190 Hg Mercury 2
+2.100  1708.8060 Hg Mercury 2
+0.016  1711.7380 Hg Mercury 2
+0.480  1712.8740 Hg Mercury 2
+0.600  1718.4160 Hg Mercury 2
+0.130  1731.8230 Hg Mercury 2
+0.180  1754.1120 Hg Mercury 2
+1.800  1787.5980 Hg Mercury 2
+0.026  1793.9210 Hg Mercury 2
+3.100  1798.6500 Hg Mercury 2
+3.400  1798.9340 Hg Mercury 2
+0.120  1800.8150 Hg Mercury 2
+0.710  1806.1580 Hg Mercury 2
+0.700  1808.2870 Hg Mercury 2
+11.000  1820.7200 Hg Mercury 2
+0.260  1823.8590 Hg Mercury 2
+0.023  1825.1210 Hg Mercury 2
+0.910  1836.6720 Hg Mercury 2
+6.500  1840.6230 Hg Mercury 2
+2.200  1841.2040 Hg Mercury 2
+0.820  1847.4170 Hg Mercury 2
+3.500  1848.9350 Hg Mercury 2
+7.460 A 1849.49940 Hg Mercury 1
+0.290  1850.4660 Hg Mercury 2
+1.000  1853.2710 Hg Mercury 2
+3.500  1860.7210 Hg Mercury 2
+10.000  1869.2280 Hg Mercury 2
+0.370  1869.8630 Hg Mercury 2
+0.009  1870.9570 Hg Mercury 2
+0.550  1875.5500 Hg Mercury 2
+1.900  1889.7040 Hg Mercury 2
+3.700  1892.0860 Hg Mercury 2
+0.350  1895.9930 Hg Mercury 2
+0.190  1900.1210 Hg Mercury 2
+0.097  1902.6090 Hg Mercury 2
+2.500  1904.7000 Hg Mercury 2
+0.420  1915.9430 Hg Mercury 2
+0.260  1925.0990 Hg Mercury 2
+0.850  1927.6050 Hg Mercury 2
+0.680  1929.0400 Hg Mercury 2
+4.700  1934.5910 Hg Mercury 2
+1.700  1940.2190 Hg Mercury 2
+7.500  1942.27290 Hg Mercury 2
+0.170  1947.4910 Hg Mercury 2
+3.200  1948.6220 Hg Mercury 2
+0.220  1953.0740 Hg Mercury 2
+1.900  1957.3200 Hg Mercury 2
+0.088  1957.7590 Hg Mercury 2
+0.028  1959.3400 Hg Mercury 2
+0.098  1967.7710 Hg Mercury 2
+0.008  1969.2410 Hg Mercury 2
+1.700  1973.4790 Hg Mercury 2
+0.550  1973.7940 Hg Mercury 2
+0.077  1978.0360 Hg Mercury 2
+1.100  1978.8040 Hg Mercury 2
+0.004  1980.7020 Hg Mercury 2
+0.054  1981.5120 Hg Mercury 2
+0.430  1987.8410 Hg Mercury 2
+0.009  2000.6350 Hg Mercury 2
+0.520  2005.3160 Hg Mercury 2
+0.011  2010.9920 Hg Mercury 2
+0.085  2015.8220 Hg Mercury 2
+0.100  2017.9000 Hg Mercury 2
+1.400  2022.9500 Hg Mercury 2
+0.770  2022.9780 Hg Mercury 2
+0.160  2027.5130 Hg Mercury 2
+0.180  2030.2270 Hg Mercury 2
+0.090  2032.4070 Hg Mercury 2
+0.190  2038.3850 Hg Mercury 2
+1.800  2042.9280 Hg Mercury 2
+0.000  2050.7080 Hg Mercury 2
+0.030  2052.3880 Hg Mercury 2
+0.590  2053.4860 Hg Mercury 2
+0.007  2060.9650 Hg Mercury 2
+0.030  2067.3170 Hg Mercury 2
+0.480  2117.0930 Hg Mercury 2
+0.110  2148.6820 Hg Mercury 2
+0.012  2159.2130 Hg Mercury 2
+0.010  2171.8220 Hg Mercury 2
+0.240  2181.5700 Hg Mercury 2
+0.100  2183.8400 Hg Mercury 2
+0.026  2190.8520 Hg Mercury 2
+0.100  2191.4290 Hg Mercury 2
+0.095  2216.9540 Hg Mercury 2
+0.270  2224.7050 Hg Mercury 2
+7.500  2225.4030 Hg Mercury 2
+0.100  2230.5000 Hg Mercury 2
+1.500  2230.7250 Hg Mercury 2
+1.200  2253.4840 Hg Mercury 2
+0.013  2256.1670 Hg Mercury 2
+0.035  2256.8190 Hg Mercury 2
+0.095  2259.3770 Hg Mercury 2
+3.000  2260.99390 Hg Mercury 2
+0.080  2262.92270 Hg Mercury 2
+2.800  2264.3340 Hg Mercury 2
+0.025  2288.4110 Hg Mercury 2
+1.200  2292.6700 Hg Mercury 2
+0.017  2296.8850 Hg Mercury 2
+0.053  2300.5210 Hg Mercury 2
+0.016  2302.0720 Hg Mercury 2
+0.300  2327.9470 Hg Mercury 2
+0.780  2340.0860 Hg Mercury 2
+0.085  2346.2420 Hg Mercury 2
+0.440  2377.4100 Hg Mercury 2
+0.060  2378.2740 Hg Mercury 2
+0.036 D 2379.0500 Hg Mercury 1
+0.001  2381.6440 Hg Mercury 2
+0.300  2390.8800 Hg Mercury 2
+1.100  2408.0840 Hg Mercury 2
+1.000  2414.8760 Hg Mercury 2
+0.100  2417.0260 Hg Mercury 2
+0.000  2417.3720 Hg Mercury 2
+0.007  2436.7430 Hg Mercury 2
+0.360  2459.5510 Hg Mercury 2
+0.280  2465.1020 Hg Mercury 2
+0.380  2468.3490 Hg Mercury 2
+0.000  2469.7810 Hg Mercury 2
+0.180  2472.9700 Hg Mercury 2
+0.150  2481.9670 Hg Mercury 2
+0.780  2492.8160 Hg Mercury 2
+0.024  2494.0040 Hg Mercury 2
+0.001  2500.0910 Hg Mercury 2
+0.003  2514.2500 Hg Mercury 2
+0.360  2515.5190 Hg Mercury 2
+0.016  2522.4370 Hg Mercury 2
+0.012  2524.0830 Hg Mercury 2
+0.003  2530.8740 Hg Mercury 2
+0.084 A+ 2537.28310 Hg Mercury 1
+0.018  2546.0980 Hg Mercury 2
+0.002  2547.2090 Hg Mercury 2
+0.120  2547.9820 Hg Mercury 2
+1.200  2553.6010 Hg Mercury 2
+0.180  2558.4910 Hg Mercury 2
+0.900  2575.6120 Hg Mercury 2
+0.035  2578.1800 Hg Mercury 2
+0.003  2589.8460 Hg Mercury 2
+0.045  2590.6080 Hg Mercury 2
+0.160  2599.1720 Hg Mercury 2
+0.002  2599.5830 Hg Mercury 2
+1.000  2603.8740 Hg Mercury 2
+0.001  2627.4290 Hg Mercury 2
+0.390 B+ 2652.8280 Hg Mercury 1
+0.077  2654.1710 Hg Mercury 2
+0.110 B 2655.9240 Hg Mercury 1
+0.110  2664.5400 Hg Mercury 2
+0.008  2669.4750 Hg Mercury 2
+0.620  2671.7610 Hg Mercury 2
+0.038  2691.8000 Hg Mercury 2
+0.040  2699.1750 Hg Mercury 2
+0.740  2703.2470 Hg Mercury 2
+0.120  2706.1210 Hg Mercury 2
+0.097  2711.2350 Hg Mercury 2
+0.085  2730.2890 Hg Mercury 2
+0.001  2731.2250 Hg Mercury 2
+0.038  2733.4110 Hg Mercury 2
+0.003  2743.6120 Hg Mercury 2
+0.001  2744.0040 Hg Mercury 2
+0.055  2750.6160 Hg Mercury 2
+0.061 B 2753.5910 Hg Mercury 1
+0.830  2762.7480 Hg Mercury 2
+0.042  2765.3440 Hg Mercury 2
+0.039  2768.2770 Hg Mercury 2
+0.018  2774.0930 Hg Mercury 2
+0.028  2779.3310 Hg Mercury 2
+0.200  2782.7230 Hg Mercury 2
+0.029  2785.4190 Hg Mercury 2
+0.043  2789.1830 Hg Mercury 2
+0.400  2791.2510 Hg Mercury 2
+0.055  2796.9090 Hg Mercury 2
+0.130  2798.1810 Hg Mercury 2
+0.060  2799.5490 Hg Mercury 2
+0.008  2807.18220 Hg Mercury 2
+0.160  2810.2450 Hg Mercury 2
+0.022  2818.6330 Hg Mercury 2
+0.016  2827.4040 Hg Mercury 2
+0.022  2827.7430 Hg Mercury 2
+0.010  2830.3270 Hg Mercury 2
+0.004  2836.4880 Hg Mercury 2
+3.000  2848.51190 Hg Mercury 2
+0.110  2853.2250 Hg Mercury 2
+0.011 D+ 2857.7740 Hg Mercury 1
+0.180  2874.0430 Hg Mercury 2
+0.002  2883.0730 Hg Mercury 2
+0.130  2883.4400 Hg Mercury 2
+0.014  2893.4070 Hg Mercury 2
+0.157 B+ 2894.44920 Hg Mercury 1
+0.002  2903.4960 Hg Mercury 2
+0.090  2910.1860 Hg Mercury 2
+0.008  2917.10360 Hg Mercury 2
+0.080 D 2926.2700 Hg Mercury 1
+0.380  2936.7620 Hg Mercury 2
+0.070  2939.8850 Hg Mercury 2
+0.220  2941.3970 Hg Mercury 2
+1.700  2947.9350 Hg Mercury 2
+0.095  2955.9880 Hg Mercury 2
+0.088  2964.0480 Hg Mercury 2
+0.001  2967.2260 Hg Mercury 2
+0.460 D 2968.14950 Hg Mercury 1
+0.080  2974.9410 Hg Mercury 2
+0.110  2975.9860 Hg Mercury 2
+0.016  2981.4240 Hg Mercury 2
+0.011  2982.3830 Hg Mercury 2
+0.001  2987.4630 Hg Mercury 2
+0.008  2995.2930 Hg Mercury 2
+0.000  3000.4280 Hg Mercury 2
+0.600  3005.2610 Hg Mercury 2
+0.006  3005.7390 Hg Mercury 2
+0.095  3007.3830 Hg Mercury 2
+0.100  3012.0390 Hg Mercury 2
+0.510 B+ 3022.38400 Hg Mercury 1
+0.094 B 3024.3510 Hg Mercury 1
+0.020 C+ 3028.3710 Hg Mercury 1
+0.420  3035.7990 Hg Mercury 2
+0.000  3045.4960 Hg Mercury 2
+0.002  3046.0470 Hg Mercury 2
+0.000  3046.0470 Hg Mercury 2
+0.002  3049.3900 Hg Mercury 2
+0.018  3056.6540 Hg Mercury 2
+0.060  3065.4200 Hg Mercury 2
+0.080  3068.5760 Hg Mercury 2
+0.088  3117.0990 Hg Mercury 2
+0.660 B+ 3126.58010 Hg Mercury 1
+0.001  3173.0340 Hg Mercury 2
+0.150  3191.9420 Hg Mercury 2
+0.100  3202.3100 Hg Mercury 2
+0.820  3209.0960 Hg Mercury 2
+0.025  3253.0140 Hg Mercury 2
+0.100  3258.4400 Hg Mercury 2
+0.001  3262.4920 Hg Mercury 2
+0.230  3264.9800 Hg Mercury 2
+0.014  3265.4930 Hg Mercury 2
+0.180  3278.7910 Hg Mercury 2
+0.048  3279.0490 Hg Mercury 2
+0.010  3285.6580 Hg Mercury 2
+0.000  3290.3140 Hg Mercury 2
+0.055  3318.2340 Hg Mercury 2
+0.000  3330.9590 Hg Mercury 2
+0.024  3339.3840 Hg Mercury 2
+0.000  3339.9240 Hg Mercury 2
+0.168 B+ 3342.44480 Hg Mercury 1
+0.006  3363.6370 Hg Mercury 2
+0.150  3386.0750 Hg Mercury 2
+0.000  3430.5670 Hg Mercury 2
+0.011  3437.9020 Hg Mercury 2
+0.180  3452.6780 Hg Mercury 2
+0.001  3460.1550 Hg Mercury 2
+0.060  3485.8690 Hg Mercury 2
+0.270  3494.8590 Hg Mercury 2
+0.000  3510.7620 Hg Mercury 2
+0.048  3511.6290 Hg Mercury 2
+0.006  3516.1690 Hg Mercury 2
+0.000  3516.1690 Hg Mercury 2
+0.300  3533.6040 Hg Mercury 2
+0.000  3542.3640 Hg Mercury 2
+0.150  3550.4250 Hg Mercury 2
+0.010  3603.9590 Hg Mercury 2
+0.020  3604.9360 Hg Mercury 2
+0.140  3605.1130 Hg Mercury 2
+0.300  3606.7910 Hg Mercury 2
+0.057  3607.9140 Hg Mercury 2
+0.008  3615.9060 Hg Mercury 2
+0.035  3633.3980 Hg Mercury 2
+0.000  3644.3310 Hg Mercury 2
+0.003  3644.3310 Hg Mercury 2
+1.290 B+ 3651.19800 Hg Mercury 1
+0.184 B 3655.88330 Hg Mercury 1
+0.036 C 3663.93030 Hg Mercury 1
+0.260  3777.2140 Hg Mercury 2
+0.027  3778.8280 Hg Mercury 2
+0.007  3790.8030 Hg Mercury 2
+0.008  3798.4040 Hg Mercury 2
+0.320  3807.3930 Hg Mercury 2
+0.015  3829.9950 Hg Mercury 2
+0.047  3840.3480 Hg Mercury 2
+0.037  3915.4220 Hg Mercury 2
+0.110  3920.3740 Hg Mercury 2
+0.019  3941.4840 Hg Mercury 2
+0.032  3985.05800 Hg Mercury 2
+0.090  4041.5990 Hg Mercury 2
+0.207 B 4047.70810 Hg Mercury 1
+0.003  4048.8830 Hg Mercury 2
+0.040 B 4078.98830 Hg Mercury 1
+0.022 D 4109.2130 Hg Mercury 1
+0.120  4121.6020 Hg Mercury 2
+0.080  4279.1990 Hg Mercury 2
+0.000  4338.3160 Hg Mercury 2
+0.011  4338.3160 Hg Mercury 2
+0.029 C+ 4340.44310 Hg Mercury 1
+0.084 B 4348.71660 Hg Mercury 1
+0.560 B 4359.56000 Hg Mercury 1
+0.001  4383.7800 Hg Mercury 2
+0.090  4399.8530 Hg Mercury 2
+0.045  4406.0910 Hg Mercury 2
+0.013  4426.4630 Hg Mercury 2
+0.065  4455.6450 Hg Mercury 2
+0.021  4456.7370 Hg Mercury 2
+0.001  4465.1310 Hg Mercury 2
+0.007  4494.0910 Hg Mercury 2
+0.100  4661.5240 Hg Mercury 2
+0.000  4687.8750 Hg Mercury 2
+0.067  4705.9410 Hg Mercury 2
+0.028  4763.5980 Hg Mercury 2
+0.000  4829.0810 Hg Mercury 2
+0.022  4856.9400 Hg Mercury 2
+0.058 D+ 4917.4400 Hg Mercury 1
+0.002  4963.2580 Hg Mercury 2
+0.000 B 5027.00 Hg Mercury 1
+0.250  5129.8710 Hg Mercury 2
+0.002  5163.7950 Hg Mercury 2
+0.042  5197.6370 Hg Mercury 2
+0.130  5224.3760 Hg Mercury 2
+0.001  5243.6320 Hg Mercury 2
+0.092  5295.6500 Hg Mercury 2
+0.000  5317.5460 Hg Mercury 2
+1.400  5426.7610 Hg Mercury 2
+0.490 B 5462.26750 Hg Mercury 1
+0.088  5596.8210 Hg Mercury 2
+1.800  5678.6800 Hg Mercury 2
+0.046  5700.1710 Hg Mercury 2
+0.236 B 5771.21010 Hg Mercury 1
+0.006 D 5791.300 Hg Mercury 1
+0.310 D 5792.27570 Hg Mercury 1
+0.080  5853.3800 Hg Mercury 2
+1.000  5872.9060 Hg Mercury 2
+0.380  5890.5710 Hg Mercury 2
+0.033  5920.1360 Hg Mercury 2
+0.045  5949.3280 Hg Mercury 2
+0.018  5963.1600 Hg Mercury 2
+0.045  6042.7180 Hg Mercury 2
+0.001 E 6074.320 Hg Mercury 1
+0.027  6091.4800 Hg Mercury 2
+0.180  6102.0210 Hg Mercury 2
+0.620  6151.17690 Hg Mercury 2
+0.030  6198.1230 Hg Mercury 2
+0.003 D 6236.080 Hg Mercury 1
+0.260  6292.9680 Hg Mercury 2
+0.048  6361.9570 Hg Mercury 2
+0.180  6396.6580 Hg Mercury 2
+0.002  6442.3270 Hg Mercury 2
+0.160  6522.8940 Hg Mercury 2
+0.053  6703.8800 Hg Mercury 2
+0.002 D 6718.190 Hg Mercury 1
+0.016 D 6909.370 Hg Mercury 1
+0.022  6947.3900 Hg Mercury 2
+0.530  7348.5320 Hg Mercury 2
+0.110  7413.8940 Hg Mercury 2
+0.120  7419.9070 Hg Mercury 2
+0.085  7488.3600 Hg Mercury 2
+0.110  7566.6170 Hg Mercury 2
+0.400  7622.8610 Hg Mercury 2
+0.006 D 7730.9520 Hg Mercury 1
+0.095  7883.2020 Hg Mercury 2
+0.430  7946.7400 Hg Mercury 2
+0.098  8408.4290 Hg Mercury 2
+0.200  8551.0130 Hg Mercury 2
+0.003 D 8655.10 Hg Mercury 1
+0.002 D 9069.70 Hg Mercury 1
+0.720  9522.8100 Hg Mercury 2
+0.072  9641.7040 Hg Mercury 2
+0.510  9762.2330 Hg Mercury 2
+0.010 D 9840.80 Hg Mercury 1
+0.011 D 9972.00 Hg Mercury 1
+0.004 D 10001.70 Hg Mercury 1
+0.271 B+ 10142.530 Hg Mercury 1
+0.037 D 11179.880 Hg Mercury 1
+0.360 D 11290.20 Hg Mercury 1
+0.003 D 12074.80 Hg Mercury 1
+0.023 D 12131.80 Hg Mercury 1
+0.060 D 13213.560 Hg Mercury 1
+0.050 D 13430.240 Hg Mercury 1
+0.032 E 13472.060 Hg Mercury 1
+0.030 D 13509.270 Hg Mercury 1
+0.600 D 13573.920 Hg Mercury 1
+0.420 D 13677.250 Hg Mercury 1
+0.500 D 13954.360 Hg Mercury 1
+0.110 D 15300.000 Hg Mercury 1

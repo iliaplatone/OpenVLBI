@@ -1,18 +1,1563 @@
-160  247512 Ir I
-100  248118 Ir I
-200  250298 Ir I
-380  254397 Ir I
-170  263971 Ir I
-130  266198 Ir I
-200  266479 Ir I
-220  269423 Ir I
-120  279770 Ir I
-280  284972 Ir I
-320  292479 Ir I
-200  294315 Ir I
-160  306889 Ir I
-340  313332 Ir I
-500  322078 Ir I
-320  351364 Ir I
-120  357372 Ir I
-320  380012 Ir I
+0.111  651.8360 Ir Iridium 4
+2.590  657.8980 Ir Iridium 4
+0.289  660.7540 Ir Iridium 4
+0.446  663.9270 Ir Iridium 4
+0.500  671.0260 Ir Iridium 4
+1.440  672.6800 Ir Iridium 4
+1.520  675.6070 Ir Iridium 4
+0.889  677.5710 Ir Iridium 4
+1.190  679.3630 Ir Iridium 4
+1.920  681.0810 Ir Iridium 4
+1.970  681.6880 Ir Iridium 4
+1.560  682.3560 Ir Iridium 4
+2.040  683.6090 Ir Iridium 4
+3.290  687.1220 Ir Iridium 4
+1.350  687.1690 Ir Iridium 4
+1.170  689.6340 Ir Iridium 4
+0.757  691.5310 Ir Iridium 4
+0.700  692.4680 Ir Iridium 4
+3.220  696.5870 Ir Iridium 4
+1.180  697.1590 Ir Iridium 4
+0.860  698.4210 Ir Iridium 4
+0.600  700.4180 Ir Iridium 4
+1.610  703.2140 Ir Iridium 4
+2.330  703.4140 Ir Iridium 4
+2.630  704.5360 Ir Iridium 4
+2.500  705.5060 Ir Iridium 4
+0.400  706.4690 Ir Iridium 4
+3.960  706.6260 Ir Iridium 4
+1.160  707.7220 Ir Iridium 4
+2.010  708.5080 Ir Iridium 4
+3.000  708.9010 Ir Iridium 4
+1.070  708.9650 Ir Iridium 4
+0.920  709.4940 Ir Iridium 4
+3.590  711.5490 Ir Iridium 4
+0.114  712.4510 Ir Iridium 4
+0.700  713.3840 Ir Iridium 4
+1.180  714.1240 Ir Iridium 4
+1.460  714.2980 Ir Iridium 4
+1.820  714.9340 Ir Iridium 4
+2.780  715.6170 Ir Iridium 4
+0.500  715.6920 Ir Iridium 4
+4.730  716.6090 Ir Iridium 4
+1.820  717.9720 Ir Iridium 4
+3.120  719.0180 Ir Iridium 4
+2.490  719.2620 Ir Iridium 4
+1.540  719.8200 Ir Iridium 4
+1.910  720.1350 Ir Iridium 4
+0.520  720.4520 Ir Iridium 4
+8.040  720.8750 Ir Iridium 4
+0.633  721.4840 Ir Iridium 4
+5.540  721.8640 Ir Iridium 4
+2.580  722.2590 Ir Iridium 4
+0.600  722.3390 Ir Iridium 4
+15.300  722.6250 Ir Iridium 4
+1.630  722.8450 Ir Iridium 4
+3.670  723.4640 Ir Iridium 4
+1.460  724.5020 Ir Iridium 4
+4.320  724.7940 Ir Iridium 4
+3.430  725.8760 Ir Iridium 4
+1.420  725.9180 Ir Iridium 4
+1.680  726.2890 Ir Iridium 4
+0.514  727.3320 Ir Iridium 4
+3.510  728.2570 Ir Iridium 4
+2.630  728.4550 Ir Iridium 4
+3.810  728.6760 Ir Iridium 4
+4.130  729.2110 Ir Iridium 4
+2.020  729.7110 Ir Iridium 4
+2.380  729.8140 Ir Iridium 4
+0.411  729.9340 Ir Iridium 4
+0.811  730.9800 Ir Iridium 4
+2.030  731.2730 Ir Iridium 4
+11.400  731.5450 Ir Iridium 4
+2.070  732.1330 Ir Iridium 4
+3.100  732.9790 Ir Iridium 4
+0.367  733.2770 Ir Iridium 4
+1.480  733.3710 Ir Iridium 4
+0.680  733.7340 Ir Iridium 4
+12.100  734.2830 Ir Iridium 4
+7.300  734.7990 Ir Iridium 4
+12.100  734.9510 Ir Iridium 4
+1.490  735.0940 Ir Iridium 4
+0.300  735.4160 Ir Iridium 4
+2.860  735.5630 Ir Iridium 4
+9.090  735.6580 Ir Iridium 4
+1.700  736.2600 Ir Iridium 4
+6.440  736.4060 Ir Iridium 4
+5.330  736.7480 Ir Iridium 4
+3.600  737.1360 Ir Iridium 4
+4.240  737.2160 Ir Iridium 4
+13.800  737.4860 Ir Iridium 4
+7.400  738.0010 Ir Iridium 4
+10.000  738.3010 Ir Iridium 4
+2.640  738.4440 Ir Iridium 4
+6.810  738.5620 Ir Iridium 4
+1.130  738.6110 Ir Iridium 4
+0.343  738.8410 Ir Iridium 4
+1.960  739.0060 Ir Iridium 4
+1.820  739.4360 Ir Iridium 4
+3.310  739.6680 Ir Iridium 4
+5.130  740.5110 Ir Iridium 4
+2.640  740.6120 Ir Iridium 4
+1.430  741.0280 Ir Iridium 4
+1.360  741.7060 Ir Iridium 4
+0.343  741.9660 Ir Iridium 4
+2.140  742.3180 Ir Iridium 4
+2.090  742.3580 Ir Iridium 4
+0.960  742.8080 Ir Iridium 4
+4.250  743.0000 Ir Iridium 4
+3.940  743.1520 Ir Iridium 4
+11.400  743.6850 Ir Iridium 4
+1.700  743.8610 Ir Iridium 4
+1.710  744.0010 Ir Iridium 4
+1.000  744.0770 Ir Iridium 4
+9.260  744.3830 Ir Iridium 4
+2.430  744.9160 Ir Iridium 4
+1.160  744.9880 Ir Iridium 4
+16.100  745.0610 Ir Iridium 4
+2.130  745.1850 Ir Iridium 4
+5.220  745.7390 Ir Iridium 4
+0.700  745.9050 Ir Iridium 4
+3.110  745.9880 Ir Iridium 4
+5.890  746.1290 Ir Iridium 4
+1.430  746.2620 Ir Iridium 4
+7.520  746.4850 Ir Iridium 4
+6.300  746.8520 Ir Iridium 4
+1.050  747.1580 Ir Iridium 4
+6.930  747.3130 Ir Iridium 4
+0.220  748.1510 Ir Iridium 4
+3.360  749.4240 Ir Iridium 4
+2.020  749.5540 Ir Iridium 4
+1.200  749.6560 Ir Iridium 4
+1.790  749.8960 Ir Iridium 4
+0.856  749.9790 Ir Iridium 4
+2.260  750.4910 Ir Iridium 4
+8.400  750.6590 Ir Iridium 4
+3.530  750.7090 Ir Iridium 4
+7.190  751.6640 Ir Iridium 4
+27.200  751.9980 Ir Iridium 4
+1.060  752.3180 Ir Iridium 4
+1.230  752.4410 Ir Iridium 4
+14.300  753.0740 Ir Iridium 4
+1.390  753.5430 Ir Iridium 4
+15.800  753.5640 Ir Iridium 4
+1.480  753.9290 Ir Iridium 4
+11.100  754.0340 Ir Iridium 4
+1.530  754.5940 Ir Iridium 4
+3.660  755.2320 Ir Iridium 4
+4.890  755.8810 Ir Iridium 4
+2.660  756.0450 Ir Iridium 4
+1.870  756.0450 Ir Iridium 4
+10.700  756.0450 Ir Iridium 4
+5.310  756.1850 Ir Iridium 4
+1.100  756.3270 Ir Iridium 4
+1.260  756.9860 Ir Iridium 4
+1.970  756.9860 Ir Iridium 4
+0.567  757.0940 Ir Iridium 4
+0.400  757.2770 Ir Iridium 4
+1.590  757.4980 Ir Iridium 4
+11.900  757.5610 Ir Iridium 4
+1.930  757.6280 Ir Iridium 4
+10.000  757.8810 Ir Iridium 4
+10.800  758.2820 Ir Iridium 4
+3.020  758.4260 Ir Iridium 4
+11.900  759.4180 Ir Iridium 4
+1.400  759.6480 Ir Iridium 4
+16.700  759.7650 Ir Iridium 4
+7.600  760.1320 Ir Iridium 4
+5.260  760.5100 Ir Iridium 4
+24.200  760.7250 Ir Iridium 4
+8.620  760.7960 Ir Iridium 4
+12.200  761.0010 Ir Iridium 4
+2.610  762.2100 Ir Iridium 4
+0.443  762.2990 Ir Iridium 4
+6.210  762.5460 Ir Iridium 4
+4.410  762.7190 Ir Iridium 4
+3.600  763.0400 Ir Iridium 4
+8.400  763.4150 Ir Iridium 4
+4.900  764.2310 Ir Iridium 4
+3.080  764.3450 Ir Iridium 4
+4.570  764.5980 Ir Iridium 4
+1.300  764.6910 Ir Iridium 4
+3.030  765.2690 Ir Iridium 4
+2.900  765.2690 Ir Iridium 4
+1.990  765.9000 Ir Iridium 4
+5.960  766.4320 Ir Iridium 4
+7.510  766.5350 Ir Iridium 4
+6.880  767.0420 Ir Iridium 4
+2.740  767.4220 Ir Iridium 4
+7.500  767.4220 Ir Iridium 4
+14.300  767.8000 Ir Iridium 4
+13.500  767.9470 Ir Iridium 4
+1.440  768.0430 Ir Iridium 4
+1.100  768.1060 Ir Iridium 4
+4.340  768.8830 Ir Iridium 4
+1.250  769.4340 Ir Iridium 4
+5.880  769.9580 Ir Iridium 4
+3.890  770.1740 Ir Iridium 4
+0.089  770.5890 Ir Iridium 4
+7.370  770.8090 Ir Iridium 4
+12.700  770.8920 Ir Iridium 4
+15.000  771.4330 Ir Iridium 4
+1.030  771.6350 Ir Iridium 4
+1.980  771.8590 Ir Iridium 4
+3.400  771.9880 Ir Iridium 4
+1.680  772.0260 Ir Iridium 4
+7.800  772.1520 Ir Iridium 4
+2.780  772.2610 Ir Iridium 4
+2.180  772.3920 Ir Iridium 4
+4.680  772.6650 Ir Iridium 4
+20.400  773.0900 Ir Iridium 4
+21.600  773.3940 Ir Iridium 4
+4.030  773.8190 Ir Iridium 4
+2.150  774.0420 Ir Iridium 4
+1.390  774.6680 Ir Iridium 4
+14.200  774.7730 Ir Iridium 4
+5.040  774.9240 Ir Iridium 4
+15.700  775.1500 Ir Iridium 4
+10.100  775.5710 Ir Iridium 4
+4.340  775.8990 Ir Iridium 4
+4.750  776.2250 Ir Iridium 4
+7.440  776.2930 Ir Iridium 4
+0.940  776.9870 Ir Iridium 4
+0.231  777.1410 Ir Iridium 4
+1.940  777.1660 Ir Iridium 4
+13.200  777.3020 Ir Iridium 4
+19.100  777.5140 Ir Iridium 4
+3.780  777.5140 Ir Iridium 4
+3.030  777.8720 Ir Iridium 4
+15.400  778.1180 Ir Iridium 4
+1.620  778.2420 Ir Iridium 4
+7.870  778.4770 Ir Iridium 4
+4.500  779.4500 Ir Iridium 4
+2.510  779.9530 Ir Iridium 4
+1.030  780.0290 Ir Iridium 4
+13.600  780.1340 Ir Iridium 4
+2.960  780.3940 Ir Iridium 4
+1.430  780.6710 Ir Iridium 4
+1.280  780.7990 Ir Iridium 4
+3.880  781.0930 Ir Iridium 4
+8.140  782.1080 Ir Iridium 4
+7.790  782.1080 Ir Iridium 4
+0.745  783.1510 Ir Iridium 4
+18.000  783.1920 Ir Iridium 4
+6.630  783.3470 Ir Iridium 4
+9.990  783.3760 Ir Iridium 4
+1.900  784.3430 Ir Iridium 4
+2.420  784.5030 Ir Iridium 4
+12.700  784.7830 Ir Iridium 4
+1.810  784.8430 Ir Iridium 4
+1.400  785.0540 Ir Iridium 4
+7.800  785.2020 Ir Iridium 4
+6.240  785.6050 Ir Iridium 4
+4.500  785.7690 Ir Iridium 4
+6.010  786.0770 Ir Iridium 4
+2.960  786.2670 Ir Iridium 4
+6.710  786.3570 Ir Iridium 4
+9.900  786.6190 Ir Iridium 4
+6.990  787.0190 Ir Iridium 4
+1.280  787.5400 Ir Iridium 4
+4.190  787.8010 Ir Iridium 4
+10.800  788.6570 Ir Iridium 4
+2.600  789.2940 Ir Iridium 4
+7.410  789.2940 Ir Iridium 4
+21.200  789.4620 Ir Iridium 4
+1.190  789.6510 Ir Iridium 4
+6.890  789.8290 Ir Iridium 4
+4.520  789.9150 Ir Iridium 4
+1.510  789.9150 Ir Iridium 4
+5.520  790.2020 Ir Iridium 4
+11.600  790.2590 Ir Iridium 4
+17.200  790.4600 Ir Iridium 4
+7.300  790.5250 Ir Iridium 4
+3.300  790.6770 Ir Iridium 4
+0.478  790.7520 Ir Iridium 4
+21.700  790.9600 Ir Iridium 4
+1.880  791.0990 Ir Iridium 4
+3.170  791.4500 Ir Iridium 4
+7.430  791.5450 Ir Iridium 4
+0.489  791.9910 Ir Iridium 4
+6.960  792.3180 Ir Iridium 4
+6.020  792.5100 Ir Iridium 4
+10.700  792.6950 Ir Iridium 4
+3.640  792.8600 Ir Iridium 4
+10.500  792.9420 Ir Iridium 4
+29.700  793.2650 Ir Iridium 4
+7.550  793.3460 Ir Iridium 4
+19.900  793.7610 Ir Iridium 4
+23.500  793.9030 Ir Iridium 4
+4.260  794.3500 Ir Iridium 4
+4.860  794.3500 Ir Iridium 4
+0.655  794.5770 Ir Iridium 4
+1.040  794.7920 Ir Iridium 4
+3.340  794.9830 Ir Iridium 4
+6.960  795.3160 Ir Iridium 4
+2.710  795.3710 Ir Iridium 4
+0.764  795.4390 Ir Iridium 4
+16.900  795.5640 Ir Iridium 4
+9.180  795.9170 Ir Iridium 4
+3.930  795.9710 Ir Iridium 4
+1.000  796.6640 Ir Iridium 4
+12.600  796.8280 Ir Iridium 4
+1.700  796.9940 Ir Iridium 4
+0.956  797.1180 Ir Iridium 4
+0.627  797.3450 Ir Iridium 4
+1.580  798.2930 Ir Iridium 4
+3.910  798.2930 Ir Iridium 4
+9.620  798.5640 Ir Iridium 4
+2.770  798.7030 Ir Iridium 4
+5.590  798.7620 Ir Iridium 4
+2.560  798.7620 Ir Iridium 4
+1.830  798.8700 Ir Iridium 4
+1.720  799.0910 Ir Iridium 4
+1.480  799.6680 Ir Iridium 4
+10.600  799.7300 Ir Iridium 4
+2.750  799.8070 Ir Iridium 4
+8.350  799.9510 Ir Iridium 4
+0.557  800.0320 Ir Iridium 4
+4.000  800.8390 Ir Iridium 4
+0.244  801.5270 Ir Iridium 4
+2.210  801.9100 Ir Iridium 4
+4.180  801.9530 Ir Iridium 4
+0.433  801.9530 Ir Iridium 4
+3.940  802.0700 Ir Iridium 4
+2.550  802.3420 Ir Iridium 4
+2.830  803.1320 Ir Iridium 4
+5.700  803.6450 Ir Iridium 4
+4.270  803.9110 Ir Iridium 4
+0.755  804.0940 Ir Iridium 4
+0.800  804.1800 Ir Iridium 4
+9.310  804.7360 Ir Iridium 4
+9.340  804.7360 Ir Iridium 4
+1.190  804.8310 Ir Iridium 4
+3.020  805.1590 Ir Iridium 4
+6.660  805.2080 Ir Iridium 4
+4.340  805.2970 Ir Iridium 4
+17.300  805.3560 Ir Iridium 4
+7.060  805.4270 Ir Iridium 4
+3.410  805.8920 Ir Iridium 4
+7.700  806.1440 Ir Iridium 4
+24.700  806.2950 Ir Iridium 4
+1.930  806.5600 Ir Iridium 4
+0.480  806.8350 Ir Iridium 4
+0.557  807.1510 Ir Iridium 4
+3.900  808.2440 Ir Iridium 4
+1.630  808.7200 Ir Iridium 4
+27.900  809.2900 Ir Iridium 4
+0.814  809.9950 Ir Iridium 4
+5.360  810.1360 Ir Iridium 4
+2.610  810.2840 Ir Iridium 4
+1.810  810.8490 Ir Iridium 4
+10.900  811.3270 Ir Iridium 4
+8.560  811.3830 Ir Iridium 4
+2.860  811.5560 Ir Iridium 4
+3.630  811.6790 Ir Iridium 4
+8.010  811.9880 Ir Iridium 4
+1.520  812.1030 Ir Iridium 4
+2.160  812.1030 Ir Iridium 4
+4.390  812.2260 Ir Iridium 4
+1.780  812.6150 Ir Iridium 4
+10.900  812.9180 Ir Iridium 4
+3.460  813.2160 Ir Iridium 4
+0.956  814.5710 Ir Iridium 4
+4.630  814.7890 Ir Iridium 4
+0.538  814.9030 Ir Iridium 4
+4.840  815.1450 Ir Iridium 4
+14.200  815.3560 Ir Iridium 4
+5.410  815.9030 Ir Iridium 4
+0.980  816.3310 Ir Iridium 4
+0.840  816.4150 Ir Iridium 4
+2.340  816.6750 Ir Iridium 4
+0.586  816.7520 Ir Iridium 4
+1.630  816.9970 Ir Iridium 4
+1.400  817.0610 Ir Iridium 4
+0.491  817.1520 Ir Iridium 4
+1.780  817.4060 Ir Iridium 4
+4.100  817.7350 Ir Iridium 4
+2.160  818.0590 Ir Iridium 4
+5.570  818.2700 Ir Iridium 4
+2.160  819.1030 Ir Iridium 4
+2.360  819.3100 Ir Iridium 4
+5.680  819.8950 Ir Iridium 4
+2.640  819.9240 Ir Iridium 4
+2.540  820.2440 Ir Iridium 4
+13.100  820.3340 Ir Iridium 4
+1.240  820.4620 Ir Iridium 4
+3.890  821.0610 Ir Iridium 4
+0.656  821.5080 Ir Iridium 4
+0.700  821.8360 Ir Iridium 4
+4.560  821.9670 Ir Iridium 4
+1.740  822.4140 Ir Iridium 4
+0.467  822.7120 Ir Iridium 4
+0.344  822.8170 Ir Iridium 4
+5.440  824.1040 Ir Iridium 4
+15.600  824.2880 Ir Iridium 4
+0.882  824.5710 Ir Iridium 4
+6.540  824.5710 Ir Iridium 4
+11.300  826.1390 Ir Iridium 4
+0.936  826.4720 Ir Iridium 4
+2.440  826.9580 Ir Iridium 4
+1.880  827.8120 Ir Iridium 4
+3.630  828.1430 Ir Iridium 4
+3.340  828.3280 Ir Iridium 4
+1.530  828.5860 Ir Iridium 4
+0.838  828.7700 Ir Iridium 4
+1.420  828.8920 Ir Iridium 4
+1.050  828.9750 Ir Iridium 4
+1.960  830.1180 Ir Iridium 4
+0.260  830.6550 Ir Iridium 4
+1.410  831.8280 Ir Iridium 4
+0.643  833.1610 Ir Iridium 4
+1.400  833.2430 Ir Iridium 4
+1.400  833.8300 Ir Iridium 4
+3.850  834.1080 Ir Iridium 4
+1.280  834.5760 Ir Iridium 4
+1.900  834.8710 Ir Iridium 4
+7.990  835.7210 Ir Iridium 4
+0.491  836.4330 Ir Iridium 4
+0.986  836.5310 Ir Iridium 4
+2.020  836.9690 Ir Iridium 4
+6.760  837.4400 Ir Iridium 4
+2.700  837.5170 Ir Iridium 4
+3.290  837.7560 Ir Iridium 4
+0.871  837.9630 Ir Iridium 4
+1.030  838.2340 Ir Iridium 4
+0.629  838.4640 Ir Iridium 4
+1.610  838.7030 Ir Iridium 4
+2.100  838.7700 Ir Iridium 4
+2.570  839.1810 Ir Iridium 4
+6.440  839.4930 Ir Iridium 4
+2.160  839.8040 Ir Iridium 4
+7.320  841.2800 Ir Iridium 4
+1.220  841.6960 Ir Iridium 4
+1.340  842.3720 Ir Iridium 4
+1.260  842.7470 Ir Iridium 4
+0.780  843.3730 Ir Iridium 4
+1.760  843.5760 Ir Iridium 4
+1.100  843.7770 Ir Iridium 4
+3.670  843.9450 Ir Iridium 4
+6.940  844.6790 Ir Iridium 4
+3.220  844.6790 Ir Iridium 4
+1.460  844.6790 Ir Iridium 4
+5.900  844.9920 Ir Iridium 4
+6.200  845.0930 Ir Iridium 4
+1.600  845.7050 Ir Iridium 4
+0.933  846.5490 Ir Iridium 4
+4.470  846.6800 Ir Iridium 4
+0.380  846.7370 Ir Iridium 4
+2.040  847.6110 Ir Iridium 4
+3.380  847.6590 Ir Iridium 4
+1.150  847.6990 Ir Iridium 4
+2.040  848.4270 Ir Iridium 4
+0.780  849.2410 Ir Iridium 4
+0.771  849.6410 Ir Iridium 4
+2.070  850.4570 Ir Iridium 4
+1.280  850.5780 Ir Iridium 4
+2.040  850.7600 Ir Iridium 4
+1.540  851.4810 Ir Iridium 4
+1.500  851.6340 Ir Iridium 4
+0.740  852.0030 Ir Iridium 4
+0.436  852.2810 Ir Iridium 4
+0.357  853.0520 Ir Iridium 4
+1.530  853.3610 Ir Iridium 4
+0.767  853.7360 Ir Iridium 4
+0.343  855.1900 Ir Iridium 4
+1.960  855.2720 Ir Iridium 4
+1.290  855.5370 Ir Iridium 4
+2.860  855.7860 Ir Iridium 4
+1.940  856.7420 Ir Iridium 4
+3.270  857.3280 Ir Iridium 4
+4.560  857.3610 Ir Iridium 4
+0.986  857.8120 Ir Iridium 4
+0.886  858.2930 Ir Iridium 4
+1.760  859.1710 Ir Iridium 4
+1.840  859.4210 Ir Iridium 4
+1.080  859.4680 Ir Iridium 4
+0.443  859.9030 Ir Iridium 4
+3.230  860.7280 Ir Iridium 4
+0.414  861.4660 Ir Iridium 4
+0.822  861.7570 Ir Iridium 4
+2.090  861.9050 Ir Iridium 4
+0.571  862.3920 Ir Iridium 4
+5.260  862.8450 Ir Iridium 4
+5.450  863.6260 Ir Iridium 4
+0.440  864.2080 Ir Iridium 4
+2.400  864.2980 Ir Iridium 4
+0.700  864.5560 Ir Iridium 4
+1.010  865.0950 Ir Iridium 4
+1.240  865.2150 Ir Iridium 4
+1.020  865.3390 Ir Iridium 4
+0.611  865.4480 Ir Iridium 4
+0.727  865.7340 Ir Iridium 4
+0.915  866.1880 Ir Iridium 4
+1.470  867.5600 Ir Iridium 4
+3.140  867.8460 Ir Iridium 4
+0.278  867.9440 Ir Iridium 4
+1.880  868.0960 Ir Iridium 4
+4.570  868.6650 Ir Iridium 4
+2.740  869.0560 Ir Iridium 4
+0.386  869.4600 Ir Iridium 4
+0.182  870.2000 Ir Iridium 4
+1.360  870.7290 Ir Iridium 4
+0.192  870.9720 Ir Iridium 4
+1.500  871.1020 Ir Iridium 4
+0.460  872.1030 Ir Iridium 4
+1.140  872.9320 Ir Iridium 4
+0.789  873.3290 Ir Iridium 4
+1.660  873.3710 Ir Iridium 4
+1.530  873.8160 Ir Iridium 4
+0.500  874.0840 Ir Iridium 4
+0.633  874.8120 Ir Iridium 4
+0.429  875.4140 Ir Iridium 4
+0.278  875.6750 Ir Iridium 4
+0.186  875.9420 Ir Iridium 4
+1.640  876.6140 Ir Iridium 4
+0.489  876.9810 Ir Iridium 4
+0.508  877.1180 Ir Iridium 4
+0.611  877.6020 Ir Iridium 4
+5.220  877.8860 Ir Iridium 4
+2.620  878.3260 Ir Iridium 4
+0.660  878.5400 Ir Iridium 4
+0.073  878.9590 Ir Iridium 4
+0.278  880.0960 Ir Iridium 4
+2.810  880.1870 Ir Iridium 4
+0.814  880.7150 Ir Iridium 4
+0.320  880.9220 Ir Iridium 4
+0.111  881.3540 Ir Iridium 4
+5.040  882.2280 Ir Iridium 4
+0.800  882.3190 Ir Iridium 4
+0.486  882.7650 Ir Iridium 4
+1.090  883.0870 Ir Iridium 4
+0.667  884.8940 Ir Iridium 4
+0.567  886.2680 Ir Iridium 4
+1.140  886.5060 Ir Iridium 4
+4.040  887.2810 Ir Iridium 4
+1.230  887.5210 Ir Iridium 4
+1.510  888.2040 Ir Iridium 4
+0.800  888.8390 Ir Iridium 4
+0.411  888.9660 Ir Iridium 4
+0.856  889.1810 Ir Iridium 4
+0.900  889.9570 Ir Iridium 4
+1.510  890.2880 Ir Iridium 4
+0.486  890.6700 Ir Iridium 4
+1.310  890.8400 Ir Iridium 4
+0.082  891.0820 Ir Iridium 4
+1.500  891.4180 Ir Iridium 4
+0.680  891.4890 Ir Iridium 4
+0.257  891.9450 Ir Iridium 4
+0.614  893.6390 Ir Iridium 4
+0.444  894.1890 Ir Iridium 4
+0.073  894.4660 Ir Iridium 4
+0.557  895.0030 Ir Iridium 4
+0.555  895.1270 Ir Iridium 4
+1.510  896.4640 Ir Iridium 4
+0.664  897.3740 Ir Iridium 4
+1.350  898.8170 Ir Iridium 4
+1.080  900.9680 Ir Iridium 4
+1.290  901.7280 Ir Iridium 4
+0.971  902.9630 Ir Iridium 4
+4.000  906.9470 Ir Iridium 4
+1.600  908.2770 Ir Iridium 4
+0.922  908.8390 Ir Iridium 4
+0.340  909.0820 Ir Iridium 4
+0.400  909.0990 Ir Iridium 4
+0.157  909.5800 Ir Iridium 4
+0.414  910.6460 Ir Iridium 4
+0.991  911.1940 Ir Iridium 4
+2.200  911.4740 Ir Iridium 4
+0.157  912.6530 Ir Iridium 4
+1.010  913.4920 Ir Iridium 4
+0.700  913.9610 Ir Iridium 4
+0.671  914.3890 Ir Iridium 4
+1.440  914.8540 Ir Iridium 4
+1.080  919.0720 Ir Iridium 4
+0.229  919.6170 Ir Iridium 4
+1.380  920.2050 Ir Iridium 4
+0.671  920.3380 Ir Iridium 4
+0.360  920.5620 Ir Iridium 4
+0.640  922.5180 Ir Iridium 4
+1.530  923.5350 Ir Iridium 4
+0.300  923.6100 Ir Iridium 4
+0.518  924.7450 Ir Iridium 4
+0.600  927.5220 Ir Iridium 4
+1.360  927.6530 Ir Iridium 4
+0.844  928.3570 Ir Iridium 4
+0.078  929.0340 Ir Iridium 4
+0.440  930.8900 Ir Iridium 4
+0.357  931.4710 Ir Iridium 4
+0.678  931.9370 Ir Iridium 4
+0.209  933.4990 Ir Iridium 4
+1.040  934.2460 Ir Iridium 4
+0.500  935.5730 Ir Iridium 4
+0.844  936.6640 Ir Iridium 4
+0.500  937.8350 Ir Iridium 4
+0.133  942.6450 Ir Iridium 4
+0.600  943.8340 Ir Iridium 4
+0.156  945.4490 Ir Iridium 4
+0.400  949.0510 Ir Iridium 4
+0.580  954.2190 Ir Iridium 4
+0.400  955.6940 Ir Iridium 4
+0.660  959.9740 Ir Iridium 4
+0.231  960.1580 Ir Iridium 4
+0.286  963.5330 Ir Iridium 4
+0.800  965.0840 Ir Iridium 4
+0.192  966.0440 Ir Iridium 4
+0.709  966.1900 Ir Iridium 4
+0.311  966.7740 Ir Iridium 4
+0.671  972.9840 Ir Iridium 4
+0.380  981.1970 Ir Iridium 4
+0.180  982.6810 Ir Iridium 4
+1.530  984.3820 Ir Iridium 4
+0.189  986.2430 Ir Iridium 4
+0.340  986.6420 Ir Iridium 4
+0.114  989.4720 Ir Iridium 4
+1.030  992.2190 Ir Iridium 4
+1.370  994.2930 Ir Iridium 4
+0.514  998.2930 Ir Iridium 4
+0.400  998.9050 Ir Iridium 4
+0.064  999.8800 Ir Iridium 4
+0.836  1008.3550 Ir Iridium 4
+0.085  1014.3340 Ir Iridium 4
+0.178  1027.9100 Ir Iridium 4
+0.344  1038.7880 Ir Iridium 4
+0.343  1055.4190 Ir Iridium 4
+0.107  1058.7340 Ir Iridium 4
+0.182  1059.3390 Ir Iridium 4
+0.343  1061.2050 Ir Iridium 4
+0.385  1064.2750 Ir Iridium 4
+0.240  1071.2390 Ir Iridium 4
+0.156  1072.4060 Ir Iridium 4
+0.846  1079.6440 Ir Iridium 4
+0.460  1079.7030 Ir Iridium 4
+0.918  1081.0620 Ir Iridium 4
+0.100  1086.1090 Ir Iridium 4
+0.164  1089.4370 Ir Iridium 4
+0.411  1093.2230 Ir Iridium 4
+0.171  1096.3880 Ir Iridium 4
+0.256  1099.2000 Ir Iridium 4
+0.213  1099.8480 Ir Iridium 4
+0.233  1104.4860 Ir Iridium 4
+0.491  1110.1840 Ir Iridium 4
+1.650  1110.6050 Ir Iridium 4
+1.590  1112.0230 Ir Iridium 4
+0.156  1120.5550 Ir Iridium 4
+0.346  1121.8480 Ir Iridium 4
+0.300  1124.6590 Ir Iridium 4
+0.156  1125.0970 Ir Iridium 4
+0.222  1127.7240 Ir Iridium 4
+0.780  1131.2040 Ir Iridium 4
+0.364  1131.3370 Ir Iridium 4
+0.964  1132.2050 Ir Iridium 4
+0.320  1133.6250 Ir Iridium 4
+0.357  1134.5060 Ir Iridium 4
+1.280  1134.9390 Ir Iridium 4
+0.271  1136.8010 Ir Iridium 4
+0.380  1139.4600 Ir Iridium 4
+0.122  1139.7950 Ir Iridium 4
+0.864  1143.0800 Ir Iridium 4
+0.467  1145.4480 Ir Iridium 4
+1.080  1147.5720 Ir Iridium 4
+0.382  1148.2610 Ir Iridium 4
+0.436  1149.0920 Ir Iridium 4
+0.271  1149.7080 Ir Iridium 4
+0.522  1149.9300 Ir Iridium 4
+0.286  1150.0450 Ir Iridium 4
+0.709  1150.1550 Ir Iridium 4
+0.600  1150.4790 Ir Iridium 4
+2.200  1152.2750 Ir Iridium 4
+0.367  1153.0770 Ir Iridium 4
+0.111  1153.7130 Ir Iridium 4
+0.380  1154.7840 Ir Iridium 4
+2.580  1155.3740 Ir Iridium 4
+0.164  1156.4690 Ir Iridium 4
+4.270  1158.0170 Ir Iridium 4
+0.509  1158.5430 Ir Iridium 4
+0.357  1158.6920 Ir Iridium 4
+1.430  1159.6950 Ir Iridium 4
+1.000  1161.0360 Ir Iridium 4
+0.944  1165.5940 Ir Iridium 4
+0.227  1165.8690 Ir Iridium 4
+0.822  1165.8960 Ir Iridium 4
+0.527  1167.0040 Ir Iridium 4
+0.586  1167.2570 Ir Iridium 4
+0.943  1167.5710 Ir Iridium 4
+0.614  1168.4140 Ir Iridium 4
+1.610  1169.1240 Ir Iridium 4
+0.380  1170.6980 Ir Iridium 4
+0.373  1176.5990 Ir Iridium 4
+1.210  1177.1830 Ir Iridium 4
+1.730  1177.8020 Ir Iridium 4
+0.986  1177.8740 Ir Iridium 4
+1.060  1181.0650 Ir Iridium 4
+2.460  1181.4100 Ir Iridium 4
+0.440  1182.6930 Ir Iridium 4
+1.220  1183.1280 Ir Iridium 4
+0.367  1183.3900 Ir Iridium 4
+1.290  1184.6530 Ir Iridium 4
+0.589  1188.2530 Ir Iridium 4
+1.340  1190.5260 Ir Iridium 4
+1.340  1191.5830 Ir Iridium 4
+1.390  1192.9800 Ir Iridium 4
+1.690  1194.6950 Ir Iridium 4
+2.500  1195.3040 Ir Iridium 4
+0.878  1195.5560 Ir Iridium 4
+4.070  1197.1990 Ir Iridium 4
+0.946  1198.2910 Ir Iridium 4
+0.533  1199.9640 Ir Iridium 4
+3.990  1202.3140 Ir Iridium 4
+2.000  1202.7930 Ir Iridium 4
+3.080  1204.9120 Ir Iridium 4
+2.600  1206.8680 Ir Iridium 4
+0.943  1210.3560 Ir Iridium 4
+1.280  1211.3250 Ir Iridium 4
+0.540  1212.8950 Ir Iridium 4
+1.840  1213.5880 Ir Iridium 4
+1.790  1213.7170 Ir Iridium 4
+0.986  1213.8260 Ir Iridium 4
+1.790  1216.2400 Ir Iridium 4
+2.090  1216.3640 Ir Iridium 4
+1.480  1218.1320 Ir Iridium 4
+2.480  1218.3880 Ir Iridium 4
+1.600  1218.4230 Ir Iridium 4
+2.490  1219.3250 Ir Iridium 4
+2.490  1219.7820 Ir Iridium 4
+0.656  1220.1620 Ir Iridium 4
+1.110  1220.5430 Ir Iridium 4
+2.340  1220.8770 Ir Iridium 4
+1.040  1220.9880 Ir Iridium 4
+1.400  1221.2450 Ir Iridium 4
+5.170  1221.7980 Ir Iridium 4
+2.450  1221.9910 Ir Iridium 4
+0.580  1222.0180 Ir Iridium 4
+0.678  1222.8720 Ir Iridium 4
+0.567  1223.0090 Ir Iridium 4
+0.973  1223.8590 Ir Iridium 4
+2.800  1224.0240 Ir Iridium 4
+1.400  1224.6860 Ir Iridium 4
+2.830  1225.3000 Ir Iridium 4
+3.060  1225.4660 Ir Iridium 4
+1.280  1226.1430 Ir Iridium 4
+3.300  1226.5820 Ir Iridium 4
+2.070  1226.7690 Ir Iridium 4
+21.000  1227.2020 Ir Iridium 4
+2.170  1227.4200 Ir Iridium 4
+1.540  1230.1000 Ir Iridium 4
+0.900  1230.5250 Ir Iridium 4
+5.900  1230.9140 Ir Iridium 4
+3.340  1231.0440 Ir Iridium 4
+1.080  1231.1360 Ir Iridium 4
+6.960  1231.6190 Ir Iridium 4
+1.650  1231.7480 Ir Iridium 4
+3.670  1232.5730 Ir Iridium 4
+1.590  1232.8490 Ir Iridium 4
+1.750  1232.9970 Ir Iridium 4
+2.250  1233.8300 Ir Iridium 4
+2.480  1233.8980 Ir Iridium 4
+0.523  1234.0810 Ir Iridium 4
+0.743  1234.1510 Ir Iridium 4
+0.964  1234.5700 Ir Iridium 4
+2.960  1235.4400 Ir Iridium 4
+0.882  1235.7490 Ir Iridium 4
+1.760  1236.5230 Ir Iridium 4
+0.686  1236.8880 Ir Iridium 4
+0.714  1237.9610 Ir Iridium 4
+4.400  1238.1460 Ir Iridium 4
+3.160  1238.2170 Ir Iridium 4
+1.890  1240.6960 Ir Iridium 4
+3.160  1241.7750 Ir Iridium 4
+1.290  1242.1610 Ir Iridium 4
+2.100  1242.3260 Ir Iridium 4
+2.000  1242.9290 Ir Iridium 4
+3.130  1243.0100 Ir Iridium 4
+6.500  1243.6870 Ir Iridium 4
+0.662  1244.4830 Ir Iridium 4
+4.170  1244.8260 Ir Iridium 4
+1.430  1244.9830 Ir Iridium 4
+0.871  1245.8890 Ir Iridium 4
+1.030  1245.9400 Ir Iridium 4
+4.060  1246.2040 Ir Iridium 4
+0.400  1246.8200 Ir Iridium 4
+2.980  1247.5860 Ir Iridium 4
+1.460  1248.8090 Ir Iridium 4
+1.960  1249.8570 Ir Iridium 4
+16.200  1251.8060 Ir Iridium 4
+9.370  1252.2430 Ir Iridium 4
+0.722  1252.6990 Ir Iridium 4
+5.340  1252.8290 Ir Iridium 4
+0.300  1253.2450 Ir Iridium 4
+8.450  1254.3270 Ir Iridium 4
+1.320  1254.8910 Ir Iridium 4
+3.810  1255.5860 Ir Iridium 4
+3.520  1256.4070 Ir Iridium 4
+2.190  1256.8000 Ir Iridium 4
+3.380  1256.8900 Ir Iridium 4
+1.620  1257.6280 Ir Iridium 4
+3.890  1258.7470 Ir Iridium 4
+2.360  1258.8100 Ir Iridium 4
+0.986  1259.0150 Ir Iridium 4
+5.260  1259.3670 Ir Iridium 4
+6.610  1259.4710 Ir Iridium 4
+5.590  1259.7460 Ir Iridium 4
+2.100  1259.8000 Ir Iridium 4
+4.430  1259.9670 Ir Iridium 4
+3.880  1260.1670 Ir Iridium 4
+2.800  1260.5630 Ir Iridium 4
+2.980  1260.6410 Ir Iridium 4
+10.500  1260.6630 Ir Iridium 4
+0.489  1261.9100 Ir Iridium 4
+2.670  1262.0090 Ir Iridium 4
+3.780  1262.0540 Ir Iridium 4
+1.080  1264.1620 Ir Iridium 4
+1.160  1264.5380 Ir Iridium 4
+1.030  1265.9370 Ir Iridium 4
+1.030  1267.2460 Ir Iridium 4
+2.200  1267.9620 Ir Iridium 4
+0.715  1268.4130 Ir Iridium 4
+1.050  1269.0470 Ir Iridium 4
+2.180  1269.8800 Ir Iridium 4
+3.680  1270.2250 Ir Iridium 4
+1.610  1271.4240 Ir Iridium 4
+1.750  1271.8200 Ir Iridium 4
+4.260  1272.6940 Ir Iridium 4
+1.320  1273.6120 Ir Iridium 4
+5.120  1273.8840 Ir Iridium 4
+11.900  1274.1420 Ir Iridium 4
+1.020  1274.2950 Ir Iridium 4
+5.980  1274.2950 Ir Iridium 4
+6.510  1274.3590 Ir Iridium 4
+2.770  1274.4010 Ir Iridium 4
+7.950  1275.7110 Ir Iridium 4
+4.000  1276.4950 Ir Iridium 4
+12.800  1277.1860 Ir Iridium 4
+2.480  1277.6760 Ir Iridium 4
+3.940  1277.9980 Ir Iridium 4
+3.750  1279.4750 Ir Iridium 4
+3.290  1280.9470 Ir Iridium 4
+2.990  1281.0640 Ir Iridium 4
+1.330  1281.3120 Ir Iridium 4
+5.020  1281.5720 Ir Iridium 4
+2.590  1281.6870 Ir Iridium 4
+2.330  1282.3960 Ir Iridium 4
+4.940  1282.7270 Ir Iridium 4
+5.720  1283.1690 Ir Iridium 4
+4.180  1283.3790 Ir Iridium 4
+1.160  1284.7320 Ir Iridium 4
+0.957  1284.8810 Ir Iridium 4
+13.500  1285.1720 Ir Iridium 4
+4.070  1286.2260 Ir Iridium 4
+10.300  1287.0290 Ir Iridium 4
+1.590  1287.5540 Ir Iridium 4
+4.610  1288.2620 Ir Iridium 4
+3.500  1289.0520 Ir Iridium 4
+4.290  1289.4310 Ir Iridium 4
+2.400  1289.4990 Ir Iridium 4
+4.770  1289.7670 Ir Iridium 4
+0.755  1291.0310 Ir Iridium 4
+1.270  1291.8210 Ir Iridium 4
+0.186  1292.3600 Ir Iridium 4
+1.270  1292.5950 Ir Iridium 4
+2.170  1293.0720 Ir Iridium 4
+2.470  1293.9730 Ir Iridium 4
+1.210  1294.4030 Ir Iridium 4
+1.780  1294.8610 Ir Iridium 4
+2.340  1295.0160 Ir Iridium 4
+2.290  1295.8210 Ir Iridium 4
+19.400  1297.6570 Ir Iridium 4
+3.030  1297.9800 Ir Iridium 4
+1.230  1299.3710 Ir Iridium 4
+2.780  1299.4390 Ir Iridium 4
+14.300  1299.9640 Ir Iridium 4
+3.140  1300.0700 Ir Iridium 4
+1.250  1300.3340 Ir Iridium 4
+0.420  1302.8590 Ir Iridium 4
+7.690  1302.9310 Ir Iridium 4
+0.433  1303.0290 Ir Iridium 4
+2.560  1303.2480 Ir Iridium 4
+0.314  1304.8420 Ir Iridium 4
+1.560  1305.3130 Ir Iridium 4
+0.143  1305.4760 Ir Iridium 4
+7.600  1305.8990 Ir Iridium 4
+0.280  1308.7080 Ir Iridium 4
+3.220  1309.0800 Ir Iridium 4
+0.256  1309.1430 Ir Iridium 4
+3.680  1309.2720 Ir Iridium 4
+3.770  1309.4740 Ir Iridium 4
+1.510  1309.5370 Ir Iridium 4
+0.511  1310.9390 Ir Iridium 4
+0.800  1310.9970 Ir Iridium 4
+17.500  1311.3510 Ir Iridium 4
+0.211  1311.7680 Ir Iridium 4
+0.671  1312.1250 Ir Iridium 4
+1.650  1312.3300 Ir Iridium 4
+1.830  1312.5520 Ir Iridium 4
+1.350  1313.0380 Ir Iridium 4
+1.640  1313.7250 Ir Iridium 4
+5.440  1314.2570 Ir Iridium 4
+3.780  1315.6330 Ir Iridium 4
+2.490  1316.0030 Ir Iridium 4
+0.267  1316.0850 Ir Iridium 4
+1.910  1317.9290 Ir Iridium 4
+1.780  1318.0480 Ir Iridium 4
+11.100  1319.2600 Ir Iridium 4
+3.220  1319.4950 Ir Iridium 4
+8.410  1320.0010 Ir Iridium 4
+2.220  1320.4810 Ir Iridium 4
+2.970  1320.5600 Ir Iridium 4
+2.100  1320.6140 Ir Iridium 4
+1.580  1321.0340 Ir Iridium 4
+0.745  1321.7360 Ir Iridium 4
+1.440  1322.4370 Ir Iridium 4
+0.880  1324.4890 Ir Iridium 4
+0.600  1324.9450 Ir Iridium 4
+2.680  1324.9740 Ir Iridium 4
+5.650  1325.2320 Ir Iridium 4
+2.470  1327.0700 Ir Iridium 4
+0.300  1328.4160 Ir Iridium 4
+0.667  1328.6830 Ir Iridium 4
+0.969  1330.2930 Ir Iridium 4
+0.957  1331.4860 Ir Iridium 4
+2.460  1331.9400 Ir Iridium 4
+2.570  1332.0940 Ir Iridium 4
+0.420  1332.2790 Ir Iridium 4
+0.264  1332.8330 Ir Iridium 4
+2.270  1333.4100 Ir Iridium 4
+1.840  1333.4100 Ir Iridium 4
+8.170  1333.5220 Ir Iridium 4
+5.610  1334.0780 Ir Iridium 4
+1.860  1334.3340 Ir Iridium 4
+0.443  1335.0860 Ir Iridium 4
+4.750  1335.4680 Ir Iridium 4
+0.589  1336.6200 Ir Iridium 4
+1.170  1337.0280 Ir Iridium 4
+6.690  1337.9330 Ir Iridium 4
+1.130  1338.5330 Ir Iridium 4
+0.473  1338.6170 Ir Iridium 4
+4.980  1339.0060 Ir Iridium 4
+0.691  1339.1810 Ir Iridium 4
+0.560  1340.3210 Ir Iridium 4
+0.886  1340.3720 Ir Iridium 4
+2.650  1340.7860 Ir Iridium 4
+1.620  1340.9620 Ir Iridium 4
+0.657  1341.2700 Ir Iridium 4
+1.370  1341.5350 Ir Iridium 4
+0.400  1343.4760 Ir Iridium 4
+0.500  1343.7960 Ir Iridium 4
+2.620  1344.5420 Ir Iridium 4
+0.100  1344.6440 Ir Iridium 4
+4.660  1344.7260 Ir Iridium 4
+1.010  1345.2820 Ir Iridium 4
+0.944  1348.0170 Ir Iridium 4
+2.450  1348.5000 Ir Iridium 4
+2.120  1348.8090 Ir Iridium 4
+1.840  1349.1880 Ir Iridium 4
+0.971  1349.2690 Ir Iridium 4
+6.520  1349.7690 Ir Iridium 4
+1.140  1351.3970 Ir Iridium 4
+1.360  1351.8780 Ir Iridium 4
+1.100  1352.9890 Ir Iridium 4
+0.989  1353.4090 Ir Iridium 4
+2.830  1353.8840 Ir Iridium 4
+0.786  1354.4430 Ir Iridium 4
+0.608  1354.6670 Ir Iridium 4
+3.840  1354.7910 Ir Iridium 4
+0.114  1355.2410 Ir Iridium 4
+4.780  1355.5080 Ir Iridium 4
+1.330  1356.2360 Ir Iridium 4
+3.450  1356.5570 Ir Iridium 4
+1.520  1356.7460 Ir Iridium 4
+4.640  1357.1350 Ir Iridium 4
+1.360  1357.5220 Ir Iridium 4
+1.100  1359.5260 Ir Iridium 4
+1.350  1360.4690 Ir Iridium 4
+2.930  1360.9080 Ir Iridium 4
+6.360  1361.2150 Ir Iridium 4
+0.240  1362.7330 Ir Iridium 4
+1.290  1363.0590 Ir Iridium 4
+3.320  1363.5260 Ir Iridium 4
+2.060  1366.2230 Ir Iridium 4
+0.986  1366.7730 Ir Iridium 4
+1.060  1367.5490 Ir Iridium 4
+2.820  1369.5300 Ir Iridium 4
+0.760  1370.3970 Ir Iridium 4
+0.200  1370.5170 Ir Iridium 4
+0.300  1372.1440 Ir Iridium 4
+0.582  1373.8470 Ir Iridium 4
+0.300  1373.9310 Ir Iridium 4
+3.000  1374.1750 Ir Iridium 4
+4.710  1377.1310 Ir Iridium 4
+1.920  1378.5440 Ir Iridium 4
+1.910  1378.7230 Ir Iridium 4
+1.680  1378.9950 Ir Iridium 4
+0.760  1379.2630 Ir Iridium 4
+1.030  1380.0300 Ir Iridium 4
+0.233  1380.1190 Ir Iridium 4
+0.300  1382.5830 Ir Iridium 4
+1.460  1383.6680 Ir Iridium 4
+1.560  1384.6990 Ir Iridium 4
+0.967  1385.1070 Ir Iridium 4
+2.620  1387.8680 Ir Iridium 4
+0.533  1388.2450 Ir Iridium 4
+1.730  1389.2240 Ir Iridium 4
+0.589  1390.1280 Ir Iridium 4
+2.940  1391.2730 Ir Iridium 4
+0.509  1393.2430 Ir Iridium 4
+2.020  1395.8390 Ir Iridium 4
+1.740  1395.8390 Ir Iridium 4
+1.160  1398.6430 Ir Iridium 4
+1.520  1398.6430 Ir Iridium 4
+1.260  1398.9090 Ir Iridium 4
+2.490  1399.0110 Ir Iridium 4
+5.500  1399.1280 Ir Iridium 4
+1.610  1399.2240 Ir Iridium 4
+1.330  1400.3000 Ir Iridium 4
+1.040  1400.7370 Ir Iridium 4
+0.589  1400.8990 Ir Iridium 4
+1.390  1403.1270 Ir Iridium 4
+0.886  1406.8600 Ir Iridium 4
+1.270  1407.9170 Ir Iridium 4
+2.290  1408.0110 Ir Iridium 4
+1.140  1408.0110 Ir Iridium 4
+1.970  1409.5130 Ir Iridium 4
+0.800  1409.6070 Ir Iridium 4
+0.414  1412.4670 Ir Iridium 4
+0.500  1412.7150 Ir Iridium 4
+1.080  1413.2170 Ir Iridium 4
+1.080  1416.8080 Ir Iridium 4
+0.571  1418.2640 Ir Iridium 4
+0.711  1419.2690 Ir Iridium 4
+0.182  1419.3530 Ir Iridium 4
+0.278  1419.4120 Ir Iridium 4
+2.610  1419.9920 Ir Iridium 4
+0.629  1421.4490 Ir Iridium 4
+0.114  1421.6010 Ir Iridium 4
+0.400  1422.2000 Ir Iridium 4
+1.140  1422.9940 Ir Iridium 4
+4.580  1423.3420 Ir Iridium 4
+2.310  1424.9280 Ir Iridium 4
+1.100  1425.0080 Ir Iridium 4
+0.311  1426.2860 Ir Iridium 4
+1.140  1429.6010 Ir Iridium 4
+0.731  1429.8650 Ir Iridium 4
+1.200  1431.9230 Ir Iridium 4
+0.169  1433.5090 Ir Iridium 4
+0.822  1434.5140 Ir Iridium 4
+1.350  1434.7520 Ir Iridium 4
+0.909  1435.2440 Ir Iridium 4
+2.320  1435.6730 Ir Iridium 4
+1.400  1436.9110 Ir Iridium 4
+0.311  1439.1580 Ir Iridium 4
+0.286  1442.2560 Ir Iridium 4
+0.829  1442.7930 Ir Iridium 4
+3.500  1443.8210 Ir Iridium 4
+2.840  1444.4660 Ir Iridium 4
+2.070  1445.4400 Ir Iridium 4
+0.967  1446.2420 Ir Iridium 4
+0.544  1447.1570 Ir Iridium 4
+2.950  1447.5090 Ir Iridium 4
+0.700  1448.3800 Ir Iridium 4
+2.120  1450.0600 Ir Iridium 4
+0.400  1450.4090 Ir Iridium 4
+0.529  1451.3130 Ir Iridium 4
+2.230  1451.6510 Ir Iridium 4
+2.300  1452.1590 Ir Iridium 4
+0.543  1452.2910 Ir Iridium 4
+0.522  1453.3440 Ir Iridium 4
+1.170  1454.5870 Ir Iridium 4
+1.160  1454.8040 Ir Iridium 4
+0.592  1454.8420 Ir Iridium 4
+0.356  1455.4240 Ir Iridium 4
+1.060  1456.0850 Ir Iridium 4
+1.870  1457.3570 Ir Iridium 4
+8.400  1457.7710 Ir Iridium 4
+0.455  1458.8370 Ir Iridium 4
+0.382  1459.2730 Ir Iridium 4
+0.200  1460.6300 Ir Iridium 4
+6.730  1462.6620 Ir Iridium 4
+3.240  1462.8060 Ir Iridium 4
+3.780  1463.7070 Ir Iridium 4
+0.520  1463.8320 Ir Iridium 4
+0.780  1464.5090 Ir Iridium 4
+0.700  1465.2620 Ir Iridium 4
+0.689  1467.5300 Ir Iridium 4
+0.940  1467.7290 Ir Iridium 4
+1.380  1468.0250 Ir Iridium 4
+5.780  1468.2120 Ir Iridium 4
+0.433  1469.0080 Ir Iridium 4
+1.140  1471.4790 Ir Iridium 4
+1.270  1471.8860 Ir Iridium 4
+1.960  1472.4780 Ir Iridium 4
+1.590  1474.5880 Ir Iridium 4
+0.843  1475.4430 Ir Iridium 4
+0.808  1476.9460 Ir Iridium 4
+1.330  1477.2060 Ir Iridium 4
+1.060  1477.3040 Ir Iridium 4
+1.590  1479.8490 Ir Iridium 4
+1.500  1480.3550 Ir Iridium 4
+1.160  1481.7540 Ir Iridium 4
+0.891  1482.8770 Ir Iridium 4
+2.230  1483.8980 Ir Iridium 4
+0.943  1485.8260 Ir Iridium 4
+0.536  1486.5320 Ir Iridium 4
+5.450  1487.1590 Ir Iridium 4
+1.730  1487.4510 Ir Iridium 4
+0.900  1487.9980 Ir Iridium 4
+3.780  1488.7980 Ir Iridium 4
+0.729  1488.8840 Ir Iridium 4
+0.514  1489.7900 Ir Iridium 4
+1.680  1489.8220 Ir Iridium 4
+1.460  1489.9000 Ir Iridium 4
+1.660  1492.3730 Ir Iridium 4
+0.745  1492.4790 Ir Iridium 4
+0.571  1493.0460 Ir Iridium 4
+0.511  1494.0910 Ir Iridium 4
+0.540  1494.0910 Ir Iridium 4
+1.130  1497.6290 Ir Iridium 4
+0.467  1499.2340 Ir Iridium 4
+0.718  1499.8820 Ir Iridium 4
+0.286  1499.9380 Ir Iridium 4
+1.110  1500.1460 Ir Iridium 4
+9.960  1502.5720 Ir Iridium 4
+2.550  1503.8900 Ir Iridium 4
+0.180  1505.3950 Ir Iridium 4
+0.543  1506.7040 Ir Iridium 4
+2.820  1506.7760 Ir Iridium 4
+1.300  1506.9700 Ir Iridium 4
+2.070  1508.8780 Ir Iridium 4
+0.164  1509.0760 Ir Iridium 4
+1.130  1509.2380 Ir Iridium 4
+1.370  1509.6600 Ir Iridium 4
+0.156  1509.8630 Ir Iridium 4
+2.170  1511.5450 Ir Iridium 4
+0.980  1511.7010 Ir Iridium 4
+0.840  1512.5720 Ir Iridium 4
+1.150  1513.1550 Ir Iridium 4
+0.143  1513.5200 Ir Iridium 4
+0.856  1514.1120 Ir Iridium 4
+4.530  1514.8230 Ir Iridium 4
+0.311  1515.3380 Ir Iridium 4
+0.600  1515.5610 Ir Iridium 4
+1.240  1515.6280 Ir Iridium 4
+1.470  1516.8100 Ir Iridium 4
+1.050  1517.9860 Ir Iridium 4
+0.333  1521.3270 Ir Iridium 4
+0.867  1521.4430 Ir Iridium 4
+0.700  1522.5830 Ir Iridium 4
+1.020  1522.7530 Ir Iridium 4
+0.833  1526.3730 Ir Iridium 4
+3.120  1527.3050 Ir Iridium 4
+0.186  1527.3580 Ir Iridium 4
+0.333  1528.9820 Ir Iridium 4
+0.323  1529.4240 Ir Iridium 4
+1.890  1529.9180 Ir Iridium 4
+0.480  1532.2330 Ir Iridium 4
+1.560  1533.3090 Ir Iridium 4
+5.630  1534.7470 Ir Iridium 4
+0.662  1537.1940 Ir Iridium 4
+0.655  1538.2090 Ir Iridium 4
+1.400  1539.6710 Ir Iridium 4
+1.070  1541.2120 Ir Iridium 4
+2.190  1542.1100 Ir Iridium 4
+0.857  1543.6250 Ir Iridium 4
+3.000  1544.0410 Ir Iridium 4
+3.120  1544.3120 Ir Iridium 4
+2.680  1548.4490 Ir Iridium 4
+2.040  1552.5890 Ir Iridium 4
+0.367  1552.7100 Ir Iridium 4
+1.030  1555.2900 Ir Iridium 4
+2.330  1560.8890 Ir Iridium 4
+0.280  1560.9360 Ir Iridium 4
+0.514  1561.6830 Ir Iridium 4
+2.010  1562.6120 Ir Iridium 4
+2.170  1563.2460 Ir Iridium 4
+0.889  1563.7640 Ir Iridium 4
+3.070  1564.4710 Ir Iridium 4
+5.080  1565.6480 Ir Iridium 4
+0.671  1565.7680 Ir Iridium 4
+2.590  1565.9190 Ir Iridium 4
+0.356  1566.5400 Ir Iridium 4
+1.890  1567.7040 Ir Iridium 4
+0.582  1570.0570 Ir Iridium 4
+0.971  1570.9770 Ir Iridium 4
+3.260  1571.2650 Ir Iridium 4
+1.960  1571.5640 Ir Iridium 4
+0.727  1571.6270 Ir Iridium 4
+0.738  1572.3170 Ir Iridium 4
+2.500  1572.3630 Ir Iridium 4
+0.727  1573.9160 Ir Iridium 4
+3.420  1574.4690 Ir Iridium 4
+0.400  1574.6820 Ir Iridium 4
+0.800  1575.7360 Ir Iridium 4
+0.918  1576.1740 Ir Iridium 4
+1.480  1577.2650 Ir Iridium 4
+0.940  1577.5520 Ir Iridium 4
+0.486  1577.8680 Ir Iridium 4
+0.282  1578.2630 Ir Iridium 4
+2.010  1578.8720 Ir Iridium 4
+0.367  1583.3140 Ir Iridium 4
+4.340  1584.0650 Ir Iridium 4
+1.350  1585.9730 Ir Iridium 4
+2.050  1588.0650 Ir Iridium 4
+0.567  1589.0760 Ir Iridium 4
+1.540  1589.6630 Ir Iridium 4
+0.940  1589.8140 Ir Iridium 4
+0.689  1590.8540 Ir Iridium 4
+0.522  1591.5020 Ir Iridium 4
+0.471  1592.9160 Ir Iridium 4
+1.000  1593.9050 Ir Iridium 4
+0.400  1594.0730 Ir Iridium 4
+2.070  1594.4980 Ir Iridium 4
+1.490  1594.8200 Ir Iridium 4
+1.520  1594.9750 Ir Iridium 4
+4.910  1595.3820 Ir Iridium 4
+0.914  1595.6700 Ir Iridium 4
+2.330  1596.7520 Ir Iridium 4
+0.940  1596.9380 Ir Iridium 4
+0.367  1598.8370 Ir Iridium 4
+0.843  1599.0670 Ir Iridium 4
+1.520  1599.2930 Ir Iridium 4
+1.240  1601.2140 Ir Iridium 4
+0.200  1603.0070 Ir Iridium 4
+0.667  1603.9240 Ir Iridium 4
+0.255  1607.1620 Ir Iridium 4
+0.836  1608.2010 Ir Iridium 4
+0.580  1608.5040 Ir Iridium 4
+4.000  1608.9340 Ir Iridium 4
+0.555  1609.6230 Ir Iridium 4
+1.170  1610.7000 Ir Iridium 4
+0.420  1611.2230 Ir Iridium 4
+0.567  1613.4580 Ir Iridium 4
+0.431  1617.4360 Ir Iridium 4
+1.630  1619.9400 Ir Iridium 4
+0.723  1620.7700 Ir Iridium 4
+3.920  1621.1440 Ir Iridium 4
+0.680  1621.8270 Ir Iridium 4
+0.433  1624.6650 Ir Iridium 4
+0.480  1624.7500 Ir Iridium 4
+0.789  1625.6910 Ir Iridium 4
+0.856  1626.2800 Ir Iridium 4
+0.571  1626.3990 Ir Iridium 4
+1.570  1629.6490 Ir Iridium 4
+1.380  1630.9990 Ir Iridium 4
+2.900  1634.6730 Ir Iridium 4
+3.210  1634.7360 Ir Iridium 4
+1.720  1635.7630 Ir Iridium 4
+2.870  1637.0150 Ir Iridium 4
+0.945  1637.6410 Ir Iridium 4
+0.257  1638.6790 Ir Iridium 4
+0.320  1640.7190 Ir Iridium 4
+0.843  1642.1040 Ir Iridium 4
+1.130  1642.7140 Ir Iridium 4
+1.170  1643.4980 Ir Iridium 4
+1.070  1643.5520 Ir Iridium 4
+0.333  1645.0070 Ir Iridium 4
+1.430  1645.1140 Ir Iridium 4
+0.467  1645.1770 Ir Iridium 4
+0.878  1647.4830 Ir Iridium 4
+2.750  1648.1160 Ir Iridium 4
+1.440  1649.6580 Ir Iridium 4
+1.560  1650.3550 Ir Iridium 4
+1.160  1650.6110 Ir Iridium 4
+0.580  1650.8200 Ir Iridium 4
+2.110  1657.1450 Ir Iridium 4
+1.260  1658.6990 Ir Iridium 4
+0.167  1659.2290 Ir Iridium 4
+1.820  1660.0890 Ir Iridium 4
+0.922  1660.9060 Ir Iridium 4
+0.745  1662.9530 Ir Iridium 4
+0.223  1663.2370 Ir Iridium 4
+0.680  1663.6310 Ir Iridium 4
+1.470  1666.4370 Ir Iridium 4
+0.800  1667.5520 Ir Iridium 4
+2.140  1672.8680 Ir Iridium 4
+0.267  1673.9110 Ir Iridium 4
+0.367  1678.4360 Ir Iridium 4
+0.609  1679.7750 Ir Iridium 4
+1.010  1681.2400 Ir Iridium 4
+1.230  1682.2980 Ir Iridium 4
+0.440  1683.3820 Ir Iridium 4
+2.860  1685.1140 Ir Iridium 4
+0.200  1685.7510 Ir Iridium 4
+0.400  1686.3400 Ir Iridium 4
+0.429  1686.6420 Ir Iridium 4
+1.870  1690.5640 Ir Iridium 4
+0.186  1691.3790 Ir Iridium 4
+0.743  1692.1080 Ir Iridium 4
+0.378  1694.3310 Ir Iridium 4
+0.164  1694.9980 Ir Iridium 4
+0.680  1695.1820 Ir Iridium 4
+0.500  1695.4780 Ir Iridium 4
+0.318  1700.2590 Ir Iridium 4
+0.456  1702.0770 Ir Iridium 4
+0.843  1703.4830 Ir Iridium 4
+2.290  1704.5910 Ir Iridium 4
+0.380  1704.7770 Ir Iridium 4
+0.371  1707.9510 Ir Iridium 4
+0.533  1709.0140 Ir Iridium 4
+0.173  1711.5690 Ir Iridium 4
+0.185  1711.8120 Ir Iridium 4
+1.340  1718.8150 Ir Iridium 4
+0.436  1720.1590 Ir Iridium 4
+0.308  1721.9930 Ir Iridium 4
+0.300  1723.2240 Ir Iridium 4
+0.880  1723.5320 Ir Iridium 4
+0.544  1726.9020 Ir Iridium 4
+2.480  1727.5320 Ir Iridium 4
+0.286  1727.7660 Ir Iridium 4
+0.344  1731.2600 Ir Iridium 4
+0.209  1733.2080 Ir Iridium 4
+1.550  1735.6170 Ir Iridium 4
+0.369  1737.8230 Ir Iridium 4
+0.800  1738.1780 Ir Iridium 4
+0.378  1741.2280 Ir Iridium 4
+0.700  1745.0770 Ir Iridium 4
+0.767  1745.1550 Ir Iridium 4
+0.578  1747.6030 Ir Iridium 4
+0.500  1748.9140 Ir Iridium 4
+0.671  1751.5680 Ir Iridium 4
+0.500  1752.1610 Ir Iridium 4
+1.090  1759.8350 Ir Iridium 4
+1.050  1765.3130 Ir Iridium 4
+0.820  1766.2580 Ir Iridium 4
+0.111  1773.4620 Ir Iridium 4
+0.267  1777.7430 Ir Iridium 4
+0.300 E 1778.2900 Ir Iridium 2
+0.222  1782.7330 Ir Iridium 4
+0.364  1783.1600 Ir Iridium 4
+0.378  1783.5980 Ir Iridium 4
+0.500  1784.1410 Ir Iridium 4
+0.567  1787.6440 Ir Iridium 4
+0.343  1792.3670 Ir Iridium 4
+0.257  1795.8620 Ir Iridium 4
+0.133  1802.3400 Ir Iridium 4
+1.070  1813.3100 Ir Iridium 4
+0.457  1819.9400 Ir Iridium 4
+0.282  1825.1350 Ir Iridium 4
+0.560  1825.4290 Ir Iridium 4
+0.500  1831.0920 Ir Iridium 4
+0.460  1835.1640 Ir Iridium 4
+0.286  1837.6350 Ir Iridium 4
+0.233  1845.3740 Ir Iridium 4
+0.511  1850.7140 Ir Iridium 4
+0.473  1851.3450 Ir Iridium 4
+0.089  1852.2050 Ir Iridium 4
+0.150 E 1852.8430 Ir Iridium 2
+0.489  1853.6370 Ir Iridium 4
+0.755  1854.9140 Ir Iridium 4
+1.200 D+ 1862.4880 Ir Iridium 2
+0.060 E 1868.2780 Ir Iridium 2
+1.520  1870.8120 Ir Iridium 4
+0.371  1878.0180 Ir Iridium 4
+0.073  1878.1090 Ir Iridium 4
+0.480  1886.6180 Ir Iridium 4
+0.336  1892.6740 Ir Iridium 4
+0.211  1898.9990 Ir Iridium 4
+0.256  1901.6360 Ir Iridium 4
+0.429  1901.9940 Ir Iridium 4
+0.064  1905.0800 Ir Iridium 4
+0.243  1917.1560 Ir Iridium 4
+0.233  1923.0950 Ir Iridium 4
+0.264  1925.8640 Ir Iridium 4
+0.220  1928.5390 Ir Iridium 4
+0.100  1939.3320 Ir Iridium 4
+0.162 B+ 1948.0720 Ir Iridium 2
+0.709  1955.1400 Ir Iridium 4
+0.267  1961.4980 Ir Iridium 4
+0.329  1971.9710 Ir Iridium 4
+0.187 B+ 1987.9890 Ir Iridium 2
+0.300 E 1993.7100 Ir Iridium 2
+1.030  1993.8010 Ir Iridium 4
+0.500 E 1997.1790 Ir Iridium 2
+0.122  1999.1970 Ir Iridium 4
+0.225 B+ 2023.4830 Ir Iridium 2
+0.333  2029.0260 Ir Iridium 4
+0.260 E 2029.3030 Ir Iridium 2
+0.090 E 2032.3180 Ir Iridium 2
+0.133  2043.7580 Ir Iridium 4
+1.600 D+ 2044.8460 Ir Iridium 2
+0.700 E 2045.4860 Ir Iridium 2
+1.800 D+ 2051.8170 Ir Iridium 2
+0.230 E 2071.1710 Ir Iridium 2
+0.210 E 2081.3030 Ir Iridium 2
+1.500 E 2091.4650 Ir Iridium 2
+0.090 E 2097.9660 Ir Iridium 2
+0.230 E 2110.6370 Ir Iridium 2
+0.260 E 2114.4990 Ir Iridium 2
+0.090 E 2119.5820 Ir Iridium 2
+0.080 E 2119.7500 Ir Iridium 2
+1.560 B+ 2127.4800 Ir Iridium 2
+0.290 E 2133.2330 Ir Iridium 2
+1.820 B+ 2153.3830 Ir Iridium 2
+0.280 E 2179.6620 Ir Iridium 2
+0.088 B 2197.1390 Ir Iridium 2
+0.700 E 2198.1860 Ir Iridium 2
+0.260 E 2205.6490 Ir Iridium 2
+0.900 E 2219.9010 Ir Iridium 2
+0.233 B+ 2221.7590 Ir Iridium 2
+0.290 E 2225.4920 Ir Iridium 2
+0.110 E 2236.9650 Ir Iridium 2
+0.060 E 2241.3350 Ir Iridium 2
+1.550 B+ 2243.3790 Ir Iridium 2
+0.060 E 2244.9260 Ir Iridium 2
+0.650 D+ 2246.4570 Ir Iridium 2
+0.400 E 2252.4230 Ir Iridium 2
+0.197 B+ 2256.1050 Ir Iridium 2
+0.600 E 2258.1990 Ir Iridium 2
+0.080 E 2261.3500 Ir Iridium 2
+0.190 E 2265.8640 Ir Iridium 2
+0.600 E 2276.3630 Ir Iridium 2
+0.024 E 2296.9750 Ir Iridium 2
+0.160 E 2297.8460 Ir Iridium 2
+0.268 B+ 2301.6130 Ir Iridium 2
+0.379 B+ 2315.6160 Ir Iridium 2
+0.180 E 2318.1540 Ir Iridium 2
+0.981 B+ 2325.4000 Ir Iridium 2
+0.578 B 2330.1260 Ir Iridium 2
+0.221 B 2358.6570 Ir Iridium 2
+0.590 B 2368.7640 Ir Iridium 2
+0.400 E 2382.5320 Ir Iridium 2
+0.320 B+ 2387.3110 Ir Iridium 2
+0.150 E 2391.9790 Ir Iridium 2
+0.100 E 2401.8990 Ir Iridium 2
+0.070 E 2410.9650 Ir Iridium 2
+0.080 E 2427.0410 Ir Iridium 2
+0.012 E 2450.3320 Ir Iridium 2
+0.110 D 2456.350 Ir Iridium 1
+0.349 B+ 2465.9480 Ir Iridium 2
+0.525 B+ 2470.2600 Ir Iridium 2
+0.204 B+ 2475.870 Ir Iridium 1
+0.130 D 2481.930 Ir Iridium 1
+0.032 E 2488.3010 Ir Iridium 2
+0.130 E 2489.0320 Ir Iridium 2
+0.022 E 2498.7070 Ir Iridium 2
+0.380 B 2503.730 Ir Iridium 1
+0.160 E 2512.8570 Ir Iridium 2
+0.229 B 2513.3370 Ir Iridium 2
+0.020 B 2524.3690 Ir Iridium 2
+0.050 E 2524.6290 Ir Iridium 2
+0.090 E 2531.1680 Ir Iridium 2
+0.050 E 2554.5860 Ir Iridium 2
+0.070 E 2562.5470 Ir Iridium 2
+0.040 E 2573.6710 Ir Iridium 2
+0.060 E 2575.4440 Ir Iridium 2
+0.540 D+ 2580.2590 Ir Iridium 2
+0.711 B+ 2586.8340 Ir Iridium 2
+0.140 E 2596.6050 Ir Iridium 2
+0.130 E 2607.3360 Ir Iridium 2
+0.400 E 2617.8570 Ir Iridium 2
+0.060 D 2620.660 Ir Iridium 1
+0.469 A 2640.500 Ir Iridium 1
+0.250 B+ 2662.770 Ir Iridium 1
+0.308 B+ 2665.580 Ir Iridium 1
+0.580 B 2695.030 Ir Iridium 1
+0.040 E 2705.9990 Ir Iridium 2
+0.130 E 2709.4750 Ir Iridium 2
+0.098 B 2714.8940 Ir Iridium 2
+0.040 E 2741.1330 Ir Iridium 2
+0.120 E 2744.6050 Ir Iridium 2
+0.031 E 2753.6810 Ir Iridium 2
+0.120 E 2754.6620 Ir Iridium 2
+0.190 E 2763.9930 Ir Iridium 2
+0.160 E 2775.7840 Ir Iridium 2
+0.050 E 2794.6290 Ir Iridium 2
+0.170 D 2798.520 Ir Iridium 1
+0.110 E 2801.4550 Ir Iridium 2
+0.014 E 2812.2680 Ir Iridium 2
+0.031 E 2812.9230 Ir Iridium 2
+0.050 D 2824.010 Ir Iridium 1
+0.015 E 2824.4210 Ir Iridium 2
+0.250 C 2825.280 Ir Iridium 1
+0.150 E 2834.0800 Ir Iridium 2
+0.180 D 2837.230 Ir Iridium 1
+0.226 B+ 2850.560 Ir Iridium 1
+0.002 C 2854.1520 Ir Iridium 1
+0.055 B+ 2883.490 Ir Iridium 1
+0.070 E 2893.1090 Ir Iridium 2
+0.080 D 2898.000 Ir Iridium 1
+0.050 D 2908.090 Ir Iridium 1
+0.042 D 2917.210 Ir Iridium 1
+0.170 A+ 2925.650 Ir Iridium 1
+0.040 E 2930.6200 Ir Iridium 2
+0.246 B+ 2935.500 Ir Iridium 1
+0.340 D 2937.540 Ir Iridium 1
+0.440 C 2944.010 Ir Iridium 1
+0.023 C+ 2952.080 Ir Iridium 1
+0.002 E 2952.1980 Ir Iridium 2
+0.100 E 2955.6440 Ir Iridium 2
+0.025 E 2964.9670 Ir Iridium 2
+0.015 E 2978.9090 Ir Iridium 2
+0.090 D 2986.670 Ir Iridium 1
+0.050 E 3002.8300 Ir Iridium 2
+0.072 B 3004.510 Ir Iridium 1
+0.029 E 3008.5980 Ir Iridium 2
+0.060 E 3027.2480 Ir Iridium 2
+0.050 E 3043.5330 Ir Iridium 2
+0.011 E 3046.5400 Ir Iridium 2
+0.032 D 3050.330 Ir Iridium 1
+0.037 D 3058.170 Ir Iridium 1
+0.007 E 3062.1000 Ir Iridium 2
+0.110 D 3069.780 Ir Iridium 1
+0.090 D 3069.980 Ir Iridium 1
+0.019 E 3083.8440 Ir Iridium 2
+0.048 C+ 3101.190 Ir Iridium 1
+0.140 D+ 3101.350 Ir Iridium 1
+0.060 E 3118.2320 Ir Iridium 2
+0.026 E 3119.7370 Ir Iridium 2
+0.090 D 3121.660 Ir Iridium 1
+0.460 C 3134.230 Ir Iridium 1
+0.008 E 3164.7680 Ir Iridium 2
+0.068 B+ 3169.800 Ir Iridium 1
+0.016 E 3182.2460 Ir Iridium 2
+0.036 D 3199.840 Ir Iridium 1
+0.011 E 3202.7830 Ir Iridium 2
+0.041 D 3213.050 Ir Iridium 1
+0.015 E 3217.4490 Ir Iridium 2
+0.197 B+ 3221.710 Ir Iridium 1
+0.014 E 3223.4510 Ir Iridium 2
+0.009 E 3232.9300 Ir Iridium 2
+0.038 D 3242.460 Ir Iridium 1
+0.080 D 3267.380 Ir Iridium 1
+0.016 E 3275.1980 Ir Iridium 2
+0.025 D 3288.540 Ir Iridium 1
+0.007 E 3296.0890 Ir Iridium 2
+0.019 E 3301.5490 Ir Iridium 2
+0.008 E 3328.6640 Ir Iridium 2
+0.007 E 3338.8020 Ir Iridium 2
+0.008 E 3388.6630 Ir Iridium 2
+0.036 D 3438.010 Ir Iridium 1
+0.005 E 3459.7050 Ir Iridium 2
+0.004 E 3508.5060 Ir Iridium 2
+0.031 B 3514.640 Ir Iridium 1
+0.020 B 3560.010 Ir Iridium 1
+0.070 B+ 3574.740 Ir Iridium 1
+0.029 D 3595.420 Ir Iridium 1
+0.025 E 3606.840 Ir Iridium 2
+0.025 B 3618.240 Ir Iridium 1
+0.029 B 3629.700 Ir Iridium 1
+0.028 D 3637.240 Ir Iridium 1
+0.016 E 3654.2310 Ir Iridium 2
+0.050 B 3662.750 Ir Iridium 1
+0.018 D 3676.030 Ir Iridium 1
+0.028 B 3735.8320 Ir Iridium 1
+0.032 D 3748.270 Ir Iridium 1
+0.007 E 3785.7920 Ir Iridium 2
+0.017 D 3794.870 Ir Iridium 1
+0.017 A 3801.200 Ir Iridium 1
+0.118 B 3828.6550 Ir Iridium 2
+0.033 D 3866.740 Ir Iridium 1
+0.004 E 3874.7310 Ir Iridium 2
+0.019 E 3896.6960 Ir Iridium 2
+0.004 C+ 3903.620 Ir Iridium 1
+0.031 D 3916.490 Ir Iridium 1
+0.015 D 3935.950 Ir Iridium 1
+0.045 D 3977.430 Ir Iridium 1
+0.031 D 3993.250 Ir Iridium 1
+0.034 B 4034.900 Ir Iridium 1
+0.048 B+ 4071.070 Ir Iridium 1
+0.013 D 4116.940 Ir Iridium 1
+0.001 B 4260.310 Ir Iridium 1
+0.018 D 4302.810 Ir Iridium 1
+0.013 D 4312.710 Ir Iridium 1
+0.002 E 4391.460 Ir Iridium 2
+0.033 C+ 4914.730 Ir Iridium 1
+0.003 C+ 4940.5520 Ir Iridium 1
+0.012 D 5365.810 Ir Iridium 1

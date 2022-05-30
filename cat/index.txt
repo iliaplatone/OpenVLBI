@@ -1,4 +1,4 @@
-nist/index
-iau/index
-iau-ex/index
-nudat/index
+nist/index.txt
+iau/index.txt
+iau-ex/index.txt
+nudat/index.txt

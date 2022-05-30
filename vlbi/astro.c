@@ -192,7 +192,6 @@ int vlbi_astro_load_spectra_catalog(char *path, dsp_stream_p **catalog, int *cat
         strcpy(element, dir);
         strcat(element, "/");
         strcat(element, str);
-        strcat(element, ".txt");
         int subdir = vlbi_astro_load_spectra_catalog(element, catalog, catalog_size);
         if(0 > subdir) {
             dsp_stream_p spectrum = vlbi_astro_load_spectrum(element);

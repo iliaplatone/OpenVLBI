@@ -1,5 +1,986 @@
-100  333433 Ku I
-160  664511 Ku II
-120  737022 Ku II
-1800  766491 K I
-900  769898 K I
+372000.000  3.008600 K Potassium 18
+9100.000  3.01120 K Potassium 18
+105000.000  3.06080 K Potassium 17
+312000.000  3.06080 K Potassium 17
+125000.000  3.06080 K Potassium 17
+1330000.000  3.531950 K Potassium 18
+4.910  3.545950 K Potassium 18
+29800.000  3.549500 K Potassium 18
+7010.000  14.7150 K Potassium 17
+8350.000  14.7760 K Potassium 17
+1400.000  14.7760 K Potassium 17
+8330.000  15.7550 K Potassium 17
+8240.000  15.7550 K Potassium 17
+15200.000  16.4270 K Potassium 17
+18100.000  16.4970 K Potassium 17
+18400.000  20.8890 K Potassium 17
+18700.000  20.9310 K Potassium 17
+14000.000  21.7370 K Potassium 16
+21000.000  21.9110 K Potassium 16
+45300.000  22.0200 K Potassium 17
+54100.000  22.1630 K Potassium 17
+2430.000  22.5730 K Potassium 17
+4990.000  22.7410 K Potassium 17
+30000.000  22.8130 K Potassium 16
+76000.000  22.9210 K Potassium 16
+52000.000  23.2700 K Potassium 16
+68000.000  23.3150 K Potassium 16
+95000.000  23.3990 K Potassium 16
+43000.000  23.8400 K Potassium 16
+35100.000  24.2000 K Potassium 15
+41900.000  24.3280 K Potassium 15
+36000.000  25.7000 K Potassium 14
+56800.000  25.7500 K Potassium 14
+180.000  25.8180 K Potassium 14
+76100.000  25.9090 K Potassium 14
+3600.000  26.0180 K Potassium 14
+3670.000  26.2840 K Potassium 14
+44300.000  26.4650 K Potassium 14
+3090.000  26.5910 K Potassium 14
+11800.000  29.1680 K Potassium 12
+20000.000  29.3420 K Potassium 12
+131.000  29.3670 K Potassium 12
+21700.000  29.4300 K Potassium 12
+8240.000  29.5300 K Potassium 12
+1900.000  29.5300 K Potassium 12
+30700.000  29.5590 K Potassium 12
+38500.000  29.6670 K Potassium 12
+55000.000  29.7350 K Potassium 12
+32500.000  29.7350 K Potassium 12
+23200.000  29.9210 K Potassium 12
+3490.000  29.9860 K Potassium 12
+20100.000  30.1510 K Potassium 12
+52300.000  30.2020 K Potassium 12
+12300.000  30.3510 K Potassium 12
+14000.000  30.5710 K Potassium 12
+8620.000  30.8000 K Potassium 12
+6340.000  30.8870 K Potassium 10
+160.000  31.0620 K Potassium 10
+496.000  31.4570 K Potassium 11
+4720.000  31.4830 K Potassium 11
+11700.000  31.6880 K Potassium 11
+3480.000  32.0990 K Potassium 11
+31000.000  32.1780 K Potassium 11
+876.000  32.2780 K Potassium 11
+23000.000  32.3180 K Potassium 11
+28000.000  32.3410 K Potassium 11
+4300.000  32.4210 K Potassium 11
+7470.000  32.5630 K Potassium 11
+13500.000  32.8080 K Potassium 11
+5110.000  32.9560 K Potassium 11
+1390.000  32.9560 K Potassium 11
+990.000  33.0120 K Potassium 11
+1490.000  33.0280 K Potassium 11
+204.000  33.0870 K Potassium 11
+1080.000  33.1070 K Potassium 11
+899.000  33.1340 K Potassium 11
+3450.000  33.2110 K Potassium 11
+2550.000  33.2370 K Potassium 12
+1350.000  33.2760 K Potassium 12
+824.000  33.2850 K Potassium 11
+20.600  33.3400 K Potassium 11
+1230.000  33.4860 K Potassium 12
+929.000  33.5470 K Potassium 12
+6210.000  33.9570 K Potassium 12
+5350.000  34.1260 K Potassium 12
+3160.000  34.2000 K Potassium 12
+2660.000  34.3490 K Potassium 12
+940.000  34.3930 K Potassium 12
+35100.000  35.3070 K Potassium 10
+900.000  35.5630 K Potassium 11
+3130.000  35.7790 K Potassium 10
+981.000  35.8650 K Potassium 11
+104.000  36.2290 K Potassium 10
+1920.000  36.6600 K Potassium 11
+1980.000  36.9680 K Potassium 11
+2040.000  37.2360 K Potassium 11
+3750.000  37.4310 K Potassium 11
+3040.000  37.5640 K Potassium 11
+814.000  37.6920 K Potassium 11
+431.000  37.7660 K Potassium 11
+34.000  37.8710 K Potassium 11
+66.800  37.8910 K Potassium 11
+51.200  38.0300 K Potassium 11
+2080.000  41.1510 K Potassium 10
+1080.000  41.5480 K Potassium 10
+10.800  64.6430 K Potassium 17
+11600.000  64.7470 K Potassium 17
+682.000  112.1200 K Potassium 9
+207.000  112.5860 K Potassium 9
+23.000  112.5940 K Potassium 9
+70.500  121.0910 K Potassium 9
+143.000  121.6450 K Potassium 9
+15.900  126.6500 K Potassium 12
+184.000  131.6330 K Potassium 9
+190.000  131.8800 K Potassium 9
+23.500  136.9790 K Potassium 8
+20.000  137.1180 K Potassium 8
+43.800  137.2480 K Potassium 8
+129.000  137.4240 K Potassium 8
+64.200  137.4580 K Potassium 8
+99.000  137.5630 K Potassium 8
+122.000  137.6010 K Potassium 8
+14.200  137.9060 K Potassium 8
+346.000  138.5000 K Potassium 13
+26.300  138.8420 K Potassium 8
+16.300  139.1010 K Potassium 8
+844.000  140.8620 K Potassium 12
+97.500  142.6810 K Potassium 13
+516.000  143.7410 K Potassium 13
+231.000  143.8050 K Potassium 8
+350.000 C' 145.6590 K Potassium 9
+380.000 C' 145.7120 K Potassium 9
+256.000  147.1200 K Potassium 9
+60.200  147.5560 K Potassium 14
+309.000  147.9120 K Potassium 9
+51.500  147.9410 K Potassium 9
+104.000  149.4470 K Potassium 13
+177.000  150.4950 K Potassium 14
+54.100  151.0730 K Potassium 13
+365.000  151.7130 K Potassium 14
+368.000  152.4620 K Potassium 11
+313.000  152.7930 K Potassium 13
+327.000  153.9700 K Potassium 14
+8.410  154.2650 K Potassium 14
+141.000  155.7010 K Potassium 8
+191.000  155.9510 K Potassium 8
+107.000  155.9760 K Potassium 8
+33.800  156.0670 K Potassium 13
+255.000  156.4950 K Potassium 8
+64.500  156.5330 K Potassium 8
+39.400  156.9630 K Potassium 9
+44.300  157.0710 K Potassium 9
+84.300  157.9020 K Potassium 13
+162.000  158.1350 K Potassium 11
+66.300  159.6030 K Potassium 12
+261.000  161.3020 K Potassium 13
+167.000  164.1930 K Potassium 13
+102.000  166.2140 K Potassium 13
+42.500  166.9250 K Potassium 15
+43.400  168.1650 K Potassium 13
+235.000  168.4710 K Potassium 13
+161.000  168.9610 K Potassium 14
+76.900  169.1650 K Potassium 14
+122.000  169.7260 K Potassium 12
+70.700  169.9890 K Potassium 15
+93.200  172.0280 K Potassium 8
+281.000  172.2520 K Potassium 14
+275.000  172.5840 K Potassium 12
+93.700  173.5800 K Potassium 14
+196.000  174.4120 K Potassium 12
+57.900  175.0240 K Potassium 14
+65.800  175.3730 K Potassium 12
+237.000  175.4060 K Potassium 15
+200.000  175.7230 K Potassium 14
+84.000  176.6910 K Potassium 12
+170.000  178.2050 K Potassium 13
+174.000  178.8070 K Potassium 15
+152.000  179.5140 K Potassium 13
+7.780  179.8550 K Potassium 13
+60.300  180.3700 K Potassium 12
+162.000  180.8780 K Potassium 15
+775.000  182.7520 K Potassium 12
+20.800  184.580 K Potassium 15
+165.000  184.5900 K Potassium 9
+93.900  185.1230 K Potassium 15
+330.000  185.8810 K Potassium 9
+30.200  185.8830 K Potassium 14
+136.000  186.7990 K Potassium 15
+47.900  189.7660 K Potassium 15
+13.300  189.850 K Potassium 14
+44.100  190.5510 K Potassium 14
+106.000  190.7790 K Potassium 14
+91.500  192.850 K Potassium 14
+89.100  193.9300 K Potassium 15
+86.300  195.4220 K Potassium 14
+56.800  195.790 K Potassium 14
+29.500  196.1510 K Potassium 14
+145.000  196.4610 K Potassium 8
+79.400  198.5240 K Potassium 13
+52.000  198.5380 K Potassium 8
+156.000  198.9780 K Potassium 8
+123.000  199.5670 K Potassium 15
+18.500  199.5670 K Potassium 13
+263.000  199.9220 K Potassium 8
+436.000  200.0970 K Potassium 14
+75.200  201.5050 K Potassium 13
+30.500  202.1040 K Potassium 13
+2.470  202.5450 K Potassium 12
+70.900  203.1370 K Potassium 8
+92.400  203.7010 K Potassium 8
+33.700  204.0140 K Potassium 14
+206.000  204.2010 K Potassium 8
+68.700  204.2600 K Potassium 8
+285.000  204.6440 K Potassium 8
+99.400  205.3440 K Potassium 8
+927.000  205.7690 K Potassium 9
+993.000  205.8600 K Potassium 9
+102.000  206.2700 K Potassium 16
+68.000  208.1060 K Potassium 13
+4.540  213.420 K Potassium 16
+33.800  217.6150 K Potassium 14
+163.000  219.7930 K Potassium 13
+91.600  220.6290 K Potassium 7
+126.000  221.0350 K Potassium 7
+291.000  221.2810 K Potassium 8
+213.000  221.4790 K Potassium 7
+50.000  221.5640 K Potassium 7
+40.200  221.5950 K Potassium 7
+250.000  222.1210 K Potassium 7
+136.000  222.4490 K Potassium 7
+40.000  224.4570 K Potassium 14
+103.000  227.6250 K Potassium 7
+210.000  229.2580 K Potassium 7
+637.000  230.6560 K Potassium 8
+674.000  230.6940 K Potassium 8
+9.010  230.710 K Potassium 15
+759.000  230.7500 K Potassium 8
+32.600  231.000 K Potassium 15
+36.900  231.0660 K Potassium 14
+184.000  231.2970 K Potassium 14
+71.800  231.540 K Potassium 15
+56.100  232.340 K Potassium 15
+17.400  233.220 K Potassium 15
+24.500  235.870 K Potassium 16
+172.000  239.260 K Potassium 16
+30.800  240.010 K Potassium 16
+34.100  240.0830 K Potassium 15
+21.500  245.310 K Potassium 16
+59.400  248.520 K Potassium 16
+78.000  253.680 K Potassium 16
+74.500  255.760 K Potassium 15
+560.000  256.2220 K Potassium 8
+37.500  256.830 K Potassium 6
+47.800  257.660 K Potassium 6
+110.000  258.020 K Potassium 6
+34.600  258.410 K Potassium 6
+78.300  258.620 K Potassium 15
+146.000  258.870 K Potassium 6
+30.300  259.010 K Potassium 16
+61.100  259.610 K Potassium 6
+103.000  260.0420 K Potassium 9
+116.000  260.8220 K Potassium 9
+218.000  266.340 K Potassium 6
+41.500  283.570 K Potassium 14
+33.400  284.860 K Potassium 6
+35.400  293.050 K Potassium 5
+63.700  293.330 K Potassium 5
+47.800  294.840 K Potassium 5
+47.100  296.170 K Potassium 5
+46.800  297.060 K Potassium 5
+61.300  300.250 K Potassium 5
+64.600  300.500 K Potassium 5
+100.000  311.240 K Potassium 5
+116.000  312.770 K Potassium 5
+14.400  315.180 K Potassium 5
+17.700  315.540 K Potassium 5
+17.300  326.780 K Potassium 17
+11.600  327.030 K Potassium 5
+45.600  327.380 K Potassium 5
+34.000  328.970 K Potassium 5
+10.800  329.310 K Potassium 5
+18.500  340.460 K Potassium 4
+9.380  340.740 K Potassium 4
+9.440  342.410 K Potassium 4
+27.200  342.800 K Potassium 4
+32.500  354.930 K Potassium 4
+164.000  356.6430 K Potassium 7
+176.000  357.7040 K Potassium 7
+14.900  359.730 K Potassium 4
+4.630  359.910 K Potassium 4
+1.230  360.570 K Potassium 4
+8.550  362.080 K Potassium 4
+5.760  362.150 K Potassium 4
+151.000  362.2750 K Potassium 8
+5.570  363.020 K Potassium 4
+12.200  365.630 K Potassium 17
+2.460  368.030 K Potassium 4
+523.000  372.150 K Potassium 5
+486.000  372.460 K Potassium 5
+37.900  372.770 K Potassium 5
+6.250  373.5810 K Potassium 8
+338.000  374.940 K Potassium 6
+30.200  375.960 K Potassium 4
+400.000  377.760 K Potassium 5
+83.000  378.220 K Potassium 5
+480.000  379.120 K Potassium 5
+14.200  379.280 K Potassium 4
+676.000  379.880 K Potassium 4
+143.000  380.480 K Potassium 4
+260.000  381.700 K Potassium 4
+649.000  382.230 K Potassium 4
+362.000  382.650 K Potassium 4
+504.000  382.910 K Potassium 4
+4.970  383.320 K Potassium 5
+33.800  383.580 K Potassium 10
+648.000  384.100 K Potassium 4
+147.000  384.510 K Potassium 6
+204.000  385.550 K Potassium 6
+426.000  387.800 K Potassium 5
+316.000  387.810 K Potassium 6
+115.000  388.240 K Potassium 6
+218.000  388.920 K Potassium 4
+311.000  389.070 K Potassium 5
+617.000  389.070 K Potassium 4
+38.600  389.430 K Potassium 5
+22.900  389.750 K Potassium 5
+311.000  390.110 K Potassium 5
+576.000  390.420 K Potassium 4
+451.000  390.570 K Potassium 4
+173.000  391.460 K Potassium 4
+180.000  392.470 K Potassium 4
+119.000  393.140 K Potassium 4
+100.000  394.480 K Potassium 6
+270.000  395.400 K Potassium 5
+208.000  395.410 K Potassium 6
+29.900  396.240 K Potassium 6
+49.400  397.6910 K Potassium 7
+77.100  398.100 K Potassium 6
+146.000  398.3540 K Potassium 7
+291.000  398.360 K Potassium 5
+179.000  398.630 K Potassium 3
+68.600  398.880 K Potassium 5
+179.000  398.9430 K Potassium 7
+78.400  399.080 K Potassium 6
+259.000  399.420 K Potassium 6
+134.000  399.4950 K Potassium 7
+294.000  399.750 K Potassium 5
+69.300  400.1470 K Potassium 7
+346.000  400.210 K Potassium 4
+112.000  400.960 K Potassium 6
+58.800  400.9790 K Potassium 7
+217.000  401.5530 K Potassium 7
+103.000  401.7900 K Potassium 7
+107.000  402.100 K Potassium 3
+94.900  402.1320 K Potassium 7
+28.800  402.2910 K Potassium 7
+73.800  402.8180 K Potassium 7
+171.000  402.910 K Potassium 4
+211.000  403.8000 K Potassium 7
+52.600  403.970 K Potassium 4
+37.100  403.9910 K Potassium 7
+11.400  404.410 K Potassium 4
+78.800  405.3450 K Potassium 7
+13.000  405.60 K Potassium 2
+1.300  405.770 K Potassium 4
+147.000  405.8130 K Potassium 8
+0.053  406.480 K Potassium 3
+38.400  406.8500 K Potassium 7
+50.300  408.2100 K Potassium 7
+79.400  408.4980 K Potassium 7
+459.000  408.960 K Potassium 4
+1.880  408.960 K Potassium 3
+234.000  409.0300 K Potassium 7
+2.360  410.100 K Potassium 3
+309.000  411.5380 K Potassium 7
+26.000  411.80 K Potassium 2
+72.500  412.280 K Potassium 7
+140.000  412.290 K Potassium 3
+71.700  412.3950 K Potassium 7
+6.930  412.6810 K Potassium 7
+62.400  413.790 K Potassium 3
+8.870  414.460 K Potassium 5
+18.100  414.540 K Potassium 10
+401.000  414.870 K Potassium 3
+2.200  414.90 K Potassium 2
+11.700  415.790 K Potassium 5
+283.000  416.000 K Potassium 3
+43.900  416.2500 K Potassium 7
+88.000  416.4440 K Potassium 7
+65.300 B 416.6420 K Potassium 8
+103.000  417.540 K Potassium 3
+87.000  418.4560 K Potassium 8
+48.300 B 418.5820 K Potassium 8
+27.800  418.620 K Potassium 3
+95.800  419.6210 K Potassium 7
+49.900  419.8110 K Potassium 7
+160.000  419.8110 K Potassium 7
+6.810  420.8590 K Potassium 8
+184.000  421.4540 K Potassium 7
+76.800  421.700 K Potassium 10
+40.000  422.00 K Potassium 2
+265.000  422.180 K Potassium 5
+113.000 B 422.4140 K Potassium 8
+28.200 B 422.6430 K Potassium 8
+79.600  423.7380 K Potassium 8
+2.670  425.160 K Potassium 5
+5.950  425.590 K Potassium 5
+29.500  427.8510 K Potassium 8
+22.300  428.540 K Potassium 6
+71.900  429.4610 K Potassium 8
+92.300  430.3490 K Potassium 8
+93.200  432.1420 K Potassium 8
+95.200  432.6400 K Potassium 8
+153.000  433.9780 K Potassium 8
+78.000  434.2670 K Potassium 8
+23.700  435.1660 K Potassium 8
+72.300  436.4260 K Potassium 8
+35.800  436.810 K Potassium 10
+33.400  438.040 K Potassium 10
+127.000  439.0220 K Potassium 8
+17.800  439.6150 K Potassium 8
+888.000  440.1070 K Potassium 8
+110.000  440.2070 K Potassium 8
+28.500  441.3820 K Potassium 8
+204.000  441.3820 K Potassium 8
+27.500  441.8570 K Potassium 8
+236.000  442.1240 K Potassium 8
+1.360  443.570 K Potassium 4
+56.300  444.1370 K Potassium 8
+40.300  444.340 K Potassium 3
+58.500  444.8800 K Potassium 7
+152.000  445.6200 K Potassium 7
+155.000  446.0050 K Potassium 7
+15.500  446.430 K Potassium 8
+48.100  446.750 K Potassium 10
+48.800  447.3990 K Potassium 8
+52.500  447.7130 K Potassium 8
+35.200  448.600 K Potassium 3
+0.076  449.010 K Potassium 5
+9.860  449.0210 K Potassium 6
+0.072  449.710 K Potassium 5
+51.600  450.6070 K Potassium 7
+53.900  451.890 K Potassium 10
+12.900  452.230 K Potassium 5
+8.110  452.6670 K Potassium 6
+15.700  452.900 K Potassium 5
+2.990  455.670 K Potassium 5
+13.400  456.330 K Potassium 5
+272.000  457.6520 K Potassium 8
+28.100  458.0450 K Potassium 6
+74.000  459.3170 K Potassium 9
+89.800  460.4400 K Potassium 6
+135.000  464.2750 K Potassium 6
+60.100  464.680 K Potassium 10
+10.000  465.080 K Potassium 2
+30.600  466.790 K Potassium 3
+84.600  466.8350 K Potassium 9
+14.100  467.3910 K Potassium 9
+9.870  469.680 K Potassium 10
+76.000  470.090 K Potassium 3
+64.100  470.750 K Potassium 10
+59.800  471.570 K Potassium 3
+44.600  472.660 K Potassium 10
+65.400  474.380 K Potassium 10
+82.300  474.8180 K Potassium 8
+11.900  474.920 K Potassium 3
+53.000  475.910 K Potassium 10
+54.300  476.940 K Potassium 10
+31.800  477.100 K Potassium 10
+64.600  477.540 K Potassium 10
+1.110  479.180 K Potassium 3
+31.000  479.7700 K Potassium 7
+8.870  481.550 K Potassium 10
+0.067  482.110 K Potassium 3
+0.213  482.410 K Potassium 3
+0.001  482.710 K Potassium 5
+0.000  483.750 K Potassium 5
+0.094  484.200 K Potassium 3
+108.000  484.2540 K Potassium 7
+147.000  487.0970 K Potassium 7
+115.000  488.1320 K Potassium 6
+56.400  489.9160 K Potassium 8
+90.700  490.7370 K Potassium 8
+69.500  490.7370 K Potassium 8
+67.700  491.7180 K Potassium 7
+48.400  491.850 K Potassium 11
+23.700  493.360 K Potassium 11
+670.000  495.1530 K Potassium 2
+50.500  495.660 K Potassium 11
+0.022  497.100 K Potassium 3
+47.500  498.090 K Potassium 11
+80.900  498.3990 K Potassium 7
+83.500  499.1910 K Potassium 7
+35.200  499.240 K Potassium 11
+49.800  499.920 K Potassium 11
+7.200  499.990 K Potassium 4
+6.120  501.6570 K Potassium 6
+125.000  510.2910 K Potassium 7
+120.000  510.2910 K Potassium 7
+26.900  517.7940 K Potassium 7
+29.900  517.9090 K Potassium 7
+90.300 B 519.3820 K Potassium 8
+1.680  520.610 K Potassium 3
+52.900  520.8570 K Potassium 7
+6.100  521.620 K Potassium 10
+0.454  523.790 K Potassium 3
+77.400  525.6120 K Potassium 7
+30.200  526.4520 K Potassium 7
+1.300  529.800 K Potassium 3
+0.169  539.730 K Potassium 3
+49.400  544.8310 K Potassium 7
+42.300  545.2280 K Potassium 7
+0.070  546.120 K Potassium 3
+0.133  550.320 K Potassium 3
+78.400  550.6010 K Potassium 7
+5.000  550.9680 K Potassium 7
+81.900  553.0130 K Potassium 7
+0.106  554.1750 K Potassium 2
+82.200  554.1980 K Potassium 8
+19.600  557.0160 K Potassium 8
+28.900  560.740 K Potassium 10
+26.700  561.5950 K Potassium 8
+57.000  564.4800 K Potassium 8
+19.600  565.1320 K Potassium 8
+76.400  569.5060 K Potassium 8
+0.924  571.5640 K Potassium 6
+31.200  572.8200 K Potassium 8
+16.400  580.3200 K Potassium 5
+30.300  581.3880 K Potassium 8
+25.800  581.830 K Potassium 11
+0.816  584.2230 K Potassium 8
+4.900  584.8550 K Potassium 8
+32.100  585.3100 K Potassium 8
+31.000  585.3930 K Potassium 8
+1.600  585.5060 K Potassium 5
+15.000  586.3210 K Potassium 5
+37.700  586.7740 K Potassium 8
+40.200  591.0530 K Potassium 8
+1.730  592.4200 K Potassium 8
+27.100  592.700 K Potassium 11
+13.400  594.360 K Potassium 10
+38.200  595.1610 K Potassium 8
+37.500  598.8710 K Potassium 8
+23.000  600.7550 K Potassium 2
+49.600  601.2450 K Potassium 8
+7.390  602.2570 K Potassium 5
+11.200  603.360 K Potassium 10
+15.800  603.4290 K Potassium 5
+77.400  605.6800 K Potassium 8
+17.500  606.570 K Potassium 10
+4.200  607.9320 K Potassium 2
+3.670  611.8640 K Potassium 6
+1.200  612.6250 K Potassium 2
+25.500  614.170 K Potassium 11
+2.240  616.1220 K Potassium 6
+3.460  616.1220 K Potassium 6
+11.100  616.1890 K Potassium 6
+30.900  621.4520 K Potassium 9
+11.900  622.120 K Potassium 10
+8.340  623.0120 K Potassium 6
+3.820  623.0120 K Potassium 6
+11.200  624.090 K Potassium 10
+24.700  625.190 K Potassium 10
+12.600  625.310 K Potassium 10
+15.300  625.4100 K Potassium 6
+26.800  626.020 K Potassium 10
+21.600  626.390 K Potassium 10
+58.800  635.6250 K Potassium 8
+28.700  636.3250 K Potassium 9
+1.540  638.6810 K Potassium 5
+0.535  639.9940 K Potassium 5
+19.800  644.740 K Potassium 11
+0.292  644.9640 K Potassium 5
+8.730  646.1810 K Potassium 4
+0.960  646.3080 K Potassium 5
+19.600  651.740 K Potassium 11
+21.200  651.740 K Potassium 11
+13.600  655.550 K Potassium 10
+11.900  656.190 K Potassium 10
+5.750  658.3980 K Potassium 7
+6.090  671.5120 K Potassium 7
+16.500  671.750 K Potassium 11
+0.750  672.2690 K Potassium 7
+5.790  684.5840 K Potassium 7
+8.890  684.7110 K Potassium 7
+7.920  685.3760 K Potassium 7
+0.292  686.3730 K Potassium 5
+6.490  686.9680 K Potassium 5
+6.200  687.4920 K Potassium 5
+0.452  688.0910 K Potassium 5
+15.300  690.950 K Potassium 11
+4.820  695.9090 K Potassium 7
+4.180  702.3510 K Potassium 7
+2.210  710.5260 K Potassium 6
+2.900  716.0160 K Potassium 6
+1.200  716.2890 K Potassium 6
+3.920  720.4400 K Potassium 5
+18.000  721.3540 K Potassium 8
+3.270  724.2780 K Potassium 6
+3.870  724.4410 K Potassium 5
+0.502  725.3280 K Potassium 6
+15.000  729.9700 K Potassium 8
+2.300  730.6600 K Potassium 8
+3.800  731.8690 K Potassium 5
+1.230  737.1460 K Potassium 4
+13.300  737.3300 K Potassium 8
+2.820  737.7100 K Potassium 8
+2.910  741.9410 K Potassium 4
+2.190  745.2580 K Potassium 4
+0.718  746.3420 K Potassium 4
+0.988  749.9790 K Potassium 4
+0.726  754.6580 K Potassium 4
+3.230  765.640 K Potassium 3
+0.586  770.2890 K Potassium 5
+0.839  771.4540 K Potassium 5
+7.060  775.6760 K Potassium 7
+1.610  778.530 K Potassium 3
+7.360  787.2510 K Potassium 7
+5.750  927.1700 K Potassium 8
+0.007  1247.0360 K Potassium 2
+0.868  1258.3850 K Potassium 2
+2.080  1261.6640 K Potassium 2
+3.110  1278.6230 K Potassium 2
+5.460  1284.6280 K Potassium 2
+1.410  1285.7860 K Potassium 2
+0.020  1298.6930 K Potassium 2
+0.088  1338.3580 K Potassium 2
+0.074  1340.9090 K Potassium 2
+1.040  1341.2330 K Potassium 2
+0.102  1349.0750 K Potassium 2
+0.276  1351.8440 K Potassium 2
+0.808  1355.5130 K Potassium 2
+0.835  1374.9900 K Potassium 2
+0.432  1375.2430 K Potassium 2
+16.300  1375.9030 K Potassium 2
+1.860  1381.0090 K Potassium 2
+0.062  1387.7320 K Potassium 2
+1.270  1389.2850 K Potassium 2
+1.280  1389.2850 K Potassium 2
+0.093  1389.9700 K Potassium 2
+6.590  1390.8030 K Potassium 2
+0.035  1403.5440 K Potassium 2
+2.520  1456.5250 K Potassium 2
+4.320  1471.3880 K Potassium 2
+0.038  1484.5550 K Potassium 2
+0.068  1486.1130 K Potassium 2
+11.500  1487.6090 K Potassium 2
+0.028  1492.0400 K Potassium 2
+0.398  1492.4500 K Potassium 2
+0.072  1503.1770 K Potassium 2
+0.227  1503.5810 K Potassium 2
+5.400  1505.0240 K Potassium 2
+0.292  1508.4650 K Potassium 2
+2.410  1517.7770 K Potassium 2
+0.431  1518.9740 K Potassium 2
+0.026  1519.3790 K Potassium 2
+0.023  1522.4920 K Potassium 2
+0.817  1537.6850 K Potassium 2
+5.000  1548.4790 K Potassium 2
+2.960  1570.6290 K Potassium 2
+0.711  1576.6980 K Potassium 2
+0.035  1576.6980 K Potassium 2
+6.310  1576.8980 K Potassium 2
+0.011  1577.8040 K Potassium 2
+0.012  1577.8040 K Potassium 2
+1.630  1578.8690 K Potassium 2
+1.000  1590.4530 K Potassium 2
+4.040  1596.6430 K Potassium 2
+2.100  1597.2170 K Potassium 2
+0.431  1601.5440 K Potassium 2
+8.690  1602.1370 K Potassium 2
+2.060  1603.1150 K Potassium 2
+1.630  1604.4680 K Potassium 2
+0.482  1604.9480 K Potassium 2
+1.950  1607.8330 K Potassium 2
+0.195  1608.3990 K Potassium 2
+1.800  1609.9590 K Potassium 2
+4.340  1662.8950 K Potassium 2
+0.568  1691.7540 K Potassium 2
+7.660  1692.2130 K Potassium 2
+4.260  1693.3520 K Potassium 2
+6.940  1704.6070 K Potassium 2
+7.830  1722.3740 K Potassium 2
+13.600  1723.8000 K Potassium 2
+1.660  1723.9120 K Potassium 2
+0.717  1724.0700 K Potassium 2
+0.080  1724.4390 K Potassium 2
+0.040  1724.6020 K Potassium 2
+4.290  1727.7220 K Potassium 2
+3.230  1741.0020 K Potassium 2
+0.704  1748.8320 K Potassium 2
+29.200  1748.9620 K Potassium 2
+0.007  1753.9020 K Potassium 2
+0.146  1755.5040 K Potassium 2
+3.560  1757.2310 K Potassium 2
+5.570  1765.0250 K Potassium 2
+2.880  1765.0250 K Potassium 2
+2.370  1765.1150 K Potassium 2
+0.162  1768.7860 K Potassium 2
+0.458  1769.5110 K Potassium 2
+12.600  1773.0600 K Potassium 2
+6.150  1786.9090 K Potassium 2
+0.831  1790.6790 K Potassium 2
+0.123  1993.0070 K Potassium 2
+0.042  1993.7140 K Potassium 2
+7.140  1994.2850 K Potassium 2
+0.048  1995.5570 K Potassium 2
+0.881  2035.3330 K Potassium 2
+12.000  2036.0620 K Potassium 2
+0.004  2036.6680 K Potassium 2
+6.740  2037.6600 K Potassium 2
+0.749  2045.4880 K Potassium 2
+18.000  2045.9390 K Potassium 2
+0.778  2046.0860 K Potassium 2
+9.730  2077.4600 K Potassium 2
+18.500  2079.3560 K Potassium 2
+2.390  2082.5480 K Potassium 2
+0.126  2083.5540 K Potassium 2
+0.038  2084.6050 K Potassium 2
+3.690  2085.5970 K Potassium 2
+5.710  2090.5200 K Potassium 2
+0.227  2095.2240 K Potassium 2
+0.009  2123.4980 K Potassium 2
+0.166  2128.8100 K Potassium 2
+4.610  2129.8620 K Potassium 2
+4.000  2131.3600 K Potassium 2
+0.512  2133.6200 K Potassium 2
+1.090  2133.7340 K Potassium 2
+0.106  2139.1010 K Potassium 2
+1.640  2139.9200 K Potassium 2
+0.398  2140.1680 K Potassium 2
+0.162  2140.9520 K Potassium 2
+0.203  2142.4980 K Potassium 2
+0.869  2143.5350 K Potassium 2
+6.900  2145.3740 K Potassium 2
+0.030  2150.3430 K Potassium 2
+1.580  2550.790 K Potassium 3
+1.290  2635.900 K Potassium 3
+0.748  2690.700 K Potassium 3
+0.282  2778.710 K Potassium 2
+0.050  2801.230 K Potassium 3
+0.040  2878.190 K Potassium 3
+0.133  2904.210 K Potassium 3
+0.424  2939.310 K Potassium 3
+0.300  2955.190 K Potassium 3
+1.180  2987.070 K Potassium 3
+0.000 C+ 2992.9810 K Potassium 1
+0.000 C+ 2993.0880 K Potassium 1
+2.510  2993.290 K Potassium 3
+2.130  3024.310 K Potassium 3
+0.000 B 3035.6340 K Potassium 1
+0.000 C+ 3035.7940 K Potassium 1
+0.192  3048.050 K Potassium 2
+1.850  3052.960 K Potassium 3
+1.180  3057.730 K Potassium 3
+1.310  3062.140 K Potassium 3
+8.820  3063.070 K Potassium 2
+0.430  3075.890 K Potassium 2
+0.000 B+ 3102.6910 K Potassium 1
+0.000 C+ 3102.9510 K Potassium 1
+4.970  3105.900 K Potassium 2
+1.980  3143.660 K Potassium 2
+0.273  3158.060 K Potassium 2
+1.090  3172.730 K Potassium 2
+3.190  3190.990 K Potassium 2
+0.612  3202.880 K Potassium 3
+0.394  3210.270 K Potassium 3
+0.001 B+ 3218.0800 K Potassium 1
+0.000 C+ 3218.5440 K Potassium 1
+2.520  3221.530 K Potassium 2
+1.790  3221.530 K Potassium 2
+1.150  3254.920 K Potassium 3
+0.253  3259.750 K Potassium 2
+1.090  3279.730 K Potassium 3
+1.760  3290.010 K Potassium 3
+4.720  3291.600 K Potassium 2
+0.092  3302.550 K Potassium 2
+1.520  3323.360 K Potassium 3
+0.005  3338.630 K Potassium 2
+0.588  3357.470 K Potassium 2
+1.590  3359.400 K Potassium 3
+1.120  3365.190 K Potassium 3
+15.900  3381.590 K Potassium 2
+11.000  3385.830 K Potassium 2
+0.525  3385.830 K Potassium 2
+0.372  3393.600 K Potassium 2
+2.200  3405.220 K Potassium 2
+0.276  3421.800 K Potassium 3
+0.687  3422.810 K Potassium 3
+0.172  3428.110 K Potassium 2
+11.200  3441.040 K Potassium 2
+0.002 B+ 3447.3640 K Potassium 1
+0.001 C+ 3448.3640 K Potassium 1
+0.195  3449.000 K Potassium 3
+0.089  3458.840 K Potassium 2
+0.297  3469.310 K Potassium 3
+0.102  3482.110 K Potassium 3
+0.435  3514.880 K Potassium 3
+0.239  3529.520 K Potassium 2
+0.313  3530.540 K Potassium 2
+2.260  3531.760 K Potassium 2
+0.649  3563.170 K Potassium 2
+0.252  3587.620 K Potassium 2
+0.035  3594.250 K Potassium 2
+3.640  3609.910 K Potassium 2
+0.814  3619.520 K Potassium 2
+5.380  3627.450 K Potassium 2
+0.076  3638.040 K Potassium 2
+0.005  3648.990 K Potassium 2
+0.367  3669.640 K Potassium 2
+0.836  3677.100 K Potassium 2
+1.560  3682.590 K Potassium 2
+0.148  3717.660 K Potassium 2
+1.440  3722.400 K Potassium 2
+0.236  3740.190 K Potassium 2
+0.107  3745.480 K Potassium 2
+0.440  3757.690 K Potassium 2
+1.010  3768.430 K Potassium 2
+1.490  3784.260 K Potassium 2
+2.750  3801.220 K Potassium 2
+2.420  3817.640 K Potassium 2
+5.730  3818.580 K Potassium 2
+0.069  3822.380 K Potassium 2
+0.112  3845.110 K Potassium 2
+1.260  3862.500 K Potassium 2
+0.291  3874.840 K Potassium 2
+0.988  3879.720 K Potassium 2
+1.710  3884.520 K Potassium 2
+0.201  3887.940 K Potassium 2
+3.630  3899.020 K Potassium 2
+0.052  3900.380 K Potassium 2
+0.775  3901.210 K Potassium 2
+0.555  3924.110 K Potassium 2
+1.360  3927.470 K Potassium 2
+7.100  3935.470 K Potassium 2
+1.860  3943.650 K Potassium 2
+0.886  3956.330 K Potassium 2
+0.907  3957.220 K Potassium 2
+0.032  3960.960 K Potassium 2
+0.471  3967.840 K Potassium 2
+5.880  3973.700 K Potassium 2
+0.443  3973.700 K Potassium 2
+0.229  3992.930 K Potassium 2
+0.461  3996.230 K Potassium 2
+1.500  4002.370 K Potassium 2
+0.437  4013.230 K Potassium 2
+0.675  4018.660 K Potassium 2
+1.100  4026.020 K Potassium 2
+0.408  4040.830 K Potassium 2
+0.930  4043.730 K Potassium 2
+0.011 A 4045.2790 K Potassium 1
+0.011 B+ 4048.3510 K Potassium 1
+0.230  4066.380 K Potassium 2
+1.600  4094.850 K Potassium 2
+0.136  4113.300 K Potassium 2
+2.340  4116.150 K Potassium 2
+2.310  4135.890 K Potassium 2
+1.680  4150.360 K Potassium 2
+0.441  4150.360 K Potassium 2
+10.300  4187.420 K Potassium 2
+0.437  4210.680 K Potassium 2
+2.300  4224.160 K Potassium 2
+0.942  4226.860 K Potassium 2
+3.910  4264.600 K Potassium 2
+0.095  4286.100 K Potassium 2
+0.070  4286.100 K Potassium 2
+0.116  4289.910 K Potassium 2
+0.866  4306.210 K Potassium 2
+0.452  4306.480 K Potassium 2
+4.190  4310.310 K Potassium 2
+0.652  4341.250 K Potassium 2
+0.588  4364.190 K Potassium 2
+1.800  4389.390 K Potassium 2
+0.078  4424.970 K Potassium 2
+0.293  4456.250 K Potassium 2
+0.520  4467.900 K Potassium 2
+0.001  4506.590 K Potassium 2
+0.616  4506.590 K Potassium 2
+0.124  4596.940 K Potassium 2
+2.100  4609.740 K Potassium 2
+0.149  4660.680 K Potassium 2
+0.001 E 4742.2400 K Potassium 1
+0.001 C 4745.6720 K Potassium 1
+0.004  4746.250 K Potassium 2
+0.002 D+ 4755.2630 K Potassium 1
+0.001 C 4758.7190 K Potassium 1
+0.001 C 4787.8290 K Potassium 1
+0.001 C 4792.3880 K Potassium 1
+0.002 C 4801.0960 K Potassium 1
+0.002 C 4805.6910 K Potassium 1
+2.520  4830.580 K Potassium 2
+0.002 A+ 4851.2200 K Potassium 1
+0.002 A 4857.4470 K Potassium 1
+0.004 AA 4864.8420 K Potassium 1
+0.003 A 4871.1170 K Potassium 1
+0.429  4940.130 K Potassium 2
+0.003 AA 4943.3810 K Potassium 1
+0.125  4944.620 K Potassium 2
+0.003 B+ 4952.1970 K Potassium 1
+0.005 AA 4957.52920 K Potassium 1
+0.003 A 4966.4160 K Potassium 1
+1.110  5007.000 K Potassium 2
+0.328  5057.680 K Potassium 2
+0.004 AA 5085.6430 K Potassium 1
+0.003 B+ 5098.5920 K Potassium 1
+0.008 A+ 5100.6210 K Potassium 1
+0.004 B+ 5113.6740 K Potassium 1
+0.150  5311.720 K Potassium 2
+0.007 A+ 5324.7570 K Potassium 1
+0.013 AA 5341.1730 K Potassium 1
+0.004 A 5344.4560 K Potassium 1
+0.005 A 5361.0650 K Potassium 1
+0.207  5471.650 K Potassium 2
+0.263  5489.580 K Potassium 2
+0.021  5514.220 K Potassium 2
+0.021  5537.550 K Potassium 2
+0.138  5644.300 K Potassium 2
+0.083  5773.920 K Potassium 2
+0.012 AA 5783.9880 K Potassium 1
+0.023 AA 5803.3610 K Potassium 1
+0.003 A 5813.7590 K Potassium 1
+0.004 A 5833.5040 K Potassium 1
+0.013  5971.290 K Potassium 2
+0.012  6014.080 K Potassium 2
+1.680  6121.960 K Potassium 2
+0.613  6248.320 K Potassium 2
+0.891  6309.030 K Potassium 2
+0.156  6429.740 K Potassium 2
+0.118  6596.820 K Potassium 2
+0.025 AA 6912.9910 K Potassium 1
+0.000 C 6938.1970 K Potassium 1
+0.050 AA 6940.6810 K Potassium 1
+0.000 D+ 6966.100 K Potassium 1
+0.000 D+ 6966.5930 K Potassium 1
+0.378 AAA 7667.0089060 K Potassium 1
+0.373 AAA 7701.0835360 K Potassium 1
+0.010 B+ 8252.450 K Potassium 1
+0.001 C+ 8252.450 K Potassium 1
+0.009 C+ 8254.010 K Potassium 1
+0.000 B+ 8392.530 K Potassium 1
+0.000 A 8419.850 K Potassium 1
+0.001 A 8422.310 K Potassium 1
+0.013 B+ 8505.790 K Potassium 1
+0.001 B+ 8505.790 K Potassium 1
+0.012 B+ 8507.450 K Potassium 1
+0.001 A 8766.370 K Potassium 1
+0.001 A 8769.460 K Potassium 1
+0.001 AA 8904.630 K Potassium 1
+0.021 AA 8904.630 K Potassium 1
+0.019 AA 8906.460 K Potassium 1
+0.001 A 8925.760 K Potassium 1
+0.000 B+ 8927.890 K Potassium 1
+0.001 A+ 9349.800 K Potassium 1
+0.000 A+ 9351.820 K Potassium 1
+0.001 A+ 9354.160 K Potassium 1
+0.034 AA 9598.330 K Potassium 1
+0.002 AA 9598.330 K Potassium 1
+0.032 AA 9600.460 K Potassium 1
+0.001 B+ 9952.400 K Potassium 1
+0.001 B+ 9956.870 K Potassium 1
+0.002 A 10482.500 K Potassium 1
+0.000 A+ 10485.020 K Potassium 1
+0.002 A+ 10489.980 K Potassium 1
+0.065 AA 11022.890 K Potassium 1
+0.004 AA 11022.890 K Potassium 1
+0.061 AA 11025.690 K Potassium 1
+0.202 AA 11693.4190 K Potassium 1
+0.040 AA 11772.8590 K Potassium 1
+0.238 AA 11776.0600 K Potassium 1
+0.080 AA 12435.6760 K Potassium 1
+0.158 AA 12525.5670 K Potassium 1
+0.004 A+ 13381.520 K Potassium 1
+0.004 A+ 13400.750 K Potassium 1
+0.010 A 15167.220 K Potassium 1
+0.155 A 15167.220 K Potassium 1
+0.146 B+ 15172.550 K Potassium 1
+0.046 AA 27073.970 K Potassium 1
+0.045 AA 27212.160 K Potassium 1
+0.015 A 31392.630 K Potassium 1
+0.002 B+ 31415.390 K Potassium 1
+0.016 A 31601.610 K Potassium 1
+0.016 AA 36372.780 K Potassium 1
+0.050 AAA 36622.600 K Potassium 1
+0.029 AA 37081.470 K Potassium 1
+0.006 AA 37341.190 K Potassium 1
+0.034 AA 37356.110 K Potassium 1

@@ -1,57 +1,350 @@
-070  320171 Ce II
-070  327225 Ce II
-070  353909 Ce II
-110  356080 Ce II
-095  357746 Ce II
-080 qd 362384 Ce II
-160  365585 Ce II
-080  366064 Ce II
-080  366798 Ce II
-085  370929 Ce II
-085  370993 Ce II
-110  371637 Ce II
-070  378663 Ce II
-200  380153 Ce II
-085  380812 Ce II
-090  383854 Ce II
-070  384860 Ce II
-070  385316 Ce II
-100  385419 Ce II
-100  385432 Ce II
-090  387837 Ce II
-120  388245 Ce II
-085  388999 Ce II
-140  394215 Ce II
-190  394275 Ce II
-220  395254 Ce II
-070  395628 Ce II
-200  399924 Ce II
-190  401239 Ce II
-150  404076 Ce II
-075  407181 Ce II
-130  407348 Ce II
-110  407571 Ce II
-110  407585 Ce II
-070  412387 Ce II
-070  412737 Ce II
-190  413380 Ce II
-140  413765 Ce II
-070  414994 Ce II
-100  415197 Ce II
-090  416561 Ce II
-250  418660 Ce II
-080  419867 Ce II
-080  419872 Ce II
-110  422260 Ce II
-070  423991 Ce II
-715  424868 Ce II
-140  428994 Ce II
-140  429667 Ce II
-070  433778 Ce II
-120  439166 Ce II
-070  441878 Ce II
-170  446021 Ce II
-100  447124 Ce II
-150  456236 Ce II
-715  457228 Ce II
-120  462816 Ce II
+0.194 C+ 3423.690 Ce Cerium 2
+0.155 B 3427.190 Ce Cerium 2
+0.249 B+ 3486.050 Ce Cerium 2
+0.060 C+ 3508.940 Ce Cerium 2
+0.083 B 3521.530 Ce Cerium 2
+0.324 B 3535.060 Ce Cerium 2
+0.357 B 3540.090 Ce Cerium 2
+0.098 B 3553.740 Ce Cerium 2
+0.155 B 3556.020 Ce Cerium 2
+0.730 B+ 3561.820 Ce Cerium 2
+0.600 B+ 3578.470 Ce Cerium 2
+0.150 B 3648.010 Ce Cerium 2
+0.162 C+ 3654.150 Ce Cerium 2
+0.228 B+ 3654.710 Ce Cerium 2
+0.125 C+ 3656.010 Ce Cerium 2
+0.449 B+ 3656.890 Ce Cerium 2
+0.132 B 3660.270 Ce Cerium 2
+0.092 C+ 3661.010 Ce Cerium 2
+0.198 B 3661.680 Ce Cerium 2
+0.282 B+ 3669.020 Ce Cerium 2
+0.050 B 3695.960 Ce Cerium 2
+0.062 C+ 3706.030 Ce Cerium 2
+0.294 B+ 3710.350 Ce Cerium 2
+0.263 B+ 3710.990 Ce Cerium 2
+0.310 B+ 3717.430 Ce Cerium 2
+0.080 B 3720.860 Ce Cerium 2
+0.013 C+ 3726.740 Ce Cerium 2
+0.200 C+ 3726.740 Ce Cerium 2
+0.290 B 3729.080 Ce Cerium 2
+0.431 B+ 3729.480 Ce Cerium 2
+0.178 B+ 3749.130 Ce Cerium 2
+0.214 B+ 3765.190 Ce Cerium 2
+0.167 B+ 3772.670 Ce Cerium 2
+0.100 B+ 3777.680 Ce Cerium 2
+0.256 B+ 3782.690 Ce Cerium 2
+0.251 B+ 3787.710 Ce Cerium 2
+0.165 B+ 3789.830 Ce Cerium 2
+0.181 B+ 3793.400 Ce Cerium 2
+1.390 B+ 3802.600 Ce Cerium 2
+0.249 B+ 3804.170 Ce Cerium 2
+0.277 B+ 3809.190 Ce Cerium 2
+0.203 B+ 3810.290 Ce Cerium 2
+0.151 B 3816.930 Ce Cerium 2
+0.272 B 3820.100 Ce Cerium 2
+0.151 B 3824.990 Ce Cerium 2
+0.124 B+ 3835.640 Ce Cerium 2
+0.085 B+ 3837.190 Ce Cerium 2
+0.550 B+ 3839.630 Ce Cerium 2
+0.140 B 3844.850 Ce Cerium 2
+0.131 B+ 3849.190 Ce Cerium 2
+0.274 B+ 3849.680 Ce Cerium 2
+0.175 B+ 3854.240 Ce Cerium 2
+0.431 B+ 3855.270 Ce Cerium 2
+0.397 B+ 3855.400 Ce Cerium 2
+0.195 B+ 3856.380 Ce Cerium 2
+0.210 B 3858.110 Ce Cerium 2
+0.130 B+ 3858.730 Ce Cerium 2
+0.057 B+ 3869.230 Ce Cerium 2
+0.249 B+ 3879.460 Ce Cerium 2
+1.440 B+ 3883.550 Ce Cerium 2
+0.419 B+ 3891.080 Ce Cerium 2
+0.184 B 3891.850 Ce Cerium 2
+0.073 B+ 3892.080 Ce Cerium 2
+0.295 B+ 3897.900 Ce Cerium 2
+0.167 B+ 3899.370 Ce Cerium 2
+0.067 B+ 3904.450 Ce Cerium 2
+0.147 B 3905.450 Ce Cerium 2
+0.424 B+ 3909.520 Ce Cerium 2
+0.239 B+ 3909.650 Ce Cerium 2
+0.100 B+ 3910.420 Ce Cerium 2
+0.151 B+ 3913.300 Ce Cerium 2
+0.247 B+ 3913.550 Ce Cerium 2
+0.119 B+ 3917.250 Ce Cerium 2
+0.199 B+ 3918.750 Ce Cerium 2
+0.224 B+ 3920.920 Ce Cerium 2
+0.442 B+ 3924.220 Ce Cerium 2
+0.146 B+ 3932.200 Ce Cerium 2
+0.154 B+ 3932.480 Ce Cerium 2
+0.233 B+ 3941.460 Ce Cerium 2
+0.146 B+ 3942.090 Ce Cerium 2
+0.431 B+ 3943.270 Ce Cerium 2
+1.320 B+ 3943.870 Ce Cerium 2
+0.550 B+ 3945.010 Ce Cerium 2
+0.129 B+ 3949.090 Ce Cerium 2
+0.335 B+ 3953.660 Ce Cerium 2
+0.164 B+ 3954.780 Ce Cerium 2
+0.398 B+ 3957.400 Ce Cerium 2
+0.459 B+ 3962.030 Ce Cerium 2
+0.157 B+ 3965.620 Ce Cerium 2
+0.474 B+ 3968.170 Ce Cerium 2
+0.164 B+ 3972.800 Ce Cerium 2
+0.600 B+ 3979.780 Ce Cerium 2
+0.322 B+ 3982.010 Ce Cerium 2
+0.181 C+ 3984.020 Ce Cerium 2
+0.089 B+ 3984.420 Ce Cerium 2
+0.347 B 3985.810 Ce Cerium 2
+0.208 B+ 3993.520 Ce Cerium 2
+0.810 B+ 3994.950 Ce Cerium 2
+0.396 B+ 4000.370 Ce Cerium 2
+0.179 B 4002.690 Ce Cerium 2
+0.680 B+ 4004.900 Ce Cerium 2
+0.098 B+ 4006.770 Ce Cerium 2
+0.670 B+ 4013.520 Ce Cerium 2
+0.259 B+ 4016.030 Ce Cerium 2
+0.186 B+ 4025.630 Ce Cerium 2
+0.345 B+ 4026.290 Ce Cerium 2
+0.185 B+ 4029.550 Ce Cerium 2
+0.197 B+ 4032.480 Ce Cerium 2
+0.143 B+ 4038.810 Ce Cerium 2
+0.660 B+ 4041.900 Ce Cerium 2
+0.411 B+ 4043.720 Ce Cerium 2
+0.285 B+ 4047.480 Ce Cerium 2
+0.095 B 4052.570 Ce Cerium 2
+0.119 B 4053.130 Ce Cerium 2
+0.100 B+ 4054.650 Ce Cerium 2
+0.084 B+ 4064.090 Ce Cerium 2
+0.273 B+ 4069.990 Ce Cerium 2
+0.315 B+ 4072.960 Ce Cerium 2
+0.115 B+ 4074.070 Ce Cerium 2
+1.090 B+ 4074.630 Ce Cerium 2
+0.487 B+ 4076.860 Ce Cerium 2
+0.486 B+ 4077.000 Ce Cerium 2
+0.067 B+ 4081.590 Ce Cerium 2
+0.620 B+ 4084.380 Ce Cerium 2
+0.281 B+ 4086.380 Ce Cerium 2
+0.075 B+ 4088.510 Ce Cerium 2
+0.175 B+ 4090.000 Ce Cerium 2
+0.314 B+ 4102.930 Ce Cerium 2
+0.289 B+ 4108.580 Ce Cerium 2
+0.146 B+ 4112.550 Ce Cerium 2
+0.139 B 4118.450 Ce Cerium 2
+0.660 B+ 4119.300 Ce Cerium 2
+0.147 B+ 4120.180 Ce Cerium 2
+0.187 B+ 4121.040 Ce Cerium 2
+0.023 B 4121.040 Ce Cerium 2
+0.166 B+ 4121.990 Ce Cerium 2
+0.158 B 4124.400 Ce Cerium 2
+0.680 B+ 4125.030 Ce Cerium 2
+0.257 B+ 4125.950 Ce Cerium 2
+0.790 B+ 4128.530 Ce Cerium 2
+0.224 B+ 4128.900 Ce Cerium 2
+0.118 B 4129.230 Ce Cerium 2
+0.249 B+ 4131.880 Ce Cerium 2
+0.212 B+ 4136.610 Ce Cerium 2
+0.211 B+ 4138.640 Ce Cerium 2
+0.820 B+ 4138.820 Ce Cerium 2
+0.543 B+ 4143.570 Ce Cerium 2
+0.179 B+ 4145.660 Ce Cerium 2
+0.491 B+ 4146.170 Ce Cerium 2
+0.246 B+ 4147.400 Ce Cerium 2
+0.082 B 4150.960 Ce Cerium 2
+0.340 B+ 4151.110 Ce Cerium 2
+0.750 B+ 4153.140 Ce Cerium 2
+0.076 B+ 4154.300 Ce Cerium 2
+0.900 B+ 4166.780 Ce Cerium 2
+0.136 B 4170.950 Ce Cerium 2
+0.212 B+ 4171.060 Ce Cerium 2
+0.164 B+ 4186.510 Ce Cerium 2
+0.142 B+ 4188.500 Ce Cerium 2
+0.066 B 4194.270 Ce Cerium 2
+0.417 B+ 4194.460 Ce Cerium 2
+0.156 B+ 4195.050 Ce Cerium 2
+0.216 B+ 4197.520 Ce Cerium 2
+0.180 B+ 4199.900 Ce Cerium 2
+0.108 B+ 4204.120 Ce Cerium 2
+0.220 B+ 4204.120 Ce Cerium 2
+0.078 B+ 4210.600 Ce Cerium 2
+0.111 B 4215.230 Ce Cerium 2
+0.267 B+ 4223.790 Ce Cerium 2
+0.250 B+ 4228.940 Ce Cerium 2
+0.143 B+ 4235.400 Ce Cerium 2
+0.150 B+ 4237.210 Ce Cerium 2
+0.368 B+ 4241.110 Ce Cerium 2
+0.119 B+ 4243.910 Ce Cerium 2
+0.154 B+ 4247.180 Ce Cerium 2
+0.256 B+ 4247.920 Ce Cerium 2
+0.403 B+ 4249.880 Ce Cerium 2
+0.174 B+ 4254.570 Ce Cerium 2
+0.270 B+ 4256.990 Ce Cerium 2
+0.196 B+ 4271.390 Ce Cerium 2
+0.063 B+ 4280.060 Ce Cerium 2
+0.052 B+ 4289.870 Ce Cerium 2
+0.080 B 4290.650 Ce Cerium 2
+0.584 B+ 4291.150 Ce Cerium 2
+0.051 B 4297.280 Ce Cerium 2
+0.532 B+ 4297.880 Ce Cerium 2
+0.235 B+ 4297.990 Ce Cerium 2
+0.099 B+ 4300.570 Ce Cerium 2
+0.221 B+ 4301.540 Ce Cerium 2
+0.203 B+ 4306.350 Ce Cerium 2
+0.242 B+ 4307.930 Ce Cerium 2
+0.155 B+ 4310.950 Ce Cerium 2
+0.145 B+ 4321.940 Ce Cerium 2
+0.130 B+ 4331.670 Ce Cerium 2
+0.092 B+ 4333.930 Ce Cerium 2
+0.025 B 4333.930 Ce Cerium 2
+0.435 B+ 4338.990 Ce Cerium 2
+0.111 B+ 4351.010 Ce Cerium 2
+0.140 B+ 4351.010 Ce Cerium 2
+0.329 B+ 4353.930 Ce Cerium 2
+0.295 B+ 4365.890 Ce Cerium 2
+0.097 B+ 4375.050 Ce Cerium 2
+0.149 B+ 4377.150 Ce Cerium 2
+0.392 B+ 4383.400 Ce Cerium 2
+0.143 B+ 4388.070 Ce Cerium 2
+0.118 B+ 4389.240 Ce Cerium 2
+0.529 B+ 4392.890 Ce Cerium 2
+0.075 B+ 4400.030 Ce Cerium 2
+0.211 B+ 4400.440 Ce Cerium 2
+0.074 B+ 4418.140 Ce Cerium 2
+0.451 B+ 4420.020 Ce Cerium 2
+0.099 B+ 4428.310 Ce Cerium 2
+0.167 B+ 4429.160 Ce Cerium 2
+0.090 B+ 4429.680 Ce Cerium 2
+0.310 B+ 4450.590 Ce Cerium 2
+0.230 B+ 4451.980 Ce Cerium 2
+0.800 B+ 4461.460 Ce Cerium 2
+0.231 B+ 4462.390 Ce Cerium 2
+0.560 B+ 4472.490 Ce Cerium 2
+0.106 B+ 4473.980 Ce Cerium 2
+0.120 B+ 4480.620 Ce Cerium 2
+0.098 B 4480.620 Ce Cerium 2
+0.349 B+ 4485.160 Ce Cerium 2
+0.220 B+ 4488.170 Ce Cerium 2
+0.058 B+ 4507.670 Ce Cerium 1
+0.342 B+ 4524.350 Ce Cerium 2
+0.210 B+ 4528.620 Ce Cerium 2
+0.046 C+ 4528.620 Ce Cerium 2
+0.452 B+ 4529.740 Ce Cerium 2
+0.267 B+ 4541.020 Ce Cerium 2
+0.088 B+ 4546.230 Ce Cerium 2
+0.122 B+ 4552.580 Ce Cerium 2
+0.407 B+ 4561.560 Ce Cerium 2
+0.178 B+ 4562.240 Ce Cerium 2
+0.518 B+ 4563.640 Ce Cerium 2
+0.437 B+ 4573.560 Ce Cerium 2
+0.141 B+ 4583.780 Ce Cerium 2
+0.122 B 4592.410 Ce Cerium 2
+0.311 B+ 4595.220 Ce Cerium 2
+0.195 B+ 4607.690 Ce Cerium 2
+0.425 B+ 4629.460 Ce Cerium 2
+0.138 B+ 4633.620 Ce Cerium 1
+0.162 B+ 4651.810 Ce Cerium 1
+0.087 B+ 4655.590 Ce Cerium 2
+0.126 B 4681.440 Ce Cerium 2
+0.103 B 4685.920 Ce Cerium 2
+0.117 B+ 4715.320 Ce Cerium 2
+0.075 B+ 4716.130 Ce Cerium 2
+0.290 B+ 4738.610 Ce Cerium 2
+0.057 B+ 4759.170 Ce Cerium 2
+0.047 B 4770.100 Ce Cerium 2
+0.200 B+ 4775.270 Ce Cerium 2
+0.133 B+ 4823.900 Ce Cerium 1
+0.358 B+ 4883.820 Ce Cerium 2
+0.620 B+ 5010.500 Ce Cerium 1
+0.143 B+ 5013.170 Ce Cerium 2
+0.092 B 5024.270 Ce Cerium 2
+0.070 B 5039.180 Ce Cerium 2
+0.439 B+ 5042.260 Ce Cerium 1
+0.135 B 5045.430 Ce Cerium 2
+0.115 B+ 5076.760 Ce Cerium 2
+0.341 B+ 5114.120 Ce Cerium 1
+0.125 B 5149.000 Ce Cerium 2
+0.262 B+ 5188.900 Ce Cerium 2
+0.078 B 5193.110 Ce Cerium 2
+0.482 B+ 5213.370 Ce Cerium 1
+0.650 B+ 5224.910 Ce Cerium 1
+0.178 B+ 5231.210 Ce Cerium 1
+0.100 B 5234.380 Ce Cerium 2
+0.491 B+ 5247.380 Ce Cerium 1
+0.100 B+ 5267.180 Ce Cerium 2
+0.268 B+ 5275.700 Ce Cerium 2
+0.225 B+ 5298.030 Ce Cerium 1
+0.209 B+ 5329.560 Ce Cerium 1
+0.093 B 5332.020 Ce Cerium 2
+0.288 B+ 5355.020 Ce Cerium 2
+0.199 B+ 5394.900 Ce Cerium 2
+0.236 B+ 5399.140 Ce Cerium 1
+0.098 B 5410.730 Ce Cerium 2
+0.215 B+ 5421.890 Ce Cerium 1
+0.342 B+ 5450.750 Ce Cerium 1
+0.134 B 5469.890 Ce Cerium 2
+0.113 B 5513.610 Ce Cerium 2
+0.195 B+ 5557.790 Ce Cerium 1
+0.413 B+ 5566.520 Ce Cerium 1
+0.275 B+ 5567.520 Ce Cerium 1
+0.212 B+ 5597.430 Ce Cerium 1
+0.650 B+ 5602.840 Ce Cerium 1
+0.257 B+ 5656.710 Ce Cerium 1
+0.347 B+ 5671.530 Ce Cerium 1
+0.207 B+ 5679.330 Ce Cerium 1
+0.158 B+ 5694.520 Ce Cerium 1
+0.514 B+ 5698.570 Ce Cerium 1
+0.507 B+ 5720.620 Ce Cerium 1
+0.262 B+ 5774.720 Ce Cerium 1
+0.436 B+ 5789.760 Ce Cerium 1
+0.300 B+ 5814.530 Ce Cerium 1
+0.277 B+ 5942.510 Ce Cerium 1
+0.069 B+ 6007.520 Ce Cerium 1
+0.061 B+ 6008.480 Ce Cerium 1
+0.068 B+ 6015.090 Ce Cerium 1
+0.173 B+ 6025.870 Ce Cerium 1
+0.035 C+ 6035.870 Ce Cerium 2
+0.024 C+ 6037.160 Ce Cerium 2
+0.075 C+ 6045.060 Ce Cerium 2
+0.055 B+ 6049.070 Ce Cerium 1
+0.047 B+ 6059.680 Ce Cerium 1
+0.034 B+ 6073.680 Ce Cerium 1
+0.039 B+ 6078.290 Ce Cerium 1
+0.020 B 6094.880 Ce Cerium 1
+0.049 B+ 6094.880 Ce Cerium 1
+0.018 B+ 6101.490 Ce Cerium 1
+0.042 C+ 6110.430 Ce Cerium 2
+0.029 B+ 6120.590 Ce Cerium 1
+0.037 B 6137.150 Ce Cerium 1
+0.035 B+ 6144.620 Ce Cerium 1
+0.077 B+ 6148.130 Ce Cerium 1
+0.036 B+ 6149.540 Ce Cerium 1
+0.029 B+ 6197.240 Ce Cerium 1
+0.179 B+ 6210.700 Ce Cerium 1
+0.022 C+ 6234.170 Ce Cerium 2
+0.028 B+ 6239.180 Ce Cerium 1
+0.018 B+ 6240.440 Ce Cerium 1
+0.013 B+ 6255.380 Ce Cerium 1
+0.111 B 6273.780 Ce Cerium 2
+0.031 B+ 6301.950 Ce Cerium 1
+0.066 C+ 6372.870 Ce Cerium 2
+0.030 B 6438.180 Ce Cerium 1
+0.041 B+ 6459.810 Ce Cerium 1
+0.036 C+ 6468.670 Ce Cerium 2
+0.014 C+ 6508.960 Ce Cerium 2
+0.022 B+ 6553.510 Ce Cerium 1
+0.071 B+ 6557.460 Ce Cerium 1
+0.008 B+ 6624.830 Ce Cerium 1
+0.033 B 6663.250 Ce Cerium 1
+0.011 B+ 6667.430 Ce Cerium 1
+0.030 B+ 6706.120 Ce Cerium 1
+0.019 C+ 6707.890 Ce Cerium 2
+0.006 B 6810.700 Ce Cerium 1
+0.017 B 6831.610 Ce Cerium 2
+0.064 B+ 6926.720 Ce Cerium 1
+0.009 C+ 6985.750 Ce Cerium 2
+0.081 C+ 7063.700 Ce Cerium 2
+0.021 B 7066.440 Ce Cerium 1
+0.126 C+ 7088.300 Ce Cerium 2
+0.020 C+ 7240.350 Ce Cerium 2
+0.002 B 7243.730 Ce Cerium 1
+0.009 B 7535.800 Ce Cerium 1
+0.020 C+ 7853.340 Ce Cerium 2
+0.018 C+ 7915.700 Ce Cerium 1

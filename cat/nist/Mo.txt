@@ -1,40 +1,1889 @@
-220  277540 Mo II
-220  281615 Mo II
-220  284823 Mo II
-220  287151 Mo II
-160  289099 Mo II
-140  291192 Mo II
-160  292339 Mo II
-140  293050 Mo II
-170  311212 Mo I
-1800  313259 Mo I
-750  315816 Mo I
-1100  317035 Mo I
-950  319397 Mo I
-380  320883 Mo I
-140  323314 Mo I
-140  328902 Mo I
-160  334475 Mo I
-200  335812 Mo I
-240  338462 Mo I
-160  340594 Mo I
-400  344712 Mo I
-170  358189 Mo I
-170  362446 Mo I
-140  368060 Mo I
-140  368068 Mo I
-160  369494 Mo I
-3200  379825 Mo I
-160  383375 Mo I
-2800  386411 Mo I
-1800  390296 Mo I
-220  406988 Mo I
-280  414355 Mo I
-240  418832 Mo I
-140  423259 Mo I
-180  438164 Mo I
-240  441157 Mo I
-240  441170 Mo I
-480  550649 Mo I
-320  553305 Mo I
-150  557045 Mo I
+6.450  196.2340 Mo Molybdenum 6
+5.400  197.1600 Mo Molybdenum 6
+33.500  198.8170 Mo Molybdenum 6
+39.200  199.8280 Mo Molybdenum 6
+9.200  200.7880 Mo Molybdenum 6
+7.850  201.7290 Mo Molybdenum 6
+56.200  204.6190 Mo Molybdenum 6
+66.600  205.6900 Mo Molybdenum 6
+14.400  207.7520 Mo Molybdenum 6
+12.600  208.6920 Mo Molybdenum 6
+2.880  213.0180 Mo Molybdenum 6
+114.000  213.7550 Mo Molybdenum 6
+58.700  214.1950 Mo Molybdenum 6
+13.700  214.4070 Mo Molybdenum 6
+141.000  214.8880 Mo Molybdenum 6
+9.800  214.9420 Mo Molybdenum 6
+106.000  215.5980 Mo Molybdenum 6
+55.500  215.5980 Mo Molybdenum 6
+3.820  216.1800 Mo Molybdenum 6
+80.300  217.3940 Mo Molybdenum 6
+127.000  217.8920 Mo Molybdenum 6
+92.200  218.2380 Mo Molybdenum 6
+0.778  218.9550 Mo Molybdenum 6
+36.200  219.0630 Mo Molybdenum 6
+1.270  219.1260 Mo Molybdenum 6
+5.200  219.3910 Mo Molybdenum 6
+0.002  219.4770 Mo Molybdenum 6
+0.012  219.8470 Mo Molybdenum 6
+27.200  220.2010 Mo Molybdenum 6
+0.202  220.6420 Mo Molybdenum 6
+0.075  221.3190 Mo Molybdenum 6
+36.500  222.5920 Mo Molybdenum 6
+8.540  224.4830 Mo Molybdenum 6
+144.000  226.4690 Mo Molybdenum 6
+25.000  227.8010 Mo Molybdenum 6
+12.500  228.3680 Mo Molybdenum 6
+310.000  229.2620 Mo Molybdenum 6
+189.000  229.6770 Mo Molybdenum 6
+9.480  229.7230 Mo Molybdenum 6
+40.500  230.3480 Mo Molybdenum 6
+380.000  230.4330 Mo Molybdenum 6
+34.700  230.6280 Mo Molybdenum 6
+22.800  230.8500 Mo Molybdenum 6
+0.040  231.7280 Mo Molybdenum 6
+182.000  232.2330 Mo Molybdenum 6
+18.900  233.1130 Mo Molybdenum 6
+226.000  234.1870 Mo Molybdenum 6
+0.188  234.4650 Mo Molybdenum 6
+1.120  235.8980 Mo Molybdenum 6
+0.260  237.7190 Mo Molybdenum 6
+7.520  239.1880 Mo Molybdenum 6
+6.900  239.4090 Mo Molybdenum 6
+29.200  240.3470 Mo Molybdenum 6
+76.000  241.0500 Mo Molybdenum 6
+115.000  241.8470 Mo Molybdenum 6
+3100.000  241.9670 Mo Molybdenum 6
+115.000  242.2500 Mo Molybdenum 6
+278.000  243.4860 Mo Molybdenum 6
+3180.000  243.7730 Mo Molybdenum 6
+194.000  245.1550 Mo Molybdenum 6
+2270.000  246.7170 Mo Molybdenum 6
+2480.000  248.0650 Mo Molybdenum 6
+110.000 E 248.7590 Mo Molybdenum 5
+710.000 C 249.7400 Mo Molybdenum 5
+40.000 E 249.8920 Mo Molybdenum 5
+11.000 E 251.0070 Mo Molybdenum 5
+1700.000  252.3020 Mo Molybdenum 6
+7.000 E 253.1030 Mo Molybdenum 5
+400.000 E 253.4010 Mo Molybdenum 5
+460.000 C 253.5990 Mo Molybdenum 5
+1530.000  253.7790 Mo Molybdenum 6
+200.000 D 253.8200 Mo Molybdenum 5
+320.000 D 254.0990 Mo Molybdenum 5
+430.000 C 254.1200 Mo Molybdenum 5
+160.000 D 254.4080 Mo Molybdenum 5
+430.000 C 255.2740 Mo Molybdenum 5
+24.700  255.4430 Mo Molybdenum 6
+50.000 E 255.7750 Mo Molybdenum 5
+1.800 E 255.8420 Mo Molybdenum 5
+190.000 E 256.2840 Mo Molybdenum 5
+80.000 E 256.4800 Mo Molybdenum 5
+31.000 E 256.7100 Mo Molybdenum 5
+14.000 E 256.7620 Mo Molybdenum 5
+50.000 E 256.9440 Mo Molybdenum 5
+110.000 E 257.3390 Mo Molybdenum 5
+21.000 E 257.7380 Mo Molybdenum 5
+18.000 E 257.7560 Mo Molybdenum 5
+16.000 E 257.8610 Mo Molybdenum 5
+270.000 D 258.0690 Mo Molybdenum 5
+560.000 C 258.3330 Mo Molybdenum 5
+0.014 E 258.4500 Mo Molybdenum 5
+930.000 C 258.5070 Mo Molybdenum 5
+70.000 E 258.8140 Mo Molybdenum 5
+130.000 E 258.9990 Mo Molybdenum 5
+840.000 C 259.0510 Mo Molybdenum 5
+470.000 C 259.0510 Mo Molybdenum 5
+10.000 E 259.3890 Mo Molybdenum 5
+170.000 E 259.4490 Mo Molybdenum 5
+13.000 E 259.7030 Mo Molybdenum 5
+190.000 E 259.7820 Mo Molybdenum 5
+80.000 E 259.8040 Mo Molybdenum 5
+410.000 C 259.8930 Mo Molybdenum 5
+150.000 E 260.1190 Mo Molybdenum 5
+17.000 E 260.1190 Mo Molybdenum 5
+50.000 E 260.2300 Mo Molybdenum 5
+330.000 E 260.4850 Mo Molybdenum 5
+210.000 E 260.5160 Mo Molybdenum 5
+12.000 E 260.5590 Mo Molybdenum 5
+50.000 E 260.8800 Mo Molybdenum 5
+19.000 E 260.8800 Mo Molybdenum 5
+140.000 D 261.6120 Mo Molybdenum 5
+180.000 E 262.1010 Mo Molybdenum 5
+410.000 C 262.3950 Mo Molybdenum 5
+420.000 C 262.4430 Mo Molybdenum 5
+30.000 E 263.1070 Mo Molybdenum 5
+350.000 C 263.2110 Mo Molybdenum 5
+15.000 E 264.0320 Mo Molybdenum 5
+9.650  264.1480 Mo Molybdenum 6
+19.000 E 264.3980 Mo Molybdenum 5
+380.000 C 265.3220 Mo Molybdenum 5
+150.000 E 265.4420 Mo Molybdenum 5
+20.000 E 265.6590 Mo Molybdenum 5
+70.000 E 265.8250 Mo Molybdenum 5
+350.000 D 265.8580 Mo Molybdenum 5
+280.000 C 265.9210 Mo Molybdenum 5
+2.100 E 265.9630 Mo Molybdenum 5
+210.000 E 266.0770 Mo Molybdenum 5
+140.000 E 266.1290 Mo Molybdenum 5
+100.000 E 266.4960 Mo Molybdenum 5
+310.000 E 266.5860 Mo Molybdenum 5
+190.000 E 266.6420 Mo Molybdenum 5
+70.000 E 266.6680 Mo Molybdenum 5
+10.000 E 266.8080 Mo Molybdenum 5
+410.000 C 266.8830 Mo Molybdenum 5
+39.000 E 266.9220 Mo Molybdenum 5
+90.000 E 267.2290 Mo Molybdenum 5
+60.000 E 267.2290 Mo Molybdenum 5
+290.000 C 267.5390 Mo Molybdenum 5
+0.900 E 267.5940 Mo Molybdenum 5
+220.000 E 267.6510 Mo Molybdenum 5
+90.000 E 267.7310 Mo Molybdenum 5
+34.000 E 267.7720 Mo Molybdenum 5
+230.000 E 268.2840 Mo Molybdenum 5
+26.000 E 268.7560 Mo Molybdenum 5
+0.800 E 268.7980 Mo Molybdenum 5
+11.000 E 268.8200 Mo Molybdenum 5
+15.000 E 268.9080 Mo Molybdenum 5
+70.000 E 268.9550 Mo Molybdenum 5
+60.000 E 269.1970 Mo Molybdenum 5
+240.000 E 269.4890 Mo Molybdenum 5
+17.000 E 269.6030 Mo Molybdenum 5
+60.000 E 270.1010 Mo Molybdenum 5
+37.000 E 270.2010 Mo Molybdenum 5
+350.000 C 270.8240 Mo Molybdenum 5
+110.000 D 270.9400 Mo Molybdenum 5
+70.000 E 272.5350 Mo Molybdenum 5
+238.000  273.5080 Mo Molybdenum 6
+27.000 E 273.8470 Mo Molybdenum 5
+422.000  273.8940 Mo Molybdenum 6
+80.000 E 273.9910 Mo Molybdenum 5
+120.000 E 274.0860 Mo Molybdenum 5
+690.000 C 274.5830 Mo Molybdenum 5
+40.000 E 274.7230 Mo Molybdenum 5
+680.000 C 274.9370 Mo Molybdenum 5
+570.000 C 275.0750 Mo Molybdenum 5
+220.000 E 275.2100 Mo Molybdenum 5
+250.000 C 275.2800 Mo Molybdenum 5
+0.700 E 275.3090 Mo Molybdenum 5
+7.870  275.8470 Mo Molybdenum 6
+28.000 E 275.9300 Mo Molybdenum 5
+30.000 E 276.1330 Mo Molybdenum 5
+8.980  276.2080 Mo Molybdenum 6
+25.000 E 276.3890 Mo Molybdenum 5
+60.000 E 276.4270 Mo Molybdenum 5
+28.000 E 276.5130 Mo Molybdenum 5
+3.800 E 276.5320 Mo Molybdenum 5
+240.000 D 276.5320 Mo Molybdenum 5
+1.400 E 277.0950 Mo Molybdenum 5
+140.000 E 277.7710 Mo Molybdenum 5
+300.000 E 277.8410 Mo Molybdenum 5
+3.700 E 278.1630 Mo Molybdenum 5
+90.000 E 278.3380 Mo Molybdenum 5
+29.000 E 279.0930 Mo Molybdenum 5
+24.000 E 279.8550 Mo Molybdenum 5
+7.000 E 280.7840 Mo Molybdenum 5
+300.000 C 280.8250 Mo Molybdenum 5
+28.000 E 281.1280 Mo Molybdenum 5
+4.980  281.3400 Mo Molybdenum 6
+16.000 E 281.7330 Mo Molybdenum 5
+3.500 E 282.0330 Mo Molybdenum 5
+8.000 E 282.7470 Mo Molybdenum 5
+2.600 E 282.9800 Mo Molybdenum 5
+26.000 E 283.0120 Mo Molybdenum 5
+3.700 E 283.2810 Mo Molybdenum 5
+19.000 E 283.2810 Mo Molybdenum 5
+2.820  283.4000 Mo Molybdenum 6
+14.000 E 283.5510 Mo Molybdenum 5
+20.000 E 283.6130 Mo Molybdenum 5
+8.000 E 283.9800 Mo Molybdenum 5
+10.000 E 284.0140 Mo Molybdenum 5
+9.000 E 284.4120 Mo Molybdenum 5
+20.000 E 284.6290 Mo Molybdenum 5
+10.000 E 284.7510 Mo Molybdenum 5
+10.000 E 284.9900 Mo Molybdenum 5
+6.000 E 285.0550 Mo Molybdenum 5
+100.000 D 285.2760 Mo Molybdenum 5
+21.000 E 285.3350 Mo Molybdenum 5
+19.000 E 285.9520 Mo Molybdenum 5
+11.500  286.2990 Mo Molybdenum 6
+33.000 E 287.0870 Mo Molybdenum 5
+8.000 E 287.2490 Mo Molybdenum 5
+0.800 E 287.2820 Mo Molybdenum 5
+2.000 E 287.9290 Mo Molybdenum 5
+0.988  288.2780 Mo Molybdenum 6
+5.000 E 288.5630 Mo Molybdenum 5
+160.000 C 288.8880 Mo Molybdenum 5
+32.100  288.9200 Mo Molybdenum 6
+11.000 E 288.9360 Mo Molybdenum 5
+140.000 D 289.0780 Mo Molybdenum 5
+170.000 D 289.5700 Mo Molybdenum 5
+5.000 E 290.3680 Mo Molybdenum 5
+12.200  290.4390 Mo Molybdenum 6
+13.000 E 290.7190 Mo Molybdenum 5
+14.000 E 291.1420 Mo Molybdenum 5
+50.000 E 291.3000 Mo Molybdenum 5
+19.000 E 291.4260 Mo Molybdenum 5
+2.880  291.4460 Mo Molybdenum 6
+0.060 E 291.4800 Mo Molybdenum 5
+8.000 E 291.7350 Mo Molybdenum 5
+4.000 E 291.7690 Mo Molybdenum 5
+0.328  291.9160 Mo Molybdenum 6
+17.000 E 292.5180 Mo Molybdenum 5
+39.000 E 292.5340 Mo Molybdenum 5
+60.000 E 292.8370 Mo Molybdenum 5
+16.000 E 293.1340 Mo Molybdenum 5
+22.000 E 293.4620 Mo Molybdenum 5
+16.500  293.6250 Mo Molybdenum 6
+19.600  293.6600 Mo Molybdenum 6
+50.000 E 293.8790 Mo Molybdenum 5
+14.000 E 294.0880 Mo Molybdenum 5
+5.000  294.1370 Mo Molybdenum 6
+4.100 E 294.2400 Mo Molybdenum 5
+20.000 E 294.3690 Mo Molybdenum 5
+150.000 D 294.7130 Mo Molybdenum 5
+4.000 E 295.3280 Mo Molybdenum 5
+35.000 E 296.0870 Mo Molybdenum 5
+9.000 E 296.2970 Mo Molybdenum 5
+38.700  296.6730 Mo Molybdenum 6
+13.000  296.7200 Mo Molybdenum 6
+17.000 E 296.8080 Mo Molybdenum 5
+50.000 E 297.3380 Mo Molybdenum 5
+3.100 E 297.6530 Mo Molybdenum 5
+5.000 E 297.9900 Mo Molybdenum 5
+80.000 E 298.3400 Mo Molybdenum 5
+11.800  298.9630 Mo Molybdenum 6
+7.000 E 299.9740 Mo Molybdenum 5
+5.000 E 300.1480 Mo Molybdenum 5
+70.000 E 301.1060 Mo Molybdenum 5
+8.100  301.4830 Mo Molybdenum 6
+4.000 E 302.1880 Mo Molybdenum 5
+11.000 E 302.7300 Mo Molybdenum 5
+8.000 E 302.9920 Mo Molybdenum 5
+2.150  303.1470 Mo Molybdenum 6
+3.500 E 303.6760 Mo Molybdenum 5
+2.780  303.8500 Mo Molybdenum 6
+5.000 E 304.0580 Mo Molybdenum 5
+9.950  304.2990 Mo Molybdenum 6
+11.000 E 304.9670 Mo Molybdenum 5
+16.000 E 305.1740 Mo Molybdenum 5
+11.400  305.5390 Mo Molybdenum 6
+7.000 E 306.0830 Mo Molybdenum 5
+23.000 E 306.1060 Mo Molybdenum 5
+80.000 D 306.3390 Mo Molybdenum 5
+11.000 E 307.0630 Mo Molybdenum 5
+5.000 E 307.2370 Mo Molybdenum 5
+2.800 E 307.2660 Mo Molybdenum 5
+33.000 E 307.6980 Mo Molybdenum 5
+0.080 E 308.9170 Mo Molybdenum 5
+80.000 D 309.2930 Mo Molybdenum 5
+2.400 E 310.2900 Mo Molybdenum 5
+0.800 E 310.4410 Mo Molybdenum 5
+0.900 E 310.9700 Mo Molybdenum 5
+23.000 E 312.4230 Mo Molybdenum 5
+22.000 E 312.6420 Mo Molybdenum 5
+15.000 E 312.7040 Mo Molybdenum 5
+6.000 E 312.8420 Mo Molybdenum 5
+11.000 E 312.9980 Mo Molybdenum 5
+37.000 E 313.0530 Mo Molybdenum 5
+7.000 E 313.2690 Mo Molybdenum 5
+12.200  313.9440 Mo Molybdenum 6
+17.000 E 314.6300 Mo Molybdenum 5
+1.300 E 314.7510 Mo Molybdenum 5
+63.200  314.9560 Mo Molybdenum 6
+11.000 E 315.1310 Mo Molybdenum 5
+24.000 E 315.5890 Mo Molybdenum 5
+9.000 E 316.1670 Mo Molybdenum 5
+21.000 E 316.4280 Mo Molybdenum 5
+2.720  316.6610 Mo Molybdenum 6
+6.000 E 316.7480 Mo Molybdenum 5
+50.000 E 317.1180 Mo Molybdenum 5
+0.900 E 317.2020 Mo Molybdenum 5
+2.100 E 317.2020 Mo Molybdenum 5
+30.700  317.3020 Mo Molybdenum 6
+2.720  317.5090 Mo Molybdenum 6
+10.000 E 317.6320 Mo Molybdenum 5
+7.000 E 317.7500 Mo Molybdenum 5
+8.120  318.5780 Mo Molybdenum 6
+35.000 E 318.8320 Mo Molybdenum 5
+70.000 D 319.0370 Mo Molybdenum 5
+6.730  319.9260 Mo Molybdenum 6
+2.850  320.1330 Mo Molybdenum 6
+1.900 E 320.2430 Mo Molybdenum 5
+3.200 E 320.4680 Mo Molybdenum 5
+15.000 E 320.5990 Mo Molybdenum 5
+2.400 E 320.9100 Mo Molybdenum 5
+0.190 E 321.8320 Mo Molybdenum 5
+16.000 E 321.9490 Mo Molybdenum 5
+1.000 E 321.9940 Mo Molybdenum 5
+8.000 E 322.9270 Mo Molybdenum 5
+40.000 E 322.9930 Mo Molybdenum 5
+1.500  323.0920 Mo Molybdenum 6
+1.800 E 323.4860 Mo Molybdenum 5
+5.000 E 323.7540 Mo Molybdenum 5
+0.217  323.7560 Mo Molybdenum 6
+1.800 E 324.0420 Mo Molybdenum 5
+14.000 E 324.7030 Mo Molybdenum 5
+0.800 E 324.9790 Mo Molybdenum 5
+0.180 E 325.0160 Mo Molybdenum 5
+0.172  325.3240 Mo Molybdenum 6
+3.820  325.9400 Mo Molybdenum 6
+0.422  326.4870 Mo Molybdenum 6
+6.000 E 326.7860 Mo Molybdenum 5
+2.300 E 327.1670 Mo Molybdenum 5
+10.000 E 328.0500 Mo Molybdenum 5
+1.200 E 328.1670 Mo Molybdenum 5
+5.000 E 328.1670 Mo Molybdenum 5
+8.000 E 328.4490 Mo Molybdenum 5
+0.450  328.7050 Mo Molybdenum 6
+0.050  328.8670 Mo Molybdenum 6
+20.000 E 328.9960 Mo Molybdenum 5
+11.000 E 329.3420 Mo Molybdenum 5
+19.000 E 329.7110 Mo Molybdenum 5
+3.670  329.8270 Mo Molybdenum 6
+2.800 E 329.8680 Mo Molybdenum 5
+1.400 E 330.0130 Mo Molybdenum 5
+2.200 E 330.1750 Mo Molybdenum 5
+2.200 E 330.3810 Mo Molybdenum 5
+9.000 E 330.7100 Mo Molybdenum 5
+0.236  331.6850 Mo Molybdenum 6
+0.600 E 331.8170 Mo Molybdenum 5
+0.600 E 332.0460 Mo Molybdenum 5
+0.213  332.5680 Mo Molybdenum 6
+0.900 E 332.6670 Mo Molybdenum 5
+0.000  332.6680 Mo Molybdenum 6
+1.800 E 332.8010 Mo Molybdenum 5
+16.000 E 333.1110 Mo Molybdenum 5
+2.700 E 333.2080 Mo Molybdenum 5
+2.100 E 333.4020 Mo Molybdenum 5
+0.300 E 333.4240 Mo Molybdenum 5
+1.200 E 334.0760 Mo Molybdenum 5
+5.000 E 334.0930 Mo Molybdenum 5
+1.600 E 334.7260 Mo Molybdenum 5
+5.000 E 335.0980 Mo Molybdenum 5
+1.700 E 335.1860 Mo Molybdenum 5
+18.000 E 335.3630 Mo Molybdenum 5
+0.071  335.4510 Mo Molybdenum 6
+1.100 E 336.2150 Mo Molybdenum 5
+13.000 E 336.2790 Mo Molybdenum 5
+0.700 E 337.1980 Mo Molybdenum 5
+7.780  337.4460 Mo Molybdenum 6
+9.000 E 337.6180 Mo Molybdenum 5
+9.000 E 337.7700 Mo Molybdenum 5
+0.400 E 338.0770 Mo Molybdenum 5
+2.600 E 338.2870 Mo Molybdenum 5
+1.000 E 338.3270 Mo Molybdenum 5
+7.000 E 338.3730 Mo Molybdenum 5
+8.250  338.8340 Mo Molybdenum 6
+8.000 E 339.4710 Mo Molybdenum 5
+7.000 E 339.5100 Mo Molybdenum 5
+10.000 E 339.6100 Mo Molybdenum 5
+1.700 E 339.8700 Mo Molybdenum 5
+4.000 E 340.4090 Mo Molybdenum 5
+1.800 E 341.6740 Mo Molybdenum 5
+1.600 E 341.7020 Mo Molybdenum 5
+2.700 E 341.7020 Mo Molybdenum 5
+11.000 E 342.4600 Mo Molybdenum 5
+0.500 E 342.9730 Mo Molybdenum 5
+14.000 E 343.2660 Mo Molybdenum 5
+2.100 E 344.0690 Mo Molybdenum 5
+0.300 E 344.1780 Mo Molybdenum 5
+7.000 E 344.6750 Mo Molybdenum 5
+1.900 E 345.2040 Mo Molybdenum 5
+7.000 E 345.4680 Mo Molybdenum 5
+0.014  346.0950 Mo Molybdenum 6
+11.000 E 347.0420 Mo Molybdenum 5
+2.200 E 347.4410 Mo Molybdenum 5
+0.141  348.1280 Mo Molybdenum 6
+0.800 E 348.2130 Mo Molybdenum 5
+1.400 E 349.0280 Mo Molybdenum 5
+0.700 E 349.1370 Mo Molybdenum 5
+0.122  349.2170 Mo Molybdenum 6
+0.094  349.3620 Mo Molybdenum 6
+0.120 E 349.8350 Mo Molybdenum 5
+14.000 E 350.1130 Mo Molybdenum 5
+0.014 E 350.1130 Mo Molybdenum 5
+1.100 E 350.3600 Mo Molybdenum 5
+0.190 E 350.6420 Mo Molybdenum 5
+0.028  351.2900 Mo Molybdenum 6
+0.180 E 351.9710 Mo Molybdenum 5
+0.400 E 352.0230 Mo Molybdenum 5
+0.900 E 354.0770 Mo Molybdenum 5
+1.800 E 358.3470 Mo Molybdenum 5
+1.300 E 358.8870 Mo Molybdenum 5
+5.000 E 359.8300 Mo Molybdenum 5
+3.200 E 359.8390 Mo Molybdenum 5
+2.600 E 360.3830 Mo Molybdenum 5
+2.000 E 360.4620 Mo Molybdenum 5
+13.000 E 360.7660 Mo Molybdenum 5
+0.140 E 361.1150 Mo Molybdenum 5
+4.000 E 361.7030 Mo Molybdenum 5
+10.000 E 361.7580 Mo Molybdenum 5
+9.000 E 362.1600 Mo Molybdenum 5
+3.700 E 362.7890 Mo Molybdenum 5
+7.000 E 363.0710 Mo Molybdenum 5
+0.600 E 363.7750 Mo Molybdenum 5
+6.000 E 367.3630 Mo Molybdenum 5
+0.800 E 367.8270 Mo Molybdenum 5
+0.600 E 367.9080 Mo Molybdenum 5
+4.000 E 369.9390 Mo Molybdenum 5
+2.600 E 370.0280 Mo Molybdenum 5
+3.700 B 371.2730 Mo Molybdenum 5
+1.400 E 371.3500 Mo Molybdenum 5
+4.000 E 371.9280 Mo Molybdenum 5
+3.500 E 372.1660 Mo Molybdenum 5
+10.000 E 372.2350 Mo Molybdenum 5
+1.700 E 372.3180 Mo Molybdenum 5
+14.000 E 372.4780 Mo Molybdenum 5
+0.900 E 373.3960 Mo Molybdenum 5
+1.800 E 374.1790 Mo Molybdenum 5
+102.000  374.4650 Mo Molybdenum 6
+0.040 E 374.5390 Mo Molybdenum 5
+3.400 E 375.5470 Mo Molybdenum 5
+1.300 E 375.6630 Mo Molybdenum 5
+1.200 E 375.8440 Mo Molybdenum 5
+1.570 B 375.9050 Mo Molybdenum 5
+19.000 E 376.4470 Mo Molybdenum 5
+1.300 E 376.8220 Mo Molybdenum 5
+117.000  377.5400 Mo Molybdenum 6
+0.100 E 377.8320 Mo Molybdenum 5
+0.170 E 377.9320 Mo Molybdenum 5
+7.130  378.1240 Mo Molybdenum 6
+0.900 E 380.0530 Mo Molybdenum 5
+1.800 E 380.7430 Mo Molybdenum 5
+31.000 E 389.4570 Mo Molybdenum 5
+117.000 C 392.4760 Mo Molybdenum 5
+121.000 C 393.4050 Mo Molybdenum 5
+21.000 E 393.6040 Mo Molybdenum 5
+50.000 E 393.8730 Mo Molybdenum 5
+9.000 E 395.7650 Mo Molybdenum 5
+60.000 D 395.9590 Mo Molybdenum 5
+15.000 E 396.0900 Mo Molybdenum 5
+5.000 E 403.3350 Mo Molybdenum 5
+13.900 B 403.4160 Mo Molybdenum 5
+3.200 E 404.5820 Mo Molybdenum 5
+10.000 E 405.1870 Mo Molybdenum 5
+18.000 E 406.9150 Mo Molybdenum 5
+12.000 E 407.3090 Mo Molybdenum 5
+16.000 E 409.2820 Mo Molybdenum 5
+5.000 E 409.8040 Mo Molybdenum 5
+180.000 C 410.8340 Mo Molybdenum 5
+180.000 C 411.4400 Mo Molybdenum 5
+310.000 C 411.6900 Mo Molybdenum 5
+10.000 E 412.3180 Mo Molybdenum 5
+10.000 E 412.4460 Mo Molybdenum 5
+3.800 E 412.5420 Mo Molybdenum 5
+210.000 C 412.8100 Mo Molybdenum 5
+28.000 E 413.5140 Mo Molybdenum 5
+2.100 E 413.6520 Mo Molybdenum 5
+14.400 B 414.1060 Mo Molybdenum 5
+24.000 E 414.4770 Mo Molybdenum 5
+28.000 E 415.2150 Mo Molybdenum 5
+19.000 E 415.2840 Mo Molybdenum 5
+89.000 C 415.2840 Mo Molybdenum 5
+100.000 E 415.5300 Mo Molybdenum 5
+0.500 E 416.3690 Mo Molybdenum 5
+23.000 E 416.6640 Mo Molybdenum 5
+70.000 D 417.7250 Mo Molybdenum 5
+11.000 E 417.8850 Mo Molybdenum 5
+25.000 E 417.9940 Mo Molybdenum 5
+21.000 E 419.1940 Mo Molybdenum 5
+50.000 D 419.4160 Mo Molybdenum 5
+10.000 E 419.5120 Mo Molybdenum 5
+6.000 E 420.4960 Mo Molybdenum 5
+7.000 E 420.6300 Mo Molybdenum 5
+99.000 C 420.9080 Mo Molybdenum 5
+50.000 D 421.0180 Mo Molybdenum 5
+86.000 C 421.0590 Mo Molybdenum 5
+4.000 E 421.2870 Mo Molybdenum 5
+0.200 E 422.0540 Mo Molybdenum 5
+15.400 B 422.3530 Mo Molybdenum 5
+3.300 E 422.5720 Mo Molybdenum 5
+3.100 E 422.6690 Mo Molybdenum 5
+50.000 E 423.5060 Mo Molybdenum 5
+3.800 E 423.9020 Mo Molybdenum 5
+72.000 B 424.3820 Mo Molybdenum 5
+80.000 D 424.9250 Mo Molybdenum 5
+130.000 C 425.0210 Mo Molybdenum 5
+26.000 E 425.8750 Mo Molybdenum 5
+8.000 E 426.1900 Mo Molybdenum 5
+11.000 E 426.3940 Mo Molybdenum 5
+60.000 D 426.8400 Mo Molybdenum 5
+3.800 E 427.1210 Mo Molybdenum 5
+1.000 E 428.4660 Mo Molybdenum 5
+70.000 D 431.8490 Mo Molybdenum 5
+2.700 E 435.1350 Mo Molybdenum 5
+4.000 E 436.2970 Mo Molybdenum 5
+17.000 E 437.9390 Mo Molybdenum 5
+0.500 E 441.3140 Mo Molybdenum 5
+5.000 E 445.3860 Mo Molybdenum 5
+0.800 E 445.6890 Mo Molybdenum 5
+0.350 E 447.2350 Mo Molybdenum 5
+5.450  448.7570 Mo Molybdenum 6
+28.000 E 452.2240 Mo Molybdenum 5
+5.900  452.8040 Mo Molybdenum 6
+9.550  457.9660 Mo Molybdenum 6
+89.000 B 458.2910 Mo Molybdenum 5
+17.800  468.5360 Mo Molybdenum 6
+23.000 E 489.6390 Mo Molybdenum 5
+5.100  501.9540 Mo Molybdenum 6
+0.030 E 517.4910 Mo Molybdenum 5
+126.000 B 533.6570 Mo Molybdenum 5
+6.880  533.8140 Mo Molybdenum 6
+2.800 E 536.3850 Mo Molybdenum 5
+0.012 E 536.5730 Mo Molybdenum 5
+5.000 E 536.9460 Mo Molybdenum 5
+2.700 E 537.9600 Mo Molybdenum 5
+2.000 E 538.7200 Mo Molybdenum 5
+9.120  540.5460 Mo Molybdenum 6
+59.800  541.2800 Mo Molybdenum 6
+2.400 E 541.5830 Mo Molybdenum 5
+9.790  542.4960 Mo Molybdenum 6
+0.643  542.8260 Mo Molybdenum 6
+1.400 E 545.3760 Mo Molybdenum 5
+3.000 E 547.5940 Mo Molybdenum 5
+63.500  548.2330 Mo Molybdenum 6
+1.300 E 549.7150 Mo Molybdenum 5
+2.600 E 556.5430 Mo Molybdenum 5
+8.000 E 562.4040 Mo Molybdenum 5
+1.500 E 564.6850 Mo Molybdenum 5
+32.000  565.3220 Mo Molybdenum 6
+33.300  566.6210 Mo Molybdenum 6
+40.000 E 569.3350 Mo Molybdenum 5
+13.000 E 576.8020 Mo Molybdenum 5
+25.000 D 585.6940 Mo Molybdenum 5
+33.000 E 586.2640 Mo Molybdenum 5
+16.000 E 589.2590 Mo Molybdenum 5
+9.000 E 591.1920 Mo Molybdenum 5
+14.000 E 597.7110 Mo Molybdenum 5
+29.000 D 602.6760 Mo Molybdenum 5
+72.000 B 604.6040 Mo Molybdenum 5
+0.150 E 611.3940 Mo Molybdenum 5
+6.000 E 620.7350 Mo Molybdenum 5
+24.000 D 623.0990 Mo Molybdenum 5
+5.000 E 623.9500 Mo Molybdenum 5
+15.000 E 626.8090 Mo Molybdenum 5
+34.000 C 627.4500 Mo Molybdenum 5
+0.320 E 631.7910 Mo Molybdenum 5
+0.180 E 633.5040 Mo Molybdenum 5
+1.500 E 638.5020 Mo Molybdenum 5
+2.300 E 638.7250 Mo Molybdenum 5
+0.700 E 638.9760 Mo Molybdenum 5
+1.000 E 639.9010 Mo Molybdenum 5
+4.000 E 642.8600 Mo Molybdenum 5
+17.000 E 645.9030 Mo Molybdenum 5
+2.700 E 647.5850 Mo Molybdenum 5
+35.000 E 648.3440 Mo Molybdenum 5
+7.000 E 649.7270 Mo Molybdenum 5
+5.000 E 650.6640 Mo Molybdenum 5
+1.300 E 651.6550 Mo Molybdenum 5
+17.800  652.0720 Mo Molybdenum 6
+0.240 E 653.4240 Mo Molybdenum 5
+18.600  653.8570 Mo Molybdenum 6
+0.600 E 656.7860 Mo Molybdenum 5
+11.000 E 657.6030 Mo Molybdenum 5
+18.000 C 659.3030 Mo Molybdenum 5
+0.600 E 660.2270 Mo Molybdenum 5
+0.800 E 661.3170 Mo Molybdenum 5
+1.300 E 661.3960 Mo Molybdenum 5
+1.170 B 661.8300 Mo Molybdenum 5
+0.800 E 664.6690 Mo Molybdenum 5
+9.000 E 665.1350 Mo Molybdenum 5
+38.000 C 668.0810 Mo Molybdenum 5
+27.000 C 668.2880 Mo Molybdenum 5
+19.000 C 668.3720 Mo Molybdenum 5
+47.000 C 671.3720 Mo Molybdenum 5
+13.000 E 671.8200 Mo Molybdenum 5
+18.000 D 672.1830 Mo Molybdenum 5
+8.000 E 676.4140 Mo Molybdenum 5
+0.015 E 677.0040 Mo Molybdenum 5
+2.800 E 677.2220 Mo Molybdenum 5
+12.000 E 680.3810 Mo Molybdenum 5
+0.013 E 680.6670 Mo Molybdenum 5
+0.400 E 682.8290 Mo Molybdenum 5
+12.000 E 682.9360 Mo Molybdenum 5
+7.000 E 684.7200 Mo Molybdenum 5
+7.600 B 687.4940 Mo Molybdenum 5
+0.080 E 687.7570 Mo Molybdenum 5
+37.000 E 688.4550 Mo Molybdenum 5
+10.000 E 690.5590 Mo Molybdenum 5
+26.000 C 692.3100 Mo Molybdenum 5
+62.000 C 696.8460 Mo Molybdenum 5
+5.000 E 698.2830 Mo Molybdenum 5
+1.000 E 700.0350 Mo Molybdenum 5
+6.000 E 709.1000 Mo Molybdenum 5
+0.800 E 709.1930 Mo Molybdenum 5
+8.000 E 713.4920 Mo Molybdenum 5
+2.300 E 716.1740 Mo Molybdenum 5
+1.500 E 717.3260 Mo Molybdenum 5
+0.070 E 721.0880 Mo Molybdenum 5
+4.000 E 721.8210 Mo Molybdenum 5
+0.320 E 725.6630 Mo Molybdenum 5
+3.900 B 725.7590 Mo Molybdenum 5
+1.000 E 725.7590 Mo Molybdenum 5
+1.000 E 729.1750 Mo Molybdenum 5
+1.700 E 730.2610 Mo Molybdenum 5
+12.000 D 731.0690 Mo Molybdenum 5
+0.600 E 731.6030 Mo Molybdenum 5
+0.700 E 741.6120 Mo Molybdenum 5
+1.700 E 748.6830 Mo Molybdenum 5
+4.420  754.9570 Mo Molybdenum 6
+4.840  757.4130 Mo Molybdenum 6
+21.600  761.0160 Mo Molybdenum 6
+66.600  780.4320 Mo Molybdenum 6
+69.400  782.9180 Mo Molybdenum 6
+38.400  790.6600 Mo Molybdenum 6
+7.300 B 803.0870 Mo Molybdenum 5
+1.500 E 817.0060 Mo Molybdenum 5
+0.004 E 817.4260 Mo Molybdenum 5
+5.000 E 817.8250 Mo Molybdenum 5
+5.000 E 818.4060 Mo Molybdenum 5
+3.200 E 819.6110 Mo Molybdenum 5
+3.000 E 827.1880 Mo Molybdenum 5
+9.000 E 827.2960 Mo Molybdenum 5
+1.100 E 830.0820 Mo Molybdenum 5
+8.900 C 838.0490 Mo Molybdenum 5
+10.100 C 840.0090 Mo Molybdenum 5
+0.410 B 841.1960 Mo Molybdenum 5
+2.800 E 843.6320 Mo Molybdenum 5
+2.200 E 873.4910 Mo Molybdenum 5
+0.600 E 873.8730 Mo Molybdenum 5
+1.700 E 875.7720 Mo Molybdenum 5
+1.600 E 891.3020 Mo Molybdenum 5
+14.300  899.1230 Mo Molybdenum 6
+0.170 E 899.1920 Mo Molybdenum 5
+2.400 E 905.2520 Mo Molybdenum 5
+0.998  905.5150 Mo Molybdenum 6
+0.070 E 921.7080 Mo Molybdenum 5
+7.000 D 930.3320 Mo Molybdenum 5
+1.700 E 932.3090 Mo Molybdenum 5
+6.000 E 933.2780 Mo Molybdenum 5
+7.000 D 933.7340 Mo Molybdenum 5
+2.900 E 940.4630 Mo Molybdenum 5
+3.400 E 941.1980 Mo Molybdenum 5
+0.600 E 941.3600 Mo Molybdenum 5
+3.300 E 947.7220 Mo Molybdenum 5
+8.400 C 948.0370 Mo Molybdenum 5
+0.320 E 948.2100 Mo Molybdenum 5
+4.640  950.2630 Mo Molybdenum 6
+7.000 E 950.7800 Mo Molybdenum 5
+5.450  950.8550 Mo Molybdenum 6
+1.100 E 957.8280 Mo Molybdenum 5
+1.600 E 960.4450 Mo Molybdenum 5
+0.360 E 963.5750 Mo Molybdenum 5
+3.500 E 964.9090 Mo Molybdenum 5
+3.600 E 968.3420 Mo Molybdenum 5
+2.000 E 968.5090 Mo Molybdenum 5
+15.000 C 971.6990 Mo Molybdenum 5
+16.000 C 983.8260 Mo Molybdenum 5
+10.600 C 985.9500 Mo Molybdenum 5
+46.000  995.8110 Mo Molybdenum 6
+0.900 E 996.8340 Mo Molybdenum 5
+6.000 D 997.9330 Mo Molybdenum 5
+21.000 C 998.5560 Mo Molybdenum 5
+2.100 E 1004.1070 Mo Molybdenum 5
+17.000 C 1009.3440 Mo Molybdenum 5
+1.800  1011.1840 Mo Molybdenum 6
+6.500 C 1011.8910 Mo Molybdenum 5
+7.800 C 1013.5470 Mo Molybdenum 5
+1.700 E 1017.6910 Mo Molybdenum 5
+3.460  1019.7430 Mo Molybdenum 6
+3.380  1019.7430 Mo Molybdenum 6
+4.700 D 1021.9920 Mo Molybdenum 5
+13.000 C 1024.7410 Mo Molybdenum 5
+5.000 E 1025.5460 Mo Molybdenum 5
+1.850  1029.5650 Mo Molybdenum 6
+4.000 E 1030.2210 Mo Molybdenum 5
+1.000 E 1031.1660 Mo Molybdenum 5
+0.390 E 1032.8510 Mo Molybdenum 5
+1.500 E 1035.0570 Mo Molybdenum 5
+48.700  1038.6420 Mo Molybdenum 6
+7.920  1047.1840 Mo Molybdenum 6
+7.000 C 1050.5800 Mo Molybdenum 5
+9.100 C 1052.7610 Mo Molybdenum 5
+3.000 E 1056.9940 Mo Molybdenum 5
+0.770 B 1059.3020 Mo Molybdenum 5
+14.000 C 1059.7870 Mo Molybdenum 5
+0.800 E 1063.5700 Mo Molybdenum 5
+1.100 E 1068.2770 Mo Molybdenum 5
+12.100 B 1072.8060 Mo Molybdenum 5
+36.000 C 1072.9690 Mo Molybdenum 5
+1.300 E 1075.5610 Mo Molybdenum 5
+9.000 C 1077.6290 Mo Molybdenum 5
+1.500 E 1078.0620 Mo Molybdenum 5
+10.000 C 1079.6190 Mo Molybdenum 5
+4.200 C 1083.0980 Mo Molybdenum 5
+2.500 C 1084.2290 Mo Molybdenum 5
+2.300 E 1089.8250 Mo Molybdenum 5
+10.600 C 1091.4740 Mo Molybdenum 5
+0.800 E 1095.1980 Mo Molybdenum 5
+3.200 E 1099.9320 Mo Molybdenum 5
+13.000 C 1101.5290 Mo Molybdenum 5
+2.100 E 1101.6880 Mo Molybdenum 5
+3.800 D 1101.9090 Mo Molybdenum 5
+8.800 C 1106.4770 Mo Molybdenum 5
+0.130 E 1108.1510 Mo Molybdenum 5
+11.200 C 1109.2220 Mo Molybdenum 5
+3.500 D 1110.520 Mo Molybdenum 5
+3.000 C 1111.6810 Mo Molybdenum 5
+7.700 C 1112.8360 Mo Molybdenum 5
+6.900 C 1113.6980 Mo Molybdenum 5
+19.000 C 1116.2140 Mo Molybdenum 5
+2.900 E 1117.1800 Mo Molybdenum 5
+7.800 C 1120.7930 Mo Molybdenum 5
+4.300 C 1121.4220 Mo Molybdenum 5
+2.300 C 1122.520 Mo Molybdenum 5
+2.800 E 1123.2780 Mo Molybdenum 5
+3.700 D 1124.2630 Mo Molybdenum 5
+1.300 E 1124.5440 Mo Molybdenum 5
+8.400 C 1124.6790 Mo Molybdenum 5
+5.900 C 1125.2210 Mo Molybdenum 5
+28.000 C 1125.6690 Mo Molybdenum 5
+21.000 C 1125.9900 Mo Molybdenum 5
+27.000 B 1126.6240 Mo Molybdenum 5
+13.000 C 1127.1040 Mo Molybdenum 5
+38.000 C 1127.6060 Mo Molybdenum 5
+0.310 E 1127.8860 Mo Molybdenum 5
+0.900 E 1129.8170 Mo Molybdenum 5
+14.000 C 1132.4980 Mo Molybdenum 5
+0.800 E 1133.3480 Mo Molybdenum 5
+2.900 D 1133.4060 Mo Molybdenum 5
+27.000 C 1136.4480 Mo Molybdenum 5
+4.200 C 1137.3340 Mo Molybdenum 5
+25.000 C 1137.5350 Mo Molybdenum 5
+18.000 C 1137.9990 Mo Molybdenum 5
+9.100 C 1138.2330 Mo Molybdenum 5
+0.010 E 1138.2330 Mo Molybdenum 5
+5.600 C 1142.6710 Mo Molybdenum 5
+6.900 C 1143.9910 Mo Molybdenum 5
+3.400 C 1144.4810 Mo Molybdenum 5
+2.000 E 1144.9740 Mo Molybdenum 5
+22.000 C 1145.8660 Mo Molybdenum 5
+1.700 D 1146.8960 Mo Molybdenum 5
+8.800 C 1147.6200 Mo Molybdenum 5
+3.800 C 1147.8280 Mo Molybdenum 5
+18.000 C 1148.5040 Mo Molybdenum 5
+0.600 E 1148.7240 Mo Molybdenum 5
+1.800 E 1154.1540 Mo Molybdenum 5
+5.000 B 1155.1560 Mo Molybdenum 5
+1.600 E 1155.2180 Mo Molybdenum 5
+9.800 C 1156.3180 Mo Molybdenum 5
+4.900 C 1157.5760 Mo Molybdenum 5
+4.000 E 1158.0130 Mo Molybdenum 5
+5.000 D 1159.9080 Mo Molybdenum 5
+3.200 C 1160.1970 Mo Molybdenum 5
+20.000 C 1161.4020 Mo Molybdenum 5
+6.000 D 1163.9760 Mo Molybdenum 5
+6.000 D 1167.4570 Mo Molybdenum 5
+3.100 C 1167.9020 Mo Molybdenum 5
+24.000 C 1168.4300 Mo Molybdenum 5
+18.200 B 1168.9690 Mo Molybdenum 5
+0.070 E 1169.2260 Mo Molybdenum 5
+1.000 E 1169.2260 Mo Molybdenum 5
+4.300 D 1171.6680 Mo Molybdenum 5
+3.300 D 1172.2810 Mo Molybdenum 5
+3.600 C 1172.4790 Mo Molybdenum 5
+18.000 C 1173.9380 Mo Molybdenum 5
+14.000 C 1174.8150 Mo Molybdenum 5
+13.000 C 1175.4000 Mo Molybdenum 5
+31.400  1182.1430 Mo Molybdenum 6
+1.600 E 1184.2730 Mo Molybdenum 5
+36.000 C 1186.0470 Mo Molybdenum 5
+20.000 C 1186.2300 Mo Molybdenum 5
+20.000 C 1187.0610 Mo Molybdenum 5
+4.600 C 1188.4270 Mo Molybdenum 5
+4.400 C 1188.8670 Mo Molybdenum 5
+2.000 E 1188.8670 Mo Molybdenum 5
+1.000 E 1189.0900 Mo Molybdenum 5
+1.400 E 1189.9590 Mo Molybdenum 5
+7.000 C 1191.7960 Mo Molybdenum 5
+21.000 C 1194.2680 Mo Molybdenum 5
+5.000 C 1194.3410 Mo Molybdenum 5
+2.300 D 1200.5440 Mo Molybdenum 5
+23.000 C 1200.8060 Mo Molybdenum 5
+3.700 D 1203.9850 Mo Molybdenum 5
+9.000 C 1204.2500 Mo Molybdenum 5
+5.900 C 1205.1170 Mo Molybdenum 5
+7.600 C 1205.3710 Mo Molybdenum 5
+2.200 E 1207.0800 Mo Molybdenum 5
+7.700 C 1208.2060 Mo Molybdenum 5
+11.300 C 1210.7220 Mo Molybdenum 5
+9.300 C 1211.0580 Mo Molybdenum 5
+15.000 C 1212.7630 Mo Molybdenum 5
+7.300 C 1212.9480 Mo Molybdenum 5
+9.600 C 1213.4020 Mo Molybdenum 5
+6.700 C 1213.6640 Mo Molybdenum 5
+23.700  1215.3970 Mo Molybdenum 6
+0.900 E 1216.3200 Mo Molybdenum 5
+34.000 C 1216.9540 Mo Molybdenum 5
+4.700 D 1217.5870 Mo Molybdenum 5
+4.900 C 1217.9060 Mo Molybdenum 5
+0.400 E 1217.9060 Mo Molybdenum 5
+0.800 E 1219.8580 Mo Molybdenum 5
+16.000 C 1220.6650 Mo Molybdenum 5
+2.500 C 1222.5140 Mo Molybdenum 5
+5.400 C 1224.0310 Mo Molybdenum 5
+6.100  1224.5290 Mo Molybdenum 6
+1.640  1227.1020 Mo Molybdenum 6
+19.000 C 1227.5130 Mo Molybdenum 5
+0.250 E 1227.7370 Mo Molybdenum 5
+6.490  1228.6200 Mo Molybdenum 6
+1.100 E 1229.2920 Mo Molybdenum 5
+14.000 C 1229.4460 Mo Molybdenum 5
+0.280 E 1231.3350 Mo Molybdenum 5
+17.000 C 1232.3850 Mo Molybdenum 5
+10.500 C 1235.0570 Mo Molybdenum 5
+2.800 C 1239.8630 Mo Molybdenum 5
+1.200 E 1240.6540 Mo Molybdenum 5
+1.100 E 1242.7980 Mo Molybdenum 5
+1.500 E 1244.8260 Mo Molybdenum 5
+9.500 C 1248.1050 Mo Molybdenum 5
+8.200 C 1249.4370 Mo Molybdenum 5
+1.410  1249.5950 Mo Molybdenum 6
+0.900 E 1249.7420 Mo Molybdenum 5
+1.150 B 1251.4890 Mo Molybdenum 5
+10.300 C 1253.9340 Mo Molybdenum 5
+5.800 C 1254.5840 Mo Molybdenum 5
+1.900 C 1257.2520 Mo Molybdenum 5
+3.400 C 1257.5220 Mo Molybdenum 5
+0.210 E 1258.5240 Mo Molybdenum 5
+22.000 C 1258.8260 Mo Molybdenum 5
+4.000 D 1259.6740 Mo Molybdenum 5
+3.300 D 1262.9810 Mo Molybdenum 5
+7.160  1264.0170 Mo Molybdenum 6
+8.780  1264.0520 Mo Molybdenum 6
+14.000 C 1264.0720 Mo Molybdenum 5
+6.300 C 1264.9190 Mo Molybdenum 5
+2.500 C 1265.3340 Mo Molybdenum 5
+3.300 E 1266.7360 Mo Molybdenum 5
+3.100 C 1267.5650 Mo Molybdenum 5
+3.140  1268.4950 Mo Molybdenum 6
+2.000 D 1268.5430 Mo Molybdenum 5
+9.100 C 1268.9520 Mo Molybdenum 5
+0.510  1270.5200 Mo Molybdenum 6
+0.018  1270.5200 Mo Molybdenum 6
+4.700 C 1272.0230 Mo Molybdenum 5
+6.700 C 1272.5020 Mo Molybdenum 5
+10.100 C 1273.7410 Mo Molybdenum 5
+7.400 C 1279.4040 Mo Molybdenum 5
+1.000 E 1279.7900 Mo Molybdenum 5
+1.470 B 1279.7900 Mo Molybdenum 5
+1.300 E 1280.2890 Mo Molybdenum 5
+3.700 C 1281.2060 Mo Molybdenum 5
+11.800 C 1285.6150 Mo Molybdenum 5
+10.300 C 1288.0590 Mo Molybdenum 5
+6.900 C 1290.2930 Mo Molybdenum 5
+3.300 E 1292.8020 Mo Molybdenum 5
+3.200 E 1293.9050 Mo Molybdenum 5
+8.800 C 1295.2500 Mo Molybdenum 5
+6.500 C 1299.8400 Mo Molybdenum 5
+1.900 E 1301.9550 Mo Molybdenum 5
+0.600 E 1304.8120 Mo Molybdenum 5
+5.100 C 1305.8390 Mo Molybdenum 5
+3.400 E 1305.9290 Mo Molybdenum 5
+2.900 C 1308.1230 Mo Molybdenum 5
+3.400 C 1308.6330 Mo Molybdenum 5
+0.700 E 1308.8840 Mo Molybdenum 5
+0.700 E 1309.6840 Mo Molybdenum 5
+4.400 D 1313.5270 Mo Molybdenum 5
+13.000 B+ 1316.2500 Mo Molybdenum 5
+3.500 C 1319.6400 Mo Molybdenum 5
+5.120  1320.3510 Mo Molybdenum 6
+0.300 E 1322.0630 Mo Molybdenum 5
+11.500 C 1324.8930 Mo Molybdenum 5
+5.300 C 1325.2470 Mo Molybdenum 5
+1.200 E 1325.4300 Mo Molybdenum 5
+3.400 C 1327.1480 Mo Molybdenum 5
+13.000 C 1327.6300 Mo Molybdenum 5
+2.440  1331.6260 Mo Molybdenum 6
+3.000 C 1332.7580 Mo Molybdenum 5
+6.600 C 1337.6530 Mo Molybdenum 5
+0.240 E 1339.8740 Mo Molybdenum 5
+3.700 D 1345.9330 Mo Molybdenum 5
+4.800 C 1354.8330 Mo Molybdenum 5
+15.000 C 1356.0240 Mo Molybdenum 5
+6.800 C 1356.3660 Mo Molybdenum 5
+2.300 D 1358.4880 Mo Molybdenum 5
+3.100 C 1358.8470 Mo Molybdenum 5
+3.300 D 1359.2840 Mo Molybdenum 5
+2.100 C 1360.9900 Mo Molybdenum 5
+1.200 E 1364.1720 Mo Molybdenum 5
+1.600 E 1366.5070 Mo Molybdenum 5
+1.400 D 1368.0520 Mo Molybdenum 5
+7.200 C 1371.5790 Mo Molybdenum 5
+3.800 C 1374.8410 Mo Molybdenum 5
+6.100 C 1375.4330 Mo Molybdenum 5
+3.300 C 1382.6670 Mo Molybdenum 5
+1.300 C 1383.2440 Mo Molybdenum 5
+0.800 E 1385.6970 Mo Molybdenum 5
+1.800 C 1386.5950 Mo Molybdenum 5
+1.800 C 1388.8600 Mo Molybdenum 5
+0.290 E 1388.9790 Mo Molybdenum 5
+0.700 E 1391.5580 Mo Molybdenum 5
+8.700 C 1391.7870 Mo Molybdenum 5
+21.000 C 1396.1860 Mo Molybdenum 5
+0.180 E 1396.6650 Mo Molybdenum 5
+1.000 D 1397.6850 Mo Molybdenum 5
+3.800 C 1398.6750 Mo Molybdenum 5
+4.900 C 1403.6480 Mo Molybdenum 5
+1.100 E 1404.8830 Mo Molybdenum 5
+0.500 E 1409.2320 Mo Molybdenum 5
+0.400 E 1409.7760 Mo Molybdenum 5
+2.800 C 1415.5690 Mo Molybdenum 5
+0.070 E 1417.6050 Mo Molybdenum 5
+2.000 C 1418.9440 Mo Molybdenum 5
+0.900 D 1419.2750 Mo Molybdenum 5
+1.480  1421.8810 Mo Molybdenum 6
+1.460  1425.1860 Mo Molybdenum 6
+0.031 E 1431.0940 Mo Molybdenum 5
+0.350 E 1435.1400 Mo Molybdenum 5
+7.800 C 1437.4500 Mo Molybdenum 5
+0.800 E 1439.5760 Mo Molybdenum 5
+3.200 C 1441.1870 Mo Molybdenum 5
+0.500 E 1446.2190 Mo Molybdenum 5
+0.330 E 1453.6030 Mo Molybdenum 5
+6.000 C 1454.7380 Mo Molybdenum 5
+2.400 C 1459.4370 Mo Molybdenum 5
+4.400 C 1463.8300 Mo Molybdenum 5
+1.120 C 1478.7570 Mo Molybdenum 5
+10.800  1479.1680 Mo Molybdenum 6
+0.080 E 1481.9550 Mo Molybdenum 5
+1.200 D 1493.0980 Mo Molybdenum 5
+2.600 C 1493.2390 Mo Molybdenum 5
+0.900 D 1494.7650 Mo Molybdenum 5
+3.600 C 1495.1530 Mo Molybdenum 5
+0.240 E 1498.2320 Mo Molybdenum 5
+2.700 D 1499.0840 Mo Molybdenum 5
+0.180  1504.5710 Mo Molybdenum 6
+0.205  1504.6940 Mo Molybdenum 6
+0.280 E 1506.7700 Mo Molybdenum 5
+3.500 C 1510.6550 Mo Molybdenum 5
+1.300 E 1512.0670 Mo Molybdenum 5
+0.370 E 1512.4030 Mo Molybdenum 5
+0.500 E 1516.8110 Mo Molybdenum 5
+0.210 E 1522.8930 Mo Molybdenum 5
+0.310 E 1523.0340 Mo Molybdenum 5
+0.170 E 1527.3950 Mo Molybdenum 5
+0.156  1536.3000 Mo Molybdenum 6
+0.500 E 1537.9620 Mo Molybdenum 5
+1.900 C 1538.8000 Mo Molybdenum 5
+3.400 C 1541.0110 Mo Molybdenum 5
+0.700 E 1541.1520 Mo Molybdenum 5
+2.200 C 1544.6370 Mo Molybdenum 5
+10.300 C 1546.1060 Mo Molybdenum 5
+4.200 C 1556.7600 Mo Molybdenum 5
+1.600 D 1564.7120 Mo Molybdenum 5
+0.280 E 1570.3140 Mo Molybdenum 5
+5.400 C 1574.6730 Mo Molybdenum 5
+0.220 E 1582.8820 Mo Molybdenum 5
+6.400 C 1586.8900 Mo Molybdenum 5
+8.900 C 1590.4150 Mo Molybdenum 5
+1.300 C 1593.2950 Mo Molybdenum 5
+1.500 C 1594.7410 Mo Molybdenum 5
+8.650  1595.4350 Mo Molybdenum 6
+0.500 E 1613.1480 Mo Molybdenum 5
+0.210 E 1614.4860 Mo Molybdenum 5
+4.500 B 1620.8420 Mo Molybdenum 5
+0.370 E 1621.6410 Mo Molybdenum 5
+1.600 C 1627.8520 Mo Molybdenum 5
+0.130 E 1638.2660 Mo Molybdenum 5
+1.000 E 1643.6050 Mo Molybdenum 5
+2.100 C 1645.4700 Mo Molybdenum 5
+0.110 E 1648.6630 Mo Molybdenum 5
+0.100 E 1651.3500 Mo Molybdenum 5
+7.900 C 1653.5410 Mo Molybdenum 5
+0.153  1658.6810 Mo Molybdenum 6
+8.600 C 1661.2150 Mo Molybdenum 5
+6.800  1661.3690 Mo Molybdenum 6
+0.310 E 1663.2960 Mo Molybdenum 5
+0.120 E 1667.2780 Mo Molybdenum 5
+5.900 C 1668.6600 Mo Molybdenum 5
+1.270  1674.0110 Mo Molybdenum 6
+0.800 D 1677.5630 Mo Molybdenum 5
+1.320  1680.5730 Mo Molybdenum 6
+11.000  1696.3140 Mo Molybdenum 6
+5.900 C 1699.7390 Mo Molybdenum 5
+0.040 E 1700.1400 Mo Molybdenum 5
+0.800 E 1710.2560 Mo Molybdenum 5
+0.500 E 1711.3860 Mo Molybdenum 5
+0.120 E 1715.2430 Mo Molybdenum 5
+0.400 E 1717.0520 Mo Molybdenum 5
+2.500 C 1718.0950 Mo Molybdenum 5
+11.000  1718.2420 Mo Molybdenum 6
+0.965  1720.8740 Mo Molybdenum 6
+1.000 D 1721.1230 Mo Molybdenum 5
+2.200 C 1721.6590 Mo Molybdenum 5
+0.080 E 1725.1770 Mo Molybdenum 5
+12.800  1731.7430 Mo Molybdenum 6
+1.310  1734.6890 Mo Molybdenum 6
+2.600 C 1747.1790 Mo Molybdenum 5
+0.500 E 1749.8290 Mo Molybdenum 5
+0.500 E 1751.8620 Mo Molybdenum 5
+1.890 B 1757.7640 Mo Molybdenum 5
+4.400 C 1767.7830 Mo Molybdenum 5
+0.280 E 1773.7510 Mo Molybdenum 5
+4.700 C 1774.3190 Mo Molybdenum 5
+2.800 C 1790.9160 Mo Molybdenum 5
+1.900 C 1801.4610 Mo Molybdenum 5
+1.600 C 1831.6240 Mo Molybdenum 5
+0.568  1843.4810 Mo Molybdenum 6
+2.100 C 1856.4830 Mo Molybdenum 5
+0.700 D 1929.2710 Mo Molybdenum 5
+0.340 E 1929.9510 Mo Molybdenum 5
+2.000 C 1962.1180 Mo Molybdenum 5
+11.100  1999.3660 Mo Molybdenum 6
+11.200  2000.1560 Mo Molybdenum 6
+22.300  2003.1220 Mo Molybdenum 6
+21.900  2003.1730 Mo Molybdenum 6
+9.120  2004.3240 Mo Molybdenum 6
+0.775  2014.9370 Mo Molybdenum 6
+3.800 C 2015.4330 Mo Molybdenum 5
+0.159  2036.8800 Mo Molybdenum 6
+2.870  2072.8390 Mo Molybdenum 6
+2.910  2072.8390 Mo Molybdenum 6
+1.800 C 2100.9970 Mo Molybdenum 5
+0.700 E 2113.4880 Mo Molybdenum 5
+2.200 E 2123.6440 Mo Molybdenum 5
+0.300 E 2131.4230 Mo Molybdenum 5
+0.087  2151.3670 Mo Molybdenum 6
+0.790 C 2153.3960 Mo Molybdenum 5
+0.900 D 2153.7570 Mo Molybdenum 5
+2.600 C 2154.1390 Mo Molybdenum 5
+1.240 C 2156.9510 Mo Molybdenum 5
+2.300 C 2162.0150 Mo Molybdenum 5
+0.106  2178.7690 Mo Molybdenum 6
+11.400  2193.2230 Mo Molybdenum 6
+0.268  2221.9330 Mo Molybdenum 6
+0.370 D 2222.8300 Mo Molybdenum 5
+1.300 C 2243.6770 Mo Molybdenum 5
+1.300 E 2258.4960 Mo Molybdenum 5
+5.400 C 2269.4450 Mo Molybdenum 5
+1.700 C 2272.8500 Mo Molybdenum 5
+11.000  2273.2620 Mo Molybdenum 6
+0.560 C 2273.6500 Mo Molybdenum 5
+3.400 C 2277.4270 Mo Molybdenum 5
+0.970 C 2280.8560 Mo Molybdenum 5
+1.500 C 2285.5900 Mo Molybdenum 5
+1.780  2293.4120 Mo Molybdenum 6
+3.300 C 2298.0910 Mo Molybdenum 5
+4.600 C 2298.6780 Mo Molybdenum 5
+1.260  2302.1540 Mo Molybdenum 6
+0.570 C 2302.8210 Mo Molybdenum 5
+0.500 D 2322.4440 Mo Molybdenum 5
+0.205  2322.8310 Mo Molybdenum 6
+1.010 C 2329.0850 Mo Molybdenum 5
+1.010 C 2332.7380 Mo Molybdenum 5
+0.720 C 2382.0900 Mo Molybdenum 5
+0.190 E 2387.3920 Mo Molybdenum 5
+0.472  2417.5540 Mo Molybdenum 6
+0.410 D 2421.2810 Mo Molybdenum 5
+0.090 E 2424.8510 Mo Molybdenum 5
+1.500 C 2429.6270 Mo Molybdenum 5
+1.600 E 2433.6770 Mo Molybdenum 5
+0.520  2439.0070 Mo Molybdenum 6
+0.039 E 2448.8720 Mo Molybdenum 5
+1.220 C 2474.6940 Mo Molybdenum 5
+0.900 C 2500.5490 Mo Molybdenum 5
+2.300 C 2536.2500 Mo Molybdenum 5
+2.200 C 2540.1070 Mo Molybdenum 5
+0.160 B 2548.9890 Mo Molybdenum 1
+0.820 C 2558.4890 Mo Molybdenum 5
+0.590 B 2567.8180 Mo Molybdenum 1
+1.600 C 2568.3230 Mo Molybdenum 5
+0.550 C 2571.4180 Mo Molybdenum 5
+1.250 C 2583.2640 Mo Molybdenum 5
+0.310 E 2594.6550 Mo Molybdenum 5
+0.370 B 2611.9810 Mo Molybdenum 1
+0.850 B 2613.8640 Mo Molybdenum 1
+0.730 B 2617.5670 Mo Molybdenum 1
+0.116 B 2621.8450 Mo Molybdenum 1
+1.900 C 2624.4940 Mo Molybdenum 5
+0.280 B 2629.7460 Mo Molybdenum 1
+0.770 B 2630.6330 Mo Molybdenum 1
+0.254 B 2632.2870 Mo Molybdenum 1
+0.760 B 2639.0910 Mo Molybdenum 1
+1.200 B 2641.7710 Mo Molybdenum 1
+3.700 C 2643.6750 Mo Molybdenum 5
+0.196 B 2645.1500 Mo Molybdenum 1
+0.980 B 2650.2470 Mo Molybdenum 1
+0.410 B 2655.8100 Mo Molybdenum 1
+0.640 B 2658.9010 Mo Molybdenum 1
+0.132 B 2665.8860 Mo Molybdenum 1
+1.500 D 2680.4190 Mo Molybdenum 5
+1.310 B+ 2680.6500 Mo Molybdenum 1
+3.800  2684.4030 Mo Molybdenum 6
+0.420 B 2684.9570 Mo Molybdenum 1
+1.230 C 2695.7750 Mo Molybdenum 5
+0.069 B 2701.8270 Mo Molybdenum 1
+0.203 B 2706.9160 Mo Molybdenum 1
+3.990  2710.8550 Mo Molybdenum 6
+0.157 B 2711.5420 Mo Molybdenum 1
+0.280 B 2725.9530 Mo Molybdenum 1
+0.126 B 2729.5130 Mo Molybdenum 1
+0.295 B 2734.1960 Mo Molybdenum 1
+0.224  2741.4530 Mo Molybdenum 6
+0.043 C+ 2743.8760 Mo Molybdenum 1
+0.247 B 2744.5240 Mo Molybdenum 1
+0.129 B 2746.1960 Mo Molybdenum 1
+0.254 B 2752.2800 Mo Molybdenum 1
+0.118 B 2757.0710 Mo Molybdenum 1
+0.206 B 2762.3470 Mo Molybdenum 1
+0.440 B 2763.8390 Mo Molybdenum 1
+0.117 B 2767.0660 Mo Molybdenum 1
+0.286 B 2788.6520 Mo Molybdenum 1
+0.153 B 2793.7860 Mo Molybdenum 1
+0.100 B 2798.7560 Mo Molybdenum 1
+0.124 B 2802.2940 Mo Molybdenum 1
+0.250 B 2826.5080 Mo Molybdenum 1
+0.420 B 2827.5780 Mo Molybdenum 1
+0.130 E 2832.2150 Mo Molybdenum 5
+0.090 E 2848.5220 Mo Molybdenum 5
+0.099 B 2865.4960 Mo Molybdenum 1
+0.280 C+ 2877.3840 Mo Molybdenum 1
+0.470 B 2887.4490 Mo Molybdenum 1
+0.106 B 2906.1170 Mo Molybdenum 1
+0.800 B 2906.9070 Mo Molybdenum 1
+0.138 B 2914.3690 Mo Molybdenum 1
+0.730 B 2916.2300 Mo Molybdenum 1
+0.380 C+ 2919.6940 Mo Molybdenum 1
+0.191 B 2931.2510 Mo Molybdenum 1
+0.233 B 2937.3620 Mo Molybdenum 1
+0.006 B 2945.0740 Mo Molybdenum 1
+0.370 B 2946.2860 Mo Molybdenum 1
+0.410 B 2946.5250 Mo Molybdenum 1
+0.168 B 2946.8670 Mo Molybdenum 1
+0.143 B 2952.3080 Mo Molybdenum 1
+0.175 B 2960.3410 Mo Molybdenum 1
+0.269 B 2973.8260 Mo Molybdenum 1
+0.330 B 2978.1370 Mo Molybdenum 1
+0.150 B 2979.1490 Mo Molybdenum 1
+0.111 B 2982.3860 Mo Molybdenum 1
+0.280 B 2983.9150 Mo Molybdenum 1
+0.840 B 2988.7900 Mo Molybdenum 1
+0.430 B 2989.1010 Mo Molybdenum 1
+0.161 B 2989.5480 Mo Molybdenum 1
+0.930 B 2990.6710 Mo Molybdenum 1
+0.140 B 3001.1100 Mo Molybdenum 1
+0.125 B 3001.3170 Mo Molybdenum 1
+0.258 B 3001.7280 Mo Molybdenum 1
+0.230 C+ 3002.3070 Mo Molybdenum 1
+0.007 B+ 3003.0900 Mo Molybdenum 1
+0.190 C+ 3008.5900 Mo Molybdenum 1
+0.610 B 3014.2670 Mo Molybdenum 1
+0.275 B 3017.6580 Mo Molybdenum 1
+0.016  3022.7930 Mo Molybdenum 6
+0.850 B 3025.8820 Mo Molybdenum 1
+0.580 B 3037.1950 Mo Molybdenum 1
+2.600  3041.6980 Mo Molybdenum 6
+0.590 B+ 3042.5840 Mo Molybdenum 1
+0.032  3042.6930 Mo Molybdenum 6
+0.163 B 3047.6880 Mo Molybdenum 1
+0.500 B 3048.1940 Mo Molybdenum 1
+0.430 B 3056.2060 Mo Molybdenum 1
+0.264 B 3058.4450 Mo Molybdenum 1
+0.440 B 3062.4780 Mo Molybdenum 1
+0.850 B+ 3065.1650 Mo Molybdenum 1
+0.308 B+ 3065.9320 Mo Molybdenum 1
+0.152 B 3070.4030 Mo Molybdenum 1
+0.270 C+ 3070.8550 Mo Molybdenum 1
+0.187 B+ 3071.7850 Mo Molybdenum 1
+1.420 B+ 3075.2620 Mo Molybdenum 1
+0.960 B 3080.7740 Mo Molybdenum 1
+0.360 B 3081.2990 Mo Molybdenum 1
+0.235 B 3082.0520 Mo Molybdenum 1
+1.630 B 3086.5120 Mo Molybdenum 1
+0.153 B 3090.0220 Mo Molybdenum 1
+0.234 B 3090.6030 Mo Molybdenum 1
+0.075  3093.1120 Mo Molybdenum 6
+1.630 B 3095.5600 Mo Molybdenum 1
+0.145 B 3100.8230 Mo Molybdenum 1
+1.200 B 3101.7760 Mo Molybdenum 1
+1.920 B 3102.2440 Mo Molybdenum 1
+0.221 B 3107.2390 Mo Molybdenum 1
+0.064 A 3113.0220 Mo Molybdenum 1
+0.189 B 3118.4460 Mo Molybdenum 1
+0.280 B 3123.9400 Mo Molybdenum 1
+0.198 B 3125.9350 Mo Molybdenum 1
+1.790 B+ 3133.5020 Mo Molybdenum 1
+0.370 B 3136.8060 Mo Molybdenum 1
+0.157 B 3137.6600 Mo Molybdenum 1
+0.410 B 3143.6590 Mo Molybdenum 1
+0.241 B 3148.2650 Mo Molybdenum 1
+0.275 B 3156.1040 Mo Molybdenum 1
+2.360  3158.4010 Mo Molybdenum 6
+0.463 B+ 3159.0800 Mo Molybdenum 1
+0.100 B 3165.4480 Mo Molybdenum 1
+1.370 B+ 3171.2600 Mo Molybdenum 1
+0.203 B 3172.3010 Mo Molybdenum 1
+0.840 B 3176.5100 Mo Molybdenum 1
+0.233 B 3180.7020 Mo Molybdenum 1
+0.400 B 3183.9540 Mo Molybdenum 1
+0.277 B 3185.4970 Mo Molybdenum 1
+0.254 B 3186.0250 Mo Molybdenum 1
+0.610 B 3186.6330 Mo Molybdenum 1
+0.350 B 3189.0180 Mo Molybdenum 1
+0.440 B 3189.3290 Mo Molybdenum 1
+0.188 B+ 3193.7150 Mo Molybdenum 1
+1.530 B+ 3194.9010 Mo Molybdenum 1
+0.175 B 3195.8010 Mo Molybdenum 1
+0.410 B 3196.8840 Mo Molybdenum 1
+0.147 B 3198.1060 Mo Molybdenum 1
+0.720 B 3199.7790 Mo Molybdenum 1
+0.182 B 3201.8120 Mo Molybdenum 1
+0.430 B 3206.1420 Mo Molybdenum 1
+0.255 B 3206.3600 Mo Molybdenum 1
+0.530 B 3206.8130 Mo Molybdenum 1
+0.277 A 3209.7650 Mo Molybdenum 1
+0.690 B 3211.8940 Mo Molybdenum 1
+0.200 B 3215.3700 Mo Molybdenum 1
+0.420 B 3216.0000 Mo Molybdenum 1
+0.210 B 3217.7060 Mo Molybdenum 1
+1.410 B 3222.6640 Mo Molybdenum 1
+0.390 B 3229.1440 Mo Molybdenum 1
+0.144 B+ 3230.7270 Mo Molybdenum 1
+0.630 B+ 3234.0740 Mo Molybdenum 1
+0.295 B 3237.9940 Mo Molybdenum 1
+0.280 B 3245.4070 Mo Molybdenum 1
+0.171 B 3248.5510 Mo Molybdenum 1
+0.187 B 3250.8620 Mo Molybdenum 1
+0.305 B 3252.5850 Mo Molybdenum 1
+0.690 B 3257.1460 Mo Molybdenum 1
+0.131 C+ 3257.6570 Mo Molybdenum 1
+0.162 B+ 3260.0960 Mo Molybdenum 1
+0.360 B 3263.5670 Mo Molybdenum 1
+0.540 B 3265.3420 Mo Molybdenum 1
+0.260 B 3266.0830 Mo Molybdenum 1
+0.195 B 3267.0990 Mo Molybdenum 1
+0.360 B 3271.8420 Mo Molybdenum 1
+0.118 B 3277.0160 Mo Molybdenum 1
+0.141 B 3285.9720 Mo Molybdenum 1
+0.036 B 3286.2590 Mo Molybdenum 1
+0.450 B 3286.3010 Mo Molybdenum 1
+0.138 B 3288.3290 Mo Molybdenum 1
+0.042 B 3288.3720 Mo Molybdenum 1
+0.510 B 3289.9580 Mo Molybdenum 1
+0.540 B 3291.7670 Mo Molybdenum 1
+7.040  3293.9780 Mo Molybdenum 6
+7.200  3294.2650 Mo Molybdenum 6
+0.174 B+ 3306.5140 Mo Molybdenum 1
+0.306 B 3306.8630 Mo Molybdenum 1
+0.125 B+ 3308.0770 Mo Molybdenum 1
+0.162 B 3313.2870 Mo Molybdenum 1
+2.280  3324.6940 Mo Molybdenum 6
+0.040 B 3324.8570 Mo Molybdenum 1
+0.282 B 3324.9050 Mo Molybdenum 1
+0.226 B 3326.0900 Mo Molybdenum 1
+0.172 B+ 3326.6300 Mo Molybdenum 1
+0.288 B+ 3328.2610 Mo Molybdenum 1
+0.164 B 3337.5250 Mo Molybdenum 1
+0.120 B+ 3341.1230 Mo Molybdenum 1
+0.520  3344.1360 Mo Molybdenum 6
+0.604 B+ 3345.6920 Mo Molybdenum 1
+0.113 B 3347.7900 Mo Molybdenum 1
+0.272 B+ 3347.9660 Mo Molybdenum 1
+0.759 A 3359.0830 Mo Molybdenum 1
+0.138 B+ 3362.3320 Mo Molybdenum 1
+0.274 B+ 3364.7430 Mo Molybdenum 1
+0.139 B 3364.8370 Mo Molybdenum 1
+0.203 B 3374.7800 Mo Molybdenum 1
+0.138 B 3376.1880 Mo Molybdenum 1
+0.157 B 3376.6140 Mo Molybdenum 1
+0.188 B 3379.1620 Mo Molybdenum 1
+0.375 B+ 3379.4260 Mo Molybdenum 1
+0.411 B+ 3380.9350 Mo Molybdenum 1
+0.266 B+ 3383.4530 Mo Molybdenum 1
+0.732 A 3385.5810 Mo Molybdenum 1
+0.330 B 3386.8460 Mo Molybdenum 1
+4.500  3387.9360 Mo Molybdenum 6
+0.185 B 3390.7660 Mo Molybdenum 1
+0.197 B 3393.1400 Mo Molybdenum 1
+0.208 B 3394.6230 Mo Molybdenum 1
+0.210 A 3405.3120 Mo Molybdenum 1
+0.021 B 3406.9880 Mo Molybdenum 1
+9.710  3409.5580 Mo Molybdenum 6
+9.580  3409.5580 Mo Molybdenum 6
+0.325  3412.0770 Mo Molybdenum 6
+0.125 B 3414.3460 Mo Molybdenum 1
+0.183 B 3416.2520 Mo Molybdenum 1
+0.129 B 3416.5930 Mo Molybdenum 1
+0.005 B 3416.6300 Mo Molybdenum 1
+0.245 B 3417.1220 Mo Molybdenum 1
+0.141 B+ 3419.5020 Mo Molybdenum 1
+0.115 B 3420.6660 Mo Molybdenum 1
+0.330 B 3421.0170 Mo Molybdenum 1
+0.043 B 3423.2440 Mo Molybdenum 1
+0.252 B 3423.2890 Mo Molybdenum 1
+0.229 B 3426.1150 Mo Molybdenum 1
+0.410 B 3428.8830 Mo Molybdenum 1
+0.175 B 3435.7720 Mo Molybdenum 1
+1.500 B 3436.4320 Mo Molybdenum 1
+0.810 B 3438.1980 Mo Molybdenum 1
+0.234 B 3439.8550 Mo Molybdenum 1
+0.080 A 3442.4300 Mo Molybdenum 1
+0.134 B 3442.8550 Mo Molybdenum 1
+0.294 B 3443.6500 Mo Molybdenum 1
+0.091 B+ 3444.2470 Mo Molybdenum 1
+0.153 B 3446.0220 Mo Molybdenum 1
+0.296 B 3446.2440 Mo Molybdenum 1
+0.114 B 3446.7920 Mo Molybdenum 1
+0.880 B+ 3448.1110 Mo Molybdenum 1
+0.179 B 3448.2770 Mo Molybdenum 1
+0.152 B 3450.0620 Mo Molybdenum 1
+0.165 B 3450.8410 Mo Molybdenum 1
+0.248 B 3453.5900 Mo Molybdenum 1
+0.360 B 3457.1400 Mo Molybdenum 1
+0.021 B 3457.3760 Mo Molybdenum 1
+0.277 B 3461.2140 Mo Molybdenum 1
+0.600 B 3461.7680 Mo Molybdenum 1
+1.000 B 3466.8360 Mo Molybdenum 1
+0.211 B 3467.1790 Mo Molybdenum 1
+0.013 B 3467.8170 Mo Molybdenum 1
+0.263 B 3468.8460 Mo Molybdenum 1
+0.700 B 3470.2110 Mo Molybdenum 1
+0.151 B 3470.6260 Mo Molybdenum 1
+0.291 B 3471.9150 Mo Molybdenum 1
+0.470 B 3476.0240 Mo Molybdenum 1
+2.550  3477.5900 Mo Molybdenum 6
+0.226 B 3480.4130 Mo Molybdenum 1
+0.113 B 3484.6660 Mo Molybdenum 1
+0.141 B 3484.8310 Mo Molybdenum 1
+4.640  3485.7520 Mo Molybdenum 6
+0.061 B 3486.9240 Mo Molybdenum 1
+0.330 B 3490.4270 Mo Molybdenum 1
+0.810 B 3505.4130 Mo Molybdenum 1
+0.042 B 3506.2840 Mo Molybdenum 1
+0.225 B 3506.3160 Mo Molybdenum 1
+0.159 B 3509.1160 Mo Molybdenum 1
+0.005  3511.3070 Mo Molybdenum 6
+0.480 B 3511.7790 Mo Molybdenum 1
+0.540 B 3518.5520 Mo Molybdenum 1
+0.360 B 3519.2170 Mo Molybdenum 1
+0.139 B 3522.3830 Mo Molybdenum 1
+0.610 B 3522.4190 Mo Molybdenum 1
+4.430  3525.5070 Mo Molybdenum 6
+0.310 B 3525.6540 Mo Molybdenum 1
+0.225 B 3525.9830 Mo Molybdenum 1
+4.610  3539.4260 Mo Molybdenum 6
+0.224 B 3539.9300 Mo Molybdenum 1
+0.450 B 3541.5780 Mo Molybdenum 1
+0.490 B 3543.1770 Mo Molybdenum 1
+2.400 C 3549.0710 Mo Molybdenum 5
+0.360 B 3553.7270 Mo Molybdenum 1
+0.310  3553.8280 Mo Molybdenum 6
+0.350 B 3556.6530 Mo Molybdenum 1
+0.540 B 3559.1110 Mo Molybdenum 1
+0.073 B+ 3564.1540 Mo Molybdenum 1
+0.153 B 3564.7680 Mo Molybdenum 1
+0.026 C+ 3564.7980 Mo Molybdenum 1
+0.267 B 3567.0700 Mo Molybdenum 1
+0.143 B 3567.7630 Mo Molybdenum 1
+0.720 B 3571.6630 Mo Molybdenum 1
+0.360 B 3574.8980 Mo Molybdenum 1
+0.550 B 3581.5600 Mo Molybdenum 1
+0.380 B 3582.9060 Mo Molybdenum 1
+0.173 B 3585.2770 Mo Molybdenum 1
+0.400 B 3586.5940 Mo Molybdenum 1
+0.118 B 3589.9700 Mo Molybdenum 1
+0.223 B 3591.7600 Mo Molybdenum 1
+0.232 B 3596.5770 Mo Molybdenum 1
+0.570 B 3599.9090 Mo Molybdenum 1
+0.207 B 3601.7590 Mo Molybdenum 1
+0.115 B 3602.9050 Mo Molybdenum 1
+0.296 B 3603.9650 Mo Molybdenum 1
+0.320 B 3605.0970 Mo Molybdenum 1
+0.033 B+ 3609.3950 Mo Molybdenum 1
+0.178 B 3611.6410 Mo Molybdenum 1
+0.116 B 3613.0200 Mo Molybdenum 1
+0.196 B 3616.1890 Mo Molybdenum 1
+0.210 C 3624.2330 Mo Molybdenum 5
+0.560 B 3624.2560 Mo Molybdenum 1
+0.530 B+ 3625.4950 Mo Molybdenum 1
+0.137 B 3625.6490 Mo Molybdenum 1
+0.044 B+ 3627.2140 Mo Molybdenum 1
+0.090 D 3632.2110 Mo Molybdenum 5
+0.350 B 3639.2410 Mo Molybdenum 1
+0.330 B 3639.2440 Mo Molybdenum 1
+0.194 B 3641.6560 Mo Molybdenum 1
+0.211 B 3648.8800 Mo Molybdenum 1
+0.005 C+ 3648.8960 Mo Molybdenum 1
+0.115 C+ 3649.7380 Mo Molybdenum 1
+0.180 B 3655.6200 Mo Molybdenum 1
+0.203 B 3658.3990 Mo Molybdenum 1
+0.186 B 3659.1740 Mo Molybdenum 1
+0.670 B 3660.4000 Mo Molybdenum 1
+0.134 B 3661.9600 Mo Molybdenum 1
+0.145 B 3663.1940 Mo Molybdenum 1
+0.350 B 3664.0280 Mo Molybdenum 1
+0.230 B 3664.3090 Mo Molybdenum 1
+0.950 B 3665.8540 Mo Molybdenum 1
+0.192 B 3665.9280 Mo Molybdenum 1
+0.099 B 3667.7590 Mo Molybdenum 1
+0.216 B 3670.3900 Mo Molybdenum 1
+0.195 B 3673.8530 Mo Molybdenum 1
+0.113 B 3673.8690 Mo Molybdenum 1
+0.520 B 3677.2790 Mo Molybdenum 1
+0.095 B+ 3681.6370 Mo Molybdenum 1
+0.168 B 3682.7670 Mo Molybdenum 1
+0.120 B 3684.0630 Mo Molybdenum 1
+0.212 B 3689.0100 Mo Molybdenum 1
+0.330 B 3690.0160 Mo Molybdenum 1
+0.207 B 3691.6360 Mo Molybdenum 1
+0.640 B 3695.9910 Mo Molybdenum 1
+0.043 B 3696.0370 Mo Molybdenum 1
+0.360 B 3697.0940 Mo Molybdenum 1
+0.148 B 3699.1260 Mo Molybdenum 1
+0.062 B 3703.0830 Mo Molybdenum 1
+2.090  3706.2870 Mo Molybdenum 6
+0.128 B 3709.6060 Mo Molybdenum 1
+0.083 B 3716.7030 Mo Molybdenum 1
+0.020 B 3716.7330 Mo Molybdenum 1
+0.134 B 3719.5330 Mo Molybdenum 1
+0.224 B 3720.6090 Mo Molybdenum 1
+0.286 B 3721.3080 Mo Molybdenum 1
+0.160 B 3726.6130 Mo Molybdenum 1
+0.151 B 3728.7390 Mo Molybdenum 1
+0.155 B 3729.3560 Mo Molybdenum 1
+0.007 B 3729.4020 Mo Molybdenum 1
+0.220 B 3729.5570 Mo Molybdenum 1
+0.062 B 3733.7700 Mo Molybdenum 1
+0.145 B 3734.0850 Mo Molybdenum 1
+0.280 B 3734.4680 Mo Molybdenum 1
+2.300  3736.3570 Mo Molybdenum 6
+0.166 B+ 3736.6790 Mo Molybdenum 1
+0.156 B 3743.3460 Mo Molybdenum 1
+0.307 B 3748.2510 Mo Molybdenum 1
+0.395 B+ 3749.5460 Mo Molybdenum 1
+0.141 B 3756.1660 Mo Molybdenum 1
+0.248 B 3756.2270 Mo Molybdenum 1
+0.122 B 3759.5890 Mo Molybdenum 1
+0.182 B 3760.6730 Mo Molybdenum 1
+0.216 B 3761.9450 Mo Molybdenum 1
+0.288 B 3769.8050 Mo Molybdenum 1
+0.246 B 3771.0600 Mo Molybdenum 1
+0.030 B+ 3771.5150 Mo Molybdenum 1
+0.166 B 3778.7930 Mo Molybdenum 1
+0.059 B 3780.8390 Mo Molybdenum 1
+0.047 A 3782.6650 Mo Molybdenum 1
+0.287 B 3789.3300 Mo Molybdenum 1
+0.770 C 3790.8240 Mo Molybdenum 5
+0.122 B 3795.5050 Mo Molybdenum 1
+0.055 A 3798.3790 Mo Molybdenum 1
+0.690 B+ 3799.3300 Mo Molybdenum 1
+0.320 B 3802.9180 Mo Molybdenum 1
+0.017 B 3802.9530 Mo Molybdenum 1
+0.244 B 3807.0690 Mo Molybdenum 1
+0.147 B 3820.8620 Mo Molybdenum 1
+2.500 C 3823.6300 Mo Molybdenum 5
+0.140 B 3825.8610 Mo Molybdenum 1
+0.080 A 3827.7790 Mo Molybdenum 1
+0.194 B 3828.2400 Mo Molybdenum 1
+0.135 A 3829.9620 Mo Molybdenum 1
+0.183 B 3831.9010 Mo Molybdenum 1
+0.120 B 3832.1570 Mo Molybdenum 1
+0.305 B 3833.1940 Mo Molybdenum 1
+0.170 A 3834.8340 Mo Molybdenum 1
+0.120 B 3835.7240 Mo Molybdenum 1
+1.500 C 3840.1780 Mo Molybdenum 5
+0.126 B 3847.2680 Mo Molybdenum 1
+0.241 B+ 3848.3360 Mo Molybdenum 1
+0.126 B 3849.3890 Mo Molybdenum 1
+0.178 B 3853.0780 Mo Molybdenum 1
+0.624 A 3865.1990 Mo Molybdenum 1
+0.174 B 3867.7870 Mo Molybdenum 1
+0.222 B 3868.7660 Mo Molybdenum 1
+0.135 A 3870.1780 Mo Molybdenum 1
+0.167 B 3875.2520 Mo Molybdenum 1
+0.097 A 3887.9220 Mo Molybdenum 1
+0.051 A 3902.8740 Mo Molybdenum 1
+0.617 A 3904.0590 Mo Molybdenum 1
+0.113 B 3910.6450 Mo Molybdenum 1
+0.115 B 3913.0520 Mo Molybdenum 1
+0.140 B 3916.5380 Mo Molybdenum 1
+0.178 B 3917.5390 Mo Molybdenum 1
+1.600 C 3940.0300 Mo Molybdenum 5
+0.061 B 3944.1930 Mo Molybdenum 1
+0.180 C 3949.4460 Mo Molybdenum 5
+0.171 B 3956.6020 Mo Molybdenum 1
+0.439 B+ 3974.8800 Mo Molybdenum 1
+0.073 B 3974.9150 Mo Molybdenum 1
+0.135 B 3979.0230 Mo Molybdenum 1
+0.270 B 3981.3240 Mo Molybdenum 1
+0.129 B 3992.9760 Mo Molybdenum 1
+0.116 C 4010.5680 Mo Molybdenum 5
+0.440 B 4011.2600 Mo Molybdenum 1
+0.265 B 4022.1470 Mo Molybdenum 1
+0.509  4037.6240 Mo Molybdenum 6
+0.136 B 4052.3240 Mo Molybdenum 1
+0.610  4055.6980 Mo Molybdenum 6
+0.034 B+ 4057.1580 Mo Molybdenum 1
+0.480 C 4062.6940 Mo Molybdenum 5
+3.720  4063.1670 Mo Molybdenum 6
+0.196 B+ 4063.2240 Mo Molybdenum 1
+0.037 E 4065.8620 Mo Molybdenum 5
+2.200 C 4066.4190 Mo Molybdenum 5
+0.325 B+ 4071.0300 Mo Molybdenum 1
+1.900 C 4072.7140 Mo Molybdenum 5
+2.100 C 4075.9250 Mo Molybdenum 5
+0.116 B 4077.3420 Mo Molybdenum 1
+0.194 B+ 4085.5250 Mo Molybdenum 1
+0.122 B+ 4103.3070 Mo Molybdenum 1
+0.202 B+ 4108.6210 Mo Molybdenum 1
+0.600 B 4121.2550 Mo Molybdenum 1
+0.156 B 4133.0820 Mo Molybdenum 1
+0.023 B 4150.1070 Mo Molybdenum 1
+0.156 B 4150.1450 Mo Molybdenum 1
+0.047 B 4156.4560 Mo Molybdenum 1
+0.217 B 4158.5710 Mo Molybdenum 1
+0.160 B 4159.0710 Mo Molybdenum 1
+0.502  4166.0750 Mo Molybdenum 6
+0.088 B 4179.4540 Mo Molybdenum 1
+0.527  4185.4680 Mo Molybdenum 6
+0.382 B+ 4186.9990 Mo Molybdenum 1
+1.400 C 4187.7980 Mo Molybdenum 5
+0.330 B 4189.5030 Mo Molybdenum 1
+0.270 B 4195.7440 Mo Molybdenum 1
+3.970  4233.2130 Mo Molybdenum 6
+0.317 A 4233.7810 Mo Molybdenum 1
+0.168 B 4242.0240 Mo Molybdenum 1
+0.200 B 4247.2130 Mo Molybdenum 1
+0.013 B 4253.0310 Mo Molybdenum 1
+0.176 B 4253.0800 Mo Molybdenum 1
+0.201 B 4256.1490 Mo Molybdenum 1
+0.136 B 4270.4810 Mo Molybdenum 1
+0.642  4274.1360 Mo Molybdenum 6
+0.285 A 4278.1100 Mo Molybdenum 1
+0.135 B 4278.4430 Mo Molybdenum 1
+0.105 B+ 4289.8380 Mo Molybdenum 1
+0.069 B+ 4293.3420 Mo Molybdenum 1
+0.083 B+ 4294.4230 Mo Molybdenum 1
+0.057 B+ 4295.0880 Mo Molybdenum 1
+0.128 B 4319.1360 Mo Molybdenum 1
+0.184 B 4327.0180 Mo Molybdenum 1
+0.256 A 4327.3520 Mo Molybdenum 1
+0.044 B+ 4327.9610 Mo Molybdenum 1
+1.140 C 4336.1470 Mo Molybdenum 5
+0.123 B 4341.9580 Mo Molybdenum 1
+0.029 B+ 4351.5540 Mo Molybdenum 1
+0.019 B+ 4370.2690 Mo Molybdenum 1
+0.293 A 4382.8610 Mo Molybdenum 1
+0.380 B 4383.6390 Mo Molybdenum 1
+1.600 C 4385.6570 Mo Molybdenum 5
+0.240 C 4400.8380 Mo Molybdenum 5
+0.138 B 4411.1830 Mo Molybdenum 1
+0.029 A 4412.8040 Mo Molybdenum 1
+0.263 A 4412.9340 Mo Molybdenum 1
+0.093 B+ 4424.8510 Mo Molybdenum 1
+0.251 A 4436.1930 Mo Molybdenum 1
+0.049 A 4443.4490 Mo Molybdenum 1
+0.190 B+ 4447.6730 Mo Molybdenum 1
+0.084 A 4450.9870 Mo Molybdenum 1
+0.128 A 4458.6050 Mo Molybdenum 1
+0.390 C 4467.5630 Mo Molybdenum 5
+0.330 C 4475.3980 Mo Molybdenum 5
+0.210 A 4475.8260 Mo Molybdenum 1
+0.076 B 4492.5390 Mo Molybdenum 1
+0.209 B 4492.9070 Mo Molybdenum 1
+0.004 B 4506.1650 Mo Molybdenum 1
+0.010 B+ 4513.4000 Mo Molybdenum 1
+0.076 B 4518.3880 Mo Molybdenum 1
+0.017 B+ 4525.6000 Mo Molybdenum 1
+0.049 B 4530.6650 Mo Molybdenum 1
+0.005 B 4538.0380 Mo Molybdenum 1
+0.500 B+ 4538.0680 Mo Molybdenum 1
+1.090 C 4544.3470 Mo Molybdenum 5
+0.011 B+ 4559.3820 Mo Molybdenum 1
+0.021 B+ 4577.7770 Mo Molybdenum 1
+0.019 B+ 4596.4420 Mo Molybdenum 1
+0.147 B 4599.5130 Mo Molybdenum 1
+0.082 A 4611.1640 Mo Molybdenum 1
+0.038 B 4622.6590 Mo Molybdenum 1
+0.132 B 4625.5270 Mo Molybdenum 1
+1.020 C 4625.9370 Mo Molybdenum 5
+0.037 B+ 4627.7600 Mo Molybdenum 1
+0.019 B+ 4628.7770 Mo Molybdenum 1
+0.235 B 4634.3720 Mo Molybdenum 1
+0.046 D 4638.9730 Mo Molybdenum 5
+0.125 C+ 4650.3610 Mo Molybdenum 1
+0.008 C+ 4650.3640 Mo Molybdenum 1
+0.155 B 4653.5470 Mo Molybdenum 1
+0.036  4662.2790 Mo Molybdenum 6
+0.020 B+ 4664.0640 Mo Molybdenum 1
+0.061 B 4673.2030 Mo Molybdenum 1
+0.172 B 4687.3930 Mo Molybdenum 1
+0.068 C 4688.5860 Mo Molybdenum 5
+0.154 B 4689.5250 Mo Molybdenum 1
+0.363 B+ 4708.5640 Mo Molybdenum 1
+0.076 B+ 4709.5390 Mo Molybdenum 1
+0.052 B+ 4719.2390 Mo Molybdenum 1
+0.217 B 4720.1780 Mo Molybdenum 1
+0.123 B 4724.3740 Mo Molybdenum 1
+0.054 B+ 4730.4590 Mo Molybdenum 1
+0.449 B+ 4732.7650 Mo Molybdenum 1
+0.705  4747.8490 Mo Molybdenum 6
+0.039 B+ 4751.7190 Mo Molybdenum 1
+0.301 B 4759.8320 Mo Molybdenum 1
+0.467 B+ 4761.5130 Mo Molybdenum 1
+0.216 B 4765.4400 Mo Molybdenum 1
+0.062 A 4777.6760 Mo Molybdenum 1
+0.065 B+ 4797.8580 Mo Molybdenum 1
+0.440 B 4812.3950 Mo Molybdenum 1
+0.271 B+ 4820.5950 Mo Molybdenum 1
+0.407 A 4831.8620 Mo Molybdenum 1
+0.124 B 4859.7460 Mo Molybdenum 1
+0.311 A 4869.3770 Mo Molybdenum 1
+0.029 B+ 4951.9960 Mo Molybdenum 1
+0.064 B+ 4958.9130 Mo Molybdenum 1
+0.023 C+ 4980.5140 Mo Molybdenum 1
+0.086 B 5001.2970 Mo Molybdenum 1
+0.016 B 5012.2070 Mo Molybdenum 1
+0.105 B 5015.9790 Mo Molybdenum 1
+0.036 B 5018.1600 Mo Molybdenum 1
+0.017 B 5021.2420 Mo Molybdenum 1
+0.047 B 5030.3960 Mo Molybdenum 1
+0.043 B 5032.1580 Mo Molybdenum 1
+0.114 C+ 5038.5820 Mo Molybdenum 1
+0.028 B 5040.3020 Mo Molybdenum 1
+0.131 B 5045.7630 Mo Molybdenum 1
+2.780  5047.6290 Mo Molybdenum 6
+2.840  5047.6290 Mo Molybdenum 6
+0.008 B 5047.9160 Mo Molybdenum 1
+0.261 B 5049.1040 Mo Molybdenum 1
+0.011 B+ 5056.4070 Mo Molybdenum 1
+0.018 B 5059.4790 Mo Molybdenum 1
+0.069 B+ 5061.2800 Mo Molybdenum 1
+0.021 B+ 5063.9250 Mo Molybdenum 1
+0.003 B+ 5066.0440 Mo Molybdenum 1
+0.024 B 5081.2800 Mo Molybdenum 1
+0.037 B+ 5081.4280 Mo Molybdenum 1
+0.001 C+ 5082.6670 Mo Molybdenum 1
+0.054 B 5092.3900 Mo Molybdenum 1
+0.008 B 5092.7530 Mo Molybdenum 1
+0.042 B 5093.5700 Mo Molybdenum 1
+0.015 B 5097.3000 Mo Molybdenum 1
+0.036 B 5098.0570 Mo Molybdenum 1
+0.025 B+ 5098.9380 Mo Molybdenum 1
+0.011 B+ 5099.4480 Mo Molybdenum 1
+0.028 B+ 5111.1320 Mo Molybdenum 1
+0.029 B+ 5116.3910 Mo Molybdenum 1
+0.006 B 5118.3810 Mo Molybdenum 1
+0.021 B 5125.2480 Mo Molybdenum 1
+0.088 B 5146.8110 Mo Molybdenum 1
+0.034 B+ 5148.8170 Mo Molybdenum 1
+0.203 B 5164.6180 Mo Molybdenum 1
+0.032 B 5169.1850 Mo Molybdenum 1
+0.184 B 5172.5040 Mo Molybdenum 1
+0.018 B+ 5172.6800 Mo Molybdenum 1
+0.410 B 5174.3810 Mo Molybdenum 1
+0.580 B 5175.6210 Mo Molybdenum 1
+0.162 B 5192.9000 Mo Molybdenum 1
+0.032 B 5201.6010 Mo Molybdenum 1
+0.010 B+ 5202.1860 Mo Molybdenum 1
+0.000 C+ 5211.8850 Mo Molybdenum 1
+0.013 B+ 5213.3080 Mo Molybdenum 1
+0.067 B 5220.8510 Mo Molybdenum 1
+0.087 B 5232.5150 Mo Molybdenum 1
+0.021 B 5233.8170 Mo Molybdenum 1
+0.015 B+ 5235.7150 Mo Molybdenum 1
+0.370 B 5239.6630 Mo Molybdenum 1
+0.390 B 5242.3330 Mo Molybdenum 1
+0.201 B 5244.2610 Mo Molybdenum 1
+0.026 B 5246.9650 Mo Molybdenum 1
+3.070  5248.9540 Mo Molybdenum 6
+3.580  5248.9540 Mo Molybdenum 6
+0.052 B+ 5260.4960 Mo Molybdenum 1
+0.091 B 5261.6050 Mo Molybdenum 1
+0.020 A 5262.5960 Mo Molybdenum 1
+0.113 B 5262.9960 Mo Molybdenum 1
+0.007 A 5270.3980 Mo Molybdenum 1
+0.006 B+ 5273.2500 Mo Molybdenum 1
+0.009 B 5277.7300 Mo Molybdenum 1
+4.790  5278.2120 Mo Molybdenum 6
+4.840  5278.2120 Mo Molybdenum 6
+0.005 B 5281.1090 Mo Molybdenum 1
+0.128 B 5282.3250 Mo Molybdenum 1
+0.021 B 5285.2960 Mo Molybdenum 1
+0.022 B 5293.5460 Mo Molybdenum 1
+0.064 B+ 5294.9200 Mo Molybdenum 1
+0.011 A 5296.9280 Mo Molybdenum 1
+0.005 B+ 5307.7210 Mo Molybdenum 1
+0.021 B+ 5315.3640 Mo Molybdenum 1
+0.006 A 5316.5120 Mo Molybdenum 1
+0.026 B+ 5321.3550 Mo Molybdenum 1
+0.018 B 5325.9370 Mo Molybdenum 1
+0.009 B+ 5328.5860 Mo Molybdenum 1
+0.064 C+ 5328.5880 Mo Molybdenum 1
+0.011 B 5353.8370 Mo Molybdenum 1
+0.032 B+ 5356.3680 Mo Molybdenum 1
+0.121 B 5357.0050 Mo Molybdenum 1
+0.211 B 5357.9500 Mo Molybdenum 1
+0.620 B 5362.0040 Mo Molybdenum 1
+0.226 B 5365.7680 Mo Molybdenum 1
+0.056 B 5368.5690 Mo Molybdenum 1
+0.020 A 5373.8860 Mo Molybdenum 1
+0.111 B 5390.1630 Mo Molybdenum 1
+0.024 B+ 5396.0060 Mo Molybdenum 1
+0.029 B 5398.8690 Mo Molybdenum 1
+0.018 B+ 5401.9600 Mo Molybdenum 1
+0.008 B 5407.2760 Mo Molybdenum 1
+0.064 B 5407.8790 Mo Molybdenum 1
+0.025 B+ 5418.8770 Mo Molybdenum 1
+0.002 B+ 5428.3840 Mo Molybdenum 1
+0.020 B+ 5437.1830 Mo Molybdenum 1
+0.007 B+ 5439.2500 Mo Molybdenum 1
+0.019 B+ 5452.0170 Mo Molybdenum 1
+0.018 B 5457.9820 Mo Molybdenum 1
+0.350 B 5462.0210 Mo Molybdenum 1
+0.003 B+ 5467.0810 Mo Molybdenum 1
+0.008 B+ 5477.4130 Mo Molybdenum 1
+0.009 B+ 5491.7960 Mo Molybdenum 1
+0.010 B 5493.6830 Mo Molybdenum 1
+0.213 B 5495.2890 Mo Molybdenum 1
+0.022 B+ 5500.0190 Mo Molybdenum 1
+0.019 B+ 5503.0660 Mo Molybdenum 1
+0.009 B+ 5503.4000 Mo Molybdenum 1
+0.361 A+ 5508.0230 Mo Molybdenum 1
+0.010 B 5521.5670 Mo Molybdenum 1
+0.024 B 5522.1740 Mo Molybdenum 1
+0.020 B+ 5528.0540 Mo Molybdenum 1
+0.016 B 5528.4970 Mo Molybdenum 1
+0.372 A+ 5534.5680 Mo Molybdenum 1
+0.003 B+ 5540.9410 Mo Molybdenum 1
+0.018 B+ 5544.6530 Mo Molybdenum 1
+0.044 B 5546.0220 Mo Molybdenum 1
+0.008 B+ 5557.8230 Mo Molybdenum 1
+0.019 B+ 5558.2620 Mo Molybdenum 1
+0.005 B+ 5565.5870 Mo Molybdenum 1
+0.025 B+ 5570.1500 Mo Molybdenum 1
+0.023 B+ 5571.0200 Mo Molybdenum 1
+0.330 A 5571.9910 Mo Molybdenum 1
+0.021 B+ 5576.7260 Mo Molybdenum 1
+2.020  5586.6310 Mo Molybdenum 6
+0.019 B 5604.3040 Mo Molybdenum 1
+0.020 B 5610.1720 Mo Molybdenum 1
+0.018 C+ 5610.7860 Mo Molybdenum 1
+0.047 B+ 5612.4890 Mo Molybdenum 1
+0.007 B+ 5614.6290 Mo Molybdenum 1
+0.003 B+ 5620.0060 Mo Molybdenum 1
+0.026 B 5620.9320 Mo Molybdenum 1
+2.110  5621.1900 Mo Molybdenum 6
+0.034 A 5634.0260 Mo Molybdenum 1
+0.010 B+ 5636.4200 Mo Molybdenum 1
+0.015 A 5651.6950 Mo Molybdenum 1
+0.017 B+ 5675.1930 Mo Molybdenum 1
+0.017 B+ 5676.0440 Mo Molybdenum 1
+0.014 B+ 5679.4710 Mo Molybdenum 1
+0.011 B+ 5684.4780 Mo Molybdenum 1
+0.068 A 5690.7250 Mo Molybdenum 1
+0.008 B+ 5700.8650 Mo Molybdenum 1
+0.040 B+ 5707.2910 Mo Molybdenum 1
+0.006 B+ 5713.3700 Mo Molybdenum 1
+0.009 A 5724.3260 Mo Molybdenum 1
+0.012 C+ 5730.3450 Mo Molybdenum 1
+0.002 B+ 5731.0340 Mo Molybdenum 1
+0.014 B 5731.1610 Mo Molybdenum 1
+0.039 A 5753.0030 Mo Molybdenum 1
+0.009 B+ 5780.9470 Mo Molybdenum 1
+0.060 A 5793.4450 Mo Molybdenum 1
+0.062 B+ 5802.0470 Mo Molybdenum 1
+0.010 B+ 5804.2800 Mo Molybdenum 1
+0.039 B 5826.8100 Mo Molybdenum 1
+0.010 B 5841.5800 Mo Molybdenum 1
+0.302 B 5851.3290 Mo Molybdenum 1
+0.155 B 5853.1250 Mo Molybdenum 1
+0.028 A 5859.8900 Mo Molybdenum 1
+0.013 C+ 5862.9980 Mo Molybdenum 1
+0.070 B 5870.9370 Mo Molybdenum 1
+1.830  5872.9970 Mo Molybdenum 6
+0.011 B+ 5878.2050 Mo Molybdenum 1
+0.065 A 5889.9420 Mo Molybdenum 1
+0.012 C+ 5893.9040 Mo Molybdenum 1
+0.260 B 5894.9960 Mo Molybdenum 1
+0.312 B 5897.5660 Mo Molybdenum 1
+0.025 B 5900.4770 Mo Molybdenum 1
+0.006 B+ 5903.0980 Mo Molybdenum 1
+0.163 B 5928.0090 Mo Molybdenum 1
+0.530 B 5930.5210 Mo Molybdenum 1
+0.021 B 5989.8210 Mo Molybdenum 1
+0.036 B 6027.1450 Mo Molybdenum 1
+0.008 B+ 6028.9250 Mo Molybdenum 1
+0.079 A 6032.3140 Mo Molybdenum 1
+0.009  6037.2910 Mo Molybdenum 6
+0.015 C+ 6049.5190 Mo Molybdenum 1
+0.002 B+ 6056.4850 Mo Molybdenum 1
+0.008 B+ 6081.2470 Mo Molybdenum 1
+0.005 B+ 6103.5580 Mo Molybdenum 1
+0.036 B 6132.3150 Mo Molybdenum 1
+0.168  6190.3820 Mo Molybdenum 6
+0.020 B 6199.3670 Mo Molybdenum 1
+0.002 B+ 6219.6150 Mo Molybdenum 1
+0.002 B+ 6267.5980 Mo Molybdenum 1
+0.004 B 6292.4640 Mo Molybdenum 1
+0.001 B+ 6292.5280 Mo Molybdenum 1
+0.004 B+ 6303.5110 Mo Molybdenum 1
+0.009 B 6325.2750 Mo Molybdenum 1
+0.168  6337.7920 Mo Molybdenum 6
+0.005 B+ 6358.9550 Mo Molybdenum 1
+0.006 B+ 6390.8560 Mo Molybdenum 1
+0.002 B+ 6410.8670 Mo Molybdenum 1
+0.015 C+ 6426.1300 Mo Molybdenum 1
+0.009 B 6448.1180 Mo Molybdenum 1
+0.012 B+ 6472.9960 Mo Molybdenum 1
+0.007 C+ 6475.7760 Mo Molybdenum 1
+0.018 B 6494.9150 Mo Molybdenum 1
+0.021 B 6521.6320 Mo Molybdenum 1
+0.013 B 6613.0060 Mo Molybdenum 1
+0.012 C+ 6620.9620 Mo Molybdenum 1
+0.007 B+ 6626.3890 Mo Molybdenum 1
+0.058 B 6652.1930 Mo Molybdenum 1
+0.001 B 6661.5130 Mo Molybdenum 1
+0.002 B+ 6692.3050 Mo Molybdenum 1
+0.006 C+ 6735.8050 Mo Molybdenum 1
+0.003 B+ 6747.8910 Mo Molybdenum 1
+0.009 B 6748.1370 Mo Molybdenum 1
+0.025 B+ 6755.8410 Mo Molybdenum 1
+0.006 B 6765.3480 Mo Molybdenum 1
+0.006 C+ 6804.5000 Mo Molybdenum 1
+0.007 B 6813.9180 Mo Molybdenum 1
+0.012 B 6827.5150 Mo Molybdenum 1
+0.008 B 6830.7520 Mo Molybdenum 1
+0.013 B 6830.9110 Mo Molybdenum 1
+0.030 B+ 6840.7800 Mo Molybdenum 1
+0.025 B 6850.7910 Mo Molybdenum 1
+0.017 B+ 6888.1980 Mo Molybdenum 1
+0.008 B+ 6894.2580 Mo Molybdenum 1
+0.011 B 6899.8990 Mo Molybdenum 1
+0.005 B 6900.8660 Mo Molybdenum 1
+0.000 C+ 6910.0980 Mo Molybdenum 1
+0.007 B+ 6915.9090 Mo Molybdenum 1
+0.001 C+ 6936.0030 Mo Molybdenum 1
+0.002 B+ 6949.3300 Mo Molybdenum 1
+0.014 B 6962.5450 Mo Molybdenum 1
+0.012 B 6980.6590 Mo Molybdenum 1
+0.006 B+ 6990.8830 Mo Molybdenum 1
+0.011 B 7001.0480 Mo Molybdenum 1
+0.006 B+ 7003.5340 Mo Molybdenum 1
+0.011 C+ 7039.9040 Mo Molybdenum 1
+0.001 C+ 7062.1500 Mo Molybdenum 1
+0.003 B+ 7065.2930 Mo Molybdenum 1
+0.004 B+ 7083.1330 Mo Molybdenum 1
+0.001 C+ 7136.0350 Mo Molybdenum 1
+0.006 D 7156.0780 Mo Molybdenum 1
+0.011 B+ 7247.8450 Mo Molybdenum 1
+0.001 C+ 7269.6270 Mo Molybdenum 1
+0.006 B 7302.1990 Mo Molybdenum 1
+0.001 B+ 7350.5060 Mo Molybdenum 1
+0.007 B 7363.6610 Mo Molybdenum 1
+0.003 C+ 7393.3850 Mo Molybdenum 1
+0.003 B 7436.1360 Mo Molybdenum 1
+0.035 B 7449.4120 Mo Molybdenum 1
+0.006 B+ 7574.7220 Mo Molybdenum 1
+0.003 B 7597.2170 Mo Molybdenum 1
+0.006 B 7603.9180 Mo Molybdenum 1
+0.064 B 7658.7370 Mo Molybdenum 1
+0.002 B+ 7681.6340 Mo Molybdenum 1
+0.006 B+ 7722.8880 Mo Molybdenum 1
+0.004 B+ 7831.8190 Mo Molybdenum 1
+0.009 B 7856.6260 Mo Molybdenum 1
+0.004 B+ 7925.3280 Mo Molybdenum 1
+0.006 B 7988.7940 Mo Molybdenum 1
+0.003 B 8485.6770 Mo Molybdenum 1
