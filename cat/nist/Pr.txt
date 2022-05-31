@@ -1,172 +1,172 @@
-0.061 C+ 3793.590 Pr Praseodymium 2
-0.116 C+ 3852.640 Pr Praseodymium 2
-0.093 C+ 3890.440 Pr Praseodymium 2
-0.049 C+ 3921.640 Pr Praseodymium 2
-0.229 C+ 3926.580 Pr Praseodymium 2
-0.225 B 3950.550 Pr Praseodymium 2
-0.192 B 3965.380 Pr Praseodymium 2
-0.380 B+ 3965.930 Pr Praseodymium 2
-0.185 B 3967.690 Pr Praseodymium 2
-0.190 C+ 3972.280 Pr Praseodymium 2
-0.019 C+ 3972.280 Pr Praseodymium 2
-0.138 B+ 3973.260 Pr Praseodymium 2
-0.201 B 3990.810 Pr Praseodymium 2
-0.440 B 3995.920 Pr Praseodymium 2
-0.171 B 3998.170 Pr Praseodymium 2
-0.115 B 4001.300 Pr Praseodymium 2
-0.213 B+ 4005.830 Pr Praseodymium 2
-0.164 B+ 4016.520 Pr Praseodymium 2
-0.145 B 4032.890 Pr Praseodymium 2
-0.215 B+ 4034.970 Pr Praseodymium 2
-0.051 C+ 4035.470 Pr Praseodymium 2
-0.145 C+ 4040.480 Pr Praseodymium 2
-0.188 C+ 4045.950 Pr Praseodymium 2
-0.510 C+ 4056.030 Pr Praseodymium 2
-0.122 B 4059.950 Pr Praseodymium 2
-0.580 B+ 4063.960 Pr Praseodymium 2
-0.131 B 4082.130 Pr Praseodymium 2
-0.201 B 4097.980 Pr Praseodymium 2
-0.006 B 4099.560 Pr Praseodymium 2
-0.840 C+ 4101.880 Pr Praseodymium 2
-0.530 B 4119.620 Pr Praseodymium 2
-0.620 B+ 4142.390 Pr Praseodymium 2
-0.890 B+ 4144.280 Pr Praseodymium 2
-0.440 B+ 4165.330 Pr Praseodymium 2
-0.222 B 4173.000 Pr Praseodymium 2
-0.182 B+ 4173.430 Pr Praseodymium 2
-0.680 B 4180.570 Pr Praseodymium 2
-0.680 B 4190.660 Pr Praseodymium 2
-0.144 B 4192.780 Pr Praseodymium 2
-0.460 B 4207.910 Pr Praseodymium 2
-0.100 B 4209.510 Pr Praseodymium 2
-0.057 B+ 4213.050 Pr Praseodymium 2
-0.470 B+ 4224.120 Pr Praseodymium 2
-0.870 B+ 4226.540 Pr Praseodymium 2
-0.036 B+ 4237.340 Pr Praseodymium 2
-0.272 B 4242.200 Pr Praseodymium 2
-0.080 B 4244.700 Pr Praseodymium 2
-0.079 B 4248.830 Pr Praseodymium 2
-0.101 C+ 4255.600 Pr Praseodymium 2
-0.050 B 4264.980 Pr Praseodymium 2
-0.188 C+ 4273.470 Pr Praseodymium 2
-0.164 B+ 4283.620 Pr Praseodymium 2
-0.299 B 4306.970 Pr Praseodymium 2
-0.051 C+ 4324.770 Pr Praseodymium 2
-0.038 B+ 4330.630 Pr Praseodymium 2
-0.230 D+ 4335.190 Pr Praseodymium 2
-0.069 B 4339.920 Pr Praseodymium 2
-0.128 C+ 4348.710 Pr Praseodymium 2
-0.105 C+ 4361.020 Pr Praseodymium 2
-0.143 B+ 4369.560 Pr Praseodymium 2
-0.072 B 4404.840 Pr Praseodymium 2
-0.170 B 4407.070 Pr Praseodymium 2
-0.358 B+ 4410.060 Pr Praseodymium 2
-0.072 B+ 4415.010 Pr Praseodymium 2
-0.045 B 4422.460 Pr Praseodymium 2
-0.099 B+ 4430.370 Pr Praseodymium 2
-0.188 B 4430.490 Pr Praseodymium 2
-0.135 C+ 4451.080 Pr Praseodymium 2
-0.019 B 4455.610 Pr Praseodymium 2
-0.230 C+ 4469.910 Pr Praseodymium 2
-0.038 B 4478.520 Pr Praseodymium 2
-0.130 B 4497.720 Pr Praseodymium 2
-0.199 B 4511.410 Pr Praseodymium 2
-0.027 B+ 4518.850 Pr Praseodymium 2
-0.100 B 4535.420 Pr Praseodymium 2
-0.057 B+ 4537.190 Pr Praseodymium 2
-0.040 B 4630.040 Pr Praseodymium 2
-0.020 B 4647.350 Pr Praseodymium 2
-0.031 B+ 4665.960 Pr Praseodymium 2
-0.058 C+ 4735.4410 Pr Praseodymium 2
-0.021 B 4764.050 Pr Praseodymium 2
-0.016 D+ 4880.4840 Pr Praseodymium 2
-0.011 C 4887.4100 Pr Praseodymium 2
-0.043 C+ 4914.0010 Pr Praseodymium 2
-0.110 D+ 5035.810 Pr Praseodymium 2
-0.149 B 5111.800 Pr Praseodymium 2
-0.280 C+ 5112.180 Pr Praseodymium 2
-0.169 C+ 5130.950 Pr Praseodymium 2
-0.127 B 5136.570 Pr Praseodymium 2
-0.043 B 5163.180 Pr Praseodymium 2
-0.330 B 5175.340 Pr Praseodymium 2
-0.096 C+ 5196.560 Pr Praseodymium 2
-0.102 B 5196.760 Pr Praseodymium 2
-0.147 C+ 5208.000 Pr Praseodymium 2
-0.042 B 5209.350 Pr Praseodymium 2
-0.138 B 5220.500 Pr Praseodymium 2
-0.307 B 5221.560 Pr Praseodymium 2
-0.020 C 5253.2000 Pr Praseodymium 2
-0.209 B 5261.190 Pr Praseodymium 2
-0.056 B 5265.350 Pr Praseodymium 2
-0.093 C+ 5294.090 Pr Praseodymium 2
-0.065 B 5299.560 Pr Praseodymium 2
-0.157 B+ 5324.240 Pr Praseodymium 2
-0.039 B+ 5353.890 Pr Praseodymium 2
-0.025 B 5510.680 Pr Praseodymium 2
-0.035 B 5536.710 Pr Praseodymium 2
-0.045 C+ 5546.550 Pr Praseodymium 2
-0.011 C+ 5573.380 Pr Praseodymium 2
-0.003 D 5576.160 Pr Praseodymium 2
-0.034 D 5602.860 Pr Praseodymium 2
-0.019 C 5655.800 Pr Praseodymium 2
-0.007 D+ 5663.760 Pr Praseodymium 2
-0.008 D+ 5687.180 Pr Praseodymium 2
-0.003 C 5688.750 Pr Praseodymium 2
-0.067 C+ 5757.770 Pr Praseodymium 2
-0.015 C+ 5770.760 Pr Praseodymium 2
-0.019 C 5778.890 Pr Praseodymium 2
-0.031 C+ 5792.970 Pr Praseodymium 2
-0.023 D+ 5812.190 Pr Praseodymium 2
-0.015 D+ 5815.160 Pr Praseodymium 2
-0.046 C+ 5816.780 Pr Praseodymium 2
-0.016 B 5832.560 Pr Praseodymium 2
-0.064 C 5848.750 Pr Praseodymium 2
-0.031 B 5870.460 Pr Praseodymium 2
-0.006 D+ 5875.460 Pr Praseodymium 2
-0.074 C+ 5880.880 Pr Praseodymium 2
-0.029 C 5906.090 Pr Praseodymium 2
-0.080 C+ 5941.550 Pr Praseodymium 2
-0.150 C 5942.370 Pr Praseodymium 2
-0.035 C 5952.920 Pr Praseodymium 2
-0.002 D+ 5952.920 Pr Praseodymium 2
-0.034 C+ 5969.470 Pr Praseodymium 2
-0.069 C+ 6027.390 Pr Praseodymium 2
-0.028 C+ 6044.540 Pr Praseodymium 2
-0.024 C 6051.720 Pr Praseodymium 2
-0.017 D+ 6068.950 Pr Praseodymium 2
-0.016 D+ 6087.840 Pr Praseodymium 2
-0.060 C+ 6089.210 Pr Praseodymium 2
-0.016 C+ 6092.070 Pr Praseodymium 2
-0.011 C+ 6108.410 Pr Praseodymium 2
-0.011 C 6143.210 Pr Praseodymium 2
-0.042 C 6149.940 Pr Praseodymium 2
-0.006 D+ 6159.520 Pr Praseodymium 2
-0.008 C+ 6160.800 Pr Praseodymium 2
-0.102 C 6162.890 Pr Praseodymium 2
-0.026 C+ 6184.050 Pr Praseodymium 2
-0.019 C+ 6199.160 Pr Praseodymium 2
-0.028 D+ 6202.530 Pr Praseodymium 2
-0.023 C+ 6246.080 Pr Praseodymium 2
-0.014 C+ 6256.830 Pr Praseodymium 2
-0.012 B 6264.280 Pr Praseodymium 2
-0.016 D+ 6266.270 Pr Praseodymium 2
-0.033 D 6280.420 Pr Praseodymium 2
-0.011 D+ 6304.090 Pr Praseodymium 2
-0.014 C+ 6306.970 Pr Praseodymium 2
-0.087 C+ 6348.860 Pr Praseodymium 2
-0.010 D+ 6399.730 Pr Praseodymium 2
-0.040 C 6433.620 Pr Praseodymium 2
-0.009 D+ 6500.740 Pr Praseodymium 2
-0.014 E 6520.590 Pr Praseodymium 2
-0.014 C+ 6620.170 Pr Praseodymium 2
-0.087 C+ 6675.250 Pr Praseodymium 2
-0.050 C+ 6675.620 Pr Praseodymium 2
-0.006 C+ 6815.920 Pr Praseodymium 2
-0.004 D+ 6848.480 Pr Praseodymium 2
-0.026 C+ 7023.450 Pr Praseodymium 2
-0.007 C+ 7046.390 Pr Praseodymium 2
-0.021 C 7229.690 Pr Praseodymium 2
-0.020 C+ 7453.790 Pr Praseodymium 2
-0.005 E 7647.760 Pr Praseodymium 2
-0.006 C+ 7707.100 Pr Praseodymium 2
-0.003 E 8183.590 Pr Praseodymium 2
+0.061 C+ 3793.590 PrII Praseodymium
+0.116 C+ 3852.640 PrII Praseodymium
+0.093 C+ 3890.440 PrII Praseodymium
+0.049 C+ 3921.640 PrII Praseodymium
+0.229 C+ 3926.580 PrII Praseodymium
+0.225 B 3950.550 PrII Praseodymium
+0.192 B 3965.380 PrII Praseodymium
+0.380 B+ 3965.930 PrII Praseodymium
+0.185 B 3967.690 PrII Praseodymium
+0.190 C+ 3972.280 PrII Praseodymium
+0.019 C+ 3972.280 PrII Praseodymium
+0.138 B+ 3973.260 PrII Praseodymium
+0.201 B 3990.810 PrII Praseodymium
+0.440 B 3995.920 PrII Praseodymium
+0.171 B 3998.170 PrII Praseodymium
+0.115 B 4001.300 PrII Praseodymium
+0.213 B+ 4005.830 PrII Praseodymium
+0.164 B+ 4016.520 PrII Praseodymium
+0.145 B 4032.890 PrII Praseodymium
+0.215 B+ 4034.970 PrII Praseodymium
+0.051 C+ 4035.470 PrII Praseodymium
+0.145 C+ 4040.480 PrII Praseodymium
+0.188 C+ 4045.950 PrII Praseodymium
+0.510 C+ 4056.030 PrII Praseodymium
+0.122 B 4059.950 PrII Praseodymium
+0.580 B+ 4063.960 PrII Praseodymium
+0.131 B 4082.130 PrII Praseodymium
+0.201 B 4097.980 PrII Praseodymium
+0.006 B 4099.560 PrII Praseodymium
+0.840 C+ 4101.880 PrII Praseodymium
+0.530 B 4119.620 PrII Praseodymium
+0.620 B+ 4142.390 PrII Praseodymium
+0.890 B+ 4144.280 PrII Praseodymium
+0.440 B+ 4165.330 PrII Praseodymium
+0.222 B 4173.000 PrII Praseodymium
+0.182 B+ 4173.430 PrII Praseodymium
+0.680 B 4180.570 PrII Praseodymium
+0.680 B 4190.660 PrII Praseodymium
+0.144 B 4192.780 PrII Praseodymium
+0.460 B 4207.910 PrII Praseodymium
+0.100 B 4209.510 PrII Praseodymium
+0.057 B+ 4213.050 PrII Praseodymium
+0.470 B+ 4224.120 PrII Praseodymium
+0.870 B+ 4226.540 PrII Praseodymium
+0.036 B+ 4237.340 PrII Praseodymium
+0.272 B 4242.200 PrII Praseodymium
+0.080 B 4244.700 PrII Praseodymium
+0.079 B 4248.830 PrII Praseodymium
+0.101 C+ 4255.600 PrII Praseodymium
+0.050 B 4264.980 PrII Praseodymium
+0.188 C+ 4273.470 PrII Praseodymium
+0.164 B+ 4283.620 PrII Praseodymium
+0.299 B 4306.970 PrII Praseodymium
+0.051 C+ 4324.770 PrII Praseodymium
+0.038 B+ 4330.630 PrII Praseodymium
+0.230 D+ 4335.190 PrII Praseodymium
+0.069 B 4339.920 PrII Praseodymium
+0.128 C+ 4348.710 PrII Praseodymium
+0.105 C+ 4361.020 PrII Praseodymium
+0.143 B+ 4369.560 PrII Praseodymium
+0.072 B 4404.840 PrII Praseodymium
+0.170 B 4407.070 PrII Praseodymium
+0.358 B+ 4410.060 PrII Praseodymium
+0.072 B+ 4415.010 PrII Praseodymium
+0.045 B 4422.460 PrII Praseodymium
+0.099 B+ 4430.370 PrII Praseodymium
+0.188 B 4430.490 PrII Praseodymium
+0.135 C+ 4451.080 PrII Praseodymium
+0.019 B 4455.610 PrII Praseodymium
+0.230 C+ 4469.910 PrII Praseodymium
+0.038 B 4478.520 PrII Praseodymium
+0.130 B 4497.720 PrII Praseodymium
+0.199 B 4511.410 PrII Praseodymium
+0.027 B+ 4518.850 PrII Praseodymium
+0.100 B 4535.420 PrII Praseodymium
+0.057 B+ 4537.190 PrII Praseodymium
+0.040 B 4630.040 PrII Praseodymium
+0.020 B 4647.350 PrII Praseodymium
+0.031 B+ 4665.960 PrII Praseodymium
+0.058 C+ 4735.4410 PrII Praseodymium
+0.021 B 4764.050 PrII Praseodymium
+0.016 D+ 4880.4840 PrII Praseodymium
+0.011 C 4887.4100 PrII Praseodymium
+0.043 C+ 4914.0010 PrII Praseodymium
+0.110 D+ 5035.810 PrII Praseodymium
+0.149 B 5111.800 PrII Praseodymium
+0.280 C+ 5112.180 PrII Praseodymium
+0.169 C+ 5130.950 PrII Praseodymium
+0.127 B 5136.570 PrII Praseodymium
+0.043 B 5163.180 PrII Praseodymium
+0.330 B 5175.340 PrII Praseodymium
+0.096 C+ 5196.560 PrII Praseodymium
+0.102 B 5196.760 PrII Praseodymium
+0.147 C+ 5208.000 PrII Praseodymium
+0.042 B 5209.350 PrII Praseodymium
+0.138 B 5220.500 PrII Praseodymium
+0.307 B 5221.560 PrII Praseodymium
+0.020 C 5253.2000 PrII Praseodymium
+0.209 B 5261.190 PrII Praseodymium
+0.056 B 5265.350 PrII Praseodymium
+0.093 C+ 5294.090 PrII Praseodymium
+0.065 B 5299.560 PrII Praseodymium
+0.157 B+ 5324.240 PrII Praseodymium
+0.039 B+ 5353.890 PrII Praseodymium
+0.025 B 5510.680 PrII Praseodymium
+0.035 B 5536.710 PrII Praseodymium
+0.045 C+ 5546.550 PrII Praseodymium
+0.011 C+ 5573.380 PrII Praseodymium
+0.003 D 5576.160 PrII Praseodymium
+0.034 D 5602.860 PrII Praseodymium
+0.019 C 5655.800 PrII Praseodymium
+0.007 D+ 5663.760 PrII Praseodymium
+0.008 D+ 5687.180 PrII Praseodymium
+0.003 C 5688.750 PrII Praseodymium
+0.067 C+ 5757.770 PrII Praseodymium
+0.015 C+ 5770.760 PrII Praseodymium
+0.019 C 5778.890 PrII Praseodymium
+0.031 C+ 5792.970 PrII Praseodymium
+0.023 D+ 5812.190 PrII Praseodymium
+0.015 D+ 5815.160 PrII Praseodymium
+0.046 C+ 5816.780 PrII Praseodymium
+0.016 B 5832.560 PrII Praseodymium
+0.064 C 5848.750 PrII Praseodymium
+0.031 B 5870.460 PrII Praseodymium
+0.006 D+ 5875.460 PrII Praseodymium
+0.074 C+ 5880.880 PrII Praseodymium
+0.029 C 5906.090 PrII Praseodymium
+0.080 C+ 5941.550 PrII Praseodymium
+0.150 C 5942.370 PrII Praseodymium
+0.002 D+ 5952.920 PrII Praseodymium
+0.035 C 5952.920 PrII Praseodymium
+0.034 C+ 5969.470 PrII Praseodymium
+0.069 C+ 6027.390 PrII Praseodymium
+0.028 C+ 6044.540 PrII Praseodymium
+0.024 C 6051.720 PrII Praseodymium
+0.017 D+ 6068.950 PrII Praseodymium
+0.016 D+ 6087.840 PrII Praseodymium
+0.060 C+ 6089.210 PrII Praseodymium
+0.016 C+ 6092.070 PrII Praseodymium
+0.011 C+ 6108.410 PrII Praseodymium
+0.011 C 6143.210 PrII Praseodymium
+0.042 C 6149.940 PrII Praseodymium
+0.006 D+ 6159.520 PrII Praseodymium
+0.008 C+ 6160.800 PrII Praseodymium
+0.102 C 6162.890 PrII Praseodymium
+0.026 C+ 6184.050 PrII Praseodymium
+0.019 C+ 6199.160 PrII Praseodymium
+0.028 D+ 6202.530 PrII Praseodymium
+0.023 C+ 6246.080 PrII Praseodymium
+0.014 C+ 6256.830 PrII Praseodymium
+0.012 B 6264.280 PrII Praseodymium
+0.016 D+ 6266.270 PrII Praseodymium
+0.033 D 6280.420 PrII Praseodymium
+0.011 D+ 6304.090 PrII Praseodymium
+0.014 C+ 6306.970 PrII Praseodymium
+0.087 C+ 6348.860 PrII Praseodymium
+0.010 D+ 6399.730 PrII Praseodymium
+0.040 C 6433.620 PrII Praseodymium
+0.009 D+ 6500.740 PrII Praseodymium
+0.014 E 6520.590 PrII Praseodymium
+0.014 C+ 6620.170 PrII Praseodymium
+0.087 C+ 6675.250 PrII Praseodymium
+0.050 C+ 6675.620 PrII Praseodymium
+0.006 C+ 6815.920 PrII Praseodymium
+0.004 D+ 6848.480 PrII Praseodymium
+0.026 C+ 7023.450 PrII Praseodymium
+0.007 C+ 7046.390 PrII Praseodymium
+0.021 C 7229.690 PrII Praseodymium
+0.020 C+ 7453.790 PrII Praseodymium
+0.005 E 7647.760 PrII Praseodymium
+0.006 C+ 7707.100 PrII Praseodymium
+0.003 E 8183.590 PrII Praseodymium

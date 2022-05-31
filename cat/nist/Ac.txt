@@ -1,189 +1,189 @@
-3.970 B+ 2627.2230 Ac Actinium 3
-0.680 D+ 2630.9760 Ac Actinium 2
-0.800 D+ 2658.6000 Ac Actinium 2
-0.289 B+ 2683.6970 Ac Actinium 3
-0.250 E 2713.3060 Ac Actinium 2
-0.340 E 2714.5220 Ac Actinium 2
-0.280 D+ 2727.0390 Ac Actinium 2
-3.100 D+ 2760.9960 Ac Actinium 2
-1.600 E 2807.5860 Ac Actinium 2
-0.900 E 2834.3050 Ac Actinium 2
-6.000 E 2847.9970 Ac Actinium 2
-1.900 D+ 2857.5690 Ac Actinium 2
-0.450 D+ 2897.6690 Ac Actinium 2
-0.280 D+ 2923.8750 Ac Actinium 2
-0.510 D+ 2945.2820 Ac Actinium 2
-2.300 B+ 2953.4130 Ac Actinium 3
-0.220 E 2967.3150 Ac Actinium 2
-1.600 E 2995.0430 Ac Actinium 2
-0.860 D+ 3020.7480 Ac Actinium 2
-0.290 D+ 3037.8140 Ac Actinium 1
-3.600 D+ 3044.1860 Ac Actinium 2
-3.500 D+ 3070.2530 Ac Actinium 2
-0.700 D+ 3077.3340 Ac Actinium 1
-3.700 D+ 3078.9620 Ac Actinium 2
-0.350 E 3083.8520 Ac Actinium 1
-0.300 E 3085.7450 Ac Actinium 2
-4.100 D 3086.9350 Ac Actinium 2
-0.590 D+ 3088.2670 Ac Actinium 2
-1.100 D+ 3112.4730 Ac Actinium 1
-2.400 D+ 3113.7330 Ac Actinium 2
-4.000 E 3121.0620 Ac Actinium 2
-0.630 D+ 3144.6210 Ac Actinium 1
-1.900 E 3154.0050 Ac Actinium 2
-0.420 D+ 3155.0620 Ac Actinium 2
-1.200 E 3155.3230 Ac Actinium 2
-0.400 E 3163.9260 Ac Actinium 2
-1.700 D+ 3165.7260 Ac Actinium 2
-0.490 D+ 3172.0880 Ac Actinium 1
-0.280 E 3175.1420 Ac Actinium 1
-0.150 D+ 3180.4400 Ac Actinium 1
-0.800 D+ 3203.0450 Ac Actinium 2
-3.000 E 3205.7960 Ac Actinium 2
-2.000 D+ 3220.0100 Ac Actinium 2
-0.600 D 3222.4210 Ac Actinium 2
-1.600 D+ 3231.5240 Ac Actinium 2
-0.250 E 3238.6340 Ac Actinium 2
-0.560 D+ 3254.7780 Ac Actinium 2
-1.700 E 3261.8500 Ac Actinium 2
-0.520 D+ 3289.8470 Ac Actinium 1
-0.320 D+ 3318.9650 Ac Actinium 2
-0.150 D+ 3323.2460 Ac Actinium 2
-0.140 E 3328.9670 Ac Actinium 2
-1.000 D+ 3344.0020 Ac Actinium 2
-0.360 D+ 3384.5020 Ac Actinium 2
-0.350 D+ 3389.4840 Ac Actinium 2
-1.900 B+ 3393.7540 Ac Actinium 3
-0.800 E 3403.0860 Ac Actinium 2
-1.500 D+ 3414.8190 Ac Actinium 2
-0.660 D+ 3417.2510 Ac Actinium 1
-1.200 E 3418.7510 Ac Actinium 2
-0.600 E 3441.3860 Ac Actinium 2
-1.700 D+ 3482.1580 Ac Actinium 2
-0.430 D+ 3482.5570 Ac Actinium 2
-1.580 B+ 3488.5880 Ac Actinium 3
-1.000 D+ 3490.5300 Ac Actinium 2
-0.180 E 3492.4690 Ac Actinium 2
-0.690 D+ 3528.3180 Ac Actinium 2
-0.700 D+ 3530.2480 Ac Actinium 2
-0.040 E 3533.1500 Ac Actinium 2
-0.640 D+ 3535.6400 Ac Actinium 2
-0.070 E 3546.4540 Ac Actinium 2
-0.690 D+ 3547.8430 Ac Actinium 2
-0.440 D+ 3548.0830 Ac Actinium 2
-0.130 E 3550.4840 Ac Actinium 1
-0.580 D+ 3556.0050 Ac Actinium 2
-0.650 D+ 3563.3470 Ac Actinium 2
-1.100 D+ 3566.6080 Ac Actinium 2
-1.000 D+ 3584.5730 Ac Actinium 2
-0.050 E 3586.1130 Ac Actinium 2
-0.060 E 3665.7340 Ac Actinium 2
-0.100 E 3684.7090 Ac Actinium 2
-0.300 D+ 3695.9320 Ac Actinium 2
-0.070 E 3702.3530 Ac Actinium 1
-0.370 D+ 3714.2260 Ac Actinium 2
-0.180 D+ 3735.5320 Ac Actinium 2
-0.200 D+ 3741.7330 Ac Actinium 2
-0.060 E 3755.2470 Ac Actinium 2
-0.380 D+ 3757.7380 Ac Actinium 2
-0.670 D+ 3768.8710 Ac Actinium 1
-0.080 E 3770.8910 Ac Actinium 2
-0.620 D+ 3773.2160 Ac Actinium 2
-0.080 D+ 3796.9380 Ac Actinium 1
-0.320 D+ 3800.8980 Ac Actinium 2
-1.100 D+ 3815.8640 Ac Actinium 2
-0.610 D+ 3836.4080 Ac Actinium 1
-2.200 D+ 3844.1300 Ac Actinium 1
-0.700 E 3864.2140 Ac Actinium 2
-1.100 D+ 3886.6600 Ac Actinium 1
-0.360 D 3921.2100 Ac Actinium 2
-0.440 D+ 3939.6940 Ac Actinium 2
-0.700 E 3953.0980 Ac Actinium 2
-0.400 E 4003.3620 Ac Actinium 2
-0.042 E 4006.6020 Ac Actinium 2
-0.140 D+ 4020.7760 Ac Actinium 2
-0.370 D+ 4035.7700 Ac Actinium 1
-0.360 D+ 4040.0710 Ac Actinium 2
-0.860 D+ 4045.5930 Ac Actinium 2
-0.170 D+ 4058.5060 Ac Actinium 2
-0.130 E 4062.7470 Ac Actinium 2
-0.900 E 4089.5950 Ac Actinium 2
-0.094 D+ 4133.5860 Ac Actinium 2
-0.350 D+ 4170.2950 Ac Actinium 2
-1.600 D+ 4181.1580 Ac Actinium 1
-1.300 E 4189.2600 Ac Actinium 2
-1.000 D+ 4195.5810 Ac Actinium 1
-0.320 E 4203.9740 Ac Actinium 2
-0.200 D+ 4210.8760 Ac Actinium 2
-1.100 E 4259.0190 Ac Actinium 2
-0.650 D+ 4260.8490 Ac Actinium 2
-0.360 D+ 4262.8690 Ac Actinium 2
-0.150 E 4269.4170 Ac Actinium 2
-0.040 E 4338.3490 Ac Actinium 2
-0.270 E 4360.3550 Ac Actinium 2
-0.050 E 4385.7610 Ac Actinium 1
-0.740 D+ 4387.6430 Ac Actinium 2
-0.230 E 4392.6640 Ac Actinium 2
-0.720 D+ 4397.9450 Ac Actinium 1
-0.185 B+ 4414.3290 Ac Actinium 3
-0.410 D+ 4463.9820 Ac Actinium 1
-0.055 D+ 4471.8440 Ac Actinium 2
-0.213 B 4508.4640 Ac Actinium 2
-0.500 E 4545.3640 Ac Actinium 2
-0.211 B+ 4571.1510 Ac Actinium 3
-0.260 E 4587.1160 Ac Actinium 2
-0.260 D+ 4606.7410 Ac Actinium 2
-0.140 D+ 4612.8820 Ac Actinium 1
-0.110 E 4615.2220 Ac Actinium 1
-0.350 D+ 4686.2220 Ac Actinium 2
-0.410 D+ 4691.8340 Ac Actinium 1
-0.050 E 4707.0990 Ac Actinium 1
-0.280 D+ 4717.9010 Ac Actinium 1
-0.240 D+ 4721.4800 Ac Actinium 2
-0.640 D+ 4741.8360 Ac Actinium 2
-0.060 E 4809.1750 Ac Actinium 2
-0.310 D+ 4810.1550 Ac Actinium 1
-0.330 D+ 4813.5660 Ac Actinium 2
-1.000 D+ 4870.2300 Ac Actinium 1
-0.500 E 4946.5600 Ac Actinium 2
-0.480 D+ 4962.2540 Ac Actinium 2
-0.009 B+ 5194.6570 Ac Actinium 3
-0.120 E 5216.8510 Ac Actinium 2
-0.037 E 5231.8850 Ac Actinium 2
-0.100 E 5259.7040 Ac Actinium 1
-0.160 D+ 5273.0270 Ac Actinium 1
-0.330 D+ 5346.2270 Ac Actinium 1
-0.600 E 5447.8930 Ac Actinium 2
-0.016 E 5473.2290 Ac Actinium 2
-0.031 C+ 5570.8080 Ac Actinium 1
-0.120 D+ 5605.3250 Ac Actinium 2
-0.160 D+ 5620.3300 Ac Actinium 1
-0.400 D+ 5629.1310 Ac Actinium 2
-0.016 C 5638.1650 Ac Actinium 1
-0.410 D+ 5661.7610 Ac Actinium 1
-0.040 D+ 5662.5010 Ac Actinium 2
-0.160 E 5664.9110 Ac Actinium 2
-0.104 B 5733.6390 Ac Actinium 2
-0.020 C 5814.0520 Ac Actinium 1
-0.025 E 5906.7750 Ac Actinium 2
-0.158 B 5912.4890 Ac Actinium 2
-0.280 B 6166.4560 Ac Actinium 2
-0.081 D+ 6169.5380 Ac Actinium 2
-0.130 D+ 6183.4510 Ac Actinium 2
-0.047 D+ 6277.4050 Ac Actinium 1
-0.076 B 6361.6180 Ac Actinium 1
-0.008 C 6449.6030 Ac Actinium 1
-0.012 C+ 6471.4700 Ac Actinium 1
-0.019 E 6537.6150 Ac Actinium 2
-0.024 E 6620.0180 Ac Actinium 1
-0.030 C+ 6693.1170 Ac Actinium 1
-0.100 D+ 6697.0800 Ac Actinium 2
-0.031 D+ 6998.0180 Ac Actinium 2
-0.024 B+ 7292.4050 Ac Actinium 1
-0.083 D+ 7569.7360 Ac Actinium 2
-0.016 C+ 7868.2660 Ac Actinium 1
-0.040 E 7888.9920 Ac Actinium 2
-0.003 C 8145.480 Ac Actinium 1
-0.002 C 8709.810 Ac Actinium 1
-0.036 B+ 9954.890 Ac Actinium 1
-0.015 A+ 13373.420 Ac Actinium 1
+3.970 B+ 2627.2230 AcIII Actinium
+0.680 D+ 2630.9760 AcII Actinium
+0.800 D+ 2658.6000 AcII Actinium
+0.289 B+ 2683.6970 AcIII Actinium
+0.250 E 2713.3060 AcII Actinium
+0.340 E 2714.5220 AcII Actinium
+0.280 D+ 2727.0390 AcII Actinium
+3.100 D+ 2760.9960 AcII Actinium
+1.600 E 2807.5860 AcII Actinium
+0.900 E 2834.3050 AcII Actinium
+6.000 E 2847.9970 AcII Actinium
+1.900 D+ 2857.5690 AcII Actinium
+0.450 D+ 2897.6690 AcII Actinium
+0.280 D+ 2923.8750 AcII Actinium
+0.510 D+ 2945.2820 AcII Actinium
+2.300 B+ 2953.4130 AcIII Actinium
+0.220 E 2967.3150 AcII Actinium
+1.600 E 2995.0430 AcII Actinium
+0.860 D+ 3020.7480 AcII Actinium
+0.290 D+ 3037.8140 Ac Actinium
+3.600 D+ 3044.1860 AcII Actinium
+3.500 D+ 3070.2530 AcII Actinium
+0.700 D+ 3077.3340 Ac Actinium
+3.700 D+ 3078.9620 AcII Actinium
+0.350 E 3083.8520 Ac Actinium
+0.300 E 3085.7450 AcII Actinium
+4.100 D 3086.9350 AcII Actinium
+0.590 D+ 3088.2670 AcII Actinium
+1.100 D+ 3112.4730 Ac Actinium
+2.400 D+ 3113.7330 AcII Actinium
+4.000 E 3121.0620 AcII Actinium
+0.630 D+ 3144.6210 Ac Actinium
+1.900 E 3154.0050 AcII Actinium
+0.420 D+ 3155.0620 AcII Actinium
+1.200 E 3155.3230 AcII Actinium
+0.400 E 3163.9260 AcII Actinium
+1.700 D+ 3165.7260 AcII Actinium
+0.490 D+ 3172.0880 Ac Actinium
+0.280 E 3175.1420 Ac Actinium
+0.150 D+ 3180.4400 Ac Actinium
+0.800 D+ 3203.0450 AcII Actinium
+3.000 E 3205.7960 AcII Actinium
+2.000 D+ 3220.0100 AcII Actinium
+0.600 D 3222.4210 AcII Actinium
+1.600 D+ 3231.5240 AcII Actinium
+0.250 E 3238.6340 AcII Actinium
+0.560 D+ 3254.7780 AcII Actinium
+1.700 E 3261.8500 AcII Actinium
+0.520 D+ 3289.8470 Ac Actinium
+0.320 D+ 3318.9650 AcII Actinium
+0.150 D+ 3323.2460 AcII Actinium
+0.140 E 3328.9670 AcII Actinium
+1.000 D+ 3344.0020 AcII Actinium
+0.360 D+ 3384.5020 AcII Actinium
+0.350 D+ 3389.4840 AcII Actinium
+1.900 B+ 3393.7540 AcIII Actinium
+0.800 E 3403.0860 AcII Actinium
+1.500 D+ 3414.8190 AcII Actinium
+0.660 D+ 3417.2510 Ac Actinium
+1.200 E 3418.7510 AcII Actinium
+0.600 E 3441.3860 AcII Actinium
+1.700 D+ 3482.1580 AcII Actinium
+0.430 D+ 3482.5570 AcII Actinium
+1.580 B+ 3488.5880 AcIII Actinium
+1.000 D+ 3490.5300 AcII Actinium
+0.180 E 3492.4690 AcII Actinium
+0.690 D+ 3528.3180 AcII Actinium
+0.700 D+ 3530.2480 AcII Actinium
+0.040 E 3533.1500 AcII Actinium
+0.640 D+ 3535.6400 AcII Actinium
+0.070 E 3546.4540 AcII Actinium
+0.690 D+ 3547.8430 AcII Actinium
+0.440 D+ 3548.0830 AcII Actinium
+0.130 E 3550.4840 Ac Actinium
+0.580 D+ 3556.0050 AcII Actinium
+0.650 D+ 3563.3470 AcII Actinium
+1.100 D+ 3566.6080 AcII Actinium
+1.000 D+ 3584.5730 AcII Actinium
+0.050 E 3586.1130 AcII Actinium
+0.060 E 3665.7340 AcII Actinium
+0.100 E 3684.7090 AcII Actinium
+0.300 D+ 3695.9320 AcII Actinium
+0.070 E 3702.3530 Ac Actinium
+0.370 D+ 3714.2260 AcII Actinium
+0.180 D+ 3735.5320 AcII Actinium
+0.200 D+ 3741.7330 AcII Actinium
+0.060 E 3755.2470 AcII Actinium
+0.380 D+ 3757.7380 AcII Actinium
+0.670 D+ 3768.8710 Ac Actinium
+0.080 E 3770.8910 AcII Actinium
+0.620 D+ 3773.2160 AcII Actinium
+0.080 D+ 3796.9380 Ac Actinium
+0.320 D+ 3800.8980 AcII Actinium
+1.100 D+ 3815.8640 AcII Actinium
+0.610 D+ 3836.4080 Ac Actinium
+2.200 D+ 3844.1300 Ac Actinium
+0.700 E 3864.2140 AcII Actinium
+1.100 D+ 3886.6600 Ac Actinium
+0.360 D 3921.2100 AcII Actinium
+0.440 D+ 3939.6940 AcII Actinium
+0.700 E 3953.0980 AcII Actinium
+0.400 E 4003.3620 AcII Actinium
+0.042 E 4006.6020 AcII Actinium
+0.140 D+ 4020.7760 AcII Actinium
+0.370 D+ 4035.7700 Ac Actinium
+0.360 D+ 4040.0710 AcII Actinium
+0.860 D+ 4045.5930 AcII Actinium
+0.170 D+ 4058.5060 AcII Actinium
+0.130 E 4062.7470 AcII Actinium
+0.900 E 4089.5950 AcII Actinium
+0.094 D+ 4133.5860 AcII Actinium
+0.350 D+ 4170.2950 AcII Actinium
+1.600 D+ 4181.1580 Ac Actinium
+1.300 E 4189.2600 AcII Actinium
+1.000 D+ 4195.5810 Ac Actinium
+0.320 E 4203.9740 AcII Actinium
+0.200 D+ 4210.8760 AcII Actinium
+1.100 E 4259.0190 AcII Actinium
+0.650 D+ 4260.8490 AcII Actinium
+0.360 D+ 4262.8690 AcII Actinium
+0.150 E 4269.4170 AcII Actinium
+0.040 E 4338.3490 AcII Actinium
+0.270 E 4360.3550 AcII Actinium
+0.050 E 4385.7610 Ac Actinium
+0.740 D+ 4387.6430 AcII Actinium
+0.230 E 4392.6640 AcII Actinium
+0.720 D+ 4397.9450 Ac Actinium
+0.185 B+ 4414.3290 AcIII Actinium
+0.410 D+ 4463.9820 Ac Actinium
+0.055 D+ 4471.8440 AcII Actinium
+0.213 B 4508.4640 AcII Actinium
+0.500 E 4545.3640 AcII Actinium
+0.211 B+ 4571.1510 AcIII Actinium
+0.260 E 4587.1160 AcII Actinium
+0.260 D+ 4606.7410 AcII Actinium
+0.140 D+ 4612.8820 Ac Actinium
+0.110 E 4615.2220 Ac Actinium
+0.350 D+ 4686.2220 AcII Actinium
+0.410 D+ 4691.8340 Ac Actinium
+0.050 E 4707.0990 Ac Actinium
+0.280 D+ 4717.9010 Ac Actinium
+0.240 D+ 4721.4800 AcII Actinium
+0.640 D+ 4741.8360 AcII Actinium
+0.060 E 4809.1750 AcII Actinium
+0.310 D+ 4810.1550 Ac Actinium
+0.330 D+ 4813.5660 AcII Actinium
+1.000 D+ 4870.2300 Ac Actinium
+0.500 E 4946.5600 AcII Actinium
+0.480 D+ 4962.2540 AcII Actinium
+0.009 B+ 5194.6570 AcIII Actinium
+0.120 E 5216.8510 AcII Actinium
+0.037 E 5231.8850 AcII Actinium
+0.100 E 5259.7040 Ac Actinium
+0.160 D+ 5273.0270 Ac Actinium
+0.330 D+ 5346.2270 Ac Actinium
+0.600 E 5447.8930 AcII Actinium
+0.016 E 5473.2290 AcII Actinium
+0.031 C+ 5570.8080 Ac Actinium
+0.120 D+ 5605.3250 AcII Actinium
+0.160 D+ 5620.3300 Ac Actinium
+0.400 D+ 5629.1310 AcII Actinium
+0.016 C 5638.1650 Ac Actinium
+0.410 D+ 5661.7610 Ac Actinium
+0.040 D+ 5662.5010 AcII Actinium
+0.160 E 5664.9110 AcII Actinium
+0.104 B 5733.6390 AcII Actinium
+0.020 C 5814.0520 Ac Actinium
+0.025 E 5906.7750 AcII Actinium
+0.158 B 5912.4890 AcII Actinium
+0.280 B 6166.4560 AcII Actinium
+0.081 D+ 6169.5380 AcII Actinium
+0.130 D+ 6183.4510 AcII Actinium
+0.047 D+ 6277.4050 Ac Actinium
+0.076 B 6361.6180 Ac Actinium
+0.008 C 6449.6030 Ac Actinium
+0.012 C+ 6471.4700 Ac Actinium
+0.019 E 6537.6150 AcII Actinium
+0.024 E 6620.0180 Ac Actinium
+0.030 C+ 6693.1170 Ac Actinium
+0.100 D+ 6697.0800 AcII Actinium
+0.031 D+ 6998.0180 AcII Actinium
+0.024 B+ 7292.4050 Ac Actinium
+0.083 D+ 7569.7360 AcII Actinium
+0.016 C+ 7868.2660 Ac Actinium
+0.040 E 7888.9920 AcII Actinium
+0.003 C 8145.480 Ac Actinium
+0.002 C 8709.810 Ac Actinium
+0.036 B+ 9954.890 Ac Actinium
+0.015 A+ 13373.420 Ac Actinium

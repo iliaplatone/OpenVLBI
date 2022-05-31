@@ -1,19 +1,19 @@
-0.548  1888.04280 Ru Ruthenium 2
-1.000  1903.22080 Ru Ruthenium 2
-1.140  1916.81520 Ru Ruthenium 2
-0.497  1939.04280 Ru Ruthenium 2
-0.665  1939.50490 Ru Ruthenium 2
-0.840  2358.63730 Ru Ruthenium 2
-1.590  2457.18210 Ru Ruthenium 2
-1.080  2977.45280 Ru Ruthenium 2
-0.728  3437.730 Ru Ruthenium 1
-0.861  3499.940 Ru Ruthenium 1
-0.911  3590.240 Ru Ruthenium 1
-0.817  3594.050 Ru Ruthenium 1
-0.420  3597.210 Ru Ruthenium 1
-0.753  3727.990 Ru Ruthenium 1
-0.820  3729.090 Ru Ruthenium 1
-0.706  3731.490 Ru Ruthenium 1
-0.598  3799.980 Ru Ruthenium 1
-0.533  3800.430 Ru Ruthenium 1
-0.399  4201.080 Ru Ruthenium 1
+0.548  1888.04280 RuII Ruthenium
+1.000  1903.22080 RuII Ruthenium
+1.140  1916.81520 RuII Ruthenium
+0.497  1939.04280 RuII Ruthenium
+0.665  1939.50490 RuII Ruthenium
+0.840  2358.63730 RuII Ruthenium
+1.590  2457.18210 RuII Ruthenium
+1.080  2977.45280 RuII Ruthenium
+0.728  3437.730 Ru Ruthenium
+0.861  3499.940 Ru Ruthenium
+0.911  3590.240 Ru Ruthenium
+0.817  3594.050 Ru Ruthenium
+0.420  3597.210 Ru Ruthenium
+0.753  3727.990 Ru Ruthenium
+0.820  3729.090 Ru Ruthenium
+0.706  3731.490 Ru Ruthenium
+0.598  3799.980 Ru Ruthenium
+0.533  3800.430 Ru Ruthenium
+0.399  4201.080 Ru Ruthenium

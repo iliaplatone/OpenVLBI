@@ -1,197 +1,197 @@
-40.000 C 390.150 Cl Chlorine 5
-79.000 C 392.430 Cl Chlorine 5
-23.000 E 883.130 Cl Chlorine 5
-26.000 E 894.340 Cl Chlorine 5
-4.300 E 894.910 Cl Chlorine 5
-13.000 E 973.210 Cl Chlorine 4
-17.000 E 977.560 Cl Chlorine 4
-9.400 E 977.900 Cl Chlorine 4
-23.000 E 984.950 Cl Chlorine 4
-5.500 E 985.750 Cl Chlorine 4
-26.000 E 1005.280 Cl Chlorine 3
-26.000 E 1008.780 Cl Chlorine 3
-25.000 E 1015.020 Cl Chlorine 3
-0.477 C 1063.8310 Cl Chlorine 2
-1.130 C 1067.9450 Cl Chlorine 2
-0.840 C 1071.0360 Cl Chlorine 2
-0.280 C 1071.7670 Cl Chlorine 2
-0.369 C 1075.2300 Cl Chlorine 2
-0.274 C 1079.0800 Cl Chlorine 2
-2.330 C 1188.7740 Cl Chlorine 1
-2.390 C 1201.3530 Cl Chlorine 1
-1.740 C 1335.7260 Cl Chlorine 1
-4.190 C+ 1347.2400 Cl Chlorine 1
-3.230 C+ 1351.6570 Cl Chlorine 1
-0.750 C+ 1363.4470 Cl Chlorine 1
-0.003 D 1373.1160 Cl Chlorine 1
-0.110 D 1379.5280 Cl Chlorine 1
-0.002 D 1389.6930 Cl Chlorine 1
-0.017 D 1389.9570 Cl Chlorine 1
-0.015 D 1396.5270 Cl Chlorine 1
-5.600 D 1539.300 Cl Chlorine 4
-1.700 E 1822.500 Cl Chlorine 3
-1.500 E 1828.400 Cl Chlorine 3
-1.300 E 1901.610 Cl Chlorine 3
-0.610 D 2253.770 Cl Chlorine 3
-1.100 D 2269.650 Cl Chlorine 3
-1.800 D 2279.040 Cl Chlorine 3
-2.700 D 2284.630 Cl Chlorine 3
-4.200 D 2341.360 Cl Chlorine 3
-3.000 D 2360.390 Cl Chlorine 3
-2.800 D 2371.090 Cl Chlorine 3
-0.880 D 2417.150 Cl Chlorine 3
-0.250 D 2428.530 Cl Chlorine 2
-0.720 D 2434.810 Cl Chlorine 2
-0.940 D 2447.880 Cl Chlorine 3
-1.800 D 2449.320 Cl Chlorine 3
-0.680 D 2487.660 Cl Chlorine 3
-0.220 D 2499.280 Cl Chlorine 2
-0.310 D 2503.490 Cl Chlorine 2
-5.300 D 2533.240 Cl Chlorine 3
-0.580 D 2547.720 Cl Chlorine 2
-0.760 D 2550.650 Cl Chlorine 2
-4.700 D 2581.440 Cl Chlorine 3
-5.000 D 2604.370 Cl Chlorine 3
-0.410 D 2633.450 Cl Chlorine 3
-1.600 D 2633.960 Cl Chlorine 3
-4.800 D 2666.330 Cl Chlorine 3
-0.820 D 2702.160 Cl Chlorine 4
-1.100 D 2724.840 Cl Chlorine 4
-0.780 D 2752.040 Cl Chlorine 4
-3.000 D 2771.460 Cl Chlorine 4
-2.300 D 2783.290 Cl Chlorine 4
-1.200 D 2836.20 Cl Chlorine 4
-2.700 D 2966.430 Cl Chlorine 3
-1.700 D 3064.020 Cl Chlorine 4
-2.300 D 3077.570 Cl Chlorine 4
-0.440 D 3105.360 Cl Chlorine 3
-0.860 D 3140.250 Cl Chlorine 3
-0.520 D 3168.790 Cl Chlorine 4
-1.200 D 3192.370 Cl Chlorine 3
-0.930 D 3290.750 Cl Chlorine 3
-1.100 D 3316.380 Cl Chlorine 2
-1.900 D 3321.530 Cl Chlorine 3
-0.290 E 3330.020 Cl Chlorine 3
-1.500 D 3330.060 Cl Chlorine 2
-1.800 D 3341.380 Cl Chlorine 3
-1.900 D 3393.860 Cl Chlorine 3
-1.900 D 3394.420 Cl Chlorine 3
-1.800 D 3531.040 Cl Chlorine 3
-1.700 D 3561.700 Cl Chlorine 3
-1.700 D 3603.130 Cl Chlorine 3
-1.200 D 3613.880 Cl Chlorine 3
-0.700 D 3623.720 Cl Chlorine 3
-1.400 D 3657.990 Cl Chlorine 3
-0.860 D 3671.330 Cl Chlorine 3
-0.480 D 3683.100 Cl Chlorine 3
-0.260 E 3706.500 Cl Chlorine 3
-0.750 E 3708.390 Cl Chlorine 3
-1.700 D 3721.510 Cl Chlorine 3
-1.300 D 3749.880 Cl Chlorine 3
-1.600 D 3799.840 Cl Chlorine 2
-1.800 D 3806.260 Cl Chlorine 2
-1.500 D 3810.540 Cl Chlorine 2
-0.940 D 3846.460 Cl Chlorine 2
-2.000 D 3846.740 Cl Chlorine 2
-2.700 D 3846.890 Cl Chlorine 2
-1.800 D 3852.080 Cl Chlorine 2
-1.600 D 3852.460 Cl Chlorine 2
-0.670 D 3852.740 Cl Chlorine 2
-2.700 D 3861.920 Cl Chlorine 2
-0.890 D 3862.080 Cl Chlorine 2
-0.180 D 3862.460 Cl Chlorine 2
-0.820 D 3914.980 Cl Chlorine 2
-0.740 D 3917.740 Cl Chlorine 2
-0.140 E 3992.630 Cl Chlorine 3
-0.059 E 4019.640 Cl Chlorine 3
-0.086 E 4060.220 Cl Chlorine 3
-0.160 E 4105.390 Cl Chlorine 3
-0.002 D 4105.950 Cl Chlorine 1
-0.078 E 4107.990 Cl Chlorine 3
-1.600 D 4133.670 Cl Chlorine 2
-0.004 D+ 4210.860 Cl Chlorine 1
-0.006 D+ 4227.610 Cl Chlorine 1
-0.002 D+ 4265.780 Cl Chlorine 1
-0.007 D 4364.500 Cl Chlorine 1
-0.007 D+ 4370.730 Cl Chlorine 1
-0.014 D 4381.130 Cl Chlorine 1
-0.014 D 4390.980 Cl Chlorine 1
-0.008 D+ 4391.630 Cl Chlorine 1
-0.007 D 4404.270 Cl Chlorine 1
-0.014 D 4439.740 Cl Chlorine 1
-0.004 D+ 4476.560 Cl Chlorine 1
-0.051 C 4527.460 Cl Chlorine 1
-0.042 C 4602.270 Cl Chlorine 1
-0.005 D+ 4625.2330 Cl Chlorine 1
-0.005 D+ 4655.3430 Cl Chlorine 1
-0.012 C 4662.5130 Cl Chlorine 1
-0.011 D+ 4692.8360 Cl Chlorine 1
-0.002 D+ 4722.5760 Cl Chlorine 1
-0.004 D+ 4742.0550 Cl Chlorine 1
-0.770 D 4769.980 Cl Chlorine 2
-1.000 D 4782.660 Cl Chlorine 2
-1.040 C 4795.890 Cl Chlorine 2
-0.990 C 4811.400 Cl Chlorine 2
-1.000 C 4820.820 Cl Chlorine 2
-0.880 D 4898.140 Cl Chlorine 2
-0.810 D 4906.150 Cl Chlorine 2
-0.750 D 4919.100 Cl Chlorine 2
-0.130 E 4996.870 Cl Chlorine 2
-0.770 D 5079.680 Cl Chlorine 2
-0.008 D 5101.2100 Cl Chlorine 1
-0.770 C 5219.390 Cl Chlorine 2
-0.770 C 5222.810 Cl Chlorine 2
-1.000 D 5393.620 Cl Chlorine 2
-0.180 D 5424.740 Cl Chlorine 2
-0.037 D 5425.020 Cl Chlorine 2
-0.150 D 5444.880 Cl Chlorine 2
-0.095 D 5445.720 Cl Chlorine 2
-0.110 D 5458.540 Cl Chlorine 2
-0.530 D 6096.380 Cl Chlorine 2
-0.150 D 7258.620 Cl Chlorine 1
-0.047 D 7416.150 Cl Chlorine 1
-0.120 D 7549.1500 Cl Chlorine 1
-0.005 E 7704.9480 Cl Chlorine 1
-0.030 D 7719.7050 Cl Chlorine 1
-0.063 C 7747.100 Cl Chlorine 1
-0.060 D 7771.300 Cl Chlorine 1
-0.024 E 7773.230 Cl Chlorine 1
-0.098 D 7823.510 Cl Chlorine 1
-0.097 D 7832.900 Cl Chlorine 1
-0.018 D 7880.390 Cl Chlorine 1
-0.051 D 7901.480 Cl Chlorine 1
-0.061 D 7917.260 Cl Chlorine 1
-0.021 D 7926.8250 Cl Chlorine 1
-0.039 D 7937.1950 Cl Chlorine 1
-0.041 D 7979.160 Cl Chlorine 1
-0.016 E 7982.800 Cl Chlorine 1
-0.021 D 8000.050 Cl Chlorine 1
-0.042 E 8086.730 Cl Chlorine 1
-0.380 D 8087.780 Cl Chlorine 1
-0.400 D 8088.890 Cl Chlorine 1
-0.028 E 8089.950 Cl Chlorine 1
-0.050 E 8196.670 Cl Chlorine 1
-0.079 D 8214.300 Cl Chlorine 1
-0.160 D 8335.600 Cl Chlorine 1
-0.110 E 8363.010 Cl Chlorine 2
-0.096 E 8364.140 Cl Chlorine 2
-0.280 D 8378.240 Cl Chlorine 1
-0.130 E 8384.970 Cl Chlorine 2
-0.032 E 8394.330 Cl Chlorine 2
-0.240 D 8430.570 Cl Chlorine 1
-0.019 D 8552.790 Cl Chlorine 1
-0.120 D 8577.600 Cl Chlorine 1
-0.190 D 8588.330 Cl Chlorine 1
-0.039 D 8688.650 Cl Chlorine 1
-0.120 D 8950.520 Cl Chlorine 1
-0.190 D 9075.660 Cl Chlorine 1
-0.170 D 9123.650 Cl Chlorine 1
-0.210 D 9194.2540 Cl Chlorine 1
-0.044 E 9291.410 Cl Chlorine 1
-0.031 E 9396.4390 Cl Chlorine 1
-0.039 E 9489.5670 Cl Chlorine 1
-0.066 D 9587.4300 Cl Chlorine 1
-0.240 D 9594.850 Cl Chlorine 1
-0.083 D 9635.1510 Cl Chlorine 1
-0.091 D 9705.1000 Cl Chlorine 1
-0.190 D 9878.6780 Cl Chlorine 1
+40.000 C 390.150 ClV Chlorine
+79.000 C 392.430 ClV Chlorine
+23.000 E 883.130 ClV Chlorine
+26.000 E 894.340 ClV Chlorine
+4.300 E 894.910 ClV Chlorine
+13.000 E 973.210 ClIV Chlorine
+17.000 E 977.560 ClIV Chlorine
+9.400 E 977.900 ClIV Chlorine
+23.000 E 984.950 ClIV Chlorine
+5.500 E 985.750 ClIV Chlorine
+26.000 E 1005.280 ClIII Chlorine
+26.000 E 1008.780 ClIII Chlorine
+25.000 E 1015.020 ClIII Chlorine
+0.477 C 1063.8310 ClII Chlorine
+1.130 C 1067.9450 ClII Chlorine
+0.840 C 1071.0360 ClII Chlorine
+0.280 C 1071.7670 ClII Chlorine
+0.369 C 1075.2300 ClII Chlorine
+0.274 C 1079.0800 ClII Chlorine
+2.330 C 1188.7740 Cl Chlorine
+2.390 C 1201.3530 Cl Chlorine
+1.740 C 1335.7260 Cl Chlorine
+4.190 C+ 1347.2400 Cl Chlorine
+3.230 C+ 1351.6570 Cl Chlorine
+0.750 C+ 1363.4470 Cl Chlorine
+0.003 D 1373.1160 Cl Chlorine
+0.110 D 1379.5280 Cl Chlorine
+0.002 D 1389.6930 Cl Chlorine
+0.017 D 1389.9570 Cl Chlorine
+0.015 D 1396.5270 Cl Chlorine
+5.600 D 1539.300 ClIV Chlorine
+1.700 E 1822.500 ClIII Chlorine
+1.500 E 1828.400 ClIII Chlorine
+1.300 E 1901.610 ClIII Chlorine
+0.610 D 2253.770 ClIII Chlorine
+1.100 D 2269.650 ClIII Chlorine
+1.800 D 2279.040 ClIII Chlorine
+2.700 D 2284.630 ClIII Chlorine
+4.200 D 2341.360 ClIII Chlorine
+3.000 D 2360.390 ClIII Chlorine
+2.800 D 2371.090 ClIII Chlorine
+0.880 D 2417.150 ClIII Chlorine
+0.250 D 2428.530 ClII Chlorine
+0.720 D 2434.810 ClII Chlorine
+0.940 D 2447.880 ClIII Chlorine
+1.800 D 2449.320 ClIII Chlorine
+0.680 D 2487.660 ClIII Chlorine
+0.220 D 2499.280 ClII Chlorine
+0.310 D 2503.490 ClII Chlorine
+5.300 D 2533.240 ClIII Chlorine
+0.580 D 2547.720 ClII Chlorine
+0.760 D 2550.650 ClII Chlorine
+4.700 D 2581.440 ClIII Chlorine
+5.000 D 2604.370 ClIII Chlorine
+0.410 D 2633.450 ClIII Chlorine
+1.600 D 2633.960 ClIII Chlorine
+4.800 D 2666.330 ClIII Chlorine
+0.820 D 2702.160 ClIV Chlorine
+1.100 D 2724.840 ClIV Chlorine
+0.780 D 2752.040 ClIV Chlorine
+3.000 D 2771.460 ClIV Chlorine
+2.300 D 2783.290 ClIV Chlorine
+1.200 D 2836.20 ClIV Chlorine
+2.700 D 2966.430 ClIII Chlorine
+1.700 D 3064.020 ClIV Chlorine
+2.300 D 3077.570 ClIV Chlorine
+0.440 D 3105.360 ClIII Chlorine
+0.860 D 3140.250 ClIII Chlorine
+0.520 D 3168.790 ClIV Chlorine
+1.200 D 3192.370 ClIII Chlorine
+0.930 D 3290.750 ClIII Chlorine
+1.100 D 3316.380 ClII Chlorine
+1.900 D 3321.530 ClIII Chlorine
+0.290 E 3330.020 ClIII Chlorine
+1.500 D 3330.060 ClII Chlorine
+1.800 D 3341.380 ClIII Chlorine
+1.900 D 3393.860 ClIII Chlorine
+1.900 D 3394.420 ClIII Chlorine
+1.800 D 3531.040 ClIII Chlorine
+1.700 D 3561.700 ClIII Chlorine
+1.700 D 3603.130 ClIII Chlorine
+1.200 D 3613.880 ClIII Chlorine
+0.700 D 3623.720 ClIII Chlorine
+1.400 D 3657.990 ClIII Chlorine
+0.860 D 3671.330 ClIII Chlorine
+0.480 D 3683.100 ClIII Chlorine
+0.260 E 3706.500 ClIII Chlorine
+0.750 E 3708.390 ClIII Chlorine
+1.700 D 3721.510 ClIII Chlorine
+1.300 D 3749.880 ClIII Chlorine
+1.600 D 3799.840 ClII Chlorine
+1.800 D 3806.260 ClII Chlorine
+1.500 D 3810.540 ClII Chlorine
+0.940 D 3846.460 ClII Chlorine
+2.000 D 3846.740 ClII Chlorine
+2.700 D 3846.890 ClII Chlorine
+1.800 D 3852.080 ClII Chlorine
+1.600 D 3852.460 ClII Chlorine
+0.670 D 3852.740 ClII Chlorine
+2.700 D 3861.920 ClII Chlorine
+0.890 D 3862.080 ClII Chlorine
+0.180 D 3862.460 ClII Chlorine
+0.820 D 3914.980 ClII Chlorine
+0.740 D 3917.740 ClII Chlorine
+0.140 E 3992.630 ClIII Chlorine
+0.059 E 4019.640 ClIII Chlorine
+0.086 E 4060.220 ClIII Chlorine
+0.160 E 4105.390 ClIII Chlorine
+0.002 D 4105.950 Cl Chlorine
+0.078 E 4107.990 ClIII Chlorine
+1.600 D 4133.670 ClII Chlorine
+0.004 D+ 4210.860 Cl Chlorine
+0.006 D+ 4227.610 Cl Chlorine
+0.002 D+ 4265.780 Cl Chlorine
+0.007 D 4364.500 Cl Chlorine
+0.007 D+ 4370.730 Cl Chlorine
+0.014 D 4381.130 Cl Chlorine
+0.014 D 4390.980 Cl Chlorine
+0.008 D+ 4391.630 Cl Chlorine
+0.007 D 4404.270 Cl Chlorine
+0.014 D 4439.740 Cl Chlorine
+0.004 D+ 4476.560 Cl Chlorine
+0.051 C 4527.460 Cl Chlorine
+0.042 C 4602.270 Cl Chlorine
+0.005 D+ 4625.2330 Cl Chlorine
+0.005 D+ 4655.3430 Cl Chlorine
+0.012 C 4662.5130 Cl Chlorine
+0.011 D+ 4692.8360 Cl Chlorine
+0.002 D+ 4722.5760 Cl Chlorine
+0.004 D+ 4742.0550 Cl Chlorine
+0.770 D 4769.980 ClII Chlorine
+1.000 D 4782.660 ClII Chlorine
+1.040 C 4795.890 ClII Chlorine
+0.990 C 4811.400 ClII Chlorine
+1.000 C 4820.820 ClII Chlorine
+0.880 D 4898.140 ClII Chlorine
+0.810 D 4906.150 ClII Chlorine
+0.750 D 4919.100 ClII Chlorine
+0.130 E 4996.870 ClII Chlorine
+0.770 D 5079.680 ClII Chlorine
+0.008 D 5101.2100 Cl Chlorine
+0.770 C 5219.390 ClII Chlorine
+0.770 C 5222.810 ClII Chlorine
+1.000 D 5393.620 ClII Chlorine
+0.180 D 5424.740 ClII Chlorine
+0.037 D 5425.020 ClII Chlorine
+0.150 D 5444.880 ClII Chlorine
+0.095 D 5445.720 ClII Chlorine
+0.110 D 5458.540 ClII Chlorine
+0.530 D 6096.380 ClII Chlorine
+0.150 D 7258.620 Cl Chlorine
+0.047 D 7416.150 Cl Chlorine
+0.120 D 7549.1500 Cl Chlorine
+0.005 E 7704.9480 Cl Chlorine
+0.030 D 7719.7050 Cl Chlorine
+0.063 C 7747.100 Cl Chlorine
+0.060 D 7771.300 Cl Chlorine
+0.024 E 7773.230 Cl Chlorine
+0.098 D 7823.510 Cl Chlorine
+0.097 D 7832.900 Cl Chlorine
+0.018 D 7880.390 Cl Chlorine
+0.051 D 7901.480 Cl Chlorine
+0.061 D 7917.260 Cl Chlorine
+0.021 D 7926.8250 Cl Chlorine
+0.039 D 7937.1950 Cl Chlorine
+0.041 D 7979.160 Cl Chlorine
+0.016 E 7982.800 Cl Chlorine
+0.021 D 8000.050 Cl Chlorine
+0.042 E 8086.730 Cl Chlorine
+0.380 D 8087.780 Cl Chlorine
+0.400 D 8088.890 Cl Chlorine
+0.028 E 8089.950 Cl Chlorine
+0.050 E 8196.670 Cl Chlorine
+0.079 D 8214.300 Cl Chlorine
+0.160 D 8335.600 Cl Chlorine
+0.110 E 8363.010 ClII Chlorine
+0.096 E 8364.140 ClII Chlorine
+0.280 D 8378.240 Cl Chlorine
+0.130 E 8384.970 ClII Chlorine
+0.032 E 8394.330 ClII Chlorine
+0.240 D 8430.570 Cl Chlorine
+0.019 D 8552.790 Cl Chlorine
+0.120 D 8577.600 Cl Chlorine
+0.190 D 8588.330 Cl Chlorine
+0.039 D 8688.650 Cl Chlorine
+0.120 D 8950.520 Cl Chlorine
+0.190 D 9075.660 Cl Chlorine
+0.170 D 9123.650 Cl Chlorine
+0.210 D 9194.2540 Cl Chlorine
+0.044 E 9291.410 Cl Chlorine
+0.031 E 9396.4390 Cl Chlorine
+0.039 E 9489.5670 Cl Chlorine
+0.066 D 9587.4300 Cl Chlorine
+0.240 D 9594.850 Cl Chlorine
+0.083 D 9635.1510 Cl Chlorine
+0.091 D 9705.1000 Cl Chlorine
+0.190 D 9878.6780 Cl Chlorine

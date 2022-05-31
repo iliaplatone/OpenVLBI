@@ -1,14 +1,14 @@
-2.660 C+ 1890.420 As Arsenic 1
-2.190 C+ 1937.590 As Arsenic 1
-2.020 C+ 1972.620 As Arsenic 1
-2.800 D 2288.830 As Arsenic 1
-0.350 D 2344.750 As Arsenic 1
-3.100 D 2350.560 As Arsenic 1
-0.600 D 2370.390 As Arsenic 1
-0.420 D 2371.490 As Arsenic 1
-0.072 D 2457.270 As Arsenic 1
-0.120 D 2493.660 As Arsenic 1
-0.260 D 2745.810 As Arsenic 1
-0.780 D 2781.040 As Arsenic 1
-0.550 D 2861.280 As Arsenic 1
-0.099 D 2899.560 As Arsenic 1
+2.660 C+ 1890.420 As Arsenic
+2.190 C+ 1937.590 As Arsenic
+2.020 C+ 1972.620 As Arsenic
+2.800 D 2288.830 As Arsenic
+0.350 D 2344.750 As Arsenic
+3.100 D 2350.560 As Arsenic
+0.600 D 2370.390 As Arsenic
+0.420 D 2371.490 As Arsenic
+0.072 D 2457.270 As Arsenic
+0.120 D 2493.660 As Arsenic
+0.260 D 2745.810 As Arsenic
+0.780 D 2781.040 As Arsenic
+0.550 D 2861.280 As Arsenic
+0.099 D 2899.560 As Arsenic

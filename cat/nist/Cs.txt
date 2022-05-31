@@ -1,1316 +1,1316 @@
-1200000.000  2.35770 Cs Caesium 46
-440000.000  2.40250 Cs Caesium 46
-5400000.000  2.44520 Cs Caesium 46
-2500000.000  2.60760 Cs Caesium 46
-5000000.000  2.61490 Cs Caesium 46
-16900.000  2.64270 Cs Caesium 46
-368000.000  2.82530 Cs Caesium 46
-113000.000  7.4250 Cs Caesium 45
-142000.000  7.5980 Cs Caesium 45
-232000.000  7.6710 Cs Caesium 45
-288000.000  8.1010 Cs Caesium 45
-43200.000  8.3420 Cs Caesium 45
-559000.000  8.6840 Cs Caesium 45
-593000.000  8.7890 Cs Caesium 45
-106000.000  8.9110 Cs Caesium 45
-21800.000  18.3530 Cs Caesium 47
-1010.000  39.7840 Cs Caesium 47
-1860.000  55.500 Cs Caesium 45
-1770.000  63.140 Cs Caesium 45
-686.000  82.220 Cs Caesium 45
-1410.000  84.1590 Cs Caesium 44
-3060.000  85.0520 Cs Caesium 10
-202.000  87.3370 Cs Caesium 10
-47.000  88.0330 Cs Caesium 10
-456.000  88.8090 Cs Caesium 10
-384.000  89.6080 Cs Caesium 10
-22000.000  103.3740 Cs Caesium 11
-160.000  104.0850 Cs Caesium 11
-810.000  104.9800 Cs Caesium 11
-3.400  105.8580 Cs Caesium 26
-20000.000  106.0330 Cs Caesium 11
-22000.000  106.1930 Cs Caesium 11
-21000.000  106.2130 Cs Caesium 11
-19000.000  106.9230 Cs Caesium 11
-19000.000  107.1470 Cs Caesium 11
-580.000  108.2450 Cs Caesium 11
-93.000  109.1700 Cs Caesium 11
-1280.000  109.4740 Cs Caesium 26
-20000.000  109.5890 Cs Caesium 10
-786.000  112.6590 Cs Caesium 26
-1750.000  113.2910 Cs Caesium 27
-78.000  117.4820 Cs Caesium 11
-2.000  117.5950 Cs Caesium 11
-1.000  117.6160 Cs Caesium 11
-28.000  120.1970 Cs Caesium 11
-7.000  120.3150 Cs Caesium 11
-242.000  120.690 Cs Caesium 45
-1640.000  121.5420 Cs Caesium 26
-2.000  121.8490 Cs Caesium 11
-140.000  123.7830 Cs Caesium 11
-5.000  123.9080 Cs Caesium 11
-53.000  124.0700 Cs Caesium 11
-18.000  124.3700 Cs Caesium 11
-4.000  124.5940 Cs Caesium 11
-5.000  124.6890 Cs Caesium 11
-13.000  124.7000 Cs Caesium 11
-1900.000  125.1380 Cs Caesium 26
-1350.000  125.1660 Cs Caesium 27
-53.000  125.1910 Cs Caesium 11
-10.000  125.5910 Cs Caesium 11
-23.000  125.7310 Cs Caesium 11
-8.000  126.2300 Cs Caesium 11
-85.000  126.2790 Cs Caesium 11
-810.000  126.3720 Cs Caesium 11
-320.000  126.8200 Cs Caesium 11
-740.000  126.9300 Cs Caesium 11
-1.000  126.9480 Cs Caesium 11
-12.000  127.0870 Cs Caesium 11
-2780.000  127.1600 Cs Caesium 26
-45.000  127.2610 Cs Caesium 11
-1500.000  127.3440 Cs Caesium 26
-18.000  127.3930 Cs Caesium 11
-420.000  127.4200 Cs Caesium 11
-33.000  127.6370 Cs Caesium 11
-120.000  127.7470 Cs Caesium 11
-5.000  127.7840 Cs Caesium 11
-2.000  128.2850 Cs Caesium 11
-20.000  128.4420 Cs Caesium 11
-36.000  128.6310 Cs Caesium 11
-130.000  128.6580 Cs Caesium 11
-65.000  128.6760 Cs Caesium 11
-730.000  128.7840 Cs Caesium 11
-23.000  128.8540 Cs Caesium 11
-22.000  128.9770 Cs Caesium 11
-240.000  129.0450 Cs Caesium 11
-400.000  129.0820 Cs Caesium 11
-23.000  129.2600 Cs Caesium 11
-260.000  129.3750 Cs Caesium 11
-18.000  129.4350 Cs Caesium 11
-300.000  129.4350 Cs Caesium 11
-20.000  129.4810 Cs Caesium 11
-41.000  129.5080 Cs Caesium 11
-150.000  129.5560 Cs Caesium 11
-1300.000  129.6830 Cs Caesium 27
-290.000  129.9060 Cs Caesium 11
-600.000  129.9950 Cs Caesium 11
-189.000  130.1560 Cs Caesium 26
-40.000  130.2880 Cs Caesium 11
-410.000  130.2880 Cs Caesium 11
-240.000  130.3810 Cs Caesium 11
-2.000  130.4750 Cs Caesium 11
-86.100  130.5180 Cs Caesium 27
-2330.000  130.7990 Cs Caesium 26
-120.000  130.8550 Cs Caesium 11
-910.000  130.9690 Cs Caesium 11
-170.000  131.0420 Cs Caesium 11
-550.000  131.2350 Cs Caesium 11
-1.000  131.4000 Cs Caesium 11
-5.000  131.4730 Cs Caesium 11
-60.000  131.5770 Cs Caesium 11
-20.000  131.8510 Cs Caesium 11
-5.000  132.0610 Cs Caesium 11
-60.000  132.1240 Cs Caesium 11
-130.000  132.1580 Cs Caesium 11
-120.000  132.3340 Cs Caesium 11
-210.000  132.5360 Cs Caesium 11
-40.000  132.7080 Cs Caesium 11
-15.000  132.7410 Cs Caesium 11
-28.000  132.8880 Cs Caesium 10
-301.000  133.0180 Cs Caesium 27
-23.000  133.1240 Cs Caesium 11
-10.000  133.2340 Cs Caesium 11
-3.000  133.5210 Cs Caesium 11
-13.000  133.7380 Cs Caesium 11
-25.000  134.6360 Cs Caesium 11
-5.000  134.6620 Cs Caesium 11
-45.000  134.7610 Cs Caesium 11
-33.000  134.9950 Cs Caesium 11
-3.000  135.0920 Cs Caesium 11
-10.000  135.2300 Cs Caesium 11
-8.000  135.5350 Cs Caesium 11
-5.000  135.6160 Cs Caesium 11
-8.000  135.7880 Cs Caesium 11
-2.000  136.0080 Cs Caesium 11
-2.000  136.1880 Cs Caesium 11
-10.000  136.2570 Cs Caesium 11
-5.000  136.6250 Cs Caesium 11
-5.000  136.8820 Cs Caesium 11
-10.000  137.4680 Cs Caesium 11
-3.000  137.8080 Cs Caesium 11
-6.000  138.4230 Cs Caesium 11
-3.000  138.6950 Cs Caesium 11
-193.000  139.0760 Cs Caesium 27
-13.000  139.1660 Cs Caesium 11
-4.670  139.5340 Cs Caesium 10
-208.000  139.6700 Cs Caesium 10
-20.000  139.9930 Cs Caesium 11
-1140.000  142.8900 Cs Caesium 10
-10.000  145.1720 Cs Caesium 10
-53.000  145.7190 Cs Caesium 11
-7.420  149.3650 Cs Caesium 26
-8.000  149.9280 Cs Caesium 11
-1030.000  155.9390 Cs Caesium 26
-426.000  157.0510 Cs Caesium 26
-597.000  157.7850 Cs Caesium 26
-265.000  161.6380 Cs Caesium 26
-1190.000  163.8480 Cs Caesium 26
-562.000  164.5680 Cs Caesium 27
-69.200  187.8370 Cs Caesium 9
-570.000  191.6060 Cs Caesium 9
-177.000  195.0390 Cs Caesium 9
-133.000  196.1430 Cs Caesium 9
-10.000  209.9990 Cs Caesium 8
-218.000  225.2140 Cs Caesium 27
-34.000  242.3900 Cs Caesium 26
-272.000  247.2860 Cs Caesium 9
-285.000  247.8960 Cs Caesium 9
-112.000  302.3140 Cs Caesium 9
-24.000  322.5900 Cs Caesium 8
-234.000  324.4370 Cs Caesium 9
-72.000  327.9410 Cs Caesium 8
-120.000  346.5860 Cs Caesium 8
-264.000  375.4460 Cs Caesium 10
-83.100  414.1860 Cs Caesium 10
-54.000  416.3040 Cs Caesium 10
-172.000  418.8990 Cs Caesium 10
-93.400  420.5490 Cs Caesium 10
-216.000  422.6010 Cs Caesium 10
-177.000  423.7530 Cs Caesium 10
-34.800  425.4070 Cs Caesium 10
-223.000  428.5730 Cs Caesium 10
-138.000  428.9300 Cs Caesium 10
-90.000  430.1520 Cs Caesium 10
-327.000  430.3680 Cs Caesium 10
-322.000  430.7060 Cs Caesium 10
-151.000  431.2510 Cs Caesium 10
-146.000  431.7720 Cs Caesium 10
-166.000  431.9980 Cs Caesium 10
-201.000  432.0630 Cs Caesium 10
-138.000  433.9490 Cs Caesium 10
-215.000  435.9710 Cs Caesium 10
-34.800  436.2540 Cs Caesium 10
-326.000  436.6270 Cs Caesium 10
-225.000  437.2320 Cs Caesium 10
-186.000  437.5950 Cs Caesium 10
-322.000  437.7630 Cs Caesium 10
-245.000  438.4710 Cs Caesium 10
-271.000  439.3600 Cs Caesium 10
-277.000  439.5950 Cs Caesium 10
-23.800  440.8950 Cs Caesium 3
-49.800  440.9180 Cs Caesium 3
-216.000  441.2970 Cs Caesium 10
-96.000  441.6550 Cs Caesium 10
-97.300  442.4720 Cs Caesium 10
-6.630  444.1310 Cs Caesium 3
-3.800  444.3430 Cs Caesium 3
-32.400  447.6300 Cs Caesium 10
-3.900  450.2980 Cs Caesium 3
-59.300  451.4290 Cs Caesium 10
-12.200  452.7050 Cs Caesium 3
-96.000  453.2100 Cs Caesium 10
-75.500  453.5660 Cs Caesium 3
-3.130  455.6450 Cs Caesium 3
-17.500  456.2450 Cs Caesium 3
-153.000  458.8640 Cs Caesium 9
-69.000  460.7530 Cs Caesium 8
-101.000  466.2770 Cs Caesium 10
-198.000  466.2770 Cs Caesium 10
-126.000  466.7730 Cs Caesium 10
-2.750  467.2470 Cs Caesium 3
-195.000  467.7690 Cs Caesium 10
-93.400  468.1050 Cs Caesium 10
-144.000  468.8100 Cs Caesium 10
-38.800  469.0790 Cs Caesium 3
-90.000  469.2200 Cs Caesium 8
-10.800  469.5570 Cs Caesium 3
-1.520  470.3230 Cs Caesium 3
-36.200  470.7560 Cs Caesium 10
-137.000  471.0090 Cs Caesium 10
-8.750  471.4650 Cs Caesium 3
-49.000  471.7420 Cs Caesium 8
-11.200  471.9210 Cs Caesium 3
-1.250  473.2390 Cs Caesium 3
-0.548  473.2480 Cs Caesium 3
-4.250  474.6150 Cs Caesium 3
-51.000  475.5130 Cs Caesium 10
-62.400  476.5800 Cs Caesium 10
-5.870  478.2300 Cs Caesium 3
-2.850  479.3880 Cs Caesium 3
-3.400  479.7260 Cs Caesium 3
-77.500  479.9510 Cs Caesium 3
-50.800  480.2420 Cs Caesium 3
-42.600  483.5160 Cs Caesium 10
-3.180  483.9640 Cs Caesium 3
-74.300  484.0700 Cs Caesium 10
-9.400  486.3300 Cs Caesium 3
-28.000  486.9780 Cs Caesium 10
-35.800  489.9180 Cs Caesium 10
-60.200  494.0350 Cs Caesium 3
-50.000  494.7840 Cs Caesium 3
-42.200  497.5480 Cs Caesium 3
-27.300  499.5720 Cs Caesium 3
-15.800  501.7570 Cs Caesium 3
-151.000  502.3700 Cs Caesium 9
-100.000  502.9940 Cs Caesium 8
-0.397  503.8390 Cs Caesium 3
-0.993  504.1720 Cs Caesium 3
-11.600  504.3980 Cs Caesium 3
-0.865  504.9140 Cs Caesium 3
-3.400  506.4430 Cs Caesium 3
-18.000  507.0170 Cs Caesium 10
-4.580  508.0060 Cs Caesium 3
-25.000  508.3450 Cs Caesium 8
-2.600  511.3080 Cs Caesium 8
-23.700  511.8960 Cs Caesium 9
-4.850  531.17970 Cs Caesium 3
-1.600  539.21930 Cs Caesium 3
-110.000  542.3520 Cs Caesium 8
-14.200  556.91250 Cs Caesium 3
-4.000  558.9610 Cs Caesium 10
-0.923  560.6540 Cs Caesium 3
-2.140  565.4330 Cs Caesium 10
-9.130  584.1470 Cs Caesium 3
-103.000  584.39960 Cs Caesium 3
-40.300  596.0560 Cs Caesium 10
-25.200  599.5800 Cs Caesium 10
-349.000  603.0090 Cs Caesium 3
-280.000  607.8500 Cs Caesium 3
-158.000  607.9420 Cs Caesium 3
-3.600  608.1300 Cs Caesium 10
-20.600  609.5860 Cs Caesium 10
-49.000  611.5050 Cs Caesium 10
-36.600  612.6400 Cs Caesium 10
-345.000  614.0130 Cs Caesium 3
-28.300  614.3830 Cs Caesium 10
-143.000  621.1510 Cs Caesium 3
-45.600  622.2160 Cs Caesium 10
-6.330  625.0850 Cs Caesium 10
-71.000  627.6470 Cs Caesium 8
-58.000  630.6860 Cs Caesium 10
-54.000  633.2050 Cs Caesium 10
-350.000  635.8630 Cs Caesium 3
-6.200  637.6730 Cs Caesium 3
-29.200  638.1700 Cs Caesium 3
-48.000  655.2970 Cs Caesium 10
-18.000  657.9450 Cs Caesium 3
-26.000  658.8650 Cs Caesium 10
-40.800  663.82410 Cs Caesium 3
-41.500  664.4540 Cs Caesium 9
-26.900  664.59710 Cs Caesium 3
-11.800  666.2500 Cs Caesium 3
-7.200  668.4800 Cs Caesium 10
-7.880  673.0570 Cs Caesium 3
-8.000  678.4600 Cs Caesium 10
-48.500  679.6040 Cs Caesium 3
-5.700  687.55500 Cs Caesium 3
-2.600  688.0400 Cs Caesium 10
-1.570  689.1030 Cs Caesium 10
-3.430  691.60220 Cs Caesium 3
-6.330  695.2160 Cs Caesium 10
-16.700  699.43310 Cs Caesium 3
-0.808  703.88810 Cs Caesium 3
-3.400  705.2800 Cs Caesium 10
-1.550  710.25500 Cs Caesium 3
-39.500  721.79750 Cs Caesium 3
-6.830  722.20780 Cs Caesium 3
-13.100  730.9440 Cs Caesium 10
-8.230  731.56350 Cs Caesium 3
-19.300  731.95990 Cs Caesium 3
-1.130  736.66130 Cs Caesium 3
-6.030  740.29770 Cs Caesium 3
-0.513  742.23340 Cs Caesium 3
-19.200  745.0330 Cs Caesium 10
-0.163  750.38060 Cs Caesium 3
-32.400  750.9930 Cs Caesium 10
-21.100  751.4050 Cs Caesium 10
-16.300  752.7260 Cs Caesium 10
-10.700  755.17860 Cs Caesium 3
-0.207  758.82540 Cs Caesium 3
-0.073  759.90150 Cs Caesium 3
-9.400  765.2960 Cs Caesium 10
-25.100  781.7140 Cs Caesium 9
-0.378  787.7280 Cs Caesium 3
-0.748  801.95090 Cs Caesium 3
-0.800  808.7610 Cs Caesium 2
-0.290  814.02600 Cs Caesium 3
-0.013  817.35200 Cs Caesium 3
-0.415  820.34190 Cs Caesium 3
-0.000  825.99760 Cs Caesium 3
-0.155  830.39300 Cs Caesium 3
-0.421  837.39110 Cs Caesium 3
-0.073  843.37090 Cs Caesium 3
-0.135  847.92250 Cs Caesium 3
-1.000  895.8280 Cs Caesium 8
-0.610  920.3550 Cs Caesium 3
-0.135  921.6640 Cs Caesium 3
-1.600  926.6570 Cs Caesium 2
-0.002  932.6730 Cs Caesium 3
-0.399  984.3110 Cs Caesium 9
-7.940  993.9690 Cs Caesium 9
-7.710  1021.5390 Cs Caesium 9
-0.760  1054.7830 Cs Caesium 3
-0.024 D+ 1089.980 Cs Caesium 1
-0.400 E 1091.110 Cs Caesium 1
-0.080  1100.2900 Cs Caesium 3
-0.825  1106.4420 Cs Caesium 3
-0.370  1108.1030 Cs Caesium 3
-0.944  1110.7940 Cs Caesium 3
-0.234  1110.8300 Cs Caesium 3
-0.481  1122.9490 Cs Caesium 3
-0.408  1124.0560 Cs Caesium 3
-0.713  1132.0760 Cs Caesium 3
-1.020  1167.9700 Cs Caesium 3
-0.235  1178.1100 Cs Caesium 3
-3.430  1181.3460 Cs Caesium 3
-2.780  1187.2430 Cs Caesium 3
-1.210  1191.7950 Cs Caesium 3
-0.990  1201.0950 Cs Caesium 3
-0.284  1219.6250 Cs Caesium 3
-0.732  1231.7900 Cs Caesium 3
-0.211  1233.0320 Cs Caesium 3
-0.013  1579.8660 Cs Caesium 3
-0.074  1610.8200 Cs Caesium 3
-0.160  1627.61420 Cs Caesium 3
-0.008  1630.9330 Cs Caesium 3
-0.182  1631.4240 Cs Caesium 3
-2.070  1642.49260 Cs Caesium 3
-0.044  1653.46350 Cs Caesium 3
-0.088  1654.56220 Cs Caesium 3
-0.091  1658.01320 Cs Caesium 3
-0.102  1660.50150 Cs Caesium 3
-0.183  1667.89950 Cs Caesium 3
-0.023  1673.99090 Cs Caesium 3
-0.141  1677.40820 Cs Caesium 3
-0.093  1681.67480 Cs Caesium 3
-0.125  1682.78270 Cs Caesium 3
-0.478  1689.1430 Cs Caesium 3
-0.845  1693.2600 Cs Caesium 3
-3.710  1693.58250 Cs Caesium 3
-0.002  1701.2940 Cs Caesium 3
-0.304  1702.6080 Cs Caesium 3
-1.230  1703.1250 Cs Caesium 3
-0.742  1703.3200 Cs Caesium 3
-4.420  1703.47330 Cs Caesium 3
-0.437  1705.24850 Cs Caesium 3
-3.130  1706.79450 Cs Caesium 3
-0.258  1711.6800 Cs Caesium 3
-1.060  1712.0160 Cs Caesium 3
-0.015  1712.2730 Cs Caesium 3
-0.405  1714.10330 Cs Caesium 3
-0.112  1715.70850 Cs Caesium 3
-0.056  1722.31230 Cs Caesium 3
-3.730  1723.1170 Cs Caesium 3
-0.142  1724.08140 Cs Caesium 3
-0.041  1726.9550 Cs Caesium 3
-1.010  1728.64730 Cs Caesium 3
-0.002  1730.2670 Cs Caesium 3
-0.413  1732.05730 Cs Caesium 3
-0.458  1733.13290 Cs Caesium 3
-0.000  1736.8530 Cs Caesium 3
-0.064  1736.9200 Cs Caesium 3
-0.210  1739.16180 Cs Caesium 3
-0.026  1739.2300 Cs Caesium 3
-0.394  1740.85700 Cs Caesium 3
-3.120  1741.61730 Cs Caesium 3
-0.528  1744.5160 Cs Caesium 3
-0.105  1747.84320 Cs Caesium 3
-0.030  1750.2770 Cs Caesium 3
-0.000  1752.6760 Cs Caesium 3
-0.124  1758.82380 Cs Caesium 3
-0.454  1759.0540 Cs Caesium 3
-0.013  1759.95410 Cs Caesium 3
-0.483  1761.54620 Cs Caesium 3
-0.012  1765.3030 Cs Caesium 3
-0.615  1766.51350 Cs Caesium 3
-0.032  1768.3920 Cs Caesium 3
-0.560  1772.47260 Cs Caesium 3
-0.035  1772.7210 Cs Caesium 3
-0.073  1774.7330 Cs Caesium 3
-0.732  1778.0450 Cs Caesium 3
-0.785  1779.73660 Cs Caesium 3
-0.255  1780.55200 Cs Caesium 3
-0.313  1782.65060 Cs Caesium 3
-0.044  1783.0020 Cs Caesium 3
-0.205  1783.30870 Cs Caesium 3
-0.024  1783.7090 Cs Caesium 3
-0.157  1785.30970 Cs Caesium 3
-0.118  1787.61940 Cs Caesium 3
-0.178  1788.52900 Cs Caesium 3
-0.068  1790.29710 Cs Caesium 3
-0.039  1792.21260 Cs Caesium 3
-0.026  1798.17870 Cs Caesium 3
-0.072  1798.7220 Cs Caesium 3
-0.146  1799.35950 Cs Caesium 3
-0.975  1799.35950 Cs Caesium 3
-0.238  1801.82970 Cs Caesium 3
-0.144  1803.3890 Cs Caesium 3
-0.024  1807.8760 Cs Caesium 3
-0.016  1811.0660 Cs Caesium 3
-0.080  1811.95550 Cs Caesium 3
-0.365  1822.39550 Cs Caesium 3
-1.200  1823.92590 Cs Caesium 3
-0.000  1824.43490 Cs Caesium 3
-0.002  1824.43490 Cs Caesium 3
-1.660  1824.69470 Cs Caesium 3
-0.081  1826.1930 Cs Caesium 3
-0.166  1826.58280 Cs Caesium 3
-0.099  1829.05940 Cs Caesium 3
-0.921  1829.2740 Cs Caesium 3
-0.102  1833.8200 Cs Caesium 3
-0.015  1835.8710 Cs Caesium 3
-0.033  1837.6520 Cs Caesium 3
-2.680  1838.7440 Cs Caesium 3
-0.618  1838.9260 Cs Caesium 3
-0.132  1838.9960 Cs Caesium 3
-0.081  1839.64990 Cs Caesium 3
-0.125  1840.15120 Cs Caesium 3
-0.303  1840.32930 Cs Caesium 3
-2.000  1841.80280 Cs Caesium 3
-0.003  1842.4750 Cs Caesium 3
-1.490  1857.88760 Cs Caesium 3
-0.001  1861.96580 Cs Caesium 3
-0.000  1864.2900 Cs Caesium 3
-0.045  1868.6420 Cs Caesium 3
-0.104  1870.10300 Cs Caesium 3
-0.488  1870.82830 Cs Caesium 3
-0.267  1872.09020 Cs Caesium 3
-0.033  1873.66190 Cs Caesium 3
-0.030  1874.7460 Cs Caesium 3
-0.006  1877.9010 Cs Caesium 3
-0.099  1881.9990 Cs Caesium 3
-2.760  1882.18360 Cs Caesium 3
-0.265  1883.18940 Cs Caesium 3
-0.033  1886.35500 Cs Caesium 3
-0.003  1890.5450 Cs Caesium 3
-0.078  1891.78460 Cs Caesium 3
-0.049  1893.3300 Cs Caesium 3
-0.071  1895.5450 Cs Caesium 3
-4.940  1895.6830 Cs Caesium 3
-0.264  1897.80980 Cs Caesium 3
-0.123  1898.8950 Cs Caesium 3
-0.489  1902.5170 Cs Caesium 3
-0.327  1903.05520 Cs Caesium 3
-0.281  1904.48360 Cs Caesium 3
-0.083  1906.1830 Cs Caesium 3
-0.903  1910.3440 Cs Caesium 3
-0.888  1915.49520 Cs Caesium 3
-1.400  1919.86370 Cs Caesium 3
-0.121  1922.92270 Cs Caesium 3
-0.175  1923.2890 Cs Caesium 3
-0.076  1924.0970 Cs Caesium 3
-0.004  1925.3670 Cs Caesium 3
-0.002  1926.0850 Cs Caesium 3
-0.075  1927.09700 Cs Caesium 3
-0.053  1934.72170 Cs Caesium 3
-0.112  1934.72170 Cs Caesium 3
-0.666  1935.95590 Cs Caesium 3
-0.001  1936.5820 Cs Caesium 3
-0.226  1937.10680 Cs Caesium 3
-0.000  1939.0960 Cs Caesium 3
-0.003  1941.2600 Cs Caesium 3
-0.027  1942.2330 Cs Caesium 3
-0.946  1942.8490 Cs Caesium 3
-4.510  1945.17660 Cs Caesium 3
-0.230  1946.0170 Cs Caesium 3
-0.008  1950.47310 Cs Caesium 3
-0.209  1951.3780 Cs Caesium 3
-0.237  1952.3200 Cs Caesium 3
-1.040  1953.5370 Cs Caesium 3
-0.056  1953.88250 Cs Caesium 3
-0.335  1956.7320 Cs Caesium 3
-0.117  1957.75590 Cs Caesium 3
-0.154  1958.86350 Cs Caesium 3
-0.918  1961.3350 Cs Caesium 3
-0.021  1961.7530 Cs Caesium 3
-0.554  1963.54830 Cs Caesium 3
-0.192  1964.9740 Cs Caesium 3
-0.049  1966.7160 Cs Caesium 3
-0.395  1968.0320 Cs Caesium 3
-0.353  1971.47270 Cs Caesium 3
-0.064  1973.7950 Cs Caesium 3
-0.019  1974.2830 Cs Caesium 3
-0.025  1978.82500 Cs Caesium 3
-0.160  1980.4980 Cs Caesium 3
-0.147  1981.4680 Cs Caesium 3
-0.313  1983.64760 Cs Caesium 3
-0.052  1984.2030 Cs Caesium 3
-0.010  1989.0000 Cs Caesium 3
-0.062  1989.25880 Cs Caesium 3
-0.276  1990.1340 Cs Caesium 3
-0.000  1991.8950 Cs Caesium 3
-0.042  1994.9620 Cs Caesium 3
-0.004  1996.5640 Cs Caesium 3
-0.020  1999.1960 Cs Caesium 3
-0.032  2000.0660 Cs Caesium 3
-0.403  2003.59800 Cs Caesium 3
-0.001  2003.9880 Cs Caesium 3
-0.067  2007.3780 Cs Caesium 3
-0.000  2008.5390 Cs Caesium 3
-0.312  2009.5550 Cs Caesium 3
-0.001  2011.5230 Cs Caesium 3
-0.097  2013.2870 Cs Caesium 3
-3.550  2021.56930 Cs Caesium 3
-0.111  2022.9750 Cs Caesium 3
-0.022  2023.0960 Cs Caesium 3
-2.620  2023.7290 Cs Caesium 3
-0.260  2023.8120 Cs Caesium 3
-0.043  2024.2110 Cs Caesium 3
-2.500  2029.64710 Cs Caesium 3
-0.680  2030.5200 Cs Caesium 3
-1.860  2030.55070 Cs Caesium 3
-3.000  2030.66630 Cs Caesium 3
-4.200  2030.89270 Cs Caesium 3
-0.595  2034.3550 Cs Caesium 3
-0.004  2034.7530 Cs Caesium 3
-6.250  2035.7640 Cs Caesium 3
-0.049  2036.6900 Cs Caesium 3
-0.011  2037.1230 Cs Caesium 3
-0.378  2042.18170 Cs Caesium 3
-0.001  2043.9910 Cs Caesium 3
-0.033  2046.9690 Cs Caesium 3
-0.097  2048.8090 Cs Caesium 3
-0.022  2052.4160 Cs Caesium 3
-0.014  2052.9530 Cs Caesium 3
-2.610  2053.2500 Cs Caesium 3
-0.038  2053.3830 Cs Caesium 3
-0.811  2055.90070 Cs Caesium 3
-2.200  2057.08490 Cs Caesium 3
-4.800  2058.38860 Cs Caesium 3
-4.030  2059.26310 Cs Caesium 3
-0.093  2063.6890 Cs Caesium 3
-0.054  2066.6190 Cs Caesium 3
-0.014  2067.1900 Cs Caesium 3
-0.192  2070.8280 Cs Caesium 3
-0.197  2072.32660 Cs Caesium 3
-0.007  2074.6120 Cs Caesium 3
-0.161  2075.1350 Cs Caesium 3
-3.940  2077.09600 Cs Caesium 3
-0.076  2077.7210 Cs Caesium 3
-4.870  2077.96010 Cs Caesium 3
-0.060  2081.1430 Cs Caesium 3
-2.850  2083.80900 Cs Caesium 3
-3.250  2084.55310 Cs Caesium 3
-0.075  2084.83940 Cs Caesium 3
-0.113  2087.06720 Cs Caesium 3
-6.090  2089.34240 Cs Caesium 3
-0.044  2091.8530 Cs Caesium 3
-1.500  2092.63550 Cs Caesium 3
-0.030  2092.9980 Cs Caesium 3
-0.270  2094.27370 Cs Caesium 3
-0.004  2095.1710 Cs Caesium 3
-0.071  2095.4950 Cs Caesium 3
-0.001  2096.6260 Cs Caesium 3
-0.031  2098.1260 Cs Caesium 3
-0.342  2099.2500 Cs Caesium 3
-0.503  2100.11100 Cs Caesium 3
-0.001  2101.6200 Cs Caesium 3
-0.005  2101.9220 Cs Caesium 3
-5.860  2102.29770 Cs Caesium 3
-0.336  2103.6530 Cs Caesium 3
-0.008  2108.0000 Cs Caesium 3
-0.036  2109.4620 Cs Caesium 3
-0.741  2109.91600 Cs Caesium 3
-0.025  2110.8050 Cs Caesium 3
-4.580  2110.97200 Cs Caesium 3
-0.001  2113.0580 Cs Caesium 3
-0.167  2114.7130 Cs Caesium 3
-3.370  2114.83110 Cs Caesium 3
-0.031  2120.1770 Cs Caesium 3
-0.407  2122.03350 Cs Caesium 3
-0.020  2125.0490 Cs Caesium 3
-0.072  2125.4940 Cs Caesium 3
-1.080  2128.46750 Cs Caesium 3
-3.090  2132.0980 Cs Caesium 3
-5.350  2132.66090 Cs Caesium 3
-0.289  2133.2250 Cs Caesium 3
-0.057  2134.3920 Cs Caesium 3
-0.159  2137.8580 Cs Caesium 3
-0.208  2138.6980 Cs Caesium 3
-0.197  2140.1280 Cs Caesium 3
-5.330  2142.05230 Cs Caesium 3
-5.350  2142.14130 Cs Caesium 3
-0.057  2144.9330 Cs Caesium 3
-4.550  2147.54160 Cs Caesium 3
-0.262  2147.9430 Cs Caesium 3
-0.089  2148.5220 Cs Caesium 3
-0.000  2152.2180 Cs Caesium 3
-0.045  2152.2180 Cs Caesium 3
-1.930  2157.71010 Cs Caesium 3
-0.078  2158.1290 Cs Caesium 3
-0.108  2158.5460 Cs Caesium 3
-1.040  2159.7380 Cs Caesium 3
-0.067  2160.3920 Cs Caesium 3
-0.029  2163.2810 Cs Caesium 3
-5.440  2164.2980 Cs Caesium 3
-0.082  2167.3470 Cs Caesium 3
-0.445  2169.6960 Cs Caesium 3
-0.050  2170.9510 Cs Caesium 3
-0.005  2171.8310 Cs Caesium 3
-0.007  2176.9220 Cs Caesium 3
-0.000  2178.0770 Cs Caesium 3
-0.002  2178.8770 Cs Caesium 3
-2.730  2180.33830 Cs Caesium 3
-0.002  2182.4430 Cs Caesium 3
-1.220  2182.84590 Cs Caesium 3
-0.119  2183.4340 Cs Caesium 3
-0.248  2187.0080 Cs Caesium 3
-2.490  2190.23360 Cs Caesium 3
-0.153  2192.0120 Cs Caesium 3
-0.153  2197.6780 Cs Caesium 3
-0.038  2197.86020 Cs Caesium 3
-2.060  2201.37700 Cs Caesium 3
-0.032  2201.5920 Cs Caesium 3
-0.000  2202.3790 Cs Caesium 3
-0.032  2204.3230 Cs Caesium 3
-0.113  2205.9810 Cs Caesium 3
-0.010  2209.5940 Cs Caesium 3
-0.455  2210.0460 Cs Caesium 3
-0.072  2210.29700 Cs Caesium 3
-0.002  2211.1590 Cs Caesium 3
-0.310  2218.6290 Cs Caesium 3
-0.055  2219.7380 Cs Caesium 3
-0.156  2221.9770 Cs Caesium 3
-0.029  2225.8920 Cs Caesium 3
-0.008  2226.9660 Cs Caesium 3
-0.263  2229.2370 Cs Caesium 3
-0.258  2229.58880 Cs Caesium 3
-0.076  2229.77820 Cs Caesium 3
-0.084  2232.4900 Cs Caesium 3
-0.383  2233.9420 Cs Caesium 3
-0.013  2234.3700 Cs Caesium 3
-0.895  2235.2830 Cs Caesium 3
-0.000  2239.3410 Cs Caesium 3
-0.004  2241.4920 Cs Caesium 3
-0.018  2242.3190 Cs Caesium 3
-0.034  2243.6330 Cs Caesium 3
-0.197  2245.86720 Cs Caesium 3
-0.187  2247.22770 Cs Caesium 3
-0.004  2252.0280 Cs Caesium 3
-0.073  2256.0440 Cs Caesium 3
-0.710  2256.7550 Cs Caesium 3
-0.002  2258.9380 Cs Caesium 3
-0.015  2260.7350 Cs Caesium 3
-0.003  2260.8620 Cs Caesium 3
-0.064  2260.9530 Cs Caesium 3
-1.230  2261.3340 Cs Caesium 3
-0.081  2264.8440 Cs Caesium 3
-0.928  2267.97120 Cs Caesium 3
-0.019  2269.7270 Cs Caesium 3
-0.021  2269.9620 Cs Caesium 3
-0.095  2273.4230 Cs Caesium 3
-0.126  2274.7000 Cs Caesium 3
-0.036  2274.9960 Cs Caesium 3
-0.021  2275.3720 Cs Caesium 3
-0.066  2276.9220 Cs Caesium 3
-0.022  2277.6200 Cs Caesium 3
-0.050  2278.2060 Cs Caesium 3
-0.082  2285.2120 Cs Caesium 3
-0.173  2287.5830 Cs Caesium 3
-0.000  2289.1900 Cs Caesium 3
-0.009  2294.0630 Cs Caesium 3
-0.000  2296.7130 Cs Caesium 3
-0.023  2297.0070 Cs Caesium 3
-0.000  2297.7480 Cs Caesium 3
-0.126  2298.54140 Cs Caesium 3
-0.000  2301.4100 Cs Caesium 3
-0.143  2301.9140 Cs Caesium 3
-0.268  2301.9140 Cs Caesium 3
-0.235  2301.9510 Cs Caesium 3
-0.000  2302.4440 Cs Caesium 3
-0.059  2302.8940 Cs Caesium 3
-0.284  2305.47180 Cs Caesium 3
-0.161  2307.1630 Cs Caesium 3
-0.178  2307.7750 Cs Caesium 3
-0.026  2308.4170 Cs Caesium 3
-0.488  2308.8460 Cs Caesium 3
-0.334  2309.6090 Cs Caesium 3
-0.106  2310.1670 Cs Caesium 3
-0.980  2317.58730 Cs Caesium 3
-0.000  2319.6770 Cs Caesium 3
-0.020  2321.2380 Cs Caesium 3
-0.105  2321.77590 Cs Caesium 3
-0.275  2324.6780 Cs Caesium 3
-0.004  2325.5120 Cs Caesium 3
-0.659  2326.66840 Cs Caesium 3
-0.001  2328.9020 Cs Caesium 3
-0.014  2331.6660 Cs Caesium 3
-0.008  2331.8050 Cs Caesium 3
-0.006  2334.2250 Cs Caesium 3
-0.172  2334.5460 Cs Caesium 3
-1.450  2335.4410 Cs Caesium 3
-0.252  2338.5940 Cs Caesium 3
-0.900  2341.21020 Cs Caesium 3
-0.015  2341.6680 Cs Caesium 3
-0.325  2343.3120 Cs Caesium 3
-0.064  2345.08360 Cs Caesium 3
-0.007  2345.1970 Cs Caesium 3
-0.174  2347.0450 Cs Caesium 3
-0.077  2347.4300 Cs Caesium 3
-0.000  2350.4750 Cs Caesium 3
-0.104  2350.8950 Cs Caesium 3
-0.097  2351.1950 Cs Caesium 3
-0.875  2352.46130 Cs Caesium 3
-0.217  2354.4510 Cs Caesium 3
-0.000  2354.6590 Cs Caesium 3
-0.020  2354.7940 Cs Caesium 3
-0.625  2355.15010 Cs Caesium 3
-0.096  2355.6300 Cs Caesium 3
-0.023  2356.82680 Cs Caesium 3
-0.016  2357.7390 Cs Caesium 3
-0.092  2358.7370 Cs Caesium 3
-0.210  2359.9330 Cs Caesium 3
-0.044  2364.7240 Cs Caesium 3
-0.605  2365.52190 Cs Caesium 3
-0.008  2365.9380 Cs Caesium 3
-0.030  2366.1130 Cs Caesium 3
-0.012  2366.2090 Cs Caesium 3
-0.024  2366.2440 Cs Caesium 3
-0.346  2366.4100 Cs Caesium 3
-0.000  2371.1310 Cs Caesium 3
-0.000  2376.1940 Cs Caesium 3
-0.008  2376.9160 Cs Caesium 3
-0.164  2380.82460 Cs Caesium 3
-0.000  2385.6910 Cs Caesium 3
-0.136  2390.7820 Cs Caesium 3
-0.135  2391.4800 Cs Caesium 3
-0.395  2394.2500 Cs Caesium 3
-0.265  2395.55260 Cs Caesium 3
-0.171  2397.4700 Cs Caesium 3
-0.003  2398.4520 Cs Caesium 3
-0.003  2398.6760 Cs Caesium 3
-0.346  2400.74180 Cs Caesium 3
-0.028  2402.4090 Cs Caesium 3
-0.005  2403.2100 Cs Caesium 3
-0.108  2404.2410 Cs Caesium 3
-0.021  2404.9280 Cs Caesium 3
-0.011  2406.8980 Cs Caesium 3
-0.159  2407.6590 Cs Caesium 3
-0.280  2411.5620 Cs Caesium 3
-0.648  2412.62610 Cs Caesium 3
-0.209  2415.36910 Cs Caesium 3
-0.066  2420.7480 Cs Caesium 3
-0.094  2422.0490 Cs Caesium 3
-0.060  2422.3430 Cs Caesium 3
-0.020  2422.3970 Cs Caesium 3
-0.015  2423.0390 Cs Caesium 3
-0.008  2423.2010 Cs Caesium 3
-0.007  2423.2010 Cs Caesium 3
-0.243  2423.5860 Cs Caesium 3
-0.004  2423.7570 Cs Caesium 3
-0.280  2425.3320 Cs Caesium 3
-0.224  2425.51720 Cs Caesium 3
-0.232  2427.14200 Cs Caesium 3
-0.327  2427.90930 Cs Caesium 3
-1.100  2428.39040 Cs Caesium 3
-0.112  2432.6580 Cs Caesium 3
-0.055  2433.1590 Cs Caesium 3
-0.027  2435.2970 Cs Caesium 3
-0.173  2440.5390 Cs Caesium 3
-0.030  2442.1020 Cs Caesium 3
-0.050  2445.4010 Cs Caesium 3
-0.000  2449.9510 Cs Caesium 3
-0.315  2450.1700 Cs Caesium 3
-0.012  2451.5220 Cs Caesium 3
-0.225  2452.1910 Cs Caesium 3
-0.008  2453.9780 Cs Caesium 3
-0.077  2456.1760 Cs Caesium 3
-1.460  2456.55260 Cs Caesium 3
-0.238  2457.8000 Cs Caesium 3
-0.010  2458.0430 Cs Caesium 3
-0.003  2459.2240 Cs Caesium 3
-0.041  2459.56900 Cs Caesium 3
-0.002  2459.98770 Cs Caesium 3
-0.438  2462.8560 Cs Caesium 3
-0.024  2463.8900 Cs Caesium 3
-0.137  2467.06960 Cs Caesium 3
-0.288  2467.2970 Cs Caesium 3
-0.100  2467.66670 Cs Caesium 3
-0.028  2468.82800 Cs Caesium 3
-0.117  2469.6480 Cs Caesium 3
-0.003  2470.1440 Cs Caesium 3
-0.096  2472.9490 Cs Caesium 3
-0.020  2475.1590 Cs Caesium 3
-0.038  2476.82670 Cs Caesium 3
-0.159  2477.6200 Cs Caesium 3
-1.440  2478.31960 Cs Caesium 3
-1.120  2479.0840 Cs Caesium 3
-0.087  2483.81300 Cs Caesium 3
-1.170  2486.19580 Cs Caesium 3
-0.056  2487.0510 Cs Caesium 3
-0.110  2487.1340 Cs Caesium 3
-0.011  2487.8600 Cs Caesium 3
-0.004  2488.5850 Cs Caesium 3
-0.176  2490.3390 Cs Caesium 3
-0.327  2495.82610 Cs Caesium 3
-0.109  2497.70710 Cs Caesium 3
-0.122  2500.5890 Cs Caesium 3
-0.002  2502.1810 Cs Caesium 3
-2.850  2503.00800 Cs Caesium 3
-0.023  2503.2920 Cs Caesium 3
-1.730  2512.31290 Cs Caesium 3
-0.031  2512.9600 Cs Caesium 3
-0.107  2515.3990 Cs Caesium 3
-0.004  2516.5020 Cs Caesium 3
-0.010  2516.5470 Cs Caesium 3
-0.688  2521.6220 Cs Caesium 3
-0.033  2525.4310 Cs Caesium 3
-0.051  2526.00270 Cs Caesium 3
-1.530  2526.43030 Cs Caesium 3
-0.131  2526.7040 Cs Caesium 3
-0.012  2527.1880 Cs Caesium 3
-0.072  2527.7310 Cs Caesium 3
-0.329  2529.65640 Cs Caesium 3
-0.004  2533.1220 Cs Caesium 3
-0.149  2533.7060 Cs Caesium 3
-0.295  2534.20860 Cs Caesium 3
-0.126  2534.3710 Cs Caesium 3
-0.205  2539.1600 Cs Caesium 3
-0.243  2539.4660 Cs Caesium 3
-2.780  2541.2910 Cs Caesium 3
-0.086  2541.5960 Cs Caesium 3
-0.187  2547.0050 Cs Caesium 3
-0.078  2549.2340 Cs Caesium 3
-0.030  2551.5420 Cs Caesium 3
-0.223  2551.90520 Cs Caesium 3
-0.003  2552.8150 Cs Caesium 3
-0.140  2555.59890 Cs Caesium 3
-0.170  2557.9970 Cs Caesium 3
-0.428  2561.14250 Cs Caesium 3
-1.980  2569.48130 Cs Caesium 3
-0.028  2570.7140 Cs Caesium 3
-0.069  2571.0710 Cs Caesium 3
-0.260  2572.18160 Cs Caesium 3
-2.640  2573.81770 Cs Caesium 3
-1.260  2575.3340 Cs Caesium 3
-0.145  2575.8930 Cs Caesium 3
-0.000  2579.3950 Cs Caesium 3
-0.016  2585.9450 Cs Caesium 3
-0.091  2587.1170 Cs Caesium 3
-0.265  2589.9050 Cs Caesium 3
-0.018  2590.05290 Cs Caesium 3
-2.110  2591.93190 Cs Caesium 3
-0.339  2592.1400 Cs Caesium 3
-0.002  2593.0510 Cs Caesium 3
-0.011  2593.8430 Cs Caesium 3
-2.830  2597.63380 Cs Caesium 3
-0.056  2598.5500 Cs Caesium 3
-2.090  2601.08810 Cs Caesium 3
-0.132  2601.3040 Cs Caesium 3
-0.163  2603.1310 Cs Caesium 3
-0.029  2603.24670 Cs Caesium 3
-0.510  2604.48470 Cs Caesium 3
-0.173  2605.1290 Cs Caesium 3
-0.001  2605.1290 Cs Caesium 3
-1.460  2605.9840 Cs Caesium 3
-1.790  2606.22220 Cs Caesium 3
-0.480  2610.90270 Cs Caesium 3
-0.315  2612.3640 Cs Caesium 3
-0.057  2612.8170 Cs Caesium 3
-3.050  2615.44970 Cs Caesium 3
-5.500  2617.06520 Cs Caesium 3
-0.114  2617.7210 Cs Caesium 3
-0.044  2618.6460 Cs Caesium 3
-0.120  2619.4200 Cs Caesium 3
-0.713  2620.0130 Cs Caesium 3
-0.004  2621.5550 Cs Caesium 3
-0.021  2621.7220 Cs Caesium 3
-0.023  2623.0980 Cs Caesium 3
-0.164  2623.3140 Cs Caesium 3
-0.581  2624.3590 Cs Caesium 3
-0.022  2624.8500 Cs Caesium 3
-0.001  2628.2800 Cs Caesium 3
-0.026  2629.7720 Cs Caesium 3
-0.014  2630.3200 Cs Caesium 3
-2.910  2631.29420 Cs Caesium 3
-0.038  2633.6560 Cs Caesium 3
-1.420  2634.99950 Cs Caesium 3
-3.100  2636.8380 Cs Caesium 3
-0.000  2637.4020 Cs Caesium 3
-0.007  2637.5830 Cs Caesium 3
-0.480  2641.0500 Cs Caesium 3
-2.930  2643.42350 Cs Caesium 3
-0.001  2644.2810 Cs Caesium 3
-0.280  2646.99770 Cs Caesium 3
-0.058  2647.0650 Cs Caesium 3
-0.000  2647.7280 Cs Caesium 3
-0.051  2649.82930 Cs Caesium 3
-1.770  2651.53380 Cs Caesium 3
-5.600  2652.80910 Cs Caesium 3
-0.475  2657.0510 Cs Caesium 3
-6.100  2657.67740 Cs Caesium 3
-0.006  2659.1570 Cs Caesium 3
-1.110  2659.5110 Cs Caesium 3
-0.026  2660.6980 Cs Caesium 3
-0.000  2661.7880 Cs Caesium 3
-0.005  2663.1160 Cs Caesium 3
-0.000  2664.4690 Cs Caesium 3
-0.003  2667.7970 Cs Caesium 3
-3.590  2669.5950 Cs Caesium 3
-3.920  2670.58700 Cs Caesium 3
-0.157  2671.9660 Cs Caesium 3
-1.100  2672.48840 Cs Caesium 3
-0.310  2675.4260 Cs Caesium 3
-0.287  2677.7790 Cs Caesium 3
-0.233  2679.3890 Cs Caesium 3
-7.090  2679.78770 Cs Caesium 3
-5.880  2682.02930 Cs Caesium 3
-0.395  2682.81720 Cs Caesium 3
-1.590  2687.41060 Cs Caesium 3
-1.630  2690.20690 Cs Caesium 3
-2.130  2692.6390 Cs Caesium 3
-3.560  2701.11640 Cs Caesium 3
-1.820  2701.52430 Cs Caesium 3
-2.520  2701.99950 Cs Caesium 3
-0.084  2706.13860 Cs Caesium 3
-6.100  2707.60940 Cs Caesium 3
-0.527  2711.4180 Cs Caesium 3
-0.603  2712.5160 Cs Caesium 3
-0.055  2714.9570 Cs Caesium 3
-1.110  2741.55930 Cs Caesium 3
-1.130  2749.04240 Cs Caesium 3
-0.081  2751.4530 Cs Caesium 3
-1.430  2751.95140 Cs Caesium 3
-1.430  2758.2240 Cs Caesium 3
-2.240  2765.39720 Cs Caesium 3
-1.390  2775.31090 Cs Caesium 3
-5.260  2777.26220 Cs Caesium 3
-0.258  2779.99870 Cs Caesium 3
-3.050  2784.98690 Cs Caesium 3
-0.131  2787.87840 Cs Caesium 3
-1.230  2789.08050 Cs Caesium 3
-0.099  2789.68900 Cs Caesium 3
-2.730  2792.93020 Cs Caesium 3
-1.420  2795.28930 Cs Caesium 3
-2.570  2800.2350 Cs Caesium 3
-5.450  2810.75730 Cs Caesium 3
-0.059  2811.2550 Cs Caesium 3
-2.470  2811.70010 Cs Caesium 3
-0.347  2817.92060 Cs Caesium 3
-2.550  2820.1600 Cs Caesium 3
-5.670  2823.89410 Cs Caesium 3
-0.055  2824.98410 Cs Caesium 3
-1.600  2830.28270 Cs Caesium 3
-1.450  2835.93980 Cs Caesium 3
-0.019  2836.5360 Cs Caesium 3
-6.480  2838.90980 Cs Caesium 3
-0.782  2845.37180 Cs Caesium 3
-0.388  2845.7910 Cs Caesium 3
-6.480  2846.53670 Cs Caesium 3
-0.002  2846.9960 Cs Caesium 3
-0.768  2851.2640 Cs Caesium 3
-0.928  2852.07570 Cs Caesium 3
-0.059  2853.2960 Cs Caesium 3
-3.150  2855.31870 Cs Caesium 3
-0.141  2858.66980 Cs Caesium 3
-1.670  2860.16150 Cs Caesium 3
-0.340  2861.72570 Cs Caesium 3
-2.610  2863.26130 Cs Caesium 3
-0.818  2865.87310 Cs Caesium 3
-0.229  2869.64760 Cs Caesium 3
-0.217  2872.13550 Cs Caesium 3
-0.511  2873.16430 Cs Caesium 3
-2.680  2876.12760 Cs Caesium 3
-3.670  2882.02960 Cs Caesium 3
-1.170  2885.27820 Cs Caesium 3
-0.073  2891.22100 Cs Caesium 3
-0.282  2892.68710 Cs Caesium 3
-2.980  2894.69450 Cs Caesium 3
-0.020  2895.8270 Cs Caesium 3
-0.565  2896.34080 Cs Caesium 3
-0.010  2900.5800 Cs Caesium 3
-4.080  2915.49270 Cs Caesium 3
-2.200  2921.98330 Cs Caesium 3
-0.257  2922.7750 Cs Caesium 3
-1.560  2923.16960 Cs Caesium 3
-0.309  2924.9530 Cs Caesium 3
-2.560  2925.4440 Cs Caesium 3
-3.350  2939.14240 Cs Caesium 3
-1.300  2943.08950 Cs Caesium 3
-0.058  2944.94330 Cs Caesium 3
-3.400  2963.72140 Cs Caesium 3
-3.230  2965.89280 Cs Caesium 3
-0.688  2969.92880 Cs Caesium 3
-0.088  2973.74690 Cs Caesium 3
-1.670  2977.72900 Cs Caesium 3
-0.355  2983.45180 Cs Caesium 3
-0.022  2986.12560 Cs Caesium 3
-0.715  2996.22210 Cs Caesium 3
-0.838  2997.10420 Cs Caesium 3
-0.870  2999.1340 Cs Caesium 3
-1.040  3000.29270 Cs Caesium 3
-0.618  3002.15920 Cs Caesium 3
-0.011  3003.93220 Cs Caesium 3
-0.087  3016.7040 Cs Caesium 3
-0.267  3051.56600 Cs Caesium 3
-0.152  3055.12360 Cs Caesium 3
-1.070  3056.87190 Cs Caesium 3
-0.523  3062.15030 Cs Caesium 3
-0.030  3063.4860 Cs Caesium 3
-0.543  3067.48250 Cs Caesium 3
-0.199  3078.9460 Cs Caesium 3
-0.013  3085.3380 Cs Caesium 3
-0.369  3098.35510 Cs Caesium 3
-2.180  3150.26810 Cs Caesium 3
-0.627  3153.27000 Cs Caesium 3
-0.490  3154.88060 Cs Caesium 3
-2.250  3173.52390 Cs Caesium 3
-0.340  3179.5620 Cs Caesium 3
-0.004  3199.7590 Cs Caesium 3
-0.000 C 3208.4340 Cs Caesium 1
-0.723  3210.60150 Cs Caesium 3
-0.000 C 3210.8940 Cs Caesium 1
-0.000 C 3213.7590 Cs Caesium 1
-0.381  3214.7500 Cs Caesium 3
-0.000 C 3217.1000 Cs Caesium 1
-0.000 C 3221.0460 Cs Caesium 1
-0.000 C 3221.1880 Cs Caesium 1
-0.000 C 3225.7480 Cs Caesium 1
-0.000 C 3225.9130 Cs Caesium 1
-0.625  3228.31830 Cs Caesium 3
-0.000 C 3231.4100 Cs Caesium 1
-0.000 C 3231.6130 Cs Caesium 1
-0.913  3235.21460 Cs Caesium 3
-0.000 C 3238.3160 Cs Caesium 1
-0.000 C 3238.5640 Cs Caesium 1
-0.000 C 3246.8610 Cs Caesium 1
-0.000 C 3247.1730 Cs Caesium 1
-0.015  3248.43440 Cs Caesium 3
-0.286  3256.24930 Cs Caesium 3
-0.000 C 3257.6110 Cs Caesium 1
-0.000 C 3258.0100 Cs Caesium 1
-0.050  3263.23890 Cs Caesium 3
-2.180  3269.26340 Cs Caesium 3
-0.000 C+ 3271.4170 Cs Caesium 1
-0.000 C 3271.9200 Cs Caesium 1
-0.000 D+ 3289.5480 Cs Caesium 1
-0.000 C+ 3290.2330 Cs Caesium 1
-0.685  3300.83180 Cs Caesium 3
-0.029  3304.69380 Cs Caesium 3
-0.198  3312.4870 Cs Caesium 3
-0.000 C+ 3314.0750 Cs Caesium 1
-0.000 C+ 3315.0090 Cs Caesium 1
-0.079  3316.2410 Cs Caesium 3
-0.627  3316.46800 Cs Caesium 3
-0.127  3323.74860 Cs Caesium 3
-0.208  3340.8200 Cs Caesium 3
-1.070  3341.56480 Cs Caesium 3
-2.700  3344.9820 Cs Caesium 3
-0.000 B 3348.4520 Cs Caesium 1
-0.000 B 3349.7830 Cs Caesium 1
-2.490  3350.42610 Cs Caesium 3
-0.528  3358.66440 Cs Caesium 3
-0.439  3359.88420 Cs Caesium 3
-0.149  3380.08790 Cs Caesium 3
-0.350  3390.26220 Cs Caesium 3
-0.475  3398.1900 Cs Caesium 3
-0.000 C+ 3398.9410 Cs Caesium 1
-0.000 B 3400.9550 Cs Caesium 1
-0.840  3407.62170 Cs Caesium 3
-2.550  3412.31590 Cs Caesium 3
-0.476  3419.09210 Cs Caesium 3
-0.156  3444.96280 Cs Caesium 3
-0.071  3451.40910 Cs Caesium 3
-0.152  3464.43690 Cs Caesium 3
-0.027  3466.21630 Cs Caesium 3
-0.001 B 3477.8040 Cs Caesium 1
-0.000 B 3481.0560 Cs Caesium 1
-0.029  3504.6570 Cs Caesium 3
-0.035  3519.32710 Cs Caesium 3
-0.082  3533.8980 Cs Caesium 3
-0.315  3534.3930 Cs Caesium 3
-0.181  3542.5810 Cs Caesium 3
-1.760  3560.8340 Cs Caesium 3
-0.084  3563.1540 Cs Caesium 3
-1.990  3566.1610 Cs Caesium 3
-0.023  3593.5120 Cs Caesium 3
-1.630  3598.47880 Cs Caesium 3
-0.153  3599.97750 Cs Caesium 3
-0.075  3603.89710 Cs Caesium 3
-0.047  3606.6000 Cs Caesium 3
-2.230  3609.3410 Cs Caesium 3
-0.001 C+ 3612.50140 Cs Caesium 1
-0.000 C 3618.34000 Cs Caesium 1
-0.141  3619.2220 Cs Caesium 3
-0.123  3623.7370 Cs Caesium 3
-0.579  3625.47400 Cs Caesium 3
-2.250  3631.7230 Cs Caesium 3
-1.430  3642.38090 Cs Caesium 3
-0.541  3644.8190 Cs Caesium 3
-0.026  3652.11960 Cs Caesium 3
-1.010  3657.7610 Cs Caesium 3
-1.650  3662.44690 Cs Caesium 3
-0.703  3681.51780 Cs Caesium 3
-1.810  3700.5470 Cs Caesium 3
-1.440  3711.84220 Cs Caesium 3
-0.057  3731.05230 Cs Caesium 3
-1.340  3735.4190 Cs Caesium 3
-0.353  3752.48450 Cs Caesium 3
-0.049  3799.00480 Cs Caesium 3
-0.026  3818.56180 Cs Caesium 3
-0.162  3820.63870 Cs Caesium 3
-0.480  3823.45530 Cs Caesium 3
-0.010  3824.7110 Cs Caesium 3
-0.092  3838.55060 Cs Caesium 3
-1.720  3865.4310 Cs Caesium 3
-0.005  3871.5330 Cs Caesium 3
-0.004 B+ 3877.24730 Cs Caesium 1
-1.830  3884.7310 Cs Caesium 3
-0.078  3889.47640 Cs Caesium 3
-0.001 C+ 3889.7133270 Cs Caesium 1
-0.006  3893.3200 Cs Caesium 3
-0.195  3905.9220 Cs Caesium 3
-0.001  3911.42320 Cs Caesium 3
-0.618  3926.70730 Cs Caesium 3
-0.001  3939.3790 Cs Caesium 3
-0.610  3957.0540 Cs Caesium 3
-0.052  3978.6800 Cs Caesium 3
-0.006  3994.9990 Cs Caesium 3
-0.905  4002.82920 Cs Caesium 3
-1.080  4007.67710 Cs Caesium 3
-0.360  4007.91000 Cs Caesium 3
-0.004  4016.1670 Cs Caesium 3
-0.350  4024.7410 Cs Caesium 3
-0.052  4029.5520 Cs Caesium 3
-0.255  4029.7750 Cs Caesium 3
-0.365  4036.2670 Cs Caesium 3
-1.230  4044.5660 Cs Caesium 3
-1.410  4082.6440 Cs Caesium 3
-0.410  4120.4520 Cs Caesium 3
-0.317  4153.1690 Cs Caesium 3
-0.109  4159.7730 Cs Caesium 3
-0.440  4164.42480 Cs Caesium 3
-0.063  4174.7190 Cs Caesium 3
-0.221  4194.4200 Cs Caesium 3
-0.092  4213.9400 Cs Caesium 3
-0.009  4284.9250 Cs Caesium 3
-0.021  4297.3060 Cs Caesium 3
-0.109  4298.7270 Cs Caesium 3
-0.353  4314.0100 Cs Caesium 3
-0.358  4327.54490 Cs Caesium 3
-0.017  4336.6580 Cs Caesium 3
-0.095  4399.2390 Cs Caesium 3
-0.132  4405.1000 Cs Caesium 3
-0.268  4411.46000 Cs Caesium 3
-0.187  4426.9180 Cs Caesium 3
-0.141  4448.9130 Cs Caesium 3
-0.029  4494.9280 Cs Caesium 3
-0.144  4507.98500 Cs Caesium 3
-0.108  4524.1270 Cs Caesium 3
-0.018 AA 4556.55680 Cs Caesium 1
-0.025  4573.88960 Cs Caesium 3
-0.008 A+ 4594.45900 Cs Caesium 1
-0.218  4613.4710 Cs Caesium 3
-0.236  4621.9030 Cs Caesium 3
-0.006  4666.8240 Cs Caesium 3
-0.306  4717.4370 Cs Caesium 3
-0.013  4794.2480 Cs Caesium 3
-0.037  4797.0280 Cs Caesium 3
-0.195  4852.9410 Cs Caesium 3
-0.055  4865.4840 Cs Caesium 3
-0.023  5037.130 Cs Caesium 3
-0.001  5068.3410 Cs Caesium 3
-0.009  5170.8470 Cs Caesium 3
-0.077  5268.8540 Cs Caesium 3
-0.027  5382.2880 Cs Caesium 3
-0.015  5465.5170 Cs Caesium 3
-0.026  5530.1710 Cs Caesium 3
-0.022  5579.3750 Cs Caesium 3
-0.063  5594.3840 Cs Caesium 3
-0.088  5670.9130 Cs Caesium 3
-0.083  5708.8150 Cs Caesium 3
-0.002  5741.8450 Cs Caesium 3
-0.175  5808.4960 Cs Caesium 3
-0.458  5852.7180 Cs Caesium 3
-0.012  5863.3800 Cs Caesium 3
-0.021  5884.0610 Cs Caesium 3
-0.087  5941.1380 Cs Caesium 3
-0.210  5941.7890 Cs Caesium 3
-0.440  5944.6280 Cs Caesium 3
-1.800  5948.6130 Cs Caesium 3
-0.369  5949.9020 Cs Caesium 3
-2.030  5951.7850 Cs Caesium 3
-0.000  5964.4240 Cs Caesium 3
-0.313  5975.3860 Cs Caesium 3
-0.990  6005.3820 Cs Caesium 3
-1.390  6016.7390 Cs Caesium 3
-0.018  6023.8790 Cs Caesium 3
-0.059  6042.8370 Cs Caesium 3
-0.005  6045.6610 Cs Caesium 3
-0.103  6066.2750 Cs Caesium 3
-0.000  6068.2770 Cs Caesium 3
-1.410  6081.5370 Cs Caesium 3
-0.355  6097.4510 Cs Caesium 3
-0.101  6110.7590 Cs Caesium 3
-1.130  6123.7670 Cs Caesium 3
-0.168  6137.9350 Cs Caesium 3
-0.001  6148.3170 Cs Caesium 3
-0.758  6150.4740 Cs Caesium 3
-0.032  6150.8520 Cs Caesium 3
-2.190  6152.3390 Cs Caesium 3
-0.790  6160.0700 Cs Caesium 3
-0.555  6164.7570 Cs Caesium 3
-0.071  6201.5460 Cs Caesium 3
-1.950  6203.5650 Cs Caesium 3
-0.211  6224.9100 Cs Caesium 3
-0.001  6228.4150 Cs Caesium 3
-0.015  6232.2620 Cs Caesium 3
-0.159  6243.6740 Cs Caesium 3
-2.030  6244.6840 Cs Caesium 3
-0.930  6258.3870 Cs Caesium 3
-0.001  6303.5390 Cs Caesium 3
-0.111  6309.0150 Cs Caesium 3
-0.006  6314.4030 Cs Caesium 3
-0.071  6318.8990 Cs Caesium 3
-1.150  6337.6300 Cs Caesium 3
-0.994  6374.3800 Cs Caesium 3
-0.016  6385.8100 Cs Caesium 3
-0.021  6390.1630 Cs Caesium 3
-0.023  6455.2980 Cs Caesium 3
-1.450  6458.1120 Cs Caesium 3
-0.495  6475.1030 Cs Caesium 3
-0.525  6490.8580 Cs Caesium 3
-0.265  6518.5910 Cs Caesium 3
-0.283  6520.7820 Cs Caesium 3
-0.233  6545.7780 Cs Caesium 3
-0.006  6561.3220 Cs Caesium 3
-0.456  6597.1850 Cs Caesium 3
-0.126  6597.6410 Cs Caesium 3
-0.287  6602.5990 Cs Caesium 3
-0.657  6602.5990 Cs Caesium 3
-1.100  6626.2640 Cs Caesium 3
-0.029  6640.7210 Cs Caesium 3
-0.083  6650.2940 Cs Caesium 3
-0.017  6654.580 Cs Caesium 3
-0.057  6656.9170 Cs Caesium 3
-0.340  6667.5830 Cs Caesium 3
-0.008  6690.0940 Cs Caesium 3
-0.193  6690.0940 Cs Caesium 3
-0.003  6702.5380 Cs Caesium 3
-0.538  6710.0970 Cs Caesium 3
-0.000  6763.2090 Cs Caesium 3
-0.001  6763.4920 Cs Caesium 3
-0.010  6807.900 Cs Caesium 3
-0.021  6842.7680 Cs Caesium 3
-0.013  6859.7590 Cs Caesium 3
-0.057  6891.900 Cs Caesium 3
-0.679  8009.93870 Cs Caesium 3
-0.668  8138.1140 Cs Caesium 3
-0.328 AAA 8523.47275890 Cs Caesium 1
-0.528  8805.0490 Cs Caesium 3
-0.286 AAA 8945.929600210 Cs Caesium 1
-0.376  9282.7660 Cs Caesium 3
-0.375  9601.79440 Cs Caesium 3
-0.470  9762.010 Cs Caesium 3
-0.221  10472.6860 Cs Caesium 3
-0.034  10572.8800 Cs Caesium 3
-0.050  10803.6070 Cs Caesium 3
-0.200  10820.4960 Cs Caesium 3
-0.131  17702.940 Cs Caesium 3
-0.027  18497.5370 Cs Caesium 3
-0.113  19734.4100 Cs Caesium 3
-0.000  21126.9940 Cs Caesium 3
-0.000  21150.780 Cs Caesium 3
-0.010 A+ 30111.480 Cs Caesium 1
-0.008 AA 34909.650 Cs Caesium 1
-0.001 A+ 36140.8540 Cs Caesium 1
+1200000.000  2.35770 CsXLVI Caesium
+440000.000  2.40250 CsXLVI Caesium
+5400000.000  2.44520 CsXLVI Caesium
+2500000.000  2.60760 CsXLVI Caesium
+5000000.000  2.61490 CsXLVI Caesium
+16900.000  2.64270 CsXLVI Caesium
+368000.000  2.82530 CsXLVI Caesium
+113000.000  7.4250 CsXLV Caesium
+142000.000  7.5980 CsXLV Caesium
+232000.000  7.6710 CsXLV Caesium
+288000.000  8.1010 CsXLV Caesium
+43200.000  8.3420 CsXLV Caesium
+559000.000  8.6840 CsXLV Caesium
+593000.000  8.7890 CsXLV Caesium
+106000.000  8.9110 CsXLV Caesium
+21800.000  18.3530 CsXLVII Caesium
+1010.000  39.7840 CsXLVII Caesium
+1860.000  55.500 CsXLV Caesium
+1770.000  63.140 CsXLV Caesium
+686.000  82.220 CsXLV Caesium
+1410.000  84.1590 CsXLIV Caesium
+3060.000  85.0520 CsX Caesium
+202.000  87.3370 CsX Caesium
+47.000  88.0330 CsX Caesium
+456.000  88.8090 CsX Caesium
+384.000  89.6080 CsX Caesium
+22000.000  103.3740 CsXI Caesium
+160.000  104.0850 CsXI Caesium
+810.000  104.9800 CsXI Caesium
+3.400  105.8580 CsXXVI Caesium
+20000.000  106.0330 CsXI Caesium
+22000.000  106.1930 CsXI Caesium
+21000.000  106.2130 CsXI Caesium
+19000.000  106.9230 CsXI Caesium
+19000.000  107.1470 CsXI Caesium
+580.000  108.2450 CsXI Caesium
+93.000  109.1700 CsXI Caesium
+1280.000  109.4740 CsXXVI Caesium
+20000.000  109.5890 CsX Caesium
+786.000  112.6590 CsXXVI Caesium
+1750.000  113.2910 CsXXVII Caesium
+78.000  117.4820 CsXI Caesium
+2.000  117.5950 CsXI Caesium
+1.000  117.6160 CsXI Caesium
+28.000  120.1970 CsXI Caesium
+7.000  120.3150 CsXI Caesium
+242.000  120.690 CsXLV Caesium
+1640.000  121.5420 CsXXVI Caesium
+2.000  121.8490 CsXI Caesium
+140.000  123.7830 CsXI Caesium
+5.000  123.9080 CsXI Caesium
+53.000  124.0700 CsXI Caesium
+18.000  124.3700 CsXI Caesium
+4.000  124.5940 CsXI Caesium
+5.000  124.6890 CsXI Caesium
+13.000  124.7000 CsXI Caesium
+1900.000  125.1380 CsXXVI Caesium
+1350.000  125.1660 CsXXVII Caesium
+53.000  125.1910 CsXI Caesium
+10.000  125.5910 CsXI Caesium
+23.000  125.7310 CsXI Caesium
+8.000  126.2300 CsXI Caesium
+85.000  126.2790 CsXI Caesium
+810.000  126.3720 CsXI Caesium
+320.000  126.8200 CsXI Caesium
+740.000  126.9300 CsXI Caesium
+1.000  126.9480 CsXI Caesium
+12.000  127.0870 CsXI Caesium
+2780.000  127.1600 CsXXVI Caesium
+45.000  127.2610 CsXI Caesium
+1500.000  127.3440 CsXXVI Caesium
+18.000  127.3930 CsXI Caesium
+420.000  127.4200 CsXI Caesium
+33.000  127.6370 CsXI Caesium
+120.000  127.7470 CsXI Caesium
+5.000  127.7840 CsXI Caesium
+2.000  128.2850 CsXI Caesium
+20.000  128.4420 CsXI Caesium
+36.000  128.6310 CsXI Caesium
+130.000  128.6580 CsXI Caesium
+65.000  128.6760 CsXI Caesium
+730.000  128.7840 CsXI Caesium
+23.000  128.8540 CsXI Caesium
+22.000  128.9770 CsXI Caesium
+240.000  129.0450 CsXI Caesium
+400.000  129.0820 CsXI Caesium
+23.000  129.2600 CsXI Caesium
+260.000  129.3750 CsXI Caesium
+18.000  129.4350 CsXI Caesium
+300.000  129.4350 CsXI Caesium
+20.000  129.4810 CsXI Caesium
+41.000  129.5080 CsXI Caesium
+150.000  129.5560 CsXI Caesium
+1300.000  129.6830 CsXXVII Caesium
+290.000  129.9060 CsXI Caesium
+600.000  129.9950 CsXI Caesium
+189.000  130.1560 CsXXVI Caesium
+40.000  130.2880 CsXI Caesium
+410.000  130.2880 CsXI Caesium
+240.000  130.3810 CsXI Caesium
+2.000  130.4750 CsXI Caesium
+86.100  130.5180 CsXXVII Caesium
+2330.000  130.7990 CsXXVI Caesium
+120.000  130.8550 CsXI Caesium
+910.000  130.9690 CsXI Caesium
+170.000  131.0420 CsXI Caesium
+550.000  131.2350 CsXI Caesium
+1.000  131.4000 CsXI Caesium
+5.000  131.4730 CsXI Caesium
+60.000  131.5770 CsXI Caesium
+20.000  131.8510 CsXI Caesium
+5.000  132.0610 CsXI Caesium
+60.000  132.1240 CsXI Caesium
+130.000  132.1580 CsXI Caesium
+120.000  132.3340 CsXI Caesium
+210.000  132.5360 CsXI Caesium
+40.000  132.7080 CsXI Caesium
+15.000  132.7410 CsXI Caesium
+28.000  132.8880 CsX Caesium
+301.000  133.0180 CsXXVII Caesium
+23.000  133.1240 CsXI Caesium
+10.000  133.2340 CsXI Caesium
+3.000  133.5210 CsXI Caesium
+13.000  133.7380 CsXI Caesium
+25.000  134.6360 CsXI Caesium
+5.000  134.6620 CsXI Caesium
+45.000  134.7610 CsXI Caesium
+33.000  134.9950 CsXI Caesium
+3.000  135.0920 CsXI Caesium
+10.000  135.2300 CsXI Caesium
+8.000  135.5350 CsXI Caesium
+5.000  135.6160 CsXI Caesium
+8.000  135.7880 CsXI Caesium
+2.000  136.0080 CsXI Caesium
+2.000  136.1880 CsXI Caesium
+10.000  136.2570 CsXI Caesium
+5.000  136.6250 CsXI Caesium
+5.000  136.8820 CsXI Caesium
+10.000  137.4680 CsXI Caesium
+3.000  137.8080 CsXI Caesium
+6.000  138.4230 CsXI Caesium
+3.000  138.6950 CsXI Caesium
+193.000  139.0760 CsXXVII Caesium
+13.000  139.1660 CsXI Caesium
+4.670  139.5340 CsX Caesium
+208.000  139.6700 CsX Caesium
+20.000  139.9930 CsXI Caesium
+1140.000  142.8900 CsX Caesium
+10.000  145.1720 CsX Caesium
+53.000  145.7190 CsXI Caesium
+7.420  149.3650 CsXXVI Caesium
+8.000  149.9280 CsXI Caesium
+1030.000  155.9390 CsXXVI Caesium
+426.000  157.0510 CsXXVI Caesium
+597.000  157.7850 CsXXVI Caesium
+265.000  161.6380 CsXXVI Caesium
+1190.000  163.8480 CsXXVI Caesium
+562.000  164.5680 CsXXVII Caesium
+69.200  187.8370 CsIX Caesium
+570.000  191.6060 CsIX Caesium
+177.000  195.0390 CsIX Caesium
+133.000  196.1430 CsIX Caesium
+10.000  209.9990 CsVIII Caesium
+218.000  225.2140 CsXXVII Caesium
+34.000  242.3900 CsXXVI Caesium
+272.000  247.2860 CsIX Caesium
+285.000  247.8960 CsIX Caesium
+112.000  302.3140 CsIX Caesium
+24.000  322.5900 CsVIII Caesium
+234.000  324.4370 CsIX Caesium
+72.000  327.9410 CsVIII Caesium
+120.000  346.5860 CsVIII Caesium
+264.000  375.4460 CsX Caesium
+83.100  414.1860 CsX Caesium
+54.000  416.3040 CsX Caesium
+172.000  418.8990 CsX Caesium
+93.400  420.5490 CsX Caesium
+216.000  422.6010 CsX Caesium
+177.000  423.7530 CsX Caesium
+34.800  425.4070 CsX Caesium
+223.000  428.5730 CsX Caesium
+138.000  428.9300 CsX Caesium
+90.000  430.1520 CsX Caesium
+327.000  430.3680 CsX Caesium
+322.000  430.7060 CsX Caesium
+151.000  431.2510 CsX Caesium
+146.000  431.7720 CsX Caesium
+166.000  431.9980 CsX Caesium
+201.000  432.0630 CsX Caesium
+138.000  433.9490 CsX Caesium
+215.000  435.9710 CsX Caesium
+34.800  436.2540 CsX Caesium
+326.000  436.6270 CsX Caesium
+225.000  437.2320 CsX Caesium
+186.000  437.5950 CsX Caesium
+322.000  437.7630 CsX Caesium
+245.000  438.4710 CsX Caesium
+271.000  439.3600 CsX Caesium
+277.000  439.5950 CsX Caesium
+23.800  440.8950 CsIII Caesium
+49.800  440.9180 CsIII Caesium
+216.000  441.2970 CsX Caesium
+96.000  441.6550 CsX Caesium
+97.300  442.4720 CsX Caesium
+6.630  444.1310 CsIII Caesium
+3.800  444.3430 CsIII Caesium
+32.400  447.6300 CsX Caesium
+3.900  450.2980 CsIII Caesium
+59.300  451.4290 CsX Caesium
+12.200  452.7050 CsIII Caesium
+96.000  453.2100 CsX Caesium
+75.500  453.5660 CsIII Caesium
+3.130  455.6450 CsIII Caesium
+17.500  456.2450 CsIII Caesium
+153.000  458.8640 CsIX Caesium
+69.000  460.7530 CsVIII Caesium
+101.000  466.2770 CsX Caesium
+198.000  466.2770 CsX Caesium
+126.000  466.7730 CsX Caesium
+2.750  467.2470 CsIII Caesium
+195.000  467.7690 CsX Caesium
+93.400  468.1050 CsX Caesium
+144.000  468.8100 CsX Caesium
+38.800  469.0790 CsIII Caesium
+90.000  469.2200 CsVIII Caesium
+10.800  469.5570 CsIII Caesium
+1.520  470.3230 CsIII Caesium
+36.200  470.7560 CsX Caesium
+137.000  471.0090 CsX Caesium
+8.750  471.4650 CsIII Caesium
+49.000  471.7420 CsVIII Caesium
+11.200  471.9210 CsIII Caesium
+1.250  473.2390 CsIII Caesium
+0.548  473.2480 CsIII Caesium
+4.250  474.6150 CsIII Caesium
+51.000  475.5130 CsX Caesium
+62.400  476.5800 CsX Caesium
+5.870  478.2300 CsIII Caesium
+2.850  479.3880 CsIII Caesium
+3.400  479.7260 CsIII Caesium
+77.500  479.9510 CsIII Caesium
+50.800  480.2420 CsIII Caesium
+42.600  483.5160 CsX Caesium
+3.180  483.9640 CsIII Caesium
+74.300  484.0700 CsX Caesium
+9.400  486.3300 CsIII Caesium
+28.000  486.9780 CsX Caesium
+35.800  489.9180 CsX Caesium
+60.200  494.0350 CsIII Caesium
+50.000  494.7840 CsIII Caesium
+42.200  497.5480 CsIII Caesium
+27.300  499.5720 CsIII Caesium
+15.800  501.7570 CsIII Caesium
+151.000  502.3700 CsIX Caesium
+100.000  502.9940 CsVIII Caesium
+0.397  503.8390 CsIII Caesium
+0.993  504.1720 CsIII Caesium
+11.600  504.3980 CsIII Caesium
+0.865  504.9140 CsIII Caesium
+3.400  506.4430 CsIII Caesium
+18.000  507.0170 CsX Caesium
+4.580  508.0060 CsIII Caesium
+25.000  508.3450 CsVIII Caesium
+2.600  511.3080 CsVIII Caesium
+23.700  511.8960 CsIX Caesium
+4.850  531.17970 CsIII Caesium
+1.600  539.21930 CsIII Caesium
+110.000  542.3520 CsVIII Caesium
+14.200  556.91250 CsIII Caesium
+4.000  558.9610 CsX Caesium
+0.923  560.6540 CsIII Caesium
+2.140  565.4330 CsX Caesium
+9.130  584.1470 CsIII Caesium
+103.000  584.39960 CsIII Caesium
+40.300  596.0560 CsX Caesium
+25.200  599.5800 CsX Caesium
+349.000  603.0090 CsIII Caesium
+280.000  607.8500 CsIII Caesium
+158.000  607.9420 CsIII Caesium
+3.600  608.1300 CsX Caesium
+20.600  609.5860 CsX Caesium
+49.000  611.5050 CsX Caesium
+36.600  612.6400 CsX Caesium
+345.000  614.0130 CsIII Caesium
+28.300  614.3830 CsX Caesium
+143.000  621.1510 CsIII Caesium
+45.600  622.2160 CsX Caesium
+6.330  625.0850 CsX Caesium
+71.000  627.6470 CsVIII Caesium
+58.000  630.6860 CsX Caesium
+54.000  633.2050 CsX Caesium
+350.000  635.8630 CsIII Caesium
+6.200  637.6730 CsIII Caesium
+29.200  638.1700 CsIII Caesium
+48.000  655.2970 CsX Caesium
+18.000  657.9450 CsIII Caesium
+26.000  658.8650 CsX Caesium
+40.800  663.82410 CsIII Caesium
+41.500  664.4540 CsIX Caesium
+26.900  664.59710 CsIII Caesium
+11.800  666.2500 CsIII Caesium
+7.200  668.4800 CsX Caesium
+7.880  673.0570 CsIII Caesium
+8.000  678.4600 CsX Caesium
+48.500  679.6040 CsIII Caesium
+5.700  687.55500 CsIII Caesium
+2.600  688.0400 CsX Caesium
+1.570  689.1030 CsX Caesium
+3.430  691.60220 CsIII Caesium
+6.330  695.2160 CsX Caesium
+16.700  699.43310 CsIII Caesium
+0.808  703.88810 CsIII Caesium
+3.400  705.2800 CsX Caesium
+1.550  710.25500 CsIII Caesium
+39.500  721.79750 CsIII Caesium
+6.830  722.20780 CsIII Caesium
+13.100  730.9440 CsX Caesium
+8.230  731.56350 CsIII Caesium
+19.300  731.95990 CsIII Caesium
+1.130  736.66130 CsIII Caesium
+6.030  740.29770 CsIII Caesium
+0.513  742.23340 CsIII Caesium
+19.200  745.0330 CsX Caesium
+0.163  750.38060 CsIII Caesium
+32.400  750.9930 CsX Caesium
+21.100  751.4050 CsX Caesium
+16.300  752.7260 CsX Caesium
+10.700  755.17860 CsIII Caesium
+0.207  758.82540 CsIII Caesium
+0.073  759.90150 CsIII Caesium
+9.400  765.2960 CsX Caesium
+25.100  781.7140 CsIX Caesium
+0.378  787.7280 CsIII Caesium
+0.748  801.95090 CsIII Caesium
+0.800  808.7610 CsII Caesium
+0.290  814.02600 CsIII Caesium
+0.013  817.35200 CsIII Caesium
+0.415  820.34190 CsIII Caesium
+0.000  825.99760 CsIII Caesium
+0.155  830.39300 CsIII Caesium
+0.421  837.39110 CsIII Caesium
+0.073  843.37090 CsIII Caesium
+0.135  847.92250 CsIII Caesium
+1.000  895.8280 CsVIII Caesium
+0.610  920.3550 CsIII Caesium
+0.135  921.6640 CsIII Caesium
+1.600  926.6570 CsII Caesium
+0.002  932.6730 CsIII Caesium
+0.399  984.3110 CsIX Caesium
+7.940  993.9690 CsIX Caesium
+7.710  1021.5390 CsIX Caesium
+0.760  1054.7830 CsIII Caesium
+0.024 D+ 1089.980 Cs Caesium
+0.400 E 1091.110 Cs Caesium
+0.080  1100.2900 CsIII Caesium
+0.825  1106.4420 CsIII Caesium
+0.370  1108.1030 CsIII Caesium
+0.944  1110.7940 CsIII Caesium
+0.234  1110.8300 CsIII Caesium
+0.481  1122.9490 CsIII Caesium
+0.408  1124.0560 CsIII Caesium
+0.713  1132.0760 CsIII Caesium
+1.020  1167.9700 CsIII Caesium
+0.235  1178.1100 CsIII Caesium
+3.430  1181.3460 CsIII Caesium
+2.780  1187.2430 CsIII Caesium
+1.210  1191.7950 CsIII Caesium
+0.990  1201.0950 CsIII Caesium
+0.284  1219.6250 CsIII Caesium
+0.732  1231.7900 CsIII Caesium
+0.211  1233.0320 CsIII Caesium
+0.013  1579.8660 CsIII Caesium
+0.074  1610.8200 CsIII Caesium
+0.160  1627.61420 CsIII Caesium
+0.008  1630.9330 CsIII Caesium
+0.182  1631.4240 CsIII Caesium
+2.070  1642.49260 CsIII Caesium
+0.044  1653.46350 CsIII Caesium
+0.088  1654.56220 CsIII Caesium
+0.091  1658.01320 CsIII Caesium
+0.102  1660.50150 CsIII Caesium
+0.183  1667.89950 CsIII Caesium
+0.023  1673.99090 CsIII Caesium
+0.141  1677.40820 CsIII Caesium
+0.093  1681.67480 CsIII Caesium
+0.125  1682.78270 CsIII Caesium
+0.478  1689.1430 CsIII Caesium
+0.845  1693.2600 CsIII Caesium
+3.710  1693.58250 CsIII Caesium
+0.002  1701.2940 CsIII Caesium
+0.304  1702.6080 CsIII Caesium
+1.230  1703.1250 CsIII Caesium
+0.742  1703.3200 CsIII Caesium
+4.420  1703.47330 CsIII Caesium
+0.437  1705.24850 CsIII Caesium
+3.130  1706.79450 CsIII Caesium
+0.258  1711.6800 CsIII Caesium
+1.060  1712.0160 CsIII Caesium
+0.015  1712.2730 CsIII Caesium
+0.405  1714.10330 CsIII Caesium
+0.112  1715.70850 CsIII Caesium
+0.056  1722.31230 CsIII Caesium
+3.730  1723.1170 CsIII Caesium
+0.142  1724.08140 CsIII Caesium
+0.041  1726.9550 CsIII Caesium
+1.010  1728.64730 CsIII Caesium
+0.002  1730.2670 CsIII Caesium
+0.413  1732.05730 CsIII Caesium
+0.458  1733.13290 CsIII Caesium
+0.000  1736.8530 CsIII Caesium
+0.064  1736.9200 CsIII Caesium
+0.210  1739.16180 CsIII Caesium
+0.026  1739.2300 CsIII Caesium
+0.394  1740.85700 CsIII Caesium
+3.120  1741.61730 CsIII Caesium
+0.528  1744.5160 CsIII Caesium
+0.105  1747.84320 CsIII Caesium
+0.030  1750.2770 CsIII Caesium
+0.000  1752.6760 CsIII Caesium
+0.124  1758.82380 CsIII Caesium
+0.454  1759.0540 CsIII Caesium
+0.013  1759.95410 CsIII Caesium
+0.483  1761.54620 CsIII Caesium
+0.012  1765.3030 CsIII Caesium
+0.615  1766.51350 CsIII Caesium
+0.032  1768.3920 CsIII Caesium
+0.560  1772.47260 CsIII Caesium
+0.035  1772.7210 CsIII Caesium
+0.073  1774.7330 CsIII Caesium
+0.732  1778.0450 CsIII Caesium
+0.785  1779.73660 CsIII Caesium
+0.255  1780.55200 CsIII Caesium
+0.313  1782.65060 CsIII Caesium
+0.044  1783.0020 CsIII Caesium
+0.205  1783.30870 CsIII Caesium
+0.024  1783.7090 CsIII Caesium
+0.157  1785.30970 CsIII Caesium
+0.118  1787.61940 CsIII Caesium
+0.178  1788.52900 CsIII Caesium
+0.068  1790.29710 CsIII Caesium
+0.039  1792.21260 CsIII Caesium
+0.026  1798.17870 CsIII Caesium
+0.072  1798.7220 CsIII Caesium
+0.146  1799.35950 CsIII Caesium
+0.975  1799.35950 CsIII Caesium
+0.238  1801.82970 CsIII Caesium
+0.144  1803.3890 CsIII Caesium
+0.024  1807.8760 CsIII Caesium
+0.016  1811.0660 CsIII Caesium
+0.080  1811.95550 CsIII Caesium
+0.365  1822.39550 CsIII Caesium
+1.200  1823.92590 CsIII Caesium
+0.000  1824.43490 CsIII Caesium
+0.002  1824.43490 CsIII Caesium
+1.660  1824.69470 CsIII Caesium
+0.081  1826.1930 CsIII Caesium
+0.166  1826.58280 CsIII Caesium
+0.099  1829.05940 CsIII Caesium
+0.921  1829.2740 CsIII Caesium
+0.102  1833.8200 CsIII Caesium
+0.015  1835.8710 CsIII Caesium
+0.033  1837.6520 CsIII Caesium
+2.680  1838.7440 CsIII Caesium
+0.618  1838.9260 CsIII Caesium
+0.132  1838.9960 CsIII Caesium
+0.081  1839.64990 CsIII Caesium
+0.125  1840.15120 CsIII Caesium
+0.303  1840.32930 CsIII Caesium
+2.000  1841.80280 CsIII Caesium
+0.003  1842.4750 CsIII Caesium
+1.490  1857.88760 CsIII Caesium
+0.001  1861.96580 CsIII Caesium
+0.000  1864.2900 CsIII Caesium
+0.045  1868.6420 CsIII Caesium
+0.104  1870.10300 CsIII Caesium
+0.488  1870.82830 CsIII Caesium
+0.267  1872.09020 CsIII Caesium
+0.033  1873.66190 CsIII Caesium
+0.030  1874.7460 CsIII Caesium
+0.006  1877.9010 CsIII Caesium
+0.099  1881.9990 CsIII Caesium
+2.760  1882.18360 CsIII Caesium
+0.265  1883.18940 CsIII Caesium
+0.033  1886.35500 CsIII Caesium
+0.003  1890.5450 CsIII Caesium
+0.078  1891.78460 CsIII Caesium
+0.049  1893.3300 CsIII Caesium
+0.071  1895.5450 CsIII Caesium
+4.940  1895.6830 CsIII Caesium
+0.264  1897.80980 CsIII Caesium
+0.123  1898.8950 CsIII Caesium
+0.489  1902.5170 CsIII Caesium
+0.327  1903.05520 CsIII Caesium
+0.281  1904.48360 CsIII Caesium
+0.083  1906.1830 CsIII Caesium
+0.903  1910.3440 CsIII Caesium
+0.888  1915.49520 CsIII Caesium
+1.400  1919.86370 CsIII Caesium
+0.121  1922.92270 CsIII Caesium
+0.175  1923.2890 CsIII Caesium
+0.076  1924.0970 CsIII Caesium
+0.004  1925.3670 CsIII Caesium
+0.002  1926.0850 CsIII Caesium
+0.075  1927.09700 CsIII Caesium
+0.053  1934.72170 CsIII Caesium
+0.112  1934.72170 CsIII Caesium
+0.666  1935.95590 CsIII Caesium
+0.001  1936.5820 CsIII Caesium
+0.226  1937.10680 CsIII Caesium
+0.000  1939.0960 CsIII Caesium
+0.003  1941.2600 CsIII Caesium
+0.027  1942.2330 CsIII Caesium
+0.946  1942.8490 CsIII Caesium
+4.510  1945.17660 CsIII Caesium
+0.230  1946.0170 CsIII Caesium
+0.008  1950.47310 CsIII Caesium
+0.209  1951.3780 CsIII Caesium
+0.237  1952.3200 CsIII Caesium
+1.040  1953.5370 CsIII Caesium
+0.056  1953.88250 CsIII Caesium
+0.335  1956.7320 CsIII Caesium
+0.117  1957.75590 CsIII Caesium
+0.154  1958.86350 CsIII Caesium
+0.918  1961.3350 CsIII Caesium
+0.021  1961.7530 CsIII Caesium
+0.554  1963.54830 CsIII Caesium
+0.192  1964.9740 CsIII Caesium
+0.049  1966.7160 CsIII Caesium
+0.395  1968.0320 CsIII Caesium
+0.353  1971.47270 CsIII Caesium
+0.064  1973.7950 CsIII Caesium
+0.019  1974.2830 CsIII Caesium
+0.025  1978.82500 CsIII Caesium
+0.160  1980.4980 CsIII Caesium
+0.147  1981.4680 CsIII Caesium
+0.313  1983.64760 CsIII Caesium
+0.052  1984.2030 CsIII Caesium
+0.010  1989.0000 CsIII Caesium
+0.062  1989.25880 CsIII Caesium
+0.276  1990.1340 CsIII Caesium
+0.000  1991.8950 CsIII Caesium
+0.042  1994.9620 CsIII Caesium
+0.004  1996.5640 CsIII Caesium
+0.020  1999.1960 CsIII Caesium
+0.032  2000.0660 CsIII Caesium
+0.403  2003.59800 CsIII Caesium
+0.001  2003.9880 CsIII Caesium
+0.067  2007.3780 CsIII Caesium
+0.000  2008.5390 CsIII Caesium
+0.312  2009.5550 CsIII Caesium
+0.001  2011.5230 CsIII Caesium
+0.097  2013.2870 CsIII Caesium
+3.550  2021.56930 CsIII Caesium
+0.111  2022.9750 CsIII Caesium
+0.022  2023.0960 CsIII Caesium
+2.620  2023.7290 CsIII Caesium
+0.260  2023.8120 CsIII Caesium
+0.043  2024.2110 CsIII Caesium
+2.500  2029.64710 CsIII Caesium
+0.680  2030.5200 CsIII Caesium
+1.860  2030.55070 CsIII Caesium
+3.000  2030.66630 CsIII Caesium
+4.200  2030.89270 CsIII Caesium
+0.595  2034.3550 CsIII Caesium
+0.004  2034.7530 CsIII Caesium
+6.250  2035.7640 CsIII Caesium
+0.049  2036.6900 CsIII Caesium
+0.011  2037.1230 CsIII Caesium
+0.378  2042.18170 CsIII Caesium
+0.001  2043.9910 CsIII Caesium
+0.033  2046.9690 CsIII Caesium
+0.097  2048.8090 CsIII Caesium
+0.022  2052.4160 CsIII Caesium
+0.014  2052.9530 CsIII Caesium
+2.610  2053.2500 CsIII Caesium
+0.038  2053.3830 CsIII Caesium
+0.811  2055.90070 CsIII Caesium
+2.200  2057.08490 CsIII Caesium
+4.800  2058.38860 CsIII Caesium
+4.030  2059.26310 CsIII Caesium
+0.093  2063.6890 CsIII Caesium
+0.054  2066.6190 CsIII Caesium
+0.014  2067.1900 CsIII Caesium
+0.192  2070.8280 CsIII Caesium
+0.197  2072.32660 CsIII Caesium
+0.007  2074.6120 CsIII Caesium
+0.161  2075.1350 CsIII Caesium
+3.940  2077.09600 CsIII Caesium
+0.076  2077.7210 CsIII Caesium
+4.870  2077.96010 CsIII Caesium
+0.060  2081.1430 CsIII Caesium
+2.850  2083.80900 CsIII Caesium
+3.250  2084.55310 CsIII Caesium
+0.075  2084.83940 CsIII Caesium
+0.113  2087.06720 CsIII Caesium
+6.090  2089.34240 CsIII Caesium
+0.044  2091.8530 CsIII Caesium
+1.500  2092.63550 CsIII Caesium
+0.030  2092.9980 CsIII Caesium
+0.270  2094.27370 CsIII Caesium
+0.004  2095.1710 CsIII Caesium
+0.071  2095.4950 CsIII Caesium
+0.001  2096.6260 CsIII Caesium
+0.031  2098.1260 CsIII Caesium
+0.342  2099.2500 CsIII Caesium
+0.503  2100.11100 CsIII Caesium
+0.001  2101.6200 CsIII Caesium
+0.005  2101.9220 CsIII Caesium
+5.860  2102.29770 CsIII Caesium
+0.336  2103.6530 CsIII Caesium
+0.008  2108.0000 CsIII Caesium
+0.036  2109.4620 CsIII Caesium
+0.741  2109.91600 CsIII Caesium
+0.025  2110.8050 CsIII Caesium
+4.580  2110.97200 CsIII Caesium
+0.001  2113.0580 CsIII Caesium
+0.167  2114.7130 CsIII Caesium
+3.370  2114.83110 CsIII Caesium
+0.031  2120.1770 CsIII Caesium
+0.407  2122.03350 CsIII Caesium
+0.020  2125.0490 CsIII Caesium
+0.072  2125.4940 CsIII Caesium
+1.080  2128.46750 CsIII Caesium
+3.090  2132.0980 CsIII Caesium
+5.350  2132.66090 CsIII Caesium
+0.289  2133.2250 CsIII Caesium
+0.057  2134.3920 CsIII Caesium
+0.159  2137.8580 CsIII Caesium
+0.208  2138.6980 CsIII Caesium
+0.197  2140.1280 CsIII Caesium
+5.330  2142.05230 CsIII Caesium
+5.350  2142.14130 CsIII Caesium
+0.057  2144.9330 CsIII Caesium
+4.550  2147.54160 CsIII Caesium
+0.262  2147.9430 CsIII Caesium
+0.089  2148.5220 CsIII Caesium
+0.000  2152.2180 CsIII Caesium
+0.045  2152.2180 CsIII Caesium
+1.930  2157.71010 CsIII Caesium
+0.078  2158.1290 CsIII Caesium
+0.108  2158.5460 CsIII Caesium
+1.040  2159.7380 CsIII Caesium
+0.067  2160.3920 CsIII Caesium
+0.029  2163.2810 CsIII Caesium
+5.440  2164.2980 CsIII Caesium
+0.082  2167.3470 CsIII Caesium
+0.445  2169.6960 CsIII Caesium
+0.050  2170.9510 CsIII Caesium
+0.005  2171.8310 CsIII Caesium
+0.007  2176.9220 CsIII Caesium
+0.000  2178.0770 CsIII Caesium
+0.002  2178.8770 CsIII Caesium
+2.730  2180.33830 CsIII Caesium
+0.002  2182.4430 CsIII Caesium
+1.220  2182.84590 CsIII Caesium
+0.119  2183.4340 CsIII Caesium
+0.248  2187.0080 CsIII Caesium
+2.490  2190.23360 CsIII Caesium
+0.153  2192.0120 CsIII Caesium
+0.153  2197.6780 CsIII Caesium
+0.038  2197.86020 CsIII Caesium
+2.060  2201.37700 CsIII Caesium
+0.032  2201.5920 CsIII Caesium
+0.000  2202.3790 CsIII Caesium
+0.032  2204.3230 CsIII Caesium
+0.113  2205.9810 CsIII Caesium
+0.010  2209.5940 CsIII Caesium
+0.455  2210.0460 CsIII Caesium
+0.072  2210.29700 CsIII Caesium
+0.002  2211.1590 CsIII Caesium
+0.310  2218.6290 CsIII Caesium
+0.055  2219.7380 CsIII Caesium
+0.156  2221.9770 CsIII Caesium
+0.029  2225.8920 CsIII Caesium
+0.008  2226.9660 CsIII Caesium
+0.263  2229.2370 CsIII Caesium
+0.258  2229.58880 CsIII Caesium
+0.076  2229.77820 CsIII Caesium
+0.084  2232.4900 CsIII Caesium
+0.383  2233.9420 CsIII Caesium
+0.013  2234.3700 CsIII Caesium
+0.895  2235.2830 CsIII Caesium
+0.000  2239.3410 CsIII Caesium
+0.004  2241.4920 CsIII Caesium
+0.018  2242.3190 CsIII Caesium
+0.034  2243.6330 CsIII Caesium
+0.197  2245.86720 CsIII Caesium
+0.187  2247.22770 CsIII Caesium
+0.004  2252.0280 CsIII Caesium
+0.073  2256.0440 CsIII Caesium
+0.710  2256.7550 CsIII Caesium
+0.002  2258.9380 CsIII Caesium
+0.015  2260.7350 CsIII Caesium
+0.003  2260.8620 CsIII Caesium
+0.064  2260.9530 CsIII Caesium
+1.230  2261.3340 CsIII Caesium
+0.081  2264.8440 CsIII Caesium
+0.928  2267.97120 CsIII Caesium
+0.019  2269.7270 CsIII Caesium
+0.021  2269.9620 CsIII Caesium
+0.095  2273.4230 CsIII Caesium
+0.126  2274.7000 CsIII Caesium
+0.036  2274.9960 CsIII Caesium
+0.021  2275.3720 CsIII Caesium
+0.066  2276.9220 CsIII Caesium
+0.022  2277.6200 CsIII Caesium
+0.050  2278.2060 CsIII Caesium
+0.082  2285.2120 CsIII Caesium
+0.173  2287.5830 CsIII Caesium
+0.000  2289.1900 CsIII Caesium
+0.009  2294.0630 CsIII Caesium
+0.000  2296.7130 CsIII Caesium
+0.023  2297.0070 CsIII Caesium
+0.000  2297.7480 CsIII Caesium
+0.126  2298.54140 CsIII Caesium
+0.000  2301.4100 CsIII Caesium
+0.143  2301.9140 CsIII Caesium
+0.268  2301.9140 CsIII Caesium
+0.235  2301.9510 CsIII Caesium
+0.000  2302.4440 CsIII Caesium
+0.059  2302.8940 CsIII Caesium
+0.284  2305.47180 CsIII Caesium
+0.161  2307.1630 CsIII Caesium
+0.178  2307.7750 CsIII Caesium
+0.026  2308.4170 CsIII Caesium
+0.488  2308.8460 CsIII Caesium
+0.334  2309.6090 CsIII Caesium
+0.106  2310.1670 CsIII Caesium
+0.980  2317.58730 CsIII Caesium
+0.000  2319.6770 CsIII Caesium
+0.020  2321.2380 CsIII Caesium
+0.105  2321.77590 CsIII Caesium
+0.275  2324.6780 CsIII Caesium
+0.004  2325.5120 CsIII Caesium
+0.659  2326.66840 CsIII Caesium
+0.001  2328.9020 CsIII Caesium
+0.014  2331.6660 CsIII Caesium
+0.008  2331.8050 CsIII Caesium
+0.006  2334.2250 CsIII Caesium
+0.172  2334.5460 CsIII Caesium
+1.450  2335.4410 CsIII Caesium
+0.252  2338.5940 CsIII Caesium
+0.900  2341.21020 CsIII Caesium
+0.015  2341.6680 CsIII Caesium
+0.325  2343.3120 CsIII Caesium
+0.064  2345.08360 CsIII Caesium
+0.007  2345.1970 CsIII Caesium
+0.174  2347.0450 CsIII Caesium
+0.077  2347.4300 CsIII Caesium
+0.000  2350.4750 CsIII Caesium
+0.104  2350.8950 CsIII Caesium
+0.097  2351.1950 CsIII Caesium
+0.875  2352.46130 CsIII Caesium
+0.217  2354.4510 CsIII Caesium
+0.000  2354.6590 CsIII Caesium
+0.020  2354.7940 CsIII Caesium
+0.625  2355.15010 CsIII Caesium
+0.096  2355.6300 CsIII Caesium
+0.023  2356.82680 CsIII Caesium
+0.016  2357.7390 CsIII Caesium
+0.092  2358.7370 CsIII Caesium
+0.210  2359.9330 CsIII Caesium
+0.044  2364.7240 CsIII Caesium
+0.605  2365.52190 CsIII Caesium
+0.008  2365.9380 CsIII Caesium
+0.030  2366.1130 CsIII Caesium
+0.012  2366.2090 CsIII Caesium
+0.024  2366.2440 CsIII Caesium
+0.346  2366.4100 CsIII Caesium
+0.000  2371.1310 CsIII Caesium
+0.000  2376.1940 CsIII Caesium
+0.008  2376.9160 CsIII Caesium
+0.164  2380.82460 CsIII Caesium
+0.000  2385.6910 CsIII Caesium
+0.136  2390.7820 CsIII Caesium
+0.135  2391.4800 CsIII Caesium
+0.395  2394.2500 CsIII Caesium
+0.265  2395.55260 CsIII Caesium
+0.171  2397.4700 CsIII Caesium
+0.003  2398.4520 CsIII Caesium
+0.003  2398.6760 CsIII Caesium
+0.346  2400.74180 CsIII Caesium
+0.028  2402.4090 CsIII Caesium
+0.005  2403.2100 CsIII Caesium
+0.108  2404.2410 CsIII Caesium
+0.021  2404.9280 CsIII Caesium
+0.011  2406.8980 CsIII Caesium
+0.159  2407.6590 CsIII Caesium
+0.280  2411.5620 CsIII Caesium
+0.648  2412.62610 CsIII Caesium
+0.209  2415.36910 CsIII Caesium
+0.066  2420.7480 CsIII Caesium
+0.094  2422.0490 CsIII Caesium
+0.060  2422.3430 CsIII Caesium
+0.020  2422.3970 CsIII Caesium
+0.015  2423.0390 CsIII Caesium
+0.008  2423.2010 CsIII Caesium
+0.007  2423.2010 CsIII Caesium
+0.243  2423.5860 CsIII Caesium
+0.004  2423.7570 CsIII Caesium
+0.280  2425.3320 CsIII Caesium
+0.224  2425.51720 CsIII Caesium
+0.232  2427.14200 CsIII Caesium
+0.327  2427.90930 CsIII Caesium
+1.100  2428.39040 CsIII Caesium
+0.112  2432.6580 CsIII Caesium
+0.055  2433.1590 CsIII Caesium
+0.027  2435.2970 CsIII Caesium
+0.173  2440.5390 CsIII Caesium
+0.030  2442.1020 CsIII Caesium
+0.050  2445.4010 CsIII Caesium
+0.000  2449.9510 CsIII Caesium
+0.315  2450.1700 CsIII Caesium
+0.012  2451.5220 CsIII Caesium
+0.225  2452.1910 CsIII Caesium
+0.008  2453.9780 CsIII Caesium
+0.077  2456.1760 CsIII Caesium
+1.460  2456.55260 CsIII Caesium
+0.238  2457.8000 CsIII Caesium
+0.010  2458.0430 CsIII Caesium
+0.003  2459.2240 CsIII Caesium
+0.041  2459.56900 CsIII Caesium
+0.002  2459.98770 CsIII Caesium
+0.438  2462.8560 CsIII Caesium
+0.024  2463.8900 CsIII Caesium
+0.137  2467.06960 CsIII Caesium
+0.288  2467.2970 CsIII Caesium
+0.100  2467.66670 CsIII Caesium
+0.028  2468.82800 CsIII Caesium
+0.117  2469.6480 CsIII Caesium
+0.003  2470.1440 CsIII Caesium
+0.096  2472.9490 CsIII Caesium
+0.020  2475.1590 CsIII Caesium
+0.038  2476.82670 CsIII Caesium
+0.159  2477.6200 CsIII Caesium
+1.440  2478.31960 CsIII Caesium
+1.120  2479.0840 CsIII Caesium
+0.087  2483.81300 CsIII Caesium
+1.170  2486.19580 CsIII Caesium
+0.056  2487.0510 CsIII Caesium
+0.110  2487.1340 CsIII Caesium
+0.011  2487.8600 CsIII Caesium
+0.004  2488.5850 CsIII Caesium
+0.176  2490.3390 CsIII Caesium
+0.327  2495.82610 CsIII Caesium
+0.109  2497.70710 CsIII Caesium
+0.122  2500.5890 CsIII Caesium
+0.002  2502.1810 CsIII Caesium
+2.850  2503.00800 CsIII Caesium
+0.023  2503.2920 CsIII Caesium
+1.730  2512.31290 CsIII Caesium
+0.031  2512.9600 CsIII Caesium
+0.107  2515.3990 CsIII Caesium
+0.004  2516.5020 CsIII Caesium
+0.010  2516.5470 CsIII Caesium
+0.688  2521.6220 CsIII Caesium
+0.033  2525.4310 CsIII Caesium
+0.051  2526.00270 CsIII Caesium
+1.530  2526.43030 CsIII Caesium
+0.131  2526.7040 CsIII Caesium
+0.012  2527.1880 CsIII Caesium
+0.072  2527.7310 CsIII Caesium
+0.329  2529.65640 CsIII Caesium
+0.004  2533.1220 CsIII Caesium
+0.149  2533.7060 CsIII Caesium
+0.295  2534.20860 CsIII Caesium
+0.126  2534.3710 CsIII Caesium
+0.205  2539.1600 CsIII Caesium
+0.243  2539.4660 CsIII Caesium
+2.780  2541.2910 CsIII Caesium
+0.086  2541.5960 CsIII Caesium
+0.187  2547.0050 CsIII Caesium
+0.078  2549.2340 CsIII Caesium
+0.030  2551.5420 CsIII Caesium
+0.223  2551.90520 CsIII Caesium
+0.003  2552.8150 CsIII Caesium
+0.140  2555.59890 CsIII Caesium
+0.170  2557.9970 CsIII Caesium
+0.428  2561.14250 CsIII Caesium
+1.980  2569.48130 CsIII Caesium
+0.028  2570.7140 CsIII Caesium
+0.069  2571.0710 CsIII Caesium
+0.260  2572.18160 CsIII Caesium
+2.640  2573.81770 CsIII Caesium
+1.260  2575.3340 CsIII Caesium
+0.145  2575.8930 CsIII Caesium
+0.000  2579.3950 CsIII Caesium
+0.016  2585.9450 CsIII Caesium
+0.091  2587.1170 CsIII Caesium
+0.265  2589.9050 CsIII Caesium
+0.018  2590.05290 CsIII Caesium
+2.110  2591.93190 CsIII Caesium
+0.339  2592.1400 CsIII Caesium
+0.002  2593.0510 CsIII Caesium
+0.011  2593.8430 CsIII Caesium
+2.830  2597.63380 CsIII Caesium
+0.056  2598.5500 CsIII Caesium
+2.090  2601.08810 CsIII Caesium
+0.132  2601.3040 CsIII Caesium
+0.163  2603.1310 CsIII Caesium
+0.029  2603.24670 CsIII Caesium
+0.510  2604.48470 CsIII Caesium
+0.173  2605.1290 CsIII Caesium
+0.001  2605.1290 CsIII Caesium
+1.460  2605.9840 CsIII Caesium
+1.790  2606.22220 CsIII Caesium
+0.480  2610.90270 CsIII Caesium
+0.315  2612.3640 CsIII Caesium
+0.057  2612.8170 CsIII Caesium
+3.050  2615.44970 CsIII Caesium
+5.500  2617.06520 CsIII Caesium
+0.114  2617.7210 CsIII Caesium
+0.044  2618.6460 CsIII Caesium
+0.120  2619.4200 CsIII Caesium
+0.713  2620.0130 CsIII Caesium
+0.004  2621.5550 CsIII Caesium
+0.021  2621.7220 CsIII Caesium
+0.023  2623.0980 CsIII Caesium
+0.164  2623.3140 CsIII Caesium
+0.581  2624.3590 CsIII Caesium
+0.022  2624.8500 CsIII Caesium
+0.001  2628.2800 CsIII Caesium
+0.026  2629.7720 CsIII Caesium
+0.014  2630.3200 CsIII Caesium
+2.910  2631.29420 CsIII Caesium
+0.038  2633.6560 CsIII Caesium
+1.420  2634.99950 CsIII Caesium
+3.100  2636.8380 CsIII Caesium
+0.000  2637.4020 CsIII Caesium
+0.007  2637.5830 CsIII Caesium
+0.480  2641.0500 CsIII Caesium
+2.930  2643.42350 CsIII Caesium
+0.001  2644.2810 CsIII Caesium
+0.280  2646.99770 CsIII Caesium
+0.058  2647.0650 CsIII Caesium
+0.000  2647.7280 CsIII Caesium
+0.051  2649.82930 CsIII Caesium
+1.770  2651.53380 CsIII Caesium
+5.600  2652.80910 CsIII Caesium
+0.475  2657.0510 CsIII Caesium
+6.100  2657.67740 CsIII Caesium
+0.006  2659.1570 CsIII Caesium
+1.110  2659.5110 CsIII Caesium
+0.026  2660.6980 CsIII Caesium
+0.000  2661.7880 CsIII Caesium
+0.005  2663.1160 CsIII Caesium
+0.000  2664.4690 CsIII Caesium
+0.003  2667.7970 CsIII Caesium
+3.590  2669.5950 CsIII Caesium
+3.920  2670.58700 CsIII Caesium
+0.157  2671.9660 CsIII Caesium
+1.100  2672.48840 CsIII Caesium
+0.310  2675.4260 CsIII Caesium
+0.287  2677.7790 CsIII Caesium
+0.233  2679.3890 CsIII Caesium
+7.090  2679.78770 CsIII Caesium
+5.880  2682.02930 CsIII Caesium
+0.395  2682.81720 CsIII Caesium
+1.590  2687.41060 CsIII Caesium
+1.630  2690.20690 CsIII Caesium
+2.130  2692.6390 CsIII Caesium
+3.560  2701.11640 CsIII Caesium
+1.820  2701.52430 CsIII Caesium
+2.520  2701.99950 CsIII Caesium
+0.084  2706.13860 CsIII Caesium
+6.100  2707.60940 CsIII Caesium
+0.527  2711.4180 CsIII Caesium
+0.603  2712.5160 CsIII Caesium
+0.055  2714.9570 CsIII Caesium
+1.110  2741.55930 CsIII Caesium
+1.130  2749.04240 CsIII Caesium
+0.081  2751.4530 CsIII Caesium
+1.430  2751.95140 CsIII Caesium
+1.430  2758.2240 CsIII Caesium
+2.240  2765.39720 CsIII Caesium
+1.390  2775.31090 CsIII Caesium
+5.260  2777.26220 CsIII Caesium
+0.258  2779.99870 CsIII Caesium
+3.050  2784.98690 CsIII Caesium
+0.131  2787.87840 CsIII Caesium
+1.230  2789.08050 CsIII Caesium
+0.099  2789.68900 CsIII Caesium
+2.730  2792.93020 CsIII Caesium
+1.420  2795.28930 CsIII Caesium
+2.570  2800.2350 CsIII Caesium
+5.450  2810.75730 CsIII Caesium
+0.059  2811.2550 CsIII Caesium
+2.470  2811.70010 CsIII Caesium
+0.347  2817.92060 CsIII Caesium
+2.550  2820.1600 CsIII Caesium
+5.670  2823.89410 CsIII Caesium
+0.055  2824.98410 CsIII Caesium
+1.600  2830.28270 CsIII Caesium
+1.450  2835.93980 CsIII Caesium
+0.019  2836.5360 CsIII Caesium
+6.480  2838.90980 CsIII Caesium
+0.782  2845.37180 CsIII Caesium
+0.388  2845.7910 CsIII Caesium
+6.480  2846.53670 CsIII Caesium
+0.002  2846.9960 CsIII Caesium
+0.768  2851.2640 CsIII Caesium
+0.928  2852.07570 CsIII Caesium
+0.059  2853.2960 CsIII Caesium
+3.150  2855.31870 CsIII Caesium
+0.141  2858.66980 CsIII Caesium
+1.670  2860.16150 CsIII Caesium
+0.340  2861.72570 CsIII Caesium
+2.610  2863.26130 CsIII Caesium
+0.818  2865.87310 CsIII Caesium
+0.229  2869.64760 CsIII Caesium
+0.217  2872.13550 CsIII Caesium
+0.511  2873.16430 CsIII Caesium
+2.680  2876.12760 CsIII Caesium
+3.670  2882.02960 CsIII Caesium
+1.170  2885.27820 CsIII Caesium
+0.073  2891.22100 CsIII Caesium
+0.282  2892.68710 CsIII Caesium
+2.980  2894.69450 CsIII Caesium
+0.020  2895.8270 CsIII Caesium
+0.565  2896.34080 CsIII Caesium
+0.010  2900.5800 CsIII Caesium
+4.080  2915.49270 CsIII Caesium
+2.200  2921.98330 CsIII Caesium
+0.257  2922.7750 CsIII Caesium
+1.560  2923.16960 CsIII Caesium
+0.309  2924.9530 CsIII Caesium
+2.560  2925.4440 CsIII Caesium
+3.350  2939.14240 CsIII Caesium
+1.300  2943.08950 CsIII Caesium
+0.058  2944.94330 CsIII Caesium
+3.400  2963.72140 CsIII Caesium
+3.230  2965.89280 CsIII Caesium
+0.688  2969.92880 CsIII Caesium
+0.088  2973.74690 CsIII Caesium
+1.670  2977.72900 CsIII Caesium
+0.355  2983.45180 CsIII Caesium
+0.022  2986.12560 CsIII Caesium
+0.715  2996.22210 CsIII Caesium
+0.838  2997.10420 CsIII Caesium
+0.870  2999.1340 CsIII Caesium
+1.040  3000.29270 CsIII Caesium
+0.618  3002.15920 CsIII Caesium
+0.011  3003.93220 CsIII Caesium
+0.087  3016.7040 CsIII Caesium
+0.267  3051.56600 CsIII Caesium
+0.152  3055.12360 CsIII Caesium
+1.070  3056.87190 CsIII Caesium
+0.523  3062.15030 CsIII Caesium
+0.030  3063.4860 CsIII Caesium
+0.543  3067.48250 CsIII Caesium
+0.199  3078.9460 CsIII Caesium
+0.013  3085.3380 CsIII Caesium
+0.369  3098.35510 CsIII Caesium
+2.180  3150.26810 CsIII Caesium
+0.627  3153.27000 CsIII Caesium
+0.490  3154.88060 CsIII Caesium
+2.250  3173.52390 CsIII Caesium
+0.340  3179.5620 CsIII Caesium
+0.004  3199.7590 CsIII Caesium
+0.000 C 3208.4340 Cs Caesium
+0.723  3210.60150 CsIII Caesium
+0.000 C 3210.8940 Cs Caesium
+0.000 C 3213.7590 Cs Caesium
+0.381  3214.7500 CsIII Caesium
+0.000 C 3217.1000 Cs Caesium
+0.000 C 3221.0460 Cs Caesium
+0.000 C 3221.1880 Cs Caesium
+0.000 C 3225.7480 Cs Caesium
+0.000 C 3225.9130 Cs Caesium
+0.625  3228.31830 CsIII Caesium
+0.000 C 3231.4100 Cs Caesium
+0.000 C 3231.6130 Cs Caesium
+0.913  3235.21460 CsIII Caesium
+0.000 C 3238.3160 Cs Caesium
+0.000 C 3238.5640 Cs Caesium
+0.000 C 3246.8610 Cs Caesium
+0.000 C 3247.1730 Cs Caesium
+0.015  3248.43440 CsIII Caesium
+0.286  3256.24930 CsIII Caesium
+0.000 C 3257.6110 Cs Caesium
+0.000 C 3258.0100 Cs Caesium
+0.050  3263.23890 CsIII Caesium
+2.180  3269.26340 CsIII Caesium
+0.000 C+ 3271.4170 Cs Caesium
+0.000 C 3271.9200 Cs Caesium
+0.000 D+ 3289.5480 Cs Caesium
+0.000 C+ 3290.2330 Cs Caesium
+0.685  3300.83180 CsIII Caesium
+0.029  3304.69380 CsIII Caesium
+0.198  3312.4870 CsIII Caesium
+0.000 C+ 3314.0750 Cs Caesium
+0.000 C+ 3315.0090 Cs Caesium
+0.079  3316.2410 CsIII Caesium
+0.627  3316.46800 CsIII Caesium
+0.127  3323.74860 CsIII Caesium
+0.208  3340.8200 CsIII Caesium
+1.070  3341.56480 CsIII Caesium
+2.700  3344.9820 CsIII Caesium
+0.000 B 3348.4520 Cs Caesium
+0.000 B 3349.7830 Cs Caesium
+2.490  3350.42610 CsIII Caesium
+0.528  3358.66440 CsIII Caesium
+0.439  3359.88420 CsIII Caesium
+0.149  3380.08790 CsIII Caesium
+0.350  3390.26220 CsIII Caesium
+0.475  3398.1900 CsIII Caesium
+0.000 C+ 3398.9410 Cs Caesium
+0.000 B 3400.9550 Cs Caesium
+0.840  3407.62170 CsIII Caesium
+2.550  3412.31590 CsIII Caesium
+0.476  3419.09210 CsIII Caesium
+0.156  3444.96280 CsIII Caesium
+0.071  3451.40910 CsIII Caesium
+0.152  3464.43690 CsIII Caesium
+0.027  3466.21630 CsIII Caesium
+0.001 B 3477.8040 Cs Caesium
+0.000 B 3481.0560 Cs Caesium
+0.029  3504.6570 CsIII Caesium
+0.035  3519.32710 CsIII Caesium
+0.082  3533.8980 CsIII Caesium
+0.315  3534.3930 CsIII Caesium
+0.181  3542.5810 CsIII Caesium
+1.760  3560.8340 CsIII Caesium
+0.084  3563.1540 CsIII Caesium
+1.990  3566.1610 CsIII Caesium
+0.023  3593.5120 CsIII Caesium
+1.630  3598.47880 CsIII Caesium
+0.153  3599.97750 CsIII Caesium
+0.075  3603.89710 CsIII Caesium
+0.047  3606.6000 CsIII Caesium
+2.230  3609.3410 CsIII Caesium
+0.001 C+ 3612.50140 Cs Caesium
+0.000 C 3618.34000 Cs Caesium
+0.141  3619.2220 CsIII Caesium
+0.123  3623.7370 CsIII Caesium
+0.579  3625.47400 CsIII Caesium
+2.250  3631.7230 CsIII Caesium
+1.430  3642.38090 CsIII Caesium
+0.541  3644.8190 CsIII Caesium
+0.026  3652.11960 CsIII Caesium
+1.010  3657.7610 CsIII Caesium
+1.650  3662.44690 CsIII Caesium
+0.703  3681.51780 CsIII Caesium
+1.810  3700.5470 CsIII Caesium
+1.440  3711.84220 CsIII Caesium
+0.057  3731.05230 CsIII Caesium
+1.340  3735.4190 CsIII Caesium
+0.353  3752.48450 CsIII Caesium
+0.049  3799.00480 CsIII Caesium
+0.026  3818.56180 CsIII Caesium
+0.162  3820.63870 CsIII Caesium
+0.480  3823.45530 CsIII Caesium
+0.010  3824.7110 CsIII Caesium
+0.092  3838.55060 CsIII Caesium
+1.720  3865.4310 CsIII Caesium
+0.005  3871.5330 CsIII Caesium
+0.004 B+ 3877.24730 Cs Caesium
+1.830  3884.7310 CsIII Caesium
+0.078  3889.47640 CsIII Caesium
+0.001 C+ 3889.7133270 Cs Caesium
+0.006  3893.3200 CsIII Caesium
+0.195  3905.9220 CsIII Caesium
+0.001  3911.42320 CsIII Caesium
+0.618  3926.70730 CsIII Caesium
+0.001  3939.3790 CsIII Caesium
+0.610  3957.0540 CsIII Caesium
+0.052  3978.6800 CsIII Caesium
+0.006  3994.9990 CsIII Caesium
+0.905  4002.82920 CsIII Caesium
+1.080  4007.67710 CsIII Caesium
+0.360  4007.91000 CsIII Caesium
+0.004  4016.1670 CsIII Caesium
+0.350  4024.7410 CsIII Caesium
+0.052  4029.5520 CsIII Caesium
+0.255  4029.7750 CsIII Caesium
+0.365  4036.2670 CsIII Caesium
+1.230  4044.5660 CsIII Caesium
+1.410  4082.6440 CsIII Caesium
+0.410  4120.4520 CsIII Caesium
+0.317  4153.1690 CsIII Caesium
+0.109  4159.7730 CsIII Caesium
+0.440  4164.42480 CsIII Caesium
+0.063  4174.7190 CsIII Caesium
+0.221  4194.4200 CsIII Caesium
+0.092  4213.9400 CsIII Caesium
+0.009  4284.9250 CsIII Caesium
+0.021  4297.3060 CsIII Caesium
+0.109  4298.7270 CsIII Caesium
+0.353  4314.0100 CsIII Caesium
+0.358  4327.54490 CsIII Caesium
+0.017  4336.6580 CsIII Caesium
+0.095  4399.2390 CsIII Caesium
+0.132  4405.1000 CsIII Caesium
+0.268  4411.46000 CsIII Caesium
+0.187  4426.9180 CsIII Caesium
+0.141  4448.9130 CsIII Caesium
+0.029  4494.9280 CsIII Caesium
+0.144  4507.98500 CsIII Caesium
+0.108  4524.1270 CsIII Caesium
+0.018 AA 4556.55680 Cs Caesium
+0.025  4573.88960 CsIII Caesium
+0.008 A+ 4594.45900 Cs Caesium
+0.218  4613.4710 CsIII Caesium
+0.236  4621.9030 CsIII Caesium
+0.006  4666.8240 CsIII Caesium
+0.306  4717.4370 CsIII Caesium
+0.013  4794.2480 CsIII Caesium
+0.037  4797.0280 CsIII Caesium
+0.195  4852.9410 CsIII Caesium
+0.055  4865.4840 CsIII Caesium
+0.023  5037.130 CsIII Caesium
+0.001  5068.3410 CsIII Caesium
+0.009  5170.8470 CsIII Caesium
+0.077  5268.8540 CsIII Caesium
+0.027  5382.2880 CsIII Caesium
+0.015  5465.5170 CsIII Caesium
+0.026  5530.1710 CsIII Caesium
+0.022  5579.3750 CsIII Caesium
+0.063  5594.3840 CsIII Caesium
+0.088  5670.9130 CsIII Caesium
+0.083  5708.8150 CsIII Caesium
+0.002  5741.8450 CsIII Caesium
+0.175  5808.4960 CsIII Caesium
+0.458  5852.7180 CsIII Caesium
+0.012  5863.3800 CsIII Caesium
+0.021  5884.0610 CsIII Caesium
+0.087  5941.1380 CsIII Caesium
+0.210  5941.7890 CsIII Caesium
+0.440  5944.6280 CsIII Caesium
+1.800  5948.6130 CsIII Caesium
+0.369  5949.9020 CsIII Caesium
+2.030  5951.7850 CsIII Caesium
+0.000  5964.4240 CsIII Caesium
+0.313  5975.3860 CsIII Caesium
+0.990  6005.3820 CsIII Caesium
+1.390  6016.7390 CsIII Caesium
+0.018  6023.8790 CsIII Caesium
+0.059  6042.8370 CsIII Caesium
+0.005  6045.6610 CsIII Caesium
+0.103  6066.2750 CsIII Caesium
+0.000  6068.2770 CsIII Caesium
+1.410  6081.5370 CsIII Caesium
+0.355  6097.4510 CsIII Caesium
+0.101  6110.7590 CsIII Caesium
+1.130  6123.7670 CsIII Caesium
+0.168  6137.9350 CsIII Caesium
+0.001  6148.3170 CsIII Caesium
+0.758  6150.4740 CsIII Caesium
+0.032  6150.8520 CsIII Caesium
+2.190  6152.3390 CsIII Caesium
+0.790  6160.0700 CsIII Caesium
+0.555  6164.7570 CsIII Caesium
+0.071  6201.5460 CsIII Caesium
+1.950  6203.5650 CsIII Caesium
+0.211  6224.9100 CsIII Caesium
+0.001  6228.4150 CsIII Caesium
+0.015  6232.2620 CsIII Caesium
+0.159  6243.6740 CsIII Caesium
+2.030  6244.6840 CsIII Caesium
+0.930  6258.3870 CsIII Caesium
+0.001  6303.5390 CsIII Caesium
+0.111  6309.0150 CsIII Caesium
+0.006  6314.4030 CsIII Caesium
+0.071  6318.8990 CsIII Caesium
+1.150  6337.6300 CsIII Caesium
+0.994  6374.3800 CsIII Caesium
+0.016  6385.8100 CsIII Caesium
+0.021  6390.1630 CsIII Caesium
+0.023  6455.2980 CsIII Caesium
+1.450  6458.1120 CsIII Caesium
+0.495  6475.1030 CsIII Caesium
+0.525  6490.8580 CsIII Caesium
+0.265  6518.5910 CsIII Caesium
+0.283  6520.7820 CsIII Caesium
+0.233  6545.7780 CsIII Caesium
+0.006  6561.3220 CsIII Caesium
+0.456  6597.1850 CsIII Caesium
+0.126  6597.6410 CsIII Caesium
+0.287  6602.5990 CsIII Caesium
+0.657  6602.5990 CsIII Caesium
+1.100  6626.2640 CsIII Caesium
+0.029  6640.7210 CsIII Caesium
+0.083  6650.2940 CsIII Caesium
+0.017  6654.580 CsIII Caesium
+0.057  6656.9170 CsIII Caesium
+0.340  6667.5830 CsIII Caesium
+0.008  6690.0940 CsIII Caesium
+0.193  6690.0940 CsIII Caesium
+0.003  6702.5380 CsIII Caesium
+0.538  6710.0970 CsIII Caesium
+0.000  6763.2090 CsIII Caesium
+0.001  6763.4920 CsIII Caesium
+0.010  6807.900 CsIII Caesium
+0.021  6842.7680 CsIII Caesium
+0.013  6859.7590 CsIII Caesium
+0.057  6891.900 CsIII Caesium
+0.679  8009.93870 CsIII Caesium
+0.668  8138.1140 CsIII Caesium
+0.328 AAA 8523.47275890 Cs Caesium
+0.528  8805.0490 CsIII Caesium
+0.286 AAA 8945.929600210 Cs Caesium
+0.376  9282.7660 CsIII Caesium
+0.375  9601.79440 CsIII Caesium
+0.470  9762.010 CsIII Caesium
+0.221  10472.6860 CsIII Caesium
+0.034  10572.8800 CsIII Caesium
+0.050  10803.6070 CsIII Caesium
+0.200  10820.4960 CsIII Caesium
+0.131  17702.940 CsIII Caesium
+0.027  18497.5370 CsIII Caesium
+0.113  19734.4100 CsIII Caesium
+0.000  21126.9940 CsIII Caesium
+0.000  21150.780 CsIII Caesium
+0.010 A+ 30111.480 Cs Caesium
+0.008 AA 34909.650 Cs Caesium
+0.001 A+ 36140.8540 Cs Caesium

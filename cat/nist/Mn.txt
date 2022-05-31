@@ -1,1380 +1,1380 @@
-2400.000 D 11.7930 Mn Manganese 22
-45000.000 C 11.8760 Mn Manganese 22
-57000.000 D 11.8760 Mn Manganese 22
-47000.000 C 11.9060 Mn Manganese 22
-45000.000 C 11.9060 Mn Manganese 22
-65000.000 C 11.9710 Mn Manganese 22
-43000.000 C 11.9970 Mn Manganese 22
-22000.000 D 11.9970 Mn Manganese 22
-11000.000 D 12.0790 Mn Manganese 22
-59000.000 C 12.1720 Mn Manganese 22
-110000.000 C 12.3360 Mn Manganese 22
-140000.000 C 12.3680 Mn Manganese 22
-17000.000 D 12.4270 Mn Manganese 22
-180000.000 C 12.4880 Mn Manganese 22
-140000.000 C 12.4880 Mn Manganese 22
-47000.000 C 12.4880 Mn Manganese 22
-15000.000 D 12.4880 Mn Manganese 22
-98000.000 C 12.4880 Mn Manganese 22
-5100.000 C 12.5070 Mn Manganese 22
-182000.000 C 12.5530 Mn Manganese 22
-52000.000 C 12.5530 Mn Manganese 22
-106000.000 C 12.5530 Mn Manganese 22
-200000.000 C 12.5800 Mn Manganese 22
-303000.000 C 12.6560 Mn Manganese 22
-39000.000 C 12.6560 Mn Manganese 22
-10000.000 D 12.6560 Mn Manganese 22
-109000.000 C 12.6700 Mn Manganese 22
-1500.000 D 12.7060 Mn Manganese 22
-54000.000 C 12.7380 Mn Manganese 22
-12000.000 D 12.7380 Mn Manganese 22
-150000.000 C 12.8160 Mn Manganese 22
-11000.000 D 12.8160 Mn Manganese 22
-20000.000 C 12.8160 Mn Manganese 22
-17000.000 D 12.9350 Mn Manganese 22
-20000.000 D 13.1990 Mn Manganese 22
-18000.000 D 13.1990 Mn Manganese 22
-160000.000 D 14.8770 Mn Manganese 18
-56000.000 D 15.2380 Mn Manganese 18
-12000.000 D 15.4040 Mn Manganese 17
-110000.000 D 15.5700 Mn Manganese 17
-33000.000 E 15.6150 Mn Manganese 17
-130000.000 D 15.7320 Mn Manganese 17
-130000.000 E 15.8260 Mn Manganese 17
-25000.000 E 15.8890 Mn Manganese 17
-23000.000 D 15.9460 Mn Manganese 17
-9500.000 C 16.1850 Mn Manganese 18
-8100.000 D 16.2550 Mn Manganese 18
-1800.000 D 16.4250 Mn Manganese 18
-2200.000 D 16.4510 Mn Manganese 18
-17000.000 C 16.5210 Mn Manganese 18
-19000.000 D 16.5400 Mn Manganese 18
-11000.000 D 16.5770 Mn Manganese 18
-200000.000 C 16.6160 Mn Manganese 16
-6200.000 C 16.7240 Mn Manganese 18
-2700.000 E 16.8800 Mn Manganese 17
-41000.000 D 16.8820 Mn Manganese 16
-830.000 E 17.0950 Mn Manganese 16
-8400.000 D 17.1310 Mn Manganese 17
-9400.000 D 17.3010 Mn Manganese 17
-12000.000 D 17.4650 Mn Manganese 17
-11000.000 D 17.5500 Mn Manganese 17
-13000.000 D 17.7290 Mn Manganese 17
-630.000 E 17.7940 Mn Manganese 17
-7200.000 C 18.6540 Mn Manganese 16
-7300.000 C 18.9350 Mn Manganese 16
-220.000 C' 32.2300 Mn Manganese 15
-220.000 C' 32.2300 Mn Manganese 15
-328.000 C' 33.6350 Mn Manganese 15
-328.000 C' 33.6350 Mn Manganese 15
-400.000 C 35.040 Mn Manganese 15
-470.000 C 35.2290 Mn Manganese 15
-520.000 C 36.0990 Mn Manganese 15
-520.000 C 36.1190 Mn Manganese 15
-600.000 C 36.5770 Mn Manganese 15
-700.000 C 36.8030 Mn Manganese 15
-120.000 D 37.120 Mn Manganese 15
-230.000 D 37.40 Mn Manganese 15
-940.000 C 39.2870 Mn Manganese 15
-1110.000 C 39.5470 Mn Manganese 15
-200.000 D 40.2850 Mn Manganese 15
-390.000 D 40.5720 Mn Manganese 15
-870.000 C 41.1850 Mn Manganese 15
-870.000 C 41.2430 Mn Manganese 15
-780.000 C 42.1520 Mn Manganese 15
-830.000 C 42.1850 Mn Manganese 15
-1300.000 C 43.740 Mn Manganese 14
-1600.000 C 44.8200 Mn Manganese 15
-1900.000 C 45.1540 Mn Manganese 15
-1300.000 C 45.6590 Mn Manganese 15
-1400.000 C 45.7000 Mn Manganese 15
-377.000 C 47.2700 Mn Manganese 15
-740.000 C 47.6660 Mn Manganese 15
-2700.000 C 52.9770 Mn Manganese 15
-2890.000 C 53.0320 Mn Manganese 15
-210.000 D 55.720 Mn Manganese 15
-1420.000 C+ 56.2700 Mn Manganese 15
-1510.000 C+ 56.4840 Mn Manganese 15
-2240.000 C 59.3250 Mn Manganese 14
-2690.000 C 60.7200 Mn Manganese 15
-3130.000 C 61.3190 Mn Manganese 15
-530.000 D 61.3610 Mn Manganese 15
-833.300 C' 71.0380 Mn Manganese 15
-1667.000 C' 71.9270 Mn Manganese 15
-7300.000 C 75.1740 Mn Manganese 15
-7700.000 C 75.2800 Mn Manganese 15
-110.000 E 84.050 Mn Manganese 18
-34.000 E 85.410 Mn Manganese 19
-540.000 C 87.470 Mn Manganese 15
-600.000 C 87.800 Mn Manganese 15
-23.000 E 88.080 Mn Manganese 19
-14.000 E 88.750 Mn Manganese 19
-12.000 E 89.030 Mn Manganese 18
-298.000 C 89.260 Mn Manganese 19
-6.900 E 89.590 Mn Manganese 18
-44.000 E 89.850 Mn Manganese 20
-83.000 E 91.900 Mn Manganese 18
-11.000 E 92.710 Mn Manganese 19
-1400.000 C 96.230 Mn Manganese 18
-153.000 C 96.240 Mn Manganese 19
-94.000 C 97.510 Mn Manganese 20
-47.000 D 99.010 Mn Manganese 19
-950.000 C 99.170 Mn Manganese 19
-831.000 C+ 100.000 Mn Manganese 17
-400.000 E 100.500 Mn Manganese 19
-11.000 E 101.920 Mn Manganese 19
-255.000 C 103.530 Mn Manganese 20
-660.000 C 104.130 Mn Manganese 20
-870.000 C 104.130 Mn Manganese 19
-48.000 E 104.670 Mn Manganese 20
-444.000 C 104.900 Mn Manganese 19
-72.000 E 105.240 Mn Manganese 20
-80.000 C 107.680 Mn Manganese 19
-590.000 C 107.890 Mn Manganese 20
-60.000 C 108.140 Mn Manganese 21
-277.000 C 108.760 Mn Manganese 18
-314.000 C+ 109.350 Mn Manganese 17
-217.000 C 111.000 Mn Manganese 20
-349.000 C 111.010 Mn Manganese 20
-146.000 C 111.040 Mn Manganese 20
-100.000 C 111.390 Mn Manganese 18
-340.000 C 113.040 Mn Manganese 19
-550.000 C 113.300 Mn Manganese 18
-92.000 C 113.750 Mn Manganese 19
-360.000 C 115.380 Mn Manganese 18
-14.000 E 115.690 Mn Manganese 21
-148.000 C 115.840 Mn Manganese 19
-41.600 C 116.700 Mn Manganese 20
-150.000 C 117.250 Mn Manganese 18
-410.000 C 117.410 Mn Manganese 19
-380.000 C 117.740 Mn Manganese 19
-117.000 C 118.220 Mn Manganese 18
-169.000 C 119.120 Mn Manganese 20
-460.000 C 119.540 Mn Manganese 20
-41.000 D 119.760 Mn Manganese 19
-300.000 C 120.460 Mn Manganese 19
-47.300 C 120.500 Mn Manganese 21
-16.000 E 120.820 Mn Manganese 20
-410.000 C 121.160 Mn Manganese 21
-133.000 C 121.490 Mn Manganese 20
-29.800 C 121.550 Mn Manganese 20
-400.000 D 122.1680 Mn Manganese 8
-1500.000 C 122.290 Mn Manganese 18
-134.000 C 122.970 Mn Manganese 21
-5.300 D 123.300 Mn Manganese 20
-200.000 D 124.0550 Mn Manganese 8
-298.000 C 124.560 Mn Manganese 20
-93.000 C 125.350 Mn Manganese 21
-144.000 C 125.420 Mn Manganese 20
-98.000 C 126.090 Mn Manganese 18
-219.000 C 126.460 Mn Manganese 20
-186.000 C 127.280 Mn Manganese 19
-267.000 C 127.360 Mn Manganese 21
-46.300 C 129.310 Mn Manganese 20
-192.000 C 129.550 Mn Manganese 20
-191.000 C 130.380 Mn Manganese 20
-166.000 C 130.590 Mn Manganese 19
-314.000 C 130.970 Mn Manganese 19
-158.000 C 132.790 Mn Manganese 20
-144.000 C 132.900 Mn Manganese 21
-250.000 D 133.6360 Mn Manganese 7
-270.000 D 133.6550 Mn Manganese 7
-59.000 E 133.8750 Mn Manganese 7
-120.000 D 134.1900 Mn Manganese 7
-780.000 C 135.060 Mn Manganese 20
-29.300 C 135.330 Mn Manganese 19
-110.000 C 138.300 Mn Manganese 20
-330.000 D 138.4410 Mn Manganese 7
-18.000 E 138.6970 Mn Manganese 7
-81.000 C 139.360 Mn Manganese 19
-260.000 D 139.5950 Mn Manganese 7
-18.000 E 139.650 Mn Manganese 18
-130.000 C 141.030 Mn Manganese 19
-178.000 B 141.100 Mn Manganese 22
-185.000 C 141.490 Mn Manganese 21
-28.000 E 141.7570 Mn Manganese 7
-170.000 D 142.0280 Mn Manganese 7
-200.000 D 142.6150 Mn Manganese 7
-57.000 C 142.680 Mn Manganese 19
-35.500 C 145.160 Mn Manganese 20
-37.300 C 145.270 Mn Manganese 22
-96.000 C 145.450 Mn Manganese 21
-300.000 C 146.570 Mn Manganese 19
-35.900 C 148.100 Mn Manganese 20
-300.000 C 148.480 Mn Manganese 19
-9.400 D 150.710 Mn Manganese 20
-92.000 C 150.800 Mn Manganese 20
-335.000 C 153.980 Mn Manganese 20
-48.100 B 154.280 Mn Manganese 22
-29.100 C 154.430 Mn Manganese 21
-62.000 C 155.210 Mn Manganese 20
-58.700 B 157.580 Mn Manganese 22
-120.000 C 158.510 Mn Manganese 21
-298.000 B 159.330 Mn Manganese 22
-73.000 C 160.420 Mn Manganese 21
-1200.000 C 163.410 Mn Manganese 15
-1300.000 C 163.630 Mn Manganese 15
-37.700 B 164.480 Mn Manganese 22
-45.300 C 164.830 Mn Manganese 21
-57.000 C 165.340 Mn Manganese 21
-167.000 C 167.120 Mn Manganese 20
-130.000 C 167.190 Mn Manganese 20
-180.000 C 168.720 Mn Manganese 21
-75.000 B 175.180 Mn Manganese 22
-116.000 B 181.690 Mn Manganese 22
-23.000 D 182.480 Mn Manganese 21
-2700.000 D 182.4990 Mn Manganese 7
-200.000 E 182.6920 Mn Manganese 7
-300.000 E 182.9450 Mn Manganese 7
-2700.000 D 183.1410 Mn Manganese 7
-210.000 E 183.7080 Mn Manganese 7
-1900.000 D 184.1610 Mn Manganese 7
-2100.000 D 184.5380 Mn Manganese 7
-61.000 D 184.800 Mn Manganese 9
-1850.000 C 185.4550 Mn Manganese 8
-42.300 B 188.450 Mn Manganese 22
-1660.000 C 188.480 Mn Manganese 9
-1590.000 C 189.160 Mn Manganese 9
-45.600 C 190.230 Mn Manganese 20
-65.000 C 192.200 Mn Manganese 20
-1500.000 D 193.430 Mn Manganese 10
-1400.000 D 198.420 Mn Manganese 10
-1200.000 D 199.080 Mn Manganese 10
-1100.000 C 199.320 Mn Manganese 9
-970.000 E 200.670 Mn Manganese 11
-910.000 D 202.8400 Mn Manganese 7
-1000.000 E 202.930 Mn Manganese 10
-830.000 D 204.1170 Mn Manganese 7
-395.000 C 204.430 Mn Manganese 9
-59.000 E 204.6750 Mn Manganese 7
-240.000 E 205.3500 Mn Manganese 13
-37.600 B+ 206.9300 Mn Manganese 23
-830.000 D 207.020 Mn Manganese 11
-260.000 E 207.1300 Mn Manganese 13
-790.000 D 208.020 Mn Manganese 11
-770.000 D 209.570 Mn Manganese 11
-550.000 D 210.160 Mn Manganese 11
-640.000 C 210.430 Mn Manganese 12
-460.000 D 211.540 Mn Manganese 11
-150.000 E 213.750 Mn Manganese 11
-480.000 E 215.860 Mn Manganese 11
-610.000 D 218.560 Mn Manganese 12
-520.000 D 223.560 Mn Manganese 12
-330.000 D 226.9050 Mn Manganese 13
-120.000 D 227.7040 Mn Manganese 13
-260.000 D 227.980 Mn Manganese 13
-390.000 D 228.630 Mn Manganese 13
-250.000 D 231.8680 Mn Manganese 13
-378.000 C 232.1580 Mn Manganese 13
-230.000 E 233.7670 Mn Manganese 13
-160.000 E 233.7670 Mn Manganese 13
-370.000 D 234.2350 Mn Manganese 13
-74.000 D 235.0540 Mn Manganese 13
-64.000 D 237.3690 Mn Manganese 13
-32.000 D 238.6170 Mn Manganese 7
-550.000 E 238.6750 Mn Manganese 13
-2.200 E 239.3810 Mn Manganese 7
-130.000 E 239.6800 Mn Manganese 13
-41.000 B 239.870 Mn Manganese 22
-130.000 C 241.100 Mn Manganese 14
-360.000 D 242.0660 Mn Manganese 13
-160.000 C 243.460 Mn Manganese 14
-31.700 C 243.690 Mn Manganese 21
-91.000 C 243.930 Mn Manganese 14
-31.000 D 244.7660 Mn Manganese 7
-3.800 E 244.9350 Mn Manganese 7
-34.000 D 245.7390 Mn Manganese 7
-38.000 D 247.4730 Mn Manganese 7
-205.000 C 249.660 Mn Manganese 14
-51.000 C 250.450 Mn Manganese 14
-0.470 E 258.950 Mn Manganese 21
-380.000 D 260.450 Mn Manganese 14
-17.300 B+ 266.9130 Mn Manganese 23
-143.000 B 269.1890 Mn Manganese 15
-68.000 C 272.1540 Mn Manganese 13
-140.000 D 277.4690 Mn Manganese 13
-0.370 D 277.800 Mn Manganese 22
-151.000 B 280.4110 Mn Manganese 15
-24.600 B 282.1840 Mn Manganese 15
-308.000 C 283.9840 Mn Manganese 13
-190.000 D 289.7740 Mn Manganese 13
-190.000 E 290.5390 Mn Manganese 13
-280.000 D 293.2680 Mn Manganese 13
-140.000 D 294.9850 Mn Manganese 13
-57.000 D 296.0730 Mn Manganese 13
-85.000 D 301.5130 Mn Manganese 16
-110.000 D 301.5250 Mn Manganese 13
-206.000 C+ 304.840 Mn Manganese 14
-2.500 D 307.1090 Mn Manganese 6
-1.200 E 307.8420 Mn Manganese 6
-37.000 D 307.9990 Mn Manganese 6
-7.300 D 308.5600 Mn Manganese 6
-7.500 D 308.8530 Mn Manganese 6
-150.000 D 308.8950 Mn Manganese 13
-57.000 D 309.4400 Mn Manganese 6
-44.000 D 309.5790 Mn Manganese 6
-240.000 E 309.8570 Mn Manganese 13
-34.000 D 310.0580 Mn Manganese 6
-28.000 D 310.1820 Mn Manganese 6
-57.000 D 311.7480 Mn Manganese 6
-90.000 D 312.8020 Mn Manganese 13
-120.000 D 313.3370 Mn Manganese 13
-240.000 E 313.8010 Mn Manganese 13
-39.000 D 315.980 Mn Manganese 14
-15.000 D 320.5980 Mn Manganese 6
-22.000 D 320.6810 Mn Manganese 6
-78.000 D 320.8740 Mn Manganese 6
-22.000 D 320.9790 Mn Manganese 6
-60.000 D 321.1760 Mn Manganese 6
-27.000 D 321.5410 Mn Manganese 6
-130.000 D 325.1460 Mn Manganese 6
-63.000 C 325.220 Mn Manganese 14
-110.000 D 327.850 Mn Manganese 14
-8.100 D 328.2320 Mn Manganese 6
-44.000 D 328.4310 Mn Manganese 6
-12.000 D 328.5580 Mn Manganese 6
-11.000 D 329.0430 Mn Manganese 6
-0.910 E 329.1770 Mn Manganese 6
-11.000 D 329.280 Mn Manganese 12
-4.000 E 329.3200 Mn Manganese 6
-45.000 C 330.410 Mn Manganese 14
-66.000 D 333.7980 Mn Manganese 10
-8.600 E 335.980 Mn Manganese 14
-15.000 D 337.290 Mn Manganese 12
-170.000 C 339.250 Mn Manganese 14
-68.000 C 342.580 Mn Manganese 14
-67.000 C 343.430 Mn Manganese 14
-110.000 D 343.840 Mn Manganese 14
-27.000 D 346.040 Mn Manganese 12
-16.000 E 349.440 Mn Manganese 14
-180.000 C 349.670 Mn Manganese 14
-160.000 D 358.310 Mn Manganese 14
-71.900 B 360.9870 Mn Manganese 15
-19.000 D 361.6590 Mn Manganese 13
-30.000 D 363.5100 Mn Manganese 11
-25.000 D 366.0600 Mn Manganese 11
-0.620 E 367.8770 Mn Manganese 11
-51.000 D 376.2020 Mn Manganese 16
-33.300 C 376.7780 Mn Manganese 9
-15.000 D 377.1540 Mn Manganese 11
-17.000 D 380.5010 Mn Manganese 13
-15.000 D 382.1420 Mn Manganese 11
-15.000 E 383.0360 Mn Manganese 10
-58.700 B 384.7430 Mn Manganese 15
-27.000 E 385.8270 Mn Manganese 13
-10.000 D 386.270 Mn Manganese 12
-12.000 D 388.580 Mn Manganese 12
-14.000 D 393.7430 Mn Manganese 11
-15.000 C 395.4730 Mn Manganese 9
-11.000 D 397.460 Mn Manganese 12
-53.000 C 402.960 Mn Manganese 14
-38.000 C 416.350 Mn Manganese 14
-8.400 C 418.510 Mn Manganese 14
-29.000 D 425.0380 Mn Manganese 13
-30.000 D 429.130 Mn Manganese 14
-7.900 D 430.610 Mn Manganese 14
-29.000 D 438.5770 Mn Manganese 16
-14.000 E 518.050 Mn Manganese 14
-6.700 D 582.120 Mn Manganese 14
-3.000 E 953.040 Mn Manganese 2
-2.000 E 972.550 Mn Manganese 2
-2.000 E 1003.000 Mn Manganese 2
-5.000 E 1023.550 Mn Manganese 2
-4.000 E 1027.990 Mn Manganese 2
-3.000 E 1062.510 Mn Manganese 2
-2.000 E 1065.560 Mn Manganese 2
-0.690 C 1162.020 Mn Manganese 2
-0.620 C 1163.320 Mn Manganese 2
-0.570 C 1164.210 Mn Manganese 2
-3.700 D 1188.5020 Mn Manganese 2
-3.100 D 1192.3130 Mn Manganese 2
-2.000 E 1195.000 Mn Manganese 2
-1.000 E 1195.970 Mn Manganese 2
-5.400 C+ 1197.170 Mn Manganese 2
-1.000 E 1199.340 Mn Manganese 2
-5.400 C+ 1199.380 Mn Manganese 2
-5.400 C+ 1201.1240 Mn Manganese 2
-1.000 E 1201.570 Mn Manganese 2
-4.700 D 1222.7850 Mn Manganese 2
-3.900 D 1224.7330 Mn Manganese 2
-3.000 E 1226.400 Mn Manganese 2
-4.000 E 1227.6380 Mn Manganese 2
-5.000 E 1228.4230 Mn Manganese 2
-7.000 D 1233.9520 Mn Manganese 2
-6.000 D 1234.8710 Mn Manganese 2
-1.000 E 1235.270 Mn Manganese 2
-6.000 D 1235.460 Mn Manganese 2
-2.000 E 1235.790 Mn Manganese 2
-5.500 D 1235.870 Mn Manganese 2
-7.000 D 1236.150 Mn Manganese 2
-13.000 D 1236.2300 Mn Manganese 6
-2.000 E 1250.6810 Mn Manganese 2
-4.000 E 1253.370 Mn Manganese 2
-3.100 D 1254.4100 Mn Manganese 2
-12.000 D 1255.7660 Mn Manganese 6
-2.000 E 1256.960 Mn Manganese 2
-2.600 D 1258.4130 Mn Manganese 6
-3.000 E 1259.560 Mn Manganese 2
-7.600 D 1264.1010 Mn Manganese 6
-3.000 E 1264.450 Mn Manganese 2
-8.400 D 1272.4440 Mn Manganese 6
-3.800 D 1275.970 Mn Manganese 2
-1.000 E 1275.970 Mn Manganese 2
-2.000 E 1277.120 Mn Manganese 2
-2.000 E 1277.820 Mn Manganese 2
-2.000 E 1277.820 Mn Manganese 2
-11.000 D 1285.1020 Mn Manganese 6
-2.000 E 1305.630 Mn Manganese 2
-10.000 D 1333.8740 Mn Manganese 6
-8.700 D 1345.4940 Mn Manganese 6
-8.300 D 1356.8520 Mn Manganese 6
-5.200 D 1391.1730 Mn Manganese 6
-8.000 D 1391.2180 Mn Manganese 6
-5.700 D 1396.7080 Mn Manganese 6
-3.000 D 1405.1560 Mn Manganese 6
-2.200 D 1408.3120 Mn Manganese 6
-2.800 D 1409.510 Mn Manganese 2
-2.900 D 1415.150 Mn Manganese 2
-1.200 D 1415.750 Mn Manganese 2
-2.400 D 1418.130 Mn Manganese 2
-1.200 E 1425.5440 Mn Manganese 2
-1.000 E 1431.0460 Mn Manganese 2
-1.800 D 1432.780 Mn Manganese 2
-1.000 E 1434.440 Mn Manganese 2
-2.500 D 1454.970 Mn Manganese 2
-1.000 E 1464.5720 Mn Manganese 2
-1.000 E 1468.030 Mn Manganese 2
-0.900 E 1478.590 Mn Manganese 2
-0.800 E 1478.790 Mn Manganese 2
-0.700 E 1483.6850 Mn Manganese 2
-1.000 E 1494.7540 Mn Manganese 2
-1.000 E 1499.950 Mn Manganese 2
-2.300 D 1523.140 Mn Manganese 2
-2.000 D 1524.550 Mn Manganese 2
-1.100 E 1527.760 Mn Manganese 2
-0.500 E 1537.0700 Mn Manganese 2
-0.600 E 1538.140 Mn Manganese 2
-4.500 D 1548.4300 Mn Manganese 6
-0.600 E 1548.6340 Mn Manganese 2
-1.600 D 1564.8970 Mn Manganese 2
-2.600 D 1566.470 Mn Manganese 2
-1.000 D 1570.050 Mn Manganese 2
-1.800 D 1573.530 Mn Manganese 2
-0.900 E 1574.2760 Mn Manganese 2
-2.300 D 1575.6420 Mn Manganese 2
-0.900 E 1575.750 Mn Manganese 2
-0.700 E 1577.220 Mn Manganese 2
-0.400 E 1577.7740 Mn Manganese 2
-2.000 E 1578.900 Mn Manganese 2
-2.200 D 1582.230 Mn Manganese 2
-0.400 E 1587.150 Mn Manganese 2
-2.000 E 1587.460 Mn Manganese 2
-3.000 E 1590.5690 Mn Manganese 2
-0.500 E 1593.2240 Mn Manganese 2
-1.000 E 1602.100 Mn Manganese 2
-2.200 D 1605.4670 Mn Manganese 2
-1.900 D 1615.790 Mn Manganese 2
-2.000 E 1623.140 Mn Manganese 2
-0.700 E 1629.840 Mn Manganese 2
-0.700 E 1629.940 Mn Manganese 2
-1.100 D 1636.750 Mn Manganese 2
-0.011 D+ 1678.630 Mn Manganese 2
-1.000 E 1679.550 Mn Manganese 2
-1.400 D 1708.2670 Mn Manganese 2
-1.500 D 1711.830 Mn Manganese 2
-1.800 D 1714.380 Mn Manganese 2
-0.900 D 1725.290 Mn Manganese 2
-1.700 D 1733.550 Mn Manganese 2
-1.300 D 1744.860 Mn Manganese 2
-2.600 D 1813.8660 Mn Manganese 2
-2.400 D 1815.240 Mn Manganese 2
-1.600 D 1816.2840 Mn Manganese 2
-0.800 D 1817.530 Mn Manganese 2
-3.700 D 1822.2130 Mn Manganese 2
-3.400 D 1823.690 Mn Manganese 2
-6.500 C 1827.0760 Mn Manganese 2
-3.000 D 1828.2510 Mn Manganese 2
-1.800 D 1834.570 Mn Manganese 2
-0.033 D+ 1836.5080 Mn Manganese 2
-0.900 D 1837.130 Mn Manganese 2
-0.042 D+ 1842.8630 Mn Manganese 2
-0.012 D+ 1846.930 Mn Manganese 2
-1.000 D 1847.730 Mn Manganese 2
-3.000 D 1847.730 Mn Manganese 2
-1.500 D 1848.160 Mn Manganese 2
-2.300 D 1848.260 Mn Manganese 2
-1.000 D 1850.880 Mn Manganese 2
-1.200 D 1851.610 Mn Manganese 2
-1.700 D 1852.780 Mn Manganese 2
-1.800 D 1853.2720 Mn Manganese 2
-2.300 D 1854.890 Mn Manganese 2
-1.700 D 1856.700 Mn Manganese 2
-2.100 D 1857.010 Mn Manganese 2
-0.700 D 1860.510 Mn Manganese 2
-2.500 D 1862.800 Mn Manganese 2
-2.600 D 1864.6150 Mn Manganese 2
-2.300 D 1865.520 Mn Manganese 2
-0.003 D 1877.160 Mn Manganese 2
-0.002 D 1887.870 Mn Manganese 2
-0.046 B 1897.480 Mn Manganese 2
-0.017 C+ 1898.120 Mn Manganese 2
-1.800 D 1902.9480 Mn Manganese 2
-0.132 B+ 1907.8400 Mn Manganese 2
-1.600 D 1908.910 Mn Manganese 2
-0.042 B 1909.8300 Mn Manganese 2
-0.790 C+ 1911.410 Mn Manganese 2
-0.005 C 1911.760 Mn Manganese 2
-0.212 B+ 1914.680 Mn Manganese 2
-1.170 B 1915.100 Mn Manganese 2
-0.218 B+ 1918.6430 Mn Manganese 2
-0.065 B 1918.9090 Mn Manganese 2
-0.238 B+ 1919.6390 Mn Manganese 2
-0.690 C+ 1920.030 Mn Manganese 2
-1.870 C+ 1921.2500 Mn Manganese 2
-0.248 B+ 1923.070 Mn Manganese 2
-0.530 B 1923.340 Mn Manganese 2
-2.600 D 1924.960 Mn Manganese 2
-0.510 B 1925.520 Mn Manganese 2
-0.510 B+ 1926.5850 Mn Manganese 2
-0.170 C+ 1926.9480 Mn Manganese 2
-0.034 C+ 1928.150 Mn Manganese 2
-1.200 D 1930.450 Mn Manganese 2
-0.280 C+ 1931.4040 Mn Manganese 2
-0.037 C+ 1932.6000 Mn Manganese 2
-0.043 C+ 1934.780 Mn Manganese 2
-1.800 D 1935.0680 Mn Manganese 2
-1.700 D 1936.740 Mn Manganese 2
-3.500 D 1942.660 Mn Manganese 2
-1.500 D 1943.5410 Mn Manganese 2
-4.200 D 1944.160 Mn Manganese 2
-1.700 D 1944.360 Mn Manganese 2
-3.600 D 1944.770 Mn Manganese 2
-4.700 C 1945.150 Mn Manganese 2
-2.200 D 1946.340 Mn Manganese 2
-5.000 C 1947.9320 Mn Manganese 2
-3.400 D 1948.280 Mn Manganese 2
-1.400 D 1950.1430 Mn Manganese 2
-2.600 D 1950.9220 Mn Manganese 2
-5.200 C 1953.230 Mn Manganese 2
-1.500 D 1953.350 Mn Manganese 2
-1.800 D 1954.810 Mn Manganese 2
-1.000 D 1958.9320 Mn Manganese 2
-3.900 C 1959.2460 Mn Manganese 2
-0.900 D 1960.370 Mn Manganese 2
-0.700 D 1969.240 Mn Manganese 2
-1.200 D 1994.230 Mn Manganese 2
-1.800 D 2002.560 Mn Manganese 2
-1.400 D 2037.960 Mn Manganese 2
-1.200 D 2038.2980 Mn Manganese 2
-1.200 D 2040.630 Mn Manganese 2
-1.200 D 2076.8720 Mn Manganese 2
-0.420 D 2085.420 Mn Manganese 2
-0.700 D 2089.570 Mn Manganese 2
-0.460 D 2098.1290 Mn Manganese 2
-0.900 D 2103.170 Mn Manganese 2
-0.530 D 2114.6330 Mn Manganese 2
-0.700 D 2120.070 Mn Manganese 2
-1.300 D 2120.450 Mn Manganese 2
-0.800 D 2134.1250 Mn Manganese 2
-0.480 D 2230.630 Mn Manganese 2
-0.490 D 2230.680 Mn Manganese 2
-0.530 D 2232.350 Mn Manganese 2
-0.009 C 2299.6610 Mn Manganese 2
-0.015 C+ 2305.7120 Mn Manganese 2
-1.200 D 2321.130 Mn Manganese 2
-0.009 D 2327.860 Mn Manganese 2
-0.480 D 2332.8560 Mn Manganese 2
-0.450 D 2333.950 Mn Manganese 2
-1.000 D 2367.630 Mn Manganese 2
-0.700 D 2374.0820 Mn Manganese 2
-3.300 C 2398.0160 Mn Manganese 2
-3.000 C 2398.5980 Mn Manganese 2
-0.800 D 2398.970 Mn Manganese 2
-2.900 C 2399.5220 Mn Manganese 2
-1.000 D 2399.7910 Mn Manganese 2
-3.100 C 2400.8810 Mn Manganese 2
-0.900 D 2400.9520 Mn Manganese 2
-0.700 D 2402.6880 Mn Manganese 2
-3.500 C 2402.8110 Mn Manganese 2
-1.700 D 2428.1160 Mn Manganese 2
-4.000 C 2428.4560 Mn Manganese 2
-6.000 C 2428.6760 Mn Manganese 2
-5.700 C 2437.2770 Mn Manganese 2
-3.700 C 2438.1050 Mn Manganese 2
-3.700 C 2438.5830 Mn Manganese 2
-2.000 D 2438.9260 Mn Manganese 2
-0.800 D 2441.1930 Mn Manganese 2
-5.600 C 2441.7960 Mn Manganese 2
-0.390 D 2442.2110 Mn Manganese 2
-5.600 C 2447.120 Mn Manganese 2
-0.430 D 2447.3310 Mn Manganese 2
-0.520 D 2450.4840 Mn Manganese 2
-0.350 D 2452.9000 Mn Manganese 2
-5.800 C 2453.0710 Mn Manganese 2
-5.900 C 2453.2290 Mn Manganese 2
-2.200 C 2453.8760 Mn Manganese 2
-0.520 D 2454.3630 Mn Manganese 2
-1.800 D 2458.5290 Mn Manganese 2
-6.000 C 2459.3210 Mn Manganese 2
-0.600 D 2459.4770 Mn Manganese 2
-0.380 D 2462.8700 Mn Manganese 2
-1.600 C 2463.1540 Mn Manganese 2
-0.520 D 2466.9600 Mn Manganese 2
-0.460 D 2467.1610 Mn Manganese 2
-0.340 D 2468.4280 Mn Manganese 2
-1.600 C 2468.5030 Mn Manganese 2
-0.340 D 2473.5940 Mn Manganese 2
-1.800 C 2474.3030 Mn Manganese 2
-0.210 D 2474.4390 Mn Manganese 2
-0.007 D+ 2479.7340 Mn Manganese 2
-0.005 D+ 2480.0330 Mn Manganese 2
-2.300 C 2480.1030 Mn Manganese 2
-0.014 D+ 2481.7120 Mn Manganese 2
-0.530 D 2486.9080 Mn Manganese 2
-0.600 D 2489.170 Mn Manganese 2
-0.270 D 2491.6610 Mn Manganese 2
-0.700 D 2499.7560 Mn Manganese 2
-0.320 C+ 2508.3530 Mn Manganese 2
-0.700 D 2508.5680 Mn Manganese 2
-1.080 C 2514.9570 Mn Manganese 2
-0.009 C 2515.7070 Mn Manganese 2
-0.087 B+ 2517.3560 Mn Manganese 2
-1.000 D 2517.5000 Mn Manganese 2
-0.019 B 2518.140 Mn Manganese 2
-0.001 D 2518.430 Mn Manganese 2
-2.300 C 2518.940 Mn Manganese 2
-2.400 D 2520.0700 Mn Manganese 2
-1.100 D 2520.8600 Mn Manganese 2
-2.100 D 2521.0100 Mn Manganese 2
-1.000 D 2521.2760 Mn Manganese 2
-0.900 D 2521.380 Mn Manganese 2
-1.000 D 2523.7720 Mn Manganese 2
-1.300 C 2528.7710 Mn Manganese 2
-0.900 D 2533.5420 Mn Manganese 2
-1.100 D 2534.0900 Mn Manganese 2
-1.000 D 2534.9830 Mn Manganese 2
-0.360 D 2535.8030 Mn Manganese 2
-0.467 B+ 2536.4200 Mn Manganese 2
-0.134 B+ 2536.7390 Mn Manganese 2
-0.007 C 2536.760 Mn Manganese 2
-1.600 D 2538.6810 Mn Manganese 2
-0.600 D 2538.8030 Mn Manganese 2
-0.850 B+ 2543.6870 Mn Manganese 2
-2.500 B 2544.2180 Mn Manganese 2
-0.280 D 2547.4650 Mn Manganese 2
-0.450 D 2549.130 Mn Manganese 2
-1.900 C 2549.5150 Mn Manganese 2
-0.330 D 2550.0820 Mn Manganese 2
-0.380 D 2550.5830 Mn Manganese 2
-0.550 D 2552.300 Mn Manganese 2
-0.640 B+ 2552.6170 Mn Manganese 2
-0.500 D 2552.6170 Mn Manganese 2
-0.150 D+ 2553.9240 Mn Manganese 2
-0.330 D 2555.2840 Mn Manganese 2
-1.420 B+ 2557.3400 Mn Manganese 2
-0.390 B+ 2557.6610 Mn Manganese 2
-0.031 B 2557.720 Mn Manganese 2
-0.028 D+ 2557.970 Mn Manganese 2
-0.920 C+ 2558.3100 Mn Manganese 2
-0.500 C+ 2558.3610 Mn Manganese 2
-0.800 D 2559.0710 Mn Manganese 2
-2.000 C 2559.3720 Mn Manganese 2
-1.200 D 2559.6300 Mn Manganese 2
-0.440 D 2560.1810 Mn Manganese 2
-0.220 C+ 2560.4470 Mn Manganese 2
-0.107 C+ 2560.5090 Mn Manganese 2
-0.008 C 2562.040 Mn Manganese 2
-1.000 D 2563.0330 Mn Manganese 2
-2.170 B 2564.4110 Mn Manganese 2
-0.600 D 2564.6120 Mn Manganese 2
-0.600 D 2564.8850 Mn Manganese 2
-0.252 B 2565.9880 Mn Manganese 2
-0.020 C+ 2566.8040 Mn Manganese 2
-2.200 C 2569.4950 Mn Manganese 2
-0.900 D 2571.6930 Mn Manganese 2
-0.095 C+ 2571.7240 Mn Manganese 2
-0.490 D 2573.2010 Mn Manganese 2
-2.800 A+ 2576.875240 Mn Manganese 2
-2.100 C 2576.9540 Mn Manganese 2
-1.700 D 2579.0500 Mn Manganese 2
-5.000 C 2579.5830 Mn Manganese 2
-1.700 C 2583.7450 Mn Manganese 2
-0.600 D 2584.3110 Mn Manganese 2
-1.300 C 2585.2830 Mn Manganese 2
-1.300 D 2585.9040 Mn Manganese 2
-2.900 C 2586.2180 Mn Manganese 2
-3.300 C 2586.6640 Mn Manganese 2
-2.000 C 2588.070 Mn Manganese 2
-2.800 C 2589.7460 Mn Manganese 2
-2.000 C 2590.5020 Mn Manganese 2
-5.000 D 2590.590 Mn Manganese 2
-3.700 D 2590.7670 Mn Manganese 2
-0.800 D 2590.9250 Mn Manganese 2
-2.500 C 2590.9250 Mn Manganese 2
-1.700 D 2591.0740 Mn Manganese 2
-0.270 D 2591.4440 Mn Manganese 2
-1.900 C 2592.0180 Mn Manganese 2
-1.400 D 2592.2040 Mn Manganese 2
-1.400 C 2592.8180 Mn Manganese 2
-2.300 C 2594.0770 Mn Manganese 2
-2.760 A+ 2594.496590 Mn Manganese 2
-1.000 D 2596.4290 Mn Manganese 2
-0.420 D 2598.3530 Mn Manganese 2
-1.200 D 2599.0250 Mn Manganese 2
-0.430 D 2599.5900 Mn Manganese 2
-1.600 D 2599.6820 Mn Manganese 2
-1.400 D 2599.6820 Mn Manganese 2
-0.900 D 2599.8070 Mn Manganese 2
-0.420 D 2600.3300 Mn Manganese 2
-2.900 C 2602.6220 Mn Manganese 2
-2.000 D 2602.7640 Mn Manganese 2
-2.300 C 2603.5030 Mn Manganese 2
-1.000 D 2603.8130 Mn Manganese 2
-0.210 D 2604.0470 Mn Manganese 2
-1.200 D 2604.4980 Mn Manganese 2
-1.000 D 2604.640 Mn Manganese 2
-1.400 D 2605.0930 Mn Manganese 2
-2.690 A+ 2606.458730 Mn Manganese 2
-0.254 B+ 2606.8950 Mn Manganese 2
-0.440 D 2607.0390 Mn Manganese 2
-0.270 D 2607.6210 Mn Manganese 2
-0.700 D 2609.2250 Mn Manganese 2
-1.000 D 2609.5930 Mn Manganese 2
-1.300 C 2610.3370 Mn Manganese 2
-3.000 C 2610.9800 Mn Manganese 2
-1.400 D 2611.3620 Mn Manganese 2
-1.000 D 2611.6320 Mn Manganese 2
-0.900 D 2613.410 Mn Manganese 2
-1.140 C 2617.3020 Mn Manganese 2
-2.900 C 2618.9290 Mn Manganese 2
-1.500 D 2619.7020 Mn Manganese 2
-2.100 D 2619.7850 Mn Manganese 2
-1.400 C 2620.0930 Mn Manganese 2
-0.013 C 2623.880 Mn Manganese 2
-0.116 B 2625.5440 Mn Manganese 2
-0.600 D 2625.7390 Mn Manganese 2
-2.600 B 2626.3890 Mn Manganese 2
-1.400 C 2627.2510 Mn Manganese 2
-0.800 D 2627.8420 Mn Manganese 2
-1.800 C 2629.0770 Mn Manganese 2
-2.600 C 2629.2890 Mn Manganese 2
-1.300 D 2629.5520 Mn Manganese 2
-1.800 D 2632.7910 Mn Manganese 2
-2.700 C 2633.1390 Mn Manganese 2
-0.004 D+ 2633.210 Mn Manganese 2
-0.320 D 2636.3900 Mn Manganese 2
-1.200 D 2636.3900 Mn Manganese 2
-2.200 C 2638.6750 Mn Manganese 2
-2.700 C 2638.9590 Mn Manganese 2
-1.900 C 2640.6360 Mn Manganese 2
-0.390 D 2643.0220 Mn Manganese 2
-0.001 D 2643.300 Mn Manganese 2
-0.430 D 2643.5620 Mn Manganese 2
-0.061 D+ 2648.4120 Mn Manganese 2
-1.900 D 2648.8450 Mn Manganese 2
-0.700 D 2649.7270 Mn Manganese 2
-0.360 D 2651.8250 Mn Manganese 2
-0.600 D 2652.6570 Mn Manganese 2
-0.430 C+ 2653.2870 Mn Manganese 2
-0.800 D 2656.6100 Mn Manganese 2
-2.100 C 2656.7140 Mn Manganese 2
-2.000 D 2656.9600 Mn Manganese 2
-0.600 D 2659.8810 Mn Manganese 2
-0.900 D 2663.3300 Mn Manganese 2
-2.600 C 2667.5620 Mn Manganese 2
-0.600 D 2667.6870 Mn Manganese 2
-1.800 C 2667.8230 Mn Manganese 2
-0.700 D 2672.6050 Mn Manganese 2
-1.300 C 2672.6050 Mn Manganese 2
-1.980 B+ 2673.3750 Mn Manganese 2
-0.035 C+ 2673.8900 Mn Manganese 2
-1.500 D 2674.1740 Mn Manganese 2
-0.330 D 2675.2350 Mn Manganese 2
-2.700 C 2675.5510 Mn Manganese 2
-0.900 D 2675.7800 Mn Manganese 2
-2.200 D 2676.3120 Mn Manganese 2
-1.800 C 2676.3120 Mn Manganese 2
-0.900 D 2678.0450 Mn Manganese 2
-1.200 D 2678.6470 Mn Manganese 2
-1.100 D 2679.9620 Mn Manganese 2
-2.300 C 2680.7430 Mn Manganese 2
-0.410 C+ 2681.1340 Mn Manganese 2
-2.000 C 2681.180 Mn Manganese 2
-1.400 C 2681.4770 Mn Manganese 2
-1.210 C 2682.0480 Mn Manganese 2
-0.800 D 2685.3360 Mn Manganese 2
-0.005 D+ 2685.930 Mn Manganese 2
-0.320 D 2686.6810 Mn Manganese 2
-1.010 C 2686.7810 Mn Manganese 2
-1.500 C 2688.1660 Mn Manganese 2
-1.200 D 2688.2550 Mn Manganese 2
-0.006 C 2689.140 Mn Manganese 2
-0.320 D 2690.5860 Mn Manganese 2
-1.500 C 2691.7770 Mn Manganese 2
-1.100 D 2692.5160 Mn Manganese 2
-0.950 C 2692.7800 Mn Manganese 2
-2.300 C 2693.2490 Mn Manganese 2
-0.940 B+ 2693.9910 Mn Manganese 2
-0.154 C+ 2694.3690 Mn Manganese 2
-1.070 C 2694.9020 Mn Manganese 2
-1.080 C 2694.9020 Mn Manganese 2
-0.680 B+ 2696.1650 Mn Manganese 2
-0.900 D 2699.5310 Mn Manganese 2
-1.300 D 2699.7900 Mn Manganese 2
-0.900 D 2700.6540 Mn Manganese 2
-0.800 B+ 2701.8250 Mn Manganese 2
-0.900 D 2701.9710 Mn Manganese 2
-0.900 D 2702.3310 Mn Manganese 2
-2.600 C 2702.4990 Mn Manganese 2
-0.800 D 2703.7860 Mn Manganese 2
-0.284 B+ 2704.020 Mn Manganese 2
-0.066 B 2704.5620 Mn Manganese 2
-0.290 D 2704.780 Mn Manganese 2
-1.030 C 2704.8470 Mn Manganese 2
-0.410 B+ 2706.3630 Mn Manganese 2
-2.300 C 2706.5340 Mn Manganese 2
-0.135 B 2706.8960 Mn Manganese 2
-0.430 C+ 2708.3470 Mn Manganese 2
-1.170 C 2708.7180 Mn Manganese 2
-1.670 C+ 2709.2550 Mn Manganese 2
-0.108 C+ 2709.6170 Mn Manganese 2
-0.600 D 2710.7730 Mn Manganese 2
-1.900 C 2711.1400 Mn Manganese 2
-2.100 C 2711.4330 Mn Manganese 2
-0.430 D 2711.9270 Mn Manganese 2
-0.490 D 2712.3720 Mn Manganese 2
-2.100 C 2712.4340 Mn Manganese 2
-0.530 D 2715.3890 Mn Manganese 2
-2.000 C 2715.5420 Mn Manganese 2
-0.540 D 2716.5040 Mn Manganese 2
-0.292 B+ 2717.6010 Mn Manganese 2
-0.490 D 2717.7980 Mn Manganese 2
-0.200 E 2718.3320 Mn Manganese 2
-0.277 B+ 2719.8180 Mn Manganese 2
-1.080 C 2720.1130 Mn Manganese 2
-0.800 D 2720.5490 Mn Manganese 2
-1.140 C 2720.5490 Mn Manganese 2
-1.500 C 2720.7010 Mn Manganese 2
-1.100 D 2722.4660 Mn Manganese 2
-1.560 C+ 2722.9030 Mn Manganese 2
-0.107 C+ 2722.9030 Mn Manganese 2
-1.630 C+ 2725.2720 Mn Manganese 2
-0.840 C 2728.3920 Mn Manganese 2
-0.250 D 2728.8830 Mn Manganese 2
-1.800 C 2729.4250 Mn Manganese 2
-2.700 C 2729.4250 Mn Manganese 2
-1.100 D 2730.4220 Mn Manganese 2
-0.490 D 2734.7030 Mn Manganese 2
-0.700 D 2737.8320 Mn Manganese 2
-0.800 D 2737.9310 Mn Manganese 2
-1.130 C 2738.3800 Mn Manganese 2
-1.200 D 2739.1080 Mn Manganese 2
-1.300 D 2741.030 Mn Manganese 2
-1.000 D 2741.5970 Mn Manganese 2
-1.300 D 2743.2780 Mn Manganese 2
-0.400 D 2745.7140 Mn Manganese 2
-0.520 D 2746.3100 Mn Manganese 2
-0.250 D 2746.5440 Mn Manganese 2
-1.700 D 2748.1320 Mn Manganese 2
-0.300 D 2748.7690 Mn Manganese 2
-1.100 D 2749.5110 Mn Manganese 2
-0.410 D 2750.370 Mn Manganese 2
-0.196 C+ 2750.9390 Mn Manganese 2
-0.330 D 2754.2710 Mn Manganese 2
-0.530 D 2754.8010 Mn Manganese 2
-0.900 D 2757.1450 Mn Manganese 2
-0.005 D 2758.750 Mn Manganese 2
-0.700 D 2758.8910 Mn Manganese 2
-0.600 D 2759.260 Mn Manganese 2
-1.100 D 2760.2470 Mn Manganese 2
-1.400 C 2761.8220 Mn Manganese 2
-0.013 C 2762.1310 Mn Manganese 2
-0.900 D 2762.9040 Mn Manganese 2
-0.059 D+ 2763.370 Mn Manganese 2
-0.700 D 2764.4690 Mn Manganese 2
-0.440 D 2764.5760 Mn Manganese 2
-0.450 D 2766.4690 Mn Manganese 2
-0.980 C 2768.6230 Mn Manganese 2
-0.340 D 2768.6270 Mn Manganese 2
-0.700 D 2768.750 Mn Manganese 2
-1.900 D 2769.2740 Mn Manganese 2
-0.900 D 2770.1350 Mn Manganese 2
-1.130 C 2770.4580 Mn Manganese 2
-0.900 D 2772.3450 Mn Manganese 2
-0.900 D 2775.7970 Mn Manganese 2
-2.000 C 2776.1380 Mn Manganese 2
-0.250 D 2776.2020 Mn Manganese 2
-1.700 D 2776.4710 Mn Manganese 2
-1.200 D 2776.4710 Mn Manganese 2
-0.540 D 2776.9500 Mn Manganese 2
-0.600 D 2778.2040 Mn Manganese 2
-0.800 D 2778.5960 Mn Manganese 2
-0.002 D 2780.570 Mn Manganese 2
-1.600 C 2782.7530 Mn Manganese 2
-0.410 D 2782.9660 Mn Manganese 2
-1.600 D 2785.0290 Mn Manganese 2
-0.600 D 2785.8650 Mn Manganese 2
-0.410 D 2787.2770 Mn Manganese 2
-1.500 C 2790.1270 Mn Manganese 2
-0.430 D 2790.8050 Mn Manganese 2
-0.600 D 2791.6910 Mn Manganese 2
-0.500 D 2794.0420 Mn Manganese 2
-0.053 C+ 2794.5330 Mn Manganese 2
-0.270 D 2794.5330 Mn Manganese 2
-3.700 C 2795.640 Mn Manganese 1
-1.500 C 2795.9870 Mn Manganese 2
-1.600 C 2796.9410 Mn Manganese 2
-1.500 C 2798.400 Mn Manganese 2
-3.600 C 2799.090 Mn Manganese 1
-3.700 C 2801.890 Mn Manganese 1
-0.370 D 2804.1780 Mn Manganese 2
-0.710 C+ 2806.1910 Mn Manganese 2
-0.550 D 2806.870 Mn Manganese 2
-1.500 C 2807.3420 Mn Manganese 2
-0.390 D 2807.7260 Mn Manganese 2
-0.300 D 2810.640 Mn Manganese 2
-1.100 D 2811.0750 Mn Manganese 2
-0.540 D 2812.320 Mn Manganese 2
-0.800 D 2812.7980 Mn Manganese 2
-1.100 D 2813.0920 Mn Manganese 2
-1.600 C 2813.4160 Mn Manganese 2
-0.340 D 2813.540 Mn Manganese 2
-0.040 C+ 2813.6040 Mn Manganese 2
-0.600 D 2815.3900 Mn Manganese 2
-1.600 C 2815.8540 Mn Manganese 2
-0.410 D 2817.1580 Mn Manganese 2
-0.700 D 2817.2370 Mn Manganese 2
-0.600 D 2818.1500 Mn Manganese 2
-0.700 D 2818.5550 Mn Manganese 2
-0.390 D 2818.770 Mn Manganese 2
-1.100 D 2820.8130 Mn Manganese 2
-0.800 D 2825.5040 Mn Manganese 2
-0.520 D 2829.3000 Mn Manganese 2
-0.420 D 2829.6700 Mn Manganese 2
-2.000 C 2831.5530 Mn Manganese 2
-0.450 D 2841.1900 Mn Manganese 2
-0.049 D+ 2846.6820 Mn Manganese 2
-0.880 C 2846.8730 Mn Manganese 2
-0.004 D 2855.150 Mn Manganese 2
-0.230 D 2856.0390 Mn Manganese 2
-0.310 D 2857.0790 Mn Manganese 2
-0.700 D 2862.1430 Mn Manganese 2
-1.400 C 2862.3800 Mn Manganese 2
-0.910 C 2863.2300 Mn Manganese 2
-0.340 D 2865.6450 Mn Manganese 2
-0.700 D 2866.0230 Mn Manganese 2
-0.900 D 2867.360 Mn Manganese 2
-1.400 C 2868.8310 Mn Manganese 2
-0.800 D 2869.7400 Mn Manganese 2
-1.600 D 2870.4620 Mn Manganese 2
-2.300 C 2870.9270 Mn Manganese 2
-0.280 D 2871.5230 Mn Manganese 2
-0.800 D 2872.3700 Mn Manganese 2
-0.600 D 2872.5200 Mn Manganese 2
-1.600 C 2873.7780 Mn Manganese 2
-1.400 C 2873.9710 Mn Manganese 2
-0.600 D 2875.6860 Mn Manganese 2
-0.430 D 2880.210 Mn Manganese 2
-1.170 C+ 2880.3270 Mn Manganese 2
-0.800 D 2880.6920 Mn Manganese 2
-0.800 D 2881.2550 Mn Manganese 2
-0.700 D 2881.6030 Mn Manganese 2
-0.500 D 2884.6710 Mn Manganese 2
-0.049 C+ 2885.0080 Mn Manganese 2
-0.450 D 2885.1530 Mn Manganese 2
-0.700 D 2885.530 Mn Manganese 2
-1.000 D 2885.9770 Mn Manganese 2
-1.040 C+ 2887.5180 Mn Manganese 2
-0.115 C+ 2888.7350 Mn Manganese 2
-0.600 D 2889.6620 Mn Manganese 2
-0.390 D 2890.1590 Mn Manganese 2
-1.600 C 2890.3670 Mn Manganese 2
-1.500 C 2890.4470 Mn Manganese 2
-1.300 D 2892.1800 Mn Manganese 2
-1.400 C 2893.2370 Mn Manganese 2
-0.700 D 2894.6880 Mn Manganese 2
-0.266 B+ 2897.9170 Mn Manganese 2
-1.600 D 2899.5520 Mn Manganese 2
-0.530 D 2899.8100 Mn Manganese 2
-1.700 C 2901.0040 Mn Manganese 2
-0.081 B+ 2903.7520 Mn Manganese 2
-1.400 C 2905.3660 Mn Manganese 2
-0.950 C 2905.5160 Mn Manganese 2
-0.600 D 2906.1040 Mn Manganese 2
-1.500 D 2907.8460 Mn Manganese 2
-1.600 D 2908.060 Mn Manganese 2
-0.700 D 2913.980 Mn Manganese 2
-1.100 D 2914.5770 Mn Manganese 2
-0.012 C+ 2922.1540 Mn Manganese 2
-0.980 C 2923.4490 Mn Manganese 2
-0.071 C+ 2928.0870 Mn Manganese 2
-0.125 B+ 2928.2520 Mn Manganese 2
-0.002 D 2928.4530 Mn Manganese 2
-1.400 C 2931.3770 Mn Manganese 2
-2.040 A+ 2933.9120 Mn Manganese 2
-1.100 D 2934.2370 Mn Manganese 2
-0.090 B 2934.6370 Mn Manganese 2
-0.091 B 2935.5810 Mn Manganese 2
-0.026 C+ 2936.2140 Mn Manganese 2
-0.700 D 2938.5650 Mn Manganese 2
-1.980 A+ 2940.1680 Mn Manganese 2
-0.430 D 2942.4270 Mn Manganese 2
-1.500 C 2943.9990 Mn Manganese 2
-1.400 D 2944.7550 Mn Manganese 2
-1.960 A+ 2950.0670 Mn Manganese 2
-1.600 C 2952.0300 Mn Manganese 2
-0.092 C+ 2953.7340 Mn Manganese 2
-0.002 C 2955.0760 Mn Manganese 2
-0.112 B+ 2956.0040 Mn Manganese 2
-0.062 C+ 2956.2430 Mn Manganese 2
-0.001 D 2956.8660 Mn Manganese 2
-0.400 D 2958.9280 Mn Manganese 2
-0.008 C 2959.8060 Mn Manganese 2
-0.240 C+ 2959.8060 Mn Manganese 2
-0.056 C+ 2962.5540 Mn Manganese 2
-0.700 D 2966.8200 Mn Manganese 2
-0.600 D 2977.3460 Mn Manganese 2
-0.470 D 2977.7340 Mn Manganese 2
-0.079 D+ 2985.4640 Mn Manganese 2
-0.013 D+ 2990.6040 Mn Manganese 2
-0.017 D+ 2993.2830 Mn Manganese 2
-0.059 D+ 2994.4840 Mn Manganese 2
-0.002 D 2994.4840 Mn Manganese 2
-0.180 E 3008.540 Mn Manganese 1
-0.110 E 3012.040 Mn Manganese 1
-0.310 E 3012.260 Mn Manganese 1
-0.290 E 3017.330 Mn Manganese 1
-0.270 D 3020.5970 Mn Manganese 2
-0.360 C+ 3020.8030 Mn Manganese 2
-0.620 C+ 3029.9250 Mn Manganese 2
-0.017 C 3030.3280 Mn Manganese 2
-0.700 C 3031.9200 Mn Manganese 2
-0.290 D 3032.2060 Mn Manganese 2
-0.003 D 3034.4570 Mn Manganese 2
-0.540 D 3036.2330 Mn Manganese 2
-0.460 D 3038.9760 Mn Manganese 2
-0.380 D 3039.3910 Mn Manganese 2
-0.550 C+ 3040.4350 Mn Manganese 2
-0.590 E 3044.250 Mn Manganese 1
-0.570 E 3045.460 Mn Manganese 1
-0.670 E 3046.480 Mn Manganese 1
-0.250 C+ 3047.1570 Mn Manganese 2
-0.610 D 3047.930 Mn Manganese 1
-0.091 E 3049.750 Mn Manganese 1
-0.890 B+ 3051.5410 Mn Manganese 2
-0.340 D 3052.3130 Mn Manganese 2
-0.460 E 3055.250 Mn Manganese 1
-0.510 B+ 3059.9490 Mn Manganese 2
-0.130 E 3063.010 Mn Manganese 1
-0.160 E 3066.910 Mn Manganese 1
-0.190 E 3071.160 Mn Manganese 1
-0.600 D 3071.7130 Mn Manganese 2
-0.370 E 3074.020 Mn Manganese 1
-0.160 E 3080.520 Mn Manganese 1
-0.390 D 3081.5830 Mn Manganese 2
-0.030 E 3082.220 Mn Manganese 1
-0.011 D+ 3085.4680 Mn Manganese 2
-1.090 C 3106.7840 Mn Manganese 2
-0.540 D 3107.1910 Mn Manganese 2
-1.030 C 3109.7180 Mn Manganese 2
-0.810 C 3110.1590 Mn Manganese 2
-0.270 E 3111.580 Mn Manganese 1
-0.320 D 3122.780 Mn Manganese 2
-0.360 D 3124.0390 Mn Manganese 2
-0.180 D 3126.1340 Mn Manganese 2
-0.280 D 3145.360 Mn Manganese 2
-0.005 D+ 3146.5900 Mn Manganese 2
-0.003 D 3147.0270 Mn Manganese 2
-0.088 E 3149.090 Mn Manganese 1
-0.048 E 3161.960 Mn Manganese 1
-0.037 E 3179.420 Mn Manganese 1
-0.004 D+ 3190.1550 Mn Manganese 2
-0.104 B+ 3205.8000 Mn Manganese 2
-0.360 D 3210.8750 Mn Manganese 2
-0.160 E 3213.810 Mn Manganese 1
-0.002 C+ 3217.880 Mn Manganese 1
-0.640 D 3229.020 Mn Manganese 1
-0.350 E 3231.650 Mn Manganese 1
-0.530 E 3244.720 Mn Manganese 1
-0.230 E 3252.080 Mn Manganese 1
-0.009 D+ 3252.2570 Mn Manganese 2
-0.180 E 3253.890 Mn Manganese 1
-0.017 E 3254.980 Mn Manganese 1
-0.500 E 3257.080 Mn Manganese 1
-0.970 E 3259.350 Mn Manganese 1
-0.380 E 3261.170 Mn Manganese 1
-0.140 E 3265.650 Mn Manganese 1
-0.015 E 3297.830 Mn Manganese 1
-0.006 D 3298.9790 Mn Manganese 2
-0.280 E 3299.170 Mn Manganese 1
-0.280 D 3308.7620 Mn Manganese 2
-0.074 E 3331.630 Mn Manganese 1
-0.105 C+ 3331.7330 Mn Manganese 2
-0.210 D 3363.9850 Mn Manganese 2
-0.083 B+ 3420.3860 Mn Manganese 2
-0.016 C+ 3421.0030 Mn Manganese 2
-0.006 C+ 3439.9570 Mn Manganese 2
-0.362 A 3442.9710 Mn Manganese 2
-0.003 A 3461.0170 Mn Manganese 2
-0.260 A 3461.3050 Mn Manganese 2
-0.170 D 3465.0420 Mn Manganese 2
-0.220 D 3466.030 Mn Manganese 2
-0.270 D 3467.330 Mn Manganese 2
-0.093 A 3475.0330 Mn Manganese 2
-0.165 A 3475.1220 Mn Manganese 2
-0.160 A 3483.9010 Mn Manganese 2
-0.211 A 3489.6730 Mn Manganese 2
-0.095 B+ 3496.8330 Mn Manganese 2
-0.013 B+ 3497.8080 Mn Manganese 2
-0.042 B+ 3498.5260 Mn Manganese 2
-0.002 D 3564.1330 Mn Manganese 2
-0.160 D 3567.020 Mn Manganese 2
-0.940 D 3578.900 Mn Manganese 1
-0.180 E 3596.150 Mn Manganese 1
-0.230 E 3608.570 Mn Manganese 1
-0.360 E 3609.520 Mn Manganese 1
-0.420 E 3611.330 Mn Manganese 1
-0.097 E 3624.820 Mn Manganese 1
-0.028 E 3630.770 Mn Manganese 1
-0.910 D 3661.440 Mn Manganese 1
-0.006 C 3671.570 Mn Manganese 1
-0.730 D 3678.010 Mn Manganese 1
-0.760 D 3683.140 Mn Manganese 1
-0.079 C+ 3697.620 Mn Manganese 1
-0.009 C 3702.780 Mn Manganese 1
-1.400 D 3707.130 Mn Manganese 1
-0.960 D 3719.990 Mn Manganese 1
-0.058 C+ 3729.950 Mn Manganese 1
-1.000 D 3732.990 Mn Manganese 1
-0.057 B 3791.300 Mn Manganese 1
-0.013 B 3800.340 Mn Manganese 1
-0.270 E 3801.630 Mn Manganese 1
-0.064 E 3802.990 Mn Manganese 1
-0.590 B 3807.800 Mn Manganese 1
-0.143 B 3810.670 Mn Manganese 1
-0.053 E 3811.770 Mn Manganese 1
-0.042 B 3817.830 Mn Manganese 1
-0.521 B 3824.590 Mn Manganese 1
-0.231 B 3824.980 Mn Manganese 1
-0.103 B 3830.770 Mn Manganese 1
-0.314 B 3834.950 Mn Manganese 1
-0.429 B 3835.450 Mn Manganese 1
-0.464 B 3840.870 Mn Manganese 1
-0.330 C 3842.170 Mn Manganese 1
-0.211 B 3845.070 Mn Manganese 1
-0.001 D 3890.2340 Mn Manganese 2
-0.001 D 3898.7220 Mn Manganese 2
-0.540 D 3927.580 Mn Manganese 1
-0.410 E 3953.960 Mn Manganese 1
-0.180 E 3977.010 Mn Manganese 1
-0.160 E 3978.200 Mn Manganese 1
-0.230 E 3983.710 Mn Manganese 1
-0.097 E 3986.370 Mn Manganese 1
-0.110 E 3987.960 Mn Manganese 1
-0.100 E 3988.230 Mn Manganese 1
-0.254 C+ 4019.240 Mn Manganese 1
-0.089 E 4027.580 Mn Manganese 1
-0.170 C+ 4031.900 Mn Manganese 1
-0.165 C+ 4034.210 Mn Manganese 1
-0.158 C+ 4035.630 Mn Manganese 1
-0.047 E 4039.870 Mn Manganese 1
-0.787 C+ 4042.500 Mn Manganese 1
-0.750 C+ 4049.900 Mn Manganese 1
-0.380 E 4053.610 Mn Manganese 1
-0.431 C+ 4056.690 Mn Manganese 1
-0.725 C+ 4060.080 Mn Manganese 1
-0.140 E 4060.540 Mn Manganese 1
-0.190 E 4062.890 Mn Manganese 1
-0.169 C+ 4064.680 Mn Manganese 1
-0.250 E 4066.230 Mn Manganese 1
-0.014 E 4069.150 Mn Manganese 1
-0.230 C+ 4071.430 Mn Manganese 1
-0.380 C+ 4080.390 Mn Manganese 1
-0.295 C+ 4084.090 Mn Manganese 1
-0.280 C+ 4084.780 Mn Manganese 1
-0.004 D 4086.5490 Mn Manganese 2
-0.170 E 4091.090 Mn Manganese 1
-0.170 E 4106.520 Mn Manganese 1
-0.001 D+ 4129.2870 Mn Manganese 2
-0.300 E 4136.210 Mn Manganese 1
-0.002 D 4141.610 Mn Manganese 2
-0.260 E 4142.230 Mn Manganese 1
-0.066 E 4148.700 Mn Manganese 1
-0.230 E 4149.970 Mn Manganese 1
-0.240 E 4177.780 Mn Manganese 1
-0.200 E 4191.170 Mn Manganese 1
-0.230 E 4202.940 Mn Manganese 1
-0.000 D+ 4206.55960 Mn Manganese 2
-0.012 C+ 4207.55270 Mn Manganese 2
-0.917 C+ 4236.330 Mn Manganese 1
-0.390 E 4240.910 Mn Manganese 1
-0.008 D 4245.44120 Mn Manganese 2
-0.004 D 4247.140 Mn Manganese 2
-0.370 E 4258.860 Mn Manganese 1
-0.019 C+ 4260.38990 Mn Manganese 2
-0.492 C+ 4267.120 Mn Manganese 1
-0.230 E 4282.300 Mn Manganese 1
-0.160 D 4283.190 Mn Manganese 2
-0.250 D 4283.380 Mn Manganese 2
-0.089 C+ 4285.290 Mn Manganese 1
-0.013 C 4285.6340 Mn Manganese 2
-0.015 D+ 4293.44040 Mn Manganese 2
-0.150 D 4294.480 Mn Manganese 2
-0.150 D 4294.890 Mn Manganese 2
-0.009 C 4309.36490 Mn Manganese 2
-0.230 D 4311.910 Mn Manganese 2
-0.080 D 4312.440 Mn Manganese 2
-0.050 C+ 4313.760 Mn Manganese 1
-0.030 C+ 4326.26300 Mn Manganese 2
-0.017 C 4327.86010 Mn Manganese 2
-0.010 C 4339.56430 Mn Manganese 2
-0.025 C+ 4345.20460 Mn Manganese 2
-0.008 C 4349.61820 Mn Manganese 2
-0.140 E 4382.930 Mn Manganese 1
-0.040 D+ 4394.6190 Mn Manganese 2
-0.260 E 4413.120 Mn Manganese 1
-0.293 B 4416.120 Mn Manganese 1
-0.210 E 4421.020 Mn Manganese 1
-0.437 B 4437.600 Mn Manganese 1
-0.007 D+ 4443.24280 Mn Manganese 2
-0.798 B 4452.840 Mn Manganese 1
-0.544 B 4454.250 Mn Manganese 1
-0.170 E 4457.070 Mn Manganese 1
-0.234 C+ 4458.290 Mn Manganese 1
-0.427 C+ 4458.800 Mn Manganese 1
-0.462 C+ 4459.510 Mn Manganese 1
-0.170 E 4462.330 Mn Manganese 1
-0.700 C+ 4463.270 Mn Manganese 1
-0.439 B 4465.930 Mn Manganese 1
-0.300 B 4471.390 Mn Manganese 1
-0.435 B 4474.050 Mn Manganese 1
-0.340 D 4480.660 Mn Manganese 1
-0.249 B 4491.340 Mn Manganese 1
-0.249 B 4500.160 Mn Manganese 1
-0.186 B 4503.480 Mn Manganese 1
-0.090 D 4511.4750 Mn Manganese 2
-0.110 D 4531.300 Mn Manganese 2
-0.360 D 4606.650 Mn Manganese 1
-0.360 D 4627.840 Mn Manganese 1
-0.130 D 4640.460 Mn Manganese 2
-0.011 C 4673.000 Mn Manganese 1
-0.017 C 4702.480 Mn Manganese 1
-0.172 B 4711.040 Mn Manganese 1
-0.170 C 4728.800 Mn Manganese 1
-0.004 D+ 4739.630 Mn Manganese 2
-0.240 B 4740.440 Mn Manganese 1
-0.303 B 4755.370 Mn Manganese 1
-0.535 B 4762.860 Mn Manganese 1
-0.783 B 4763.710 Mn Manganese 1
-0.410 C 4767.190 Mn Manganese 1
-0.460 C 4767.760 Mn Manganese 1
-0.401 B 4784.760 Mn Manganese 1
-0.005 C 4808.200 Mn Manganese 2
-0.499 B 4824.870 Mn Manganese 1
-0.011 C 4967.270 Mn Manganese 1
-0.008 C 5006.310 Mn Manganese 1
-0.046 C 5119.370 Mn Manganese 1
-0.039 C 5152.320 Mn Manganese 1
-0.036 C 5198.040 Mn Manganese 1
-0.042 B 5256.780 Mn Manganese 1
-0.440 C 5295.800 Mn Manganese 2
-0.780 C 5296.870 Mn Manganese 2
-1.110 C 5298.530 Mn Manganese 2
-1.400 C 5300.840 Mn Manganese 2
-1.800 C 5303.920 Mn Manganese 2
-0.060 D 5344.380 Mn Manganese 2
-0.070 D 5344.570 Mn Manganese 2
-0.070 D 5344.790 Mn Manganese 2
-0.080 D 5345.150 Mn Manganese 2
-0.000 C+ 5396.170 Mn Manganese 1
-0.005 C+ 5408.920 Mn Manganese 1
-0.013 C+ 5421.870 Mn Manganese 1
-0.000 C+ 5434.060 Mn Manganese 1
-0.008 C+ 5518.300 Mn Manganese 1
-0.172 C+ 6015.170 Mn Manganese 1
-0.332 C+ 6023.470 Mn Manganese 1
-0.033 D 6052.060 Mn Manganese 2
-0.033 D 6053.530 Mn Manganese 2
-0.060 D 6106.970 Mn Manganese 2
-1.400 C 6124.1290 Mn Manganese 2
-0.240 C 6124.5050 Mn Manganese 2
-1.200 C 6127.5590 Mn Manganese 2
-0.430 C 6127.9140 Mn Manganese 2
-0.060 D 6128.200 Mn Manganese 2
-0.980 C 6130.4300 Mn Manganese 2
-0.570 C 6130.7290 Mn Manganese 2
-0.100 D 6130.940 Mn Manganese 2
-0.800 C 6132.4930 Mn Manganese 2
-0.670 C 6132.7130 Mn Manganese 2
-0.670 C 6133.6200 Mn Manganese 2
-0.012 C 6386.440 Mn Manganese 1
-0.160 C 6464.000 Mn Manganese 2
-0.160 C 6464.240 Mn Manganese 2
-0.170 C 6464.5850 Mn Manganese 2
-0.190 C 6464.9810 Mn Manganese 2
-0.210 C 6465.4230 Mn Manganese 2
-0.018 C 6493.500 Mn Manganese 1
-0.020 D 7042.6380 Mn Manganese 2
-0.220 C 7142.9520 Mn Manganese 2
-0.500 C 7144.3870 Mn Manganese 2
-0.750 C 7145.2990 Mn Manganese 2
-0.029 D 7169.4660 Mn Manganese 2
-0.041 D 7170.980 Mn Manganese 2
-0.054 C 7173.0010 Mn Manganese 2
-0.460 C 7174.3510 Mn Manganese 2
-0.068 C 7175.740 Mn Manganese 2
-0.460 C 7176.3410 Mn Manganese 2
-0.250 C 7177.7880 Mn Manganese 2
-0.680 C 7221.9570 Mn Manganese 2
-0.250 C 7224.6390 Mn Manganese 2
-0.060 D 7226.680 Mn Manganese 2
-0.220 C 7251.1160 Mn Manganese 2
-0.670 C 7254.400 Mn Manganese 2
-0.170 D 7267.820 Mn Manganese 2
-0.390 C 7269.370 Mn Manganese 2
-0.440 C 7271.7730 Mn Manganese 2
-0.500 C 7280.570 Mn Manganese 2
-0.230 C 7282.170 Mn Manganese 2
-0.055 C 7493.770 Mn Manganese 2
-0.046 D 7496.670 Mn Manganese 2
-0.021 D 7500.090 Mn Manganese 2
-0.031 D 7502.720 Mn Manganese 2
-0.062 C 7962.400 Mn Manganese 2
-0.057 C 7975.460 Mn Manganese 2
-0.010 D 7981.620 Mn Manganese 2
-0.035 D 7982.620 Mn Manganese 2
-0.070 D 7985.0780 Mn Manganese 2
-0.060 D 7985.0780 Mn Manganese 2
-0.280 C 8202.970 Mn Manganese 2
-0.160 C 8224.900 Mn Manganese 2
-0.033 D 8231.470 Mn Manganese 2
-0.360 C 8233.170 Mn Manganese 2
-0.260 C 8234.4340 Mn Manganese 2
-0.240 C 8235.190 Mn Manganese 2
-0.052 C 8236.750 Mn Manganese 2
-0.150 C 8450.770 Mn Manganese 2
-0.210 C 8497.680 Mn Manganese 2
-0.250 C 8568.1700 Mn Manganese 2
-0.310 C 8686.0850 Mn Manganese 2
-0.370 C 8697.6030 Mn Manganese 2
-0.220 C 8715.7070 Mn Manganese 2
-0.130 C 8734.0850 Mn Manganese 2
-0.380 C 8771.5840 Mn Manganese 2
-0.006 D 8812.730 Mn Manganese 2
-0.380 C 8822.020 Mn Manganese 2
-0.043 C 8833.930 Mn Manganese 2
-0.007 D 9119.170 Mn Manganese 2
-0.038 C 9137.620 Mn Manganese 2
-0.340 C 9446.1390 Mn Manganese 2
-0.330 C 9467.740 Mn Manganese 2
-0.330 C 9502.9620 Mn Manganese 2
-0.460 C 9906.570 Mn Manganese 2
-0.130 C 9907.100 Mn Manganese 2
-0.460 C 9907.100 Mn Manganese 2
-0.490 C 9907.970 Mn Manganese 2
-0.130 C 9907.970 Mn Manganese 2
-0.007 D 9908.960 Mn Manganese 2
-0.540 C 9908.960 Mn Manganese 2
-0.107 C 9908.960 Mn Manganese 2
-0.060 C 9909.980 Mn Manganese 2
-0.600 C 9909.980 Mn Manganese 2
+2400.000 D 11.7930 MnXXII Manganese
+45000.000 C 11.8760 MnXXII Manganese
+57000.000 D 11.8760 MnXXII Manganese
+45000.000 C 11.9060 MnXXII Manganese
+47000.000 C 11.9060 MnXXII Manganese
+65000.000 C 11.9710 MnXXII Manganese
+22000.000 D 11.9970 MnXXII Manganese
+43000.000 C 11.9970 MnXXII Manganese
+11000.000 D 12.0790 MnXXII Manganese
+59000.000 C 12.1720 MnXXII Manganese
+110000.000 C 12.3360 MnXXII Manganese
+140000.000 C 12.3680 MnXXII Manganese
+17000.000 D 12.4270 MnXXII Manganese
+180000.000 C 12.4880 MnXXII Manganese
+47000.000 C 12.4880 MnXXII Manganese
+15000.000 D 12.4880 MnXXII Manganese
+140000.000 C 12.4880 MnXXII Manganese
+98000.000 C 12.4880 MnXXII Manganese
+5100.000 C 12.5070 MnXXII Manganese
+182000.000 C 12.5530 MnXXII Manganese
+52000.000 C 12.5530 MnXXII Manganese
+106000.000 C 12.5530 MnXXII Manganese
+200000.000 C 12.5800 MnXXII Manganese
+10000.000 D 12.6560 MnXXII Manganese
+303000.000 C 12.6560 MnXXII Manganese
+39000.000 C 12.6560 MnXXII Manganese
+109000.000 C 12.6700 MnXXII Manganese
+1500.000 D 12.7060 MnXXII Manganese
+54000.000 C 12.7380 MnXXII Manganese
+12000.000 D 12.7380 MnXXII Manganese
+150000.000 C 12.8160 MnXXII Manganese
+11000.000 D 12.8160 MnXXII Manganese
+20000.000 C 12.8160 MnXXII Manganese
+17000.000 D 12.9350 MnXXII Manganese
+18000.000 D 13.1990 MnXXII Manganese
+20000.000 D 13.1990 MnXXII Manganese
+160000.000 D 14.8770 MnXVIII Manganese
+56000.000 D 15.2380 MnXVIII Manganese
+12000.000 D 15.4040 MnXVII Manganese
+110000.000 D 15.5700 MnXVII Manganese
+33000.000 E 15.6150 MnXVII Manganese
+130000.000 D 15.7320 MnXVII Manganese
+130000.000 E 15.8260 MnXVII Manganese
+25000.000 E 15.8890 MnXVII Manganese
+23000.000 D 15.9460 MnXVII Manganese
+9500.000 C 16.1850 MnXVIII Manganese
+8100.000 D 16.2550 MnXVIII Manganese
+1800.000 D 16.4250 MnXVIII Manganese
+2200.000 D 16.4510 MnXVIII Manganese
+17000.000 C 16.5210 MnXVIII Manganese
+19000.000 D 16.5400 MnXVIII Manganese
+11000.000 D 16.5770 MnXVIII Manganese
+200000.000 C 16.6160 MnXVI Manganese
+6200.000 C 16.7240 MnXVIII Manganese
+2700.000 E 16.8800 MnXVII Manganese
+41000.000 D 16.8820 MnXVI Manganese
+830.000 E 17.0950 MnXVI Manganese
+8400.000 D 17.1310 MnXVII Manganese
+9400.000 D 17.3010 MnXVII Manganese
+12000.000 D 17.4650 MnXVII Manganese
+11000.000 D 17.5500 MnXVII Manganese
+13000.000 D 17.7290 MnXVII Manganese
+630.000 E 17.7940 MnXVII Manganese
+7200.000 C 18.6540 MnXVI Manganese
+7300.000 C 18.9350 MnXVI Manganese
+220.000 C' 32.2300 MnXV Manganese
+220.000 C' 32.2300 MnXV Manganese
+328.000 C' 33.6350 MnXV Manganese
+328.000 C' 33.6350 MnXV Manganese
+400.000 C 35.040 MnXV Manganese
+470.000 C 35.2290 MnXV Manganese
+520.000 C 36.0990 MnXV Manganese
+520.000 C 36.1190 MnXV Manganese
+600.000 C 36.5770 MnXV Manganese
+700.000 C 36.8030 MnXV Manganese
+120.000 D 37.120 MnXV Manganese
+230.000 D 37.40 MnXV Manganese
+940.000 C 39.2870 MnXV Manganese
+1110.000 C 39.5470 MnXV Manganese
+200.000 D 40.2850 MnXV Manganese
+390.000 D 40.5720 MnXV Manganese
+870.000 C 41.1850 MnXV Manganese
+870.000 C 41.2430 MnXV Manganese
+780.000 C 42.1520 MnXV Manganese
+830.000 C 42.1850 MnXV Manganese
+1300.000 C 43.740 MnXIV Manganese
+1600.000 C 44.8200 MnXV Manganese
+1900.000 C 45.1540 MnXV Manganese
+1300.000 C 45.6590 MnXV Manganese
+1400.000 C 45.7000 MnXV Manganese
+377.000 C 47.2700 MnXV Manganese
+740.000 C 47.6660 MnXV Manganese
+2700.000 C 52.9770 MnXV Manganese
+2890.000 C 53.0320 MnXV Manganese
+210.000 D 55.720 MnXV Manganese
+1420.000 C+ 56.2700 MnXV Manganese
+1510.000 C+ 56.4840 MnXV Manganese
+2240.000 C 59.3250 MnXIV Manganese
+2690.000 C 60.7200 MnXV Manganese
+3130.000 C 61.3190 MnXV Manganese
+530.000 D 61.3610 MnXV Manganese
+833.300 C' 71.0380 MnXV Manganese
+1667.000 C' 71.9270 MnXV Manganese
+7300.000 C 75.1740 MnXV Manganese
+7700.000 C 75.2800 MnXV Manganese
+110.000 E 84.050 MnXVIII Manganese
+34.000 E 85.410 MnXIX Manganese
+540.000 C 87.470 MnXV Manganese
+600.000 C 87.800 MnXV Manganese
+23.000 E 88.080 MnXIX Manganese
+14.000 E 88.750 MnXIX Manganese
+12.000 E 89.030 MnXVIII Manganese
+298.000 C 89.260 MnXIX Manganese
+6.900 E 89.590 MnXVIII Manganese
+44.000 E 89.850 MnXX Manganese
+83.000 E 91.900 MnXVIII Manganese
+11.000 E 92.710 MnXIX Manganese
+1400.000 C 96.230 MnXVIII Manganese
+153.000 C 96.240 MnXIX Manganese
+94.000 C 97.510 MnXX Manganese
+47.000 D 99.010 MnXIX Manganese
+950.000 C 99.170 MnXIX Manganese
+831.000 C+ 100.000 MnXVII Manganese
+400.000 E 100.500 MnXIX Manganese
+11.000 E 101.920 MnXIX Manganese
+255.000 C 103.530 MnXX Manganese
+660.000 C 104.130 MnXX Manganese
+870.000 C 104.130 MnXIX Manganese
+48.000 E 104.670 MnXX Manganese
+444.000 C 104.900 MnXIX Manganese
+72.000 E 105.240 MnXX Manganese
+80.000 C 107.680 MnXIX Manganese
+590.000 C 107.890 MnXX Manganese
+60.000 C 108.140 MnXXI Manganese
+277.000 C 108.760 MnXVIII Manganese
+314.000 C+ 109.350 MnXVII Manganese
+217.000 C 111.000 MnXX Manganese
+349.000 C 111.010 MnXX Manganese
+146.000 C 111.040 MnXX Manganese
+100.000 C 111.390 MnXVIII Manganese
+340.000 C 113.040 MnXIX Manganese
+550.000 C 113.300 MnXVIII Manganese
+92.000 C 113.750 MnXIX Manganese
+360.000 C 115.380 MnXVIII Manganese
+14.000 E 115.690 MnXXI Manganese
+148.000 C 115.840 MnXIX Manganese
+41.600 C 116.700 MnXX Manganese
+150.000 C 117.250 MnXVIII Manganese
+410.000 C 117.410 MnXIX Manganese
+380.000 C 117.740 MnXIX Manganese
+117.000 C 118.220 MnXVIII Manganese
+169.000 C 119.120 MnXX Manganese
+460.000 C 119.540 MnXX Manganese
+41.000 D 119.760 MnXIX Manganese
+300.000 C 120.460 MnXIX Manganese
+47.300 C 120.500 MnXXI Manganese
+16.000 E 120.820 MnXX Manganese
+410.000 C 121.160 MnXXI Manganese
+133.000 C 121.490 MnXX Manganese
+29.800 C 121.550 MnXX Manganese
+400.000 D 122.1680 MnVIII Manganese
+1500.000 C 122.290 MnXVIII Manganese
+134.000 C 122.970 MnXXI Manganese
+5.300 D 123.300 MnXX Manganese
+200.000 D 124.0550 MnVIII Manganese
+298.000 C 124.560 MnXX Manganese
+93.000 C 125.350 MnXXI Manganese
+144.000 C 125.420 MnXX Manganese
+98.000 C 126.090 MnXVIII Manganese
+219.000 C 126.460 MnXX Manganese
+186.000 C 127.280 MnXIX Manganese
+267.000 C 127.360 MnXXI Manganese
+46.300 C 129.310 MnXX Manganese
+192.000 C 129.550 MnXX Manganese
+191.000 C 130.380 MnXX Manganese
+166.000 C 130.590 MnXIX Manganese
+314.000 C 130.970 MnXIX Manganese
+158.000 C 132.790 MnXX Manganese
+144.000 C 132.900 MnXXI Manganese
+250.000 D 133.6360 MnVII Manganese
+270.000 D 133.6550 MnVII Manganese
+59.000 E 133.8750 MnVII Manganese
+120.000 D 134.1900 MnVII Manganese
+780.000 C 135.060 MnXX Manganese
+29.300 C 135.330 MnXIX Manganese
+110.000 C 138.300 MnXX Manganese
+330.000 D 138.4410 MnVII Manganese
+18.000 E 138.6970 MnVII Manganese
+81.000 C 139.360 MnXIX Manganese
+260.000 D 139.5950 MnVII Manganese
+18.000 E 139.650 MnXVIII Manganese
+130.000 C 141.030 MnXIX Manganese
+178.000 B 141.100 MnXXII Manganese
+185.000 C 141.490 MnXXI Manganese
+28.000 E 141.7570 MnVII Manganese
+170.000 D 142.0280 MnVII Manganese
+200.000 D 142.6150 MnVII Manganese
+57.000 C 142.680 MnXIX Manganese
+35.500 C 145.160 MnXX Manganese
+37.300 C 145.270 MnXXII Manganese
+96.000 C 145.450 MnXXI Manganese
+300.000 C 146.570 MnXIX Manganese
+35.900 C 148.100 MnXX Manganese
+300.000 C 148.480 MnXIX Manganese
+9.400 D 150.710 MnXX Manganese
+92.000 C 150.800 MnXX Manganese
+335.000 C 153.980 MnXX Manganese
+48.100 B 154.280 MnXXII Manganese
+29.100 C 154.430 MnXXI Manganese
+62.000 C 155.210 MnXX Manganese
+58.700 B 157.580 MnXXII Manganese
+120.000 C 158.510 MnXXI Manganese
+298.000 B 159.330 MnXXII Manganese
+73.000 C 160.420 MnXXI Manganese
+1200.000 C 163.410 MnXV Manganese
+1300.000 C 163.630 MnXV Manganese
+37.700 B 164.480 MnXXII Manganese
+45.300 C 164.830 MnXXI Manganese
+57.000 C 165.340 MnXXI Manganese
+167.000 C 167.120 MnXX Manganese
+130.000 C 167.190 MnXX Manganese
+180.000 C 168.720 MnXXI Manganese
+75.000 B 175.180 MnXXII Manganese
+116.000 B 181.690 MnXXII Manganese
+23.000 D 182.480 MnXXI Manganese
+2700.000 D 182.4990 MnVII Manganese
+200.000 E 182.6920 MnVII Manganese
+300.000 E 182.9450 MnVII Manganese
+2700.000 D 183.1410 MnVII Manganese
+210.000 E 183.7080 MnVII Manganese
+1900.000 D 184.1610 MnVII Manganese
+2100.000 D 184.5380 MnVII Manganese
+61.000 D 184.800 MnIX Manganese
+1850.000 C 185.4550 MnVIII Manganese
+42.300 B 188.450 MnXXII Manganese
+1660.000 C 188.480 MnIX Manganese
+1590.000 C 189.160 MnIX Manganese
+45.600 C 190.230 MnXX Manganese
+65.000 C 192.200 MnXX Manganese
+1500.000 D 193.430 MnX Manganese
+1400.000 D 198.420 MnX Manganese
+1200.000 D 199.080 MnX Manganese
+1100.000 C 199.320 MnIX Manganese
+970.000 E 200.670 MnXI Manganese
+910.000 D 202.8400 MnVII Manganese
+1000.000 E 202.930 MnX Manganese
+830.000 D 204.1170 MnVII Manganese
+395.000 C 204.430 MnIX Manganese
+59.000 E 204.6750 MnVII Manganese
+240.000 E 205.3500 MnXIII Manganese
+37.600 B+ 206.9300 MnXXIII Manganese
+830.000 D 207.020 MnXI Manganese
+260.000 E 207.1300 MnXIII Manganese
+790.000 D 208.020 MnXI Manganese
+770.000 D 209.570 MnXI Manganese
+550.000 D 210.160 MnXI Manganese
+640.000 C 210.430 MnXII Manganese
+460.000 D 211.540 MnXI Manganese
+150.000 E 213.750 MnXI Manganese
+480.000 E 215.860 MnXI Manganese
+610.000 D 218.560 MnXII Manganese
+520.000 D 223.560 MnXII Manganese
+330.000 D 226.9050 MnXIII Manganese
+120.000 D 227.7040 MnXIII Manganese
+260.000 D 227.980 MnXIII Manganese
+390.000 D 228.630 MnXIII Manganese
+250.000 D 231.8680 MnXIII Manganese
+378.000 C 232.1580 MnXIII Manganese
+160.000 E 233.7670 MnXIII Manganese
+230.000 E 233.7670 MnXIII Manganese
+370.000 D 234.2350 MnXIII Manganese
+74.000 D 235.0540 MnXIII Manganese
+64.000 D 237.3690 MnXIII Manganese
+32.000 D 238.6170 MnVII Manganese
+550.000 E 238.6750 MnXIII Manganese
+2.200 E 239.3810 MnVII Manganese
+130.000 E 239.6800 MnXIII Manganese
+41.000 B 239.870 MnXXII Manganese
+130.000 C 241.100 MnXIV Manganese
+360.000 D 242.0660 MnXIII Manganese
+160.000 C 243.460 MnXIV Manganese
+31.700 C 243.690 MnXXI Manganese
+91.000 C 243.930 MnXIV Manganese
+31.000 D 244.7660 MnVII Manganese
+3.800 E 244.9350 MnVII Manganese
+34.000 D 245.7390 MnVII Manganese
+38.000 D 247.4730 MnVII Manganese
+205.000 C 249.660 MnXIV Manganese
+51.000 C 250.450 MnXIV Manganese
+0.470 E 258.950 MnXXI Manganese
+380.000 D 260.450 MnXIV Manganese
+17.300 B+ 266.9130 MnXXIII Manganese
+143.000 B 269.1890 MnXV Manganese
+68.000 C 272.1540 MnXIII Manganese
+140.000 D 277.4690 MnXIII Manganese
+0.370 D 277.800 MnXXII Manganese
+151.000 B 280.4110 MnXV Manganese
+24.600 B 282.1840 MnXV Manganese
+308.000 C 283.9840 MnXIII Manganese
+190.000 D 289.7740 MnXIII Manganese
+190.000 E 290.5390 MnXIII Manganese
+280.000 D 293.2680 MnXIII Manganese
+140.000 D 294.9850 MnXIII Manganese
+57.000 D 296.0730 MnXIII Manganese
+85.000 D 301.5130 MnXVI Manganese
+110.000 D 301.5250 MnXIII Manganese
+206.000 C+ 304.840 MnXIV Manganese
+2.500 D 307.1090 MnVI Manganese
+1.200 E 307.8420 MnVI Manganese
+37.000 D 307.9990 MnVI Manganese
+7.300 D 308.5600 MnVI Manganese
+7.500 D 308.8530 MnVI Manganese
+150.000 D 308.8950 MnXIII Manganese
+57.000 D 309.4400 MnVI Manganese
+44.000 D 309.5790 MnVI Manganese
+240.000 E 309.8570 MnXIII Manganese
+34.000 D 310.0580 MnVI Manganese
+28.000 D 310.1820 MnVI Manganese
+57.000 D 311.7480 MnVI Manganese
+90.000 D 312.8020 MnXIII Manganese
+120.000 D 313.3370 MnXIII Manganese
+240.000 E 313.8010 MnXIII Manganese
+39.000 D 315.980 MnXIV Manganese
+15.000 D 320.5980 MnVI Manganese
+22.000 D 320.6810 MnVI Manganese
+78.000 D 320.8740 MnVI Manganese
+22.000 D 320.9790 MnVI Manganese
+60.000 D 321.1760 MnVI Manganese
+27.000 D 321.5410 MnVI Manganese
+130.000 D 325.1460 MnVI Manganese
+63.000 C 325.220 MnXIV Manganese
+110.000 D 327.850 MnXIV Manganese
+8.100 D 328.2320 MnVI Manganese
+44.000 D 328.4310 MnVI Manganese
+12.000 D 328.5580 MnVI Manganese
+11.000 D 329.0430 MnVI Manganese
+0.910 E 329.1770 MnVI Manganese
+11.000 D 329.280 MnXII Manganese
+4.000 E 329.3200 MnVI Manganese
+45.000 C 330.410 MnXIV Manganese
+66.000 D 333.7980 MnX Manganese
+8.600 E 335.980 MnXIV Manganese
+15.000 D 337.290 MnXII Manganese
+170.000 C 339.250 MnXIV Manganese
+68.000 C 342.580 MnXIV Manganese
+67.000 C 343.430 MnXIV Manganese
+110.000 D 343.840 MnXIV Manganese
+27.000 D 346.040 MnXII Manganese
+16.000 E 349.440 MnXIV Manganese
+180.000 C 349.670 MnXIV Manganese
+160.000 D 358.310 MnXIV Manganese
+71.900 B 360.9870 MnXV Manganese
+19.000 D 361.6590 MnXIII Manganese
+30.000 D 363.5100 MnXI Manganese
+25.000 D 366.0600 MnXI Manganese
+0.620 E 367.8770 MnXI Manganese
+51.000 D 376.2020 MnXVI Manganese
+33.300 C 376.7780 MnIX Manganese
+15.000 D 377.1540 MnXI Manganese
+17.000 D 380.5010 MnXIII Manganese
+15.000 D 382.1420 MnXI Manganese
+15.000 E 383.0360 MnX Manganese
+58.700 B 384.7430 MnXV Manganese
+27.000 E 385.8270 MnXIII Manganese
+10.000 D 386.270 MnXII Manganese
+12.000 D 388.580 MnXII Manganese
+14.000 D 393.7430 MnXI Manganese
+15.000 C 395.4730 MnIX Manganese
+11.000 D 397.460 MnXII Manganese
+53.000 C 402.960 MnXIV Manganese
+38.000 C 416.350 MnXIV Manganese
+8.400 C 418.510 MnXIV Manganese
+29.000 D 425.0380 MnXIII Manganese
+30.000 D 429.130 MnXIV Manganese
+7.900 D 430.610 MnXIV Manganese
+29.000 D 438.5770 MnXVI Manganese
+14.000 E 518.050 MnXIV Manganese
+6.700 D 582.120 MnXIV Manganese
+3.000 E 953.040 MnII Manganese
+2.000 E 972.550 MnII Manganese
+2.000 E 1003.000 MnII Manganese
+5.000 E 1023.550 MnII Manganese
+4.000 E 1027.990 MnII Manganese
+3.000 E 1062.510 MnII Manganese
+2.000 E 1065.560 MnII Manganese
+0.690 C 1162.020 MnII Manganese
+0.620 C 1163.320 MnII Manganese
+0.570 C 1164.210 MnII Manganese
+3.700 D 1188.5020 MnII Manganese
+3.100 D 1192.3130 MnII Manganese
+2.000 E 1195.000 MnII Manganese
+1.000 E 1195.970 MnII Manganese
+5.400 C+ 1197.170 MnII Manganese
+1.000 E 1199.340 MnII Manganese
+5.400 C+ 1199.380 MnII Manganese
+5.400 C+ 1201.1240 MnII Manganese
+1.000 E 1201.570 MnII Manganese
+4.700 D 1222.7850 MnII Manganese
+3.900 D 1224.7330 MnII Manganese
+3.000 E 1226.400 MnII Manganese
+4.000 E 1227.6380 MnII Manganese
+5.000 E 1228.4230 MnII Manganese
+7.000 D 1233.9520 MnII Manganese
+6.000 D 1234.8710 MnII Manganese
+1.000 E 1235.270 MnII Manganese
+6.000 D 1235.460 MnII Manganese
+2.000 E 1235.790 MnII Manganese
+5.500 D 1235.870 MnII Manganese
+7.000 D 1236.150 MnII Manganese
+13.000 D 1236.2300 MnVI Manganese
+2.000 E 1250.6810 MnII Manganese
+4.000 E 1253.370 MnII Manganese
+3.100 D 1254.4100 MnII Manganese
+12.000 D 1255.7660 MnVI Manganese
+2.000 E 1256.960 MnII Manganese
+2.600 D 1258.4130 MnVI Manganese
+3.000 E 1259.560 MnII Manganese
+7.600 D 1264.1010 MnVI Manganese
+3.000 E 1264.450 MnII Manganese
+8.400 D 1272.4440 MnVI Manganese
+3.800 D 1275.970 MnII Manganese
+1.000 E 1275.970 MnII Manganese
+2.000 E 1277.120 MnII Manganese
+2.000 E 1277.820 MnII Manganese
+2.000 E 1277.820 MnII Manganese
+11.000 D 1285.1020 MnVI Manganese
+2.000 E 1305.630 MnII Manganese
+10.000 D 1333.8740 MnVI Manganese
+8.700 D 1345.4940 MnVI Manganese
+8.300 D 1356.8520 MnVI Manganese
+5.200 D 1391.1730 MnVI Manganese
+8.000 D 1391.2180 MnVI Manganese
+5.700 D 1396.7080 MnVI Manganese
+3.000 D 1405.1560 MnVI Manganese
+2.200 D 1408.3120 MnVI Manganese
+2.800 D 1409.510 MnII Manganese
+2.900 D 1415.150 MnII Manganese
+1.200 D 1415.750 MnII Manganese
+2.400 D 1418.130 MnII Manganese
+1.200 E 1425.5440 MnII Manganese
+1.000 E 1431.0460 MnII Manganese
+1.800 D 1432.780 MnII Manganese
+1.000 E 1434.440 MnII Manganese
+2.500 D 1454.970 MnII Manganese
+1.000 E 1464.5720 MnII Manganese
+1.000 E 1468.030 MnII Manganese
+0.900 E 1478.590 MnII Manganese
+0.800 E 1478.790 MnII Manganese
+0.700 E 1483.6850 MnII Manganese
+1.000 E 1494.7540 MnII Manganese
+1.000 E 1499.950 MnII Manganese
+2.300 D 1523.140 MnII Manganese
+2.000 D 1524.550 MnII Manganese
+1.100 E 1527.760 MnII Manganese
+0.500 E 1537.0700 MnII Manganese
+0.600 E 1538.140 MnII Manganese
+4.500 D 1548.4300 MnVI Manganese
+0.600 E 1548.6340 MnII Manganese
+1.600 D 1564.8970 MnII Manganese
+2.600 D 1566.470 MnII Manganese
+1.000 D 1570.050 MnII Manganese
+1.800 D 1573.530 MnII Manganese
+0.900 E 1574.2760 MnII Manganese
+2.300 D 1575.6420 MnII Manganese
+0.900 E 1575.750 MnII Manganese
+0.700 E 1577.220 MnII Manganese
+0.400 E 1577.7740 MnII Manganese
+2.000 E 1578.900 MnII Manganese
+2.200 D 1582.230 MnII Manganese
+0.400 E 1587.150 MnII Manganese
+2.000 E 1587.460 MnII Manganese
+3.000 E 1590.5690 MnII Manganese
+0.500 E 1593.2240 MnII Manganese
+1.000 E 1602.100 MnII Manganese
+2.200 D 1605.4670 MnII Manganese
+1.900 D 1615.790 MnII Manganese
+2.000 E 1623.140 MnII Manganese
+0.700 E 1629.840 MnII Manganese
+0.700 E 1629.940 MnII Manganese
+1.100 D 1636.750 MnII Manganese
+0.011 D+ 1678.630 MnII Manganese
+1.000 E 1679.550 MnII Manganese
+1.400 D 1708.2670 MnII Manganese
+1.500 D 1711.830 MnII Manganese
+1.800 D 1714.380 MnII Manganese
+0.900 D 1725.290 MnII Manganese
+1.700 D 1733.550 MnII Manganese
+1.300 D 1744.860 MnII Manganese
+2.600 D 1813.8660 MnII Manganese
+2.400 D 1815.240 MnII Manganese
+1.600 D 1816.2840 MnII Manganese
+0.800 D 1817.530 MnII Manganese
+3.700 D 1822.2130 MnII Manganese
+3.400 D 1823.690 MnII Manganese
+6.500 C 1827.0760 MnII Manganese
+3.000 D 1828.2510 MnII Manganese
+1.800 D 1834.570 MnII Manganese
+0.033 D+ 1836.5080 MnII Manganese
+0.900 D 1837.130 MnII Manganese
+0.042 D+ 1842.8630 MnII Manganese
+0.012 D+ 1846.930 MnII Manganese
+1.000 D 1847.730 MnII Manganese
+3.000 D 1847.730 MnII Manganese
+1.500 D 1848.160 MnII Manganese
+2.300 D 1848.260 MnII Manganese
+1.000 D 1850.880 MnII Manganese
+1.200 D 1851.610 MnII Manganese
+1.700 D 1852.780 MnII Manganese
+1.800 D 1853.2720 MnII Manganese
+2.300 D 1854.890 MnII Manganese
+1.700 D 1856.700 MnII Manganese
+2.100 D 1857.010 MnII Manganese
+0.700 D 1860.510 MnII Manganese
+2.500 D 1862.800 MnII Manganese
+2.600 D 1864.6150 MnII Manganese
+2.300 D 1865.520 MnII Manganese
+0.003 D 1877.160 MnII Manganese
+0.002 D 1887.870 MnII Manganese
+0.046 B 1897.480 MnII Manganese
+0.017 C+ 1898.120 MnII Manganese
+1.800 D 1902.9480 MnII Manganese
+0.132 B+ 1907.8400 MnII Manganese
+1.600 D 1908.910 MnII Manganese
+0.042 B 1909.8300 MnII Manganese
+0.790 C+ 1911.410 MnII Manganese
+0.005 C 1911.760 MnII Manganese
+0.212 B+ 1914.680 MnII Manganese
+1.170 B 1915.100 MnII Manganese
+0.218 B+ 1918.6430 MnII Manganese
+0.065 B 1918.9090 MnII Manganese
+0.238 B+ 1919.6390 MnII Manganese
+0.690 C+ 1920.030 MnII Manganese
+1.870 C+ 1921.2500 MnII Manganese
+0.248 B+ 1923.070 MnII Manganese
+0.530 B 1923.340 MnII Manganese
+2.600 D 1924.960 MnII Manganese
+0.510 B 1925.520 MnII Manganese
+0.510 B+ 1926.5850 MnII Manganese
+0.170 C+ 1926.9480 MnII Manganese
+0.034 C+ 1928.150 MnII Manganese
+1.200 D 1930.450 MnII Manganese
+0.280 C+ 1931.4040 MnII Manganese
+0.037 C+ 1932.6000 MnII Manganese
+0.043 C+ 1934.780 MnII Manganese
+1.800 D 1935.0680 MnII Manganese
+1.700 D 1936.740 MnII Manganese
+3.500 D 1942.660 MnII Manganese
+1.500 D 1943.5410 MnII Manganese
+4.200 D 1944.160 MnII Manganese
+1.700 D 1944.360 MnII Manganese
+3.600 D 1944.770 MnII Manganese
+4.700 C 1945.150 MnII Manganese
+2.200 D 1946.340 MnII Manganese
+5.000 C 1947.9320 MnII Manganese
+3.400 D 1948.280 MnII Manganese
+1.400 D 1950.1430 MnII Manganese
+2.600 D 1950.9220 MnII Manganese
+5.200 C 1953.230 MnII Manganese
+1.500 D 1953.350 MnII Manganese
+1.800 D 1954.810 MnII Manganese
+1.000 D 1958.9320 MnII Manganese
+3.900 C 1959.2460 MnII Manganese
+0.900 D 1960.370 MnII Manganese
+0.700 D 1969.240 MnII Manganese
+1.200 D 1994.230 MnII Manganese
+1.800 D 2002.560 MnII Manganese
+1.400 D 2037.960 MnII Manganese
+1.200 D 2038.2980 MnII Manganese
+1.200 D 2040.630 MnII Manganese
+1.200 D 2076.8720 MnII Manganese
+0.420 D 2085.420 MnII Manganese
+0.700 D 2089.570 MnII Manganese
+0.460 D 2098.1290 MnII Manganese
+0.900 D 2103.170 MnII Manganese
+0.530 D 2114.6330 MnII Manganese
+0.700 D 2120.070 MnII Manganese
+1.300 D 2120.450 MnII Manganese
+0.800 D 2134.1250 MnII Manganese
+0.480 D 2230.630 MnII Manganese
+0.490 D 2230.680 MnII Manganese
+0.530 D 2232.350 MnII Manganese
+0.009 C 2299.6610 MnII Manganese
+0.015 C+ 2305.7120 MnII Manganese
+1.200 D 2321.130 MnII Manganese
+0.009 D 2327.860 MnII Manganese
+0.480 D 2332.8560 MnII Manganese
+0.450 D 2333.950 MnII Manganese
+1.000 D 2367.630 MnII Manganese
+0.700 D 2374.0820 MnII Manganese
+3.300 C 2398.0160 MnII Manganese
+3.000 C 2398.5980 MnII Manganese
+0.800 D 2398.970 MnII Manganese
+2.900 C 2399.5220 MnII Manganese
+1.000 D 2399.7910 MnII Manganese
+3.100 C 2400.8810 MnII Manganese
+0.900 D 2400.9520 MnII Manganese
+0.700 D 2402.6880 MnII Manganese
+3.500 C 2402.8110 MnII Manganese
+1.700 D 2428.1160 MnII Manganese
+4.000 C 2428.4560 MnII Manganese
+6.000 C 2428.6760 MnII Manganese
+5.700 C 2437.2770 MnII Manganese
+3.700 C 2438.1050 MnII Manganese
+3.700 C 2438.5830 MnII Manganese
+2.000 D 2438.9260 MnII Manganese
+0.800 D 2441.1930 MnII Manganese
+5.600 C 2441.7960 MnII Manganese
+0.390 D 2442.2110 MnII Manganese
+5.600 C 2447.120 MnII Manganese
+0.430 D 2447.3310 MnII Manganese
+0.520 D 2450.4840 MnII Manganese
+0.350 D 2452.9000 MnII Manganese
+5.800 C 2453.0710 MnII Manganese
+5.900 C 2453.2290 MnII Manganese
+2.200 C 2453.8760 MnII Manganese
+0.520 D 2454.3630 MnII Manganese
+1.800 D 2458.5290 MnII Manganese
+6.000 C 2459.3210 MnII Manganese
+0.600 D 2459.4770 MnII Manganese
+0.380 D 2462.8700 MnII Manganese
+1.600 C 2463.1540 MnII Manganese
+0.520 D 2466.9600 MnII Manganese
+0.460 D 2467.1610 MnII Manganese
+0.340 D 2468.4280 MnII Manganese
+1.600 C 2468.5030 MnII Manganese
+0.340 D 2473.5940 MnII Manganese
+1.800 C 2474.3030 MnII Manganese
+0.210 D 2474.4390 MnII Manganese
+0.007 D+ 2479.7340 MnII Manganese
+0.005 D+ 2480.0330 MnII Manganese
+2.300 C 2480.1030 MnII Manganese
+0.014 D+ 2481.7120 MnII Manganese
+0.530 D 2486.9080 MnII Manganese
+0.600 D 2489.170 MnII Manganese
+0.270 D 2491.6610 MnII Manganese
+0.700 D 2499.7560 MnII Manganese
+0.320 C+ 2508.3530 MnII Manganese
+0.700 D 2508.5680 MnII Manganese
+1.080 C 2514.9570 MnII Manganese
+0.009 C 2515.7070 MnII Manganese
+0.087 B+ 2517.3560 MnII Manganese
+1.000 D 2517.5000 MnII Manganese
+0.019 B 2518.140 MnII Manganese
+0.001 D 2518.430 MnII Manganese
+2.300 C 2518.940 MnII Manganese
+2.400 D 2520.0700 MnII Manganese
+1.100 D 2520.8600 MnII Manganese
+2.100 D 2521.0100 MnII Manganese
+1.000 D 2521.2760 MnII Manganese
+0.900 D 2521.380 MnII Manganese
+1.000 D 2523.7720 MnII Manganese
+1.300 C 2528.7710 MnII Manganese
+0.900 D 2533.5420 MnII Manganese
+1.100 D 2534.0900 MnII Manganese
+1.000 D 2534.9830 MnII Manganese
+0.360 D 2535.8030 MnII Manganese
+0.467 B+ 2536.4200 MnII Manganese
+0.134 B+ 2536.7390 MnII Manganese
+0.007 C 2536.760 MnII Manganese
+1.600 D 2538.6810 MnII Manganese
+0.600 D 2538.8030 MnII Manganese
+0.850 B+ 2543.6870 MnII Manganese
+2.500 B 2544.2180 MnII Manganese
+0.280 D 2547.4650 MnII Manganese
+0.450 D 2549.130 MnII Manganese
+1.900 C 2549.5150 MnII Manganese
+0.330 D 2550.0820 MnII Manganese
+0.380 D 2550.5830 MnII Manganese
+0.550 D 2552.300 MnII Manganese
+0.640 B+ 2552.6170 MnII Manganese
+0.500 D 2552.6170 MnII Manganese
+0.150 D+ 2553.9240 MnII Manganese
+0.330 D 2555.2840 MnII Manganese
+1.420 B+ 2557.3400 MnII Manganese
+0.390 B+ 2557.6610 MnII Manganese
+0.031 B 2557.720 MnII Manganese
+0.028 D+ 2557.970 MnII Manganese
+0.920 C+ 2558.3100 MnII Manganese
+0.500 C+ 2558.3610 MnII Manganese
+0.800 D 2559.0710 MnII Manganese
+2.000 C 2559.3720 MnII Manganese
+1.200 D 2559.6300 MnII Manganese
+0.440 D 2560.1810 MnII Manganese
+0.220 C+ 2560.4470 MnII Manganese
+0.107 C+ 2560.5090 MnII Manganese
+0.008 C 2562.040 MnII Manganese
+1.000 D 2563.0330 MnII Manganese
+2.170 B 2564.4110 MnII Manganese
+0.600 D 2564.6120 MnII Manganese
+0.600 D 2564.8850 MnII Manganese
+0.252 B 2565.9880 MnII Manganese
+0.020 C+ 2566.8040 MnII Manganese
+2.200 C 2569.4950 MnII Manganese
+0.900 D 2571.6930 MnII Manganese
+0.095 C+ 2571.7240 MnII Manganese
+0.490 D 2573.2010 MnII Manganese
+2.800 A+ 2576.875240 MnII Manganese
+2.100 C 2576.9540 MnII Manganese
+1.700 D 2579.0500 MnII Manganese
+5.000 C 2579.5830 MnII Manganese
+1.700 C 2583.7450 MnII Manganese
+0.600 D 2584.3110 MnII Manganese
+1.300 C 2585.2830 MnII Manganese
+1.300 D 2585.9040 MnII Manganese
+2.900 C 2586.2180 MnII Manganese
+3.300 C 2586.6640 MnII Manganese
+2.000 C 2588.070 MnII Manganese
+2.800 C 2589.7460 MnII Manganese
+2.000 C 2590.5020 MnII Manganese
+5.000 D 2590.590 MnII Manganese
+3.700 D 2590.7670 MnII Manganese
+0.800 D 2590.9250 MnII Manganese
+2.500 C 2590.9250 MnII Manganese
+1.700 D 2591.0740 MnII Manganese
+0.270 D 2591.4440 MnII Manganese
+1.900 C 2592.0180 MnII Manganese
+1.400 D 2592.2040 MnII Manganese
+1.400 C 2592.8180 MnII Manganese
+2.300 C 2594.0770 MnII Manganese
+2.760 A+ 2594.496590 MnII Manganese
+1.000 D 2596.4290 MnII Manganese
+0.420 D 2598.3530 MnII Manganese
+1.200 D 2599.0250 MnII Manganese
+0.430 D 2599.5900 MnII Manganese
+1.600 D 2599.6820 MnII Manganese
+1.400 D 2599.6820 MnII Manganese
+0.900 D 2599.8070 MnII Manganese
+0.420 D 2600.3300 MnII Manganese
+2.900 C 2602.6220 MnII Manganese
+2.000 D 2602.7640 MnII Manganese
+2.300 C 2603.5030 MnII Manganese
+1.000 D 2603.8130 MnII Manganese
+0.210 D 2604.0470 MnII Manganese
+1.200 D 2604.4980 MnII Manganese
+1.000 D 2604.640 MnII Manganese
+1.400 D 2605.0930 MnII Manganese
+2.690 A+ 2606.458730 MnII Manganese
+0.254 B+ 2606.8950 MnII Manganese
+0.440 D 2607.0390 MnII Manganese
+0.270 D 2607.6210 MnII Manganese
+0.700 D 2609.2250 MnII Manganese
+1.000 D 2609.5930 MnII Manganese
+1.300 C 2610.3370 MnII Manganese
+3.000 C 2610.9800 MnII Manganese
+1.400 D 2611.3620 MnII Manganese
+1.000 D 2611.6320 MnII Manganese
+0.900 D 2613.410 MnII Manganese
+1.140 C 2617.3020 MnII Manganese
+2.900 C 2618.9290 MnII Manganese
+1.500 D 2619.7020 MnII Manganese
+2.100 D 2619.7850 MnII Manganese
+1.400 C 2620.0930 MnII Manganese
+0.013 C 2623.880 MnII Manganese
+0.116 B 2625.5440 MnII Manganese
+0.600 D 2625.7390 MnII Manganese
+2.600 B 2626.3890 MnII Manganese
+1.400 C 2627.2510 MnII Manganese
+0.800 D 2627.8420 MnII Manganese
+1.800 C 2629.0770 MnII Manganese
+2.600 C 2629.2890 MnII Manganese
+1.300 D 2629.5520 MnII Manganese
+1.800 D 2632.7910 MnII Manganese
+2.700 C 2633.1390 MnII Manganese
+0.004 D+ 2633.210 MnII Manganese
+0.320 D 2636.3900 MnII Manganese
+1.200 D 2636.3900 MnII Manganese
+2.200 C 2638.6750 MnII Manganese
+2.700 C 2638.9590 MnII Manganese
+1.900 C 2640.6360 MnII Manganese
+0.390 D 2643.0220 MnII Manganese
+0.001 D 2643.300 MnII Manganese
+0.430 D 2643.5620 MnII Manganese
+0.061 D+ 2648.4120 MnII Manganese
+1.900 D 2648.8450 MnII Manganese
+0.700 D 2649.7270 MnII Manganese
+0.360 D 2651.8250 MnII Manganese
+0.600 D 2652.6570 MnII Manganese
+0.430 C+ 2653.2870 MnII Manganese
+0.800 D 2656.6100 MnII Manganese
+2.100 C 2656.7140 MnII Manganese
+2.000 D 2656.9600 MnII Manganese
+0.600 D 2659.8810 MnII Manganese
+0.900 D 2663.3300 MnII Manganese
+2.600 C 2667.5620 MnII Manganese
+0.600 D 2667.6870 MnII Manganese
+1.800 C 2667.8230 MnII Manganese
+0.700 D 2672.6050 MnII Manganese
+1.300 C 2672.6050 MnII Manganese
+1.980 B+ 2673.3750 MnII Manganese
+0.035 C+ 2673.8900 MnII Manganese
+1.500 D 2674.1740 MnII Manganese
+0.330 D 2675.2350 MnII Manganese
+2.700 C 2675.5510 MnII Manganese
+0.900 D 2675.7800 MnII Manganese
+2.200 D 2676.3120 MnII Manganese
+1.800 C 2676.3120 MnII Manganese
+0.900 D 2678.0450 MnII Manganese
+1.200 D 2678.6470 MnII Manganese
+1.100 D 2679.9620 MnII Manganese
+2.300 C 2680.7430 MnII Manganese
+0.410 C+ 2681.1340 MnII Manganese
+2.000 C 2681.180 MnII Manganese
+1.400 C 2681.4770 MnII Manganese
+1.210 C 2682.0480 MnII Manganese
+0.800 D 2685.3360 MnII Manganese
+0.005 D+ 2685.930 MnII Manganese
+0.320 D 2686.6810 MnII Manganese
+1.010 C 2686.7810 MnII Manganese
+1.500 C 2688.1660 MnII Manganese
+1.200 D 2688.2550 MnII Manganese
+0.006 C 2689.140 MnII Manganese
+0.320 D 2690.5860 MnII Manganese
+1.500 C 2691.7770 MnII Manganese
+1.100 D 2692.5160 MnII Manganese
+0.950 C 2692.7800 MnII Manganese
+2.300 C 2693.2490 MnII Manganese
+0.940 B+ 2693.9910 MnII Manganese
+0.154 C+ 2694.3690 MnII Manganese
+1.070 C 2694.9020 MnII Manganese
+1.080 C 2694.9020 MnII Manganese
+0.680 B+ 2696.1650 MnII Manganese
+0.900 D 2699.5310 MnII Manganese
+1.300 D 2699.7900 MnII Manganese
+0.900 D 2700.6540 MnII Manganese
+0.800 B+ 2701.8250 MnII Manganese
+0.900 D 2701.9710 MnII Manganese
+0.900 D 2702.3310 MnII Manganese
+2.600 C 2702.4990 MnII Manganese
+0.800 D 2703.7860 MnII Manganese
+0.284 B+ 2704.020 MnII Manganese
+0.066 B 2704.5620 MnII Manganese
+0.290 D 2704.780 MnII Manganese
+1.030 C 2704.8470 MnII Manganese
+0.410 B+ 2706.3630 MnII Manganese
+2.300 C 2706.5340 MnII Manganese
+0.135 B 2706.8960 MnII Manganese
+0.430 C+ 2708.3470 MnII Manganese
+1.170 C 2708.7180 MnII Manganese
+1.670 C+ 2709.2550 MnII Manganese
+0.108 C+ 2709.6170 MnII Manganese
+0.600 D 2710.7730 MnII Manganese
+1.900 C 2711.1400 MnII Manganese
+2.100 C 2711.4330 MnII Manganese
+0.430 D 2711.9270 MnII Manganese
+0.490 D 2712.3720 MnII Manganese
+2.100 C 2712.4340 MnII Manganese
+0.530 D 2715.3890 MnII Manganese
+2.000 C 2715.5420 MnII Manganese
+0.540 D 2716.5040 MnII Manganese
+0.292 B+ 2717.6010 MnII Manganese
+0.490 D 2717.7980 MnII Manganese
+0.200 E 2718.3320 MnII Manganese
+0.277 B+ 2719.8180 MnII Manganese
+1.080 C 2720.1130 MnII Manganese
+0.800 D 2720.5490 MnII Manganese
+1.140 C 2720.5490 MnII Manganese
+1.500 C 2720.7010 MnII Manganese
+1.100 D 2722.4660 MnII Manganese
+1.560 C+ 2722.9030 MnII Manganese
+0.107 C+ 2722.9030 MnII Manganese
+1.630 C+ 2725.2720 MnII Manganese
+0.840 C 2728.3920 MnII Manganese
+0.250 D 2728.8830 MnII Manganese
+1.800 C 2729.4250 MnII Manganese
+2.700 C 2729.4250 MnII Manganese
+1.100 D 2730.4220 MnII Manganese
+0.490 D 2734.7030 MnII Manganese
+0.700 D 2737.8320 MnII Manganese
+0.800 D 2737.9310 MnII Manganese
+1.130 C 2738.3800 MnII Manganese
+1.200 D 2739.1080 MnII Manganese
+1.300 D 2741.030 MnII Manganese
+1.000 D 2741.5970 MnII Manganese
+1.300 D 2743.2780 MnII Manganese
+0.400 D 2745.7140 MnII Manganese
+0.520 D 2746.3100 MnII Manganese
+0.250 D 2746.5440 MnII Manganese
+1.700 D 2748.1320 MnII Manganese
+0.300 D 2748.7690 MnII Manganese
+1.100 D 2749.5110 MnII Manganese
+0.410 D 2750.370 MnII Manganese
+0.196 C+ 2750.9390 MnII Manganese
+0.330 D 2754.2710 MnII Manganese
+0.530 D 2754.8010 MnII Manganese
+0.900 D 2757.1450 MnII Manganese
+0.005 D 2758.750 MnII Manganese
+0.700 D 2758.8910 MnII Manganese
+0.600 D 2759.260 MnII Manganese
+1.100 D 2760.2470 MnII Manganese
+1.400 C 2761.8220 MnII Manganese
+0.013 C 2762.1310 MnII Manganese
+0.900 D 2762.9040 MnII Manganese
+0.059 D+ 2763.370 MnII Manganese
+0.700 D 2764.4690 MnII Manganese
+0.440 D 2764.5760 MnII Manganese
+0.450 D 2766.4690 MnII Manganese
+0.980 C 2768.6230 MnII Manganese
+0.340 D 2768.6270 MnII Manganese
+0.700 D 2768.750 MnII Manganese
+1.900 D 2769.2740 MnII Manganese
+0.900 D 2770.1350 MnII Manganese
+1.130 C 2770.4580 MnII Manganese
+0.900 D 2772.3450 MnII Manganese
+0.900 D 2775.7970 MnII Manganese
+2.000 C 2776.1380 MnII Manganese
+0.250 D 2776.2020 MnII Manganese
+1.700 D 2776.4710 MnII Manganese
+1.200 D 2776.4710 MnII Manganese
+0.540 D 2776.9500 MnII Manganese
+0.600 D 2778.2040 MnII Manganese
+0.800 D 2778.5960 MnII Manganese
+0.002 D 2780.570 MnII Manganese
+1.600 C 2782.7530 MnII Manganese
+0.410 D 2782.9660 MnII Manganese
+1.600 D 2785.0290 MnII Manganese
+0.600 D 2785.8650 MnII Manganese
+0.410 D 2787.2770 MnII Manganese
+1.500 C 2790.1270 MnII Manganese
+0.430 D 2790.8050 MnII Manganese
+0.600 D 2791.6910 MnII Manganese
+0.500 D 2794.0420 MnII Manganese
+0.053 C+ 2794.5330 MnII Manganese
+0.270 D 2794.5330 MnII Manganese
+3.700 C 2795.640 Mn Manganese
+1.500 C 2795.9870 MnII Manganese
+1.600 C 2796.9410 MnII Manganese
+1.500 C 2798.400 MnII Manganese
+3.600 C 2799.090 Mn Manganese
+3.700 C 2801.890 Mn Manganese
+0.370 D 2804.1780 MnII Manganese
+0.710 C+ 2806.1910 MnII Manganese
+0.550 D 2806.870 MnII Manganese
+1.500 C 2807.3420 MnII Manganese
+0.390 D 2807.7260 MnII Manganese
+0.300 D 2810.640 MnII Manganese
+1.100 D 2811.0750 MnII Manganese
+0.540 D 2812.320 MnII Manganese
+0.800 D 2812.7980 MnII Manganese
+1.100 D 2813.0920 MnII Manganese
+1.600 C 2813.4160 MnII Manganese
+0.340 D 2813.540 MnII Manganese
+0.040 C+ 2813.6040 MnII Manganese
+0.600 D 2815.3900 MnII Manganese
+1.600 C 2815.8540 MnII Manganese
+0.410 D 2817.1580 MnII Manganese
+0.700 D 2817.2370 MnII Manganese
+0.600 D 2818.1500 MnII Manganese
+0.700 D 2818.5550 MnII Manganese
+0.390 D 2818.770 MnII Manganese
+1.100 D 2820.8130 MnII Manganese
+0.800 D 2825.5040 MnII Manganese
+0.520 D 2829.3000 MnII Manganese
+0.420 D 2829.6700 MnII Manganese
+2.000 C 2831.5530 MnII Manganese
+0.450 D 2841.1900 MnII Manganese
+0.049 D+ 2846.6820 MnII Manganese
+0.880 C 2846.8730 MnII Manganese
+0.004 D 2855.150 MnII Manganese
+0.230 D 2856.0390 MnII Manganese
+0.310 D 2857.0790 MnII Manganese
+0.700 D 2862.1430 MnII Manganese
+1.400 C 2862.3800 MnII Manganese
+0.910 C 2863.2300 MnII Manganese
+0.340 D 2865.6450 MnII Manganese
+0.700 D 2866.0230 MnII Manganese
+0.900 D 2867.360 MnII Manganese
+1.400 C 2868.8310 MnII Manganese
+0.800 D 2869.7400 MnII Manganese
+1.600 D 2870.4620 MnII Manganese
+2.300 C 2870.9270 MnII Manganese
+0.280 D 2871.5230 MnII Manganese
+0.800 D 2872.3700 MnII Manganese
+0.600 D 2872.5200 MnII Manganese
+1.600 C 2873.7780 MnII Manganese
+1.400 C 2873.9710 MnII Manganese
+0.600 D 2875.6860 MnII Manganese
+0.430 D 2880.210 MnII Manganese
+1.170 C+ 2880.3270 MnII Manganese
+0.800 D 2880.6920 MnII Manganese
+0.800 D 2881.2550 MnII Manganese
+0.700 D 2881.6030 MnII Manganese
+0.500 D 2884.6710 MnII Manganese
+0.049 C+ 2885.0080 MnII Manganese
+0.450 D 2885.1530 MnII Manganese
+0.700 D 2885.530 MnII Manganese
+1.000 D 2885.9770 MnII Manganese
+1.040 C+ 2887.5180 MnII Manganese
+0.115 C+ 2888.7350 MnII Manganese
+0.600 D 2889.6620 MnII Manganese
+0.390 D 2890.1590 MnII Manganese
+1.600 C 2890.3670 MnII Manganese
+1.500 C 2890.4470 MnII Manganese
+1.300 D 2892.1800 MnII Manganese
+1.400 C 2893.2370 MnII Manganese
+0.700 D 2894.6880 MnII Manganese
+0.266 B+ 2897.9170 MnII Manganese
+1.600 D 2899.5520 MnII Manganese
+0.530 D 2899.8100 MnII Manganese
+1.700 C 2901.0040 MnII Manganese
+0.081 B+ 2903.7520 MnII Manganese
+1.400 C 2905.3660 MnII Manganese
+0.950 C 2905.5160 MnII Manganese
+0.600 D 2906.1040 MnII Manganese
+1.500 D 2907.8460 MnII Manganese
+1.600 D 2908.060 MnII Manganese
+0.700 D 2913.980 MnII Manganese
+1.100 D 2914.5770 MnII Manganese
+0.012 C+ 2922.1540 MnII Manganese
+0.980 C 2923.4490 MnII Manganese
+0.071 C+ 2928.0870 MnII Manganese
+0.125 B+ 2928.2520 MnII Manganese
+0.002 D 2928.4530 MnII Manganese
+1.400 C 2931.3770 MnII Manganese
+2.040 A+ 2933.9120 MnII Manganese
+1.100 D 2934.2370 MnII Manganese
+0.090 B 2934.6370 MnII Manganese
+0.091 B 2935.5810 MnII Manganese
+0.026 C+ 2936.2140 MnII Manganese
+0.700 D 2938.5650 MnII Manganese
+1.980 A+ 2940.1680 MnII Manganese
+0.430 D 2942.4270 MnII Manganese
+1.500 C 2943.9990 MnII Manganese
+1.400 D 2944.7550 MnII Manganese
+1.960 A+ 2950.0670 MnII Manganese
+1.600 C 2952.0300 MnII Manganese
+0.092 C+ 2953.7340 MnII Manganese
+0.002 C 2955.0760 MnII Manganese
+0.112 B+ 2956.0040 MnII Manganese
+0.062 C+ 2956.2430 MnII Manganese
+0.001 D 2956.8660 MnII Manganese
+0.400 D 2958.9280 MnII Manganese
+0.008 C 2959.8060 MnII Manganese
+0.240 C+ 2959.8060 MnII Manganese
+0.056 C+ 2962.5540 MnII Manganese
+0.700 D 2966.8200 MnII Manganese
+0.600 D 2977.3460 MnII Manganese
+0.470 D 2977.7340 MnII Manganese
+0.079 D+ 2985.4640 MnII Manganese
+0.013 D+ 2990.6040 MnII Manganese
+0.017 D+ 2993.2830 MnII Manganese
+0.059 D+ 2994.4840 MnII Manganese
+0.002 D 2994.4840 MnII Manganese
+0.180 E 3008.540 Mn Manganese
+0.110 E 3012.040 Mn Manganese
+0.310 E 3012.260 Mn Manganese
+0.290 E 3017.330 Mn Manganese
+0.270 D 3020.5970 MnII Manganese
+0.360 C+ 3020.8030 MnII Manganese
+0.620 C+ 3029.9250 MnII Manganese
+0.017 C 3030.3280 MnII Manganese
+0.700 C 3031.9200 MnII Manganese
+0.290 D 3032.2060 MnII Manganese
+0.003 D 3034.4570 MnII Manganese
+0.540 D 3036.2330 MnII Manganese
+0.460 D 3038.9760 MnII Manganese
+0.380 D 3039.3910 MnII Manganese
+0.550 C+ 3040.4350 MnII Manganese
+0.590 E 3044.250 Mn Manganese
+0.570 E 3045.460 Mn Manganese
+0.670 E 3046.480 Mn Manganese
+0.250 C+ 3047.1570 MnII Manganese
+0.610 D 3047.930 Mn Manganese
+0.091 E 3049.750 Mn Manganese
+0.890 B+ 3051.5410 MnII Manganese
+0.340 D 3052.3130 MnII Manganese
+0.460 E 3055.250 Mn Manganese
+0.510 B+ 3059.9490 MnII Manganese
+0.130 E 3063.010 Mn Manganese
+0.160 E 3066.910 Mn Manganese
+0.190 E 3071.160 Mn Manganese
+0.600 D 3071.7130 MnII Manganese
+0.370 E 3074.020 Mn Manganese
+0.160 E 3080.520 Mn Manganese
+0.390 D 3081.5830 MnII Manganese
+0.030 E 3082.220 Mn Manganese
+0.011 D+ 3085.4680 MnII Manganese
+1.090 C 3106.7840 MnII Manganese
+0.540 D 3107.1910 MnII Manganese
+1.030 C 3109.7180 MnII Manganese
+0.810 C 3110.1590 MnII Manganese
+0.270 E 3111.580 Mn Manganese
+0.320 D 3122.780 MnII Manganese
+0.360 D 3124.0390 MnII Manganese
+0.180 D 3126.1340 MnII Manganese
+0.280 D 3145.360 MnII Manganese
+0.005 D+ 3146.5900 MnII Manganese
+0.003 D 3147.0270 MnII Manganese
+0.088 E 3149.090 Mn Manganese
+0.048 E 3161.960 Mn Manganese
+0.037 E 3179.420 Mn Manganese
+0.004 D+ 3190.1550 MnII Manganese
+0.104 B+ 3205.8000 MnII Manganese
+0.360 D 3210.8750 MnII Manganese
+0.160 E 3213.810 Mn Manganese
+0.002 C+ 3217.880 Mn Manganese
+0.640 D 3229.020 Mn Manganese
+0.350 E 3231.650 Mn Manganese
+0.530 E 3244.720 Mn Manganese
+0.230 E 3252.080 Mn Manganese
+0.009 D+ 3252.2570 MnII Manganese
+0.180 E 3253.890 Mn Manganese
+0.017 E 3254.980 Mn Manganese
+0.500 E 3257.080 Mn Manganese
+0.970 E 3259.350 Mn Manganese
+0.380 E 3261.170 Mn Manganese
+0.140 E 3265.650 Mn Manganese
+0.015 E 3297.830 Mn Manganese
+0.006 D 3298.9790 MnII Manganese
+0.280 E 3299.170 Mn Manganese
+0.280 D 3308.7620 MnII Manganese
+0.074 E 3331.630 Mn Manganese
+0.105 C+ 3331.7330 MnII Manganese
+0.210 D 3363.9850 MnII Manganese
+0.083 B+ 3420.3860 MnII Manganese
+0.016 C+ 3421.0030 MnII Manganese
+0.006 C+ 3439.9570 MnII Manganese
+0.362 A 3442.9710 MnII Manganese
+0.003 A 3461.0170 MnII Manganese
+0.260 A 3461.3050 MnII Manganese
+0.170 D 3465.0420 MnII Manganese
+0.220 D 3466.030 MnII Manganese
+0.270 D 3467.330 MnII Manganese
+0.093 A 3475.0330 MnII Manganese
+0.165 A 3475.1220 MnII Manganese
+0.160 A 3483.9010 MnII Manganese
+0.211 A 3489.6730 MnII Manganese
+0.095 B+ 3496.8330 MnII Manganese
+0.013 B+ 3497.8080 MnII Manganese
+0.042 B+ 3498.5260 MnII Manganese
+0.002 D 3564.1330 MnII Manganese
+0.160 D 3567.020 MnII Manganese
+0.940 D 3578.900 Mn Manganese
+0.180 E 3596.150 Mn Manganese
+0.230 E 3608.570 Mn Manganese
+0.360 E 3609.520 Mn Manganese
+0.420 E 3611.330 Mn Manganese
+0.097 E 3624.820 Mn Manganese
+0.028 E 3630.770 Mn Manganese
+0.910 D 3661.440 Mn Manganese
+0.006 C 3671.570 Mn Manganese
+0.730 D 3678.010 Mn Manganese
+0.760 D 3683.140 Mn Manganese
+0.079 C+ 3697.620 Mn Manganese
+0.009 C 3702.780 Mn Manganese
+1.400 D 3707.130 Mn Manganese
+0.960 D 3719.990 Mn Manganese
+0.058 C+ 3729.950 Mn Manganese
+1.000 D 3732.990 Mn Manganese
+0.057 B 3791.300 Mn Manganese
+0.013 B 3800.340 Mn Manganese
+0.270 E 3801.630 Mn Manganese
+0.064 E 3802.990 Mn Manganese
+0.590 B 3807.800 Mn Manganese
+0.143 B 3810.670 Mn Manganese
+0.053 E 3811.770 Mn Manganese
+0.042 B 3817.830 Mn Manganese
+0.521 B 3824.590 Mn Manganese
+0.231 B 3824.980 Mn Manganese
+0.103 B 3830.770 Mn Manganese
+0.314 B 3834.950 Mn Manganese
+0.429 B 3835.450 Mn Manganese
+0.464 B 3840.870 Mn Manganese
+0.330 C 3842.170 Mn Manganese
+0.211 B 3845.070 Mn Manganese
+0.001 D 3890.2340 MnII Manganese
+0.001 D 3898.7220 MnII Manganese
+0.540 D 3927.580 Mn Manganese
+0.410 E 3953.960 Mn Manganese
+0.180 E 3977.010 Mn Manganese
+0.160 E 3978.200 Mn Manganese
+0.230 E 3983.710 Mn Manganese
+0.097 E 3986.370 Mn Manganese
+0.110 E 3987.960 Mn Manganese
+0.100 E 3988.230 Mn Manganese
+0.254 C+ 4019.240 Mn Manganese
+0.089 E 4027.580 Mn Manganese
+0.170 C+ 4031.900 Mn Manganese
+0.165 C+ 4034.210 Mn Manganese
+0.158 C+ 4035.630 Mn Manganese
+0.047 E 4039.870 Mn Manganese
+0.787 C+ 4042.500 Mn Manganese
+0.750 C+ 4049.900 Mn Manganese
+0.380 E 4053.610 Mn Manganese
+0.431 C+ 4056.690 Mn Manganese
+0.725 C+ 4060.080 Mn Manganese
+0.140 E 4060.540 Mn Manganese
+0.190 E 4062.890 Mn Manganese
+0.169 C+ 4064.680 Mn Manganese
+0.250 E 4066.230 Mn Manganese
+0.014 E 4069.150 Mn Manganese
+0.230 C+ 4071.430 Mn Manganese
+0.380 C+ 4080.390 Mn Manganese
+0.295 C+ 4084.090 Mn Manganese
+0.280 C+ 4084.780 Mn Manganese
+0.004 D 4086.5490 MnII Manganese
+0.170 E 4091.090 Mn Manganese
+0.170 E 4106.520 Mn Manganese
+0.001 D+ 4129.2870 MnII Manganese
+0.300 E 4136.210 Mn Manganese
+0.002 D 4141.610 MnII Manganese
+0.260 E 4142.230 Mn Manganese
+0.066 E 4148.700 Mn Manganese
+0.230 E 4149.970 Mn Manganese
+0.240 E 4177.780 Mn Manganese
+0.200 E 4191.170 Mn Manganese
+0.230 E 4202.940 Mn Manganese
+0.000 D+ 4206.55960 MnII Manganese
+0.012 C+ 4207.55270 MnII Manganese
+0.917 C+ 4236.330 Mn Manganese
+0.390 E 4240.910 Mn Manganese
+0.008 D 4245.44120 MnII Manganese
+0.004 D 4247.140 MnII Manganese
+0.370 E 4258.860 Mn Manganese
+0.019 C+ 4260.38990 MnII Manganese
+0.492 C+ 4267.120 Mn Manganese
+0.230 E 4282.300 Mn Manganese
+0.160 D 4283.190 MnII Manganese
+0.250 D 4283.380 MnII Manganese
+0.089 C+ 4285.290 Mn Manganese
+0.013 C 4285.6340 MnII Manganese
+0.015 D+ 4293.44040 MnII Manganese
+0.150 D 4294.480 MnII Manganese
+0.150 D 4294.890 MnII Manganese
+0.009 C 4309.36490 MnII Manganese
+0.230 D 4311.910 MnII Manganese
+0.080 D 4312.440 MnII Manganese
+0.050 C+ 4313.760 Mn Manganese
+0.030 C+ 4326.26300 MnII Manganese
+0.017 C 4327.86010 MnII Manganese
+0.010 C 4339.56430 MnII Manganese
+0.025 C+ 4345.20460 MnII Manganese
+0.008 C 4349.61820 MnII Manganese
+0.140 E 4382.930 Mn Manganese
+0.040 D+ 4394.6190 MnII Manganese
+0.260 E 4413.120 Mn Manganese
+0.293 B 4416.120 Mn Manganese
+0.210 E 4421.020 Mn Manganese
+0.437 B 4437.600 Mn Manganese
+0.007 D+ 4443.24280 MnII Manganese
+0.798 B 4452.840 Mn Manganese
+0.544 B 4454.250 Mn Manganese
+0.170 E 4457.070 Mn Manganese
+0.234 C+ 4458.290 Mn Manganese
+0.427 C+ 4458.800 Mn Manganese
+0.462 C+ 4459.510 Mn Manganese
+0.170 E 4462.330 Mn Manganese
+0.700 C+ 4463.270 Mn Manganese
+0.439 B 4465.930 Mn Manganese
+0.300 B 4471.390 Mn Manganese
+0.435 B 4474.050 Mn Manganese
+0.340 D 4480.660 Mn Manganese
+0.249 B 4491.340 Mn Manganese
+0.249 B 4500.160 Mn Manganese
+0.186 B 4503.480 Mn Manganese
+0.090 D 4511.4750 MnII Manganese
+0.110 D 4531.300 MnII Manganese
+0.360 D 4606.650 Mn Manganese
+0.360 D 4627.840 Mn Manganese
+0.130 D 4640.460 MnII Manganese
+0.011 C 4673.000 Mn Manganese
+0.017 C 4702.480 Mn Manganese
+0.172 B 4711.040 Mn Manganese
+0.170 C 4728.800 Mn Manganese
+0.004 D+ 4739.630 MnII Manganese
+0.240 B 4740.440 Mn Manganese
+0.303 B 4755.370 Mn Manganese
+0.535 B 4762.860 Mn Manganese
+0.783 B 4763.710 Mn Manganese
+0.410 C 4767.190 Mn Manganese
+0.460 C 4767.760 Mn Manganese
+0.401 B 4784.760 Mn Manganese
+0.005 C 4808.200 MnII Manganese
+0.499 B 4824.870 Mn Manganese
+0.011 C 4967.270 Mn Manganese
+0.008 C 5006.310 Mn Manganese
+0.046 C 5119.370 Mn Manganese
+0.039 C 5152.320 Mn Manganese
+0.036 C 5198.040 Mn Manganese
+0.042 B 5256.780 Mn Manganese
+0.440 C 5295.800 MnII Manganese
+0.780 C 5296.870 MnII Manganese
+1.110 C 5298.530 MnII Manganese
+1.400 C 5300.840 MnII Manganese
+1.800 C 5303.920 MnII Manganese
+0.060 D 5344.380 MnII Manganese
+0.070 D 5344.570 MnII Manganese
+0.070 D 5344.790 MnII Manganese
+0.080 D 5345.150 MnII Manganese
+0.000 C+ 5396.170 Mn Manganese
+0.005 C+ 5408.920 Mn Manganese
+0.013 C+ 5421.870 Mn Manganese
+0.000 C+ 5434.060 Mn Manganese
+0.008 C+ 5518.300 Mn Manganese
+0.172 C+ 6015.170 Mn Manganese
+0.332 C+ 6023.470 Mn Manganese
+0.033 D 6052.060 MnII Manganese
+0.033 D 6053.530 MnII Manganese
+0.060 D 6106.970 MnII Manganese
+1.400 C 6124.1290 MnII Manganese
+0.240 C 6124.5050 MnII Manganese
+1.200 C 6127.5590 MnII Manganese
+0.430 C 6127.9140 MnII Manganese
+0.060 D 6128.200 MnII Manganese
+0.980 C 6130.4300 MnII Manganese
+0.570 C 6130.7290 MnII Manganese
+0.100 D 6130.940 MnII Manganese
+0.800 C 6132.4930 MnII Manganese
+0.670 C 6132.7130 MnII Manganese
+0.670 C 6133.6200 MnII Manganese
+0.012 C 6386.440 Mn Manganese
+0.160 C 6464.000 MnII Manganese
+0.160 C 6464.240 MnII Manganese
+0.170 C 6464.5850 MnII Manganese
+0.190 C 6464.9810 MnII Manganese
+0.210 C 6465.4230 MnII Manganese
+0.018 C 6493.500 Mn Manganese
+0.020 D 7042.6380 MnII Manganese
+0.220 C 7142.9520 MnII Manganese
+0.500 C 7144.3870 MnII Manganese
+0.750 C 7145.2990 MnII Manganese
+0.029 D 7169.4660 MnII Manganese
+0.041 D 7170.980 MnII Manganese
+0.054 C 7173.0010 MnII Manganese
+0.460 C 7174.3510 MnII Manganese
+0.068 C 7175.740 MnII Manganese
+0.460 C 7176.3410 MnII Manganese
+0.250 C 7177.7880 MnII Manganese
+0.680 C 7221.9570 MnII Manganese
+0.250 C 7224.6390 MnII Manganese
+0.060 D 7226.680 MnII Manganese
+0.220 C 7251.1160 MnII Manganese
+0.670 C 7254.400 MnII Manganese
+0.170 D 7267.820 MnII Manganese
+0.390 C 7269.370 MnII Manganese
+0.440 C 7271.7730 MnII Manganese
+0.500 C 7280.570 MnII Manganese
+0.230 C 7282.170 MnII Manganese
+0.055 C 7493.770 MnII Manganese
+0.046 D 7496.670 MnII Manganese
+0.021 D 7500.090 MnII Manganese
+0.031 D 7502.720 MnII Manganese
+0.062 C 7962.400 MnII Manganese
+0.057 C 7975.460 MnII Manganese
+0.010 D 7981.620 MnII Manganese
+0.035 D 7982.620 MnII Manganese
+0.070 D 7985.0780 MnII Manganese
+0.060 D 7985.0780 MnII Manganese
+0.280 C 8202.970 MnII Manganese
+0.160 C 8224.900 MnII Manganese
+0.033 D 8231.470 MnII Manganese
+0.360 C 8233.170 MnII Manganese
+0.260 C 8234.4340 MnII Manganese
+0.240 C 8235.190 MnII Manganese
+0.052 C 8236.750 MnII Manganese
+0.150 C 8450.770 MnII Manganese
+0.210 C 8497.680 MnII Manganese
+0.250 C 8568.1700 MnII Manganese
+0.310 C 8686.0850 MnII Manganese
+0.370 C 8697.6030 MnII Manganese
+0.220 C 8715.7070 MnII Manganese
+0.130 C 8734.0850 MnII Manganese
+0.380 C 8771.5840 MnII Manganese
+0.006 D 8812.730 MnII Manganese
+0.380 C 8822.020 MnII Manganese
+0.043 C 8833.930 MnII Manganese
+0.007 D 9119.170 MnII Manganese
+0.038 C 9137.620 MnII Manganese
+0.340 C 9446.1390 MnII Manganese
+0.330 C 9467.740 MnII Manganese
+0.330 C 9502.9620 MnII Manganese
+0.460 C 9906.570 MnII Manganese
+0.130 C 9907.100 MnII Manganese
+0.460 C 9907.100 MnII Manganese
+0.490 C 9907.970 MnII Manganese
+0.130 C 9907.970 MnII Manganese
+0.007 D 9908.960 MnII Manganese
+0.540 C 9908.960 MnII Manganese
+0.107 C 9908.960 MnII Manganese
+0.060 C 9909.980 MnII Manganese
+0.600 C 9909.980 MnII Manganese

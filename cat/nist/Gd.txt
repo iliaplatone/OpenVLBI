@@ -1,16 +1,16 @@
-0.910  3685.180 Gd Gadolinium 1
-0.920  3714.630 Gd Gadolinium 1
-0.680  3718.540 Gd Gadolinium 1
-0.940  3784.120 Gd Gadolinium 1
-0.620  4054.780 Gd Gadolinium 1
-0.570  4059.370 Gd Gadolinium 1
-0.590  4079.850 Gd Gadolinium 1
-0.420  4176.720 Gd Gadolinium 1
-0.300  4191.960 Gd Gadolinium 1
-0.890  4227.040 Gd Gadolinium 1
-0.430  4315.050 Gd Gadolinium 1
-0.520  4328.340 Gd Gadolinium 1
-0.380  4403.100 Gd Gadolinium 1
-0.280  4423.650 Gd Gadolinium 1
-0.300  4431.870 Gd Gadolinium 1
-0.380  4520.930 Gd Gadolinium 1
+0.910  3685.180 Gd Gadolinium
+0.920  3714.630 Gd Gadolinium
+0.680  3718.540 Gd Gadolinium
+0.940  3784.120 Gd Gadolinium
+0.620  4054.780 Gd Gadolinium
+0.570  4059.370 Gd Gadolinium
+0.590  4079.850 Gd Gadolinium
+0.420  4176.720 Gd Gadolinium
+0.300  4191.960 Gd Gadolinium
+0.890  4227.040 Gd Gadolinium
+0.430  4315.050 Gd Gadolinium
+0.520  4328.340 Gd Gadolinium
+0.380  4403.100 Gd Gadolinium
+0.280  4423.650 Gd Gadolinium
+0.300  4431.870 Gd Gadolinium
+0.380  4520.930 Gd Gadolinium

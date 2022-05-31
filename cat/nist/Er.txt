@@ -1,22 +1,22 @@
-1.500  3231.510 Er Erbium 2
-0.580  3265.720 Er Erbium 2
-0.370  3313.370 Er Erbium 2
-1.300  3373.680 Er Erbium 2
-0.235  3392.970 Er Erbium 2
-0.750  3500.100 Er Erbium 2
-0.200  3617.590 Er Erbium 2
-0.480  3693.700 Er Erbium 2
-0.140  3831.570 Er Erbium 2
-1.160  3863.950 Er Erbium 1
-0.728  3893.780 Er Erbium 1
-0.180  3897.330 Er Erbium 2
-0.323  3907.420 Er Erbium 2
-0.292  3938.120 Er Erbium 1
-0.479  3974.160 Er Erbium 1
-0.366  3974.700 Er Erbium 1
-1.730  4009.090 Er Erbium 1
-0.303  4088.780 Er Erbium 1
-0.960  4152.280 Er Erbium 1
-0.075  4607.900 Er Erbium 1
-0.010  5828.410 Er Erbium 1
-0.008  6222.740 Er Erbium 1
+1.500  3231.510 ErII Erbium
+0.580  3265.720 ErII Erbium
+0.370  3313.370 ErII Erbium
+1.300  3373.680 ErII Erbium
+0.235  3392.970 ErII Erbium
+0.750  3500.100 ErII Erbium
+0.200  3617.590 ErII Erbium
+0.480  3693.700 ErII Erbium
+0.140  3831.570 ErII Erbium
+1.160  3863.950 Er Erbium
+0.728  3893.780 Er Erbium
+0.180  3897.330 ErII Erbium
+0.323  3907.420 ErII Erbium
+0.292  3938.120 Er Erbium
+0.479  3974.160 Er Erbium
+0.366  3974.700 Er Erbium
+1.730  4009.090 Er Erbium
+0.303  4088.780 Er Erbium
+0.960  4152.280 Er Erbium
+0.075  4607.900 Er Erbium
+0.010  5828.410 Er Erbium
+0.008  6222.740 Er Erbium

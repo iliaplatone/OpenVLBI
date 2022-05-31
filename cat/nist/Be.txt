@@ -1,396 +1,396 @@
-50.556 AA 58.570 Be Beryllium 4
-50.555 AA 58.570 Be Beryllium 4
-88.091 AA 59.320 Be Beryllium 4
-88.089 AA 59.320 Be Beryllium 4
-174.740 AA 60.740 Be Beryllium 4
-174.730 AA 60.740 Be Beryllium 4
-428.620 AA 64.060 Be Beryllium 4
-428.590 AA 64.060 Be Beryllium 4
-1605.600 AA 75.930 Be Beryllium 4
-1605.300 AA 75.930 Be Beryllium 4
-28.405 AAA 81.890 Be Beryllium 3
-45.108 AAA 82.380 Be Beryllium 3
-77.965 AAA 83.200 Be Beryllium 3
-152.370 AAA 84.760 Be Beryllium 3
-361.660 AAA 88.310 Be Beryllium 3
-1220.300 AAA 100.250 Be Beryllium 3
-14.222 AAA 509.990 Be Beryllium 3
-7.904 AAA 509.990 Be Beryllium 3
-10.539 AAA 509.990 Be Beryllium 3
-0.527 AAA 509.990 Be Beryllium 3
-18.970 AAA 509.990 Be Beryllium 3
-4.740 AAA 509.990 Be Beryllium 3
-15.799 AAA 549.310 Be Beryllium 3
-16.565 AAA 582.080 Be Beryllium 3
-16.565 AAA 582.080 Be Beryllium 3
-16.565 AAA 582.080 Be Beryllium 3
-15.547 AAA 661.320 Be Beryllium 3
-41.989 AAA 675.590 Be Beryllium 3
-23.344 AAA 675.590 Be Beryllium 3
-31.132 AAA 675.590 Be Beryllium 3
-13.998 AAA 675.590 Be Beryllium 3
-1.557 AAA 675.590 Be Beryllium 3
-56.042 AAA 675.590 Be Beryllium 3
-0.087 A 707.20 Be Beryllium 2
-0.088 A 707.20 Be Beryllium 2
-0.147 A 714.60 Be Beryllium 2
-0.147 A 714.60 Be Beryllium 2
-3.747 AAA 725.590 Be Beryllium 3
-1.249 AAA 725.590 Be Beryllium 3
-6.245 AAA 725.590 Be Beryllium 3
-0.203 A 725.710 Be Beryllium 2
-0.203 A 725.710 Be Beryllium 2
-0.330 A 743.5790 Be Beryllium 2
-0.330 A 743.5790 Be Beryllium 2
-50.895 AAA 746.230 Be Beryllium 3
-8.756 AAA 767.750 Be Beryllium 3
-0.550 A 775.3750 Be Beryllium 2
-0.550 A 775.3750 Be Beryllium 2
-0.976 A 842.0570 Be Beryllium 2
-0.979 A 842.0570 Be Beryllium 2
-0.391 AA 925.2460 Be Beryllium 2
-0.065 AA 925.2460 Be Beryllium 2
-0.099 AA 943.5590 Be Beryllium 2
-0.595 AA 943.5590 Be Beryllium 2
-0.153 A 949.7460 Be Beryllium 2
-0.971 AA 973.2660 Be Beryllium 2
-0.162 AA 973.2660 Be Beryllium 2
-0.248 A 984.0250 Be Beryllium 2
-1.460 AA 1026.9260 Be Beryllium 2
-1.760 AA 1026.9260 Be Beryllium 2
-1.721 AA 1036.2710 Be Beryllium 2
-0.452 A 1048.2340 Be Beryllium 2
-0.985 AAA 1114.690 Be Beryllium 3
-0.004 AAA 1114.690 Be Beryllium 3
-0.089 AAA 1114.690 Be Beryllium 3
-0.153 AAA 1114.690 Be Beryllium 3
-0.731 AAA 1114.690 Be Beryllium 3
-0.827 AAA 1114.690 Be Beryllium 3
-3.140 AA 1142.9560 Be Beryllium 2
-3.750 AA 1143.030 Be Beryllium 2
-0.627 AA 1143.030 Be Beryllium 2
-0.967 AA 1197.190 Be Beryllium 2
-0.272 AAA 1213.120 Be Beryllium 3
-0.154 AAA 1213.120 Be Beryllium 3
-1.470 AAA 1213.120 Be Beryllium 3
-1.270 AAA 1213.120 Be Beryllium 3
-0.008 AAA 1213.120 Be Beryllium 3
-1.749 AAA 1213.120 Be Beryllium 3
-1.417 AAA 1214.320 Be Beryllium 3
-0.004 C 1356.50 Be Beryllium 1
-2.817 AAA 1362.250 Be Beryllium 3
-0.704 AAA 1362.250 Be Beryllium 3
-1.174 AAA 1362.250 Be Beryllium 3
-2.112 AAA 1362.250 Be Beryllium 3
-1.565 AAA 1362.250 Be Beryllium 3
-0.078 AAA 1362.250 Be Beryllium 3
-0.004 C 1364.30 Be Beryllium 1
-0.006 C 1375.60 Be Beryllium 1
-0.008 C 1393.90 Be Beryllium 1
-0.448 AAA 1401.520 Be Beryllium 3
-0.149 AAA 1401.520 Be Beryllium 3
-0.747 AAA 1401.520 Be Beryllium 3
-3.107 AAA 1421.260 Be Beryllium 3
-2.579 AAA 1421.260 Be Beryllium 3
-0.016 AAA 1421.260 Be Beryllium 3
-3.699 AAA 1421.260 Be Beryllium 3
-0.575 AAA 1421.260 Be Beryllium 3
-0.312 AAA 1421.260 Be Beryllium 3
-2.878 AAA 1422.860 Be Beryllium 3
-0.008 C 1426.1170 Be Beryllium 1
-0.136 AAA 1435.170 Be Beryllium 3
-0.027 AAA 1435.170 Be Beryllium 3
-0.045 AAA 1435.170 Be Beryllium 3
-0.182 AAA 1435.170 Be Beryllium 3
-0.002 AAA 1435.170 Be Beryllium 3
-0.153 AAA 1435.170 Be Beryllium 3
-2.713 AAA 1440.770 Be Beryllium 3
-0.001 D 1491.7620 Be Beryllium 1
-9.217 AA 1512.2580 Be Beryllium 2
-11.060 AA 1512.4120 Be Beryllium 2
-1.843 AA 1512.4120 Be Beryllium 2
-0.072 A 1661.4780 Be Beryllium 1
-1.906 AAA 1754.690 Be Beryllium 3
-1.906 AAA 1754.690 Be Beryllium 3
-1.906 AAA 1754.690 Be Beryllium 3
-1.361 AA 1776.1000 Be Beryllium 2
-2.722 AA 1776.3070 Be Beryllium 2
-0.051 B 1929.670 Be Beryllium 1
-0.038 B 1929.670 Be Beryllium 1
-0.068 B 1929.670 Be Beryllium 1
-0.029 B 1929.670 Be Beryllium 1
-0.017 B 1929.670 Be Beryllium 1
-0.002 B 1929.670 Be Beryllium 1
-0.054 B 1943.680 Be Beryllium 1
-0.073 B 1943.680 Be Beryllium 1
-0.041 B 1943.680 Be Beryllium 1
-0.003 B 1943.680 Be Beryllium 1
-0.024 B 1943.680 Be Beryllium 1
-0.098 B 1943.680 Be Beryllium 1
-0.153 AAA 1954.970 Be Beryllium 3
-5.521 AAA 1954.970 Be Beryllium 3
-1.380 AAA 1954.970 Be Beryllium 3
-2.300 AAA 1954.970 Be Beryllium 3
-4.139 AAA 1954.970 Be Beryllium 3
-3.067 AAA 1954.970 Be Beryllium 3
-0.004 C 1956.630 Be Beryllium 1
-0.012 C 1956.630 Be Beryllium 1
-0.020 C 1956.630 Be Beryllium 1
-0.082 B 1964.590 Be Beryllium 1
-0.061 B 1964.590 Be Beryllium 1
-0.110 B 1964.590 Be Beryllium 1
-0.004 B 1964.590 Be Beryllium 1
-0.037 B 1964.590 Be Beryllium 1
-0.147 B 1964.590 Be Beryllium 1
-0.006 C 1985.130 Be Beryllium 1
-0.019 C 1985.130 Be Beryllium 1
-0.031 C 1985.130 Be Beryllium 1
-0.130 B 1998.010 Be Beryllium 1
-0.098 B 1998.010 Be Beryllium 1
-0.176 B 1998.010 Be Beryllium 1
-0.235 B 1998.010 Be Beryllium 1
-0.059 B 1998.010 Be Beryllium 1
-0.007 B 1998.010 Be Beryllium 1
-0.011 C 2033.300 Be Beryllium 1
-0.032 C 2033.300 Be Beryllium 1
-0.053 C 2033.300 Be Beryllium 1
-0.228 B 2056.5600 Be Beryllium 1
-0.308 B 2056.5600 Be Beryllium 1
-0.171 B 2056.5600 Be Beryllium 1
-0.011 B 2056.6700 Be Beryllium 1
-0.103 B 2056.6700 Be Beryllium 1
-0.413 B 2056.6700 Be Beryllium 1
-0.856 AAA 2077.600 Be Beryllium 3
-1.740 AAA 2077.600 Be Beryllium 3
-11.197 AAA 2077.600 Be Beryllium 3
-7.138 AAA 2077.600 Be Beryllium 3
-9.406 AAA 2077.600 Be Beryllium 3
-0.050 AAA 2077.600 Be Beryllium 3
-7.981 AAA 2081.040 Be Beryllium 3
-5.741 AAA 2122.940 Be Beryllium 3
-0.020 C 2126.2400 Be Beryllium 1
-0.060 C 2126.2400 Be Beryllium 1
-0.101 C 2126.3570 Be Beryllium 1
-0.323 AAA 2127.870 Be Beryllium 3
-1.616 AAA 2127.870 Be Beryllium 3
-0.970 AAA 2127.870 Be Beryllium 3
-0.451 B 2175.6680 Be Beryllium 1
-0.610 B 2175.6680 Be Beryllium 1
-0.338 B 2175.6680 Be Beryllium 1
-0.812 B 2175.7850 Be Beryllium 1
-0.203 B 2175.7850 Be Beryllium 1
-0.023 B 2175.7850 Be Beryllium 1
-2.351 AAA 2192.260 Be Beryllium 3
-0.109 A 2297.680 Be Beryllium 2
-0.022 A 2297.680 Be Beryllium 2
-0.130 A 2297.680 Be Beryllium 2
-5.520 A 2349.323220 Be Beryllium 1
-0.047 C 2351.3810 Be Beryllium 1
-0.141 C 2351.4230 Be Beryllium 1
-0.235 C 2351.5490 Be Beryllium 1
-0.114 AA 2382.750 Be Beryllium 2
-0.008 AA 2382.750 Be Beryllium 2
-0.122 AA 2382.750 Be Beryllium 2
-0.164 A 2414.0740 Be Beryllium 2
-0.033 A 2414.1890 Be Beryllium 2
-0.197 A 2414.1890 Be Beryllium 2
-0.106 A 2454.5870 Be Beryllium 2
-0.106 A 2454.5870 Be Beryllium 2
-1.070 A 2495.2950 Be Beryllium 1
-1.440 A 2495.3350 Be Beryllium 1
-0.804 A 2495.3350 Be Beryllium 1
-0.053 A 2495.4800 Be Beryllium 1
-0.482 A 2495.4800 Be Beryllium 1
-1.920 A 2495.4800 Be Beryllium 1
-0.181 AA 2508.1840 Be Beryllium 2
-0.194 AA 2508.1840 Be Beryllium 2
-0.013 AA 2508.1840 Be Beryllium 2
-0.265 A 2618.7660 Be Beryllium 2
-0.053 A 2618.9140 Be Beryllium 2
-0.318 A 2618.9140 Be Beryllium 2
-1.060 A 2651.2430 Be Beryllium 1
-1.410 A 2651.3390 Be Beryllium 1
-1.060 A 2651.4020 Be Beryllium 1
-3.170 A 2651.4080 Be Beryllium 1
-4.230 A 2651.4830 Be Beryllium 1
-1.760 A 2651.5490 Be Beryllium 1
-0.074 A 2698.2550 Be Beryllium 2
-0.147 A 2698.3850 Be Beryllium 2
-0.322 AA 2729.6850 Be Beryllium 2
-0.346 AA 2729.6850 Be Beryllium 2
-0.023 AA 2729.6850 Be Beryllium 2
-0.465 A 3047.4100 Be Beryllium 2
-0.560 A 3047.5770 Be Beryllium 2
-1.129 AAA 3131.32920 Be Beryllium 2
-1.128 AAA 3131.97420 Be Beryllium 2
-0.051 B 3194.7530 Be Beryllium 1
-0.682 AA 3198.0270 Be Beryllium 2
-0.731 AA 3198.0730 Be Beryllium 2
-0.011 B 3221.320 Be Beryllium 1
-0.072 B 3230.5520 Be Beryllium 1
-0.037 A 3234.4520 Be Beryllium 2
-0.034 A 3234.4520 Be Beryllium 2
-0.139 A 3242.5600 Be Beryllium 2
-0.277 A 3242.7620 Be Beryllium 2
-0.015 B 3269.9800 Be Beryllium 1
-0.141 A 3275.5280 Be Beryllium 2
-0.141 A 3275.6140 Be Beryllium 2
-0.106 B 3283.8510 Be Beryllium 1
-0.170 B 3321.9670 Be Beryllium 1
-0.510 B 3322.0350 Be Beryllium 1
-0.851 B 3322.2960 Be Beryllium 1
-0.021 B 3346.3920 Be Beryllium 1
-0.164 B 3368.6000 Be Beryllium 1
-0.031 B 3477.5590 Be Beryllium 1
-0.274 B 3516.5440 Be Beryllium 1
-0.341 AAA 3721.980 Be Beryllium 3
-0.341 AAA 3724.040 Be Beryllium 3
-0.051 B 3737.3600 Be Beryllium 1
-0.487 B 3814.5360 Be Beryllium 1
-1.107 AAA 4250.340 Be Beryllium 3
-0.031 AAA 4250.340 Be Beryllium 3
-0.277 AAA 4250.340 Be Beryllium 3
-0.461 AAA 4250.340 Be Beryllium 3
-0.830 AAA 4250.340 Be Beryllium 3
-0.615 AAA 4250.340 Be Beryllium 3
-0.909 A 4361.8890 Be Beryllium 2
-1.090 A 4362.2140 Be Beryllium 2
-0.101 B 4409.1730 Be Beryllium 1
-0.009 AAA 4488.560 Be Beryllium 3
-0.176 AAA 4488.560 Be Beryllium 3
-0.326 AAA 4488.560 Be Beryllium 3
-1.448 AAA 4488.560 Be Beryllium 3
-1.759 AAA 4488.560 Be Beryllium 3
-2.094 AAA 4488.560 Be Beryllium 3
-0.000 E 4549.8130 Be Beryllium 1
-0.762 B 4573.947560 Be Beryllium 1
-2.070 AA 4674.6370 Be Beryllium 2
-2.210 AA 4674.7310 Be Beryllium 2
-0.047 A 4703.890 Be Beryllium 2
-0.057 A 4703.890 Be Beryllium 2
-0.009 A 4703.890 Be Beryllium 2
-0.079 A 4829.5080 Be Beryllium 2
-0.088 A 4829.5080 Be Beryllium 2
-0.070 A 5219.5680 Be Beryllium 2
-0.085 A 5219.7790 Be Beryllium 2
-0.014 A 5219.7790 Be Beryllium 2
-0.323 AA 5271.7510 Be Beryllium 2
-0.647 AA 5272.2780 Be Beryllium 2
-0.028 A 5417.210 Be Beryllium 2
-0.057 A 5417.210 Be Beryllium 2
-0.007 C 5858.630 Be Beryllium 1
-0.087 AAA 6143.710 Be Beryllium 3
-0.023 B 6230.8330 Be Beryllium 1
-0.111 A 6281.1640 Be Beryllium 2
-0.022 A 6281.4670 Be Beryllium 2
-0.134 A 6281.4670 Be Beryllium 2
-0.008 C 6475.3280 Be Beryllium 1
-0.035 B 6566.3340 Be Beryllium 1
-0.003 D 6727.90 Be Beryllium 1
-0.049 A 6758.590 Be Beryllium 2
-0.098 A 6759.000 Be Beryllium 2
-0.002 D 6788.4320 Be Beryllium 1
-0.002 D 6788.4320 Be Beryllium 1
-0.002 D 6788.4320 Be Beryllium 1
-0.005 B 6886.120 Be Beryllium 1
-0.004 B 6886.120 Be Beryllium 1
-0.007 B 6886.120 Be Beryllium 1
-0.002 B 6886.340 Be Beryllium 1
-0.000 B 6886.340 Be Beryllium 1
-0.009 B 6886.340 Be Beryllium 1
-0.006 B 7156.370 Be Beryllium 1
-0.007 B 7156.370 Be Beryllium 1
-0.010 B 7156.370 Be Beryllium 1
-0.000 B 7156.620 Be Beryllium 1
-0.003 B 7156.620 Be Beryllium 1
-0.013 B 7156.620 Be Beryllium 1
-0.057 B 7211.1210 Be Beryllium 1
-0.003 B 7310.180 Be Beryllium 1
-0.025 A 7403.240 Be Beryllium 2
-0.026 A 7403.470 Be Beryllium 2
-0.004 B 7500.40 Be Beryllium 1
-0.004 D 7553.9770 Be Beryllium 1
-0.015 B 7620.7770 Be Beryllium 1
-0.011 B 7620.7770 Be Beryllium 1
-0.008 B 7620.7770 Be Beryllium 1
-0.020 B 7620.9780 Be Beryllium 1
-0.005 B 7620.9780 Be Beryllium 1
-0.001 B 7620.9780 Be Beryllium 1
-0.006 B 7794.140 Be Beryllium 1
-0.003 C 8092.2860 Be Beryllium 1
-0.003 B 8161.2360 Be Beryllium 1
-0.008 B 8161.2360 Be Beryllium 1
-0.013 B 8161.4860 Be Beryllium 1
-0.338 B 8256.3390 Be Beryllium 1
-0.008 B 8289.350 Be Beryllium 1
-0.017 B 8549.7140 Be Beryllium 1
-0.013 B 8549.7140 Be Beryllium 1
-0.023 B 8549.7140 Be Beryllium 1
-0.001 B 8550.0070 Be Beryllium 1
-0.008 B 8550.0070 Be Beryllium 1
-0.031 B 8550.0070 Be Beryllium 1
-0.096 B 8803.7870 Be Beryllium 1
-0.002 B 8884.620 Be Beryllium 1
-0.001 B 8884.620 Be Beryllium 1
-0.000 B 8884.620 Be Beryllium 1
-0.000 B 8884.620 Be Beryllium 1
-0.000 B 8884.620 Be Beryllium 1
-0.001 B 8884.620 Be Beryllium 1
-0.013 A 9192.970 Be Beryllium 1
-0.002 A 9192.970 Be Beryllium 1
-0.014 A 9192.970 Be Beryllium 1
-0.000 A 9192.970 Be Beryllium 1
-0.002 A 9192.970 Be Beryllium 1
-0.009 B 9246.4530 Be Beryllium 1
-0.000 B 9395.320 Be Beryllium 1
-0.000 B 9395.320 Be Beryllium 1
-0.001 B 9395.320 Be Beryllium 1
-0.002 B 9395.320 Be Beryllium 1
-0.002 B 9395.320 Be Beryllium 1
-0.002 B 9395.320 Be Beryllium 1
-0.181 A 9479.0260 Be Beryllium 2
-0.217 A 9479.6290 Be Beryllium 2
-0.005 D 9850.020 Be Beryllium 1
-0.016 B 9898.340 Be Beryllium 1
-0.005 B 9898.340 Be Beryllium 1
-0.026 B 9898.670 Be Beryllium 1
-0.025 B 9942.510 Be Beryllium 1
-0.000 B 9942.510 Be Beryllium 1
-0.024 B 9942.510 Be Beryllium 1
-0.003 B 9942.510 Be Beryllium 1
-0.004 B 9942.510 Be Beryllium 1
-0.000 B 10333.860 Be Beryllium 1
-0.001 B 10333.860 Be Beryllium 1
-0.001 B 10333.860 Be Beryllium 1
-0.003 B 10333.860 Be Beryllium 1
-0.004 B 10333.860 Be Beryllium 1
-0.004 B 10333.860 Be Beryllium 1
-0.033 B 11069.090 Be Beryllium 1
-0.024 B 11069.090 Be Beryllium 1
-0.018 B 11069.090 Be Beryllium 1
-0.044 B 11069.490 Be Beryllium 1
-0.011 B 11069.490 Be Beryllium 1
-0.001 B 11069.490 Be Beryllium 1
-0.043 A 11176.790 Be Beryllium 2
-0.007 A 11176.790 Be Beryllium 2
-0.000 B 11499.540 Be Beryllium 1
-0.006 B 11499.540 Be Beryllium 1
-0.049 B 11499.540 Be Beryllium 1
-0.052 B 11499.540 Be Beryllium 1
-0.009 B 11499.540 Be Beryllium 1
-0.203 A 11663.440 Be Beryllium 2
-0.126 AA 12098.670 Be Beryllium 2
-0.126 AA 12101.490 Be Beryllium 2
-0.117 B 14647.920 Be Beryllium 1
-0.117 B 14648.750 Be Beryllium 1
-0.117 B 14648.750 Be Beryllium 1
-0.018 A 16162.130 Be Beryllium 1
-0.142 A 16162.130 Be Beryllium 1
-0.134 A 16162.130 Be Beryllium 1
-0.025 A 16162.130 Be Beryllium 1
-0.001 A 16162.130 Be Beryllium 1
-0.015 B 17860.260 Be Beryllium 1
-0.045 B 17860.260 Be Beryllium 1
-0.076 B 17861.510 Be Beryllium 1
-0.065 B 18148.490 Be Beryllium 1
-0.108 B 19770.690 Be Beryllium 1
+50.556 AA 58.570 BeIV Beryllium
+50.555 AA 58.570 BeIV Beryllium
+88.091 AA 59.320 BeIV Beryllium
+88.089 AA 59.320 BeIV Beryllium
+174.740 AA 60.740 BeIV Beryllium
+174.730 AA 60.740 BeIV Beryllium
+428.620 AA 64.060 BeIV Beryllium
+428.590 AA 64.060 BeIV Beryllium
+1605.600 AA 75.930 BeIV Beryllium
+1605.300 AA 75.930 BeIV Beryllium
+28.405 AAA 81.890 BeIII Beryllium
+45.108 AAA 82.380 BeIII Beryllium
+77.965 AAA 83.200 BeIII Beryllium
+152.370 AAA 84.760 BeIII Beryllium
+361.660 AAA 88.310 BeIII Beryllium
+1220.300 AAA 100.250 BeIII Beryllium
+14.222 AAA 509.990 BeIII Beryllium
+7.904 AAA 509.990 BeIII Beryllium
+10.539 AAA 509.990 BeIII Beryllium
+0.527 AAA 509.990 BeIII Beryllium
+18.970 AAA 509.990 BeIII Beryllium
+4.740 AAA 509.990 BeIII Beryllium
+15.799 AAA 549.310 BeIII Beryllium
+16.565 AAA 582.080 BeIII Beryllium
+16.565 AAA 582.080 BeIII Beryllium
+16.565 AAA 582.080 BeIII Beryllium
+15.547 AAA 661.320 BeIII Beryllium
+41.989 AAA 675.590 BeIII Beryllium
+23.344 AAA 675.590 BeIII Beryllium
+31.132 AAA 675.590 BeIII Beryllium
+13.998 AAA 675.590 BeIII Beryllium
+1.557 AAA 675.590 BeIII Beryllium
+56.042 AAA 675.590 BeIII Beryllium
+0.087 A 707.20 BeII Beryllium
+0.088 A 707.20 BeII Beryllium
+0.147 A 714.60 BeII Beryllium
+0.147 A 714.60 BeII Beryllium
+3.747 AAA 725.590 BeIII Beryllium
+1.249 AAA 725.590 BeIII Beryllium
+6.245 AAA 725.590 BeIII Beryllium
+0.203 A 725.710 BeII Beryllium
+0.203 A 725.710 BeII Beryllium
+0.330 A 743.5790 BeII Beryllium
+0.330 A 743.5790 BeII Beryllium
+50.895 AAA 746.230 BeIII Beryllium
+8.756 AAA 767.750 BeIII Beryllium
+0.550 A 775.3750 BeII Beryllium
+0.550 A 775.3750 BeII Beryllium
+0.976 A 842.0570 BeII Beryllium
+0.979 A 842.0570 BeII Beryllium
+0.391 AA 925.2460 BeII Beryllium
+0.065 AA 925.2460 BeII Beryllium
+0.099 AA 943.5590 BeII Beryllium
+0.595 AA 943.5590 BeII Beryllium
+0.153 A 949.7460 BeII Beryllium
+0.971 AA 973.2660 BeII Beryllium
+0.162 AA 973.2660 BeII Beryllium
+0.248 A 984.0250 BeII Beryllium
+1.460 AA 1026.9260 BeII Beryllium
+1.760 AA 1026.9260 BeII Beryllium
+1.721 AA 1036.2710 BeII Beryllium
+0.452 A 1048.2340 BeII Beryllium
+0.004 AAA 1114.690 BeIII Beryllium
+0.089 AAA 1114.690 BeIII Beryllium
+0.153 AAA 1114.690 BeIII Beryllium
+0.985 AAA 1114.690 BeIII Beryllium
+0.731 AAA 1114.690 BeIII Beryllium
+0.827 AAA 1114.690 BeIII Beryllium
+3.140 AA 1142.9560 BeII Beryllium
+3.750 AA 1143.030 BeII Beryllium
+0.627 AA 1143.030 BeII Beryllium
+0.967 AA 1197.190 BeII Beryllium
+0.272 AAA 1213.120 BeIII Beryllium
+0.154 AAA 1213.120 BeIII Beryllium
+0.008 AAA 1213.120 BeIII Beryllium
+1.470 AAA 1213.120 BeIII Beryllium
+1.270 AAA 1213.120 BeIII Beryllium
+1.749 AAA 1213.120 BeIII Beryllium
+1.417 AAA 1214.320 BeIII Beryllium
+0.004 C 1356.50 Be Beryllium
+0.078 AAA 1362.250 BeIII Beryllium
+0.704 AAA 1362.250 BeIII Beryllium
+1.174 AAA 1362.250 BeIII Beryllium
+2.112 AAA 1362.250 BeIII Beryllium
+2.817 AAA 1362.250 BeIII Beryllium
+1.565 AAA 1362.250 BeIII Beryllium
+0.004 C 1364.30 Be Beryllium
+0.006 C 1375.60 Be Beryllium
+0.008 C 1393.90 Be Beryllium
+0.448 AAA 1401.520 BeIII Beryllium
+0.747 AAA 1401.520 BeIII Beryllium
+0.149 AAA 1401.520 BeIII Beryllium
+0.016 AAA 1421.260 BeIII Beryllium
+3.107 AAA 1421.260 BeIII Beryllium
+2.579 AAA 1421.260 BeIII Beryllium
+3.699 AAA 1421.260 BeIII Beryllium
+0.575 AAA 1421.260 BeIII Beryllium
+0.312 AAA 1421.260 BeIII Beryllium
+2.878 AAA 1422.860 BeIII Beryllium
+0.008 C 1426.1170 Be Beryllium
+0.153 AAA 1435.170 BeIII Beryllium
+0.136 AAA 1435.170 BeIII Beryllium
+0.182 AAA 1435.170 BeIII Beryllium
+0.027 AAA 1435.170 BeIII Beryllium
+0.045 AAA 1435.170 BeIII Beryllium
+0.002 AAA 1435.170 BeIII Beryllium
+2.713 AAA 1440.770 BeIII Beryllium
+0.001 D 1491.7620 Be Beryllium
+9.217 AA 1512.2580 BeII Beryllium
+11.060 AA 1512.4120 BeII Beryllium
+1.843 AA 1512.4120 BeII Beryllium
+0.072 A 1661.4780 Be Beryllium
+1.906 AAA 1754.690 BeIII Beryllium
+1.906 AAA 1754.690 BeIII Beryllium
+1.906 AAA 1754.690 BeIII Beryllium
+1.361 AA 1776.1000 BeII Beryllium
+2.722 AA 1776.3070 BeII Beryllium
+0.051 B 1929.670 Be Beryllium
+0.038 B 1929.670 Be Beryllium
+0.068 B 1929.670 Be Beryllium
+0.029 B 1929.670 Be Beryllium
+0.017 B 1929.670 Be Beryllium
+0.002 B 1929.670 Be Beryllium
+0.054 B 1943.680 Be Beryllium
+0.041 B 1943.680 Be Beryllium
+0.073 B 1943.680 Be Beryllium
+0.003 B 1943.680 Be Beryllium
+0.024 B 1943.680 Be Beryllium
+0.098 B 1943.680 Be Beryllium
+0.153 AAA 1954.970 BeIII Beryllium
+5.521 AAA 1954.970 BeIII Beryllium
+1.380 AAA 1954.970 BeIII Beryllium
+2.300 AAA 1954.970 BeIII Beryllium
+4.139 AAA 1954.970 BeIII Beryllium
+3.067 AAA 1954.970 BeIII Beryllium
+0.004 C 1956.630 Be Beryllium
+0.012 C 1956.630 Be Beryllium
+0.020 C 1956.630 Be Beryllium
+0.082 B 1964.590 Be Beryllium
+0.061 B 1964.590 Be Beryllium
+0.110 B 1964.590 Be Beryllium
+0.004 B 1964.590 Be Beryllium
+0.037 B 1964.590 Be Beryllium
+0.147 B 1964.590 Be Beryllium
+0.006 C 1985.130 Be Beryllium
+0.019 C 1985.130 Be Beryllium
+0.031 C 1985.130 Be Beryllium
+0.130 B 1998.010 Be Beryllium
+0.098 B 1998.010 Be Beryllium
+0.176 B 1998.010 Be Beryllium
+0.059 B 1998.010 Be Beryllium
+0.235 B 1998.010 Be Beryllium
+0.007 B 1998.010 Be Beryllium
+0.011 C 2033.300 Be Beryllium
+0.032 C 2033.300 Be Beryllium
+0.053 C 2033.300 Be Beryllium
+0.228 B 2056.5600 Be Beryllium
+0.308 B 2056.5600 Be Beryllium
+0.171 B 2056.5600 Be Beryllium
+0.011 B 2056.6700 Be Beryllium
+0.103 B 2056.6700 Be Beryllium
+0.413 B 2056.6700 Be Beryllium
+0.856 AAA 2077.600 BeIII Beryllium
+1.740 AAA 2077.600 BeIII Beryllium
+11.197 AAA 2077.600 BeIII Beryllium
+7.138 AAA 2077.600 BeIII Beryllium
+9.406 AAA 2077.600 BeIII Beryllium
+0.050 AAA 2077.600 BeIII Beryllium
+7.981 AAA 2081.040 BeIII Beryllium
+5.741 AAA 2122.940 BeIII Beryllium
+0.020 C 2126.2400 Be Beryllium
+0.060 C 2126.2400 Be Beryllium
+0.101 C 2126.3570 Be Beryllium
+0.323 AAA 2127.870 BeIII Beryllium
+1.616 AAA 2127.870 BeIII Beryllium
+0.970 AAA 2127.870 BeIII Beryllium
+0.451 B 2175.6680 Be Beryllium
+0.610 B 2175.6680 Be Beryllium
+0.338 B 2175.6680 Be Beryllium
+0.812 B 2175.7850 Be Beryllium
+0.203 B 2175.7850 Be Beryllium
+0.023 B 2175.7850 Be Beryllium
+2.351 AAA 2192.260 BeIII Beryllium
+0.109 A 2297.680 BeII Beryllium
+0.022 A 2297.680 BeII Beryllium
+0.130 A 2297.680 BeII Beryllium
+5.520 A 2349.323220 Be Beryllium
+0.047 C 2351.3810 Be Beryllium
+0.141 C 2351.4230 Be Beryllium
+0.235 C 2351.5490 Be Beryllium
+0.114 AA 2382.750 BeII Beryllium
+0.122 AA 2382.750 BeII Beryllium
+0.008 AA 2382.750 BeII Beryllium
+0.164 A 2414.0740 BeII Beryllium
+0.197 A 2414.1890 BeII Beryllium
+0.033 A 2414.1890 BeII Beryllium
+0.106 A 2454.5870 BeII Beryllium
+0.106 A 2454.5870 BeII Beryllium
+1.070 A 2495.2950 Be Beryllium
+1.440 A 2495.3350 Be Beryllium
+0.804 A 2495.3350 Be Beryllium
+0.053 A 2495.4800 Be Beryllium
+0.482 A 2495.4800 Be Beryllium
+1.920 A 2495.4800 Be Beryllium
+0.181 AA 2508.1840 BeII Beryllium
+0.194 AA 2508.1840 BeII Beryllium
+0.013 AA 2508.1840 BeII Beryllium
+0.265 A 2618.7660 BeII Beryllium
+0.318 A 2618.9140 BeII Beryllium
+0.053 A 2618.9140 BeII Beryllium
+1.060 A 2651.2430 Be Beryllium
+1.410 A 2651.3390 Be Beryllium
+1.060 A 2651.4020 Be Beryllium
+3.170 A 2651.4080 Be Beryllium
+4.230 A 2651.4830 Be Beryllium
+1.760 A 2651.5490 Be Beryllium
+0.074 A 2698.2550 BeII Beryllium
+0.147 A 2698.3850 BeII Beryllium
+0.322 AA 2729.6850 BeII Beryllium
+0.346 AA 2729.6850 BeII Beryllium
+0.023 AA 2729.6850 BeII Beryllium
+0.465 A 3047.4100 BeII Beryllium
+0.560 A 3047.5770 BeII Beryllium
+1.129 AAA 3131.32920 BeII Beryllium
+1.128 AAA 3131.97420 BeII Beryllium
+0.051 B 3194.7530 Be Beryllium
+0.682 AA 3198.0270 BeII Beryllium
+0.731 AA 3198.0730 BeII Beryllium
+0.011 B 3221.320 Be Beryllium
+0.072 B 3230.5520 Be Beryllium
+0.037 A 3234.4520 BeII Beryllium
+0.034 A 3234.4520 BeII Beryllium
+0.139 A 3242.5600 BeII Beryllium
+0.277 A 3242.7620 BeII Beryllium
+0.015 B 3269.9800 Be Beryllium
+0.141 A 3275.5280 BeII Beryllium
+0.141 A 3275.6140 BeII Beryllium
+0.106 B 3283.8510 Be Beryllium
+0.170 B 3321.9670 Be Beryllium
+0.510 B 3322.0350 Be Beryllium
+0.851 B 3322.2960 Be Beryllium
+0.021 B 3346.3920 Be Beryllium
+0.164 B 3368.6000 Be Beryllium
+0.031 B 3477.5590 Be Beryllium
+0.274 B 3516.5440 Be Beryllium
+0.341 AAA 3721.980 BeIII Beryllium
+0.341 AAA 3724.040 BeIII Beryllium
+0.051 B 3737.3600 Be Beryllium
+0.487 B 3814.5360 Be Beryllium
+0.830 AAA 4250.340 BeIII Beryllium
+0.615 AAA 4250.340 BeIII Beryllium
+1.107 AAA 4250.340 BeIII Beryllium
+0.031 AAA 4250.340 BeIII Beryllium
+0.277 AAA 4250.340 BeIII Beryllium
+0.461 AAA 4250.340 BeIII Beryllium
+0.909 A 4361.8890 BeII Beryllium
+1.090 A 4362.2140 BeII Beryllium
+0.101 B 4409.1730 Be Beryllium
+2.094 AAA 4488.560 BeIII Beryllium
+0.009 AAA 4488.560 BeIII Beryllium
+0.176 AAA 4488.560 BeIII Beryllium
+0.326 AAA 4488.560 BeIII Beryllium
+1.448 AAA 4488.560 BeIII Beryllium
+1.759 AAA 4488.560 BeIII Beryllium
+0.000 E 4549.8130 Be Beryllium
+0.762 B 4573.947560 Be Beryllium
+2.070 AA 4674.6370 BeII Beryllium
+2.210 AA 4674.7310 BeII Beryllium
+0.047 A 4703.890 BeII Beryllium
+0.009 A 4703.890 BeII Beryllium
+0.057 A 4703.890 BeII Beryllium
+0.079 A 4829.5080 BeII Beryllium
+0.088 A 4829.5080 BeII Beryllium
+0.070 A 5219.5680 BeII Beryllium
+0.085 A 5219.7790 BeII Beryllium
+0.014 A 5219.7790 BeII Beryllium
+0.323 AA 5271.7510 BeII Beryllium
+0.647 AA 5272.2780 BeII Beryllium
+0.028 A 5417.210 BeII Beryllium
+0.057 A 5417.210 BeII Beryllium
+0.007 C 5858.630 Be Beryllium
+0.087 AAA 6143.710 BeIII Beryllium
+0.023 B 6230.8330 Be Beryllium
+0.111 A 6281.1640 BeII Beryllium
+0.022 A 6281.4670 BeII Beryllium
+0.134 A 6281.4670 BeII Beryllium
+0.008 C 6475.3280 Be Beryllium
+0.035 B 6566.3340 Be Beryllium
+0.003 D 6727.90 Be Beryllium
+0.049 A 6758.590 BeII Beryllium
+0.098 A 6759.000 BeII Beryllium
+0.002 D 6788.4320 Be Beryllium
+0.002 D 6788.4320 Be Beryllium
+0.002 D 6788.4320 Be Beryllium
+0.005 B 6886.120 Be Beryllium
+0.004 B 6886.120 Be Beryllium
+0.007 B 6886.120 Be Beryllium
+0.002 B 6886.340 Be Beryllium
+0.000 B 6886.340 Be Beryllium
+0.009 B 6886.340 Be Beryllium
+0.006 B 7156.370 Be Beryllium
+0.007 B 7156.370 Be Beryllium
+0.010 B 7156.370 Be Beryllium
+0.000 B 7156.620 Be Beryllium
+0.003 B 7156.620 Be Beryllium
+0.013 B 7156.620 Be Beryllium
+0.057 B 7211.1210 Be Beryllium
+0.003 B 7310.180 Be Beryllium
+0.025 A 7403.240 BeII Beryllium
+0.026 A 7403.470 BeII Beryllium
+0.004 B 7500.40 Be Beryllium
+0.004 D 7553.9770 Be Beryllium
+0.015 B 7620.7770 Be Beryllium
+0.011 B 7620.7770 Be Beryllium
+0.008 B 7620.7770 Be Beryllium
+0.020 B 7620.9780 Be Beryllium
+0.005 B 7620.9780 Be Beryllium
+0.001 B 7620.9780 Be Beryllium
+0.006 B 7794.140 Be Beryllium
+0.003 C 8092.2860 Be Beryllium
+0.003 B 8161.2360 Be Beryllium
+0.008 B 8161.2360 Be Beryllium
+0.013 B 8161.4860 Be Beryllium
+0.338 B 8256.3390 Be Beryllium
+0.008 B 8289.350 Be Beryllium
+0.013 B 8549.7140 Be Beryllium
+0.017 B 8549.7140 Be Beryllium
+0.023 B 8549.7140 Be Beryllium
+0.001 B 8550.0070 Be Beryllium
+0.008 B 8550.0070 Be Beryllium
+0.031 B 8550.0070 Be Beryllium
+0.096 B 8803.7870 Be Beryllium
+0.002 B 8884.620 Be Beryllium
+0.001 B 8884.620 Be Beryllium
+0.000 B 8884.620 Be Beryllium
+0.000 B 8884.620 Be Beryllium
+0.000 B 8884.620 Be Beryllium
+0.001 B 8884.620 Be Beryllium
+0.013 A 9192.970 Be Beryllium
+0.002 A 9192.970 Be Beryllium
+0.014 A 9192.970 Be Beryllium
+0.000 A 9192.970 Be Beryllium
+0.002 A 9192.970 Be Beryllium
+0.009 B 9246.4530 Be Beryllium
+0.002 B 9395.320 Be Beryllium
+0.002 B 9395.320 Be Beryllium
+0.000 B 9395.320 Be Beryllium
+0.000 B 9395.320 Be Beryllium
+0.001 B 9395.320 Be Beryllium
+0.002 B 9395.320 Be Beryllium
+0.181 A 9479.0260 BeII Beryllium
+0.217 A 9479.6290 BeII Beryllium
+0.005 D 9850.020 Be Beryllium
+0.016 B 9898.340 Be Beryllium
+0.005 B 9898.340 Be Beryllium
+0.026 B 9898.670 Be Beryllium
+0.025 B 9942.510 Be Beryllium
+0.000 B 9942.510 Be Beryllium
+0.024 B 9942.510 Be Beryllium
+0.003 B 9942.510 Be Beryllium
+0.004 B 9942.510 Be Beryllium
+0.000 B 10333.860 Be Beryllium
+0.001 B 10333.860 Be Beryllium
+0.001 B 10333.860 Be Beryllium
+0.003 B 10333.860 Be Beryllium
+0.004 B 10333.860 Be Beryllium
+0.004 B 10333.860 Be Beryllium
+0.033 B 11069.090 Be Beryllium
+0.024 B 11069.090 Be Beryllium
+0.018 B 11069.090 Be Beryllium
+0.044 B 11069.490 Be Beryllium
+0.011 B 11069.490 Be Beryllium
+0.001 B 11069.490 Be Beryllium
+0.007 A 11176.790 BeII Beryllium
+0.043 A 11176.790 BeII Beryllium
+0.000 B 11499.540 Be Beryllium
+0.006 B 11499.540 Be Beryllium
+0.049 B 11499.540 Be Beryllium
+0.052 B 11499.540 Be Beryllium
+0.009 B 11499.540 Be Beryllium
+0.203 A 11663.440 BeII Beryllium
+0.126 AA 12098.670 BeII Beryllium
+0.126 AA 12101.490 BeII Beryllium
+0.117 B 14647.920 Be Beryllium
+0.117 B 14648.750 Be Beryllium
+0.117 B 14648.750 Be Beryllium
+0.018 A 16162.130 Be Beryllium
+0.142 A 16162.130 Be Beryllium
+0.134 A 16162.130 Be Beryllium
+0.025 A 16162.130 Be Beryllium
+0.001 A 16162.130 Be Beryllium
+0.045 B 17860.260 Be Beryllium
+0.015 B 17860.260 Be Beryllium
+0.076 B 17861.510 Be Beryllium
+0.065 B 18148.490 Be Beryllium
+0.108 B 19770.690 Be Beryllium

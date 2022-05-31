@@ -1,189 +1,189 @@
-0.204 B+ 3163.4900 Hf Hafnium 1
-0.024 B 3190.5540 Hf Hafnium 1
-0.210  3254.640 Hf Hafnium 2
-0.183 B+ 3333.6960 Hf Hafnium 1
-0.029 B+ 3361.0260 Hf Hafnium 1
-0.310  3400.780 Hf Hafnium 2
-0.036 C+ 3401.1940 Hf Hafnium 1
-0.070 B+ 3418.3200 Hf Hafnium 1
-0.003 B 3449.9570 Hf Hafnium 1
-0.263 B+ 3473.4040 Hf Hafnium 1
-0.179 B+ 3498.4990 Hf Hafnium 1
-0.146 B+ 3524.0320 Hf Hafnium 1
-0.096 B+ 3537.6410 Hf Hafnium 1
-0.033 B+ 3565.3250 Hf Hafnium 1
-0.010 B 3616.0650 Hf Hafnium 1
-0.114 B+ 3617.9230 Hf Hafnium 1
-0.057 B 3631.9070 Hf Hafnium 1
-0.060 B+ 3650.1460 Hf Hafnium 1
-0.256 B+ 3683.2950 Hf Hafnium 1
-0.031 C+ 3697.5760 Hf Hafnium 1
-0.090 B+ 3718.8600 Hf Hafnium 1
-0.091 B+ 3734.8480 Hf Hafnium 1
-0.200 B+ 3778.7310 Hf Hafnium 1
-0.124 B+ 3786.5350 Hf Hafnium 1
-0.029 B 3801.4590 Hf Hafnium 1
-0.033 B+ 3812.8630 Hf Hafnium 1
-0.171 B+ 3821.8120 Hf Hafnium 1
-0.224 B+ 3850.2820 Hf Hafnium 1
-0.080 B+ 3859.4040 Hf Hafnium 1
-0.024 B+ 3890.4640 Hf Hafnium 1
-0.042 B+ 3901.0420 Hf Hafnium 1
-0.046 B+ 3932.4930 Hf Hafnium 1
-0.040 B 3952.9400 Hf Hafnium 1
-0.009 C+ 3974.6010 Hf Hafnium 1
-0.004 C+ 3993.8790 Hf Hafnium 1
-0.018 B+ 4033.4050 Hf Hafnium 1
-0.004 E 4052.0270 Hf Hafnium 1
-0.008 B 4105.3920 Hf Hafnium 1
-0.014 B 4146.9280 Hf Hafnium 1
-0.009 B 4163.8800 Hf Hafnium 1
-0.046 B 4175.5250 Hf Hafnium 1
-0.001 C 4208.2550 Hf Hafnium 1
-0.005 C+ 4229.2650 Hf Hafnium 1
-0.024 B+ 4295.9880 Hf Hafnium 1
-0.011 B 4297.6590 Hf Hafnium 1
-0.022 B 4319.3520 Hf Hafnium 1
-0.010 B 4331.5000 Hf Hafnium 1
-0.021 C+ 4357.5300 Hf Hafnium 1
-0.002 C+ 4358.2250 Hf Hafnium 1
-0.002 C+ 4380.4050 Hf Hafnium 1
-0.021 B+ 4419.1510 Hf Hafnium 1
-0.015 B 4419.4880 Hf Hafnium 1
-0.044 B+ 4439.2840 Hf Hafnium 1
-0.001 D+ 4454.2300 Hf Hafnium 1
-0.006 D+ 4458.5980 Hf Hafnium 1
-0.039 B+ 4462.4330 Hf Hafnium 1
-0.009 B 4500.9240 Hf Hafnium 1
-0.023 B+ 4542.2070 Hf Hafnium 1
-0.005 B 4542.9830 Hf Hafnium 1
-0.052 B+ 4567.2300 Hf Hafnium 1
-0.016 D+ 4600.0890 Hf Hafnium 1
-0.017 B 4600.2080 Hf Hafnium 1
-0.013 B 4609.3840 Hf Hafnium 1
-0.001 E 4648.7710 Hf Hafnium 1
-0.090 B+ 4656.5010 Hf Hafnium 1
-0.005 C+ 4758.9410 Hf Hafnium 1
-0.002 C+ 4770.7060 Hf Hafnium 1
-0.018 B 4775.0550 Hf Hafnium 1
-0.103 B+ 4801.8420 Hf Hafnium 1
-0.000 E 4814.8450 Hf Hafnium 1
-0.008 B 4838.5900 Hf Hafnium 1
-0.006 B 4859.7770 Hf Hafnium 1
-0.001 C 4891.2980 Hf Hafnium 1
-0.002 C+ 4897.7070 Hf Hafnium 1
-0.000 E 4946.2000 Hf Hafnium 1
-0.010 B 4950.3320 Hf Hafnium 1
-0.007 D+ 4976.6480 Hf Hafnium 1
-0.001 D+ 5001.10 Hf Hafnium 1
-0.001 D+ 5027.3120 Hf Hafnium 1
-0.035 B+ 5048.8470 Hf Hafnium 1
-0.002 C+ 5102.0620 Hf Hafnium 1
-0.001 D+ 5137.6310 Hf Hafnium 1
-0.001 D+ 5185.7390 Hf Hafnium 1
-0.000 E 5241.8830 Hf Hafnium 1
-0.036 B 5245.4440 Hf Hafnium 1
-0.001 C+ 5246.1300 Hf Hafnium 1
-0.003 C 5375.3570 Hf Hafnium 1
-0.013 C+ 5390.8340 Hf Hafnium 1
-0.000 E 5504.8230 Hf Hafnium 1
-0.003 C 5539.8130 Hf Hafnium 1
-0.006 B 5552.1520 Hf Hafnium 1
-0.014 B 5553.6700 Hf Hafnium 1
-0.049 C+ 5720.7620 Hf Hafnium 1
-0.000 E 5772.9980 Hf Hafnium 1
-0.001 D+ 5840.5150 Hf Hafnium 1
-0.000 C+ 5887.9410 Hf Hafnium 1
-0.000 E 5948.1710 Hf Hafnium 1
-0.000 D+ 6005.8430 Hf Hafnium 1
-0.001 D+ 6023.4380 Hf Hafnium 1
-0.001 C 6100.3680 Hf Hafnium 1
-0.000 D+ 6211.1480 Hf Hafnium 1
-0.001 E 6274.5050 Hf Hafnium 1
-0.000 E 6298.0110 Hf Hafnium 1
-0.001 D+ 6339.8490 Hf Hafnium 1
-0.003 C 6381.9600 Hf Hafnium 1
-0.000 D 6385.4550 Hf Hafnium 1
-0.002 C+ 6387.9940 Hf Hafnium 1
-0.001 E 6554.7200 Hf Hafnium 1
-0.000 D 6593.6210 Hf Hafnium 1
-0.002 D+ 6661.2590 Hf Hafnium 1
-0.016 B 6820.8320 Hf Hafnium 1
-0.009 C 6860.6520 Hf Hafnium 1
-0.003 D+ 6981.5350 Hf Hafnium 1
-0.000 E 7016.2240 Hf Hafnium 1
-0.001 D+ 7037.0900 Hf Hafnium 1
-0.001 D+ 7054.5950 Hf Hafnium 1
-0.004 C 7102.5040 Hf Hafnium 1
-0.001 E 7117.6470 Hf Hafnium 1
-0.001 D+ 7367.3790 Hf Hafnium 1
-0.006 C 7392.7650 Hf Hafnium 1
-0.000 D+ 7425.6730 Hf Hafnium 1
-0.009 C+ 7439.6480 Hf Hafnium 1
-0.004 D+ 7558.4500 Hf Hafnium 1
-0.044 B+ 7626.4860 Hf Hafnium 1
-0.004 C 7647.7600 Hf Hafnium 1
-0.000 D 7743.7200 Hf Hafnium 1
-0.002 D+ 7745.7010 Hf Hafnium 1
-0.010 C 7793.0440 Hf Hafnium 1
-0.012 C+ 7816.7200 Hf Hafnium 1
-0.008 C 7940.2440 Hf Hafnium 1
-0.001 D+ 8012.7830 Hf Hafnium 1
-0.004 D+ 8058.6860 Hf Hafnium 1
-0.001 C+ 8082.4820 Hf Hafnium 1
-0.004 C 8346.5430 Hf Hafnium 1
-0.007 C 8462.3250 Hf Hafnium 1
-0.000 D+ 8664.0590 Hf Hafnium 1
-0.012 C 8713.5930 Hf Hafnium 1
-0.005 C+ 9179.7490 Hf Hafnium 1
-0.016 C+ 9184.6600 Hf Hafnium 1
-0.002 C+ 9302.5020 Hf Hafnium 1
-0.004 C 9405.1500 Hf Hafnium 1
-0.002 D+ 9583.9980 Hf Hafnium 1
-0.000 D+ 9589.9800 Hf Hafnium 1
-0.022 C+ 10039.280 Hf Hafnium 1
-0.024 C+ 10400.300 Hf Hafnium 1
-0.019 D 10483.080 Hf Hafnium 1
-0.003 D 10625.050 Hf Hafnium 1
-0.002 E 10936.810 Hf Hafnium 1
-0.003 C+ 10974.610 Hf Hafnium 1
-0.000 E 11077.450 Hf Hafnium 1
-0.001 D 11230.770 Hf Hafnium 1
-0.006 D+ 11306.540 Hf Hafnium 1
-0.012 D 11454.00 Hf Hafnium 1
-0.007 D+ 11605.340 Hf Hafnium 1
-0.004 D+ 11774.400 Hf Hafnium 1
-0.005 C+ 11964.070 Hf Hafnium 1
-0.002 E 12361.480 Hf Hafnium 1
-0.013 C+ 12470.940 Hf Hafnium 1
-0.003 E 12545.10 Hf Hafnium 1
-0.001 E 12946.440 Hf Hafnium 1
-0.010 C+ 12970.440 Hf Hafnium 1
-0.014 C 13077.920 Hf Hafnium 1
-0.004 D+ 13884.200 Hf Hafnium 1
-0.003 E 14006.60 Hf Hafnium 1
-0.004 C 14289.30 Hf Hafnium 1
-0.005 E 14509.60 Hf Hafnium 1
-0.001 C+ 14526.60 Hf Hafnium 1
-0.001 E 14538.90 Hf Hafnium 1
-0.003 C+ 14755.140 Hf Hafnium 1
-0.001 E 14817.170 Hf Hafnium 1
-0.003 E 14827.380 Hf Hafnium 1
-0.000 E 15041.20 Hf Hafnium 1
-0.001 E 15321.320 Hf Hafnium 1
-0.001 D+ 15563.80 Hf Hafnium 1
-0.001 E 15707.50 Hf Hafnium 1
-0.002 D 16683.710 Hf Hafnium 1
-0.002 E 17533.280 Hf Hafnium 1
-0.001 E 18331.00 Hf Hafnium 1
-0.002 D 18527.70 Hf Hafnium 1
-0.000 E 18758.80 Hf Hafnium 1
-0.002 D 18806.20 Hf Hafnium 1
-0.001 D 18915.00 Hf Hafnium 1
-0.006 E 19026.00 Hf Hafnium 1
-0.001 E 19374.430 Hf Hafnium 1
-0.002 E 20355.70 Hf Hafnium 1
-0.001 E 20946.410 Hf Hafnium 1
-0.001 E 21160.650 Hf Hafnium 1
-0.002 D 22365.60 Hf Hafnium 1
-0.000 E 23846.50 Hf Hafnium 1
+0.204 B+ 3163.4900 Hf Hafnium
+0.024 B 3190.5540 Hf Hafnium
+0.210  3254.640 HfII Hafnium
+0.183 B+ 3333.6960 Hf Hafnium
+0.029 B+ 3361.0260 Hf Hafnium
+0.310  3400.780 HfII Hafnium
+0.036 C+ 3401.1940 Hf Hafnium
+0.070 B+ 3418.3200 Hf Hafnium
+0.003 B 3449.9570 Hf Hafnium
+0.263 B+ 3473.4040 Hf Hafnium
+0.179 B+ 3498.4990 Hf Hafnium
+0.146 B+ 3524.0320 Hf Hafnium
+0.096 B+ 3537.6410 Hf Hafnium
+0.033 B+ 3565.3250 Hf Hafnium
+0.010 B 3616.0650 Hf Hafnium
+0.114 B+ 3617.9230 Hf Hafnium
+0.057 B 3631.9070 Hf Hafnium
+0.060 B+ 3650.1460 Hf Hafnium
+0.256 B+ 3683.2950 Hf Hafnium
+0.031 C+ 3697.5760 Hf Hafnium
+0.090 B+ 3718.8600 Hf Hafnium
+0.091 B+ 3734.8480 Hf Hafnium
+0.200 B+ 3778.7310 Hf Hafnium
+0.124 B+ 3786.5350 Hf Hafnium
+0.029 B 3801.4590 Hf Hafnium
+0.033 B+ 3812.8630 Hf Hafnium
+0.171 B+ 3821.8120 Hf Hafnium
+0.224 B+ 3850.2820 Hf Hafnium
+0.080 B+ 3859.4040 Hf Hafnium
+0.024 B+ 3890.4640 Hf Hafnium
+0.042 B+ 3901.0420 Hf Hafnium
+0.046 B+ 3932.4930 Hf Hafnium
+0.040 B 3952.9400 Hf Hafnium
+0.009 C+ 3974.6010 Hf Hafnium
+0.004 C+ 3993.8790 Hf Hafnium
+0.018 B+ 4033.4050 Hf Hafnium
+0.004 E 4052.0270 Hf Hafnium
+0.008 B 4105.3920 Hf Hafnium
+0.014 B 4146.9280 Hf Hafnium
+0.009 B 4163.8800 Hf Hafnium
+0.046 B 4175.5250 Hf Hafnium
+0.001 C 4208.2550 Hf Hafnium
+0.005 C+ 4229.2650 Hf Hafnium
+0.024 B+ 4295.9880 Hf Hafnium
+0.011 B 4297.6590 Hf Hafnium
+0.022 B 4319.3520 Hf Hafnium
+0.010 B 4331.5000 Hf Hafnium
+0.021 C+ 4357.5300 Hf Hafnium
+0.002 C+ 4358.2250 Hf Hafnium
+0.002 C+ 4380.4050 Hf Hafnium
+0.021 B+ 4419.1510 Hf Hafnium
+0.015 B 4419.4880 Hf Hafnium
+0.044 B+ 4439.2840 Hf Hafnium
+0.001 D+ 4454.2300 Hf Hafnium
+0.006 D+ 4458.5980 Hf Hafnium
+0.039 B+ 4462.4330 Hf Hafnium
+0.009 B 4500.9240 Hf Hafnium
+0.023 B+ 4542.2070 Hf Hafnium
+0.005 B 4542.9830 Hf Hafnium
+0.052 B+ 4567.2300 Hf Hafnium
+0.016 D+ 4600.0890 Hf Hafnium
+0.017 B 4600.2080 Hf Hafnium
+0.013 B 4609.3840 Hf Hafnium
+0.001 E 4648.7710 Hf Hafnium
+0.090 B+ 4656.5010 Hf Hafnium
+0.005 C+ 4758.9410 Hf Hafnium
+0.002 C+ 4770.7060 Hf Hafnium
+0.018 B 4775.0550 Hf Hafnium
+0.103 B+ 4801.8420 Hf Hafnium
+0.000 E 4814.8450 Hf Hafnium
+0.008 B 4838.5900 Hf Hafnium
+0.006 B 4859.7770 Hf Hafnium
+0.001 C 4891.2980 Hf Hafnium
+0.002 C+ 4897.7070 Hf Hafnium
+0.000 E 4946.2000 Hf Hafnium
+0.010 B 4950.3320 Hf Hafnium
+0.007 D+ 4976.6480 Hf Hafnium
+0.001 D+ 5001.10 Hf Hafnium
+0.001 D+ 5027.3120 Hf Hafnium
+0.035 B+ 5048.8470 Hf Hafnium
+0.002 C+ 5102.0620 Hf Hafnium
+0.001 D+ 5137.6310 Hf Hafnium
+0.001 D+ 5185.7390 Hf Hafnium
+0.000 E 5241.8830 Hf Hafnium
+0.036 B 5245.4440 Hf Hafnium
+0.001 C+ 5246.1300 Hf Hafnium
+0.003 C 5375.3570 Hf Hafnium
+0.013 C+ 5390.8340 Hf Hafnium
+0.000 E 5504.8230 Hf Hafnium
+0.003 C 5539.8130 Hf Hafnium
+0.006 B 5552.1520 Hf Hafnium
+0.014 B 5553.6700 Hf Hafnium
+0.049 C+ 5720.7620 Hf Hafnium
+0.000 E 5772.9980 Hf Hafnium
+0.001 D+ 5840.5150 Hf Hafnium
+0.000 C+ 5887.9410 Hf Hafnium
+0.000 E 5948.1710 Hf Hafnium
+0.000 D+ 6005.8430 Hf Hafnium
+0.001 D+ 6023.4380 Hf Hafnium
+0.001 C 6100.3680 Hf Hafnium
+0.000 D+ 6211.1480 Hf Hafnium
+0.001 E 6274.5050 Hf Hafnium
+0.000 E 6298.0110 Hf Hafnium
+0.001 D+ 6339.8490 Hf Hafnium
+0.003 C 6381.9600 Hf Hafnium
+0.000 D 6385.4550 Hf Hafnium
+0.002 C+ 6387.9940 Hf Hafnium
+0.001 E 6554.7200 Hf Hafnium
+0.000 D 6593.6210 Hf Hafnium
+0.002 D+ 6661.2590 Hf Hafnium
+0.016 B 6820.8320 Hf Hafnium
+0.009 C 6860.6520 Hf Hafnium
+0.003 D+ 6981.5350 Hf Hafnium
+0.000 E 7016.2240 Hf Hafnium
+0.001 D+ 7037.0900 Hf Hafnium
+0.001 D+ 7054.5950 Hf Hafnium
+0.004 C 7102.5040 Hf Hafnium
+0.001 E 7117.6470 Hf Hafnium
+0.001 D+ 7367.3790 Hf Hafnium
+0.006 C 7392.7650 Hf Hafnium
+0.000 D+ 7425.6730 Hf Hafnium
+0.009 C+ 7439.6480 Hf Hafnium
+0.004 D+ 7558.4500 Hf Hafnium
+0.044 B+ 7626.4860 Hf Hafnium
+0.004 C 7647.7600 Hf Hafnium
+0.000 D 7743.7200 Hf Hafnium
+0.002 D+ 7745.7010 Hf Hafnium
+0.010 C 7793.0440 Hf Hafnium
+0.012 C+ 7816.7200 Hf Hafnium
+0.008 C 7940.2440 Hf Hafnium
+0.001 D+ 8012.7830 Hf Hafnium
+0.004 D+ 8058.6860 Hf Hafnium
+0.001 C+ 8082.4820 Hf Hafnium
+0.004 C 8346.5430 Hf Hafnium
+0.007 C 8462.3250 Hf Hafnium
+0.000 D+ 8664.0590 Hf Hafnium
+0.012 C 8713.5930 Hf Hafnium
+0.005 C+ 9179.7490 Hf Hafnium
+0.016 C+ 9184.6600 Hf Hafnium
+0.002 C+ 9302.5020 Hf Hafnium
+0.004 C 9405.1500 Hf Hafnium
+0.002 D+ 9583.9980 Hf Hafnium
+0.000 D+ 9589.9800 Hf Hafnium
+0.022 C+ 10039.280 Hf Hafnium
+0.024 C+ 10400.300 Hf Hafnium
+0.019 D 10483.080 Hf Hafnium
+0.003 D 10625.050 Hf Hafnium
+0.002 E 10936.810 Hf Hafnium
+0.003 C+ 10974.610 Hf Hafnium
+0.000 E 11077.450 Hf Hafnium
+0.001 D 11230.770 Hf Hafnium
+0.006 D+ 11306.540 Hf Hafnium
+0.012 D 11454.00 Hf Hafnium
+0.007 D+ 11605.340 Hf Hafnium
+0.004 D+ 11774.400 Hf Hafnium
+0.005 C+ 11964.070 Hf Hafnium
+0.002 E 12361.480 Hf Hafnium
+0.013 C+ 12470.940 Hf Hafnium
+0.003 E 12545.10 Hf Hafnium
+0.001 E 12946.440 Hf Hafnium
+0.010 C+ 12970.440 Hf Hafnium
+0.014 C 13077.920 Hf Hafnium
+0.004 D+ 13884.200 Hf Hafnium
+0.003 E 14006.60 Hf Hafnium
+0.004 C 14289.30 Hf Hafnium
+0.005 E 14509.60 Hf Hafnium
+0.001 C+ 14526.60 Hf Hafnium
+0.001 E 14538.90 Hf Hafnium
+0.003 C+ 14755.140 Hf Hafnium
+0.001 E 14817.170 Hf Hafnium
+0.003 E 14827.380 Hf Hafnium
+0.000 E 15041.20 Hf Hafnium
+0.001 E 15321.320 Hf Hafnium
+0.001 D+ 15563.80 Hf Hafnium
+0.001 E 15707.50 Hf Hafnium
+0.002 D 16683.710 Hf Hafnium
+0.002 E 17533.280 Hf Hafnium
+0.001 E 18331.00 Hf Hafnium
+0.002 D 18527.70 Hf Hafnium
+0.000 E 18758.80 Hf Hafnium
+0.002 D 18806.20 Hf Hafnium
+0.001 D 18915.00 Hf Hafnium
+0.006 E 19026.00 Hf Hafnium
+0.001 E 19374.430 Hf Hafnium
+0.002 E 20355.70 Hf Hafnium
+0.001 E 20946.410 Hf Hafnium
+0.001 E 21160.650 Hf Hafnium
+0.002 D 22365.60 Hf Hafnium
+0.000 E 23846.50 Hf Hafnium

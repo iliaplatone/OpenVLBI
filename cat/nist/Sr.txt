@@ -1,763 +1,763 @@
-220000.000  5.5800 Sr Strontium 29
-71000.000  5.6280 Sr Strontium 29
-1200000.000  5.8830 Sr Strontium 29
-1000000.000  6.0630 Sr Strontium 29
-2600.000  6.1280 Sr Strontium 29
-74400.000  6.3090 Sr Strontium 30
-219000.000  6.3340 Sr Strontium 30
-72700.000  6.3340 Sr Strontium 30
-43000.000  6.3620 Sr Strontium 29
-5960.000  6.3860 Sr Strontium 28
-19100.000  6.3940 Sr Strontium 28
-58700.000  6.4030 Sr Strontium 30
-29200.000  6.4060 Sr Strontium 28
-57600.000  6.4250 Sr Strontium 28
-19100.000  6.4360 Sr Strontium 28
-19300.000  6.4470 Sr Strontium 28
-58900.000  6.4470 Sr Strontium 28
-36000.000  6.4470 Sr Strontium 28
-45800.000  6.4560 Sr Strontium 28
-33500.000  6.4560 Sr Strontium 28
-36800.000  6.4630 Sr Strontium 28
-18100.000  6.4630 Sr Strontium 28
-39300.000  6.4680 Sr Strontium 28
-11400.000  6.4680 Sr Strontium 28
-7880.000  6.5760 Sr Strontium 28
-66000.000  6.5920 Sr Strontium 29
-24000.000  6.6240 Sr Strontium 28
-16400.000  6.6370 Sr Strontium 28
-26600.000  6.6400 Sr Strontium 28
-50000.000  6.6490 Sr Strontium 28
-13100.000  6.6490 Sr Strontium 28
-25600.000  6.6630 Sr Strontium 28
-49900.000  6.6710 Sr Strontium 28
-12300.000  6.6740 Sr Strontium 28
-23500.000  6.6870 Sr Strontium 28
-49400.000  6.6870 Sr Strontium 28
-40400.000  6.6870 Sr Strontium 28
-50400.000  6.6940 Sr Strontium 28
-55000.000  6.6940 Sr Strontium 28
-36100.000  6.6940 Sr Strontium 28
-53800.000  6.7050 Sr Strontium 28
-25800.000  6.7050 Sr Strontium 28
-3970.000  6.7050 Sr Strontium 28
-37900.000  6.7120 Sr Strontium 28
-11900.000  6.7120 Sr Strontium 28
-1930.000  6.7240 Sr Strontium 28
-15400.000  6.7360 Sr Strontium 28
-3450.000  6.7690 Sr Strontium 28
-3180.000  6.7970 Sr Strontium 28
-8280.000  11.3870 Sr Strontium 28
-5930.000  11.5190 Sr Strontium 28
-6420.000  11.5350 Sr Strontium 28
-11100.000  12.1060 Sr Strontium 28
-13200.000  12.3040 Sr Strontium 28
-9970.000  13.2500 Sr Strontium 28
-10900.000  13.3040 Sr Strontium 28
-15100.000  13.3040 Sr Strontium 28
-16000.000  13.3590 Sr Strontium 28
-19100.000  13.9370 Sr Strontium 28
-22900.000  14.1920 Sr Strontium 28
-3370.000  14.4310 Sr Strontium 28
-7320.000  14.7180 Sr Strontium 28
-30800.000  15.4930 Sr Strontium 28
-32700.000  15.5490 Sr Strontium 28
-17400.000  18.4750 Sr Strontium 28
-19600.000  18.6630 Sr Strontium 28
-34600.000  19.3610 Sr Strontium 28
-42300.000  19.8340 Sr Strontium 28
-7160.000  19.8790 Sr Strontium 28
-7590.000  21.4300 Sr Strontium 28
-16600.000  22.0670 Sr Strontium 28
-85400.000  22.1550 Sr Strontium 28
-91000.000  22.2640 Sr Strontium 28
-4470.000  24.3370 Sr Strontium 28
-5470.000  24.5000 Sr Strontium 28
-7890.000  31.9400 Sr Strontium 28
-8410.000  32.0290 Sr Strontium 28
-6210.000  43.3290 Sr Strontium 28
-7790.000  44.2520 Sr Strontium 28
-209.000  46.2110 Sr Strontium 31
-3010.000  47.0310 Sr Strontium 30
-2600.000  47.1380 Sr Strontium 31
-1830.000  47.5720 Sr Strontium 31
-14600.000  48.1640 Sr Strontium 28
-15700.000  48.3810 Sr Strontium 28
-3360.000  48.5710 Sr Strontium 31
-5240.000  49.8090 Sr Strontium 28
-25400.000  51.2010 Sr Strontium 28
-26300.000  51.2850 Sr Strontium 28
-36.000  51.9210 Sr Strontium 31
-2150.000  52.0120 Sr Strontium 31
-1170.000  53.1060 Sr Strontium 31
-586.000  64.1890 Sr Strontium 30
-1050.000  65.5700 Sr Strontium 13
-320.000  65.6830 Sr Strontium 13
-284.000  65.7740 Sr Strontium 13
-453.000  65.8210 Sr Strontium 13
-464.000  65.8210 Sr Strontium 13
-356.000  65.8490 Sr Strontium 13
-363.000  65.9670 Sr Strontium 13
-164.000  65.9670 Sr Strontium 13
-186.000  66.0010 Sr Strontium 13
-93.600  66.0400 Sr Strontium 13
-343.000  66.1060 Sr Strontium 13
-313.000  66.1300 Sr Strontium 13
-234.000  66.1300 Sr Strontium 13
-402.000  66.1300 Sr Strontium 13
-197.000  66.1530 Sr Strontium 13
-301.000  66.1820 Sr Strontium 13
-102.000  66.2570 Sr Strontium 13
-217.000  66.2570 Sr Strontium 13
-353.000  66.2570 Sr Strontium 13
-353.000  66.3370 Sr Strontium 13
-378.000  66.3730 Sr Strontium 13
-129.000  66.3920 Sr Strontium 13
-1010.000  66.3920 Sr Strontium 13
-1040.000  66.3920 Sr Strontium 13
-820.000  66.4380 Sr Strontium 13
-493.000  66.4810 Sr Strontium 13
-253.000  66.5840 Sr Strontium 13
-397.000  66.5840 Sr Strontium 13
-184.000  66.5840 Sr Strontium 13
-493.000  66.6240 Sr Strontium 13
-88.900  66.6480 Sr Strontium 13
-663.000  66.6730 Sr Strontium 13
-874.000  66.6730 Sr Strontium 13
-817.000  66.7530 Sr Strontium 13
-334.000  66.7530 Sr Strontium 13
-1390.000  66.8170 Sr Strontium 13
-127.000  66.8880 Sr Strontium 13
-198.000  66.9400 Sr Strontium 13
-227.000  66.9400 Sr Strontium 13
-637.000  66.9790 Sr Strontium 13
-1020.000  66.9790 Sr Strontium 13
-533.000  66.9790 Sr Strontium 13
-272.000  67.0120 Sr Strontium 13
-594.000  67.0320 Sr Strontium 13
-667.000  67.2310 Sr Strontium 13
-261.000  67.2460 Sr Strontium 13
-450.000  67.3120 Sr Strontium 13
-603.000  67.3210 Sr Strontium 13
-194.000  67.4340 Sr Strontium 13
-470.000  67.4690 Sr Strontium 13
-2420.000  67.5890 Sr Strontium 13
-367.000  67.6520 Sr Strontium 13
-363.000  67.7140 Sr Strontium 13
-164.000  67.7330 Sr Strontium 13
-180.000  67.7330 Sr Strontium 13
-309.000  67.8020 Sr Strontium 13
-473.000  67.8440 Sr Strontium 13
-250.000  67.9120 Sr Strontium 13
-246.000  67.9230 Sr Strontium 13
-312.000  67.9850 Sr Strontium 13
-164.000  68.0140 Sr Strontium 13
-278.000  68.1200 Sr Strontium 13
-267.000  68.1980 Sr Strontium 13
-206.000  68.2550 Sr Strontium 13
-168.000  68.3430 Sr Strontium 13
-121.000  68.4060 Sr Strontium 13
-103.000  68.4900 Sr Strontium 13
-80.000  68.6230 Sr Strontium 13
-62.000  68.9230 Sr Strontium 12
-85.700  69.3750 Sr Strontium 13
-18.000  69.6300 Sr Strontium 12
-142.000  69.7150 Sr Strontium 13
-130.000  70.4930 Sr Strontium 12
-61.000  72.2600 Sr Strontium 12
-95.000  72.9680 Sr Strontium 12
-65.000  73.0560 Sr Strontium 12
-780.000  73.2740 Sr Strontium 12
-585.000  73.3340 Sr Strontium 12
-135.000  73.6070 Sr Strontium 12
-740.000  73.6320 Sr Strontium 12
-290.000  73.6790 Sr Strontium 12
-320.000  73.6910 Sr Strontium 12
-65.000  73.7590 Sr Strontium 12
-459.000  73.7740 Sr Strontium 12
-163.000  73.9400 Sr Strontium 12
-42.000  73.9830 Sr Strontium 12
-327.000  74.0760 Sr Strontium 12
-485.000  74.1300 Sr Strontium 12
-420.000  74.2090 Sr Strontium 12
-373.000  74.2420 Sr Strontium 12
-78.000  74.4090 Sr Strontium 12
-18.000  74.5730 Sr Strontium 12
-205.000  74.7940 Sr Strontium 12
-30.000  74.8310 Sr Strontium 12
-435.000  74.8560 Sr Strontium 12
-105.000  74.8560 Sr Strontium 12
-125.000  74.8890 Sr Strontium 12
-125.000  74.9340 Sr Strontium 12
-830.000  75.0580 Sr Strontium 12
-40.000  75.1160 Sr Strontium 12
-423.000  75.1280 Sr Strontium 12
-133.000  75.2930 Sr Strontium 12
-60.000  75.3980 Sr Strontium 12
-185.000  75.4260 Sr Strontium 12
-152.000  75.6880 Sr Strontium 12
-410.000  75.6880 Sr Strontium 12
-615.000  75.8750 Sr Strontium 12
-205.000  75.9560 Sr Strontium 12
-12.000  76.1340 Sr Strontium 12
-73.000  76.2690 Sr Strontium 12
-10.000  76.3790 Sr Strontium 12
-27.000  76.4610 Sr Strontium 12
-6.700  76.7270 Sr Strontium 12
-3.300  76.8790 Sr Strontium 12
-80.000  76.9440 Sr Strontium 12
-52.000  77.2440 Sr Strontium 12
-3.300  77.3320 Sr Strontium 12
-3.800  77.7110 Sr Strontium 12
-24.300  79.5280 Sr Strontium 13
-139.000  80.3610 Sr Strontium 13
-403.000  80.4970 Sr Strontium 14
-68.600  80.6750 Sr Strontium 13
-6570.000  81.2630 Sr Strontium 14
-7650.000  81.6250 Sr Strontium 14
-1210.000  81.6630 Sr Strontium 13
-20.000  82.1470 Sr Strontium 14
-4860.000  82.4930 Sr Strontium 14
-5690.000  82.5270 Sr Strontium 14
-1830.000  82.7580 Sr Strontium 13
-181.000  83.0220 Sr Strontium 13
-357.000  83.0950 Sr Strontium 11
-3290.000  83.3320 Sr Strontium 14
-5770.000  83.6560 Sr Strontium 13
-1560.000  83.7710 Sr Strontium 11
-414.000  84.0650 Sr Strontium 14
-14100.000  84.8080 Sr Strontium 10
-4810.000  84.8100 Sr Strontium 14
-132.000  84.880 Sr Strontium 29
-6.660  84.9060 Sr Strontium 11
-36700.000  85.0150 Sr Strontium 10
-1500.000  85.3110 Sr Strontium 13
-145.000  85.3480 Sr Strontium 14
-1100.000  85.3800 Sr Strontium 14
-2170.000  85.5230 Sr Strontium 14
-306.000  85.6660 Sr Strontium 13
-6360.000  85.9400 Sr Strontium 10
-50600.000  85.9840 Sr Strontium 10
-4290.000  86.4130 Sr Strontium 12
-14000.000  86.6180 Sr Strontium 10
-407.000  86.6540 Sr Strontium 14
-28200.000  86.6540 Sr Strontium 10
-1370.000  86.8070 Sr Strontium 14
-8020.000  86.8940 Sr Strontium 10
-10500.000  87.0190 Sr Strontium 10
-11000.000  87.0500 Sr Strontium 10
-372.000  87.0730 Sr Strontium 13
-41000.000  87.1290 Sr Strontium 10
-105.000  87.2210 Sr Strontium 14
-1800.000  87.2580 Sr Strontium 10
-11200.000  87.3670 Sr Strontium 10
-1350.000  87.4560 Sr Strontium 14
-128.000  87.4560 Sr Strontium 13
-1220.000  87.6800 Sr Strontium 14
-596.000  87.8270 Sr Strontium 13
-1200.000  88.1540 Sr Strontium 13
-45700.000  88.3130 Sr Strontium 10
-520.000  88.3200 Sr Strontium 13
-58800.000  88.3450 Sr Strontium 10
-34600.000  88.4530 Sr Strontium 10
-95400.000  88.4530 Sr Strontium 10
-3310.000  88.5690 Sr Strontium 13
-1280.000  88.6310 Sr Strontium 14
-2440.000  88.7550 Sr Strontium 13
-1720.000  88.8100 Sr Strontium 14
-1260.000  88.9160 Sr Strontium 13
-14300.000  88.9800 Sr Strontium 10
-6060.000  89.0650 Sr Strontium 10
-995.000  89.1120 Sr Strontium 14
-798.000  89.2380 Sr Strontium 14
-186.000  89.3090 Sr Strontium 13
-780.000  89.3250 Sr Strontium 14
-476.000  89.3690 Sr Strontium 14
-21300.000  89.5300 Sr Strontium 10
-857.000  89.7980 Sr Strontium 13
-457.000  89.8150 Sr Strontium 14
-334000.000  90.0500 Sr Strontium 10
-505.000  90.1200 Sr Strontium 14
-1280.000  90.1690 Sr Strontium 14
-935000.000  90.2850 Sr Strontium 10
-841.000  90.4230 Sr Strontium 14
-329.000  90.5800 Sr Strontium 14
-1220.000  90.6210 Sr Strontium 13
-144.000  90.7540 Sr Strontium 14
-92300.000  90.8760 Sr Strontium 10
-568.000  91.0850 Sr Strontium 14
-230.000  91.1450 Sr Strontium 13
-780.000  91.2580 Sr Strontium 13
-1970.000  91.4840 Sr Strontium 13
-317.000  91.6230 Sr Strontium 14
-380.000  91.7540 Sr Strontium 13
-1220.000  91.7590 Sr Strontium 14
-1180.000  91.9280 Sr Strontium 14
-3320.000  92.0290 Sr Strontium 12
-514.000  92.2420 Sr Strontium 14
-195.000  92.2550 Sr Strontium 14
-1060.000  92.4580 Sr Strontium 14
-1190.000  92.6670 Sr Strontium 13
-302.000  92.7100 Sr Strontium 23
-1200.000  92.7380 Sr Strontium 13
-523.000  92.7380 Sr Strontium 14
-628.000  92.7760 Sr Strontium 14
-398.000  92.8580 Sr Strontium 14
-232.000  93.0110 Sr Strontium 14
-117.000  93.1370 Sr Strontium 13
-573.000  93.1920 Sr Strontium 14
-355.000  93.2880 Sr Strontium 12
-716.000  93.5140 Sr Strontium 13
-1620.000  93.5430 Sr Strontium 14
-2830.000  93.7700 Sr Strontium 13
-51.300  93.7700 Sr Strontium 14
-453.000  93.8010 Sr Strontium 13
-1110.000  93.8580 Sr Strontium 14
-234.000  93.9340 Sr Strontium 13
-923.000  93.9640 Sr Strontium 13
-447.000  93.9900 Sr Strontium 13
-2500.000  94.0450 Sr Strontium 23
-352.000  94.1160 Sr Strontium 14
-263.000  94.1540 Sr Strontium 13
-61.400  94.2300 Sr Strontium 13
-1090.000  94.3050 Sr Strontium 14
-708.000  94.3650 Sr Strontium 14
-1030.000  94.4380 Sr Strontium 14
-194.000  94.5560 Sr Strontium 14
-418.000  94.9500 Sr Strontium 13
-2760.000  95.2670 Sr Strontium 23
-329.000  95.3960 Sr Strontium 14
-45.000  95.4760 Sr Strontium 14
-1120.000  95.5250 Sr Strontium 13
-566.000  95.6560 Sr Strontium 14
-98.800  95.9510 Sr Strontium 14
-882.000  95.9920 Sr Strontium 13
-658.000  96.6660 Sr Strontium 14
-73.300  96.7300 Sr Strontium 13
-394.000  96.9650 Sr Strontium 14
-285.000  97.4430 Sr Strontium 14
-91.400  97.4430 Sr Strontium 13
-210.000  97.4940 Sr Strontium 25
-704.000  97.7620 Sr Strontium 13
-315.000  97.9280 Sr Strontium 14
-65.700  98.3200 Sr Strontium 13
-92.000  98.5500 Sr Strontium 14
-196.000  98.9240 Sr Strontium 14
-2180.000  99.0560 Sr Strontium 24
-68.000  99.1310 Sr Strontium 13
-12.200  99.2680 Sr Strontium 24
-220.000  99.3400 Sr Strontium 13
-160.000  99.4730 Sr Strontium 14
-1420.000  99.6140 Sr Strontium 24
-699.000  99.7840 Sr Strontium 24
-210.000  100.0340 Sr Strontium 14
-50.000  100.1230 Sr Strontium 25
-2140.000  100.5400 Sr Strontium 23
-49.600  100.5910 Sr Strontium 10
-61.400  100.9040 Sr Strontium 10
-1530.000  101.3470 Sr Strontium 24
-500.000  101.7650 Sr Strontium 25
-50.000  102.2230 Sr Strontium 14
-141.000  102.7980 Sr Strontium 24
-1090.000  102.9090 Sr Strontium 25
-990.000  103.3160 Sr Strontium 25
-570.000  104.2390 Sr Strontium 25
-250.000  104.9000 Sr Strontium 25
-1850.000  105.3490 Sr Strontium 24
-20.000  105.8150 Sr Strontium 25
-1160.000  106.1320 Sr Strontium 25
-696.000  107.0980 Sr Strontium 26
-840.000  107.5140 Sr Strontium 25
-495.000  107.6940 Sr Strontium 26
-570.000  109.2530 Sr Strontium 25
-1050.000  110.0360 Sr Strontium 25
-132.000  110.7970 Sr Strontium 26
-58.300  112.8580 Sr Strontium 25
-250.000  113.1500 Sr Strontium 25
-12.300  113.6290 Sr Strontium 10
-50.000  113.7930 Sr Strontium 25
-570.000  114.3530 Sr Strontium 25
-693.000  114.6030 Sr Strontium 26
-1110.000  114.7730 Sr Strontium 25
-19.600  115.5680 Sr Strontium 10
-442.000  115.9800 Sr Strontium 26
-370.000  116.4190 Sr Strontium 27
-66.300  116.9220 Sr Strontium 26
-940.000  117.2600 Sr Strontium 25
-2400.000  117.2600 Sr Strontium 27
-1200.000  117.6010 Sr Strontium 27
-358.000  117.6010 Sr Strontium 26
-2300.000  117.6900 Sr Strontium 27
-40.000  117.6900 Sr Strontium 25
-320.000  118.3180 Sr Strontium 25
-770.000  118.5990 Sr Strontium 27
-2000.000  119.0850 Sr Strontium 27
-1020.000  119.1940 Sr Strontium 26
-1000.000  119.2740 Sr Strontium 27
-330.000  119.5400 Sr Strontium 25
-434.000  121.0690 Sr Strontium 26
-514.000  121.2680 Sr Strontium 26
-786.000  121.5070 Sr Strontium 26
-987.000  121.9560 Sr Strontium 26
-774.000  121.9560 Sr Strontium 26
-110.000  122.9520 Sr Strontium 25
-1200.000  123.0810 Sr Strontium 27
-434.000  123.8350 Sr Strontium 26
-1900.000  123.8900 Sr Strontium 27
-664.000  124.4690 Sr Strontium 26
-197.000  124.6130 Sr Strontium 26
-562.000  125.7130 Sr Strontium 26
-290.000  126.4540 Sr Strontium 25
-397.000  127.2270 Sr Strontium 28
-138.000  127.9870 Sr Strontium 26
-81.800  128.1600 Sr Strontium 10
-20.000  128.2350 Sr Strontium 25
-594.000  128.8080 Sr Strontium 26
-920.000  129.2690 Sr Strontium 27
-224.000  130.0280 Sr Strontium 26
-169.000  130.7180 Sr Strontium 10
-3500.000  130.7520 Sr Strontium 27
-117.000  131.230 Sr Strontium 29
-630.000  131.2860 Sr Strontium 25
-707.000  132.7770 Sr Strontium 26
-433.000  132.980 Sr Strontium 29
-6100.000  133.7210 Sr Strontium 27
-69.700  134.0370 Sr Strontium 10
-290.000  134.5050 Sr Strontium 27
-1800.000  134.8210 Sr Strontium 27
-91.700  134.9040 Sr Strontium 26
-90.600  135.1410 Sr Strontium 10
-295.000  135.6120 Sr Strontium 26
-669.000  135.9170 Sr Strontium 26
-290.000  136.010 Sr Strontium 29
-390.000  136.4150 Sr Strontium 27
-554.000  136.4750 Sr Strontium 26
-20.000  136.5360 Sr Strontium 25
-766.000  137.1930 Sr Strontium 26
-584.000  137.2460 Sr Strontium 26
-60.000  137.3270 Sr Strontium 25
-281.000  137.350 Sr Strontium 29
-2600.000  137.5320 Sr Strontium 27
-910.000  137.7000 Sr Strontium 27
-433.000  137.7720 Sr Strontium 26
-413.000  138.2120 Sr Strontium 26
-230.000  138.670 Sr Strontium 29
-1000.000  138.7250 Sr Strontium 27
-180.000  140.9520 Sr Strontium 26
-310.000  141.2690 Sr Strontium 27
-177.000  141.6890 Sr Strontium 26
-610.000  142.4550 Sr Strontium 27
-125.000  143.3580 Sr Strontium 26
-589.000  143.3580 Sr Strontium 26
-4.330  145.3900 Sr Strontium 10
-308.000  147.5690 Sr Strontium 28
-663.000  148.0540 Sr Strontium 26
-9.690  148.4670 Sr Strontium 10
-1.910  148.6950 Sr Strontium 10
-210.000  148.730 Sr Strontium 27
-1900.000  149.2960 Sr Strontium 27
-207.000  150.0420 Sr Strontium 26
-690.000  150.7260 Sr Strontium 27
-1100.000  150.9450 Sr Strontium 27
-480.000  152.3490 Sr Strontium 27
-118.000  153.4700 Sr Strontium 26
-420.000  153.5750 Sr Strontium 27
-45.200  153.5790 Sr Strontium 28
-90.000  153.8800 Sr Strontium 25
-27.600  154.0640 Sr Strontium 10
-810.000  154.3460 Sr Strontium 27
-31.200  154.5960 Sr Strontium 10
-240.000  154.6110 Sr Strontium 27
-4600.000  154.6980 Sr Strontium 27
-140.000  157.110 Sr Strontium 29
-162.000  157.110 Sr Strontium 29
-1200.000  158.210 Sr Strontium 27
-266.000  159.7700 Sr Strontium 28
-252.000  159.780 Sr Strontium 29
-179.000  159.780 Sr Strontium 29
-216.000  159.780 Sr Strontium 29
-190.000  160.470 Sr Strontium 29
-370.000  161.1960 Sr Strontium 27
-201.000  162.890 Sr Strontium 29
-4200.000  163.5640 Sr Strontium 27
-115.000  164.080 Sr Strontium 29
-146.000  165.770 Sr Strontium 29
-240.000  166.490 Sr Strontium 29
-214.000  167.910 Sr Strontium 29
-330.000  168.0770 Sr Strontium 27
-2000.000  171.4080 Sr Strontium 27
-40.400  174.4910 Sr Strontium 26
-180.000  175.100 Sr Strontium 29
-20.000  175.1490 Sr Strontium 25
-400.000  178.5240 Sr Strontium 27
-0.006  179.6140 Sr Strontium 25
-510.000  180.960 Sr Strontium 27
-400.000  182.7140 Sr Strontium 27
-56.700  189.8530 Sr Strontium 10
-63.100  190.1540 Sr Strontium 10
-100.000  191.9910 Sr Strontium 27
-340.000  196.5570 Sr Strontium 27
-10.400  197.2630 Sr Strontium 10
-600.000  197.5880 Sr Strontium 27
-184.000  202.4800 Sr Strontium 10
-384.000  208.9410 Sr Strontium 10
-9.010  222.6420 Sr Strontium 27
-4.540  224.780 Sr Strontium 25
-446.000  224.900 Sr Strontium 29
-3.230  240.580 Sr Strontium 25
-3.920  256.640 Sr Strontium 7
-8.620  261.210 Sr Strontium 7
-50.600  263.620 Sr Strontium 7
-3.370  265.180 Sr Strontium 7
-63.600  266.950 Sr Strontium 7
-137.000  267.670 Sr Strontium 7
-42.900  271.900 Sr Strontium 7
-208.000  272.840 Sr Strontium 7
-112.000  276.230 Sr Strontium 7
-289.000  276.790 Sr Strontium 7
-18.500  279.370 Sr Strontium 7
-19.200  288.810 Sr Strontium 7
-50.000  293.830 Sr Strontium 6
-55.000  295.360 Sr Strontium 6
-61.800  295.580 Sr Strontium 7
-18.000  298.010 Sr Strontium 6
-63.000  298.180 Sr Strontium 6
-3.800  300.110 Sr Strontium 6
-85.000  300.110 Sr Strontium 6
-77.000  301.010 Sr Strontium 6
-6.300  303.9660 Sr Strontium 9
-60.000  305.570 Sr Strontium 6
-2.880  309.490 Sr Strontium 7
-220.000  312.240 Sr Strontium 6
-47.000  314.430 Sr Strontium 6
-110.000  319.280 Sr Strontium 6
-57.000  327.570 Sr Strontium 6
-74.000  333.040 Sr Strontium 6
-97.000  333.700 Sr Strontium 6
-203.000  336.9740 Sr Strontium 9
-264.000  340.7760 Sr Strontium 9
-145.000  341.6870 Sr Strontium 9
-278.000  343.9840 Sr Strontium 10
-367.000  345.5320 Sr Strontium 8
-321.000  351.7540 Sr Strontium 9
-79.600  353.3050 Sr Strontium 9
-8.750  354.2950 Sr Strontium 9
-144.000  358.8850 Sr Strontium 10
-392.000  359.8210 Sr Strontium 8
-298.000  360.0880 Sr Strontium 10
-74.900  362.0340 Sr Strontium 8
-48.500  363.0540 Sr Strontium 10
-312.000  363.4600 Sr Strontium 11
-326.000  363.5200 Sr Strontium 11
-335.000  365.4150 Sr Strontium 11
-241.000  366.1520 Sr Strontium 11
-325.000  367.4540 Sr Strontium 11
-283.000  368.8500 Sr Strontium 11
-457.000  369.0430 Sr Strontium 10
-441.000  369.1160 Sr Strontium 10
-275.000  369.3240 Sr Strontium 11
-456.000  373.6480 Sr Strontium 9
-291.000  393.9030 Sr Strontium 10
-20.300  397.4630 Sr Strontium 10
-305.000  397.5140 Sr Strontium 10
-3.360  400.2770 Sr Strontium 9
-318.000  400.7820 Sr Strontium 9
-336.000  401.8660 Sr Strontium 9
-57.100  402.0320 Sr Strontium 9
-376.000  403.5750 Sr Strontium 9
-40.100  403.9170 Sr Strontium 9
-522.000  408.3870 Sr Strontium 9
-524.000  410.4400 Sr Strontium 8
-557.000  414.5860 Sr Strontium 8
-43.700  415.0950 Sr Strontium 7
-38.100  429.4220 Sr Strontium 7
-47.600  433.7460 Sr Strontium 8
-86.200  442.4270 Sr Strontium 7
-60.400  442.6840 Sr Strontium 8
-192.000  453.8790 Sr Strontium 7
-173.000  456.0710 Sr Strontium 7
-222.000  460.0820 Sr Strontium 8
-14.300  463.0950 Sr Strontium 11
-4.620  463.3730 Sr Strontium 11
-23.200  465.7780 Sr Strontium 8
-144.000  470.1550 Sr Strontium 8
-6.330  471.3660 Sr Strontium 11
-146.000  472.9550 Sr Strontium 8
-23.300  473.8830 Sr Strontium 9
-143.000  475.3360 Sr Strontium 9
-21.200  475.7960 Sr Strontium 8
-50.400  478.5440 Sr Strontium 8
-55.400  479.7290 Sr Strontium 11
-27.000  481.3380 Sr Strontium 11
-14.200  484.8690 Sr Strontium 11
-62.800  487.8000 Sr Strontium 11
-20.500  488.3100 Sr Strontium 11
-30.400  489.1250 Sr Strontium 8
-51.500  491.0780 Sr Strontium 11
-58.800  491.0940 Sr Strontium 8
-55.500  494.2140 Sr Strontium 8
-57.600  494.2840 Sr Strontium 11
-81.700  495.9120 Sr Strontium 8
-52.500  498.1350 Sr Strontium 9
-75.000  498.4580 Sr Strontium 9
-0.907  504.4350 Sr Strontium 8
-54.300  505.5160 Sr Strontium 8
-19.200  505.6250 Sr Strontium 9
-73.100  507.0820 Sr Strontium 11
-64.400  507.3780 Sr Strontium 11
-36.600  508.5130 Sr Strontium 9
-28.900  510.3850 Sr Strontium 7
-14.300  512.0170 Sr Strontium 11
-16.300  521.4740 Sr Strontium 11
-7.540  522.5660 Sr Strontium 11
-7.940  522.9750 Sr Strontium 7
-41.900  523.0080 Sr Strontium 11
-44.700  525.5650 Sr Strontium 11
-67.800  527.1080 Sr Strontium 10
-64.800  527.9490 Sr Strontium 11
-130.000  529.4910 Sr Strontium 9
-146.000  530.5660 Sr Strontium 9
-34.600  533.7010 Sr Strontium 9
-9.350  534.0170 Sr Strontium 11
-52.200  536.9150 Sr Strontium 9
-52.200  541.6980 Sr Strontium 7
-15.800  542.3920 Sr Strontium 7
-18.400  543.3710 Sr Strontium 11
-28.300  544.7230 Sr Strontium 7
-32.100  553.0090 Sr Strontium 11
-38.000  554.3870 Sr Strontium 11
-22.000  555.3270 Sr Strontium 8
-24.800  556.6440 Sr Strontium 7
-4.690  559.6860 Sr Strontium 7
-52.200  561.8000 Sr Strontium 11
-9.880  565.8790 Sr Strontium 11
-14.600  570.6890 Sr Strontium 11
-52.600  573.2480 Sr Strontium 10
-9.580  582.6720 Sr Strontium 8
-28.100  587.1680 Sr Strontium 8
-5.500  589.8560 Sr Strontium 8
-16.300  591.8330 Sr Strontium 8
-11.100  595.9250 Sr Strontium 7
-11.500  620.6080 Sr Strontium 7
-1.740  621.2700 Sr Strontium 7
-8.820  633.3860 Sr Strontium 7
-11.700  668.1310 Sr Strontium 9
-0.581  671.0170 Sr Strontium 9
-12.700  733.0260 Sr Strontium 9
-0.000 D+ 1783.970 Sr Strontium 2
-0.006 B 1793.100 Sr Strontium 2
-0.120 D 2019.310 Sr Strontium 2
-0.240 D 2052.540 Sr Strontium 2
-2.360 C 2153.5170 Sr Strontium 2
-0.168 C 2166.6080 Sr Strontium 2
-2.530 C 2166.6690 Sr Strontium 2
-0.003 A' 2194.6630 Sr Strontium 1
-0.003 B' 2196.9000 Sr Strontium 1
-0.004 B' 2199.5790 Sr Strontium 1
-0.005 B' 2202.8630 Sr Strontium 1
-0.006 B' 2206.9270 Sr Strontium 1
-0.008 B' 2211.9990 Sr Strontium 1
-0.012 B' 2218.5070 Sr Strontium 1
-0.016 B' 2226.9960 Sr Strontium 1
-0.024 B' 2238.3500 Sr Strontium 1
-0.037 B 2253.9540 Sr Strontium 1
-0.066 B' 2276.0070 Sr Strontium 1
-0.830 D 2282.70340 Sr Strontium 2
-0.115 B' 2307.9740 Sr Strontium 1
-0.910 D 2323.06820 Sr Strontium 2
-0.150 D 2325.230 Sr Strontium 2
-0.180 C+ 2355.0390 Sr Strontium 1
-0.240 D 2424.30500 Sr Strontium 2
-0.170 C+ 2428.8320 Sr Strontium 1
-0.480 D 2472.34400 Sr Strontium 2
-0.053 B 2570.2390 Sr Strontium 1
-0.019 C+ 2932.6880 Sr Strontium 1
-0.590 B' 3302.6850 Sr Strontium 1
-3.100 D 3465.44920 Sr Strontium 2
-0.510 D 3475.88190 Sr Strontium 2
-1.410 AA 4078.86530 Sr Strontium 2
-0.650 D 4162.96930 Sr Strontium 2
-1.279 AA 4216.71140 Sr Strontium 2
-0.077 C 4254.1360 Sr Strontium 1
-1.400 D 4306.65800 Sr Strontium 2
-0.130 C' 4314.3950 Sr Strontium 1
-0.031 A' 4327.6620 Sr Strontium 1
-0.097 B+ 4362.9360 Sr Strontium 1
-0.120 C 4407.2470 Sr Strontium 1
-0.110 D 4416.080 Sr Strontium 2
-0.018 D 4418.740 Sr Strontium 2
-0.155 B+ 4439.2900 Sr Strontium 1
-0.190 C+ 4481.7640 Sr Strontium 1
-0.070 D 4587.200 Sr Strontium 2
-2.010 AA 4608.6220 Sr Strontium 1
-0.190 C 4679.6350 Sr Strontium 1
-0.360 B+ 4723.5990 Sr Strontium 1
-0.390 B+ 4743.2480 Sr Strontium 1
-0.210 C+ 4756.8250 Sr Strontium 1
-0.300 B+ 4785.6580 Sr Strontium 1
-0.900 B+ 4813.2260 Sr Strontium 1
-0.330 A' 4833.3930 Sr Strontium 1
-0.263 B+ 4856.4010 Sr Strontium 1
-0.340 A' 4870.0600 Sr Strontium 1
-0.075 B+ 4870.5300 Sr Strontium 1
-0.480 A' 4873.8540 Sr Strontium 1
-0.263 B+ 4877.4370 Sr Strontium 1
-0.380 B 4893.3460 Sr Strontium 1
-0.043 B+ 4894.0050 Sr Strontium 1
-0.614 AA 4963.6480 Sr Strontium 1
-0.128 B+ 4969.3300 Sr Strontium 1
-0.013 B+ 4973.0550 Sr Strontium 1
-0.270 C' 5157.4760 Sr Strontium 1
-0.019 A' 5214.4290 Sr Strontium 1
-0.340 A' 5223.6520 Sr Strontium 1
-0.227 B+ 5230.7260 Sr Strontium 1
-0.730 B+ 5240.0070 Sr Strontium 1
-0.810 B+ 5258.3620 Sr Strontium 1
-0.190 D 5304.610 Sr Strontium 2
-0.170 C+ 5331.2960 Sr Strontium 1
-0.220 D 5380.630 Sr Strontium 2
-0.037 D 5386.950 Sr Strontium 2
-0.147 B+ 5452.3510 Sr Strontium 1
-0.790 A' 5482.3880 Sr Strontium 1
-0.153 B+ 5487.6600 Sr Strontium 1
-0.540 B+ 5505.7130 Sr Strontium 1
-0.630 A' 5523.2990 Sr Strontium 1
-0.227 B+ 5536.3310 Sr Strontium 1
-0.284 B+ 5541.5900 Sr Strontium 1
-0.003 C' 5599.7170 Sr Strontium 1
-0.071 D 5725.290 Sr Strontium 2
-0.003 B+ 5818.3840 Sr Strontium 1
-0.140 D 5820.610 Sr Strontium 2
-0.000 C+ 6273.7770 Sr Strontium 1
-0.021 C+ 6347.4810 Sr Strontium 1
-0.037 C+' 6365.6690 Sr Strontium 1
-0.180 C+' 6371.6790 Sr Strontium 1
-0.052 C+ 6382.4920 Sr Strontium 1
-0.110 C+ 6388.2230 Sr Strontium 1
-0.140 C+ 6389.9690 Sr Strontium 1
-0.240 C+ 6410.2340 Sr Strontium 1
-0.015 C+ 6448.4360 Sr Strontium 1
-0.200 C+ 6505.7860 Sr Strontium 1
-0.038 C+ 6548.6000 Sr Strontium 1
-0.890 C 6552.0540 Sr Strontium 1
-0.160 C+ 6619.0940 Sr Strontium 1
-0.044 C+ 6645.3710 Sr Strontium 1
-0.089 B+' 6792.8960 Sr Strontium 1
-0.270 B+ 6880.2110 Sr Strontium 1
-0.000 A+ 6894.4870 Sr Strontium 1
-0.420 B 7072.0200 Sr Strontium 1
-0.094 C+ 7169.1190 Sr Strontium 1
-0.060 C+ 7234.1240 Sr Strontium 1
-0.016 C+ 7289.3520 Sr Strontium 1
-0.390 C+ 7311.4310 Sr Strontium 1
-0.005 A' 7440.4690 Sr Strontium 1
-0.078 A' 7623.5980 Sr Strontium 1
-0.066 C 7675.1890 Sr Strontium 1
-0.550 D 8691.300 Sr Strontium 2
-0.100 D 8721.950 Sr Strontium 2
-0.010 C+ 10039.4050 Sr Strontium 2
-0.087 C+ 10330.1390 Sr Strontium 2
-0.075 A+ 10917.8640 Sr Strontium 2
-0.006 C 14724.00 Sr Strontium 1
-0.008 C 15516.40 Sr Strontium 1
-0.039 C 20784.40 Sr Strontium 1
+220000.000  5.5800 SrXXIX Strontium
+71000.000  5.6280 SrXXIX Strontium
+1200000.000  5.8830 SrXXIX Strontium
+1000000.000  6.0630 SrXXIX Strontium
+2600.000  6.1280 SrXXIX Strontium
+74400.000  6.3090 SrXXX Strontium
+219000.000  6.3340 SrXXX Strontium
+72700.000  6.3340 SrXXX Strontium
+43000.000  6.3620 SrXXIX Strontium
+5960.000  6.3860 SrXXVIII Strontium
+19100.000  6.3940 SrXXVIII Strontium
+58700.000  6.4030 SrXXX Strontium
+29200.000  6.4060 SrXXVIII Strontium
+57600.000  6.4250 SrXXVIII Strontium
+19100.000  6.4360 SrXXVIII Strontium
+19300.000  6.4470 SrXXVIII Strontium
+58900.000  6.4470 SrXXVIII Strontium
+36000.000  6.4470 SrXXVIII Strontium
+45800.000  6.4560 SrXXVIII Strontium
+33500.000  6.4560 SrXXVIII Strontium
+18100.000  6.4630 SrXXVIII Strontium
+36800.000  6.4630 SrXXVIII Strontium
+39300.000  6.4680 SrXXVIII Strontium
+11400.000  6.4680 SrXXVIII Strontium
+7880.000  6.5760 SrXXVIII Strontium
+66000.000  6.5920 SrXXIX Strontium
+24000.000  6.6240 SrXXVIII Strontium
+16400.000  6.6370 SrXXVIII Strontium
+26600.000  6.6400 SrXXVIII Strontium
+13100.000  6.6490 SrXXVIII Strontium
+50000.000  6.6490 SrXXVIII Strontium
+25600.000  6.6630 SrXXVIII Strontium
+49900.000  6.6710 SrXXVIII Strontium
+12300.000  6.6740 SrXXVIII Strontium
+23500.000  6.6870 SrXXVIII Strontium
+49400.000  6.6870 SrXXVIII Strontium
+40400.000  6.6870 SrXXVIII Strontium
+50400.000  6.6940 SrXXVIII Strontium
+36100.000  6.6940 SrXXVIII Strontium
+55000.000  6.6940 SrXXVIII Strontium
+3970.000  6.7050 SrXXVIII Strontium
+53800.000  6.7050 SrXXVIII Strontium
+25800.000  6.7050 SrXXVIII Strontium
+37900.000  6.7120 SrXXVIII Strontium
+11900.000  6.7120 SrXXVIII Strontium
+1930.000  6.7240 SrXXVIII Strontium
+15400.000  6.7360 SrXXVIII Strontium
+3450.000  6.7690 SrXXVIII Strontium
+3180.000  6.7970 SrXXVIII Strontium
+8280.000  11.3870 SrXXVIII Strontium
+5930.000  11.5190 SrXXVIII Strontium
+6420.000  11.5350 SrXXVIII Strontium
+11100.000  12.1060 SrXXVIII Strontium
+13200.000  12.3040 SrXXVIII Strontium
+9970.000  13.2500 SrXXVIII Strontium
+10900.000  13.3040 SrXXVIII Strontium
+15100.000  13.3040 SrXXVIII Strontium
+16000.000  13.3590 SrXXVIII Strontium
+19100.000  13.9370 SrXXVIII Strontium
+22900.000  14.1920 SrXXVIII Strontium
+3370.000  14.4310 SrXXVIII Strontium
+7320.000  14.7180 SrXXVIII Strontium
+30800.000  15.4930 SrXXVIII Strontium
+32700.000  15.5490 SrXXVIII Strontium
+17400.000  18.4750 SrXXVIII Strontium
+19600.000  18.6630 SrXXVIII Strontium
+34600.000  19.3610 SrXXVIII Strontium
+42300.000  19.8340 SrXXVIII Strontium
+7160.000  19.8790 SrXXVIII Strontium
+7590.000  21.4300 SrXXVIII Strontium
+16600.000  22.0670 SrXXVIII Strontium
+85400.000  22.1550 SrXXVIII Strontium
+91000.000  22.2640 SrXXVIII Strontium
+4470.000  24.3370 SrXXVIII Strontium
+5470.000  24.5000 SrXXVIII Strontium
+7890.000  31.9400 SrXXVIII Strontium
+8410.000  32.0290 SrXXVIII Strontium
+6210.000  43.3290 SrXXVIII Strontium
+7790.000  44.2520 SrXXVIII Strontium
+209.000  46.2110 SrXXXI Strontium
+3010.000  47.0310 SrXXX Strontium
+2600.000  47.1380 SrXXXI Strontium
+1830.000  47.5720 SrXXXI Strontium
+14600.000  48.1640 SrXXVIII Strontium
+15700.000  48.3810 SrXXVIII Strontium
+3360.000  48.5710 SrXXXI Strontium
+5240.000  49.8090 SrXXVIII Strontium
+25400.000  51.2010 SrXXVIII Strontium
+26300.000  51.2850 SrXXVIII Strontium
+36.000  51.9210 SrXXXI Strontium
+2150.000  52.0120 SrXXXI Strontium
+1170.000  53.1060 SrXXXI Strontium
+586.000  64.1890 SrXXX Strontium
+1050.000  65.5700 SrXIII Strontium
+320.000  65.6830 SrXIII Strontium
+284.000  65.7740 SrXIII Strontium
+464.000  65.8210 SrXIII Strontium
+453.000  65.8210 SrXIII Strontium
+356.000  65.8490 SrXIII Strontium
+363.000  65.9670 SrXIII Strontium
+164.000  65.9670 SrXIII Strontium
+186.000  66.0010 SrXIII Strontium
+93.600  66.0400 SrXIII Strontium
+343.000  66.1060 SrXIII Strontium
+313.000  66.1300 SrXIII Strontium
+402.000  66.1300 SrXIII Strontium
+234.000  66.1300 SrXIII Strontium
+197.000  66.1530 SrXIII Strontium
+301.000  66.1820 SrXIII Strontium
+353.000  66.2570 SrXIII Strontium
+102.000  66.2570 SrXIII Strontium
+217.000  66.2570 SrXIII Strontium
+353.000  66.3370 SrXIII Strontium
+378.000  66.3730 SrXIII Strontium
+129.000  66.3920 SrXIII Strontium
+1040.000  66.3920 SrXIII Strontium
+1010.000  66.3920 SrXIII Strontium
+820.000  66.4380 SrXIII Strontium
+493.000  66.4810 SrXIII Strontium
+253.000  66.5840 SrXIII Strontium
+397.000  66.5840 SrXIII Strontium
+184.000  66.5840 SrXIII Strontium
+493.000  66.6240 SrXIII Strontium
+88.900  66.6480 SrXIII Strontium
+663.000  66.6730 SrXIII Strontium
+874.000  66.6730 SrXIII Strontium
+817.000  66.7530 SrXIII Strontium
+334.000  66.7530 SrXIII Strontium
+1390.000  66.8170 SrXIII Strontium
+127.000  66.8880 SrXIII Strontium
+198.000  66.9400 SrXIII Strontium
+227.000  66.9400 SrXIII Strontium
+533.000  66.9790 SrXIII Strontium
+637.000  66.9790 SrXIII Strontium
+1020.000  66.9790 SrXIII Strontium
+272.000  67.0120 SrXIII Strontium
+594.000  67.0320 SrXIII Strontium
+667.000  67.2310 SrXIII Strontium
+261.000  67.2460 SrXIII Strontium
+450.000  67.3120 SrXIII Strontium
+603.000  67.3210 SrXIII Strontium
+194.000  67.4340 SrXIII Strontium
+470.000  67.4690 SrXIII Strontium
+2420.000  67.5890 SrXIII Strontium
+367.000  67.6520 SrXIII Strontium
+363.000  67.7140 SrXIII Strontium
+164.000  67.7330 SrXIII Strontium
+180.000  67.7330 SrXIII Strontium
+309.000  67.8020 SrXIII Strontium
+473.000  67.8440 SrXIII Strontium
+250.000  67.9120 SrXIII Strontium
+246.000  67.9230 SrXIII Strontium
+312.000  67.9850 SrXIII Strontium
+164.000  68.0140 SrXIII Strontium
+278.000  68.1200 SrXIII Strontium
+267.000  68.1980 SrXIII Strontium
+206.000  68.2550 SrXIII Strontium
+168.000  68.3430 SrXIII Strontium
+121.000  68.4060 SrXIII Strontium
+103.000  68.4900 SrXIII Strontium
+80.000  68.6230 SrXIII Strontium
+62.000  68.9230 SrXII Strontium
+85.700  69.3750 SrXIII Strontium
+18.000  69.6300 SrXII Strontium
+142.000  69.7150 SrXIII Strontium
+130.000  70.4930 SrXII Strontium
+61.000  72.2600 SrXII Strontium
+95.000  72.9680 SrXII Strontium
+65.000  73.0560 SrXII Strontium
+780.000  73.2740 SrXII Strontium
+585.000  73.3340 SrXII Strontium
+135.000  73.6070 SrXII Strontium
+740.000  73.6320 SrXII Strontium
+290.000  73.6790 SrXII Strontium
+320.000  73.6910 SrXII Strontium
+65.000  73.7590 SrXII Strontium
+459.000  73.7740 SrXII Strontium
+163.000  73.9400 SrXII Strontium
+42.000  73.9830 SrXII Strontium
+327.000  74.0760 SrXII Strontium
+485.000  74.1300 SrXII Strontium
+420.000  74.2090 SrXII Strontium
+373.000  74.2420 SrXII Strontium
+78.000  74.4090 SrXII Strontium
+18.000  74.5730 SrXII Strontium
+205.000  74.7940 SrXII Strontium
+30.000  74.8310 SrXII Strontium
+435.000  74.8560 SrXII Strontium
+105.000  74.8560 SrXII Strontium
+125.000  74.8890 SrXII Strontium
+125.000  74.9340 SrXII Strontium
+830.000  75.0580 SrXII Strontium
+40.000  75.1160 SrXII Strontium
+423.000  75.1280 SrXII Strontium
+133.000  75.2930 SrXII Strontium
+60.000  75.3980 SrXII Strontium
+185.000  75.4260 SrXII Strontium
+152.000  75.6880 SrXII Strontium
+410.000  75.6880 SrXII Strontium
+615.000  75.8750 SrXII Strontium
+205.000  75.9560 SrXII Strontium
+12.000  76.1340 SrXII Strontium
+73.000  76.2690 SrXII Strontium
+10.000  76.3790 SrXII Strontium
+27.000  76.4610 SrXII Strontium
+6.700  76.7270 SrXII Strontium
+3.300  76.8790 SrXII Strontium
+80.000  76.9440 SrXII Strontium
+52.000  77.2440 SrXII Strontium
+3.300  77.3320 SrXII Strontium
+3.800  77.7110 SrXII Strontium
+24.300  79.5280 SrXIII Strontium
+139.000  80.3610 SrXIII Strontium
+403.000  80.4970 SrXIV Strontium
+68.600  80.6750 SrXIII Strontium
+6570.000  81.2630 SrXIV Strontium
+7650.000  81.6250 SrXIV Strontium
+1210.000  81.6630 SrXIII Strontium
+20.000  82.1470 SrXIV Strontium
+4860.000  82.4930 SrXIV Strontium
+5690.000  82.5270 SrXIV Strontium
+1830.000  82.7580 SrXIII Strontium
+181.000  83.0220 SrXIII Strontium
+357.000  83.0950 SrXI Strontium
+3290.000  83.3320 SrXIV Strontium
+5770.000  83.6560 SrXIII Strontium
+1560.000  83.7710 SrXI Strontium
+414.000  84.0650 SrXIV Strontium
+14100.000  84.8080 SrX Strontium
+4810.000  84.8100 SrXIV Strontium
+132.000  84.880 SrXXIX Strontium
+6.660  84.9060 SrXI Strontium
+36700.000  85.0150 SrX Strontium
+1500.000  85.3110 SrXIII Strontium
+145.000  85.3480 SrXIV Strontium
+1100.000  85.3800 SrXIV Strontium
+2170.000  85.5230 SrXIV Strontium
+306.000  85.6660 SrXIII Strontium
+6360.000  85.9400 SrX Strontium
+50600.000  85.9840 SrX Strontium
+4290.000  86.4130 SrXII Strontium
+14000.000  86.6180 SrX Strontium
+28200.000  86.6540 SrX Strontium
+407.000  86.6540 SrXIV Strontium
+1370.000  86.8070 SrXIV Strontium
+8020.000  86.8940 SrX Strontium
+10500.000  87.0190 SrX Strontium
+11000.000  87.0500 SrX Strontium
+372.000  87.0730 SrXIII Strontium
+41000.000  87.1290 SrX Strontium
+105.000  87.2210 SrXIV Strontium
+1800.000  87.2580 SrX Strontium
+11200.000  87.3670 SrX Strontium
+1350.000  87.4560 SrXIV Strontium
+128.000  87.4560 SrXIII Strontium
+1220.000  87.6800 SrXIV Strontium
+596.000  87.8270 SrXIII Strontium
+1200.000  88.1540 SrXIII Strontium
+45700.000  88.3130 SrX Strontium
+520.000  88.3200 SrXIII Strontium
+58800.000  88.3450 SrX Strontium
+95400.000  88.4530 SrX Strontium
+34600.000  88.4530 SrX Strontium
+3310.000  88.5690 SrXIII Strontium
+1280.000  88.6310 SrXIV Strontium
+2440.000  88.7550 SrXIII Strontium
+1720.000  88.8100 SrXIV Strontium
+1260.000  88.9160 SrXIII Strontium
+14300.000  88.9800 SrX Strontium
+6060.000  89.0650 SrX Strontium
+995.000  89.1120 SrXIV Strontium
+798.000  89.2380 SrXIV Strontium
+186.000  89.3090 SrXIII Strontium
+780.000  89.3250 SrXIV Strontium
+476.000  89.3690 SrXIV Strontium
+21300.000  89.5300 SrX Strontium
+857.000  89.7980 SrXIII Strontium
+457.000  89.8150 SrXIV Strontium
+334000.000  90.0500 SrX Strontium
+505.000  90.1200 SrXIV Strontium
+1280.000  90.1690 SrXIV Strontium
+935000.000  90.2850 SrX Strontium
+841.000  90.4230 SrXIV Strontium
+329.000  90.5800 SrXIV Strontium
+1220.000  90.6210 SrXIII Strontium
+144.000  90.7540 SrXIV Strontium
+92300.000  90.8760 SrX Strontium
+568.000  91.0850 SrXIV Strontium
+230.000  91.1450 SrXIII Strontium
+780.000  91.2580 SrXIII Strontium
+1970.000  91.4840 SrXIII Strontium
+317.000  91.6230 SrXIV Strontium
+380.000  91.7540 SrXIII Strontium
+1220.000  91.7590 SrXIV Strontium
+1180.000  91.9280 SrXIV Strontium
+3320.000  92.0290 SrXII Strontium
+514.000  92.2420 SrXIV Strontium
+195.000  92.2550 SrXIV Strontium
+1060.000  92.4580 SrXIV Strontium
+1190.000  92.6670 SrXIII Strontium
+302.000  92.7100 SrXXIII Strontium
+1200.000  92.7380 SrXIII Strontium
+523.000  92.7380 SrXIV Strontium
+628.000  92.7760 SrXIV Strontium
+398.000  92.8580 SrXIV Strontium
+232.000  93.0110 SrXIV Strontium
+117.000  93.1370 SrXIII Strontium
+573.000  93.1920 SrXIV Strontium
+355.000  93.2880 SrXII Strontium
+716.000  93.5140 SrXIII Strontium
+1620.000  93.5430 SrXIV Strontium
+2830.000  93.7700 SrXIII Strontium
+51.300  93.7700 SrXIV Strontium
+453.000  93.8010 SrXIII Strontium
+1110.000  93.8580 SrXIV Strontium
+234.000  93.9340 SrXIII Strontium
+923.000  93.9640 SrXIII Strontium
+447.000  93.9900 SrXIII Strontium
+2500.000  94.0450 SrXXIII Strontium
+352.000  94.1160 SrXIV Strontium
+263.000  94.1540 SrXIII Strontium
+61.400  94.2300 SrXIII Strontium
+1090.000  94.3050 SrXIV Strontium
+708.000  94.3650 SrXIV Strontium
+1030.000  94.4380 SrXIV Strontium
+194.000  94.5560 SrXIV Strontium
+418.000  94.9500 SrXIII Strontium
+2760.000  95.2670 SrXXIII Strontium
+329.000  95.3960 SrXIV Strontium
+45.000  95.4760 SrXIV Strontium
+1120.000  95.5250 SrXIII Strontium
+566.000  95.6560 SrXIV Strontium
+98.800  95.9510 SrXIV Strontium
+882.000  95.9920 SrXIII Strontium
+658.000  96.6660 SrXIV Strontium
+73.300  96.7300 SrXIII Strontium
+394.000  96.9650 SrXIV Strontium
+285.000  97.4430 SrXIV Strontium
+91.400  97.4430 SrXIII Strontium
+210.000  97.4940 SrXXV Strontium
+704.000  97.7620 SrXIII Strontium
+315.000  97.9280 SrXIV Strontium
+65.700  98.3200 SrXIII Strontium
+92.000  98.5500 SrXIV Strontium
+196.000  98.9240 SrXIV Strontium
+2180.000  99.0560 SrXXIV Strontium
+68.000  99.1310 SrXIII Strontium
+12.200  99.2680 SrXXIV Strontium
+220.000  99.3400 SrXIII Strontium
+160.000  99.4730 SrXIV Strontium
+1420.000  99.6140 SrXXIV Strontium
+699.000  99.7840 SrXXIV Strontium
+210.000  100.0340 SrXIV Strontium
+50.000  100.1230 SrXXV Strontium
+2140.000  100.5400 SrXXIII Strontium
+49.600  100.5910 SrX Strontium
+61.400  100.9040 SrX Strontium
+1530.000  101.3470 SrXXIV Strontium
+500.000  101.7650 SrXXV Strontium
+50.000  102.2230 SrXIV Strontium
+141.000  102.7980 SrXXIV Strontium
+1090.000  102.9090 SrXXV Strontium
+990.000  103.3160 SrXXV Strontium
+570.000  104.2390 SrXXV Strontium
+250.000  104.9000 SrXXV Strontium
+1850.000  105.3490 SrXXIV Strontium
+20.000  105.8150 SrXXV Strontium
+1160.000  106.1320 SrXXV Strontium
+696.000  107.0980 SrXXVI Strontium
+840.000  107.5140 SrXXV Strontium
+495.000  107.6940 SrXXVI Strontium
+570.000  109.2530 SrXXV Strontium
+1050.000  110.0360 SrXXV Strontium
+132.000  110.7970 SrXXVI Strontium
+58.300  112.8580 SrXXV Strontium
+250.000  113.1500 SrXXV Strontium
+12.300  113.6290 SrX Strontium
+50.000  113.7930 SrXXV Strontium
+570.000  114.3530 SrXXV Strontium
+693.000  114.6030 SrXXVI Strontium
+1110.000  114.7730 SrXXV Strontium
+19.600  115.5680 SrX Strontium
+442.000  115.9800 SrXXVI Strontium
+370.000  116.4190 SrXXVII Strontium
+66.300  116.9220 SrXXVI Strontium
+940.000  117.2600 SrXXV Strontium
+2400.000  117.2600 SrXXVII Strontium
+1200.000  117.6010 SrXXVII Strontium
+358.000  117.6010 SrXXVI Strontium
+2300.000  117.6900 SrXXVII Strontium
+40.000  117.6900 SrXXV Strontium
+320.000  118.3180 SrXXV Strontium
+770.000  118.5990 SrXXVII Strontium
+2000.000  119.0850 SrXXVII Strontium
+1020.000  119.1940 SrXXVI Strontium
+1000.000  119.2740 SrXXVII Strontium
+330.000  119.5400 SrXXV Strontium
+434.000  121.0690 SrXXVI Strontium
+514.000  121.2680 SrXXVI Strontium
+786.000  121.5070 SrXXVI Strontium
+774.000  121.9560 SrXXVI Strontium
+987.000  121.9560 SrXXVI Strontium
+110.000  122.9520 SrXXV Strontium
+1200.000  123.0810 SrXXVII Strontium
+434.000  123.8350 SrXXVI Strontium
+1900.000  123.8900 SrXXVII Strontium
+664.000  124.4690 SrXXVI Strontium
+197.000  124.6130 SrXXVI Strontium
+562.000  125.7130 SrXXVI Strontium
+290.000  126.4540 SrXXV Strontium
+397.000  127.2270 SrXXVIII Strontium
+138.000  127.9870 SrXXVI Strontium
+81.800  128.1600 SrX Strontium
+20.000  128.2350 SrXXV Strontium
+594.000  128.8080 SrXXVI Strontium
+920.000  129.2690 SrXXVII Strontium
+224.000  130.0280 SrXXVI Strontium
+169.000  130.7180 SrX Strontium
+3500.000  130.7520 SrXXVII Strontium
+117.000  131.230 SrXXIX Strontium
+630.000  131.2860 SrXXV Strontium
+707.000  132.7770 SrXXVI Strontium
+433.000  132.980 SrXXIX Strontium
+6100.000  133.7210 SrXXVII Strontium
+69.700  134.0370 SrX Strontium
+290.000  134.5050 SrXXVII Strontium
+1800.000  134.8210 SrXXVII Strontium
+91.700  134.9040 SrXXVI Strontium
+90.600  135.1410 SrX Strontium
+295.000  135.6120 SrXXVI Strontium
+669.000  135.9170 SrXXVI Strontium
+290.000  136.010 SrXXIX Strontium
+390.000  136.4150 SrXXVII Strontium
+554.000  136.4750 SrXXVI Strontium
+20.000  136.5360 SrXXV Strontium
+766.000  137.1930 SrXXVI Strontium
+584.000  137.2460 SrXXVI Strontium
+60.000  137.3270 SrXXV Strontium
+281.000  137.350 SrXXIX Strontium
+2600.000  137.5320 SrXXVII Strontium
+910.000  137.7000 SrXXVII Strontium
+433.000  137.7720 SrXXVI Strontium
+413.000  138.2120 SrXXVI Strontium
+230.000  138.670 SrXXIX Strontium
+1000.000  138.7250 SrXXVII Strontium
+180.000  140.9520 SrXXVI Strontium
+310.000  141.2690 SrXXVII Strontium
+177.000  141.6890 SrXXVI Strontium
+610.000  142.4550 SrXXVII Strontium
+125.000  143.3580 SrXXVI Strontium
+589.000  143.3580 SrXXVI Strontium
+4.330  145.3900 SrX Strontium
+308.000  147.5690 SrXXVIII Strontium
+663.000  148.0540 SrXXVI Strontium
+9.690  148.4670 SrX Strontium
+1.910  148.6950 SrX Strontium
+210.000  148.730 SrXXVII Strontium
+1900.000  149.2960 SrXXVII Strontium
+207.000  150.0420 SrXXVI Strontium
+690.000  150.7260 SrXXVII Strontium
+1100.000  150.9450 SrXXVII Strontium
+480.000  152.3490 SrXXVII Strontium
+118.000  153.4700 SrXXVI Strontium
+420.000  153.5750 SrXXVII Strontium
+45.200  153.5790 SrXXVIII Strontium
+90.000  153.8800 SrXXV Strontium
+27.600  154.0640 SrX Strontium
+810.000  154.3460 SrXXVII Strontium
+31.200  154.5960 SrX Strontium
+240.000  154.6110 SrXXVII Strontium
+4600.000  154.6980 SrXXVII Strontium
+140.000  157.110 SrXXIX Strontium
+162.000  157.110 SrXXIX Strontium
+1200.000  158.210 SrXXVII Strontium
+266.000  159.7700 SrXXVIII Strontium
+252.000  159.780 SrXXIX Strontium
+216.000  159.780 SrXXIX Strontium
+179.000  159.780 SrXXIX Strontium
+190.000  160.470 SrXXIX Strontium
+370.000  161.1960 SrXXVII Strontium
+201.000  162.890 SrXXIX Strontium
+4200.000  163.5640 SrXXVII Strontium
+115.000  164.080 SrXXIX Strontium
+146.000  165.770 SrXXIX Strontium
+240.000  166.490 SrXXIX Strontium
+214.000  167.910 SrXXIX Strontium
+330.000  168.0770 SrXXVII Strontium
+2000.000  171.4080 SrXXVII Strontium
+40.400  174.4910 SrXXVI Strontium
+180.000  175.100 SrXXIX Strontium
+20.000  175.1490 SrXXV Strontium
+400.000  178.5240 SrXXVII Strontium
+0.006  179.6140 SrXXV Strontium
+510.000  180.960 SrXXVII Strontium
+400.000  182.7140 SrXXVII Strontium
+56.700  189.8530 SrX Strontium
+63.100  190.1540 SrX Strontium
+100.000  191.9910 SrXXVII Strontium
+340.000  196.5570 SrXXVII Strontium
+10.400  197.2630 SrX Strontium
+600.000  197.5880 SrXXVII Strontium
+184.000  202.4800 SrX Strontium
+384.000  208.9410 SrX Strontium
+9.010  222.6420 SrXXVII Strontium
+4.540  224.780 SrXXV Strontium
+446.000  224.900 SrXXIX Strontium
+3.230  240.580 SrXXV Strontium
+3.920  256.640 SrVII Strontium
+8.620  261.210 SrVII Strontium
+50.600  263.620 SrVII Strontium
+3.370  265.180 SrVII Strontium
+63.600  266.950 SrVII Strontium
+137.000  267.670 SrVII Strontium
+42.900  271.900 SrVII Strontium
+208.000  272.840 SrVII Strontium
+112.000  276.230 SrVII Strontium
+289.000  276.790 SrVII Strontium
+18.500  279.370 SrVII Strontium
+19.200  288.810 SrVII Strontium
+50.000  293.830 SrVI Strontium
+55.000  295.360 SrVI Strontium
+61.800  295.580 SrVII Strontium
+18.000  298.010 SrVI Strontium
+63.000  298.180 SrVI Strontium
+3.800  300.110 SrVI Strontium
+85.000  300.110 SrVI Strontium
+77.000  301.010 SrVI Strontium
+6.300  303.9660 SrIX Strontium
+60.000  305.570 SrVI Strontium
+2.880  309.490 SrVII Strontium
+220.000  312.240 SrVI Strontium
+47.000  314.430 SrVI Strontium
+110.000  319.280 SrVI Strontium
+57.000  327.570 SrVI Strontium
+74.000  333.040 SrVI Strontium
+97.000  333.700 SrVI Strontium
+203.000  336.9740 SrIX Strontium
+264.000  340.7760 SrIX Strontium
+145.000  341.6870 SrIX Strontium
+278.000  343.9840 SrX Strontium
+367.000  345.5320 SrVIII Strontium
+321.000  351.7540 SrIX Strontium
+79.600  353.3050 SrIX Strontium
+8.750  354.2950 SrIX Strontium
+144.000  358.8850 SrX Strontium
+392.000  359.8210 SrVIII Strontium
+298.000  360.0880 SrX Strontium
+74.900  362.0340 SrVIII Strontium
+48.500  363.0540 SrX Strontium
+312.000  363.4600 SrXI Strontium
+326.000  363.5200 SrXI Strontium
+335.000  365.4150 SrXI Strontium
+241.000  366.1520 SrXI Strontium
+325.000  367.4540 SrXI Strontium
+283.000  368.8500 SrXI Strontium
+457.000  369.0430 SrX Strontium
+441.000  369.1160 SrX Strontium
+275.000  369.3240 SrXI Strontium
+456.000  373.6480 SrIX Strontium
+291.000  393.9030 SrX Strontium
+20.300  397.4630 SrX Strontium
+305.000  397.5140 SrX Strontium
+3.360  400.2770 SrIX Strontium
+318.000  400.7820 SrIX Strontium
+336.000  401.8660 SrIX Strontium
+57.100  402.0320 SrIX Strontium
+376.000  403.5750 SrIX Strontium
+40.100  403.9170 SrIX Strontium
+522.000  408.3870 SrIX Strontium
+524.000  410.4400 SrVIII Strontium
+557.000  414.5860 SrVIII Strontium
+43.700  415.0950 SrVII Strontium
+38.100  429.4220 SrVII Strontium
+47.600  433.7460 SrVIII Strontium
+86.200  442.4270 SrVII Strontium
+60.400  442.6840 SrVIII Strontium
+192.000  453.8790 SrVII Strontium
+173.000  456.0710 SrVII Strontium
+222.000  460.0820 SrVIII Strontium
+14.300  463.0950 SrXI Strontium
+4.620  463.3730 SrXI Strontium
+23.200  465.7780 SrVIII Strontium
+144.000  470.1550 SrVIII Strontium
+6.330  471.3660 SrXI Strontium
+146.000  472.9550 SrVIII Strontium
+23.300  473.8830 SrIX Strontium
+143.000  475.3360 SrIX Strontium
+21.200  475.7960 SrVIII Strontium
+50.400  478.5440 SrVIII Strontium
+55.400  479.7290 SrXI Strontium
+27.000  481.3380 SrXI Strontium
+14.200  484.8690 SrXI Strontium
+62.800  487.8000 SrXI Strontium
+20.500  488.3100 SrXI Strontium
+30.400  489.1250 SrVIII Strontium
+51.500  491.0780 SrXI Strontium
+58.800  491.0940 SrVIII Strontium
+55.500  494.2140 SrVIII Strontium
+57.600  494.2840 SrXI Strontium
+81.700  495.9120 SrVIII Strontium
+52.500  498.1350 SrIX Strontium
+75.000  498.4580 SrIX Strontium
+0.907  504.4350 SrVIII Strontium
+54.300  505.5160 SrVIII Strontium
+19.200  505.6250 SrIX Strontium
+73.100  507.0820 SrXI Strontium
+64.400  507.3780 SrXI Strontium
+36.600  508.5130 SrIX Strontium
+28.900  510.3850 SrVII Strontium
+14.300  512.0170 SrXI Strontium
+16.300  521.4740 SrXI Strontium
+7.540  522.5660 SrXI Strontium
+7.940  522.9750 SrVII Strontium
+41.900  523.0080 SrXI Strontium
+44.700  525.5650 SrXI Strontium
+67.800  527.1080 SrX Strontium
+64.800  527.9490 SrXI Strontium
+130.000  529.4910 SrIX Strontium
+146.000  530.5660 SrIX Strontium
+34.600  533.7010 SrIX Strontium
+9.350  534.0170 SrXI Strontium
+52.200  536.9150 SrIX Strontium
+52.200  541.6980 SrVII Strontium
+15.800  542.3920 SrVII Strontium
+18.400  543.3710 SrXI Strontium
+28.300  544.7230 SrVII Strontium
+32.100  553.0090 SrXI Strontium
+38.000  554.3870 SrXI Strontium
+22.000  555.3270 SrVIII Strontium
+24.800  556.6440 SrVII Strontium
+4.690  559.6860 SrVII Strontium
+52.200  561.8000 SrXI Strontium
+9.880  565.8790 SrXI Strontium
+14.600  570.6890 SrXI Strontium
+52.600  573.2480 SrX Strontium
+9.580  582.6720 SrVIII Strontium
+28.100  587.1680 SrVIII Strontium
+5.500  589.8560 SrVIII Strontium
+16.300  591.8330 SrVIII Strontium
+11.100  595.9250 SrVII Strontium
+11.500  620.6080 SrVII Strontium
+1.740  621.2700 SrVII Strontium
+8.820  633.3860 SrVII Strontium
+11.700  668.1310 SrIX Strontium
+0.581  671.0170 SrIX Strontium
+12.700  733.0260 SrIX Strontium
+0.000 D+ 1783.970 SrII Strontium
+0.006 B 1793.100 SrII Strontium
+0.120 D 2019.310 SrII Strontium
+0.240 D 2052.540 SrII Strontium
+2.360 C 2153.5170 SrII Strontium
+0.168 C 2166.6080 SrII Strontium
+2.530 C 2166.6690 SrII Strontium
+0.003 A' 2194.6630 Sr Strontium
+0.003 B' 2196.9000 Sr Strontium
+0.004 B' 2199.5790 Sr Strontium
+0.005 B' 2202.8630 Sr Strontium
+0.006 B' 2206.9270 Sr Strontium
+0.008 B' 2211.9990 Sr Strontium
+0.012 B' 2218.5070 Sr Strontium
+0.016 B' 2226.9960 Sr Strontium
+0.024 B' 2238.3500 Sr Strontium
+0.037 B 2253.9540 Sr Strontium
+0.066 B' 2276.0070 Sr Strontium
+0.830 D 2282.70340 SrII Strontium
+0.115 B' 2307.9740 Sr Strontium
+0.910 D 2323.06820 SrII Strontium
+0.150 D 2325.230 SrII Strontium
+0.180 C+ 2355.0390 Sr Strontium
+0.240 D 2424.30500 SrII Strontium
+0.170 C+ 2428.8320 Sr Strontium
+0.480 D 2472.34400 SrII Strontium
+0.053 B 2570.2390 Sr Strontium
+0.019 C+ 2932.6880 Sr Strontium
+0.590 B' 3302.6850 Sr Strontium
+3.100 D 3465.44920 SrII Strontium
+0.510 D 3475.88190 SrII Strontium
+1.410 AA 4078.86530 SrII Strontium
+0.650 D 4162.96930 SrII Strontium
+1.279 AA 4216.71140 SrII Strontium
+0.077 C 4254.1360 Sr Strontium
+1.400 D 4306.65800 SrII Strontium
+0.130 C' 4314.3950 Sr Strontium
+0.031 A' 4327.6620 Sr Strontium
+0.097 B+ 4362.9360 Sr Strontium
+0.120 C 4407.2470 Sr Strontium
+0.110 D 4416.080 SrII Strontium
+0.018 D 4418.740 SrII Strontium
+0.155 B+ 4439.2900 Sr Strontium
+0.190 C+ 4481.7640 Sr Strontium
+0.070 D 4587.200 SrII Strontium
+2.010 AA 4608.6220 Sr Strontium
+0.190 C 4679.6350 Sr Strontium
+0.360 B+ 4723.5990 Sr Strontium
+0.390 B+ 4743.2480 Sr Strontium
+0.210 C+ 4756.8250 Sr Strontium
+0.300 B+ 4785.6580 Sr Strontium
+0.900 B+ 4813.2260 Sr Strontium
+0.330 A' 4833.3930 Sr Strontium
+0.263 B+ 4856.4010 Sr Strontium
+0.340 A' 4870.0600 Sr Strontium
+0.075 B+ 4870.5300 Sr Strontium
+0.480 A' 4873.8540 Sr Strontium
+0.263 B+ 4877.4370 Sr Strontium
+0.380 B 4893.3460 Sr Strontium
+0.043 B+ 4894.0050 Sr Strontium
+0.614 AA 4963.6480 Sr Strontium
+0.128 B+ 4969.3300 Sr Strontium
+0.013 B+ 4973.0550 Sr Strontium
+0.270 C' 5157.4760 Sr Strontium
+0.019 A' 5214.4290 Sr Strontium
+0.340 A' 5223.6520 Sr Strontium
+0.227 B+ 5230.7260 Sr Strontium
+0.730 B+ 5240.0070 Sr Strontium
+0.810 B+ 5258.3620 Sr Strontium
+0.190 D 5304.610 SrII Strontium
+0.170 C+ 5331.2960 Sr Strontium
+0.220 D 5380.630 SrII Strontium
+0.037 D 5386.950 SrII Strontium
+0.147 B+ 5452.3510 Sr Strontium
+0.790 A' 5482.3880 Sr Strontium
+0.153 B+ 5487.6600 Sr Strontium
+0.540 B+ 5505.7130 Sr Strontium
+0.630 A' 5523.2990 Sr Strontium
+0.227 B+ 5536.3310 Sr Strontium
+0.284 B+ 5541.5900 Sr Strontium
+0.003 C' 5599.7170 Sr Strontium
+0.071 D 5725.290 SrII Strontium
+0.003 B+ 5818.3840 Sr Strontium
+0.140 D 5820.610 SrII Strontium
+0.000 C+ 6273.7770 Sr Strontium
+0.021 C+ 6347.4810 Sr Strontium
+0.037 C+' 6365.6690 Sr Strontium
+0.180 C+' 6371.6790 Sr Strontium
+0.052 C+ 6382.4920 Sr Strontium
+0.110 C+ 6388.2230 Sr Strontium
+0.140 C+ 6389.9690 Sr Strontium
+0.240 C+ 6410.2340 Sr Strontium
+0.015 C+ 6448.4360 Sr Strontium
+0.200 C+ 6505.7860 Sr Strontium
+0.038 C+ 6548.6000 Sr Strontium
+0.890 C 6552.0540 Sr Strontium
+0.160 C+ 6619.0940 Sr Strontium
+0.044 C+ 6645.3710 Sr Strontium
+0.089 B+' 6792.8960 Sr Strontium
+0.270 B+ 6880.2110 Sr Strontium
+0.000 A+ 6894.4870 Sr Strontium
+0.420 B 7072.0200 Sr Strontium
+0.094 C+ 7169.1190 Sr Strontium
+0.060 C+ 7234.1240 Sr Strontium
+0.016 C+ 7289.3520 Sr Strontium
+0.390 C+ 7311.4310 Sr Strontium
+0.005 A' 7440.4690 Sr Strontium
+0.078 A' 7623.5980 Sr Strontium
+0.066 C 7675.1890 Sr Strontium
+0.550 D 8691.300 SrII Strontium
+0.100 D 8721.950 SrII Strontium
+0.010 C+ 10039.4050 SrII Strontium
+0.087 C+ 10330.1390 SrII Strontium
+0.075 A+ 10917.8640 SrII Strontium
+0.006 C 14724.00 Sr Strontium
+0.008 C 15516.40 Sr Strontium
+0.039 C 20784.40 Sr Strontium

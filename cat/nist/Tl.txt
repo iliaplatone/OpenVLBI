@@ -1,28 +1,28 @@
-16.900  1321.710 Tl Thallium 2
-0.260  1908.640 Tl Thallium 2
-0.040 D 2105.70 Tl Thallium 1
-0.020 D 2119.80 Tl Thallium 1
-0.058 D 2129.950 Tl Thallium 1
-0.031 D 2152.600 Tl Thallium 1
-0.098 D 2169.270 Tl Thallium 1
-0.190 D 2238.530 Tl Thallium 1
-0.078 D 2316.690 Tl Thallium 1
-0.440 C 2380.420 Tl Thallium 1
-0.011 C 2508.700 Tl Thallium 1
-1.180  2531.620 Tl Thallium 2
-0.016 C 2538.940 Tl Thallium 1
-0.180 D 2580.910 Tl Thallium 1
-0.100 C 2609.770 Tl Thallium 1
-0.019 C 2610.550 Tl Thallium 1
-0.057 C 2666.360 Tl Thallium 1
-0.170 C 2710.030 Tl Thallium 1
-0.037 C 2711.470 Tl Thallium 1
-1.260 C 2768.690 Tl Thallium 1
-0.080 C 2826.990 Tl Thallium 1
-0.420 C 2919.170 Tl Thallium 1
-0.076 C 2922.380 Tl Thallium 1
-0.173 C 3230.680 Tl Thallium 1
-1.240 C 3520.250 Tl Thallium 1
-0.220 C 3530.440 Tl Thallium 1
-0.625 B 3776.790 Tl Thallium 1
-0.705 B 5351.950 Tl Thallium 1
+16.900  1321.710 TlII Thallium
+0.260  1908.640 TlII Thallium
+0.040 D 2105.70 Tl Thallium
+0.020 D 2119.80 Tl Thallium
+0.058 D 2129.950 Tl Thallium
+0.031 D 2152.600 Tl Thallium
+0.098 D 2169.270 Tl Thallium
+0.190 D 2238.530 Tl Thallium
+0.078 D 2316.690 Tl Thallium
+0.440 C 2380.420 Tl Thallium
+0.011 C 2508.700 Tl Thallium
+1.180  2531.620 TlII Thallium
+0.016 C 2538.940 Tl Thallium
+0.180 D 2580.910 Tl Thallium
+0.100 C 2609.770 Tl Thallium
+0.019 C 2610.550 Tl Thallium
+0.057 C 2666.360 Tl Thallium
+0.170 C 2710.030 Tl Thallium
+0.037 C 2711.470 Tl Thallium
+1.260 C 2768.690 Tl Thallium
+0.080 C 2826.990 Tl Thallium
+0.420 C 2919.170 Tl Thallium
+0.076 C 2922.380 Tl Thallium
+0.173 C 3230.680 Tl Thallium
+1.240 C 3520.250 Tl Thallium
+0.220 C 3530.440 Tl Thallium
+0.625 B 3776.790 Tl Thallium
+0.705 B 5351.950 Tl Thallium

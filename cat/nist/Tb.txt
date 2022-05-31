@@ -1,8 +1,8 @@
-0.537  3510.170 Tb Terbium 2
-1.130  3569.540 Tb Terbium 2
-1.710  3659.920 Tb Terbium 2
-1.190  3677.400 Tb Terbium 2
-0.619  3703.910 Tb Terbium 2
-0.543  3849.820 Tb Terbium 2
-1.000  3875.270 Tb Terbium 2
-0.374  4034.170 Tb Terbium 2
+0.537  3510.170 TbII Terbium
+1.130  3569.540 TbII Terbium
+1.710  3659.920 TbII Terbium
+1.190  3677.400 TbII Terbium
+0.619  3703.910 TbII Terbium
+0.543  3849.820 TbII Terbium
+1.000  3875.270 TbII Terbium
+0.374  4034.170 TbII Terbium

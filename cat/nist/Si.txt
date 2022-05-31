@@ -1,485 +1,485 @@
-2360.000 B+ 96.440 Si Silicon 5
-242.000 C 97.140 Si Silicon 5
-6.880 D 98.210 Si Silicon 5
-357.000 B+ 117.860 Si Silicon 5
-38.400 D+ 118.970 Si Silicon 5
-3.900 B+ 457.820 Si Silicon 4
-4.050 B+ 458.160 Si Silicon 4
-4.660 B+ 515.120 Si Silicon 4
-9.320 A 516.350 Si Silicon 4
-1.210 D+ 566.610 Si Silicon 3
-6.920 A 645.760 Si Silicon 4
-0.461 B+ 645.760 Si Silicon 4
-6.460 B+ 645.760 Si Silicon 4
-2.670 D+ 652.220 Si Silicon 3
-4.400 D+ 653.330 Si Silicon 3
-0.084 E 673.480 Si Silicon 3
-0.009 E 673.480 Si Silicon 3
-14.000 A 749.940 Si Silicon 4
-0.933 B+ 749.940 Si Silicon 4
-4.130 D+ 800.070 Si Silicon 3
-11.800 A 815.050 Si Silicon 4
-23.700 A 818.130 Si Silicon 4
-5.850 C 823.410 Si Silicon 3
-0.705 D 843.720 Si Silicon 2
-0.142 E 845.770 Si Silicon 2
-579.000 C+ 883.400 Si Silicon 3
-1.430 D+ 889.720 Si Silicon 2
-0.288 D 892.000 Si Silicon 2
-0.463 D 899.410 Si Silicon 2
-0.923 D 901.740 Si Silicon 2
-11.100 C 939.090 Si Silicon 3
-4.680 C 967.950 Si Silicon 3
-6.810 C+ 989.870 Si Silicon 2
-7.110 C+ 992.680 Si Silicon 2
-2.680 C 993.520 Si Silicon 3
-8.050 C+ 994.790 Si Silicon 3
-13.500 C+ 997.390 Si Silicon 3
-0.706 D+ 1005.370 Si Silicon 3
-0.891 D 1020.700 Si Silicon 2
-1.770 D+ 1023.690 Si Silicon 2
-2.720 C 1031.160 Si Silicon 3
-8.110 C+ 1033.920 Si Silicon 3
-4.460 C 1037.050 Si Silicon 3
-2.540 A 1066.630 Si Silicon 4
-3.650 C 1083.220 Si Silicon 3
-15.400 B+ 1108.370 Si Silicon 3
-20.700 B+ 1109.970 Si Silicon 3
-27.400 A 1113.230 Si Silicon 3
-21.400 A 1122.490 Si Silicon 4
-25.300 A 1128.340 Si Silicon 4
-19.600 B 1140.550 Si Silicon 3
-26.700 B+ 1141.580 Si Silicon 3
-17.500 B 1142.280 Si Silicon 3
-38.600 B+ 1144.310 Si Silicon 3
-11.900 B 1144.960 Si Silicon 3
-1.380 C 1145.180 Si Silicon 3
-9.340 B 1155.000 Si Silicon 3
-22.200 C+ 1155.960 Si Silicon 3
-7.880 B 1158.100 Si Silicon 3
-8.650 B 1160.260 Si Silicon 3
-14.200 B 1161.580 Si Silicon 3
-1.000 C 1174.370 Si Silicon 3
-1.000 C 1174.430 Si Silicon 3
-6.530 C+ 1190.420 Si Silicon 2
-26.900 B 1193.280 Si Silicon 2
-34.500 B 1194.500 Si Silicon 2
-14.000 C+ 1197.390 Si Silicon 2
-25.500 A 1206.510 Si Silicon 3
-41.700 B 1206.530 Si Silicon 3
-24.300 B+ 1207.520 Si Silicon 3
-16.000 B 1210.460 Si Silicon 3
-6.720 C+ 1224.250 Si Silicon 2
-4.390 C 1224.970 Si Silicon 2
-27.700 C 1226.810 Si Silicon 2
-6.550 C 1226.890 Si Silicon 2
-13.900 C 1226.990 Si Silicon 2
-14.600 B 1227.600 Si Silicon 2
-5.530 D+ 1228.440 Si Silicon 2
-17.700 C 1228.620 Si Silicon 2
-23.200 C+ 1228.750 Si Silicon 2
-22.500 B 1229.390 Si Silicon 2
-27.700 B 1235.430 Si Silicon 3
-4.030 C 1246.740 Si Silicon 2
-8.300 C+ 1248.430 Si Silicon 2
-13.000 C+ 1251.160 Si Silicon 2
-25.700 B 1260.420 Si Silicon 2
-30.400 B 1264.730 Si Silicon 2
-4.730 C+ 1265.020 Si Silicon 2
-10.400 B 1280.350 Si Silicon 3
-5.350 B+ 1294.540 Si Silicon 3
-7.100 B+ 1296.730 Si Silicon 3
-5.290 B+ 1298.890 Si Silicon 3
-15.900 A 1298.960 Si Silicon 3
-21.100 B+ 1301.150 Si Silicon 3
-8.710 B+ 1303.320 Si Silicon 3
-3.640 C+ 1304.370 Si Silicon 2
-6.230 C+ 1309.270 Si Silicon 2
-6.660 D+ 1312.590 Si Silicon 3
-8.960 B 1341.470 Si Silicon 3
-7.540 B 1342.390 Si Silicon 3
-8.160 B 1343.390 Si Silicon 3
-3.360 C 1348.540 Si Silicon 2
-5.340 C+ 1350.060 Si Silicon 2
-1.610 D+ 1350.520 Si Silicon 2
-2.020 D 1350.660 Si Silicon 2
-6.120 C 1352.640 Si Silicon 2
-3.220 C 1353.720 Si Silicon 2
-10.600 B 1361.600 Si Silicon 3
-10.600 C+ 1362.370 Si Silicon 3
-8.530 B 1363.470 Si Silicon 3
-9.400 B 1365.260 Si Silicon 3
-10.500 B 1367.050 Si Silicon 3
-10.400 C+ 1369.440 Si Silicon 3
-8.000 B 1373.030 Si Silicon 3
-0.209 D+ 1387.990 Si Silicon 3
-8.800 A+ 1393.760 Si Silicon 4
-8.630 A+ 1402.770 Si Silicon 4
-3.470 D+ 1410.220 Si Silicon 2
-21.700 B 1417.240 Si Silicon 3
-8.670 B 1433.690 Si Silicon 3
-4.220 D+ 1435.770 Si Silicon 3
-7.790 C+ 1436.170 Si Silicon 3
-10.700 C 1457.250 Si Silicon 3
-21.000 B+ 1500.240 Si Silicon 3
-18.600 B+ 1501.190 Si Silicon 3
-17.600 B 1501.870 Si Silicon 3
-12.400 B 1506.060 Si Silicon 3
-2.850 D+ 1509.100 Si Silicon 2
-3.150 D+ 1512.070 Si Silicon 2
-3.810 C+ 1526.720 Si Silicon 2
-7.520 C+ 1533.450 Si Silicon 2
-0.716 E 1625.710 Si Silicon 1
-0.873 C 1629.430 Si Silicon 1
-0.175 D 1666.370 Si Silicon 1
-0.827 E 1667.620 Si Silicon 1
-0.258 D 1668.520 Si Silicon 1
-0.309 D+ 1672.590 Si Silicon 1
-6.700 C+ 1673.320 Si Silicon 3
-0.641 C 1675.200 Si Silicon 1
-0.675 D+ 1693.290 Si Silicon 1
-0.397 D+ 1695.510 Si Silicon 1
-1.220 C 1696.200 Si Silicon 1
-1.380 C 1697.940 Si Silicon 1
-0.312 D+ 1700.420 Si Silicon 1
-0.306 D+ 1700.630 Si Silicon 1
-0.188 D 1702.860 Si Silicon 1
-0.261 D+ 1704.430 Si Silicon 1
-4.920 A 1722.530 Si Silicon 4
-5.470 A 1727.380 Si Silicon 4
-0.058 D 1776.830 Si Silicon 1
-0.025 C 1808.000 Si Silicon 2
-0.683 C 1809.090 Si Silicon 1
-1.150 C 1814.070 Si Silicon 1
-0.026 C 1816.920 Si Silicon 2
-0.003 C 1817.450 Si Silicon 2
-0.131 D+ 1836.510 Si Silicon 1
-0.150 D 1841.150 Si Silicon 1
-0.367 D+ 1841.440 Si Silicon 1
-2.990 B 1842.550 Si Silicon 3
-0.335 D+ 1843.770 Si Silicon 1
-1.680 C+ 1845.510 Si Silicon 1
-0.568 E 1846.100 Si Silicon 1
-2.330 C+ 1847.470 Si Silicon 1
-1.230 C+ 1848.140 Si Silicon 1
-0.392 D+ 1848.740 Si Silicon 1
-3.050 C+ 1850.670 Si Silicon 1
-0.740 C+ 1852.460 Si Silicon 1
-0.079 C 1853.150 Si Silicon 1
-1.070 D 1874.840 Si Silicon 1
-0.050 D+ 1881.850 Si Silicon 1
-1.000 C 1901.330 Si Silicon 1
-0.049 D 1904.660 Si Silicon 1
-0.960 D 2072.680 Si Silicon 2
-1.000 D 2073.360 Si Silicon 2
-3.060 A+ 2120.850 Si Silicon 4
-2.970 B 2124.790 Si Silicon 1
-6.140 A+ 2128.140 Si Silicon 4
-1.800 B 2177.570 Si Silicon 3
-0.262 B 2208.670 Si Silicon 1
-0.346 B 2211.580 Si Silicon 1
-0.181 B 2212.430 Si Silicon 1
-0.454 B 2217.360 Si Silicon 1
-0.109 B 2218.750 Si Silicon 1
-0.011 C+ 2219.600 Si Silicon 1
-0.427 A 2287.750 Si Silicon 4
-6.410 A 2287.750 Si Silicon 4
-5.980 A 2287.750 Si Silicon 4
-0.669 C+ 2296.190 Si Silicon 3
-0.058 C 2301.640 Si Silicon 3
-3.480 C+ 2303.770 Si Silicon 1
-0.716 B 2308.900 Si Silicon 3
-0.000 D+ 2335.120 Si Silicon 2
-0.000 D+ 2335.330 Si Silicon 2
-0.000 D 2344.920 Si Silicon 2
-0.000 D+ 2350.890 Si Silicon 2
-0.518 B+ 2367.480 Si Silicon 4
-1.040 B+ 2371.710 Si Silicon 4
-0.443 B 2435.890 Si Silicon 1
-0.008 D 2439.510 Si Silicon 1
-0.013 D 2444.100 Si Silicon 1
-0.181 C 2450.220 Si Silicon 3
-0.002 E 2452.860 Si Silicon 1
-0.066 B+ 2483.570 Si Silicon 4
-0.133 D+ 2483.950 Si Silicon 3
-0.071 B+ 2486.130 Si Silicon 4
-0.547 B 2507.660 Si Silicon 1
-0.739 B 2515.080 Si Silicon 1
-1.680 B 2516.8700 Si Silicon 1
-0.549 B 2519.9600 Si Silicon 1
-2.220 B 2524.8670 Si Silicon 1
-0.904 B 2529.2690 Si Silicon 1
-0.245 C 2533.1420 Si Silicon 1
-0.322 B 2542.580 Si Silicon 3
-0.610 D 2546.850 Si Silicon 3
-1.630 C+ 2559.980 Si Silicon 3
-0.042 D 2569.4110 Si Silicon 1
-1.060 B 2632.0670 Si Silicon 1
-1.830 B 2641.580 Si Silicon 3
-1.350 B 2656.300 Si Silicon 3
-0.025 B+ 2672.980 Si Silicon 4
-0.274 A 2675.920 Si Silicon 4
-0.261 A 2676.050 Si Silicon 4
-0.005 B 2678.370 Si Silicon 4
-0.035 D+ 2683.010 Si Silicon 2
-0.073 B 2724.620 Si Silicon 4
-1.100 B+ 2724.620 Si Silicon 4
-0.222 C+ 2817.940 Si Silicon 3
-0.212 C+ 2832.320 Si Silicon 3
-0.237 C 2840.450 Si Silicon 3
-2.170 B 2882.4240 Si Silicon 1
-0.064 D+ 2888.360 Si Silicon 2
-0.358 C 2905.130 Si Silicon 2
-0.383 C 2906.540 Si Silicon 2
-0.148 C 2960.010 Si Silicon 3
-0.001 E 2971.2220 Si Silicon 1
-0.097 B 2972.390 Si Silicon 4
-0.005 C+ 2972.390 Si Silicon 4
-0.092 B+ 2972.390 Si Silicon 4
-0.002 D 2981.390 Si Silicon 3
-0.027 D+ 2988.5170 Si Silicon 1
-0.000 E 3007.6150 Si Silicon 1
-0.057 C 3013.970 Si Silicon 3
-0.000 E 3020.8840 Si Silicon 1
-0.450 B 3035.610 Si Silicon 3
-0.039 C 3038.170 Si Silicon 3
-0.487 B 3041.810 Si Silicon 3
-0.251 C+ 3044.820 Si Silicon 3
-0.224 C 3045.970 Si Silicon 3
-0.515 C+ 3069.130 Si Silicon 3
-1.460 B+ 3087.140 Si Silicon 3
-0.261 C+ 3087.360 Si Silicon 3
-1.300 B 3094.320 Si Silicon 3
-0.433 C+ 3094.550 Si Silicon 3
-1.730 B 3097.730 Si Silicon 3
-0.467 C+ 3127.180 Si Silicon 3
-0.253 C+ 3148.280 Si Silicon 3
-4.020 A+ 3150.470 Si Silicon 4
-0.491 C+ 3162.530 Si Silicon 3
-4.770 A+ 3166.630 Si Silicon 4
-4.040 B 3186.050 Si Silicon 3
-1.130 B 3186.940 Si Silicon 3
-1.140 B 3197.420 Si Silicon 3
-0.445 C+ 3204.800 Si Silicon 2
-0.529 C+ 3210.960 Si Silicon 2
-1.200 B+ 3211.480 Si Silicon 3
-0.190 D+ 3217.180 Si Silicon 3
-0.475 C+ 3231.430 Si Silicon 3
-1.420 B 3234.880 Si Silicon 3
-2.350 B 3242.560 Si Silicon 3
-0.421 B+ 3245.130 Si Silicon 4
-0.182 C+ 3254.340 Si Silicon 3
-0.175 C+ 3254.680 Si Silicon 3
-0.181 C+ 3255.740 Si Silicon 3
-1.010 B 3259.600 Si Silicon 3
-0.299 C+ 3271.400 Si Silicon 3
-0.891 B 3277.200 Si Silicon 3
-1.180 C+ 3280.200 Si Silicon 3
-0.100 C 3334.100 Si Silicon 2
-0.200 C+ 3340.780 Si Silicon 2
-1.540 B+ 3487.910 Si Silicon 3
-0.248 C+ 3526.950 Si Silicon 3
-0.578 D+ 3570.690 Si Silicon 3
-2.530 C 3591.490 Si Silicon 3
-0.125 C+ 3623.570 Si Silicon 3
-0.224 C 3640.490 Si Silicon 3
-0.096 C+ 3646.160 Si Silicon 3
-0.251 D+ 3682.450 Si Silicon 3
-0.150 D+ 3683.200 Si Silicon 3
-0.233 A 3763.510 Si Silicon 4
-2.330 A 3774.220 Si Silicon 4
-1.760 B+ 3792.490 Si Silicon 3
-2.360 B+ 3797.190 Si Silicon 3
-3.140 B+ 3807.620 Si Silicon 3
-0.173 C+ 3843.550 Si Silicon 3
-0.051 C 3854.750 Si Silicon 2
-0.440 C+ 3857.110 Si Silicon 2
-0.391 C+ 3863.700 Si Silicon 2
-0.133 B 3906.6290 Si Silicon 1
-3.470 B+ 3925.580 Si Silicon 3
-0.056 C+ 3948.610 Si Silicon 3
-0.036 C 3964.960 Si Silicon 3
-0.002 D 3982.370 Si Silicon 3
-0.229 B+ 4032.530 Si Silicon 4
-0.459 B+ 4039.200 Si Silicon 4
-0.040 C+ 4076.600 Si Silicon 2
-0.040 C+ 4077.930 Si Silicon 2
-1.560 A+ 4090.000 Si Silicon 4
-0.246 C+ 4103.580 Si Silicon 3
-0.001 E 4104.0940 Si Silicon 1
-0.407 C 4116.660 Si Silicon 3
-1.530 A+ 4117.260 Si Silicon 4
-1.490 B 4129.230 Si Silicon 2
-1.740 B 4132.060 Si Silicon 2
-1.630 A 4213.600 Si Silicon 4
-0.109 A 4213.600 Si Silicon 4
-1.060 A 4315.310 Si Silicon 4
-2.120 A 4329.400 Si Silicon 4
-0.147 C 4339.720 Si Silicon 3
-0.005 D 4342.620 Si Silicon 3
-0.041 C 4378.860 Si Silicon 3
-0.409 B+ 4404.970 Si Silicon 4
-0.382 B+ 4404.970 Si Silicon 4
-0.027 B+ 4404.970 Si Silicon 4
-0.048 D+ 4407.140 Si Silicon 3
-0.310 C+ 4407.960 Si Silicon 3
-0.017 B 4412.890 Si Silicon 4
-0.419 B 4495.310 Si Silicon 3
-1.260 B+ 4553.900 Si Silicon 3
-0.675 B 4555.280 Si Silicon 3
-1.250 B+ 4569.100 Si Silicon 3
-1.240 B 4576.040 Si Silicon 3
-0.004 B 4612.560 Si Silicon 4
-0.022 B+ 4612.560 Si Silicon 4
-0.289 B 4620.950 Si Silicon 3
-0.128 D 4622.710 Si Silicon 2
-0.137 D 4623.010 Si Silicon 2
-0.379 B 4639.580 Si Silicon 3
-0.279 B 4667.180 Si Silicon 3
-0.830 B+ 4684.330 Si Silicon 3
-1.100 B 4685.110 Si Silicon 3
-1.320 B 4717.970 Si Silicon 3
-0.447 B 4731.840 Si Silicon 3
-0.017 D 4784.3280 Si Silicon 1
-0.022 D 4793.5520 Si Silicon 1
-0.017 D 4793.6640 Si Silicon 1
-0.276 B 4801.770 Si Silicon 3
-2.100 B+ 4814.680 Si Silicon 3
-2.120 B+ 4821.070 Si Silicon 3
-2.250 B+ 4830.320 Si Silicon 3
-0.042 D 4948.9880 Si Silicon 1
-0.199 A 4951.490 Si Silicon 4
-0.009 B+ 4951.490 Si Silicon 4
-0.189 A 4951.490 Si Silicon 4
-0.028 D 5007.4570 Si Silicon 1
-0.700 B 5042.440 Si Silicon 2
-1.450 B 5057.390 Si Silicon 2
-0.382 C+ 5115.190 Si Silicon 3
-0.417 C+ 5115.550 Si Silicon 3
-0.247 B 5198.710 Si Silicon 3
-0.021 B+ 5306.450 Si Silicon 4
-0.190 B+ 5306.450 Si Silicon 4
-0.210 B+ 5310.970 Si Silicon 4
-0.460 B+ 5452.980 Si Silicon 3
-0.216 C 5467.950 Si Silicon 2
-0.015 D+ 5468.390 Si Silicon 2
-0.607 B+ 5474.570 Si Silicon 3
-0.016 D 5623.7820 Si Silicon 1
-0.040 C+ 5634.530 Si Silicon 2
-0.010 D 5647.1780 Si Silicon 1
-0.070 C+ 5662.230 Si Silicon 2
-0.006 D 5667.1260 Si Silicon 1
-0.500 B+ 5671.130 Si Silicon 2
-0.100 C+ 5683.020 Si Silicon 2
-0.026 D 5686.0610 Si Silicon 1
-0.460 B 5690.390 Si Silicon 2
-0.009 D+ 5692.0040 Si Silicon 1
-0.018 D 5702.6870 Si Silicon 1
-0.450 B 5702.950 Si Silicon 2
-0.186 B 5706.180 Si Silicon 3
-0.610 B 5707.950 Si Silicon 2
-0.014 D+ 5709.9810 Si Silicon 1
-0.191 B 5717.880 Si Silicon 3
-0.541 B+ 5741.320 Si Silicon 3
-0.012 E 5755.8160 Si Silicon 1
-0.036 D+ 5773.7460 Si Silicon 1
-0.003 D 5781.9870 Si Silicon 1
-0.004 E 5794.6770 Si Silicon 1
-0.003 D 5799.4670 Si Silicon 1
-0.486 B 5900.420 Si Silicon 3
-0.022 C 5950.1930 Si Silicon 1
-0.560 B+ 5959.210 Si Silicon 2
-1.130 B+ 5980.590 Si Silicon 2
-1.180 B 6316.210 Si Silicon 3
-0.000 E 6333.7050 Si Silicon 1
-0.584 B+ 6348.850 Si Silicon 2
-0.680 C+ 6373.120 Si Silicon 2
-0.382 B+ 6526.160 Si Silicon 3
-0.007 D 6557.2730 Si Silicon 1
-0.364 C+ 6662.360 Si Silicon 2
-0.216 C+ 6666.840 Si Silicon 2
-1.150 A+ 6669.400 Si Silicon 4
-0.480 B+ 6673.720 Si Silicon 2
-0.420 B 6701.230 Si Silicon 2
-1.360 A+ 6703.060 Si Silicon 4
-0.034 D 6723.7090 Si Silicon 1
-0.149 C+ 6752.140 Si Silicon 2
-0.108 C 6820.330 Si Silicon 2
-0.022 D+ 6831.700 Si Silicon 2
-0.583 B+ 6833.450 Si Silicon 3
-0.033 D 6978.4470 Si Silicon 1
-0.511 A 7000.290 Si Silicon 4
-0.037 B+ 7000.290 Si Silicon 4
-0.548 A 7000.290 Si Silicon 4
-0.034 D+ 7005.4980 Si Silicon 1
-0.038 D+ 7007.8150 Si Silicon 1
-0.905 A 7049.880 Si Silicon 4
-1.000 A 7070.360 Si Silicon 4
-0.007 E 7195.560 Si Silicon 1
-0.499 B 7463.950 Si Silicon 3
-0.375 B+ 7464.680 Si Silicon 3
-0.419 B+ 7468.380 Si Silicon 3
-0.994 B+ 7614.460 Si Silicon 3
-0.440 B+ 7632.600 Si Silicon 4
-0.882 A 7656.670 Si Silicon 4
-0.046 C+ 7682.3810 Si Silicon 1
-0.053 C 7744.840 Si Silicon 1
-0.373 B 7850.960 Si Silicon 2
-0.399 B 7851.880 Si Silicon 2
-0.052 C+ 7920.5640 Si Silicon 1
-0.051 C+ 7934.5310 Si Silicon 1
-0.058 B 7946.1860 Si Silicon 1
-0.007 C 7972.4980 Si Silicon 1
-0.008 D 8037.8290 Si Silicon 1
-0.015 D 8095.4660 Si Silicon 1
-0.809 B+ 8192.680 Si Silicon 3
-0.070 B 8193.410 Si Silicon 3
-0.878 B+ 8193.930 Si Silicon 3
-0.123 B+ 8242.880 Si Silicon 4
-0.117 B+ 8242.880 Si Silicon 4
-0.006 B+ 8242.880 Si Silicon 4
-0.718 B+ 8264.840 Si Silicon 3
-0.180 B+ 8267.910 Si Silicon 3
-0.536 B+ 8271.590 Si Silicon 3
-0.298 B+ 8273.650 Si Silicon 3
-0.396 B+ 8274.210 Si Silicon 3
-0.091 C 8650.8380 Si Silicon 1
-0.426 A+ 8959.710 Si Silicon 4
-0.417 A 9020.640 Si Silicon 4
-0.046 C+ 9415.300 Si Silicon 2
-0.226 C+ 9416.0890 Si Silicon 1
-0.040 C+ 10374.1110 Si Silicon 1
-0.178 B 10588.0410 Si Silicon 1
-0.052 C+ 10606.3360 Si Silicon 1
-0.093 C+ 10663.8960 Si Silicon 1
-0.153 C+ 10697.1810 Si Silicon 1
-0.170 B 10730.3470 Si Silicon 1
-0.103 C+ 10752.3290 Si Silicon 1
-0.026 D+ 10787.5040 Si Silicon 1
-0.248 C+ 10789.8110 Si Silicon 1
-0.197 B 10830.0570 Si Silicon 1
-0.188 C+ 10846.8240 Si Silicon 1
-0.218 B 10872.5180 Si Silicon 1
-0.018 D+ 10885.7830 Si Silicon 1
-0.051 C+ 10982.3150 Si Silicon 1
-0.140 B 11987.470 Si Silicon 1
-0.104 C+ 11994.850 Si Silicon 1
-0.173 B 12034.800 Si Silicon 1
-0.061 C+ 12106.840 Si Silicon 1
-0.032 C+ 12274.040 Si Silicon 1
-0.118 C+ 13180.500 Si Silicon 1
-0.088 B 15892.730 Si Silicon 1
-0.082 C+ 15964.400 Si Silicon 1
-0.096 C 16064.420 Si Silicon 1
-0.072 C+ 16099.200 Si Silicon 1
-0.007 C+ 16168.130 Si Silicon 1
-0.023 C+ 16220.110 Si Silicon 1
-0.020 C+ 16386.030 Si Silicon 1
-0.028 B 16685.330 Si Silicon 1
-0.043 C+ 18728.010 Si Silicon 1
-0.034 B 19391.230 Si Silicon 1
-0.044 B 19438.280 Si Silicon 1
-0.014 C 19498.700 Si Silicon 1
-0.058 B 19727.880 Si Silicon 1
-0.016 B 19934.320 Si Silicon 1
-0.061 C+ 21360.070 Si Silicon 1
+2360.000 B+ 96.440 SiV Silicon
+242.000 C 97.140 SiV Silicon
+6.880 D 98.210 SiV Silicon
+357.000 B+ 117.860 SiV Silicon
+38.400 D+ 118.970 SiV Silicon
+3.900 B+ 457.820 SiIV Silicon
+4.050 B+ 458.160 SiIV Silicon
+4.660 B+ 515.120 SiIV Silicon
+9.320 A 516.350 SiIV Silicon
+1.210 D+ 566.610 SiIII Silicon
+0.461 B+ 645.760 SiIV Silicon
+6.920 A 645.760 SiIV Silicon
+6.460 B+ 645.760 SiIV Silicon
+2.670 D+ 652.220 SiIII Silicon
+4.400 D+ 653.330 SiIII Silicon
+0.084 E 673.480 SiIII Silicon
+0.009 E 673.480 SiIII Silicon
+0.933 B+ 749.940 SiIV Silicon
+14.000 A 749.940 SiIV Silicon
+4.130 D+ 800.070 SiIII Silicon
+11.800 A 815.050 SiIV Silicon
+23.700 A 818.130 SiIV Silicon
+5.850 C 823.410 SiIII Silicon
+0.705 D 843.720 SiII Silicon
+0.142 E 845.770 SiII Silicon
+579.000 C+ 883.400 SiIII Silicon
+1.430 D+ 889.720 SiII Silicon
+0.288 D 892.000 SiII Silicon
+0.463 D 899.410 SiII Silicon
+0.923 D 901.740 SiII Silicon
+11.100 C 939.090 SiIII Silicon
+4.680 C 967.950 SiIII Silicon
+6.810 C+ 989.870 SiII Silicon
+7.110 C+ 992.680 SiII Silicon
+2.680 C 993.520 SiIII Silicon
+8.050 C+ 994.790 SiIII Silicon
+13.500 C+ 997.390 SiIII Silicon
+0.706 D+ 1005.370 SiIII Silicon
+0.891 D 1020.700 SiII Silicon
+1.770 D+ 1023.690 SiII Silicon
+2.720 C 1031.160 SiIII Silicon
+8.110 C+ 1033.920 SiIII Silicon
+4.460 C 1037.050 SiIII Silicon
+2.540 A 1066.630 SiIV Silicon
+3.650 C 1083.220 SiIII Silicon
+15.400 B+ 1108.370 SiIII Silicon
+20.700 B+ 1109.970 SiIII Silicon
+27.400 A 1113.230 SiIII Silicon
+21.400 A 1122.490 SiIV Silicon
+25.300 A 1128.340 SiIV Silicon
+19.600 B 1140.550 SiIII Silicon
+26.700 B+ 1141.580 SiIII Silicon
+17.500 B 1142.280 SiIII Silicon
+38.600 B+ 1144.310 SiIII Silicon
+11.900 B 1144.960 SiIII Silicon
+1.380 C 1145.180 SiIII Silicon
+9.340 B 1155.000 SiIII Silicon
+22.200 C+ 1155.960 SiIII Silicon
+7.880 B 1158.100 SiIII Silicon
+8.650 B 1160.260 SiIII Silicon
+14.200 B 1161.580 SiIII Silicon
+1.000 C 1174.370 SiIII Silicon
+1.000 C 1174.430 SiIII Silicon
+6.530 C+ 1190.420 SiII Silicon
+26.900 B 1193.280 SiII Silicon
+34.500 B 1194.500 SiII Silicon
+14.000 C+ 1197.390 SiII Silicon
+25.500 A 1206.510 SiIII Silicon
+41.700 B 1206.530 SiIII Silicon
+24.300 B+ 1207.520 SiIII Silicon
+16.000 B 1210.460 SiIII Silicon
+6.720 C+ 1224.250 SiII Silicon
+4.390 C 1224.970 SiII Silicon
+27.700 C 1226.810 SiII Silicon
+6.550 C 1226.890 SiII Silicon
+13.900 C 1226.990 SiII Silicon
+14.600 B 1227.600 SiII Silicon
+5.530 D+ 1228.440 SiII Silicon
+17.700 C 1228.620 SiII Silicon
+23.200 C+ 1228.750 SiII Silicon
+22.500 B 1229.390 SiII Silicon
+27.700 B 1235.430 SiIII Silicon
+4.030 C 1246.740 SiII Silicon
+8.300 C+ 1248.430 SiII Silicon
+13.000 C+ 1251.160 SiII Silicon
+25.700 B 1260.420 SiII Silicon
+30.400 B 1264.730 SiII Silicon
+4.730 C+ 1265.020 SiII Silicon
+10.400 B 1280.350 SiIII Silicon
+5.350 B+ 1294.540 SiIII Silicon
+7.100 B+ 1296.730 SiIII Silicon
+5.290 B+ 1298.890 SiIII Silicon
+15.900 A 1298.960 SiIII Silicon
+21.100 B+ 1301.150 SiIII Silicon
+8.710 B+ 1303.320 SiIII Silicon
+3.640 C+ 1304.370 SiII Silicon
+6.230 C+ 1309.270 SiII Silicon
+6.660 D+ 1312.590 SiIII Silicon
+8.960 B 1341.470 SiIII Silicon
+7.540 B 1342.390 SiIII Silicon
+8.160 B 1343.390 SiIII Silicon
+3.360 C 1348.540 SiII Silicon
+5.340 C+ 1350.060 SiII Silicon
+1.610 D+ 1350.520 SiII Silicon
+2.020 D 1350.660 SiII Silicon
+6.120 C 1352.640 SiII Silicon
+3.220 C 1353.720 SiII Silicon
+10.600 B 1361.600 SiIII Silicon
+10.600 C+ 1362.370 SiIII Silicon
+8.530 B 1363.470 SiIII Silicon
+9.400 B 1365.260 SiIII Silicon
+10.500 B 1367.050 SiIII Silicon
+10.400 C+ 1369.440 SiIII Silicon
+8.000 B 1373.030 SiIII Silicon
+0.209 D+ 1387.990 SiIII Silicon
+8.800 A+ 1393.760 SiIV Silicon
+8.630 A+ 1402.770 SiIV Silicon
+3.470 D+ 1410.220 SiII Silicon
+21.700 B 1417.240 SiIII Silicon
+8.670 B 1433.690 SiIII Silicon
+4.220 D+ 1435.770 SiIII Silicon
+7.790 C+ 1436.170 SiIII Silicon
+10.700 C 1457.250 SiIII Silicon
+21.000 B+ 1500.240 SiIII Silicon
+18.600 B+ 1501.190 SiIII Silicon
+17.600 B 1501.870 SiIII Silicon
+12.400 B 1506.060 SiIII Silicon
+2.850 D+ 1509.100 SiII Silicon
+3.150 D+ 1512.070 SiII Silicon
+3.810 C+ 1526.720 SiII Silicon
+7.520 C+ 1533.450 SiII Silicon
+0.716 E 1625.710 Si Silicon
+0.873 C 1629.430 Si Silicon
+0.175 D 1666.370 Si Silicon
+0.827 E 1667.620 Si Silicon
+0.258 D 1668.520 Si Silicon
+0.309 D+ 1672.590 Si Silicon
+6.700 C+ 1673.320 SiIII Silicon
+0.641 C 1675.200 Si Silicon
+0.675 D+ 1693.290 Si Silicon
+0.397 D+ 1695.510 Si Silicon
+1.220 C 1696.200 Si Silicon
+1.380 C 1697.940 Si Silicon
+0.312 D+ 1700.420 Si Silicon
+0.306 D+ 1700.630 Si Silicon
+0.188 D 1702.860 Si Silicon
+0.261 D+ 1704.430 Si Silicon
+4.920 A 1722.530 SiIV Silicon
+5.470 A 1727.380 SiIV Silicon
+0.058 D 1776.830 Si Silicon
+0.025 C 1808.000 SiII Silicon
+0.683 C 1809.090 Si Silicon
+1.150 C 1814.070 Si Silicon
+0.026 C 1816.920 SiII Silicon
+0.003 C 1817.450 SiII Silicon
+0.131 D+ 1836.510 Si Silicon
+0.150 D 1841.150 Si Silicon
+0.367 D+ 1841.440 Si Silicon
+2.990 B 1842.550 SiIII Silicon
+0.335 D+ 1843.770 Si Silicon
+1.680 C+ 1845.510 Si Silicon
+0.568 E 1846.100 Si Silicon
+2.330 C+ 1847.470 Si Silicon
+1.230 C+ 1848.140 Si Silicon
+0.392 D+ 1848.740 Si Silicon
+3.050 C+ 1850.670 Si Silicon
+0.740 C+ 1852.460 Si Silicon
+0.079 C 1853.150 Si Silicon
+1.070 D 1874.840 Si Silicon
+0.050 D+ 1881.850 Si Silicon
+1.000 C 1901.330 Si Silicon
+0.049 D 1904.660 Si Silicon
+0.960 D 2072.680 SiII Silicon
+1.000 D 2073.360 SiII Silicon
+3.060 A+ 2120.850 SiIV Silicon
+2.970 B 2124.790 Si Silicon
+6.140 A+ 2128.140 SiIV Silicon
+1.800 B 2177.570 SiIII Silicon
+0.262 B 2208.670 Si Silicon
+0.346 B 2211.580 Si Silicon
+0.181 B 2212.430 Si Silicon
+0.454 B 2217.360 Si Silicon
+0.109 B 2218.750 Si Silicon
+0.011 C+ 2219.600 Si Silicon
+6.410 A 2287.750 SiIV Silicon
+0.427 A 2287.750 SiIV Silicon
+5.980 A 2287.750 SiIV Silicon
+0.669 C+ 2296.190 SiIII Silicon
+0.058 C 2301.640 SiIII Silicon
+3.480 C+ 2303.770 Si Silicon
+0.716 B 2308.900 SiIII Silicon
+0.000 D+ 2335.120 SiII Silicon
+0.000 D+ 2335.330 SiII Silicon
+0.000 D 2344.920 SiII Silicon
+0.000 D+ 2350.890 SiII Silicon
+0.518 B+ 2367.480 SiIV Silicon
+1.040 B+ 2371.710 SiIV Silicon
+0.443 B 2435.890 Si Silicon
+0.008 D 2439.510 Si Silicon
+0.013 D 2444.100 Si Silicon
+0.181 C 2450.220 SiIII Silicon
+0.002 E 2452.860 Si Silicon
+0.066 B+ 2483.570 SiIV Silicon
+0.133 D+ 2483.950 SiIII Silicon
+0.071 B+ 2486.130 SiIV Silicon
+0.547 B 2507.660 Si Silicon
+0.739 B 2515.080 Si Silicon
+1.680 B 2516.8700 Si Silicon
+0.549 B 2519.9600 Si Silicon
+2.220 B 2524.8670 Si Silicon
+0.904 B 2529.2690 Si Silicon
+0.245 C 2533.1420 Si Silicon
+0.322 B 2542.580 SiIII Silicon
+0.610 D 2546.850 SiIII Silicon
+1.630 C+ 2559.980 SiIII Silicon
+0.042 D 2569.4110 Si Silicon
+1.060 B 2632.0670 Si Silicon
+1.830 B 2641.580 SiIII Silicon
+1.350 B 2656.300 SiIII Silicon
+0.025 B+ 2672.980 SiIV Silicon
+0.274 A 2675.920 SiIV Silicon
+0.261 A 2676.050 SiIV Silicon
+0.005 B 2678.370 SiIV Silicon
+0.035 D+ 2683.010 SiII Silicon
+1.100 B+ 2724.620 SiIV Silicon
+0.073 B 2724.620 SiIV Silicon
+0.222 C+ 2817.940 SiIII Silicon
+0.212 C+ 2832.320 SiIII Silicon
+0.237 C 2840.450 SiIII Silicon
+2.170 B 2882.4240 Si Silicon
+0.064 D+ 2888.360 SiII Silicon
+0.358 C 2905.130 SiII Silicon
+0.383 C 2906.540 SiII Silicon
+0.148 C 2960.010 SiIII Silicon
+0.001 E 2971.2220 Si Silicon
+0.005 C+ 2972.390 SiIV Silicon
+0.092 B+ 2972.390 SiIV Silicon
+0.097 B 2972.390 SiIV Silicon
+0.002 D 2981.390 SiIII Silicon
+0.027 D+ 2988.5170 Si Silicon
+0.000 E 3007.6150 Si Silicon
+0.057 C 3013.970 SiIII Silicon
+0.000 E 3020.8840 Si Silicon
+0.450 B 3035.610 SiIII Silicon
+0.039 C 3038.170 SiIII Silicon
+0.487 B 3041.810 SiIII Silicon
+0.251 C+ 3044.820 SiIII Silicon
+0.224 C 3045.970 SiIII Silicon
+0.515 C+ 3069.130 SiIII Silicon
+1.460 B+ 3087.140 SiIII Silicon
+0.261 C+ 3087.360 SiIII Silicon
+1.300 B 3094.320 SiIII Silicon
+0.433 C+ 3094.550 SiIII Silicon
+1.730 B 3097.730 SiIII Silicon
+0.467 C+ 3127.180 SiIII Silicon
+0.253 C+ 3148.280 SiIII Silicon
+4.020 A+ 3150.470 SiIV Silicon
+0.491 C+ 3162.530 SiIII Silicon
+4.770 A+ 3166.630 SiIV Silicon
+4.040 B 3186.050 SiIII Silicon
+1.130 B 3186.940 SiIII Silicon
+1.140 B 3197.420 SiIII Silicon
+0.445 C+ 3204.800 SiII Silicon
+0.529 C+ 3210.960 SiII Silicon
+1.200 B+ 3211.480 SiIII Silicon
+0.190 D+ 3217.180 SiIII Silicon
+0.475 C+ 3231.430 SiIII Silicon
+1.420 B 3234.880 SiIII Silicon
+2.350 B 3242.560 SiIII Silicon
+0.421 B+ 3245.130 SiIV Silicon
+0.182 C+ 3254.340 SiIII Silicon
+0.175 C+ 3254.680 SiIII Silicon
+0.181 C+ 3255.740 SiIII Silicon
+1.010 B 3259.600 SiIII Silicon
+0.299 C+ 3271.400 SiIII Silicon
+0.891 B 3277.200 SiIII Silicon
+1.180 C+ 3280.200 SiIII Silicon
+0.100 C 3334.100 SiII Silicon
+0.200 C+ 3340.780 SiII Silicon
+1.540 B+ 3487.910 SiIII Silicon
+0.248 C+ 3526.950 SiIII Silicon
+0.578 D+ 3570.690 SiIII Silicon
+2.530 C 3591.490 SiIII Silicon
+0.125 C+ 3623.570 SiIII Silicon
+0.224 C 3640.490 SiIII Silicon
+0.096 C+ 3646.160 SiIII Silicon
+0.251 D+ 3682.450 SiIII Silicon
+0.150 D+ 3683.200 SiIII Silicon
+0.233 A 3763.510 SiIV Silicon
+2.330 A 3774.220 SiIV Silicon
+1.760 B+ 3792.490 SiIII Silicon
+2.360 B+ 3797.190 SiIII Silicon
+3.140 B+ 3807.620 SiIII Silicon
+0.173 C+ 3843.550 SiIII Silicon
+0.051 C 3854.750 SiII Silicon
+0.440 C+ 3857.110 SiII Silicon
+0.391 C+ 3863.700 SiII Silicon
+0.133 B 3906.6290 Si Silicon
+3.470 B+ 3925.580 SiIII Silicon
+0.056 C+ 3948.610 SiIII Silicon
+0.036 C 3964.960 SiIII Silicon
+0.002 D 3982.370 SiIII Silicon
+0.229 B+ 4032.530 SiIV Silicon
+0.459 B+ 4039.200 SiIV Silicon
+0.040 C+ 4076.600 SiII Silicon
+0.040 C+ 4077.930 SiII Silicon
+1.560 A+ 4090.000 SiIV Silicon
+0.246 C+ 4103.580 SiIII Silicon
+0.001 E 4104.0940 Si Silicon
+0.407 C 4116.660 SiIII Silicon
+1.530 A+ 4117.260 SiIV Silicon
+1.490 B 4129.230 SiII Silicon
+1.740 B 4132.060 SiII Silicon
+0.109 A 4213.600 SiIV Silicon
+1.630 A 4213.600 SiIV Silicon
+1.060 A 4315.310 SiIV Silicon
+2.120 A 4329.400 SiIV Silicon
+0.147 C 4339.720 SiIII Silicon
+0.005 D 4342.620 SiIII Silicon
+0.041 C 4378.860 SiIII Silicon
+0.027 B+ 4404.970 SiIV Silicon
+0.409 B+ 4404.970 SiIV Silicon
+0.382 B+ 4404.970 SiIV Silicon
+0.048 D+ 4407.140 SiIII Silicon
+0.310 C+ 4407.960 SiIII Silicon
+0.017 B 4412.890 SiIV Silicon
+0.419 B 4495.310 SiIII Silicon
+1.260 B+ 4553.900 SiIII Silicon
+0.675 B 4555.280 SiIII Silicon
+1.250 B+ 4569.100 SiIII Silicon
+1.240 B 4576.040 SiIII Silicon
+0.022 B+ 4612.560 SiIV Silicon
+0.004 B 4612.560 SiIV Silicon
+0.289 B 4620.950 SiIII Silicon
+0.128 D 4622.710 SiII Silicon
+0.137 D 4623.010 SiII Silicon
+0.379 B 4639.580 SiIII Silicon
+0.279 B 4667.180 SiIII Silicon
+0.830 B+ 4684.330 SiIII Silicon
+1.100 B 4685.110 SiIII Silicon
+1.320 B 4717.970 SiIII Silicon
+0.447 B 4731.840 SiIII Silicon
+0.017 D 4784.3280 Si Silicon
+0.022 D 4793.5520 Si Silicon
+0.017 D 4793.6640 Si Silicon
+0.276 B 4801.770 SiIII Silicon
+2.100 B+ 4814.680 SiIII Silicon
+2.120 B+ 4821.070 SiIII Silicon
+2.250 B+ 4830.320 SiIII Silicon
+0.042 D 4948.9880 Si Silicon
+0.189 A 4951.490 SiIV Silicon
+0.199 A 4951.490 SiIV Silicon
+0.009 B+ 4951.490 SiIV Silicon
+0.028 D 5007.4570 Si Silicon
+0.700 B 5042.440 SiII Silicon
+1.450 B 5057.390 SiII Silicon
+0.382 C+ 5115.190 SiIII Silicon
+0.417 C+ 5115.550 SiIII Silicon
+0.247 B 5198.710 SiIII Silicon
+0.021 B+ 5306.450 SiIV Silicon
+0.190 B+ 5306.450 SiIV Silicon
+0.210 B+ 5310.970 SiIV Silicon
+0.460 B+ 5452.980 SiIII Silicon
+0.216 C 5467.950 SiII Silicon
+0.015 D+ 5468.390 SiII Silicon
+0.607 B+ 5474.570 SiIII Silicon
+0.016 D 5623.7820 Si Silicon
+0.040 C+ 5634.530 SiII Silicon
+0.010 D 5647.1780 Si Silicon
+0.070 C+ 5662.230 SiII Silicon
+0.006 D 5667.1260 Si Silicon
+0.500 B+ 5671.130 SiII Silicon
+0.100 C+ 5683.020 SiII Silicon
+0.026 D 5686.0610 Si Silicon
+0.460 B 5690.390 SiII Silicon
+0.009 D+ 5692.0040 Si Silicon
+0.018 D 5702.6870 Si Silicon
+0.450 B 5702.950 SiII Silicon
+0.186 B 5706.180 SiIII Silicon
+0.610 B 5707.950 SiII Silicon
+0.014 D+ 5709.9810 Si Silicon
+0.191 B 5717.880 SiIII Silicon
+0.541 B+ 5741.320 SiIII Silicon
+0.012 E 5755.8160 Si Silicon
+0.036 D+ 5773.7460 Si Silicon
+0.003 D 5781.9870 Si Silicon
+0.004 E 5794.6770 Si Silicon
+0.003 D 5799.4670 Si Silicon
+0.486 B 5900.420 SiIII Silicon
+0.022 C 5950.1930 Si Silicon
+0.560 B+ 5959.210 SiII Silicon
+1.130 B+ 5980.590 SiII Silicon
+1.180 B 6316.210 SiIII Silicon
+0.000 E 6333.7050 Si Silicon
+0.584 B+ 6348.850 SiII Silicon
+0.680 C+ 6373.120 SiII Silicon
+0.382 B+ 6526.160 SiIII Silicon
+0.007 D 6557.2730 Si Silicon
+0.364 C+ 6662.360 SiII Silicon
+0.216 C+ 6666.840 SiII Silicon
+1.150 A+ 6669.400 SiIV Silicon
+0.480 B+ 6673.720 SiII Silicon
+0.420 B 6701.230 SiII Silicon
+1.360 A+ 6703.060 SiIV Silicon
+0.034 D 6723.7090 Si Silicon
+0.149 C+ 6752.140 SiII Silicon
+0.108 C 6820.330 SiII Silicon
+0.022 D+ 6831.700 SiII Silicon
+0.583 B+ 6833.450 SiIII Silicon
+0.033 D 6978.4470 Si Silicon
+0.037 B+ 7000.290 SiIV Silicon
+0.548 A 7000.290 SiIV Silicon
+0.511 A 7000.290 SiIV Silicon
+0.034 D+ 7005.4980 Si Silicon
+0.038 D+ 7007.8150 Si Silicon
+0.905 A 7049.880 SiIV Silicon
+1.000 A 7070.360 SiIV Silicon
+0.007 E 7195.560 Si Silicon
+0.499 B 7463.950 SiIII Silicon
+0.375 B+ 7464.680 SiIII Silicon
+0.419 B+ 7468.380 SiIII Silicon
+0.994 B+ 7614.460 SiIII Silicon
+0.440 B+ 7632.600 SiIV Silicon
+0.882 A 7656.670 SiIV Silicon
+0.046 C+ 7682.3810 Si Silicon
+0.053 C 7744.840 Si Silicon
+0.373 B 7850.960 SiII Silicon
+0.399 B 7851.880 SiII Silicon
+0.052 C+ 7920.5640 Si Silicon
+0.051 C+ 7934.5310 Si Silicon
+0.058 B 7946.1860 Si Silicon
+0.007 C 7972.4980 Si Silicon
+0.008 D 8037.8290 Si Silicon
+0.015 D 8095.4660 Si Silicon
+0.809 B+ 8192.680 SiIII Silicon
+0.070 B 8193.410 SiIII Silicon
+0.878 B+ 8193.930 SiIII Silicon
+0.123 B+ 8242.880 SiIV Silicon
+0.117 B+ 8242.880 SiIV Silicon
+0.006 B+ 8242.880 SiIV Silicon
+0.718 B+ 8264.840 SiIII Silicon
+0.180 B+ 8267.910 SiIII Silicon
+0.536 B+ 8271.590 SiIII Silicon
+0.298 B+ 8273.650 SiIII Silicon
+0.396 B+ 8274.210 SiIII Silicon
+0.091 C 8650.8380 Si Silicon
+0.426 A+ 8959.710 SiIV Silicon
+0.417 A 9020.640 SiIV Silicon
+0.046 C+ 9415.300 SiII Silicon
+0.226 C+ 9416.0890 Si Silicon
+0.040 C+ 10374.1110 Si Silicon
+0.178 B 10588.0410 Si Silicon
+0.052 C+ 10606.3360 Si Silicon
+0.093 C+ 10663.8960 Si Silicon
+0.153 C+ 10697.1810 Si Silicon
+0.170 B 10730.3470 Si Silicon
+0.103 C+ 10752.3290 Si Silicon
+0.026 D+ 10787.5040 Si Silicon
+0.248 C+ 10789.8110 Si Silicon
+0.197 B 10830.0570 Si Silicon
+0.188 C+ 10846.8240 Si Silicon
+0.218 B 10872.5180 Si Silicon
+0.018 D+ 10885.7830 Si Silicon
+0.051 C+ 10982.3150 Si Silicon
+0.140 B 11987.470 Si Silicon
+0.104 C+ 11994.850 Si Silicon
+0.173 B 12034.800 Si Silicon
+0.061 C+ 12106.840 Si Silicon
+0.032 C+ 12274.040 Si Silicon
+0.118 C+ 13180.500 Si Silicon
+0.088 B 15892.730 Si Silicon
+0.082 C+ 15964.400 Si Silicon
+0.096 C 16064.420 Si Silicon
+0.072 C+ 16099.200 Si Silicon
+0.007 C+ 16168.130 Si Silicon
+0.023 C+ 16220.110 Si Silicon
+0.020 C+ 16386.030 Si Silicon
+0.028 B 16685.330 Si Silicon
+0.043 C+ 18728.010 Si Silicon
+0.034 B 19391.230 Si Silicon
+0.044 B 19438.280 Si Silicon
+0.014 C 19498.700 Si Silicon
+0.058 B 19727.880 Si Silicon
+0.016 B 19934.320 Si Silicon
+0.061 C+ 21360.070 Si Silicon

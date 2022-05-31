@@ -1,192 +1,192 @@
-20.000 E 419.650 F Fluorine 4
-61.000 E 420.050 F Fluorine 4
-100.000 E 420.730 F Fluorine 4
-130.000 E 430.760 F Fluorine 4
-14.600 A 464.370 F Fluorine 5
-57.200 A 465.370 F Fluorine 5
-73.400 A 465.980 F Fluorine 5
-30.600 A 466.990 F Fluorine 5
-27.000 E 490.570 F Fluorine 4
-86.000 E 491.000 F Fluorine 4
-16.000 A 506.160 F Fluorine 5
-27.900 A 508.080 F Fluorine 5
-11.000 E 570.640 F Fluorine 4
-33.000 E 571.300 F Fluorine 4
-8.300 E 571.390 F Fluorine 4
-24.000 E 572.660 F Fluorine 4
-43.000 E 605.670 F Fluorine 2
-100.000 E 606.290 F Fluorine 2
-78.000 E 606.800 F Fluorine 2
-26.000 E 606.920 F Fluorine 2
-33.000 E 607.470 F Fluorine 2
-25.000 E 608.060 F Fluorine 2
-7.880 A 654.030 F Fluorine 5
-1.480 A 657.230 F Fluorine 5
-9.200 A 657.330 F Fluorine 5
-6.300 E 676.120 F Fluorine 4
-4.800 E 677.150 F Fluorine 4
-8.500 E 677.220 F Fluorine 4
-2.800 E 678.990 F Fluorine 4
-11.000 E 679.210 F Fluorine 4
-3.130 B 806.9700 F Fluorine 1
-2.640 B 809.6070 F Fluorine 1
-2.420 B+ 951.8710 F Fluorine 1
-5.980 B+ 954.8250 F Fluorine 1
-4.740 B+ 955.5450 F Fluorine 1
-1.150 B+ 958.5240 F Fluorine 1
-1.720 A 2451.370 F Fluorine 5
-1.700 A 2462.070 F Fluorine 5
-2.750 C 3040.130 F Fluorine 3
-2.560 C 3040.630 F Fluorine 3
-0.670 D 3114.520 F Fluorine 3
-1.100 D 3116.600 F Fluorine 3
-1.600 D 3122.450 F Fluorine 3
-1.300 D 3125.700 F Fluorine 3
-0.840 D 3135.140 F Fluorine 3
-0.470 D 3147.900 F Fluorine 3
-1.700 D 3175.090 F Fluorine 3
-1.400 D 3175.680 F Fluorine 3
-1.400 D 3203.690 F Fluorine 2
-0.270 D 3214.930 F Fluorine 3
-2.860 C 3502.390 F Fluorine 2
-2.150 C 3502.450 F Fluorine 2
-1.000 C 3502.570 F Fluorine 2
-0.720 C 3503.840 F Fluorine 2
-1.670 C 3503.960 F Fluorine 2
-1.910 C 3504.110 F Fluorine 2
-0.190 C 3506.370 F Fluorine 2
-0.950 C 3506.520 F Fluorine 2
-2.860 C 3506.630 F Fluorine 2
-1.500 D 3537.880 F Fluorine 2
-1.700 D 3542.780 F Fluorine 2
-1.300 D 3848.180 F Fluorine 2
-1.300 D 3851.080 F Fluorine 2
-1.300 D 3852.760 F Fluorine 2
-1.200 D 4025.870 F Fluorine 2
-1.200 D 4026.150 F Fluorine 2
-1.200 D 4026.630 F Fluorine 2
-1.540 C 4104.230 F Fluorine 2
-0.850 C 4104.380 F Fluorine 2
-2.050 C 4104.670 F Fluorine 2
-1.140 C 4104.870 F Fluorine 2
-0.510 C 4105.030 F Fluorine 2
-1.600 D 4110.320 F Fluorine 2
-1.200 D 4117.700 F Fluorine 2
-1.300 D 4120.370 F Fluorine 2
-1.700 D 4300.380 F Fluorine 2
-1.970 C' 4447.780 F Fluorine 2
-2.090 C' 4447.970 F Fluorine 2
-2.350 C' 4448.440 F Fluorine 2
-0.002 C 6049.210 F Fluorine 1
-0.002 C 6151.460 F Fluorine 1
-0.001 C 6212.590 F Fluorine 1
-0.290 C+ 6241.3770 F Fluorine 1
-0.232 C+ 6350.2630 F Fluorine 1
-0.136 C+ 6415.4240 F Fluorine 1
-0.000 C 6465.290 F Fluorine 1
-0.004 C+ 6571.5090 F Fluorine 1
-0.003 C+ 6582.2070 F Fluorine 1
-0.003 C+ 6652.2410 F Fluorine 1
-0.015 C 6692.3280 F Fluorine 1
-0.011 C+ 6710.1340 F Fluorine 1
-0.096 C+ 6775.8540 F Fluorine 1
-0.059 C+ 6797.4030 F Fluorine 1
-0.218 C+ 6836.1500 F Fluorine 1
-0.487 C+ 6857.9220 F Fluorine 1
-0.401 C+ 6872.1110 F Fluorine 1
-0.351 C+ 6904.3790 F Fluorine 1
-0.207 C+ 6911.7220 F Fluorine 1
-0.066 C 6968.2700 F Fluorine 1
-0.423 C 7039.4100 F Fluorine 1
-0.503 C+ 7129.8550 F Fluorine 1
-0.149 C+ 7204.3450 F Fluorine 1
-0.003 C 7300.990 F Fluorine 1
-0.523 C+ 7311.0470 F Fluorine 1
-0.450 C+ 7313.0330 F Fluorine 1
-0.527 C+ 7316.3180 F Fluorine 1
-0.242 C 7333.9770 F Fluorine 1
-0.353 C 7400.7260 F Fluorine 1
-0.393 C 7427.6900 F Fluorine 1
-0.005 C 7478.600 F Fluorine 1
-0.065 C+ 7484.7840 F Fluorine 1
-0.055 C+ 7491.2170 F Fluorine 1
-0.065 C 7516.9880 F Fluorine 1
-0.089 C+ 7554.3140 F Fluorine 1
-0.132 C 7575.4690 F Fluorine 1
-0.090 C+ 7609.2640 F Fluorine 1
-0.323 C+ 7756.8300 F Fluorine 1
-0.252 C+ 7802.366310 F Fluorine 1
-0.019 C+ 7824.740 F Fluorine 1
-0.036 C+ 7881.350 F Fluorine 1
-0.122 C 7900.7610 F Fluorine 1
-0.029 C+ 7933.110 F Fluorine 1
-0.028 C+ 7938.4970 F Fluorine 1
-0.022 C+ 7956.280 F Fluorine 1
-0.033 C+ 7958.510 F Fluorine 1
-0.014 C+ 8043.1420 F Fluorine 1
-0.141 C+ 8077.7400 F Fluorine 1
-0.114 C+ 8079.7420 F Fluorine 1
-0.039 C+ 8128.790 F Fluorine 1
-0.129 C 8131.500 F Fluorine 1
-0.003 C+ 8161.750 F Fluorine 1
-0.060 C 8181.5880 F Fluorine 1
-0.043 C 8193.4930 F Fluorine 1
-0.033 C+ 8199.9880 F Fluorine 1
-0.055 C 8210.8910 F Fluorine 1
-0.148 C+ 8216.9840 F Fluorine 1
-0.379 C+ 8233.0360 F Fluorine 1
-0.108 C+ 8234.450 F Fluorine 1
-0.195 C 8276.8890 F Fluorine 1
-0.160 C+ 8300.8620 F Fluorine 1
-0.194 C 8304.680 F Fluorine 1
-0.061 C+ 8347.8500 F Fluorine 1
-0.001 C 8606.830 F Fluorine 1
-0.006 C+ 8675.000 F Fluorine 1
-0.027 C 8739.6700 F Fluorine 1
-0.010 C 8769.020 F Fluorine 1
-0.060 C+ 8780.140 F Fluorine 1
-0.041 C+ 8801.780 F Fluorine 1
-0.205 C+ 8810.0010 F Fluorine 1
-0.086 C+ 8833.6570 F Fluorine 1
-0.073 C+ 8846.9310 F Fluorine 1
-0.030 C+ 8851.490 F Fluorine 1
-0.464 C+ 8903.360 F Fluorine 1
-0.198 C+ 8912.720 F Fluorine 1
-0.219 C+ 8915.230 F Fluorine 1
-0.005 C 8916.880 F Fluorine 1
-0.004 C 8919.340 F Fluorine 1
-0.004 D+ 8966.120 F Fluorine 1
-0.012 C+ 8983.650 F Fluorine 1
-0.013 C 8986.120 F Fluorine 1
-0.029 C 9008.660 F Fluorine 1
-0.023 C 9019.330 F Fluorine 1
-0.143 C+ 9027.970 F Fluorine 1
-0.218 C+ 9044.580 F Fluorine 1
-0.025 C+ 9104.830 F Fluorine 1
-0.104 C+ 9154.290 F Fluorine 1
-0.193 C+ 9181.200 F Fluorine 1
-0.015 C 9235.380 F Fluorine 1
-0.104 C+ 9237.910 F Fluorine 1
-0.053 C+ 9247.110 F Fluorine 1
-0.142 C+ 9316.900 F Fluorine 1
-0.060 C+ 9387.530 F Fluorine 1
-0.235 C+ 9436.260 F Fluorine 1
-0.082 C 9507.910 F Fluorine 1
-0.015 C+ 9577.430 F Fluorine 1
-0.045 C+ 9664.690 F Fluorine 1
-0.064 D+ 9702.060 F Fluorine 1
-0.007 D+ 9723.240 F Fluorine 1
-0.094 C+ 9737.010 F Fluorine 1
-0.027 C 9739.370 F Fluorine 1
-0.060 C+ 9797.490 F Fluorine 1
-0.152 C 9824.800 F Fluorine 1
-0.069 D+ 9886.290 F Fluorine 1
-0.098 C+ 9905.370 F Fluorine 1
-0.108 C+ 10089.900 F Fluorine 1
-0.053 C+ 10188.940 F Fluorine 1
-0.055 C 10212.370 F Fluorine 1
-0.098 D+ 10288.270 F Fluorine 1
-0.031 C+ 10295.830 F Fluorine 1
-0.102 C+ 10383.680 F Fluorine 1
-0.057 C+ 10429.150 F Fluorine 1
-0.133 C 10865.290 F Fluorine 1
+20.000 E 419.650 FIV Fluorine
+61.000 E 420.050 FIV Fluorine
+100.000 E 420.730 FIV Fluorine
+130.000 E 430.760 FIV Fluorine
+14.600 A 464.370 FV Fluorine
+57.200 A 465.370 FV Fluorine
+73.400 A 465.980 FV Fluorine
+30.600 A 466.990 FV Fluorine
+27.000 E 490.570 FIV Fluorine
+86.000 E 491.000 FIV Fluorine
+16.000 A 506.160 FV Fluorine
+27.900 A 508.080 FV Fluorine
+11.000 E 570.640 FIV Fluorine
+33.000 E 571.300 FIV Fluorine
+8.300 E 571.390 FIV Fluorine
+24.000 E 572.660 FIV Fluorine
+43.000 E 605.670 FII Fluorine
+100.000 E 606.290 FII Fluorine
+78.000 E 606.800 FII Fluorine
+26.000 E 606.920 FII Fluorine
+33.000 E 607.470 FII Fluorine
+25.000 E 608.060 FII Fluorine
+7.880 A 654.030 FV Fluorine
+1.480 A 657.230 FV Fluorine
+9.200 A 657.330 FV Fluorine
+6.300 E 676.120 FIV Fluorine
+4.800 E 677.150 FIV Fluorine
+8.500 E 677.220 FIV Fluorine
+2.800 E 678.990 FIV Fluorine
+11.000 E 679.210 FIV Fluorine
+3.130 B 806.9700 F Fluorine
+2.640 B 809.6070 F Fluorine
+2.420 B+ 951.8710 F Fluorine
+5.980 B+ 954.8250 F Fluorine
+4.740 B+ 955.5450 F Fluorine
+1.150 B+ 958.5240 F Fluorine
+1.720 A 2451.370 FV Fluorine
+1.700 A 2462.070 FV Fluorine
+2.750 C 3040.130 FIII Fluorine
+2.560 C 3040.630 FIII Fluorine
+0.670 D 3114.520 FIII Fluorine
+1.100 D 3116.600 FIII Fluorine
+1.600 D 3122.450 FIII Fluorine
+1.300 D 3125.700 FIII Fluorine
+0.840 D 3135.140 FIII Fluorine
+0.470 D 3147.900 FIII Fluorine
+1.700 D 3175.090 FIII Fluorine
+1.400 D 3175.680 FIII Fluorine
+1.400 D 3203.690 FII Fluorine
+0.270 D 3214.930 FIII Fluorine
+2.860 C 3502.390 FII Fluorine
+2.150 C 3502.450 FII Fluorine
+1.000 C 3502.570 FII Fluorine
+0.720 C 3503.840 FII Fluorine
+1.670 C 3503.960 FII Fluorine
+1.910 C 3504.110 FII Fluorine
+0.190 C 3506.370 FII Fluorine
+0.950 C 3506.520 FII Fluorine
+2.860 C 3506.630 FII Fluorine
+1.500 D 3537.880 FII Fluorine
+1.700 D 3542.780 FII Fluorine
+1.300 D 3848.180 FII Fluorine
+1.300 D 3851.080 FII Fluorine
+1.300 D 3852.760 FII Fluorine
+1.200 D 4025.870 FII Fluorine
+1.200 D 4026.150 FII Fluorine
+1.200 D 4026.630 FII Fluorine
+1.540 C 4104.230 FII Fluorine
+0.850 C 4104.380 FII Fluorine
+2.050 C 4104.670 FII Fluorine
+1.140 C 4104.870 FII Fluorine
+0.510 C 4105.030 FII Fluorine
+1.600 D 4110.320 FII Fluorine
+1.200 D 4117.700 FII Fluorine
+1.300 D 4120.370 FII Fluorine
+1.700 D 4300.380 FII Fluorine
+1.970 C' 4447.780 FII Fluorine
+2.090 C' 4447.970 FII Fluorine
+2.350 C' 4448.440 FII Fluorine
+0.002 C 6049.210 F Fluorine
+0.002 C 6151.460 F Fluorine
+0.001 C 6212.590 F Fluorine
+0.290 C+ 6241.3770 F Fluorine
+0.232 C+ 6350.2630 F Fluorine
+0.136 C+ 6415.4240 F Fluorine
+0.000 C 6465.290 F Fluorine
+0.004 C+ 6571.5090 F Fluorine
+0.003 C+ 6582.2070 F Fluorine
+0.003 C+ 6652.2410 F Fluorine
+0.015 C 6692.3280 F Fluorine
+0.011 C+ 6710.1340 F Fluorine
+0.096 C+ 6775.8540 F Fluorine
+0.059 C+ 6797.4030 F Fluorine
+0.218 C+ 6836.1500 F Fluorine
+0.487 C+ 6857.9220 F Fluorine
+0.401 C+ 6872.1110 F Fluorine
+0.351 C+ 6904.3790 F Fluorine
+0.207 C+ 6911.7220 F Fluorine
+0.066 C 6968.2700 F Fluorine
+0.423 C 7039.4100 F Fluorine
+0.503 C+ 7129.8550 F Fluorine
+0.149 C+ 7204.3450 F Fluorine
+0.003 C 7300.990 F Fluorine
+0.523 C+ 7311.0470 F Fluorine
+0.450 C+ 7313.0330 F Fluorine
+0.527 C+ 7316.3180 F Fluorine
+0.242 C 7333.9770 F Fluorine
+0.353 C 7400.7260 F Fluorine
+0.393 C 7427.6900 F Fluorine
+0.005 C 7478.600 F Fluorine
+0.065 C+ 7484.7840 F Fluorine
+0.055 C+ 7491.2170 F Fluorine
+0.065 C 7516.9880 F Fluorine
+0.089 C+ 7554.3140 F Fluorine
+0.132 C 7575.4690 F Fluorine
+0.090 C+ 7609.2640 F Fluorine
+0.323 C+ 7756.8300 F Fluorine
+0.252 C+ 7802.366310 F Fluorine
+0.019 C+ 7824.740 F Fluorine
+0.036 C+ 7881.350 F Fluorine
+0.122 C 7900.7610 F Fluorine
+0.029 C+ 7933.110 F Fluorine
+0.028 C+ 7938.4970 F Fluorine
+0.022 C+ 7956.280 F Fluorine
+0.033 C+ 7958.510 F Fluorine
+0.014 C+ 8043.1420 F Fluorine
+0.141 C+ 8077.7400 F Fluorine
+0.114 C+ 8079.7420 F Fluorine
+0.039 C+ 8128.790 F Fluorine
+0.129 C 8131.500 F Fluorine
+0.003 C+ 8161.750 F Fluorine
+0.060 C 8181.5880 F Fluorine
+0.043 C 8193.4930 F Fluorine
+0.033 C+ 8199.9880 F Fluorine
+0.055 C 8210.8910 F Fluorine
+0.148 C+ 8216.9840 F Fluorine
+0.379 C+ 8233.0360 F Fluorine
+0.108 C+ 8234.450 F Fluorine
+0.195 C 8276.8890 F Fluorine
+0.160 C+ 8300.8620 F Fluorine
+0.194 C 8304.680 F Fluorine
+0.061 C+ 8347.8500 F Fluorine
+0.001 C 8606.830 F Fluorine
+0.006 C+ 8675.000 F Fluorine
+0.027 C 8739.6700 F Fluorine
+0.010 C 8769.020 F Fluorine
+0.060 C+ 8780.140 F Fluorine
+0.041 C+ 8801.780 F Fluorine
+0.205 C+ 8810.0010 F Fluorine
+0.086 C+ 8833.6570 F Fluorine
+0.073 C+ 8846.9310 F Fluorine
+0.030 C+ 8851.490 F Fluorine
+0.464 C+ 8903.360 F Fluorine
+0.198 C+ 8912.720 F Fluorine
+0.219 C+ 8915.230 F Fluorine
+0.005 C 8916.880 F Fluorine
+0.004 C 8919.340 F Fluorine
+0.004 D+ 8966.120 F Fluorine
+0.012 C+ 8983.650 F Fluorine
+0.013 C 8986.120 F Fluorine
+0.029 C 9008.660 F Fluorine
+0.023 C 9019.330 F Fluorine
+0.143 C+ 9027.970 F Fluorine
+0.218 C+ 9044.580 F Fluorine
+0.025 C+ 9104.830 F Fluorine
+0.104 C+ 9154.290 F Fluorine
+0.193 C+ 9181.200 F Fluorine
+0.015 C 9235.380 F Fluorine
+0.104 C+ 9237.910 F Fluorine
+0.053 C+ 9247.110 F Fluorine
+0.142 C+ 9316.900 F Fluorine
+0.060 C+ 9387.530 F Fluorine
+0.235 C+ 9436.260 F Fluorine
+0.082 C 9507.910 F Fluorine
+0.015 C+ 9577.430 F Fluorine
+0.045 C+ 9664.690 F Fluorine
+0.064 D+ 9702.060 F Fluorine
+0.007 D+ 9723.240 F Fluorine
+0.094 C+ 9737.010 F Fluorine
+0.027 C 9739.370 F Fluorine
+0.060 C+ 9797.490 F Fluorine
+0.152 C 9824.800 F Fluorine
+0.069 D+ 9886.290 F Fluorine
+0.098 C+ 9905.370 F Fluorine
+0.108 C+ 10089.900 F Fluorine
+0.053 C+ 10188.940 F Fluorine
+0.055 C 10212.370 F Fluorine
+0.098 D+ 10288.270 F Fluorine
+0.031 C+ 10295.830 F Fluorine
+0.102 C+ 10383.680 F Fluorine
+0.057 C+ 10429.150 F Fluorine
+0.133 C 10865.290 F Fluorine

@@ -1,32 +1,32 @@
-0.220  829.5290 Ga Gallium 2
-19.700  1414.4010 Ga Gallium 2
-8.050  1495.0450 Ga Gallium 3
-8.540  1504.9260 Ga Gallium 2
-11.300  1514.5040 Ga Gallium 2
-6.270  1515.1060 Ga Gallium 2
-7.420  1534.4620 Ga Gallium 3
-14.500  1535.3090 Ga Gallium 2
-3.610  1536.2760 Ga Gallium 2
-0.400  1536.8980 Ga Gallium 2
-14.600  1802.2510 Ga Gallium 2
-0.004  2091.432680 Ga Gallium 2
-0.031 C 2200.310 Ga Gallium 1
-0.032 C+ 2215.050 Ga Gallium 1
-0.031 C+ 2255.7330 Ga Gallium 1
-0.031 C 2259.9260 Ga Gallium 1
-0.070 C+ 2294.900 Ga Gallium 1
-0.056 C+ 2298.5770 Ga Gallium 1
-0.097 C+ 2338.960 Ga Gallium 1
-0.016 C+ 2339.3130 Ga Gallium 1
-0.056 C+ 2372.010 Ga Gallium 1
-0.100 C+ 2419.420 Ga Gallium 1
-0.278 C+ 2450.8200 Ga Gallium 1
-0.334 C+ 2500.9410 Ga Gallium 1
-0.055 C+ 2501.4680 Ga Gallium 1
-0.122 C+ 2660.6640 Ga Gallium 1
-0.234 C+ 2720.4700 Ga Gallium 1
-1.170 B+ 2875.0780 Ga Gallium 1
-1.340 B+ 2944.4970 Ga Gallium 1
-0.261 B+ 2945.0340 Ga Gallium 1
-0.485 B+ 4034.1240 Ga Gallium 1
-0.945 B+ 4173.2180 Ga Gallium 1
+0.220  829.5290 GaII Gallium
+19.700  1414.4010 GaII Gallium
+8.050  1495.0450 GaIII Gallium
+8.540  1504.9260 GaII Gallium
+11.300  1514.5040 GaII Gallium
+6.270  1515.1060 GaII Gallium
+7.420  1534.4620 GaIII Gallium
+14.500  1535.3090 GaII Gallium
+3.610  1536.2760 GaII Gallium
+0.400  1536.8980 GaII Gallium
+14.600  1802.2510 GaII Gallium
+0.004  2091.432680 GaII Gallium
+0.031 C 2200.310 Ga Gallium
+0.032 C+ 2215.050 Ga Gallium
+0.031 C+ 2255.7330 Ga Gallium
+0.031 C 2259.9260 Ga Gallium
+0.070 C+ 2294.900 Ga Gallium
+0.056 C+ 2298.5770 Ga Gallium
+0.097 C+ 2338.960 Ga Gallium
+0.016 C+ 2339.3130 Ga Gallium
+0.056 C+ 2372.010 Ga Gallium
+0.100 C+ 2419.420 Ga Gallium
+0.278 C+ 2450.8200 Ga Gallium
+0.334 C+ 2500.9410 Ga Gallium
+0.055 C+ 2501.4680 Ga Gallium
+0.122 C+ 2660.6640 Ga Gallium
+0.234 C+ 2720.4700 Ga Gallium
+1.170 B+ 2875.0780 Ga Gallium
+1.340 B+ 2944.4970 Ga Gallium
+0.261 B+ 2945.0340 Ga Gallium
+0.485 B+ 4034.1240 Ga Gallium
+0.945 B+ 4173.2180 Ga Gallium

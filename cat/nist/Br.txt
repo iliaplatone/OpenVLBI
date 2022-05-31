@@ -1,56 +1,56 @@
-0.060 E 1178.8950 Br Bromine 1
-0.280 E 1317.3720 Br Bromine 1
-10.000 E 1317.6950 Br Bromine 1
-5.000 E 1384.5980 Br Bromine 1
-9.000 E 1449.9030 Br Bromine 1
-2.000 D+ 1488.4520 Br Bromine 1
-6.000 E 1531.7430 Br Bromine 1
-2.200 D+ 1540.6540 Br Bromine 1
-0.200 D+ 1574.8410 Br Bromine 1
-0.057 D+ 1576.3870 Br Bromine 1
-0.500 E 1582.3120 Br Bromine 1
-0.230 D+ 1633.4040 Br Bromine 1
-0.015 D+ 4366.3660 Br Bromine 1
-0.009 D+ 4426.3830 Br Bromine 1
-0.015 C 4442.9870 Br Bromine 1
-0.022 D 4473.8640 Br Bromine 1
-0.021 C 4478.9760 Br Bromine 1
-0.016 E 4491.6790 Br Bromine 1
-0.006 D+ 4514.7050 Br Bromine 1
-0.015 D+ 4526.8590 Br Bromine 1
-1.100  4706.170 Br Bromine 2
-0.940  4786.840 Br Bromine 2
-1.100  4818.050 Br Bromine 2
-0.005 D+ 4981.1480 Br Bromine 1
-0.000 E 5365.6820 Br Bromine 1
-0.000 E 5371.8330 Br Bromine 1
-0.022 C 6352.4860 Br Bromine 1
-0.007 C 6561.6110 Br Bromine 1
-0.007 C 6633.4500 Br Bromine 1
-0.043 C 7007.1240 Br Bromine 1
-0.006 C 7262.4490 Br Bromine 1
-0.047 C 7350.5360 Br Bromine 1
-0.220 C+ 7940.8630 Br Bromine 1
-0.190 C+ 7980.7050 Br Bromine 1
-0.031 C 7992.1360 Br Bromine 1
-0.050 C 8133.7580 Br Bromine 1
-0.350 C+ 8274.7140 Br Bromine 1
-0.149 C+ 8336.9880 Br Bromine 1
-0.320 C+ 8345.9910 Br Bromine 1
-0.280 D 8448.8720 Br Bromine 1
-0.230 C+ 8479.7790 Br Bromine 1
-0.017 D 8568.6350 Br Bromine 1
-0.220 C+ 8641.0330 Br Bromine 1
-0.240 C+ 8700.9180 Br Bromine 1
-0.300 C+ 8822.3800 Br Bromine 1
-0.300 C+ 8827.6440 Br Bromine 1
-0.300 C+ 8900.0600 Br Bromine 1
-0.031 D 8934.8490 Br Bromine 1
-0.033 C 8951.8460 Br Bromine 1
-0.310 C+ 8966.4630 Br Bromine 1
-0.310 C+ 9168.5760 Br Bromine 1
-0.290 C+ 9176.1470 Br Bromine 1
-0.280 C+ 9180.6800 Br Bromine 1
-0.240 C+ 9267.9610 Br Bromine 1
-0.210 C+ 9323.4190 Br Bromine 1
-0.060 C+ 9796.170 Br Bromine 1
+0.060 E 1178.8950 Br Bromine
+0.280 E 1317.3720 Br Bromine
+10.000 E 1317.6950 Br Bromine
+5.000 E 1384.5980 Br Bromine
+9.000 E 1449.9030 Br Bromine
+2.000 D+ 1488.4520 Br Bromine
+6.000 E 1531.7430 Br Bromine
+2.200 D+ 1540.6540 Br Bromine
+0.200 D+ 1574.8410 Br Bromine
+0.057 D+ 1576.3870 Br Bromine
+0.500 E 1582.3120 Br Bromine
+0.230 D+ 1633.4040 Br Bromine
+0.015 D+ 4366.3660 Br Bromine
+0.009 D+ 4426.3830 Br Bromine
+0.015 C 4442.9870 Br Bromine
+0.022 D 4473.8640 Br Bromine
+0.021 C 4478.9760 Br Bromine
+0.016 E 4491.6790 Br Bromine
+0.006 D+ 4514.7050 Br Bromine
+0.015 D+ 4526.8590 Br Bromine
+1.100  4706.170 BrII Bromine
+0.940  4786.840 BrII Bromine
+1.100  4818.050 BrII Bromine
+0.005 D+ 4981.1480 Br Bromine
+0.000 E 5365.6820 Br Bromine
+0.000 E 5371.8330 Br Bromine
+0.022 C 6352.4860 Br Bromine
+0.007 C 6561.6110 Br Bromine
+0.007 C 6633.4500 Br Bromine
+0.043 C 7007.1240 Br Bromine
+0.006 C 7262.4490 Br Bromine
+0.047 C 7350.5360 Br Bromine
+0.220 C+ 7940.8630 Br Bromine
+0.190 C+ 7980.7050 Br Bromine
+0.031 C 7992.1360 Br Bromine
+0.050 C 8133.7580 Br Bromine
+0.350 C+ 8274.7140 Br Bromine
+0.149 C+ 8336.9880 Br Bromine
+0.320 C+ 8345.9910 Br Bromine
+0.280 D 8448.8720 Br Bromine
+0.230 C+ 8479.7790 Br Bromine
+0.017 D 8568.6350 Br Bromine
+0.220 C+ 8641.0330 Br Bromine
+0.240 C+ 8700.9180 Br Bromine
+0.300 C+ 8822.3800 Br Bromine
+0.300 C+ 8827.6440 Br Bromine
+0.300 C+ 8900.0600 Br Bromine
+0.031 D 8934.8490 Br Bromine
+0.033 C 8951.8460 Br Bromine
+0.310 C+ 8966.4630 Br Bromine
+0.310 C+ 9168.5760 Br Bromine
+0.290 C+ 9176.1470 Br Bromine
+0.280 C+ 9180.6800 Br Bromine
+0.240 C+ 9267.9610 Br Bromine
+0.210 C+ 9323.4190 Br Bromine
+0.060 C+ 9796.170 Br Bromine

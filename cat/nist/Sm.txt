@@ -1,14 +1,14 @@
-0.640  3569.290 Sm Samarium 2
-0.660  3593.630 Sm Samarium 2
-0.580  3610.520 Sm Samarium 2
-0.560  3635.330 Sm Samarium 2
-0.091  3695.040 Sm Samarium 2
-0.170  3740.180 Sm Samarium 2
-0.270  3746.520 Sm Samarium 1
-0.066  3746.660 Sm Samarium 2
-0.430  3991.150 Sm Samarium 1
-1.000  4297.950 Sm Samarium 1
-0.490  4364.140 Sm Samarium 1
-0.490  4729.740 Sm Samarium 1
-0.130  4761.600 Sm Samarium 1
-0.870  4843.050 Sm Samarium 1
+0.640  3569.290 SmII Samarium
+0.660  3593.630 SmII Samarium
+0.580  3610.520 SmII Samarium
+0.560  3635.330 SmII Samarium
+0.091  3695.040 SmII Samarium
+0.170  3740.180 SmII Samarium
+0.270  3746.520 Sm Samarium
+0.066  3746.660 SmII Samarium
+0.430  3991.150 Sm Samarium
+1.000  4297.950 Sm Samarium
+0.490  4364.140 Sm Samarium
+0.490  4729.740 Sm Samarium
+0.130  4761.600 Sm Samarium
+0.870  4843.050 Sm Samarium

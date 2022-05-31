@@ -1,12 +1,12 @@
-1.100  1384.6560 Sb Antimony 2
-5.200  1436.4470 Sb Antimony 2
-1.810  2068.990 Sb Antimony 1
-1.740  2140.360 Sb Antimony 1
-1.750  2176.490 Sb Antimony 1
-2.390  2179.870 Sb Antimony 1
-1.690  2312.180 Sb Antimony 1
-1.770  2529.280 Sb Antimony 1
-0.210  2598.830 Sb Antimony 1
-0.424  2878.760 Sb Antimony 1
-0.307  3233.450 Sb Antimony 1
-0.495  3268.450 Sb Antimony 1
+1.100  1384.6560 SbII Antimony
+5.200  1436.4470 SbII Antimony
+1.810  2068.990 Sb Antimony
+1.740  2140.360 Sb Antimony
+1.750  2176.490 Sb Antimony
+2.390  2179.870 Sb Antimony
+1.690  2312.180 Sb Antimony
+1.770  2529.280 Sb Antimony
+0.210  2598.830 Sb Antimony
+0.424  2878.760 Sb Antimony
+0.307  3233.450 Sb Antimony
+0.495  3268.450 Sb Antimony
