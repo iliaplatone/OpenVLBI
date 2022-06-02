@@ -544,8 +544,6 @@ void vlbi_apply_mask(vlbi_context ctx, const char *name, const char *stream, con
             return;
         }
     }
-    dsp_stream_free_buffer(masked);
-    dsp_stream_free(masked);
 }
 
 void vlbi_stack_models(vlbi_context ctx, const char *name, const char *model1, const char *model2)
@@ -561,8 +559,6 @@ void vlbi_stack_models(vlbi_context ctx, const char *name, const char *model1, c
         dsp_buffer_sum(stacked, model->buf, fmin(stacked->len, model->len));
         vlbi_add_model(ctx, stacked, name);
     }
-    dsp_stream_free_buffer(model);
-    dsp_stream_free(model);
 }
 
 void vlbi_diff_models(vlbi_context ctx, const char *name, const char *model1, const char *model2)
@@ -579,8 +575,6 @@ void vlbi_diff_models(vlbi_context ctx, const char *name, const char *model1, co
         dsp_buffer_stretch(diff->buf, diff->len, mn, mx);
         vlbi_add_model(ctx, diff, name);
     }
-    dsp_stream_free_buffer(model);
-    dsp_stream_free(model);
 }
 
 void vlbi_shift(vlbi_context ctx, const char *name)
