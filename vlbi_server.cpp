@@ -150,6 +150,11 @@ void VLBI::Server::Diff(const char *name, const char *model1, const char *model2
     vlbi_diff_models(GetContext(), name, model1, model2);
 }
 
+void VLBI::Server::Convolute(const char *name, const char *model1, const char *model2)
+{
+    vlbi_apply_convolution_matrix(GetContext(), name, model1, model2);
+}
+
 void VLBI::Server::Mask(const char *name, const char *model, const char *mask)
 {
     vlbi_apply_mask(GetContext(), name, model, mask);
@@ -158,6 +163,26 @@ void VLBI::Server::Mask(const char *name, const char *model, const char *mask)
 void VLBI::Server::Shift(const char *name)
 {
     vlbi_shift(GetContext(), name);
+}
+
+void VLBI::Server::LowPass(const char *name, const char *node, double freq)
+{
+    vlbi_filter_lp_node(GetContext(), name, node, freq);
+}
+
+void VLBI::Server::HighPass(const char *name, const char *node, double freq)
+{
+    vlbi_filter_hp_node(GetContext(), name, node, freq);
+}
+
+void VLBI::Server::BandPass(const char *name, const char *node, double lofreq, double hifreq)
+{
+    vlbi_filter_bp_node(GetContext(), name, node, lofreq, hifreq);
+}
+
+void VLBI::Server::BandReject(const char *name, const char *node, double lofreq, double hifreq)
+{
+    vlbi_filter_br_node(GetContext(), name, node, lofreq, hifreq);
 }
 
 dsp_stream_p VLBI::Server::GetModel(const char *name)

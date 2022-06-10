@@ -48,7 +48,8 @@ void JSONServer::Parse()
     json_value *v;
     char *n;
     size_t len = 0;
-    getdelim(&str, &len, (int)'\0', f);
+    int err = getdelim(&str, &len, (int)'\0', f);
+    (void)err;
     if(strlen(str) <= 0)
         return;
     char error[json_error_max];
@@ -84,7 +85,6 @@ void JSONServer::Parse()
         {
             unsigned long mask = 0;
             double lat = 0, lon = 0, el = 0;
-            int i = 0;
             for(int y = 0; y < (int)v->u.object.length; y ++)
             {
                 if(!strcmp(values[y].name, "latitude"))
@@ -109,7 +109,6 @@ void JSONServer::Parse()
                 vlbi_set_location(GetContext(), lat, lon, el);
             }
         }
-        int i = 0;
         if(!strcmp(n, "fits"))
         {
             unsigned long mask = 0;
@@ -406,8 +405,11 @@ void JSONServer::Parse()
             unsigned long mask = 0;
             char* name = nullptr;
             char* model = nullptr;
+            char* node = nullptr;
             char* edit = nullptr;
             char* arg = nullptr;
+            char* arg1 = nullptr;
+            char* arg2 = nullptr;
             for(int y = 0; y < (int)v->u.object.length; y ++)
             {
                 if(!strcmp(values[y].name, "edit"))
@@ -430,26 +432,73 @@ void JSONServer::Parse()
                     arg = values[y].value->u.string.ptr;
                     mask |= 1 << 3;
                 }
-            }
-            if(CheckMask(mask, 2))
-            {
-                if(!strcmp(edit, "shift"))
+                if(!strcmp(values[y].name, "node"))
                 {
-                    if(strcmp(name, ""))
-                        Shift(name);
+                    node = values[y].value->u.string.ptr;
+                    mask |= 1 << 4;
                 }
-                if(CheckMask(mask, 4)) {
-                    if(!strcmp(edit, "mask"))
+                if(!strcmp(values[y].name, "arg1"))
+                {
+                    arg1 = values[y].value->u.string.ptr;
+                    mask |= 1 << 5;
+                }
+                if(!strcmp(values[y].name, "arg2"))
+                {
+                    arg2 = values[y].value->u.string.ptr;
+                    mask |= 1 << 6;
+                }
+            }
+            if(mask & 1)
+            {
+                if(CheckMask(mask, 2)) {
+                    if(!strcmp(edit, "shift"))
                     {
-                        Mask(name, model, arg);
+                        if(strcmp(name, ""))
+                            Shift(name);
                     }
-                    else if(!strcmp(edit, "stack"))
-                    {
-                        Stack(name, model, arg);
+                    if(CheckMask(mask, 4)) {
+                        if(!strcmp(edit, "mask"))
+                        {
+                            Mask(name, model, arg);
+                        }
+                        else if(!strcmp(edit, "stack"))
+                        {
+                            Stack(name, model, arg);
+                        }
+                        else if(!strcmp(edit, "diff"))
+                        {
+                            Diff(name, model, arg);
+                        }
+                        else if(!strcmp(edit, "convolute"))
+                        {
+                            Convolute(name, model, arg);
+                        }
                     }
-                    else if(!strcmp(edit, "diff"))
+                }
+            } else {
+                mask >>= 5;
+                if(CheckMask(mask, 1)) {
+                    if(!strcmp(edit, "lowpass"))
                     {
-                        Diff(name, model, arg);
+                        if(strcmp(node, ""))
+                            LowPass(name, node, atof(arg1));
+                    }
+                    if(!strcmp(edit, "highpass"))
+                    {
+                        if(strcmp(name, ""))
+                            HighPass(name, node, atof(arg1));
+                    }
+                    if(CheckMask(mask, 2)) {
+                        if(!strcmp(edit, "bandpass"))
+                        {
+                            if(strcmp(node, ""))
+                                BandPass(name, node, atof(arg1), atof(arg2));
+                        }
+                        if(!strcmp(edit, "bandreject"))
+                        {
+                            if(strcmp(name, ""))
+                                BandReject(name, node, atof(arg1), atof(arg2));
+                        }
                     }
                 }
             }

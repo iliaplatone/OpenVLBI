@@ -234,6 +234,48 @@ class Server
         void Diff(const char *name, const char *model1, const char *model2);
 
         /**
+        * \brief Convolute a model with a convolution matrix model
+        * \param name The name of the new model
+        * \param model1 The name of the model
+        * \param model2 The name of the model used as convolution matrix
+        */
+        void Convolute(const char *name, const char *model1, const char *model2);
+
+        /**
+        * \brief Apply a low pass filter on a node buffer
+        * \param name The name of the new node
+        * \param node The name of the unfiltered node
+        * \param freq The cutoff frequency in radians
+        */
+        void LowPass(const char *name, const char *node, double freq);
+
+        /**
+        * \brief Apply a high pass filter on a node buffer
+        * \param name The name of the new node
+        * \param node The name of the unfiltered node
+        * \param freq The cutoff frequency in radians
+        */
+        void HighPass(const char *name, const char *node, double freq);
+
+        /**
+        * \brief Apply a band pass filter on a node buffer
+        * \param name The name of the new node
+        * \param node The name of the unfiltered node
+        * \param lofreq The low cut frequency in radians
+        * \param lofreq The high cut frequency in radians
+        */
+        void BandPass(const char *name, const char *node, double lofreq, double hifreq);
+
+        /**
+        * \brief Apply a band reject filter on a node buffer
+        * \param name The name of the new node
+        * \param node The name of the unfiltered node
+        * \param lofreq The low cut frequency in radians
+        * \param lofreq The high cut frequency in radians
+        */
+        void BandReject(const char *name, const char *node, double lofreq, double hifreq);
+
+        /**
         * \brief Shift a model by its dimension in-place
         * \param name The name of the model
         */
