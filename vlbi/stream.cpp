@@ -285,6 +285,66 @@ void vlbi_del_node(void *ctx, const char *name)
     }
 }
 
+void vlbi_filter_lp_node(void *ctx, const char *name, const char *node, double radians)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    VLBINode *n = nodes->Get(node);
+    dsp_stream_p stream = dsp_stream_copy(n->getStream());
+    dsp_fourier_dft(stream, 1);
+    dsp_filter_lowpass(stream, radians);
+    dsp_stream_free_buffer(stream->magnitude);
+    dsp_stream_free_buffer(stream->phase);
+    dsp_stream_free(stream->magnitude);
+    dsp_stream_free(stream->phase);
+    vlbi_add_node(ctx, stream, name, n->GeographicCoordinates());
+}
+
+void vlbi_filter_hp_node(void *ctx, const char *name, const char *node, double radians)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    VLBINode *n = nodes->Get(node);
+    dsp_stream_p stream = dsp_stream_copy(n->getStream());
+    dsp_fourier_dft(stream, 1);
+    dsp_filter_highpass(stream, radians);
+    dsp_stream_free_buffer(stream->magnitude);
+    dsp_stream_free_buffer(stream->phase);
+    dsp_stream_free(stream->magnitude);
+    dsp_stream_free(stream->phase);
+    vlbi_add_node(ctx, stream, name, n->GeographicCoordinates());
+}
+
+void vlbi_filter_bp_node(void *ctx, const char *name, const char *node, double lo_radians, double hi_radians)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    VLBINode *n = nodes->Get(node);
+    dsp_stream_p stream = dsp_stream_copy(n->getStream());
+    dsp_fourier_dft(stream, 1);
+    dsp_filter_bandpass(stream, lo_radians, hi_radians);
+    dsp_stream_free_buffer(stream->magnitude);
+    dsp_stream_free_buffer(stream->phase);
+    dsp_stream_free(stream->magnitude);
+    dsp_stream_free(stream->phase);
+    vlbi_add_node(ctx, stream, name, n->GeographicCoordinates());
+}
+
+void vlbi_filter_br_node(void *ctx, const char *name, const char *node, double lo_radians, double hi_radians)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    VLBINode *n = nodes->Get(node);
+    dsp_stream_p stream = dsp_stream_copy(n->getStream());
+    dsp_fourier_dft(stream, 1);
+    dsp_filter_bandreject(stream, lo_radians, hi_radians);
+    dsp_stream_free_buffer(stream->magnitude);
+    dsp_stream_free_buffer(stream->phase);
+    dsp_stream_free(stream->magnitude);
+    dsp_stream_free(stream->phase);
+    vlbi_add_node(ctx, stream, name, n->GeographicCoordinates());
+}
+
 void vlbi_add_model(void *ctx, dsp_stream_p stream, const char *name)
 {
     pfunc;
@@ -543,6 +603,25 @@ void vlbi_apply_mask(vlbi_context ctx, const char *name, const char *stream, con
             vlbi_add_model(ctx, masked, name);
             return;
         }
+    }
+}
+
+void vlbi_apply_convolution_matrix(vlbi_context ctx, const char *name, const char *model, const char *matrix)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    dsp_stream_p convoluted = dsp_stream_copy(nodes->getModels()->Get(model));
+    dsp_stream_p convolution = nodes->getModels()->Get(matrix);
+    if(convoluted->dims == convolution->dims)
+    {
+        dsp_fourier_dft(convoluted, 1);
+        dsp_fourier_dft(convolution, 1);
+        dsp_convolution_convolution(convoluted, convolution);
+        vlbi_add_model(ctx, convoluted, name);
+        dsp_stream_free_buffer(convoluted);
+        dsp_stream_free(convoluted);
+        dsp_stream_free_buffer(convolution);
+        dsp_stream_free(convolution);
     }
 }
 

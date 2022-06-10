@@ -42,12 +42,7 @@ void dsp_filter_lowpass(dsp_stream_p stream, double Frequency)
     if(stream == NULL)
         return;
     int d, x;
-    double radius = 0.0;
-    for(d = 0; d < stream->dims; d++) {
-        radius += pow(stream->sizes[d]/2.0, 2);
-    }
-    radius = sqrt(radius);
-    dsp_fourier_dft(stream, 1);
+    double radius = stream->samplerate;
     for(x = 0; x < stream->len; x++) {
         int* pos = dsp_stream_get_position(stream, x);
         double dist = 0.0;
@@ -68,12 +63,7 @@ void dsp_filter_highpass(dsp_stream_p stream, double Frequency)
     if(stream == NULL)
         return;
     int d, x;
-    double radius = 0.0;
-    for(d = 0; d < stream->dims; d++) {
-        radius += pow(stream->sizes[d]/2.0, 2);
-    }
-    radius = sqrt(radius);
-    dsp_fourier_dft(stream, 1);
+    double radius = stream->samplerate;
     for(x = 0; x < stream->len; x++) {
         int* pos = dsp_stream_get_position(stream, x);
         double dist = 0.0;
@@ -94,12 +84,7 @@ void dsp_filter_bandreject(dsp_stream_p stream, double LowFrequency, double High
     if(stream == NULL)
         return;
     int d, x;
-    double radius = 0.0;
-    for(d = 0; d < stream->dims; d++) {
-        radius += pow(stream->sizes[d]/2.0, 2);
-    }
-    radius = sqrt(radius);
-    dsp_fourier_dft(stream, 1);
+    double radius = stream->samplerate;
     for(x = 0; x < stream->len; x++) {
         int* pos = dsp_stream_get_position(stream, x);
         double dist = 0.0;
@@ -120,12 +105,7 @@ void dsp_filter_bandpass(dsp_stream_p stream, double LowFrequency, double HighFr
     if(stream == NULL)
         return;
     int d, x;
-    double radius = 0.0;
-    for(d = 0; d < stream->dims; d++) {
-        radius += pow(stream->sizes[d]/2.0, 2);
-    }
-    radius = sqrt(radius);
-    dsp_fourier_dft(stream, 1);
+    double radius = stream->samplerate;
     for(x = 0; x < stream->len; x++) {
         int* pos = dsp_stream_get_position(stream, x);
         double dist = 0.0;

@@ -563,7 +563,6 @@ DLL_EXPORT int vlbi_get_nodes(void *ctx, vlbi_node** nodes);
 */
 DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, const char *name, int geo);
 
-
 /**
 * \brief Add nodes from each row of a single dish fits -SDFITS- file.
 * \param ctx The OpenVLBI context
@@ -572,6 +571,44 @@ DLL_EXPORT void vlbi_add_node_from_fits(void *ctx, char *filename, const char *n
 * \param geo whether to consider the file coordinates as geographic or relative to the context station
 */
 DLL_EXPORT void vlbi_add_nodes_from_sdfits(void *ctx, char *filename, const char *name, int geo);
+
+/**
+* \brief Apply a low pass filter on the node buffer.
+* \param ctx The OpenVLBI context
+* \param name The name of the filtered new node
+* \param node The name of the original node
+* \param radians The cutoff frequency in radians, where PI corresponds to a second
+*/
+DLL_EXPORT void vlbi_filter_lp_node(void *ctx, const char *name, const char *node, double radians);
+
+/**
+* \brief Apply a high pass filter on the node buffer.
+* \param ctx The OpenVLBI context
+* \param name The name of the filtered new node
+* \param node The name of the original node
+* \param radians The cutoff frequency in radians, where PI corresponds to a second
+*/
+DLL_EXPORT void vlbi_filter_hp_node(void *ctx, const char *name, const char *node, double radians);
+
+/**
+* \brief Apply a band pass filter on the node buffer.
+* \param ctx The OpenVLBI context
+* \param name The name of the filtered new node
+* \param node The name of the original node
+* \param lo_radians The low cut frequency in radians, where PI corresponds to a second
+* \param hi_radians The hi cut frequency in radians, where PI corresponds to a second
+*/
+DLL_EXPORT void vlbi_filter_bp_node(void *ctx, const char *name, const char *node, double lo_radians, double hi_radians);
+
+/**
+* \brief Apply a band reject filter on the node buffer.
+* \param ctx The OpenVLBI context
+* \param name The name of the filtered new node
+* \param node The name of the original node
+* \param lo_radians The low cut frequency in radians, where PI corresponds to a second
+* \param hi_radians The hi cut frequency in radians, where PI corresponds to a second
+*/
+DLL_EXPORT void vlbi_filter_br_node(void *ctx, const char *name, const char *node, double lo_radians, double hi_radians);
 
 /**\}*/
 /**
@@ -730,6 +767,15 @@ DLL_EXPORT void vlbi_get_fft(vlbi_context ctx, const char *model, const char *ma
 * \param mask The name of the model containing the mask.
 */
 DLL_EXPORT void vlbi_apply_mask(vlbi_context ctx, const char *name, const char *model, const char *mask);
+
+/**
+* \brief Convolute a model with a convolution matrix.
+* \param ctx The OpenVLBI context
+* \param name The name of the newly created model.
+* \param model The name of the model to convolute.
+* \param matrix The name of the convolution matrix model.
+*/
+DLL_EXPORT void vlbi_apply_convolution_matrix(vlbi_context ctx, const char *name, const char *model, const char *matrix);
 
 /**
 * \brief Stack two models into a new one.
