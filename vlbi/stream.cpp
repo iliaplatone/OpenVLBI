@@ -618,10 +618,14 @@ void vlbi_apply_convolution_matrix(vlbi_context ctx, const char *name, const cha
         dsp_fourier_dft(convolution, 1);
         dsp_convolution_convolution(convoluted, convolution);
         vlbi_add_model(ctx, convoluted, name);
-        dsp_stream_free_buffer(convoluted);
-        dsp_stream_free(convoluted);
-        dsp_stream_free_buffer(convolution);
-        dsp_stream_free(convolution);
+        dsp_stream_free_buffer(convoluted->magnitude);
+        dsp_stream_free(convoluted->magnitude);
+        dsp_stream_free_buffer(convoluted->phase);
+        dsp_stream_free(convoluted->phase);
+        dsp_stream_free_buffer(convolution->magnitude);
+        dsp_stream_free(convolution->magnitude);
+        dsp_stream_free_buffer(convolution->phase);
+        dsp_stream_free(convolution->phase);
     }
 }
 
