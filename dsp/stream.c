@@ -485,51 +485,130 @@ int dsp_stream_set_position(dsp_stream_p stream, int* pos) {
     }
     return index;
 }
-
-/**
- * @brief dsp_stream_crop
- * @param in
- */
-void dsp_stream_crop(dsp_stream_p in)
+static void* dsp_stream_align_th(void* arg)
 {
-    if(in == NULL)
-        return;
-    dsp_stream_p stream = dsp_stream_new();
-    int dim, d;
-    for(dim = 0; dim < in->dims; dim++) {
-        dsp_stream_add_dim(stream, abs(in->ROI[dim].len));
-    }
-    dsp_stream_alloc_buffer(stream, stream->len);
-    int *init = dsp_stream_get_position(in, 0);
-    int *stop = dsp_stream_get_position(in, 0);
-    for(d = 0; d < in->dims; d++) {
-        init[d] = in->ROI[d].start;
-        stop[d] = in->ROI[d].start+in->ROI[d].len;
-    }
-    int index = dsp_stream_set_position(in, init);
-    int end = dsp_stream_set_position(in, stop);
-    free(init);
-    free(stop);
-    int x = 0;
-    for (; index<end; index++)
+    struct {
+       int cur_th;
+       dsp_stream_p stream;
+    } *arguments = arg;
+    dsp_stream_p stream = arguments->stream;
+    dsp_stream_p in = stream->parent;
+    int cur_th = arguments->cur_th;
+    int start = cur_th * stream->len / dsp_max_threads(0);
+    int end = start + stream->len / dsp_max_threads(0);
+    end = Min(stream->len, end);
+    int y;
+    for(y = start; y < end; y++)
     {
-        int breakout = 0;
-        int *pos = dsp_stream_get_position(in, index);
-        for(dim = 0; dim < in->dims; dim++) {
-            if(pos[dim]>in->ROI[dim].start&&pos[dim]<in->ROI[dim].start+in->ROI[dim].len)break;
-            breakout++;
+        int *pos = dsp_stream_get_position(stream, y);
+        int dim;
+        for (dim = 1; dim < stream->dims; dim++) {
+            pos[dim] -= stream->align_info.center[dim];
+            pos[dim-1] -= stream->align_info.center[dim-1];
+            pos[dim] += stream->align_info.offset[dim];
+            pos[dim-1] += stream->align_info.offset[dim-1];
+            double r1 = stream->align_info.radians[dim-1];
+            double x = pos[dim-1];
+            double y = pos[dim];
+            double h = pow(pow(x, 2)+pow(y, 2), 0.5);
+            double r2 = acos(x/h);
+            if(y < 0)
+                r2 = - r2;
+            pos[dim] = sin(r2-r1)*h;
+            pos[dim-1] = cos(r2-r1)*h;
+            pos[dim] /= stream->align_info.factor[dim];
+            pos[dim-1] /= stream->align_info.factor[dim-1];
+            pos[dim] += stream->align_info.center[dim];
+            pos[dim-1] += stream->align_info.center[dim-1];
         }
-        if(breakout > 0)continue;
-        stream->buf[x++] = in->buf[index];
+        int x = dsp_stream_set_position(in, pos);
+        free(pos);
+        if(x >= 0 && x < in->len)
+            stream->buf[y] = in->buf[x];
+    }
+    return NULL;
+}
+
+void dsp_stream_align(dsp_stream_p in)
+{
+    int d = 0;
+    dsp_stream_p stream = dsp_stream_copy(in);
+    dsp_stream_alloc_buffer(in, in->len);
+    dsp_buffer_set(in->buf, in->len, 0);
+    in->parent = stream;
+    int y;
+    pthread_t *th = malloc(sizeof(pthread_t)*dsp_max_threads(0));
+    struct {
+       int cur_th;
+       dsp_stream_p stream;
+    } thread_arguments[dsp_max_threads(0)];
+    for(y = 0; y < dsp_max_threads(0); y++) {
+        thread_arguments[y].cur_th = y;
+        thread_arguments[y].stream = in;
+        pthread_create(&th[y], NULL, dsp_stream_align_th, &thread_arguments[y]);
+    }
+    for(y = 0; y < dsp_max_threads(0); y++)
+        pthread_join(th[y], NULL);
+    free(th);
+}
+
+static void* dsp_stream_crop_th(void* arg)
+{
+    struct {
+       int cur_th;
+       dsp_stream_p stream;
+    } *arguments = arg;
+    dsp_stream_p stream = arguments->stream;
+    dsp_stream_p in = stream->parent;
+    int cur_th = arguments->cur_th;
+    int start = cur_th * stream->len / dsp_max_threads(0);
+    int end = start + stream->len / dsp_max_threads(0);
+    end = Min(stream->len, end);
+    int y;
+    for(y = start; y < end; y++)
+    {
+        int *pos = dsp_stream_get_position(stream, y);
+        int dim;
+        int allow = 1;
+        for (dim = 0; dim < stream->dims; dim++) {
+            pos[dim] += in->ROI[dim].start;
+            if(pos[dim] < in->ROI[dim].start || pos[dim] > in->ROI[dim].start + in->ROI[dim].len || pos[dim] < 0 || pos[dim] >= in->sizes[dim])
+                allow &= 0;
+        }
+        if(allow) {
+            int x = dsp_stream_set_position(in, pos);
+            stream->buf[y] = in->buf[x];
+        }
+        else
+            stream->buf[y] = 0;
         free(pos);
     }
-    dsp_buffer_copy(stream->sizes, in->sizes, stream->dims);
-    in->len = stream->len;
-    dsp_stream_alloc_buffer(in, in->len);
-    dsp_buffer_copy(stream->buf, in->buf, stream->len);
-    dsp_stream_free_buffer(stream);
-    dsp_stream_free(stream);
+    return NULL;
+}
 
+void dsp_stream_crop(dsp_stream_p in)
+{
+    int d = 0;
+    dsp_stream_p stream = dsp_stream_copy(in);
+    for(d = 0; d < in->dims; d++)
+        dsp_stream_set_dim(in, d, in->ROI[d].len);
+    dsp_stream_alloc_buffer(in, in->len);
+    dsp_buffer_set(in->buf, in->len, 0);
+    in->parent = stream;
+    int y;
+    pthread_t *th = malloc(sizeof(pthread_t)*dsp_max_threads(0));
+    struct {
+       int cur_th;
+       dsp_stream_p stream;
+    } thread_arguments[dsp_max_threads(0)];
+    for(y = 0; y < dsp_max_threads(0); y++) {
+        thread_arguments[y].cur_th = y;
+        thread_arguments[y].stream = in;
+        pthread_create(&th[y], NULL, dsp_stream_crop_th, &thread_arguments[y]);
+    }
+    for(y = 0; y < dsp_max_threads(0); y++)
+        pthread_join(th[y], NULL);
+    free(th);
 }
 
 void dsp_stream_translate(dsp_stream_p in)
