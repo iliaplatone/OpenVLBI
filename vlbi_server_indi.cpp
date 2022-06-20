@@ -367,7 +367,9 @@ void INDIServer::Parse()
     char *arg = nullptr;
     char *value = nullptr;
     char *str = nullptr;
-    getdelim(&str, &len, (int)'\n', f);
+    ssize_t nchars = getdelim(&str, &len, (int)'\n', f);
+    if(nchars < 0)
+        return;
     *strrchr(str, '\n') = 0;
     if(str == nullptr)
         return;

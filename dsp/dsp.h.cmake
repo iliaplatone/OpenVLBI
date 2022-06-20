@@ -253,7 +253,7 @@ typedef struct dsp_triangle_t
     /// The dimensions of the triangle
     int dims;
     /// The inclination of the triangle
-    double theta;
+    double *theta;
     /// The sizes of the triangle
     double *sizes;
     /// The sizes of the triangle
@@ -1246,12 +1246,6 @@ DLL_EXPORT int* dsp_stream_get_position(dsp_stream_p stream, int index);
 DLL_EXPORT void *dsp_stream_exec(dsp_stream_p stream, void *args, ...);
 
 /**
-* \brief Rotate, scale and translate a stream by filling its align_info struct
-* \param stream The stream that will be aligned in-place
-*/
-DLL_EXPORT void dsp_stream_align(dsp_stream_p stream);
-
-/**
 * \brief Crop the buffers of the stream passed as argument by reading the ROI field.
 * \param stream The stream that will be cropped in-place
 */
@@ -1274,6 +1268,12 @@ DLL_EXPORT void dsp_stream_translate(dsp_stream_p stream);
 * \param stream The stream that will be scaled in-place
 */
 DLL_EXPORT void dsp_stream_scale(dsp_stream_p stream);
+
+/**
+* \brief Perform scale, translate and rotate transformations in-place
+* \param stream The stream that will be transformed
+*/
+DLL_EXPORT void dsp_stream_align(dsp_stream_p in);
 
 /**\}*/
 /**
