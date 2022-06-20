@@ -379,7 +379,7 @@ void dsp_stream_add_triangle(dsp_stream_p stream, dsp_triangle triangle)
     int d;
     stream->triangles = (dsp_triangle*)realloc(stream->triangles, sizeof(dsp_triangle)*(stream->triangles_count+1));
     stream->triangles[stream->triangles_count].dims = triangle.dims;
-    stream->triangles[stream->triangles_count].theta = triangle.theta;
+    stream->triangles[stream->triangles_count].theta = (double*)malloc(sizeof(double)*(stream->dims-1));
     stream->triangles[stream->triangles_count].ratios = (double*)malloc(sizeof(double)*triangle.dims);
     stream->triangles[stream->triangles_count].sizes = (double*)malloc(sizeof(double)*triangle.dims);
     stream->triangles[stream->triangles_count].stars = (dsp_star*)malloc(sizeof(dsp_star)*triangle.dims);
@@ -390,10 +390,13 @@ void dsp_stream_add_triangle(dsp_stream_p stream, dsp_triangle triangle)
         if(s > 0) {
             stream->triangles[stream->triangles_count].ratios[s] = fabs(triangle.sizes[s]/triangle.sizes[0]);
         }
+        if(s < stream->dims - 1) {
+            stream->triangles[stream->triangles_count].theta[s] = triangle.theta[s];
+        }
         stream->triangles[stream->triangles_count].stars[s].center.dims = triangle.stars[s].center.dims;
         stream->triangles[stream->triangles_count].stars[s].diameter = triangle.stars[s].diameter;
-        stream->triangles[stream->triangles_count].stars[s].center.location = (double*)malloc(sizeof(double)*triangle.stars[s].center.dims);
-        for(d = 0; d < triangle.stars[s].center.dims; d++)
+        stream->triangles[stream->triangles_count].stars[s].center.location = (double*)malloc(sizeof(double)*stream->dims);
+        for(d = 0; d < stream->dims; d++)
             stream->triangles[stream->triangles_count].stars[s].center.location[d] = triangle.stars[s].center.location[d];
     }
     stream->triangles[stream->triangles_count].index = triangle.index;
@@ -504,9 +507,8 @@ static void* dsp_stream_align_th(void* arg)
 void dsp_stream_align(dsp_stream_p in)
 {
     dsp_stream_p stream = dsp_stream_copy(in);
-    dsp_stream_alloc_buffer(in, in->len);
-    dsp_buffer_set(in->buf, in->len, 0);
-    in->parent = stream;
+    dsp_buffer_set(stream->buf, stream->len, 0);
+    stream->parent = in;
     size_t y;
     pthread_t *th = (pthread_t*)malloc(sizeof(pthread_t)*dsp_max_threads(0));
     struct {
@@ -515,12 +517,15 @@ void dsp_stream_align(dsp_stream_p in)
     } thread_arguments[dsp_max_threads(0)];
     for(y = 0; y < dsp_max_threads(0); y++) {
         thread_arguments[y].cur_th = y;
-        thread_arguments[y].stream = in;
+        thread_arguments[y].stream = stream;
         pthread_create(&th[y], NULL, dsp_stream_align_th, &thread_arguments[y]);
     }
     for(y = 0; y < dsp_max_threads(0); y++)
         pthread_join(th[y], NULL);
     free(th);
+    dsp_buffer_copy(stream->buf, in->buf, stream->len);
+    dsp_stream_free_buffer(stream);
+    dsp_stream_free(stream);
 }
 
 /**
@@ -564,13 +569,9 @@ static void* dsp_stream_crop_th(void* arg)
 
 void dsp_stream_crop(dsp_stream_p in)
 {
-    int d = 0;
     dsp_stream_p stream = dsp_stream_copy(in);
-    for(d = 0; d < in->dims; d++)
-        dsp_stream_set_dim(in, d, in->ROI[d].len);
-    dsp_stream_alloc_buffer(in, in->len);
-    dsp_buffer_set(in->buf, in->len, 0);
-    in->parent = stream;
+    dsp_buffer_set(stream->buf, stream->len, 0);
+    stream->parent = in;
     size_t y;
     pthread_t *th = (pthread_t*)malloc(sizeof(pthread_t)*dsp_max_threads(0));
     struct {
@@ -579,12 +580,15 @@ void dsp_stream_crop(dsp_stream_p in)
     } thread_arguments[dsp_max_threads(0)];
     for(y = 0; y < dsp_max_threads(0); y++) {
         thread_arguments[y].cur_th = y;
-        thread_arguments[y].stream = in;
+        thread_arguments[y].stream = stream;
         pthread_create(&th[y], NULL, dsp_stream_crop_th, &thread_arguments[y]);
     }
     for(y = 0; y < dsp_max_threads(0); y++)
         pthread_join(th[y], NULL);
     free(th);
+    dsp_buffer_copy(stream->buf, in->buf, stream->len);
+    dsp_stream_free_buffer(stream);
+    dsp_stream_free(stream);
 }
 
 void dsp_stream_translate(dsp_stream_p in)
@@ -604,7 +608,6 @@ void dsp_stream_translate(dsp_stream_p in)
     memcpy(data, buf, sizeof(dsp_t)*len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-
 }
 
 /**
@@ -646,17 +649,16 @@ static void* dsp_stream_scale_th(void* arg)
 
 void dsp_stream_scale(dsp_stream_p in)
 {
-    size_t y;
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
+    size_t y;
     pthread_t *th = (pthread_t*)malloc(sizeof(pthread_t)*dsp_max_threads(0));
     struct {
        int cur_th;
        dsp_stream_p stream;
     } thread_arguments[dsp_max_threads(0)];
-    for(y = 0; y < dsp_max_threads(0); y++)
-    {
+    for(y = 0; y < dsp_max_threads(0); y++) {
         thread_arguments[y].cur_th = y;
         thread_arguments[y].stream = stream;
         pthread_create(&th[y], NULL, dsp_stream_scale_th, &thread_arguments[y]);
@@ -664,11 +666,9 @@ void dsp_stream_scale(dsp_stream_p in)
     for(y = 0; y < dsp_max_threads(0); y++)
         pthread_join(th[y], NULL);
     free(th);
-    stream->parent = NULL;
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-
 }
 
 static void* dsp_stream_rotate_th(void* arg)
@@ -711,7 +711,6 @@ static void* dsp_stream_rotate_th(void* arg)
 
 void dsp_stream_rotate(dsp_stream_p in)
 {
-
     dsp_stream_p stream = dsp_stream_copy(in);
     dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = in;
@@ -732,5 +731,4 @@ void dsp_stream_rotate(dsp_stream_p in)
     dsp_buffer_copy(stream->buf, in->buf, stream->len);
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
-
 }
