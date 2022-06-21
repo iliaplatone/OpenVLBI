@@ -44,6 +44,7 @@ extern "C" {
 #include <assert.h>
 #include <pthread.h>
 #include <fftw3.h>
+#include <time.h>
 
 /**
  * \defgroup DSP Digital Signal Processing API

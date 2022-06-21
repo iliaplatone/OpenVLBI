@@ -379,27 +379,24 @@ void dsp_stream_add_triangle(dsp_stream_p stream, dsp_triangle triangle)
     int d;
     stream->triangles = (dsp_triangle*)realloc(stream->triangles, sizeof(dsp_triangle)*(stream->triangles_count+1));
     stream->triangles[stream->triangles_count].dims = triangle.dims;
+    stream->triangles[stream->triangles_count].index = triangle.index;
     stream->triangles[stream->triangles_count].theta = (double*)malloc(sizeof(double)*(stream->dims-1));
     stream->triangles[stream->triangles_count].ratios = (double*)malloc(sizeof(double)*triangle.dims);
     stream->triangles[stream->triangles_count].sizes = (double*)malloc(sizeof(double)*triangle.dims);
     stream->triangles[stream->triangles_count].stars = (dsp_star*)malloc(sizeof(dsp_star)*triangle.dims);
-    stream->triangles[stream->triangles_count].ratios[0] = 1.0;
-    triangle.index = triangle.index;
     for (s = 0; s < triangle.dims; s++) {
-        stream->triangles[stream->triangles_count].sizes[s] = triangle.sizes[s];
-        if(s > 0) {
-            stream->triangles[stream->triangles_count].ratios[s] = fabs(triangle.sizes[s]/triangle.sizes[0]);
-        }
         if(s < stream->dims - 1) {
             stream->triangles[stream->triangles_count].theta[s] = triangle.theta[s];
         }
+        stream->triangles[stream->triangles_count].sizes[s] = triangle.sizes[s];
+        stream->triangles[stream->triangles_count].ratios[s] = triangle.ratios[s];
         stream->triangles[stream->triangles_count].stars[s].center.dims = triangle.stars[s].center.dims;
         stream->triangles[stream->triangles_count].stars[s].diameter = triangle.stars[s].diameter;
         stream->triangles[stream->triangles_count].stars[s].center.location = (double*)malloc(sizeof(double)*stream->dims);
-        for(d = 0; d < stream->dims; d++)
+        for(d = 0; d < triangle.stars[s].center.dims; d++) {
             stream->triangles[stream->triangles_count].stars[s].center.location[d] = triangle.stars[s].center.location[d];
+        }
     }
-    stream->triangles[stream->triangles_count].index = triangle.index;
     stream->triangles_count++;
 }
 
