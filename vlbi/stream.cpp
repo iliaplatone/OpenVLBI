@@ -97,27 +97,29 @@ void vlbi_get_offsets(vlbi_context ctx, double J200Time, const char* node1, cons
     char baseline[150];
     sprintf(baseline, "%s_%s", node1, node2);
     VLBIBaseline *b = nodes->getBaselines()->Get(baseline);
-    b->setRa(Ra);
-    b->setDec(Dec);
-    double max_delay = 0;
-    int farest = 0, x, y;
-    for (x = 0; x < nodes->Count; x++)
-    {
-        for (y = x + 1; y < nodes->Count; y++)
+    if(b != nullptr) {
+        b->setRa(Ra);
+        b->setDec(Dec);
+        double max_delay = 0;
+        int farest = 0, x, y;
+        for (x = 0; x < nodes->Count; x++)
         {
-            double delay = getDelay(J200Time, nodes, nodes->At(x), nodes->At(y), b->getRa(), b->getDec(), b->getWaveLength());
-            if(fabs(delay) > max_delay)
+            for (y = x + 1; y < nodes->Count; y++)
             {
-                max_delay = fabs(delay);
-                if(delay < 0)
-                    farest = x;
-                else
-                    farest = y;
+                double delay = getDelay(J200Time, nodes, nodes->At(x), nodes->At(y), b->getRa(), b->getDec(), b->getWaveLength());
+                if(fabs(delay) > max_delay)
+                {
+                    max_delay = fabs(delay);
+                    if(delay < 0)
+                        farest = x;
+                    else
+                        farest = y;
+                }
             }
         }
+        *offset1 = getDelay(J200Time, nodes, b->getNode1(), nodes->At(farest), b->getRa(), b->getDec(), b->getWaveLength());
+        *offset2 = getDelay(J200Time, nodes, b->getNode2(), nodes->At(farest), b->getRa(), b->getDec(), b->getWaveLength());
     }
-    *offset1 = getDelay(J200Time, nodes, b->getNode1(), nodes->At(farest), b->getRa(), b->getDec(), b->getWaveLength());
-    *offset2 = getDelay(J200Time, nodes, b->getNode2(), nodes->At(farest), b->getRa(), b->getDec(), b->getWaveLength());
 }
 
 static void* fillplane(void *arg)
@@ -251,6 +253,13 @@ dsp_stream_p vlbi_get_node(void *ctx, const char *name)
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     return nodes->Get(name)->getStream();
+}
+
+int vlbi_has_node(void *ctx, const char *name)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    return nodes->Get(name) != nullptr;
 }
 
 int vlbi_get_nodes(void *ctx, vlbi_node** output)
@@ -665,6 +674,13 @@ void vlbi_shift(vlbi_context ctx, const char *name)
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     dsp_stream_p shifted = nodes->getModels()->Get(name);
     dsp_buffer_shift(shifted);
+}
+
+int vlbi_has_model(void *ctx, const char *name)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    return nodes->getModels()->Get(name) != nullptr;
 }
 
 void vlbi_add_model_from_png(void *ctx, char *filename, const char *name)

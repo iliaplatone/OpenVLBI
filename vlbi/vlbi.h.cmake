@@ -540,6 +540,14 @@ DLL_EXPORT void vlbi_add_node(vlbi_context ctx, dsp_stream_p Stream, const char 
 DLL_EXPORT dsp_stream_p vlbi_get_node(void *ctx, const char *name);
 
 /**
+* \brief Determine if a node is present into the current OpenVLBI context.
+* \param ctx The OpenVLBI context
+* \param name The name of the node to check
+* \return Non-zero if the node is present in the passed context
+*/
+DLL_EXPORT int vlbi_has_node(void *ctx, const char *name);
+
+/**
 * \brief Remove a stream from the current OpenVLBI context.
 * \param ctx The OpenVLBI context
 * \param name The friendly name of the stream to be removed
@@ -740,6 +748,14 @@ DLL_EXPORT int vlbi_get_models(void *ctx, dsp_stream_p** models);
 * \return the model chosen as dsp_stream_p
 */
 DLL_EXPORT dsp_stream_p vlbi_get_model(void *ctx, const char *name);
+
+/**
+* \brief Determine if a model is present into the current OpenVLBI context.
+* \param ctx The OpenVLBI context
+* \param name The name of the model to check
+* \return Non-zero if the model is present in the passed context
+*/
+DLL_EXPORT int vlbi_has_model(void *ctx, const char *name);
 
 /**
 * \brief Save into name an inverse fourier transform of the uv plot using its current magnitude and phase components.
