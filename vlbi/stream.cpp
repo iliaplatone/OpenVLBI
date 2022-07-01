@@ -562,8 +562,8 @@ void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, co
         return;
     if(!vlbi_has_model(ctx, phase))
         return;
-    dsp_stream_p mag = nodes->getModels()->Get(magnitude);
-    dsp_stream_p phi = nodes->getModels()->Get(phase);
+    dsp_stream_p mag = vlbi_get_model(ctx, magnitude);
+    dsp_stream_p phi = vlbi_get_model(ctx, phase);
     int d = 0;
     if(mag->dims == phi->dims)
         for (d = 0; d < mag->dims && mag->sizes[d] == phi->sizes[d]; )
