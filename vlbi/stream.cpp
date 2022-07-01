@@ -259,7 +259,10 @@ int vlbi_has_node(void *ctx, const char *name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    return nodes->Get(name) != nullptr;
+    if(nodes->Get(name) != nullptr)
+        return true;
+    else
+        return false;
 }
 
 int vlbi_get_nodes(void *ctx, vlbi_node** output)
@@ -541,12 +544,11 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         usleep(1000);
     }
     free(argument);
-    dsp_stream_p model = vlbi_get_model(ctx, name);
-    if(model == nullptr)
+    if(!vlbi_has_model(ctx, name))
     {
         vlbi_add_model(ctx, dsp_stream_copy(parent), name);
-        model = vlbi_get_model(ctx, name);
     }
+    dsp_stream_p model = vlbi_get_model(ctx, name);
     dsp_buffer_set(model->buf, model->len, 0.0);
     dsp_buffer_copy(parent->buf, model->buf, model->len);
     pgarb("aperture synthesis plotting completed\n");
@@ -556,6 +558,10 @@ void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, co
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(!vlbi_has_model(ctx, magnitude))
+        return;
+    if(!vlbi_has_model(ctx, phase))
+        return;
     dsp_stream_p mag = nodes->getModels()->Get(magnitude);
     dsp_stream_p phi = nodes->getModels()->Get(phase);
     int d = 0;
@@ -586,6 +592,8 @@ void vlbi_get_fft(vlbi_context ctx, const char *name, const char *magnitude, con
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(!vlbi_has_model(ctx, name))
+        return;
     dsp_stream_p fft = nodes->getModels()->Get(name);
     fft->phase = nullptr;
     fft->magnitude = nullptr;
@@ -598,6 +606,10 @@ void vlbi_apply_mask(vlbi_context ctx, const char *name, const char *stream, con
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(!vlbi_has_model(ctx, stream))
+        return;
+    if(!vlbi_has_model(ctx, mask))
+        return;
     dsp_stream_p masked = dsp_stream_copy(nodes->getModels()->Get(stream));
     dsp_stream_p model = nodes->getModels()->Get(mask);
     int d = 0;
@@ -619,6 +631,10 @@ void vlbi_apply_convolution_matrix(vlbi_context ctx, const char *name, const cha
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(!vlbi_has_model(ctx, model))
+        return;
+    if(!vlbi_has_model(ctx, matrix))
+        return;
     dsp_stream_p convoluted = dsp_stream_copy(nodes->getModels()->Get(model));
     dsp_stream_p convolution = nodes->getModels()->Get(matrix);
     if(convoluted->dims == convolution->dims)
@@ -642,6 +658,10 @@ void vlbi_stack_models(vlbi_context ctx, const char *name, const char *model1, c
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(!vlbi_has_model(ctx, model1))
+        return;
+    if(!vlbi_has_model(ctx, model2))
+        return;
     dsp_stream_p stacked = dsp_stream_copy(nodes->getModels()->Get(model1));
     dsp_stream_p model = nodes->getModels()->Get(model2);
     if(stacked->dims == model->dims)
@@ -657,6 +677,10 @@ void vlbi_diff_models(vlbi_context ctx, const char *name, const char *model1, co
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(!vlbi_has_model(ctx, model1))
+        return;
+    if(!vlbi_has_model(ctx, model2))
+        return;
     dsp_stream_p diff = dsp_stream_copy(nodes->getModels()->Get(model1));
     dsp_stream_p model = nodes->getModels()->Get(model2);
     dsp_t mn = dsp_stats_min(model->buf, model->len);
@@ -672,6 +696,8 @@ void vlbi_diff_models(vlbi_context ctx, const char *name, const char *model1, co
 void vlbi_shift(vlbi_context ctx, const char *name)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(!vlbi_has_model(ctx, name))
+        return;
     dsp_stream_p shifted = nodes->getModels()->Get(name);
     dsp_buffer_shift(shifted);
 }
@@ -680,7 +706,10 @@ int vlbi_has_model(void *ctx, const char *name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    return nodes->getModels()->Get(name) != nullptr;
+    if(nodes->getModels()->Get(name) != nullptr)
+        return true;
+    else
+        return false;
 }
 
 void vlbi_add_model_from_png(void *ctx, char *filename, const char *name)
