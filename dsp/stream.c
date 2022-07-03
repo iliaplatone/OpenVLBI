@@ -115,10 +115,6 @@ void dsp_stream_free_buffer(dsp_stream_p stream)
         free(stream->buf);
     if(stream->dft.buf != NULL)
         free(stream->dft.buf);
-    if(stream->magnitude != NULL)
-        dsp_stream_free_buffer(stream->magnitude);
-    if(stream->phase != NULL)
-        dsp_stream_free_buffer(stream->phase);
 }
 
 /**
@@ -170,10 +166,6 @@ void dsp_stream_free(dsp_stream_p stream)
         return;
     if(stream->sizes != NULL)
         free(stream->sizes);
-    if(stream->magnitude != NULL)
-        dsp_stream_free(stream->magnitude);
-    if(stream->phase != NULL)
-        dsp_stream_free(stream->phase);
     if(stream->is_copy == 0) {
         if(stream->pixel_sizes != NULL)
             free(stream->pixel_sizes);
@@ -191,6 +183,7 @@ void dsp_stream_free(dsp_stream_p stream)
             free(stream->triangles);
     }
     free(stream);
+    stream = NULL;
 }
 
 /**

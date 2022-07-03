@@ -416,10 +416,10 @@ dsp_stream_p vlbi_get_model(void *ctx, const char *name)
 void vlbi_del_model(void *ctx, const char *name)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    dsp_stream_p model = nodes->getModels()->Get(name);
-    if(model != nullptr)
+    if(vlbi_has_model(ctx, name))
     {
-        nodes->getModels()->Remove(model);
+        dsp_stream_p model = nodes->getModels()->Get(name);
+        nodes->getModels()->RemoveKey(name);
         dsp_stream_free_buffer(model);
         dsp_stream_free(model);
     }
@@ -564,6 +564,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         usleep(1000);
     }
     free(argument);
+    free(threads);
     if(!vlbi_has_model(ctx, name))
     {
         vlbi_add_model(ctx, dsp_stream_copy(parent), name);
@@ -587,8 +588,10 @@ void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, co
             d++;
     if(mag->dims == d)
     {
-        dsp_stream_p ifft = vlbi_get_model(ctx, name);
-        if(ifft == nullptr)
+        dsp_stream_p ifft = nullptr;
+        if(vlbi_has_model(ctx, name))
+            ifft = vlbi_get_model(ctx, name);
+        else
             ifft = dsp_stream_copy(mag);
         ifft->phase = dsp_stream_copy(phi);
         ifft->magnitude = dsp_stream_copy(mag);

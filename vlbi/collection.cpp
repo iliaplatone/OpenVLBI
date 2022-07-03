@@ -69,6 +69,7 @@ void VLBICollection::RemoveKey(const char* name)
         if(!strcmp(Items[i].name, name))
         {
             Items[i].item = 0;
+            break;
         }
     }
     Defrag();

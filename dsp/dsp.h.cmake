@@ -462,10 +462,11 @@ DLL_EXPORT void dsp_fourier_2fftw(dsp_stream_p stream);
 * \brief Obtain a complex array from phase and magnitude arrays
 * \param mag the input magnitude array.
 * \param phi the input phase array.
+* \param out the output complex arrays.
 * \param len the input arrays length.
 * \return the array filled with the complex numbers
 */
-DLL_EXPORT dsp_complex dsp_fourier_phase_mag_array_get_complex(double* mag, double* phi, int len);
+DLL_EXPORT void dsp_fourier_phase_mag_array_get_complex(double* mag, double* phi, fftw_complex *out, int len);
 
 /**
 * \brief Obtain a complex number's array magnitudes
