@@ -525,17 +525,25 @@ DLL_EXPORT void vlbi_exit(vlbi_context ctx);
 /**
 * \brief Add a stream into the current OpenVLBI context.
 * \param ctx The OpenVLBI context
-* \param Stream The OpenVLBI stream to add
+* \param Stream The OpenDSP stream to add
 * \param name A friendly name of this stream
 * \param geographic_coordinates Whether to use geographic coordinates
 */
 DLL_EXPORT void vlbi_add_node(vlbi_context ctx, dsp_stream_p Stream, const char *name, int geographic_coordinates);
 
 /**
+* \brief Copy a node into a new one.
+* \param ctx The OpenVLBI context
+* \param name The node name of the copy
+* \param node The name of the node to copy
+*/
+DLL_EXPORT void vlbi_copy_node(void *ctx, const char *name, const char *node);
+
+/**
 * \brief Get a stream from the current OpenVLBI context.
 * \param ctx The OpenVLBI context
 * \param name The name of this stream
-* \return The OpenVLBI stream representing this node
+* \return The OpenDSP stream representing this node
 */
 DLL_EXPORT dsp_stream_p vlbi_get_node(void *ctx, const char *name);
 
@@ -721,10 +729,18 @@ DLL_EXPORT void vlbi_get_uv_plot(void *ctx, const char *name, int u, int v, doub
 /**
 * \brief Add a model into the current OpenVLBI context.
 * \param ctx The OpenVLBI context
-* \param Stream The OpenVLBI stream to add
+* \param Stream The OpenDSP stream to add
 * \param name A friendly name of this model
 */
 DLL_EXPORT void vlbi_add_model(vlbi_context ctx, dsp_stream_p Stream, const char *name);
+
+/**
+* \brief Copy a model into a new one.
+* \param ctx The OpenVLBI context
+* \param name The model name of the copy
+* \param node The name of the model to copy
+*/
+DLL_EXPORT void vlbi_copy_model(void *ctx, const char *name, const char *node);
 
 /**
 * \brief Remove a model from the current OpenVLBI context.

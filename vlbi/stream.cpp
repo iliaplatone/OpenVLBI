@@ -248,6 +248,16 @@ void vlbi_add_node(void *ctx, dsp_stream_p stream, const char *name, int geo)
     nodes->Add(new VLBINode(stream, name, nodes->Count, geo == 1));
 }
 
+void vlbi_copy_node(void *ctx, const char *name, const char *node)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(vlbi_has_node(ctx, node)) {
+        VLBINode *n = nodes->Get(node);
+        nodes->Add(new VLBINode(dsp_stream_copy(n->getStream()), name, nodes->Count, n->GeographicCoordinates()));
+    }
+}
+
 dsp_stream_p vlbi_get_node(void *ctx, const char *name)
 {
     pfunc;
@@ -362,6 +372,16 @@ void vlbi_add_model(void *ctx, dsp_stream_p stream, const char *name)
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     nodes->getModels()->Add(stream, name);
+}
+
+void vlbi_copy_model(void *ctx, const char *name, const char *model)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(vlbi_has_model(ctx, model)) {
+        dsp_stream_p stream = vlbi_get_model(ctx, model);
+        vlbi_add_model(ctx, dsp_stream_copy(stream), name);
+    }
 }
 
 int vlbi_get_models(void *ctx, dsp_stream_p** output)
