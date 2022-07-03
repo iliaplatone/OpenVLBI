@@ -80,8 +80,8 @@ class BaselineCollection : public VLBICollection
             int h = getHeight();
             getStream()->len = 1;
             getStream()->dims = 0;
-            dsp_stream_add_dim(getStream(), w);
-            dsp_stream_add_dim(getStream(), h);
+            dsp_stream_set_dim(getStream(), 0, w);
+            dsp_stream_set_dim(getStream(), 1, h);
             dsp_stream_alloc_buffer(getStream(), getStream()->len);
             dsp_buffer_set(getStream()->buf, getStream()->len, 0);
         }
@@ -91,8 +91,8 @@ class BaselineCollection : public VLBICollection
             int w = getWidth();
             getStream()->len = 1;
             getStream()->dims = 0;
-            dsp_stream_add_dim(getStream(), w);
-            dsp_stream_add_dim(getStream(), h);
+            dsp_stream_set_dim(getStream(), 0, w);
+            dsp_stream_set_dim(getStream(), 1, h);
             dsp_stream_alloc_buffer(getStream(), getStream()->len);
             dsp_buffer_set(getStream()->buf, getStream()->len, 0);
         }
