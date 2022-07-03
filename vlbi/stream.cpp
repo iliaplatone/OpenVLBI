@@ -568,9 +568,6 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     {
         vlbi_add_model(ctx, dsp_stream_copy(parent), name);
     }
-    dsp_stream_p model = vlbi_get_model(ctx, name);
-    dsp_buffer_set(model->buf, model->len, 0.0);
-    dsp_buffer_copy(parent->buf, model->buf, model->len);
     pgarb("aperture synthesis plotting completed\n");
 }
 
