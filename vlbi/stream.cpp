@@ -529,9 +529,6 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     parent->child_count = 0;
     pgarb("%u nodes, %u baselines\n", nodes->Count(), baselines->Count());
     baselines->SetDelegate(delegate);
-    pthread_attr_t attr;
-    pthread_attr_init(&attr);
-    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
     pthread_t *threads = (pthread_t*)malloc(sizeof(pthread_t) * baselines->Count());
     int threads_running = 0;
     int max_threads = (int)vlbi_max_threads(0);
@@ -561,13 +558,13 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         while(threads_running > max_threads - 1)
             usleep(100000);
         threads_running++;
-        pthread_create(&threads[i], &attr, fillplane, &argument[i]);
+        pthread_create(&threads[i], nullptr, fillplane, &argument[i]);
     }
-    for(size_t i = 0; i < baselines->Count(); i++)
-        pthread_join(threads[i], nullptr);
+    while(threads_running > 0) {
+        usleep(1000);
+    }
     free(argument);
     free(threads);
-    pthread_attr_destroy(&attr);
     if(!vlbi_has_model(ctx, name))
     {
         vlbi_add_model(ctx, dsp_stream_copy(parent), name);
