@@ -37,13 +37,13 @@ class VLBICollection
 public:
 	VLBICollection();
     ~VLBICollection();
-    virtual void Add(void* element, const char *name = "");
-    virtual void* Get(const char *name);
-    virtual void Remove(const char* name);
-    virtual void* At(ssize_t index);
-    virtual bool Contains(const char* name);
-    virtual ssize_t Count();
-    virtual void Clear();
+    void Add(void* element, const char *name = "");
+    void* Get(const char *name);
+    void Remove(const char* name);
+    void* At(ssize_t index);
+    bool Contains(const char* name);
+    ssize_t Count();
+    void Clear();
 
 private:
     VLBIElement *Items;

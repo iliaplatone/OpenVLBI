@@ -527,7 +527,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     baselines->setRa(target[0]);
     baselines->setDec(target[1]);
     parent->child_count = 0;
-    pgarb("%u nodes, %u baselines\n", nodes->Count(), baselines->Count());
+    pgarb("%ld nodes, %ld baselines\n", nodes->Count(), baselines->Count());
     baselines->SetDelegate(delegate);
     pthread_t *threads = (pthread_t*)malloc(sizeof(pthread_t) * baselines->Count());
     int threads_running = 0;
@@ -542,7 +542,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         int *nthreads;
     };
     args *argument = (args*)malloc(sizeof(args) * (size_t)baselines->Count());
-    for(size_t i = 0; i < baselines->Count(); i++)
+    for(int i = 0; i < baselines->Count(); i++)
     {
         VLBIBaseline *b = baselines->At(i);
         if(b == nullptr)continue;
