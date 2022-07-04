@@ -21,8 +21,9 @@
 VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
 {
     setStream(dsp_stream_new());
-    Stream->is_copy --;
-    Name = (char*)calloc(150, 1);
+    dsp_stream_add_dim(getStream(), 1);
+    dsp_stream_alloc_buffer(getStream(), getStream()->len);
+    Name = (char*)malloc(150);
     sprintf(Name, "%s_%s", node1->getName(), node2->getName());
     Node1 = node1;
     Node2 = node2;
@@ -119,7 +120,9 @@ double *VLBIBaseline::getBaseline()
 
 void VLBIBaseline::getProjection()
 {
-    double *tmp = vlbi_matrix_calc_3d_projection(Target[1], Target[0], getBaseline());
+    double *b = getBaseline();
+    double *tmp = vlbi_matrix_calc_3d_projection(Target[1], Target[0], b);
+    free (b);
     double *proj = vlbi_matrix_calc_uv_coordinates(tmp, getWaveLength());
     free (tmp);
     u = proj[0];

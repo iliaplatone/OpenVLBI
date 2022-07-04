@@ -31,6 +31,7 @@ VLBINode::VLBINode(dsp_stream_p stream, const char* name, int index, bool geogra
 
 VLBINode::~VLBINode()
 {
+    free(Name);
 }
 
 void VLBINode::setSampleRate(double samplerate)
