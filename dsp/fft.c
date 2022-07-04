@@ -75,6 +75,7 @@ void dsp_fourier_2fftw(dsp_stream_p stream)
         }
         free(pos);
     }
+    free(dft);
 }
 
 double* dsp_fourier_complex_array_get_magnitude(dsp_complex in, int len)
