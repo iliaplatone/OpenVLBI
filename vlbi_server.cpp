@@ -625,12 +625,12 @@ void VLBI::Server::Parse()
 
 void VLBI::Server::AddContext(const char *name)
 {
-    if(!contexts->ContainsKey(name)) contexts->Add(vlbi_init(), name);
+    if(!contexts->Contains(name)) contexts->Add(vlbi_init(), name);
 }
 
 void VLBI::Server::SetContext(const char *name)
 {
-    if(contexts->ContainsKey(name))
+    if(contexts->Contains(name))
     {
         context = (char*)realloc(context, strlen(name));
         strcpy(context, name);
@@ -639,16 +639,16 @@ void VLBI::Server::SetContext(const char *name)
 
 vlbi_context VLBI::Server::GetContext()
 {
-    if(contexts->ContainsKey(context)) return contexts->Get(context);
+    if(contexts->Contains(context)) return contexts->Get(context);
     return nullptr;
 }
 
 void VLBI::Server::DelContext(const char *name)
 {
-    if(contexts->ContainsKey(name))
+    if(contexts->Contains(name))
     {
         vlbi_context ctx = contexts->Get(name);
-        contexts->Remove(ctx);
+        contexts->Remove(name);
         vlbi_exit(ctx);
     }
 }

@@ -33,9 +33,9 @@ void InstanceCollection::Add(vlbi_context element, const char *name)
     VLBICollection::Add(element, name);
 }
 
-void InstanceCollection::RemoveKey(const char* name)
+void InstanceCollection::Remove(const char* name)
 {
-    VLBICollection::RemoveKey(name);
+    VLBICollection::Remove(name);
 }
 
 vlbi_context InstanceCollection::Get(const char* name)
@@ -43,33 +43,14 @@ vlbi_context InstanceCollection::Get(const char* name)
     return (vlbi_context)VLBICollection::Get(name);
 }
 
-void InstanceCollection::Remove(vlbi_context element)
-{
-    VLBICollection::Remove(element);
-}
-
-void InstanceCollection::RemoveAt(int index)
-{
-    VLBICollection::RemoveAt(index);
-}
-
 vlbi_context  InstanceCollection::At(int index)
 {
     return (vlbi_context)VLBICollection::At(index);
 }
 
-bool InstanceCollection::Contains(vlbi_context element)
+bool InstanceCollection::Contains(const char* element)
 {
     return VLBICollection::Contains(element);
 }
 
-bool InstanceCollection::ContainsKey(const char* element)
-{
-    return VLBICollection::ContainsKey(element);
-}
-
-int InstanceCollection::IndexOf(vlbi_context element)
-{
-    return VLBICollection::IndexOf(element);
-}
 

@@ -28,12 +28,10 @@ public:
 	~InstanceCollection();
 	void Add(vlbi_context element, const char *name = "");
 	vlbi_context Get(const char* name);
-	void RemoveKey(const char* element);
-	void Remove(vlbi_context name);
+    void Remove(const char* element);
 	void RemoveAt(int index);
-	vlbi_context  At(int index);
-	bool Contains(vlbi_context element);
-	bool ContainsKey(const char* element);
+    vlbi_context  At(int index);
+    bool Contains(const char* element);
     int IndexOf(vlbi_context element);
 };
 

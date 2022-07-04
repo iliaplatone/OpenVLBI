@@ -23,34 +23,24 @@
 #include <cstdlib>
 #include <cstdint>
 #include <cstring>
+#include<map>
+#include <vector>
 #include <vlbi.h>
 
-struct VLBIElement {
-    void* item;
-    char *name;
-};
+using namespace std;
 
-class VLBICollection
+class VLBICollection : map <const char*, void*>
 {
 public:
 	VLBICollection();
-	~VLBICollection();
-	void Add(void* element, const char *name = "");
-	void* Get(const char *name);
-	void RemoveKey(const char* name);
-	void Remove(void* element);
-	void RemoveAt(int index);
-	void* At(int index);
-	bool Contains(void* element);
-	bool ContainsKey(const char* name);
-	int IndexOf(void* element);
-
-	int Count;
-
-private:
-	void Defrag();
-	VLBIElement* Items;
-	ssize_t S;
+    ~VLBICollection();
+    virtual void Add(void* element, const char *name = "");
+    virtual void* Get(const char *name);
+    virtual void Remove(const char* name);
+    virtual void* At(size_t index);
+    virtual bool Contains(const char* name);
+    virtual ssize_t Count();
+    virtual void Clear();
 };
 
 #endif //_COLLECTION_H

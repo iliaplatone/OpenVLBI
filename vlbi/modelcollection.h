@@ -28,12 +28,10 @@ class ModelCollection : public VLBICollection
         ~ModelCollection();
         void Add(dsp_stream_p element, const char *name = "");
         dsp_stream_p Get(const char* name);
-        void RemoveKey(const char* element);
-        void Remove(dsp_stream_p name);
+        void Remove(const char* element);
         void RemoveAt(int index);
         dsp_stream_p  At(int index);
-        bool Contains(dsp_stream_p element);
-        bool ContainsKey(const char* element);
+        bool Contains(const char* element);
         int IndexOf(dsp_stream_p element);
 };
 

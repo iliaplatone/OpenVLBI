@@ -40,9 +40,9 @@ void NodeCollection::Add(VLBINode * element)
     baselines->Update();
 }
 
-void NodeCollection::RemoveKey(const char* name)
+void NodeCollection::Remove(const char* name)
 {
-    VLBICollection::RemoveKey(name);
+    VLBICollection::Remove(name);
     baselines->Update();
 }
 
@@ -51,36 +51,14 @@ VLBINode * NodeCollection::Get(const char* name)
     return (VLBINode *)VLBICollection::Get(name);
 }
 
-void NodeCollection::Remove(VLBINode *element)
-{
-    VLBICollection::Remove(element);
-    baselines->Update();
-}
-
-void NodeCollection::RemoveAt(int index)
-{
-    VLBICollection::RemoveAt(index);
-    baselines->Update();
-}
-
 VLBINode * NodeCollection::At(int index)
 {
     return (VLBINode *)(VLBICollection::At(index));
 }
 
-bool NodeCollection::Contains(VLBINode *element)
+bool NodeCollection::Contains(const char* element)
 {
     return VLBICollection::Contains(element);
-}
-
-bool NodeCollection::ContainsKey(const char* element)
-{
-    return VLBICollection::ContainsKey(element);
-}
-
-int NodeCollection::IndexOf(VLBINode *element)
-{
-    return VLBICollection::IndexOf(element);
 }
 
 void NodeCollection::setRelative(bool value)
@@ -88,11 +66,11 @@ void NodeCollection::setRelative(bool value)
     relative = value;
     if(value)
     {
-        for(int x = 0; x < Count; x++)
+        for(int x = 0; x < Count(); x++)
         {
             memcpy(At(x)->stationLocation().coordinates, station.coordinates, sizeof(dsp_location));
         }
-        for(int x = 0; x < getBaselines()->Count; x++)
+        for(int x = 0; x < getBaselines()->Count(); x++)
         {
             memcpy(getBaselines()->At(x)->stationLocation()->coordinates, station.coordinates, sizeof(dsp_location));
         }

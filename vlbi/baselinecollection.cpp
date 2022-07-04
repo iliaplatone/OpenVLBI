@@ -37,7 +37,7 @@ BaselineCollection::BaselineCollection(NodeCollection *nodes) : VLBICollection::
 
 BaselineCollection::~BaselineCollection()
 {
-    for(int i = 0; i < Count; i++)
+    for(int i = 0; i < Count(); i++)
     {
         At(i)->~VLBIBaseline();
     }
@@ -46,9 +46,9 @@ BaselineCollection::~BaselineCollection()
 void BaselineCollection::Update()
 {
     this->Clear();
-    for(int i = 0; i < getNodes()->Count; i++)
+    for(int i = 0; i < getNodes()->Count(); i++)
     {
-        for(int l = i + 1; l < getNodes()->Count; l++)
+        for(int l = i + 1; l < getNodes()->Count(); l++)
         {
             VLBINode* node1 = getNodes()->At(i);
             VLBINode* node2 = getNodes()->At(l);
@@ -68,15 +68,13 @@ void BaselineCollection::Add(VLBIBaseline * element)
     VLBICollection::Add(element, element->getName());
 }
 
-void BaselineCollection::RemoveKey(const char* name)
+void BaselineCollection::Remove(const char* name)
 {
-    VLBICollection::RemoveKey(name);
+    VLBICollection::Remove(name);
 }
 
 void BaselineCollection::Clear()
 {
-    for(int i = Count - 1; i >= 0; i--)
-        VLBICollection::RemoveAt(i);
 }
 
 VLBIBaseline * BaselineCollection::Get(const char* name)
@@ -84,40 +82,20 @@ VLBIBaseline * BaselineCollection::Get(const char* name)
     return (VLBIBaseline *)VLBICollection::Get(name);
 }
 
-void BaselineCollection::Remove(VLBIBaseline *element)
-{
-    VLBICollection::Remove(element);
-}
-
-void BaselineCollection::RemoveAt(int index)
-{
-    VLBICollection::RemoveAt(index);
-}
-
 VLBIBaseline * BaselineCollection::At(int index)
 {
     return (VLBIBaseline *)(VLBICollection::At(index));
 }
 
-bool BaselineCollection::Contains(VLBIBaseline *element)
+bool BaselineCollection::Contains(const char* element)
 {
     return VLBICollection::Contains(element);
-}
-
-bool BaselineCollection::ContainsKey(const char* element)
-{
-    return VLBICollection::ContainsKey(element);
-}
-
-int BaselineCollection::IndexOf(VLBIBaseline *element)
-{
-    return VLBICollection::IndexOf(element);
 }
 
 void BaselineCollection::SetTarget(double *target)
 {
     memcpy(Stream->target, target, sizeof(double) * 3);
-    for(int i = 0; i < Count; i++)
+    for(int i = 0; i < Count(); i++)
     {
         At(i)->setTarget(Stream->target);
     }
@@ -126,7 +104,7 @@ void BaselineCollection::SetTarget(double *target)
 void BaselineCollection:: setRa(double ra)
 {
     Ra = ra;
-    for(int i = 0; i < Count; i++)
+    for(int i = 0; i < Count(); i++)
     {
         At(i)->setRa(ra);
     }
@@ -135,7 +113,7 @@ void BaselineCollection:: setRa(double ra)
 void BaselineCollection:: setDec(double dec)
 {
     Dec = dec;
-    for(int i = 0; i < Count; i++)
+    for(int i = 0; i < Count(); i++)
     {
         At(i)->setDec(dec);
     }
@@ -144,7 +122,7 @@ void BaselineCollection:: setDec(double dec)
 void BaselineCollection::SetFrequency(double frequency)
 {
     Stream->wavelength = vlbi_astro_mean_speed(0) / frequency;
-    for(int i = 0; i < Count; i++)
+    for(int i = 0; i < Count(); i++)
     {
         At(i)->setWaveLength(vlbi_astro_mean_speed(0) / frequency);
     }
@@ -153,7 +131,7 @@ void BaselineCollection::SetFrequency(double frequency)
 void BaselineCollection::setRelative(bool rel)
 {
     relative = rel;
-    for(int i = 0; i < Count; i++)
+    for(int i = 0; i < Count(); i++)
     {
         At(i)->setRelative(rel);
     }
@@ -162,7 +140,7 @@ void BaselineCollection::setRelative(bool rel)
 void BaselineCollection::SetSampleRate(double samplerate)
 {
     Stream->samplerate = samplerate;
-    for(int i = 0; i < Count; i++)
+    for(int i = 0; i < Count(); i++)
     {
         At(i)->setSampleRate(samplerate);
     }
@@ -170,7 +148,7 @@ void BaselineCollection::SetSampleRate(double samplerate)
 
 void BaselineCollection::SetDelegate(vlbi_func2_t delegate)
 {
-    for(int i = 0; i < Count; i++)
+    for(int i = 0; i < Count(); i++)
     {
         At(i)->setDelegate(delegate);
     }

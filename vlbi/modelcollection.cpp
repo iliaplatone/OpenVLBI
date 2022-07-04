@@ -34,9 +34,9 @@ void ModelCollection::Add(dsp_stream_p element, const char *name)
     VLBICollection::Add(element, name);
 }
 
-void ModelCollection::RemoveKey(const char* name)
+void ModelCollection::Remove(const char* name)
 {
-    VLBICollection::RemoveKey(name);
+    VLBICollection::Remove(name);
 }
 
 dsp_stream_p ModelCollection::Get(const char* name)
@@ -44,33 +44,13 @@ dsp_stream_p ModelCollection::Get(const char* name)
     return (dsp_stream_p)VLBICollection::Get(name);
 }
 
-void ModelCollection::Remove(dsp_stream_p element)
-{
-    VLBICollection::Remove(element);
-}
-
-void ModelCollection::RemoveAt(int index)
-{
-    VLBICollection::RemoveAt(index);
-}
-
 dsp_stream_p  ModelCollection::At(int index)
 {
     return (dsp_stream_p )(VLBICollection::At(index));
 }
 
-bool ModelCollection::Contains(dsp_stream_p element)
+bool ModelCollection::Contains(const char* element)
 {
     return VLBICollection::Contains(element);
-}
-
-bool ModelCollection::ContainsKey(const char* element)
-{
-    return VLBICollection::ContainsKey(element);
-}
-
-int ModelCollection::IndexOf(dsp_stream_p element)
-{
-    return VLBICollection::IndexOf(element);
 }
 

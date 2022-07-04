@@ -31,13 +31,11 @@ class NodeCollection : public VLBICollection
         NodeCollection();
         ~NodeCollection();
         void Add(VLBINode *element);
-        void Remove(VLBINode *element);
         void RemoveAt(int index);
         VLBINode *Get(const char* name);
-        void RemoveKey(const char* element);
+        void Remove(const char* element);
         VLBINode * At(int index);
-        bool Contains(VLBINode *element);
-        bool ContainsKey(const char* element);
+        bool Contains(const char* element);
         int IndexOf(VLBINode *element);
         inline BaselineCollection* getBaselines()
         {
