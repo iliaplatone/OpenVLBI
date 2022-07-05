@@ -526,7 +526,6 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     if(nodes == nullptr)return;
     BaselineCollection *baselines = nodes->getBaselines();
     if(baselines == nullptr)return;
-    if(vlbi_has_model(ctx, name))return;
     int stop = 0;
     dsp_stream_p parent = baselines->getStream();
     dsp_buffer_set(parent->buf, parent->len, 0.0);
@@ -575,7 +574,14 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     }
     free(argument);
     free(threads);
-    vlbi_add_model(ctx, dsp_stream_copy(parent), name);
+    if(vlbi_has_model(ctx, name)) {
+        dsp_stream_p model = vlbi_get_model(ctx, name);
+        dsp_stream_set_dim(model, 0, u);
+        dsp_stream_set_dim(model, 0, v);
+        dsp_stream_alloc_buffer(model, model->len);
+        dsp_buffer_copy(parent->buf, model->buf, model->len);
+    } else
+        vlbi_add_model(ctx, dsp_stream_copy(parent), name);
     pgarb("aperture synthesis plotting completed\n");
 }
 
