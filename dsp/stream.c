@@ -83,9 +83,9 @@ void dsp_stream_alloc_buffer(dsp_stream_p stream, int len)
         stream->buf = (dsp_t*)malloc(sizeof(dsp_t) * len);
     }
     if(stream->dft.buf != NULL) {
-        stream->dft.fftw = (fftw_complex*)realloc(stream->dft.buf, sizeof(fftw_complex) * len);
+        stream->dft.buf = (double*)realloc(stream->dft.buf, sizeof(double) * len * 2);
     } else {
-        stream->dft.fftw = (fftw_complex*)malloc(sizeof(fftw_complex) * len);
+        stream->dft.buf = (double*)malloc(sizeof(double) * len * 2);
     }
     if(stream->location != NULL) {
         stream->location = (dsp_location*)realloc(stream->location, sizeof(dsp_location) * (stream->len));
@@ -166,22 +166,20 @@ void dsp_stream_free(dsp_stream_p stream)
         return;
     if(stream->sizes != NULL)
         free(stream->sizes);
-    if(stream->is_copy == 0) {
-        if(stream->pixel_sizes != NULL)
-            free(stream->pixel_sizes);
-        if(stream->children != NULL)
-            free(stream->children);
-        if(stream->ROI != NULL)
-            free(stream->ROI);
-        if(stream->location != NULL)
-            free(stream->location);
-        if(stream->target != NULL)
-            free(stream->target);
-        if(stream->stars != NULL)
-            free(stream->stars);
-        if(stream->triangles != NULL)
-            free(stream->triangles);
-    }
+    if(stream->pixel_sizes != NULL)
+        free(stream->pixel_sizes);
+    if(stream->children != NULL)
+        free(stream->children);
+    if(stream->ROI != NULL)
+        free(stream->ROI);
+    if(stream->location != NULL)
+        free(stream->location);
+    if(stream->target != NULL)
+        free(stream->target);
+    if(stream->stars != NULL)
+        free(stream->stars);
+    if(stream->triangles != NULL)
+        free(stream->triangles);
     free(stream);
     stream = NULL;
 }

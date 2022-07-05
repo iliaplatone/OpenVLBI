@@ -113,9 +113,9 @@ bool VLBICollection::Contains(const char* name)
 void VLBICollection::Defrag()
 {
     if(!Items) return;
-    int count = Count();
+    int n = Count();
     count = 0;
-    for(int i = 0; i < count; i++)
+    for(int i = 0; i < n; i++)
     {
         if(Items[i].item != 0)
         {

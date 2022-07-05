@@ -279,10 +279,7 @@ int vlbi_has_node(void *ctx, const char *name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    if(nodes->Get(name) != nullptr)
-        return true;
-    else
-        return false;
+    return nodes->Contains(name);
 }
 
 int vlbi_get_nodes(void *ctx, vlbi_node** output)
@@ -429,8 +426,10 @@ void vlbi_del_model(void *ctx, const char *name)
     {
         dsp_stream_p model = nodes->getModels()->Get(name);
         nodes->getModels()->Remove(name);
-        dsp_stream_free_buffer(model);
-        dsp_stream_free(model);
+        if(model != nullptr) {
+            dsp_stream_free_buffer(model);
+            dsp_stream_free(model);
+        }
     }
 }
 
@@ -527,6 +526,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     if(nodes == nullptr)return;
     BaselineCollection *baselines = nodes->getBaselines();
     if(baselines == nullptr)return;
+    if(vlbi_has_model(ctx, name))return;
     int stop = 0;
     dsp_stream_p parent = baselines->getStream();
     dsp_buffer_set(parent->buf, parent->len, 0.0);
@@ -575,10 +575,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     }
     free(argument);
     free(threads);
-    if(!vlbi_has_model(ctx, name))
-    {
-        vlbi_add_model(ctx, dsp_stream_copy(parent), name);
-    }
+    vlbi_add_model(ctx, dsp_stream_copy(parent), name);
     pgarb("aperture synthesis plotting completed\n");
 }
 
@@ -736,10 +733,7 @@ int vlbi_has_model(void *ctx, const char *name)
 {
     pfunc;
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    if(nodes->getModels()->Get(name) != nullptr)
-        return true;
-    else
-        return false;
+    return nodes->getModels()->Contains(name);
 }
 
 void vlbi_add_model_from_png(void *ctx, char *filename, const char *name)
