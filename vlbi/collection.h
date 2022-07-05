@@ -27,29 +27,20 @@
 #include <vector>
 #include <vlbi.h>
 
-struct VLBIElement {
-    void* item;
-    char *name;
-};
+using namespace std;
 
-class VLBICollection
+class VLBICollection : map <const char*, void*>
 {
 public:
 	VLBICollection();
     ~VLBICollection();
-    void Add(void* element, const char *name = "");
-    void* Get(const char *name);
-    void Remove(const char* name);
-    void* At(ssize_t index);
-    bool Contains(const char* name);
-    ssize_t Count();
-    void Clear();
-
-private:
-    VLBIElement *Items;
-    ssize_t S;
-    ssize_t count;
-    void Defrag();
+    virtual void Add(void* element, const char *name = "");
+    virtual void* Get(const char *name);
+    virtual void Remove(const char* name);
+    virtual void* At(size_t index);
+    virtual bool Contains(const char* name);
+    virtual ssize_t Count();
+    virtual void Clear();
 };
 
 #endif //_COLLECTION_H
