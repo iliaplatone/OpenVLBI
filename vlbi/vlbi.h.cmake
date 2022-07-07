@@ -651,7 +651,7 @@ DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 * \param buffer The buffer with complex complex visibility data
 * \param len The length of the buffer
 */
-DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, fftw_complex *buffer, int len);
+DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, complex_t *buffer, int len);
 
 /**
 * \brief Obtain the baseline dsp_stream structure containing the complex visibility data.

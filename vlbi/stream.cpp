@@ -474,7 +474,7 @@ int vlbi_get_baselines(void *ctx, vlbi_baseline** output)
     return 0;
 }
 
-void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, fftw_complex *buffer, int len)
+void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, complex_t *buffer, int len)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     char name[150];
