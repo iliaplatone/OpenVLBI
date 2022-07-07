@@ -43,7 +43,6 @@ extern "C" {
 #include <time.h>
 #include <assert.h>
 #include <pthread.h>
-#include <fftw3.h>
 #include <time.h>
 
 /**
@@ -67,7 +66,8 @@ extern "C" {
 */
 /**\{*/
 #define DSP_MAX_STARS 200
-#define dsp_t double
+typedef double dsp_t;
+typedef double complex_t[2];
 #define dsp_t_max 255
 #define dsp_t_min -dsp_t_max
 
@@ -305,7 +305,7 @@ typedef union
         double imaginary;
     } *complex;
     /// Complex number type array used with libFFTW
-    fftw_complex *fftw;
+    complex_t *pairs;
     /// Linear double array containing complex numbers
     double *buf;
 } dsp_complex;
@@ -456,7 +456,7 @@ DLL_EXPORT void dsp_fourier_2dsp(dsp_stream_p stream);
 * \brief Obtain the complex fourier tranform from the current magnitude and phase buffers
 * \param stream the inout stream.
 */
-DLL_EXPORT void dsp_fourier_2fftw(dsp_stream_p stream);
+DLL_EXPORT void dsp_fourier_2complex_t(dsp_stream_p stream);
 
 /**
 * \brief Obtain a complex array from phase and magnitude arrays
@@ -466,7 +466,7 @@ DLL_EXPORT void dsp_fourier_2fftw(dsp_stream_p stream);
 * \param len the input arrays length.
 * \return the array filled with the complex numbers
 */
-DLL_EXPORT void dsp_fourier_phase_mag_array_get_complex(double* mag, double* phi, fftw_complex *out, int len);
+DLL_EXPORT void dsp_fourier_phase_mag_array_get_complex(double* mag, double* phi, complex_t *out, int len);
 
 /**
 * \brief Obtain a complex number's array magnitudes

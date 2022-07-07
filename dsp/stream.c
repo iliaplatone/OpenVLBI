@@ -215,7 +215,7 @@ dsp_stream_p dsp_stream_copy(dsp_stream_p stream)
     if(dest->buf != NULL)
         memcpy(dest->buf, stream->buf, sizeof(dsp_t) * stream->len);
     if(dest->dft.buf != NULL)
-        memcpy(dest->dft.buf, stream->dft.buf, sizeof(fftw_complex) * stream->len);
+        memcpy(dest->dft.buf, stream->dft.buf, sizeof(complex_t) * stream->len);
     return dest;
 }
 
