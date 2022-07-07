@@ -483,7 +483,7 @@ void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, c
     if(b == nullptr) return;
     dsp_stream_set_dim(b->getStream(), 0, len);
     dsp_stream_alloc_buffer(b->getStream(), len);
-    b->getStream()->dft.fftw = buffer;
+    b->getStream()->dft.pairs = buffer;
     b->Lock();
 }
 
