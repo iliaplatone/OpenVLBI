@@ -106,9 +106,9 @@ install(TARGETS vlbi_server_json RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
 endif(WITH_JSON_SERVER)
 
 if(WITH_INDI_SERVER)
-find_package(INDI 1.8.8 REQUIRED)
-find_package(Nova REQUIRED)
+find_package(INDI 1.8.8)
 if(INDI_LIBRARIES AND INDICLIENT_LIBRARIES)
+find_package(Nova REQUIRED)
 include_directories( ${INDI_INCLUDE_DIR})
 add_executable(vlbi_server_indi ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_indi.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp)
 target_link_libraries(vlbi_server_indi openvlbi openvlbi_server indiclient ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
