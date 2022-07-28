@@ -95,6 +95,7 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/FindDSP.cmake DESTINATION ${DATA_INSTA
 install(TARGETS openvlbi LIBRARY DESTINATION ${LIB_INSTALL_DIR})
 install(TARGETS opendsp LIBRARY DESTINATION ${LIB_INSTALL_DIR})
 
+if(NOT WIN32)
 if(WITH_VLBI_SERVER)
 add_library(openvlbi_server STATIC ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server.cpp)
 install(TARGETS openvlbi_server ARCHIVE DESTINATION ${LIB_INSTALL_DIR})
@@ -122,3 +123,4 @@ target_link_libraries(vlbi_server_dummy openvlbi openvlbi_server ${M_LIB} ${ZLIB
 install(TARGETS vlbi_server_dummy RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(WITH_DUMMY_SERVER)
 endif(WITH_VLBI_SERVER)
+endif(NOT WIN32)
