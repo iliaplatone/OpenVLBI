@@ -1275,7 +1275,7 @@ DLL_EXPORT void dsp_stream_scale(dsp_stream_p stream);
 * \brief Perform scale, translate and rotate transformations in-place
 * \param stream The stream that will be transformed
 */
-DLL_EXPORT void dsp_stream_align(dsp_stream_p in);
+DLL_EXPORT void dsp_stream_align(dsp_stream_p stream);
 
 /**\}*/
 /**

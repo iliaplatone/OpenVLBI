@@ -262,7 +262,7 @@ class Server
         * \param name The name of the new node
         * \param node The name of the unfiltered node
         * \param lofreq The low cut frequency in radians
-        * \param lofreq The high cut frequency in radians
+        * \param hifreq The high cut frequency in radians
         */
         void BandPass(const char *name, const char *node, double lofreq, double hifreq);
 
@@ -271,7 +271,7 @@ class Server
         * \param name The name of the new node
         * \param node The name of the unfiltered node
         * \param lofreq The low cut frequency in radians
-        * \param lofreq The high cut frequency in radians
+        * \param hifreq The high cut frequency in radians
         */
         void BandReject(const char *name, const char *node, double lofreq, double hifreq);
 
@@ -445,7 +445,7 @@ class Server
 
         /**
         * \brief Set the delegate function
-        * \param The new delegate
+        * \param func The new delegate
         */
         inline void setDelegate(vlbi_func2_t func)
         {
