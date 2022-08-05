@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['parse_1048',['Parse',['../class_v_l_b_i_1_1_server.html#afd7eb27b2ea842c5fc480f8a5e41242c',1,'VLBI::Server']]],
-  ['plot_1049',['Plot',['../class_v_l_b_i_1_1_server.html#ac0f084d6abc2f9e25ca0fd7d165bc9c2',1,'VLBI::Server']]]
+  ['idft_1078',['Idft',['../class_v_l_b_i_1_1_server.html#a4e49aa8fb407efbcc1a2f287b26c66ea',1,'VLBI::Server']]],
+  ['init_1079',['Init',['../class_v_l_b_i_1_1_server.html#a92cd5bfb6314ded325382b984dbefb62',1,'VLBI::Server']]]
 ];

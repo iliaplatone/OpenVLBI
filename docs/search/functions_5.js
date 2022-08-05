@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mask_1047',['Mask',['../class_v_l_b_i_1_1_server.html#a3396f03bdaeaace5293b2c1921edb93d',1,'VLBI::Server']]]
+  ['highpass_1077',['HighPass',['../class_v_l_b_i_1_1_server.html#a0b397f838725e244656a8c7c5bb7c18d',1,'VLBI::Server']]]
 ];

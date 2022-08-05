@@ -119,6 +119,12 @@ Functions</h2></td></tr>
 <tr class="memitem:gafb382c7a80321d3dbf305e330dedc08e"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT dsp_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gafb382c7a80321d3dbf305e330dedc08e">dsp_file_bayer_2_composite</a> (dsp_t *src, int red, int width, int height)</td></tr>
 <tr class="memdesc:gafb382c7a80321d3dbf305e330dedc08e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a bayer pattern dsp_t array into a contiguos component array.  <a href="group__dsp___file_management.html#gafb382c7a80321d3dbf305e330dedc08e">More...</a><br /></td></tr>
 <tr class="separator:gafb382c7a80321d3dbf305e330dedc08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d64f81c5cd3571d6b2dc99a650cb0af"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="group___d_s_p___types.html#ga8a50c6e2cc04b1fdc15cab83db4e888b">dsp_align_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#ga8d64f81c5cd3571d6b2dc99a650cb0af">dsp_align_fill_info</a> (<a class="el" href="group___d_s_p___types.html#ga5c35d8d85bdbf6df99e1abfd099457a1">dsp_triangle</a> t1, <a class="el" href="group___d_s_p___types.html#ga5c35d8d85bdbf6df99e1abfd099457a1">dsp_triangle</a> t2)</td></tr>
+<tr class="memdesc:ga8d64f81c5cd3571d6b2dc99a650cb0af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill a dsp_align_info struct by comparing two triangles.  <a href="group__dsp___file_management.html#ga8d64f81c5cd3571d6b2dc99a650cb0af">More...</a><br /></td></tr>
+<tr class="separator:ga8d64f81c5cd3571d6b2dc99a650cb0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff3520f8dc9279ade5a833b88b9b608c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="group___d_s_p___types.html#ga5c35d8d85bdbf6df99e1abfd099457a1">dsp_triangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gaff3520f8dc9279ade5a833b88b9b608c">dsp_align_calc_triangle</a> (<a class="el" href="group___d_s_p___types.html#gaf93dd5cd3589db4649654b4976710670">dsp_star</a> *stars)</td></tr>
+<tr class="memdesc:gaff3520f8dc9279ade5a833b88b9b608c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a dsp_triangle struct.  <a href="group__dsp___file_management.html#gaff3520f8dc9279ade5a833b88b9b608c">More...</a><br /></td></tr>
+<tr class="separator:gaff3520f8dc9279ade5a833b88b9b608c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaad12c3e6448a1a29732486559490aa67"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html#gaad12c3e6448a1a29732486559490aa67">dsp_align_get_offset</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> ref, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> to_align, double tolerance, double target_score)</td></tr>
 <tr class="memdesc:gaad12c3e6448a1a29732486559490aa67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate offsets, rotation and scaling of two streams giving reference alignment point.  <a href="group__dsp___file_management.html#gaad12c3e6448a1a29732486559490aa67">More...</a><br /></td></tr>
 <tr class="separator:gaad12c3e6448a1a29732486559490aa67"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,6 +143,67 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="gaff3520f8dc9279ade5a833b88b9b608c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaff3520f8dc9279ade5a833b88b9b608c">&#9670;&nbsp;</a></span>dsp_align_calc_triangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT <a class="el" href="group___d_s_p___types.html#ga5c35d8d85bdbf6df99e1abfd099457a1">dsp_triangle</a> dsp_align_calc_triangle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___d_s_p___types.html#gaf93dd5cd3589db4649654b4976710670">dsp_star</a> *&#160;</td>
+          <td class="paramname"><em>stars</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stars</td><td>the stars array meeded to build the triangle struct </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new dsp_triangle struct </dd></dl>
+
+</div>
+</div>
+<a id="ga8d64f81c5cd3571d6b2dc99a650cb0af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8d64f81c5cd3571d6b2dc99a650cb0af">&#9670;&nbsp;</a></span>dsp_align_fill_info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT <a class="el" href="group___d_s_p___types.html#ga8a50c6e2cc04b1fdc15cab83db4e888b">dsp_align_info</a> dsp_align_fill_info </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___d_s_p___types.html#ga5c35d8d85bdbf6df99e1abfd099457a1">dsp_triangle</a>&#160;</td>
+          <td class="paramname"><em>t1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___d_s_p___types.html#ga5c35d8d85bdbf6df99e1abfd099457a1">dsp_triangle</a>&#160;</td>
+          <td class="paramname"><em>t2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t1</td><td>the reference triangle </td></tr>
+    <tr><td class="paramname">t2</td><td>the triangle taken for comparison </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The dsp_align_info struct filled with the offsets </dd></dl>
+
+</div>
+</div>
 <a id="gaad12c3e6448a1a29732486559490aa67"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaad12c3e6448a1a29732486559490aa67">&#9670;&nbsp;</a></span>dsp_align_get_offset()</h2>
 
@@ -1099,7 +1166,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 16 2022 00:30:15 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 28 2022 20:05:06 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

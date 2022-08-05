@@ -74,9 +74,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ga4065e7251b49214299c7a76c2b6e65c4"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga4065e7251b49214299c7a76c2b6e65c4">vlbi_add_node</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> Stream, const char *name, int geographic_coordinates)</td></tr>
 <tr class="memdesc:ga4065e7251b49214299c7a76c2b6e65c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a stream into the current OpenVLBI context.  <a href="group___v_l_b_i___nodes.html#ga4065e7251b49214299c7a76c2b6e65c4">More...</a><br /></td></tr>
 <tr class="separator:ga4065e7251b49214299c7a76c2b6e65c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga33ed15ed9261ae18446354fbb754a602"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga33ed15ed9261ae18446354fbb754a602">vlbi_copy_node</a> (void *ctx, const char *name, const char *node)</td></tr>
+<tr class="memdesc:ga33ed15ed9261ae18446354fbb754a602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a node into a new one.  <a href="group___v_l_b_i___nodes.html#ga33ed15ed9261ae18446354fbb754a602">More...</a><br /></td></tr>
+<tr class="separator:ga33ed15ed9261ae18446354fbb754a602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga065775abf9414c0741851d27def3c753"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga065775abf9414c0741851d27def3c753">vlbi_get_node</a> (void *ctx, const char *name)</td></tr>
 <tr class="memdesc:ga065775abf9414c0741851d27def3c753"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a stream from the current OpenVLBI context.  <a href="group___v_l_b_i___nodes.html#ga065775abf9414c0741851d27def3c753">More...</a><br /></td></tr>
 <tr class="separator:ga065775abf9414c0741851d27def3c753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d9441a938214235652579ab984a2a45"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga9d9441a938214235652579ab984a2a45">vlbi_has_node</a> (void *ctx, const char *name)</td></tr>
+<tr class="memdesc:ga9d9441a938214235652579ab984a2a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if a node is present into the current OpenVLBI context.  <a href="group___v_l_b_i___nodes.html#ga9d9441a938214235652579ab984a2a45">More...</a><br /></td></tr>
+<tr class="separator:ga9d9441a938214235652579ab984a2a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacc87fbbf03f3c538e115459e4e4127eb"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#gacc87fbbf03f3c538e115459e4e4127eb">vlbi_del_node</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, const char *name)</td></tr>
 <tr class="memdesc:gacc87fbbf03f3c538e115459e4e4127eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a stream from the current OpenVLBI context.  <a href="group___v_l_b_i___nodes.html#gacc87fbbf03f3c538e115459e4e4127eb">More...</a><br /></td></tr>
 <tr class="separator:gacc87fbbf03f3c538e115459e4e4127eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -89,6 +95,18 @@ Functions</h2></td></tr>
 <tr class="memitem:ga8967e4927fb7f5daf65be4b1022d6c9b"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#ga8967e4927fb7f5daf65be4b1022d6c9b">vlbi_add_nodes_from_sdfits</a> (void *ctx, char *filename, const char *name, int geo)</td></tr>
 <tr class="memdesc:ga8967e4927fb7f5daf65be4b1022d6c9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add nodes from each row of a single dish fits -SDFITS- file.  <a href="group___v_l_b_i___nodes.html#ga8967e4927fb7f5daf65be4b1022d6c9b">More...</a><br /></td></tr>
 <tr class="separator:ga8967e4927fb7f5daf65be4b1022d6c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafab24c0f24dc9f961fb446bb269e1b91"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#gafab24c0f24dc9f961fb446bb269e1b91">vlbi_filter_lp_node</a> (void *ctx, const char *name, const char *node, double radians)</td></tr>
+<tr class="memdesc:gafab24c0f24dc9f961fb446bb269e1b91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a low pass filter on the node buffer.  <a href="group___v_l_b_i___nodes.html#gafab24c0f24dc9f961fb446bb269e1b91">More...</a><br /></td></tr>
+<tr class="separator:gafab24c0f24dc9f961fb446bb269e1b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad82942319739e6b54e6251cedb8e4cb2"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#gad82942319739e6b54e6251cedb8e4cb2">vlbi_filter_hp_node</a> (void *ctx, const char *name, const char *node, double radians)</td></tr>
+<tr class="memdesc:gad82942319739e6b54e6251cedb8e4cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a high pass filter on the node buffer.  <a href="group___v_l_b_i___nodes.html#gad82942319739e6b54e6251cedb8e4cb2">More...</a><br /></td></tr>
+<tr class="separator:gad82942319739e6b54e6251cedb8e4cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabdeecd1877185ffbad6900b5649edb46"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#gabdeecd1877185ffbad6900b5649edb46">vlbi_filter_bp_node</a> (void *ctx, const char *name, const char *node, double lo_radians, double hi_radians)</td></tr>
+<tr class="memdesc:gabdeecd1877185ffbad6900b5649edb46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a band pass filter on the node buffer.  <a href="group___v_l_b_i___nodes.html#gabdeecd1877185ffbad6900b5649edb46">More...</a><br /></td></tr>
+<tr class="separator:gabdeecd1877185ffbad6900b5649edb46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd1c8738d7b30cd66a923bf531d6e27b"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___nodes.html#gafd1c8738d7b30cd66a923bf531d6e27b">vlbi_filter_br_node</a> (void *ctx, const char *name, const char *node, double lo_radians, double hi_radians)</td></tr>
+<tr class="memdesc:gafd1c8738d7b30cd66a923bf531d6e27b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a band reject filter on the node buffer.  <a href="group___v_l_b_i___nodes.html#gafd1c8738d7b30cd66a923bf531d6e27b">More...</a><br /></td></tr>
+<tr class="separator:gafd1c8738d7b30cd66a923bf531d6e27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -132,7 +150,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
-    <tr><td class="paramname">Stream</td><td>The OpenVLBI stream to add </td></tr>
+    <tr><td class="paramname">Stream</td><td>The OpenDSP stream to add </td></tr>
     <tr><td class="paramname">name</td><td>A friendly name of this stream </td></tr>
     <tr><td class="paramname">geographic_coordinates</td><td>Whether to use geographic coordinates </td></tr>
   </table>
@@ -239,6 +257,48 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga33ed15ed9261ae18446354fbb754a602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga33ed15ed9261ae18446354fbb754a602">&#9670;&nbsp;</a></span>vlbi_copy_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void vlbi_copy_node </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">name</td><td>The node name of the copy </td></tr>
+    <tr><td class="paramname">node</td><td>The name of the node to copy </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="gacc87fbbf03f3c538e115459e4e4127eb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gacc87fbbf03f3c538e115459e4e4127eb">&#9670;&nbsp;</a></span>vlbi_del_node()</h2>
 
@@ -268,6 +328,216 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">name</td><td>The friendly name of the stream to be removed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gabdeecd1877185ffbad6900b5649edb46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabdeecd1877185ffbad6900b5649edb46">&#9670;&nbsp;</a></span>vlbi_filter_bp_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void vlbi_filter_bp_node </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lo_radians</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>hi_radians</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the filtered new node </td></tr>
+    <tr><td class="paramname">node</td><td>The name of the original node </td></tr>
+    <tr><td class="paramname">lo_radians</td><td>The low cut frequency in radians, where PI corresponds to a second </td></tr>
+    <tr><td class="paramname">hi_radians</td><td>The hi cut frequency in radians, where PI corresponds to a second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gafd1c8738d7b30cd66a923bf531d6e27b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafd1c8738d7b30cd66a923bf531d6e27b">&#9670;&nbsp;</a></span>vlbi_filter_br_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void vlbi_filter_br_node </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lo_radians</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>hi_radians</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the filtered new node </td></tr>
+    <tr><td class="paramname">node</td><td>The name of the original node </td></tr>
+    <tr><td class="paramname">lo_radians</td><td>The low cut frequency in radians, where PI corresponds to a second </td></tr>
+    <tr><td class="paramname">hi_radians</td><td>The hi cut frequency in radians, where PI corresponds to a second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad82942319739e6b54e6251cedb8e4cb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad82942319739e6b54e6251cedb8e4cb2">&#9670;&nbsp;</a></span>vlbi_filter_hp_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void vlbi_filter_hp_node </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>radians</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the filtered new node </td></tr>
+    <tr><td class="paramname">node</td><td>The name of the original node </td></tr>
+    <tr><td class="paramname">radians</td><td>The cutoff frequency in radians, where PI corresponds to a second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gafab24c0f24dc9f961fb446bb269e1b91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafab24c0f24dc9f961fb446bb269e1b91">&#9670;&nbsp;</a></span>vlbi_filter_lp_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void vlbi_filter_lp_node </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>radians</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the filtered new node </td></tr>
+    <tr><td class="paramname">node</td><td>The name of the original node </td></tr>
+    <tr><td class="paramname">radians</td><td>The cutoff frequency in radians, where PI corresponds to a second </td></tr>
   </table>
   </dd>
 </dl>
@@ -306,7 +576,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The OpenVLBI stream representing this node </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The OpenDSP stream representing this node </dd></dl>
 
 </div>
 </div>
@@ -346,10 +616,46 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga9d9441a938214235652579ab984a2a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9d9441a938214235652579ab984a2a45">&#9670;&nbsp;</a></span>vlbi_has_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT int vlbi_has_node </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the node to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Non-zero if the node is present in the passed context </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 16 2022 00:30:15 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 28 2022 20:05:06 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

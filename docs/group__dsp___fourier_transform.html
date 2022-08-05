@@ -80,12 +80,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ga92f610af5351f3bd7bab457ffaeeecfb"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fourier_transform.html#ga92f610af5351f3bd7bab457ffaeeecfb">dsp_fourier_2dsp</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
 <tr class="memdesc:ga92f610af5351f3bd7bab457ffaeeecfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the magnitude and phase buffers with the current data in stream-&gt;dft.  <a href="group__dsp___fourier_transform.html#ga92f610af5351f3bd7bab457ffaeeecfb">More...</a><br /></td></tr>
 <tr class="separator:ga92f610af5351f3bd7bab457ffaeeecfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga13cfee224a0c54ebc406425c235495a5"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fourier_transform.html#ga13cfee224a0c54ebc406425c235495a5">dsp_fourier_2fftw</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
-<tr class="memdesc:ga13cfee224a0c54ebc406425c235495a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the complex fourier tranform from the current magnitude and phase buffers.  <a href="group__dsp___fourier_transform.html#ga13cfee224a0c54ebc406425c235495a5">More...</a><br /></td></tr>
-<tr class="separator:ga13cfee224a0c54ebc406425c235495a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga03f1eb219e2c8d19b74b94963c17e9d8"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="uniondsp__complex.html">dsp_complex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fourier_transform.html#ga03f1eb219e2c8d19b74b94963c17e9d8">dsp_fourier_phase_mag_array_get_complex</a> (double *mag, double *phi, int len)</td></tr>
-<tr class="memdesc:ga03f1eb219e2c8d19b74b94963c17e9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain a complex array from phase and magnitude arrays.  <a href="group__dsp___fourier_transform.html#ga03f1eb219e2c8d19b74b94963c17e9d8">More...</a><br /></td></tr>
-<tr class="separator:ga03f1eb219e2c8d19b74b94963c17e9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d739ef631c4fbab08b154433526654c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fourier_transform.html#ga5d739ef631c4fbab08b154433526654c">dsp_fourier_2complex_t</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
+<tr class="memdesc:ga5d739ef631c4fbab08b154433526654c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the complex fourier tranform from the current magnitude and phase buffers.  <a href="group__dsp___fourier_transform.html#ga5d739ef631c4fbab08b154433526654c">More...</a><br /></td></tr>
+<tr class="separator:ga5d739ef631c4fbab08b154433526654c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8662f2b79d3f46b5009e2f58530d1746"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fourier_transform.html#ga8662f2b79d3f46b5009e2f58530d1746">dsp_fourier_phase_mag_array_get_complex</a> (double *mag, double *phi, complex_t *out, int len)</td></tr>
+<tr class="memdesc:ga8662f2b79d3f46b5009e2f58530d1746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain a complex array from phase and magnitude arrays.  <a href="group__dsp___fourier_transform.html#ga8662f2b79d3f46b5009e2f58530d1746">More...</a><br /></td></tr>
+<tr class="separator:ga8662f2b79d3f46b5009e2f58530d1746"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga62cc8637fcc4dec6d05ec38688bb9683"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fourier_transform.html#ga62cc8637fcc4dec6d05ec38688bb9683">dsp_fourier_complex_array_get_magnitude</a> (<a class="el" href="uniondsp__complex.html">dsp_complex</a> in, int len)</td></tr>
 <tr class="memdesc:ga62cc8637fcc4dec6d05ec38688bb9683"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain a complex number's array magnitudes.  <a href="group__dsp___fourier_transform.html#ga62cc8637fcc4dec6d05ec38688bb9683">More...</a><br /></td></tr>
 <tr class="separator:ga62cc8637fcc4dec6d05ec38688bb9683"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -95,14 +95,14 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga92f610af5351f3bd7bab457ffaeeecfb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga92f610af5351f3bd7bab457ffaeeecfb">&#9670;&nbsp;</a></span>dsp_fourier_2dsp()</h2>
+<a id="ga5d739ef631c4fbab08b154433526654c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5d739ef631c4fbab08b154433526654c">&#9670;&nbsp;</a></span>dsp_fourier_2complex_t()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">DLL_EXPORT void dsp_fourier_2dsp </td>
+          <td class="memname">DLL_EXPORT void dsp_fourier_2complex_t </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
           <td class="paramname"><em>stream</em></td><td>)</td>
@@ -119,14 +119,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga13cfee224a0c54ebc406425c235495a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga13cfee224a0c54ebc406425c235495a5">&#9670;&nbsp;</a></span>dsp_fourier_2fftw()</h2>
+<a id="ga92f610af5351f3bd7bab457ffaeeecfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga92f610af5351f3bd7bab457ffaeeecfb">&#9670;&nbsp;</a></span>dsp_fourier_2dsp()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">DLL_EXPORT void dsp_fourier_2fftw </td>
+          <td class="memname">DLL_EXPORT void dsp_fourier_2dsp </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
           <td class="paramname"><em>stream</em></td><td>)</td>
@@ -274,14 +274,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga03f1eb219e2c8d19b74b94963c17e9d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga03f1eb219e2c8d19b74b94963c17e9d8">&#9670;&nbsp;</a></span>dsp_fourier_phase_mag_array_get_complex()</h2>
+<a id="ga8662f2b79d3f46b5009e2f58530d1746"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8662f2b79d3f46b5009e2f58530d1746">&#9670;&nbsp;</a></span>dsp_fourier_phase_mag_array_get_complex()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">DLL_EXPORT <a class="el" href="uniondsp__complex.html">dsp_complex</a> dsp_fourier_phase_mag_array_get_complex </td>
+          <td class="memname">DLL_EXPORT void dsp_fourier_phase_mag_array_get_complex </td>
           <td>(</td>
           <td class="paramtype">double *&#160;</td>
           <td class="paramname"><em>mag</em>, </td>
@@ -291,6 +291,12 @@ Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">double *&#160;</td>
           <td class="paramname"><em>phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">complex_t *&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -309,6 +315,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">mag</td><td>the input magnitude array. </td></tr>
     <tr><td class="paramname">phi</td><td>the input phase array. </td></tr>
+    <tr><td class="paramname">out</td><td>the output complex arrays. </td></tr>
     <tr><td class="paramname">len</td><td>the input arrays length. </td></tr>
   </table>
   </dd>
@@ -320,7 +327,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 16 2022 00:30:15 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 28 2022 20:05:06 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

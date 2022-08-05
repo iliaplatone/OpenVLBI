@@ -74,9 +74,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gad8463ac0e307bb75bcef9c293cc5bd92">vlbi_get_baselines</a> (void *ctx, <a class="el" href="structvlbi__baseline.html">vlbi_baseline</a> **baselines)</td></tr>
 <tr class="memdesc:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all baselines of the current OpenVLBI context.  <a href="group___v_l_b_i___baselines.html#gad8463ac0e307bb75bcef9c293cc5bd92">More...</a><br /></td></tr>
 <tr class="separator:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad4b09c4ce131d7c5f39c72e96621a08b"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gad4b09c4ce131d7c5f39c72e96621a08b">vlbi_set_baseline_buffer</a> (void *ctx, const char *node1, const char *node2, fftw_complex *buffer, int len)</td></tr>
-<tr class="memdesc:gad4b09c4ce131d7c5f39c72e96621a08b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the buffer of a single baseline with complex visibility data. This function locks this baeline and the data passed here will overwrite the correlated visibilities from its nodes.  <a href="group___v_l_b_i___baselines.html#gad4b09c4ce131d7c5f39c72e96621a08b">More...</a><br /></td></tr>
-<tr class="separator:gad4b09c4ce131d7c5f39c72e96621a08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba2073d72d90a798ca0c5cfc15cea5be"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gaba2073d72d90a798ca0c5cfc15cea5be">vlbi_set_baseline_buffer</a> (void *ctx, const char *node1, const char *node2, complex_t *buffer, int len)</td></tr>
+<tr class="memdesc:gaba2073d72d90a798ca0c5cfc15cea5be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the buffer of a single baseline with complex visibility data. This function locks this baeline and the data passed here will overwrite the correlated visibilities from its nodes.  <a href="group___v_l_b_i___baselines.html#gaba2073d72d90a798ca0c5cfc15cea5be">More...</a><br /></td></tr>
+<tr class="separator:gaba2073d72d90a798ca0c5cfc15cea5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga058930f97d8bb278942494b21b96ac6e"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#ga058930f97d8bb278942494b21b96ac6e">vlbi_get_baseline_stream</a> (void *ctx, const char *node1, const char *node2)</td></tr>
 <tr class="memdesc:ga058930f97d8bb278942494b21b96ac6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the baseline dsp_stream structure containing the complex visibility data.  <a href="group___v_l_b_i___baselines.html#ga058930f97d8bb278942494b21b96ac6e">More...</a><br /></td></tr>
 <tr class="separator:ga058930f97d8bb278942494b21b96ac6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -251,8 +251,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gad4b09c4ce131d7c5f39c72e96621a08b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad4b09c4ce131d7c5f39c72e96621a08b">&#9670;&nbsp;</a></span>vlbi_set_baseline_buffer()</h2>
+<a id="gaba2073d72d90a798ca0c5cfc15cea5be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaba2073d72d90a798ca0c5cfc15cea5be">&#9670;&nbsp;</a></span>vlbi_set_baseline_buffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,7 +278,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">fftw_complex *&#160;</td>
+          <td class="paramtype">complex_t *&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -450,7 +450,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 16 2022 00:30:15 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 28 2022 20:05:06 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
