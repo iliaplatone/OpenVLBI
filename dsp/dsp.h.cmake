@@ -1512,38 +1512,6 @@ DLL_EXPORT dsp_triangle dsp_align_calc_triangle(dsp_star* stars);
 */
 DLL_EXPORT int dsp_align_get_offset(dsp_stream_p ref, dsp_stream_p to_align, double tolerance, double target_score);
 
-/**
-* \brief Callback function for qsort for double type ascending ordering
-* \param arg1 the first comparison element
-* \param arg2 the second comparison element
-* \return 1 if arg1 is greater than arg2, -1 if arg2 is greater than arg1
-*/
-DLL_EXPORT int dsp_qsort_double_asc (const void *arg1, const void *arg2);
-
-/**
-* \brief Callback function for qsort for double type descending ordering
-* \param arg1 the first comparison element
-* \param arg2 the second comparison element
-* \return 1 if arg2 is greater than arg1, -1 if arg1 is greater than arg2
-*/
-DLL_EXPORT int dsp_qsort_double_desc (const void *arg1, const void *arg2);
-
-/**
-* \brief Callback function for qsort for dsp_star ascending ordering by their diameters
-* \param arg1 the first comparison element
-* \param arg2 the second comparison element
-* \return 1 if arg1 diameter is greater than arg2, -1 if arg2 diameter is greater than arg1
-*/
-DLL_EXPORT int dsp_qsort_star_diameter_asc (const void *arg1, const void *arg2);
-
-/**
-* \brief Callback function for qsort for dsp_star descending ordering by their diameters
-* \param arg1 the first comparison element
-* \param arg2 the second comparison element
-* \return 1 if arg2 diameter is greater than arg1, -1 if arg1 diameter is greater than arg2
-*/
-DLL_EXPORT int dsp_qsort_star_diameter_desc (const void *arg1, const void *arg2);
-
 /**\}*/
 /// \defgroup dsp_FitsExtensions
 #include <fits_extensions.h>

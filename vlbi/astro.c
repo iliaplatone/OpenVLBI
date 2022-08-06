@@ -20,6 +20,15 @@
 
 static double SPEED_MEAN = LIGHTSPEED;
 
+static int vlbi_qsort_star_diameter_desc(const void *arg1, const void *arg2)
+{
+    dsp_star* a = (dsp_star*)arg1;
+    dsp_star* b = (dsp_star*)arg2;
+    if(a->diameter < b->diameter)
+        return 1;
+    return -1;
+}
+
 double vlbi_astro_mean_speed(double speed)
 {
     if(speed > 0.0) {
@@ -150,7 +159,7 @@ dsp_stream_p vlbi_astro_load_spectrum(char *filename)
     dsp_stream_alloc_buffer(spectrum, 1);
     free(line.center.location);
     free(buf);
-    qsort(spectrum->stars, (size_t)spectrum->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
+    qsort(spectrum->stars, (size_t)spectrum->stars_count, sizeof(dsp_star), vlbi_qsort_star_diameter_desc);
     return spectrum;
 }
 
@@ -220,10 +229,10 @@ dsp_stream_p vlbi_astro_create_reference_catalog(dsp_stream_p *catalog, int cata
     dsp_stream_alloc_buffer(stream, stream->len);
     for(int c = 0; c < catalog_size; c++) {
         dsp_stream_p element = catalog[c];
-        qsort(element->stars, (size_t)element->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
+        qsort(element->stars, (size_t)element->stars_count, sizeof(dsp_star), vlbi_qsort_star_diameter_desc);
         for(int s = 0; s < element->stars_count; s++)
             dsp_stream_add_star(stream, element->stars[s]);
-        qsort(stream->stars, (size_t)stream->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
+        qsort(stream->stars, (size_t)stream->stars_count, sizeof(dsp_star), vlbi_qsort_star_diameter_desc);
     }
     return stream;
 }
@@ -270,7 +279,7 @@ void vlbi_astro_scan_spectrum(dsp_stream_p stream, int sample_size)
         }
     }
     free(star.center.location);
-    qsort(stream->stars, (size_t)stream->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
+    qsort(stream->stars, (size_t)stream->stars_count, sizeof(dsp_star), vlbi_qsort_star_diameter_desc);
 }
 
 dsp_align_info vlbi_astro_align_spectra(dsp_stream_p spectrum, dsp_stream_p catalog, int max_lines, double decimals, double min_score)

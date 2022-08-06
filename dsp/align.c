@@ -21,34 +21,18 @@
 #include "dsp.h"
 #include <time.h>
 
-int dsp_qsort_double_desc (const void *arg1, const void *arg2)
+static int dsp_qsort_double_desc (const void *arg1, const void *arg2)
 {
     double* a1 = (double*)arg1;
     double* a2 = (double*)arg2;
     return ((*a1) < (*a2) ? 1 : -1);
 }
 
-int dsp_qsort_double_asc (const void *arg1, const void *arg2)
-{
-    double* a1 = (double*)arg1;
-    double* a2 = (double*)arg2;
-    return ((*a1) > (*a2) ? 1 : -1);
-}
-
-int dsp_qsort_star_diameter_desc(const void *arg1, const void *arg2)
+static int dsp_qsort_star_diameter_desc(const void *arg1, const void *arg2)
 {
     dsp_star* a = (dsp_star*)arg1;
     dsp_star* b = (dsp_star*)arg2;
     if(a->diameter < b->diameter)
-        return 1;
-    return -1;
-}
-
-int dsp_qsort_star_diameter_asc(const void *arg1, const void *arg2)
-{
-    dsp_star* a = (dsp_star*)arg1;
-    dsp_star* b = (dsp_star*)arg2;
-    if(a->diameter > b->diameter)
         return 1;
     return -1;
 }
