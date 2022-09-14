@@ -25,6 +25,7 @@ extern "C" {
 #endif
 
 #ifdef _WIN32
+#define _TCHAR_DEFINED
 #define DLL_EXPORT __declspec(dllexport)
 #else
 #define DLL_EXPORT extern

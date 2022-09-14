@@ -23,6 +23,12 @@
 extern "C" {
 #endif
 
+#ifdef _WIN32
+#define DLL_EXPORT __declspec(dllexport)
+#else
+#define DLL_EXPORT extern
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -37,12 +43,6 @@ extern "C" {
 #include <assert.h>
 #include <pthread.h>
 #include <dsp.h>
-
-#ifdef _WIN32
-#define DLL_EXPORT __declspec(dllexport)
-#else
-#define DLL_EXPORT extern
-#endif
 
 /**
  * \mainpage
