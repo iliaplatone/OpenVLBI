@@ -62,7 +62,7 @@ static double calc_match_score(dsp_triangle t1, dsp_triangle t2, dsp_align_info 
         err += fabs((t1.ratios[d] - t2.ratios[d])/t1.ratios[d]);
         err += fabs(t2.stars[d].diameter-t1.stars[d].diameter)/t1.stars[d].diameter;
     }
-    return pow(err / t1.dims, 1.0/t1.dims);
+    return err / t1.dims;
 }
 
 dsp_align_info *dsp_align_fill_info(dsp_triangle t1, dsp_triangle t2)
