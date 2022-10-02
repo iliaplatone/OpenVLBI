@@ -1495,14 +1495,14 @@ DLL_EXPORT dsp_t* dsp_file_bayer_2_composite(dsp_t *src, int red, int width, int
 * \param t2 the triangle taken for comparison
 * \return The dsp_align_info struct filled with the offsets
 */
-DLL_EXPORT dsp_align_info dsp_align_fill_info(dsp_triangle t1, dsp_triangle t2);
+DLL_EXPORT dsp_align_info* dsp_align_fill_info(dsp_triangle t1, dsp_triangle t2);
 
 /**
 * \brief Create a dsp_triangle struct
 * \param stars the stars array meeded to build the triangle struct
 * \return A new dsp_triangle struct
 */
-DLL_EXPORT dsp_triangle dsp_align_calc_triangle(dsp_star* stars);
+DLL_EXPORT dsp_triangle *dsp_align_calc_triangle(dsp_star* stars);
 
 /**
 * \brief Calculate offsets, rotation and scaling of two streams giving reference alignment point
