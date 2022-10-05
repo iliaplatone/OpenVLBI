@@ -194,7 +194,7 @@ int dsp_align_get_offset(dsp_stream_p stream1, dsp_stream_p stream2, double tole
         dsp_stream_del_triangle(stream1, stream1->triangles_count-1);
     for(x = 0; x < stream1->stars_count * (stream1->stars_count-stream1->dims) / (stream1->dims+1); x++) {
         for(y = 0; y < stream1->dims+1; y++) {
-            stars[y] = stream1->stars[(x + y) % (stream1->stars_count-y)];
+            stars[y] = stream1->stars[(x + y * (x / stream1->stars_count + 1)) % stream1->stars_count];
         }
         dsp_triangle *t = dsp_align_calc_triangle(stars);
         dsp_stream_add_triangle(stream1, *t);
@@ -205,7 +205,7 @@ int dsp_align_get_offset(dsp_stream_p stream1, dsp_stream_p stream2, double tole
         dsp_stream_del_triangle(stream2, stream2->triangles_count-1);
     for(x = 0; x < stream2->stars_count * (stream2->stars_count-stream2->dims) / (stream2->dims+1); x++) {
         for(y = 0; y < stream2->dims+1; y++) {
-            stars[y] = stream2->stars[(x + y) % (stream2->stars_count-y)];
+            stars[y] = stream2->stars[(x + y * (x / stream2->stars_count + 1)) % stream2->stars_count];
         }
         dsp_triangle *t = dsp_align_calc_triangle(stars);
         dsp_stream_add_triangle(stream2, *t);
