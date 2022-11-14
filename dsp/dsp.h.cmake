@@ -103,12 +103,12 @@ DLL_EXPORT void dsp_set_app_name(char* name);
 */
 DLL_EXPORT char* dsp_get_app_name();
 /**
-* \brief set the output log streeam
+* \brief set the output log stream
 * \param f The FILE stream pointer to set as standard output
 */
 DLL_EXPORT void dsp_set_stdout(FILE *f);
 /**
-* \brief set the error log streeam
+* \brief set the error log stream
 * \param f The FILE stream pointer to set as standard error
 */
 DLL_EXPORT void dsp_set_stderr(FILE *f);

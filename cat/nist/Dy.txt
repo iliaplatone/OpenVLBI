@@ -1,90 +1,13 @@
-0.079 B+ 2863.540 Dy Dysprosium
-0.065 D 2965.470 Dy Dysprosium
-0.110 D 3148.6060 Dy Dysprosium
-0.140 D 3264.1270 Dy Dysprosium
-0.539  3385.990 DyII Dysprosium
-0.488  3408.780 DyII Dysprosium
-0.297  3461.960 DyII Dysprosium
-0.315  3495.490 DyII Dysprosium
-0.094 B+ 3512.0190 Dy Dysprosium
-1.560  3532.710 DyII Dysprosium
-1.010  3537.030 DyII Dysprosium
-0.048 B+ 3572.4580 Dy Dysprosium
-0.305  3631.270 DyII Dysprosium
-0.620  3646.440 DyII Dysprosium
-0.237  3695.860 DyII Dysprosium
-3.000 D 3758.120 Dy Dysprosium
-0.201  3758.440 DyII Dysprosium
-3.100 D 3869.910 Dy Dysprosium
-0.254  3873.210 DyII Dysprosium
-0.469  3899.630 DyII Dysprosium
-0.307  3945.800 DyII Dysprosium
-0.145 B+ 3968.630 Dy Dysprosium
-0.455  3969.510 DyII Dysprosium
-0.254  4001.580 DyII Dysprosium
-0.029 B+ 4014.950 Dy Dysprosium
-0.290 B+ 4024.850 Dy Dysprosium
-1.920 B+ 4047.110 Dy Dysprosium
-0.202  4079.110 DyII Dysprosium
-0.171 B+ 4086.490 Dy Dysprosium
-0.104  4104.460 DyII Dysprosium
-0.620 B+ 4105.030 Dy Dysprosium
-0.980 B+ 4130.280 Dy Dysprosium
-0.018 B+ 4131.520 Dy Dysprosium
-1.950 B+ 4147.230 Dy Dysprosium
-1.920 B+ 4169.140 Dy Dysprosium
-0.880 B+ 4184.900 Dy Dysprosium
-1.260 B+ 4188.000 Dy Dysprosium
-0.203 B+ 4192.120 Dy Dysprosium
-0.710 B+ 4192.820 Dy Dysprosium
-0.880 B+ 4196.020 Dy Dysprosium
-1.080 B+ 4199.200 Dy Dysprosium
-1.700 B+ 4202.480 Dy Dysprosium
-0.482 B+ 4203.420 Dy Dysprosium
-2.080 B+ 4212.910 Dy Dysprosium
-1.270 B+ 4214.370 Dy Dysprosium
-0.810 B+ 4216.350 Dy Dysprosium
-1.200 B+ 4219.280 Dy Dysprosium
-1.280 B+ 4222.300 Dy Dysprosium
-0.710 B+ 4223.400 Dy Dysprosium
-1.950 B+ 4226.350 Dy Dysprosium
-0.790 B+ 4233.210 Dy Dysprosium
-0.940 B+ 4241.040 Dy Dysprosium
-1.180 B+ 4247.110 Dy Dysprosium
-0.011 B+ 4269.4650 Dy Dysprosium
-0.122 B+ 4277.890 Dy Dysprosium
-0.023 B+ 4293.1740 Dy Dysprosium
-0.007 B+ 4566.370 Dy Dysprosium
-0.020 B+ 4579.060 Dy Dysprosium
-0.137 B+ 4590.650 Dy Dysprosium
-0.082 B+ 4613.550 Dy Dysprosium
-0.012 B+ 4792.630 Dy Dysprosium
-0.010 B+ 4809.280 Dy Dysprosium
-0.008 B 4814.150 Dy Dysprosium
-0.005 B+ 4881.520 Dy Dysprosium
-0.050 B+ 4889.450 Dy Dysprosium
-0.013 B+ 5023.520 Dy Dysprosium
-0.012 B+ 5025.940 Dy Dysprosium
-0.069 B+ 5044.040 Dy Dysprosium
-0.011 B+ 5048.660 Dy Dysprosium
-0.046 B+ 5072.090 Dy Dysprosium
-0.004 B 5079.090 Dy Dysprosium
-0.002 B 5186.740 Dy Dysprosium
-0.029 B+ 5268.580 Dy Dysprosium
-0.008 B+ 5303.060 Dy Dysprosium
-0.022 C+ 5529.550 Dy Dysprosium
-0.003 B 5548.810 Dy Dysprosium
-0.002 B+ 5629.050 Dy Dysprosium
-0.005 B 5641.070 Dy Dysprosium
-0.004 B+ 5653.580 Dy Dysprosium
-0.015 B+ 5747.120 Dy Dysprosium
-0.042 B+ 5947.450 Dy Dysprosium
-0.004 B 5976.140 Dy Dysprosium
-0.006 B+ 5990.220 Dy Dysprosium
-0.006 B 6012.480 Dy Dysprosium
-0.015 B+ 6089.950 Dy Dysprosium
-0.011 B+ 6128.850 Dy Dysprosium
-0.008 B+ 6170.140 Dy Dysprosium
-0.009 B+ 6260.820 Dy Dysprosium
-0.008 B 6581.190 Dy Dysprosium
-0.001 B+ 7378.070 Dy Dysprosium
+454550900 AA 21.99974000 DyLXVI Dysprosium
+452131900 AA 22.11744000 DyLXVI Dysprosium
+387446660 AA 25.81000000 DyLXVI Dysprosium
+379316270 AA 26.36322000 DyLXVI Dysprosium
+(454546570) AA 132.9252000 DyLXVI Dysprosium
+(454550900) AA 133.133000 DyLXVI Dysprosium
+(452168000) AA 137.265000 DyLXVI Dysprosium
+(452131900) AA 137.564000 DyLXVI Dysprosium
+(455261240) AA 147.4609000 DyLXVI Dysprosium
+(454546570) AA 149.0315000 DyLXVI Dysprosium
+(452168000) AA 154.509000 DyLXVI Dysprosium
+(387446660) AA 1248.695000 DyLXVI Dysprosium
+(379438300)  81950.00 DyLXVI Dysprosium
