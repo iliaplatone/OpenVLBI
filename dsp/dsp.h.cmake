@@ -23,9 +23,7 @@
 extern "C" {
 #endif
 
-#ifdef _WIN32
-#define DLL_EXPORT __declspec(dllexport)
-#else
+#ifndef DLL_EXPORT
 #define DLL_EXPORT extern
 #endif
 
@@ -103,12 +101,12 @@ DLL_EXPORT void dsp_set_app_name(char* name);
 */
 DLL_EXPORT char* dsp_get_app_name();
 /**
-* \brief set the output log stream
+* \brief set the output log streeam
 * \param f The FILE stream pointer to set as standard output
 */
 DLL_EXPORT void dsp_set_stdout(FILE *f);
 /**
-* \brief set the error log stream
+* \brief set the error log streeam
 * \param f The FILE stream pointer to set as standard error
 */
 DLL_EXPORT void dsp_set_stderr(FILE *f);
@@ -1493,16 +1491,22 @@ DLL_EXPORT dsp_t* dsp_file_bayer_2_composite(dsp_t *src, int red, int width, int
 * \brief Fill a dsp_align_info struct by comparing two triangles
 * \param t1 the reference triangle
 * \param t2 the triangle taken for comparison
-* \return The dsp_align_info struct filled with the offsets
+* \return The dsp_align_info struct pointer filled with the offsets
 */
-DLL_EXPORT dsp_align_info* dsp_align_fill_info(dsp_triangle t1, dsp_triangle t2);
+DLL_EXPORT dsp_align_info *dsp_align_fill_info(dsp_triangle t1, dsp_triangle t2);
 
 /**
 * \brief Create a dsp_triangle struct
 * \param stars the stars array meeded to build the triangle struct
-* \return A new dsp_triangle struct
+* \return A new dsp_triangle struct pointer
 */
 DLL_EXPORT dsp_triangle *dsp_align_calc_triangle(dsp_star* stars);
+
+/**
+* \brief Free a dsp_triangle struct pointer
+* \param triangle pointer to an allocated dsp_triangle struct
+*/
+DLL_EXPORT void dsp_align_free_triangle(dsp_triangle *triangle);
 
 /**
 * \brief Calculate offsets, rotation and scaling of two streams giving reference alignment point
