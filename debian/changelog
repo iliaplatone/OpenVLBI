@@ -1,3 +1,9 @@
+libopenvlbi (1.23.5) unstable; urgency=medium
+
+  *  New upstream release
+
+ -- Ilia Platone <info@iliaplatone.com>  Mon, 21 Nov 2022 00:00:00 +0100
+
 libopenvlbi (1.23.4) unstable; urgency=medium
 
   *  New upstream release
