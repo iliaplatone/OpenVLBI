@@ -169,53 +169,53 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga20a219bc0a4f56b9c48bd0e0d7346f82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga20a219bc0a4f56b9c48bd0e0d7346f82">dsp_fits_update_fits_key</a> (fitsfile *fptr, int type, char *name, void *value, char *comment, int *status)</td></tr>
-<tr class="memdesc:ga20a219bc0a4f56b9c48bd0e0d7346f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create or update a new fits header key.  <a href="group__dsp___fits_extensions.html#ga20a219bc0a4f56b9c48bd0e0d7346f82">More...</a><br /></td></tr>
-<tr class="separator:ga20a219bc0a4f56b9c48bd0e0d7346f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6005e80995e7aab118e48233297f1f2e"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga6005e80995e7aab118e48233297f1f2e">dsp_fits_alloc_fits_rows</a> (fitsfile *fptr, unsigned long num_rows)</td></tr>
-<tr class="memdesc:ga6005e80995e7aab118e48233297f1f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an RGB color dsp_t array into a dsp_stream_p array each element containing the single components.  <a href="group__dsp___fits_extensions.html#ga6005e80995e7aab118e48233297f1f2e">More...</a><br /></td></tr>
-<tr class="separator:ga6005e80995e7aab118e48233297f1f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5ead04c2d1d80bd17e3856d1f1b82752"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga5ead04c2d1d80bd17e3856d1f1b82752">dsp_fits_fill_fits_col</a> (fitsfile *fptr, char *name, unsigned char *buf, int typecode, long num_elements, unsigned long rown)</td></tr>
-<tr class="memdesc:ga5ead04c2d1d80bd17e3856d1f1b82752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill a column at the given row position with the valued buffer.  <a href="group__dsp___fits_extensions.html#ga5ead04c2d1d80bd17e3856d1f1b82752">More...</a><br /></td></tr>
-<tr class="separator:ga5ead04c2d1d80bd17e3856d1f1b82752"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadf4f32106f2dce566d3d77ae4498b2cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#gadf4f32106f2dce566d3d77ae4498b2cf">dsp_fits_append_fits_col</a> (fitsfile *fptr, char *name, char *format)</td></tr>
-<tr class="memdesc:gadf4f32106f2dce566d3d77ae4498b2cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a column to the binary table.  <a href="group__dsp___fits_extensions.html#gadf4f32106f2dce566d3d77ae4498b2cf">More...</a><br /></td></tr>
-<tr class="separator:gadf4f32106f2dce566d3d77ae4498b2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadedb9ee80ee1fceb00dc333dd5488554"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#gadedb9ee80ee1fceb00dc333dd5488554">dsp_fits_delete_fits_col</a> (fitsfile *fptr, char *name)</td></tr>
-<tr class="memdesc:gadedb9ee80ee1fceb00dc333dd5488554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a column from the binary table.  <a href="group__dsp___fits_extensions.html#gadedb9ee80ee1fceb00dc333dd5488554">More...</a><br /></td></tr>
-<tr class="separator:gadedb9ee80ee1fceb00dc333dd5488554"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf3f78678ecd1bb1715d251f0c19fef8c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#gaf3f78678ecd1bb1715d251f0c19fef8c">dsp_fits_get_element_size</a> (int typecode)</td></tr>
-<tr class="memdesc:gaf3f78678ecd1bb1715d251f0c19fef8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the single element size in bytes.  <a href="group__dsp___fits_extensions.html#gaf3f78678ecd1bb1715d251f0c19fef8c">More...</a><br /></td></tr>
-<tr class="separator:gaf3f78678ecd1bb1715d251f0c19fef8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad3e55486530d5a099ff54e22eabf279f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#gad3e55486530d5a099ff54e22eabf279f">dsp_fits_read_typecode</a> (char *typestr, int *typecode, long *width, long *repeat)</td></tr>
-<tr class="memdesc:gad3e55486530d5a099ff54e22eabf279f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a typecode format string.  <a href="group__dsp___fits_extensions.html#gad3e55486530d5a099ff54e22eabf279f">More...</a><br /></td></tr>
-<tr class="separator:gad3e55486530d5a099ff54e22eabf279f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafebd9cf02916208c6b048da5e004d5eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#gafebd9cf02916208c6b048da5e004d5eb">dsp_fits_get_value</a> (fitsfile *fptr, char *column, long rown, void **retval)</td></tr>
-<tr class="memdesc:gafebd9cf02916208c6b048da5e004d5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the value of the specified field.  <a href="group__dsp___fits_extensions.html#gafebd9cf02916208c6b048da5e004d5eb">More...</a><br /></td></tr>
-<tr class="separator:gafebd9cf02916208c6b048da5e004d5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3568379dcd5a32132c25f4b5ae1c407e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga3568379dcd5a32132c25f4b5ae1c407e">dsp_fits_check_column</a> (fitsfile *fptr, char *column, char **expected, long rown)</td></tr>
-<tr class="memdesc:ga3568379dcd5a32132c25f4b5ae1c407e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the value of the specified field corresponds to a subset of values.  <a href="group__dsp___fits_extensions.html#ga3568379dcd5a32132c25f4b5ae1c407e">More...</a><br /></td></tr>
-<tr class="separator:ga3568379dcd5a32132c25f4b5ae1c407e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6023a97a7ad96c8046facc194f6b764f"><td class="memItemLeft" align="right" valign="top">fitsfile *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga6023a97a7ad96c8046facc194f6b764f">dsp_fits_create_fits</a> (size_t *size, void **buf)</td></tr>
-<tr class="memdesc:ga6023a97a7ad96c8046facc194f6b764f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an open fits file pointer to be updated later.  <a href="group__dsp___fits_extensions.html#ga6023a97a7ad96c8046facc194f6b764f">More...</a><br /></td></tr>
-<tr class="separator:ga6023a97a7ad96c8046facc194f6b764f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6b764bf1cc937c3432707d2f1f979e85"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga6b764bf1cc937c3432707d2f1f979e85">dsp_fits_add_table</a> (fitsfile *fptr, <a class="el" href="structdsp__fits__column.html">dsp_fits_column</a> *columns, int ncols, const char *tablename)</td></tr>
-<tr class="memdesc:ga6b764bf1cc937c3432707d2f1f979e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a binary table extension into a fits file.  <a href="group__dsp___fits_extensions.html#ga6b764bf1cc937c3432707d2f1f979e85">More...</a><br /></td></tr>
-<tr class="separator:ga6b764bf1cc937c3432707d2f1f979e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga13d50359e3f12ec7c8d5bd9e855ac75d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga13d50359e3f12ec7c8d5bd9e855ac75d">dsp_fits_close_fits</a> (fitsfile *fptr)</td></tr>
-<tr class="memdesc:ga13d50359e3f12ec7c8d5bd9e855ac75d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close a fits file pointer.  <a href="group__dsp___fits_extensions.html#ga13d50359e3f12ec7c8d5bd9e855ac75d">More...</a><br /></td></tr>
-<tr class="separator:ga13d50359e3f12ec7c8d5bd9e855ac75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadba8ee80f3c852b342510fca733d0d67"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#gadba8ee80f3c852b342510fca733d0d67">dsp_fits_update_fits_key</a> (fitsfile *fptr, int type, char *name, void *value, char *comment, int *status)</td></tr>
+<tr class="memdesc:gadba8ee80f3c852b342510fca733d0d67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create or update a new fits header key.  <a href="group__dsp___fits_extensions.html#gadba8ee80f3c852b342510fca733d0d67">More...</a><br /></td></tr>
+<tr class="separator:gadba8ee80f3c852b342510fca733d0d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7def3602b194f6f452f91b558ef37897"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga7def3602b194f6f452f91b558ef37897">dsp_fits_alloc_fits_rows</a> (fitsfile *fptr, unsigned long num_rows)</td></tr>
+<tr class="memdesc:ga7def3602b194f6f452f91b558ef37897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an RGB color dsp_t array into a dsp_stream_p array each element containing the single components.  <a href="group__dsp___fits_extensions.html#ga7def3602b194f6f452f91b558ef37897">More...</a><br /></td></tr>
+<tr class="separator:ga7def3602b194f6f452f91b558ef37897"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0fd154280308fb238d89f12b3ead9a56"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga0fd154280308fb238d89f12b3ead9a56">dsp_fits_fill_fits_col</a> (fitsfile *fptr, char *name, unsigned char *buf, int typecode, long num_elements, unsigned long rown)</td></tr>
+<tr class="memdesc:ga0fd154280308fb238d89f12b3ead9a56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill a column at the given row position with the valued buffer.  <a href="group__dsp___fits_extensions.html#ga0fd154280308fb238d89f12b3ead9a56">More...</a><br /></td></tr>
+<tr class="separator:ga0fd154280308fb238d89f12b3ead9a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga485f45c78d41dc5f8fba537ac27cc666"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga485f45c78d41dc5f8fba537ac27cc666">dsp_fits_append_fits_col</a> (fitsfile *fptr, char *name, char *format)</td></tr>
+<tr class="memdesc:ga485f45c78d41dc5f8fba537ac27cc666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a column to the binary table.  <a href="group__dsp___fits_extensions.html#ga485f45c78d41dc5f8fba537ac27cc666">More...</a><br /></td></tr>
+<tr class="separator:ga485f45c78d41dc5f8fba537ac27cc666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae57fdc59b152eb56794468800812cffc"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#gae57fdc59b152eb56794468800812cffc">dsp_fits_delete_fits_col</a> (fitsfile *fptr, char *name)</td></tr>
+<tr class="memdesc:gae57fdc59b152eb56794468800812cffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a column from the binary table.  <a href="group__dsp___fits_extensions.html#gae57fdc59b152eb56794468800812cffc">More...</a><br /></td></tr>
+<tr class="separator:gae57fdc59b152eb56794468800812cffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadddb3abbb5885a519ef24c074e77ba48"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#gadddb3abbb5885a519ef24c074e77ba48">dsp_fits_get_element_size</a> (int typecode)</td></tr>
+<tr class="memdesc:gadddb3abbb5885a519ef24c074e77ba48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the single element size in bytes.  <a href="group__dsp___fits_extensions.html#gadddb3abbb5885a519ef24c074e77ba48">More...</a><br /></td></tr>
+<tr class="separator:gadddb3abbb5885a519ef24c074e77ba48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga868a0d418ca9b52a8267404c09039965"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga868a0d418ca9b52a8267404c09039965">dsp_fits_read_typecode</a> (char *typestr, int *typecode, long *width, long *repeat)</td></tr>
+<tr class="memdesc:ga868a0d418ca9b52a8267404c09039965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a typecode format string.  <a href="group__dsp___fits_extensions.html#ga868a0d418ca9b52a8267404c09039965">More...</a><br /></td></tr>
+<tr class="separator:ga868a0d418ca9b52a8267404c09039965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e91ffa4c61743326399b2ce7a165e16"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga5e91ffa4c61743326399b2ce7a165e16">dsp_fits_get_value</a> (fitsfile *fptr, char *column, long rown, void **retval)</td></tr>
+<tr class="memdesc:ga5e91ffa4c61743326399b2ce7a165e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the value of the specified field.  <a href="group__dsp___fits_extensions.html#ga5e91ffa4c61743326399b2ce7a165e16">More...</a><br /></td></tr>
+<tr class="separator:ga5e91ffa4c61743326399b2ce7a165e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7aeda4e6a37750afce28fb4aed7bd50"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#gad7aeda4e6a37750afce28fb4aed7bd50">dsp_fits_check_column</a> (fitsfile *fptr, char *column, char **expected, long rown)</td></tr>
+<tr class="memdesc:gad7aeda4e6a37750afce28fb4aed7bd50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the value of the specified field corresponds to a subset of values.  <a href="group__dsp___fits_extensions.html#gad7aeda4e6a37750afce28fb4aed7bd50">More...</a><br /></td></tr>
+<tr class="separator:gad7aeda4e6a37750afce28fb4aed7bd50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0a81a0d4d3651f229788d127cd93f46c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT fitsfile *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga0a81a0d4d3651f229788d127cd93f46c">dsp_fits_create_fits</a> (size_t *size, void **buf)</td></tr>
+<tr class="memdesc:ga0a81a0d4d3651f229788d127cd93f46c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an open fits file pointer to be updated later.  <a href="group__dsp___fits_extensions.html#ga0a81a0d4d3651f229788d127cd93f46c">More...</a><br /></td></tr>
+<tr class="separator:ga0a81a0d4d3651f229788d127cd93f46c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga58b69dee7ea1270e7bc9e139db499303"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga58b69dee7ea1270e7bc9e139db499303">dsp_fits_add_table</a> (fitsfile *fptr, <a class="el" href="structdsp__fits__column.html">dsp_fits_column</a> *columns, int ncols, const char *tablename)</td></tr>
+<tr class="memdesc:ga58b69dee7ea1270e7bc9e139db499303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a binary table extension into a fits file.  <a href="group__dsp___fits_extensions.html#ga58b69dee7ea1270e7bc9e139db499303">More...</a><br /></td></tr>
+<tr class="separator:ga58b69dee7ea1270e7bc9e139db499303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga29e84b55051b6e3c9dca73abb487ea62"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html#ga29e84b55051b6e3c9dca73abb487ea62">dsp_fits_close_fits</a> (fitsfile *fptr)</td></tr>
+<tr class="memdesc:ga29e84b55051b6e3c9dca73abb487ea62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close a fits file pointer.  <a href="group__dsp___fits_extensions.html#ga29e84b55051b6e3c9dca73abb487ea62">More...</a><br /></td></tr>
+<tr class="separator:ga29e84b55051b6e3c9dca73abb487ea62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga6b764bf1cc937c3432707d2f1f979e85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6b764bf1cc937c3432707d2f1f979e85">&#9670;&nbsp;</a></span>dsp_fits_add_table()</h2>
+<a id="ga58b69dee7ea1270e7bc9e139db499303"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga58b69dee7ea1270e7bc9e139db499303">&#9670;&nbsp;</a></span>dsp_fits_add_table()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int dsp_fits_add_table </td>
+          <td class="memname">DLL_EXPORT int dsp_fits_add_table </td>
           <td>(</td>
           <td class="paramtype">fitsfile *&#160;</td>
           <td class="paramname"><em>fptr</em>, </td>
@@ -258,14 +258,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga6005e80995e7aab118e48233297f1f2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6005e80995e7aab118e48233297f1f2e">&#9670;&nbsp;</a></span>dsp_fits_alloc_fits_rows()</h2>
+<a id="ga7def3602b194f6f452f91b558ef37897"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7def3602b194f6f452f91b558ef37897">&#9670;&nbsp;</a></span>dsp_fits_alloc_fits_rows()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">long dsp_fits_alloc_fits_rows </td>
+          <td class="memname">DLL_EXPORT long dsp_fits_alloc_fits_rows </td>
           <td>(</td>
           <td class="paramtype">fitsfile *&#160;</td>
           <td class="paramname"><em>fptr</em>, </td>
@@ -291,18 +291,18 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of rows incremented by the allocated ones </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__dsp___fits_extensions.html#ga6023a97a7ad96c8046facc194f6b764f" title="Create an open fits file pointer to be updated later.">dsp_fits_create_fits</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__dsp___fits_extensions.html#ga0a81a0d4d3651f229788d127cd93f46c" title="Create an open fits file pointer to be updated later.">dsp_fits_create_fits</a> </dd></dl>
 
 </div>
 </div>
-<a id="gadf4f32106f2dce566d3d77ae4498b2cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadf4f32106f2dce566d3d77ae4498b2cf">&#9670;&nbsp;</a></span>dsp_fits_append_fits_col()</h2>
+<a id="ga485f45c78d41dc5f8fba537ac27cc666"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga485f45c78d41dc5f8fba537ac27cc666">&#9670;&nbsp;</a></span>dsp_fits_append_fits_col()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int dsp_fits_append_fits_col </td>
+          <td class="memname">DLL_EXPORT int dsp_fits_append_fits_col </td>
           <td>(</td>
           <td class="paramtype">fitsfile *&#160;</td>
           <td class="paramname"><em>fptr</em>, </td>
@@ -338,14 +338,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga3568379dcd5a32132c25f4b5ae1c407e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3568379dcd5a32132c25f4b5ae1c407e">&#9670;&nbsp;</a></span>dsp_fits_check_column()</h2>
+<a id="gad7aeda4e6a37750afce28fb4aed7bd50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad7aeda4e6a37750afce28fb4aed7bd50">&#9670;&nbsp;</a></span>dsp_fits_check_column()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int dsp_fits_check_column </td>
+          <td class="memname">DLL_EXPORT int dsp_fits_check_column </td>
           <td>(</td>
           <td class="paramtype">fitsfile *&#160;</td>
           <td class="paramname"><em>fptr</em>, </td>
@@ -388,14 +388,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga13d50359e3f12ec7c8d5bd9e855ac75d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga13d50359e3f12ec7c8d5bd9e855ac75d">&#9670;&nbsp;</a></span>dsp_fits_close_fits()</h2>
+<a id="ga29e84b55051b6e3c9dca73abb487ea62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga29e84b55051b6e3c9dca73abb487ea62">&#9670;&nbsp;</a></span>dsp_fits_close_fits()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int dsp_fits_close_fits </td>
+          <td class="memname">DLL_EXPORT int dsp_fits_close_fits </td>
           <td>(</td>
           <td class="paramtype">fitsfile *&#160;</td>
           <td class="paramname"><em>fptr</em></td><td>)</td>
@@ -413,14 +413,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga6023a97a7ad96c8046facc194f6b764f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6023a97a7ad96c8046facc194f6b764f">&#9670;&nbsp;</a></span>dsp_fits_create_fits()</h2>
+<a id="ga0a81a0d4d3651f229788d127cd93f46c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0a81a0d4d3651f229788d127cd93f46c">&#9670;&nbsp;</a></span>dsp_fits_create_fits()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">fitsfile* dsp_fits_create_fits </td>
+          <td class="memname">DLL_EXPORT fitsfile* dsp_fits_create_fits </td>
           <td>(</td>
           <td class="paramtype">size_t *&#160;</td>
           <td class="paramname"><em>size</em>, </td>
@@ -449,14 +449,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gadedb9ee80ee1fceb00dc333dd5488554"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadedb9ee80ee1fceb00dc333dd5488554">&#9670;&nbsp;</a></span>dsp_fits_delete_fits_col()</h2>
+<a id="gae57fdc59b152eb56794468800812cffc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae57fdc59b152eb56794468800812cffc">&#9670;&nbsp;</a></span>dsp_fits_delete_fits_col()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void dsp_fits_delete_fits_col </td>
+          <td class="memname">DLL_EXPORT void dsp_fits_delete_fits_col </td>
           <td>(</td>
           <td class="paramtype">fitsfile *&#160;</td>
           <td class="paramname"><em>fptr</em>, </td>
@@ -484,14 +484,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga5ead04c2d1d80bd17e3856d1f1b82752"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5ead04c2d1d80bd17e3856d1f1b82752">&#9670;&nbsp;</a></span>dsp_fits_fill_fits_col()</h2>
+<a id="ga0fd154280308fb238d89f12b3ead9a56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0fd154280308fb238d89f12b3ead9a56">&#9670;&nbsp;</a></span>dsp_fits_fill_fits_col()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int dsp_fits_fill_fits_col </td>
+          <td class="memname">DLL_EXPORT int dsp_fits_fill_fits_col </td>
           <td>(</td>
           <td class="paramtype">fitsfile *&#160;</td>
           <td class="paramname"><em>fptr</em>, </td>
@@ -545,18 +545,18 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>non-zero if any error occured </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__dsp___fits_extensions.html#ga6023a97a7ad96c8046facc194f6b764f" title="Create an open fits file pointer to be updated later.">dsp_fits_create_fits</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__dsp___fits_extensions.html#ga0a81a0d4d3651f229788d127cd93f46c" title="Create an open fits file pointer to be updated later.">dsp_fits_create_fits</a> </dd></dl>
 
 </div>
 </div>
-<a id="gaf3f78678ecd1bb1715d251f0c19fef8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf3f78678ecd1bb1715d251f0c19fef8c">&#9670;&nbsp;</a></span>dsp_fits_get_element_size()</h2>
+<a id="gadddb3abbb5885a519ef24c074e77ba48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadddb3abbb5885a519ef24c074e77ba48">&#9670;&nbsp;</a></span>dsp_fits_get_element_size()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t dsp_fits_get_element_size </td>
+          <td class="memname">DLL_EXPORT size_t dsp_fits_get_element_size </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>typecode</em></td><td>)</td>
@@ -574,14 +574,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gafebd9cf02916208c6b048da5e004d5eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafebd9cf02916208c6b048da5e004d5eb">&#9670;&nbsp;</a></span>dsp_fits_get_value()</h2>
+<a id="ga5e91ffa4c61743326399b2ce7a165e16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5e91ffa4c61743326399b2ce7a165e16">&#9670;&nbsp;</a></span>dsp_fits_get_value()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int dsp_fits_get_value </td>
+          <td class="memname">DLL_EXPORT int dsp_fits_get_value </td>
           <td>(</td>
           <td class="paramtype">fitsfile *&#160;</td>
           <td class="paramname"><em>fptr</em>, </td>
@@ -624,14 +624,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gad3e55486530d5a099ff54e22eabf279f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad3e55486530d5a099ff54e22eabf279f">&#9670;&nbsp;</a></span>dsp_fits_read_typecode()</h2>
+<a id="ga868a0d418ca9b52a8267404c09039965"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga868a0d418ca9b52a8267404c09039965">&#9670;&nbsp;</a></span>dsp_fits_read_typecode()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int dsp_fits_read_typecode </td>
+          <td class="memname">DLL_EXPORT int dsp_fits_read_typecode </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>typestr</em>, </td>
@@ -674,14 +674,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga20a219bc0a4f56b9c48bd0e0d7346f82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga20a219bc0a4f56b9c48bd0e0d7346f82">&#9670;&nbsp;</a></span>dsp_fits_update_fits_key()</h2>
+<a id="gadba8ee80f3c852b342510fca733d0d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadba8ee80f3c852b342510fca733d0d67">&#9670;&nbsp;</a></span>dsp_fits_update_fits_key()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void dsp_fits_update_fits_key </td>
+          <td class="memname">DLL_EXPORT void dsp_fits_update_fits_key </td>
           <td>(</td>
           <td class="paramtype">fitsfile *&#160;</td>
           <td class="paramname"><em>fptr</em>, </td>
@@ -740,7 +740,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 28 2022 20:05:06 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 21 2022 23:45:44 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
