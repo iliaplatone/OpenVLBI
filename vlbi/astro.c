@@ -289,7 +289,7 @@ dsp_align_info vlbi_astro_align_spectra(dsp_stream_p spectrum, dsp_stream_p cata
     int spectrum_count = spectrum->stars_count;
     catalog->stars_count = Min(catalog_count, max_lines);
     spectrum->stars_count = Min(spectrum_count, max_lines);
-    dsp_align_get_offset(catalog, spectrum, decimals, min_score);
+    dsp_align_get_offset(catalog, spectrum, decimals, min_score, 3);
     catalog->stars_count = catalog_count;
     spectrum->stars_count = spectrum_count;
     double factor = spectrum->align_info.factor[0];

@@ -261,6 +261,8 @@ typedef struct dsp_triangle_t
     double *ratios;
     /// The stars of the triangle
     dsp_star *stars;
+    /// The number of stars of the triangle
+    int stars_count;
 } dsp_triangle;
 
 /**
@@ -1497,10 +1499,11 @@ DLL_EXPORT dsp_align_info *dsp_align_fill_info(dsp_triangle t1, dsp_triangle t2)
 
 /**
 * \brief Create a dsp_triangle struct
-* \param stars the stars array meeded to build the triangle struct
+* \param stars the stars array needed to build the triangle struct
+* \param num_stars the count of the stars
 * \return A new dsp_triangle struct pointer
 */
-DLL_EXPORT dsp_triangle *dsp_align_calc_triangle(dsp_star* stars);
+DLL_EXPORT dsp_triangle *dsp_align_calc_triangle(dsp_star* stars, int num_stars);
 
 /**
 * \brief Free a dsp_triangle struct pointer
@@ -1514,9 +1517,10 @@ DLL_EXPORT void dsp_align_free_triangle(dsp_triangle *triangle);
 * \param to_align the stream to be aligned
 * \param tolerance number of decimals allowed
 * \param target_score the minimum matching score to reach
+* \param num_stars number of stars for each triangle
 * \return The alignment mask (bit1: translated, bit2: scaled, bit3: rotated)
 */
-DLL_EXPORT int dsp_align_get_offset(dsp_stream_p ref, dsp_stream_p to_align, double tolerance, double target_score);
+DLL_EXPORT int dsp_align_get_offset(dsp_stream_p ref, dsp_stream_p to_align, double tolerance, double target_score, int num_stars);
 
 /**\}*/
 /// \defgroup dsp_FitsExtensions
