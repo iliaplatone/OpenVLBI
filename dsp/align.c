@@ -35,34 +35,30 @@ static int dsp_qsort_delta_diff_desc (const void *arg1, const void *arg2)
 
 static int dsp_qsort_double_desc (const void *arg1, const void *arg2)
 {
-    double* a1 = (double*)arg1;
-    double* a2 = (double*)arg2;
-    return ((*a1) < (*a2) ? 1 : -1);
+    double* a = (double*)arg1;
+    double* b = (double*)arg2;
+    return ((*a) < (*b) ? 1 : -1);
 }
 
 static int dsp_qsort_star_diameter_desc(const void *arg1, const void *arg2)
 {
     dsp_star* a = (dsp_star*)arg1;
     dsp_star* b = (dsp_star*)arg2;
-    if(a->diameter > b->diameter)
-        return 1;
-    return -1;
+    return ((*a).diameter < (*b).diameter ? 1 : -1);
 }
 
 static int dsp_qsort_double_asc (const void *arg1, const void *arg2)
 {
-    double* a1 = (double*)arg1;
-    double* a2 = (double*)arg2;
-    return ((*a1) > (*a2) ? 1 : -1);
+    double* a = (double*)arg1;
+    double* b = (double*)arg2;
+    return ((*a) > (*b) ? 1 : -1);
 }
 
 static int dsp_qsort_star_diameter_asc(const void *arg1, const void *arg2)
 {
     dsp_star* a = (dsp_star*)arg1;
     dsp_star* b = (dsp_star*)arg2;
-    if(a->diameter > b->diameter)
-        return 1;
-    return -1;
+    return ((*a).diameter > (*b).diameter ? 1 : -1);
 }
 
 static double calc_match_score(dsp_triangle t1, dsp_triangle t2, dsp_align_info align_info)
@@ -72,11 +68,9 @@ static double calc_match_score(dsp_triangle t1, dsp_triangle t2, dsp_align_info 
     int div = 0;
     int num_baselines = t1.stars_count*(t1.stars_count-1)/2;
     double err = 0.0;
-    for(x = 0; x < t1.stars_count; x++) {
-        for(d = 0; d < align_info.dims; d++) {
-            err += fabs(t2.stars[x].diameter/align_info.factor[d]-t1.stars[x].diameter)/t1.stars[x].diameter;
-            div++;
-        }
+    for(x = 0; x < fmin(t1.stars_count, t2.stars_count); x++) {
+        err += fabs(t2.stars[x].diameter/align_info.factor[d]-t1.stars[x].diameter)/t1.stars[x].diameter;
+        div++;
     }
     for(x = 0; x < num_baselines; x++) {
         for(d = 0; d < align_info.dims; d++) {
@@ -156,6 +150,8 @@ dsp_triangle *dsp_align_calc_triangle(dsp_star* stars, int num_stars)
     triangle->index = 0.0;
     qsort(stars, triangle->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
     int idx = 0;
+    int maximum_index = 0;
+    double maximum = 0.0;
     for(x = 0; x < triangle->stars_count; x++) {
         for(y = x+1; y < triangle->stars_count; y++) {
             deltadiff[idx].diff = (double*)malloc(sizeof(double)*triangle->dims);
@@ -164,6 +160,10 @@ dsp_triangle *dsp_align_calc_triangle(dsp_star* stars, int num_stars)
                 deltadiff[idx].delta += pow(deltadiff[idx].diff[d], 2);
             }
             deltadiff[idx].delta = sqrt(deltadiff[idx].delta);
+            if(maximum < deltadiff[idx].delta) {
+                maximum = deltadiff[idx].delta;
+                maximum_index = idx;
+            }
             idx++;
         }
     }
@@ -191,7 +191,7 @@ dsp_triangle *dsp_align_calc_triangle(dsp_star* stars, int num_stars)
     }
     for(d = 0; d < num_baselines; d++) {
         triangle->sizes[d] = deltadiff[d].delta;
-        triangle->ratios[d] = deltadiff[d].delta / deltadiff[0].delta;
+        triangle->ratios[d] = deltadiff[d].delta / maximum;
         free(deltadiff[d].diff);
     }
     free(deltadiff);
@@ -222,7 +222,7 @@ int dsp_align_get_offset(dsp_stream_p stream1, dsp_stream_p stream2, double tole
         dsp_stream_del_triangle(stream1, stream1->triangles_count-1);
     for(x = 0; x < stream1->stars_count * (stream1->stars_count-num_stars+1) / 2; x++) {
         for(y = 0; y < num_stars; y++) {
-            stars[y] = stream1->stars[(x + y * (x / stream1->stars_count + num_stars - 1)) % stream1->stars_count];
+            stars[y] = stream1->stars[(x + y * (x / stream1->stars_count + 1)) % stream1->stars_count];
         }
         dsp_triangle *t = dsp_align_calc_triangle(stars, num_stars);
         dsp_stream_add_triangle(stream1, *t);
@@ -233,7 +233,7 @@ int dsp_align_get_offset(dsp_stream_p stream1, dsp_stream_p stream2, double tole
         dsp_stream_del_triangle(stream2, stream2->triangles_count-1);
     for(x = 0; x < stream2->stars_count * (stream2->stars_count-num_stars+1) / 2; x++) {
         for(y = 0; y < num_stars; y++) {
-            stars[y] = stream2->stars[(x + y * (x / stream1->stars_count + num_stars - 1)) % stream1->stars_count];
+            stars[y] = stream2->stars[(x + y * (x / stream2->stars_count + 1)) % stream2->stars_count];
         }
         dsp_triangle *t = dsp_align_calc_triangle(stars, num_stars);
         dsp_stream_add_triangle(stream2, *t);
