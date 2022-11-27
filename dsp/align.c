@@ -33,11 +33,61 @@ static int dsp_qsort_delta_diff_desc (const void *arg1, const void *arg2)
     return ((*a1).delta < (*a2).delta ? 1 : -1);
 }
 
-static int dsp_qsort_double_desc (const void *arg1, const void *arg2)
+static int dsp_qsort_delta_diff_asc (const void *arg1, const void *arg2)
 {
-    double* a = (double*)arg1;
-    double* b = (double*)arg2;
-    return ((*a) < (*b) ? 1 : -1);
+    delta_diff* a1 = (delta_diff*)arg1;
+    delta_diff* a2 = (delta_diff*)arg2;
+    return ((*a1).delta > (*a2).delta ? 1 : -1);
+}
+
+static int dsp_qsort_triangle_delta_desc(const void *arg1, const void *arg2)
+{
+    dsp_triangle* a = (dsp_triangle*)arg1;
+    dsp_triangle* b = (dsp_triangle*)arg2;
+    int ret = 0;
+    int s = 0;
+    for(s = 0; s < (*a).stars_count; s++)
+        ret |= ((*a).sizes[s] < (*b).sizes[s]);
+    return (ret ? 1 : -1);
+}
+
+static int dsp_qsort_triangle_delta_asc(const void *arg1, const void *arg2)
+{
+    dsp_triangle* a = (dsp_triangle*)arg1;
+    dsp_triangle* b = (dsp_triangle*)arg2;
+    int ret = 0;
+    int s = 0;
+    for(s = 0; s < (*a).stars_count; s++)
+        ret |= ((*a).sizes[s] > (*b).sizes[s]);
+    return (ret ? 1 : -1);
+}
+
+static int dsp_qsort_triangle_diameter_desc(const void *arg1, const void *arg2)
+{
+    dsp_triangle* a = (dsp_triangle*)arg1;
+    dsp_triangle* b = (dsp_triangle*)arg2;
+    int ret = 0;
+    int s = 0;
+    for(s = 0; s < (*a).stars_count; s++) {
+        ret |= ((*a).stars[s].diameter < (*b).stars[s].diameter);
+        ret |= ((*a).stars[s].peak < (*b).stars[s].peak);
+        ret |= ((*a).stars[s].flux < (*b).stars[s].flux);
+    }
+    return (ret ? 1 : -1);
+}
+
+static int dsp_qsort_triangle_diameter_asc(const void *arg1, const void *arg2)
+{
+    dsp_triangle* a = (dsp_triangle*)arg1;
+    dsp_triangle* b = (dsp_triangle*)arg2;
+    int ret = 0;
+    int s = 0;
+    for(s = 0; s < (*a).stars_count; s++) {
+        ret |= ((*a).stars[s].diameter > (*b).stars[s].diameter);
+        ret |= ((*a).stars[s].peak > (*b).stars[s].peak);
+        ret |= ((*a).stars[s].flux > (*b).stars[s].flux);
+    }
+    return (ret ? 1 : -1);
 }
 
 static int dsp_qsort_star_diameter_desc(const void *arg1, const void *arg2)
@@ -47,13 +97,6 @@ static int dsp_qsort_star_diameter_desc(const void *arg1, const void *arg2)
     return ((*a).diameter < (*b).diameter ? 1 : -1);
 }
 
-static int dsp_qsort_double_asc (const void *arg1, const void *arg2)
-{
-    double* a = (double*)arg1;
-    double* b = (double*)arg2;
-    return ((*a) > (*b) ? 1 : -1);
-}
-
 static int dsp_qsort_star_diameter_asc(const void *arg1, const void *arg2)
 {
     dsp_star* a = (dsp_star*)arg1;
@@ -61,24 +104,43 @@ static int dsp_qsort_star_diameter_asc(const void *arg1, const void *arg2)
     return ((*a).diameter > (*b).diameter ? 1 : -1);
 }
 
+static int dsp_qsort_double_desc (const void *arg1, const void *arg2)
+{
+    double* a = (double*)arg1;
+    double* b = (double*)arg2;
+    return ((*a) < (*b) ? 1 : -1);
+}
+
+static int dsp_qsort_double_asc (const void *arg1, const void *arg2)
+{
+    double* a = (double*)arg1;
+    double* b = (double*)arg2;
+    return ((*a) > (*b) ? 1 : -1);
+}
+
 static double calc_match_score(dsp_triangle t1, dsp_triangle t2, dsp_align_info align_info)
 {
     int x = 0;
     int d = 0;
     int div = 0;
-    int num_baselines = t1.stars_count*(t1.stars_count-1)/2;
+    int stars_count = fmin(t1.stars_count, t2.stars_count);
+    int num_baselines = stars_count*(stars_count-1)/2;
     double err = 0.0;
-    for(x = 0; x < fmin(t1.stars_count, t2.stars_count); x++) {
-        err += fabs(t2.stars[x].diameter/align_info.factor[d]-t1.stars[x].diameter)/t1.stars[x].diameter;
-        div++;
-    }
-    for(x = 0; x < num_baselines; x++) {
-        for(d = 0; d < align_info.dims; d++) {
+    err += fabs((t2.index-t1.index)/t1.index);
+    div++;
+    for(d = 0; d < align_info.dims; d++) {
+        for(x = 0; x < stars_count; x++) {
+            err += fabs(t2.stars[x].diameter/align_info.factor[d]-t1.stars[x].diameter)/t1.stars[x].diameter;
+            div++;
+            err += fabs(t2.stars[x].flux/align_info.factor[d]-t1.stars[x].flux)/t1.stars[x].flux;
+            div++;
+            err += fabs(t2.stars[x].peak/align_info.factor[d]-t1.stars[x].peak)/t1.stars[x].peak;
+            div++;
+        }
+        for(x = 0; x < num_baselines; x++) {
             err += fabs(t2.sizes[x]/align_info.factor[d]-t1.sizes[x])/t1.sizes[x];
             div++;
         }
-        err += fabs(t2.ratios[x]-t1.ratios[x])/t1.ratios[x];
-        div++;
     }
     return err / div;
 }
@@ -150,8 +212,6 @@ dsp_triangle *dsp_align_calc_triangle(dsp_star* stars, int num_stars)
     triangle->index = 0.0;
     qsort(stars, triangle->stars_count, sizeof(dsp_star), dsp_qsort_star_diameter_desc);
     int idx = 0;
-    int maximum_index = 0;
-    double maximum = 0.0;
     for(x = 0; x < triangle->stars_count; x++) {
         for(y = x+1; y < triangle->stars_count; y++) {
             deltadiff[idx].diff = (double*)malloc(sizeof(double)*triangle->dims);
@@ -160,10 +220,6 @@ dsp_triangle *dsp_align_calc_triangle(dsp_star* stars, int num_stars)
                 deltadiff[idx].delta += pow(deltadiff[idx].diff[d], 2);
             }
             deltadiff[idx].delta = sqrt(deltadiff[idx].delta);
-            if(maximum < deltadiff[idx].delta) {
-                maximum = deltadiff[idx].delta;
-                maximum_index = idx;
-            }
             idx++;
         }
     }
@@ -183,6 +239,9 @@ dsp_triangle *dsp_align_calc_triangle(dsp_star* stars, int num_stars)
     triangle->index /= (num_baselines+triangle->dims-2)*M_PI*2;
     for(d = 0; d < triangle->stars_count; d++) {
         triangle->stars[d].diameter = stars[d].diameter;
+        triangle->stars[d].peak = stars[d].peak;
+        triangle->stars[d].flux = stars[d].flux;
+        triangle->stars[d].theta = stars[d].theta;
         triangle->stars[d].center.dims = stars[d].center.dims;
         triangle->stars[d].center.location = (double*)malloc(sizeof(double)*stars[d].center.dims);
         for(x = 0; x < triangle->stars[d].center.dims; x++) {
@@ -191,7 +250,7 @@ dsp_triangle *dsp_align_calc_triangle(dsp_star* stars, int num_stars)
     }
     for(d = 0; d < num_baselines; d++) {
         triangle->sizes[d] = deltadiff[d].delta;
-        triangle->ratios[d] = deltadiff[d].delta / maximum;
+        triangle->ratios[d] = deltadiff[d].delta / deltadiff[0].delta;
         free(deltadiff[d].diff);
     }
     free(deltadiff);
@@ -213,7 +272,7 @@ int dsp_align_get_offset(dsp_stream_p stream1, dsp_stream_p stream2, double tole
     div = pow(div, 0.5);
     pwarn("decimals: %lf\n", decimals);
     target_score = (1.0-target_score / 100.0);
-    stream2->align_info.dims = 2;
+    stream2->align_info.dims = stream2->dims;
     stream2->align_info.triangles_count = 2;
     stream2->align_info.score = 1.0;
     stream2->align_info.decimals = decimals;

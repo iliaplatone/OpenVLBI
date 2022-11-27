@@ -115,6 +115,10 @@ void dsp_stream_free_buffer(dsp_stream_p stream)
         free(stream->buf);
     if(stream->dft.buf != NULL)
         free(stream->dft.buf);
+    if(stream->magnitude != NULL)
+        dsp_stream_free_buffer(stream->magnitude);
+    if(stream->phase != NULL)
+        dsp_stream_free_buffer(stream->phase);
 }
 
 /**
@@ -180,6 +184,10 @@ void dsp_stream_free(dsp_stream_p stream)
         free(stream->stars);
     if(stream->triangles != NULL)
         free(stream->triangles);
+    if(stream->magnitude != NULL)
+        dsp_stream_free(stream->magnitude);
+    if(stream->phase != NULL)
+        dsp_stream_free(stream->phase);
     free(stream);
     stream = NULL;
 }
@@ -332,6 +340,9 @@ void dsp_stream_add_star(dsp_stream_p stream, dsp_star star)
     stream->stars = (dsp_star*)realloc(stream->stars, sizeof(dsp_star)*(stream->stars_count+1));
     strcpy(stream->stars[stream->stars_count].name, star.name);
     stream->stars[stream->stars_count].diameter = star.diameter;
+    stream->stars[stream->stars_count].peak = star.peak;
+    stream->stars[stream->stars_count].flux = star.flux;
+    stream->stars[stream->stars_count].theta = star.theta;
     stream->stars[stream->stars_count].center.dims = star.center.dims;
     stream->stars[stream->stars_count].center.location = (double*)malloc(sizeof(double)*star.center.dims);
     for(d = 0; d < star.center.dims; d++)
@@ -368,25 +379,34 @@ void dsp_stream_add_triangle(dsp_stream_p stream, dsp_triangle triangle)
 {
     int s;
     int d;
+    int num_baselines = triangle.stars_count*(triangle.stars_count-1)/2;
     stream->triangles = (dsp_triangle*)realloc(stream->triangles, sizeof(dsp_triangle)*(stream->triangles_count+1));
     stream->triangles[stream->triangles_count].dims = triangle.dims;
     stream->triangles[stream->triangles_count].index = triangle.index;
+    stream->triangles[stream->triangles_count].stars_count = triangle.stars_count;
     stream->triangles[stream->triangles_count].theta = (double*)malloc(sizeof(double)*(stream->dims-1));
-    stream->triangles[stream->triangles_count].ratios = (double*)malloc(sizeof(double)*triangle.dims);
-    stream->triangles[stream->triangles_count].sizes = (double*)malloc(sizeof(double)*triangle.dims);
-    stream->triangles[stream->triangles_count].stars = (dsp_star*)malloc(sizeof(dsp_star)*triangle.dims);
+    stream->triangles[stream->triangles_count].ratios = (double*)malloc(sizeof(double)*num_baselines);
+    stream->triangles[stream->triangles_count].sizes = (double*)malloc(sizeof(double)*num_baselines);
+    stream->triangles[stream->triangles_count].stars = (dsp_star*)malloc(sizeof(dsp_star)*triangle.stars_count);
     for (s = 0; s < triangle.dims; s++) {
         if(s < stream->dims - 1) {
             stream->triangles[stream->triangles_count].theta[s] = triangle.theta[s];
         }
-        stream->triangles[stream->triangles_count].sizes[s] = triangle.sizes[s];
-        stream->triangles[stream->triangles_count].ratios[s] = triangle.ratios[s];
+    }
+    for(s = 0; s < triangle.stars_count; s++) {
         stream->triangles[stream->triangles_count].stars[s].center.dims = triangle.stars[s].center.dims;
         stream->triangles[stream->triangles_count].stars[s].diameter = triangle.stars[s].diameter;
+        stream->triangles[stream->triangles_count].stars[s].peak = triangle.stars[s].peak;
+        stream->triangles[stream->triangles_count].stars[s].flux = triangle.stars[s].flux;
+        stream->triangles[stream->triangles_count].stars[s].theta = triangle.stars[s].theta;
         stream->triangles[stream->triangles_count].stars[s].center.location = (double*)malloc(sizeof(double)*stream->dims);
         for(d = 0; d < triangle.stars[s].center.dims; d++) {
             stream->triangles[stream->triangles_count].stars[s].center.location[d] = triangle.stars[s].center.location[d];
         }
+    }
+    for(s = 0; s < num_baselines; s++) {
+        stream->triangles[stream->triangles_count].sizes[s] = triangle.sizes[s];
+        stream->triangles[stream->triangles_count].ratios[s] = triangle.ratios[s];
     }
     stream->triangles_count++;
 }
@@ -398,16 +418,27 @@ void dsp_stream_add_triangle(dsp_stream_p stream, dsp_triangle triangle)
  */
 void dsp_stream_del_triangle(dsp_stream_p stream, int index)
 {
-    dsp_triangle* triangles = (dsp_triangle*)malloc(sizeof(dsp_triangle) * stream->triangles_count);
-    int triangles_count = stream->triangles_count;
-    memcpy(triangles, stream->triangles, sizeof(dsp_triangle*) * stream->triangles_count);
-    free(stream->triangles);
-    stream->triangles_count = 0;
+    int d;
+    free(stream->triangles[index].sizes);
+    free(stream->triangles[index].theta);
+    free(stream->triangles[index].ratios);
+    for(d = 0; d < stream->triangles[index].stars_count; d++) {
+        free(stream->triangles[index].stars[d].center.location);
+    }
+    free(stream->triangles[index].stars);
     int i;
-    for(i = 0; i < triangles_count; i++) {
-        if(i != index) {
-            dsp_stream_add_triangle(stream, triangles[i]);
+    for(i = index; i < stream->triangles_count - 1; i++) {
+        stream->triangles[i] = stream->triangles[i+1];
+    }
+    stream->triangles_count--;
+    if(index < stream->triangles_count) {
+        free(stream->triangles[i].sizes);
+        free(stream->triangles[i].theta);
+        free(stream->triangles[i].ratios);
+        for(d = 0; d < stream->triangles[i].dims; d++) {
+            free(stream->triangles[i].stars[d].center.location);
         }
+        free(stream->triangles[i].stars);
     }
 }
 

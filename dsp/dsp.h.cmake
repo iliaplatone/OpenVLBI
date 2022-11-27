@@ -240,6 +240,12 @@ typedef struct dsp_star_t
     dsp_point center;
     /// The diameter of the star
     double diameter;
+    /// The peak of the star
+    double peak;
+    /// The flux of the star
+    double flux;
+    /// The deviation of the star
+    double theta;
     /// The name of the star
     char name[150];
 } dsp_star;
