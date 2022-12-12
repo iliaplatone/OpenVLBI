@@ -24,12 +24,6 @@
 extern "C" {
 #endif
 
-#ifdef _WIN32
-#define DLL_EXPORT __declspec(dllexport)
-#else
-#define DLL_EXPORT extern
-#endif
-
 /**
  * \defgroup dsp_FitsExtensions DSP API FITS Extensions functions
 */
