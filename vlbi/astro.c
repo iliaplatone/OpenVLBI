@@ -399,7 +399,7 @@ double vlbi_astro_estimate_distance_ratio(double luminosity_ratio, double flux_r
 
 double vlbi_astro_estimate_distance_parallax(double rad, double baseline)
 {
-    return baseline * tan(M_PI+rad);
+    return baseline * tan(M_PI_2-rad);
 }
 
 double vlbi_astro_estimate_redshift(double wavelength0, int wavelength)

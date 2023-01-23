@@ -704,10 +704,11 @@ DLL_EXPORT void vlbi_set_location(void *ctx, double lat, double lon, double el);
 * \param node2 The name of the second node
 * \param Ra The right ascension coordinate
 * \param Dec The declination coordinate
+* \param Distance The distance from the object
 * \param offset1 The offset calculated for the first node to the farest one
 * \param offset2 The offset calculated for the second node to the farest one
 */
-DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, const char* node2, double Ra, double Dec, double *offset1, double *offset2);
+DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, const char* node2, double Ra, double Dec, double Distance, double *offset1, double *offset2);
 
 /**\}*/
 /**
@@ -721,7 +722,7 @@ DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char*
 * \param name The name of the new model
 * \param u The U size of the resulting UV plot
 * \param v The V size of the resulting UV plot
-* \param target The target position int Ra/Dec celestial coordinates
+* \param target The target position int Ra/Dec/Dist celestial coordinates
 * \param freq The frequency observed. This parameter will scale the plot inverserly.
 * \param sr The sampling rate per second. This parameter will be used as meter for the elements of the streams.
 * \param nodelay if 1 no delay calculation should be done. streams entered are already synced.
@@ -910,6 +911,14 @@ DLL_EXPORT double* vlbi_matrix_calc_baseline_center(double *loc1, double *loc2);
 * \return double* The 3d projection of the current observation.
 */
 DLL_EXPORT double* vlbi_matrix_calc_3d_projection(double alt, double az, double *baseline);
+
+/**
+* \brief Return The parametric projection of the current observation.
+* \param target The alt/az/dist coordinates of the target into a 3 element vector.
+* \param baseline The current baseline in meters.
+* \return double* The 3d projection of the current observation.
+*/
+DLL_EXPORT double* vlbi_matrix_calc_parametric_projection(double *target, double *baseline);
 
 /**
 * \brief Return The UV coordinates of the current observation.

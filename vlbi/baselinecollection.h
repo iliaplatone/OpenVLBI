@@ -40,6 +40,7 @@ class BaselineCollection : public VLBICollection
         void SetTarget(double *target);
         void setRa(double ra);
         void setDec(double dec);
+        void setDistance(double dist);
         inline double getRa()
         {
             return Ra;
@@ -97,7 +98,7 @@ class BaselineCollection : public VLBICollection
 
     protected:
         bool relative;
-        double Ra, Dec;
+        double Ra, Dec, Dist;
         NodeCollection *Nodes;
         int width { 128 };
         int height { 128 };

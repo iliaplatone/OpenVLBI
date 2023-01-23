@@ -101,14 +101,15 @@ class VLBINode
             getStream()->starttimeutc.tv_nsec = (starttime - getStream()->starttimeutc.tv_sec) * 1000000000.0;
         }
 
-        inline void setTarget(double horiz, double vert)
+        inline void setTarget(double horiz, double vert, double dist = DBL_MAX)
         {
             getStream()->target[0] = horiz;
             getStream()->target[1] = vert;
+            getStream()->target[2] = dist;
         }
         inline void setTarget(double *target)
         {
-            memcpy(getStream()->target, target, sizeof(double) * 2);
+            memcpy(getStream()->target, target, sizeof(double) * 3);
         }
         inline void setLocation(double *coords)
         {

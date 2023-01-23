@@ -52,14 +52,16 @@ public:
 
     inline double getRa() { return Ra; }
     inline double getDec() { return Dec; }
+    inline double getDistance() { return Dist; }
     inline double* getTarget() { return Target; }
     inline double getWaveLength() { return WaveLength; }
     inline double getSampleRate() { return SampleRate; }
 
     inline void setRa(double ra) { Ra = ra; }
     inline void setDec(double dec) { Dec = dec; }
-    inline void setTarget(double horiz, double vert) { Target[0] = horiz; Target[1] = vert; memcpy(getStream()->target, Target, sizeof(double)*2); getNode1()->setTarget(Target); getNode2()->setTarget(Target); }
-    inline void setTarget(double *target) { memcpy(Target, target, sizeof(double)*2); memcpy(getStream()->target, Target, sizeof(double)*2); getNode1()->setTarget(Target); getNode2()->setTarget(Target); }
+    inline void setDistance(double dist) { Dist = dist; }
+    inline void setTarget(double horiz, double vert, double dist = DBL_MAX) { Target[0] = horiz; Target[1] = vert; Target[2] = dist; memcpy(getStream()->target, Target, sizeof(double)*3); getNode1()->setTarget(Target); getNode2()->setTarget(Target); }
+    inline void setTarget(double *target) { memcpy(Target, target, sizeof(double)*3); memcpy(getStream()->target, Target, sizeof(double)*3); getNode1()->setTarget(Target); getNode2()->setTarget(Target); }
     inline void setWaveLength(double wavelength) { WaveLength = wavelength; getStream()->wavelength = wavelength; getNode1()->setWaveLength(WaveLength); getNode2()->setWaveLength(WaveLength); }
     inline void setSampleRate(double samplerate) { SampleRate = samplerate; getStream()->samplerate = samplerate; getNode1()->setSampleRate(SampleRate); getNode2()->setSampleRate(SampleRate); }
 
@@ -102,6 +104,7 @@ private:
     double Target[3];
     double Ra { 0 };
     double Dec { 0 };
+    double Dist { DBL_MAX };
     double baseline[3];
     double u { 0 };
     double v { 0 };

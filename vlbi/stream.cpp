@@ -74,12 +74,13 @@ const char* vlbi_get_version()
     return VLBI_VERSION_STRING;
 }
 
-static double getDelay(double time, NodeCollection *nodes, VLBIBaseline *b, double Ra, double Dec,
+static double getDelay(double time, NodeCollection *nodes, VLBIBaseline *b, double Ra, double Dec, double Distance,
                        double wavelength)
 {
     double delay = 0.0;
     b->setRa(Ra);
     b->setDec(Dec);
+    b->setDistance(Distance);
     b->setRelative(nodes->isRelative());
     b->setWaveLength(wavelength);
     b->setTime(time);
@@ -88,7 +89,7 @@ static double getDelay(double time, NodeCollection *nodes, VLBIBaseline *b, doub
     return delay;
 }
 
-void vlbi_get_offsets(vlbi_context ctx, double J200Time, const char* node1, const char* node2, double Ra, double Dec,
+void vlbi_get_offsets(vlbi_context ctx, double J200Time, const char* node1, const char* node2, double Ra, double Dec, double Distance,
                       double *offset1,
                       double *offset2)
 {
@@ -99,6 +100,7 @@ void vlbi_get_offsets(vlbi_context ctx, double J200Time, const char* node1, cons
     if(b != nullptr) {
         b->setRa(Ra);
         b->setDec(Dec);
+        b->setDistance(Distance);
         double max_delay = 0;
         int farest = 0, x, y;
         for (x = 0; x < nodes->Count(); x++)
@@ -106,7 +108,7 @@ void vlbi_get_offsets(vlbi_context ctx, double J200Time, const char* node1, cons
             for (y = x + 1; y < nodes->Count(); y++)
             {
                 sprintf(baseline, "%s_%s", nodes->At(x)->getName(), nodes->At(y)->getName());
-                double delay = getDelay(J200Time, nodes, b, nodes->getBaselines()->Get(baseline)->getRa(), nodes->getBaselines()->Get(baseline)->getDec(), nodes->getBaselines()->Get(baseline)->getWaveLength());
+                double delay = getDelay(J200Time, nodes, b, nodes->getBaselines()->Get(baseline)->getRa(), nodes->getBaselines()->Get(baseline)->getDec(), nodes->getBaselines()->Get(baseline)->getDistance(), nodes->getBaselines()->Get(baseline)->getWaveLength());
                 if(fabs(delay) > max_delay)
                 {
                     max_delay = fabs(delay);
@@ -122,12 +124,12 @@ void vlbi_get_offsets(vlbi_context ctx, double J200Time, const char* node1, cons
         sprintf(baseline, "%s_%s", b->getNode1()->getName(), nodes->At(farest)->getName());
         if(collection->Contains(baseline)) {
             bl = collection->Get(baseline);
-            *offset1 = getDelay(J200Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getWaveLength());
+            *offset1 = getDelay(J200Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
         }
         sprintf(baseline, "%s_%s", b->getNode2()->getName(), nodes->At(farest)->getName());
         if(collection->Contains(baseline)) {
             bl = collection->Get(baseline);
-            *offset2 = getDelay(J200Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getWaveLength());
+            *offset2 = getDelay(J200Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
         }
     }
 }
@@ -195,7 +197,7 @@ static void* fillplane(void *arg)
         }
         else
         {
-            vlbi_get_offsets((void*)nodes, t, b->getNode1()->getName(), b->getNode2()->getName(), b->getRa(), b->getDec(), &offset1, &offset2);
+            vlbi_get_offsets((void*)nodes, t, b->getNode1()->getName(), b->getNode2()->getName(), b->getRa(), b->getDec(), b->getDistance(), &offset1, &offset2);
         }
         b->setTime(t);
         b->getProjection();
@@ -535,6 +537,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     baselines->SetSampleRate(sr);
     baselines->setRa(target[0]);
     baselines->setDec(target[1]);
+    baselines->setDistance(target[2]);
     parent->child_count = 0;
     pgarb("%ld nodes, %ld baselines\n", nodes->Count(), baselines->Count());
     baselines->SetDelegate(delegate);

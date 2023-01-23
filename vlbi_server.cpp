@@ -121,7 +121,7 @@ void VLBI::Server::DelNode(const char *name)
 
 void VLBI::Server::Plot(const char *name, int flags)
 {
-    double coords[3] = { Ra, Dec };
+    double coords[3] = { Ra, Dec, DBL_MAX };
     if((flags & plot_flags_custom_delegate) == 0) {
         setDelegate((flags & plot_flags_uv_coverage) != 0 ? coverage_delegate : vlbi_default_delegate);
     }

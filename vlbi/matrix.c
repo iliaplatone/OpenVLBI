@@ -38,7 +38,22 @@ double* vlbi_matrix_calc_3d_projection(double alt, double az, double *baseline)
     double z = baseline[2];
     proj[0] = (x * sin(az) + y * cos(az));
     proj[1] = (y * sin(alt) * sin(az) - x * sin(alt) * cos(az) + z * cos(alt));
-    proj[2] = cos(az) * y * cos(alt) - x * sin(az) * cos(alt) + sin(alt) * z;
+    proj[2] = (cos(az) * y * cos(alt) - x * sin(az) * cos(alt) + sin(alt) * z);
+    return proj;
+}
+
+double* vlbi_matrix_calc_parametric_projection(double *target, double *baseline)
+{
+    double* proj = (double*)calloc(sizeof(double), 3);
+    target[0] *= M_PI / 180.0;
+    target[1] *= M_PI / 180.0;
+    double x = baseline[0];
+    double y = baseline[1];
+    double z = baseline[2];
+    proj[0] = (x * sin(target[1]) + y * cos(target[1])) / sin(atan(target[2]));
+    proj[1] = (y * sin(target[0]) * sin(target[1]) - x * sin(target[0]) * cos(target[1]) + z * cos(target[0])) / sin(atan(target[2]));
+    proj[2] = (cos(target[1]) * y * cos(target[0]) - x * sin(target[1]) * cos(target[0]) + sin(target[0]) * z);
+    proj[2] += proj[2] * cos(atan(target[2])) / 2;
     return proj;
 }
 

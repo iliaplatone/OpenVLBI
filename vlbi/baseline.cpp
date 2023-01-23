@@ -121,7 +121,7 @@ double *VLBIBaseline::getBaseline()
 void VLBIBaseline::getProjection()
 {
     double *b = getBaseline();
-    double *tmp = vlbi_matrix_calc_3d_projection(Target[1], Target[0], b);
+    double *tmp = vlbi_matrix_calc_parametric_projection(Target, b);
     free (b);
     double *proj = vlbi_matrix_calc_uv_coordinates(tmp, getWaveLength());
     free (tmp);
@@ -164,5 +164,5 @@ void VLBIBaseline::setTime(double time)
         vlbi_astro_alt_az_from_ra_dec(time, Ra, Dec, stationLocation()->geographic.lat, stationLocation()->geographic.lon, &Alt,
                                       &Az);
     }
-    setTarget(Az, Alt);
+    setTarget(Az, Alt, Dist);
 }

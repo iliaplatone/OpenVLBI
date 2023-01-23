@@ -119,6 +119,15 @@ void BaselineCollection:: setDec(double dec)
     }
 }
 
+void BaselineCollection:: setDistance(double dist)
+{
+    Dist = dist;
+    for(int i = 0; i < Count(); i++)
+    {
+        At(i)->setDistance(dist);
+    }
+}
+
 void BaselineCollection::SetFrequency(double frequency)
 {
     Stream->wavelength = vlbi_astro_mean_speed(0) / frequency;
