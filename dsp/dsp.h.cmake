@@ -1344,6 +1344,23 @@ DLL_EXPORT void dsp_modulation_amplitude(dsp_stream_p stream, double samplefreq,
 
 /**\}*/
 /**
+ * \defgroup dsp_StreamReconstruction DSP API Stream reconstruction
+*/
+/**\{*/
+
+/**
+* \brief Try to reconstruct a stream from sub-stream matrices
+* \param stream the target DSP stream.
+* \param matrix the DSP stream with the matrices.
+*
+* The matrix stream must have all dimensions and sizes of the target plus one,
+* which is the number of matrices on to align.
+* The aligned stream should replace the target stream.
+*/
+void dsp_recons_align(dsp_stream_p stream, dsp_stream_p matrix);
+
+/**\}*/
+/**
  * \defgroup dsp_FileManagement DSP API File read/write functions
 */
 /**\{*/

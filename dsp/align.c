@@ -1,4 +1,3 @@
-
 /*
 *   DSP API - a digital signal processing library for astronomy usage
 *   Copyright © 2017-2021  Ilia Platone

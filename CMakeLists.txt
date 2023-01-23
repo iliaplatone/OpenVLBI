@@ -68,6 +68,7 @@ SET(dsp_C_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stats.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/buffer.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/convolution.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/recon.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/signals.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stream.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/fits.c
