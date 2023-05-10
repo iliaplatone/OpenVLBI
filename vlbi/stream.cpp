@@ -121,12 +121,12 @@ void vlbi_get_offsets(vlbi_context ctx, double J200Time, const char* node1, cons
         }
         BaselineCollection *collection = nodes->getBaselines();
         VLBIBaseline *bl = nullptr;
-        sprintf(baseline, "%s_%s", b->getNode1()->getName(), nodes->At(farest)->getName());
+        sprintf(baseline, "%s_%s", b->getNode(0)->getName(), nodes->At(farest)->getName());
         if(collection->Contains(baseline)) {
             bl = collection->Get(baseline);
             *offset1 = getDelay(J200Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
         }
-        sprintf(baseline, "%s_%s", b->getNode2()->getName(), nodes->At(farest)->getName());
+        sprintf(baseline, "%s_%s", b->getNode(1)->getName(), nodes->At(farest)->getName());
         if(collection->Contains(baseline)) {
             bl = collection->Get(baseline);
             *offset2 = getDelay(J200Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
@@ -197,7 +197,7 @@ static void* fillplane(void *arg)
         }
         else
         {
-            vlbi_get_offsets((void*)nodes, t, b->getNode1()->getName(), b->getNode2()->getName(), b->getRa(), b->getDec(), b->getDistance(), &offset1, &offset2);
+            vlbi_get_offsets((void*)nodes, t, b->getNode(0)->getName(), b->getNode(1)->getName(), b->getRa(), b->getDec(), b->getDistance(), &offset1, &offset2);
         }
         b->setTime(t);
         b->getProjection();
@@ -455,18 +455,18 @@ int vlbi_get_baselines(void *ctx, vlbi_baseline** output)
             out[x].delay = baselines->At(x)->getDelay();
             out[x].WaveLength = baselines->At(x)->getWaveLength();
             out[x].SampleRate = baselines->At(x)->getSampleRate();
-            out[x].Node1.GeographicLocation = baselines->At(x)->getNode1()->getGeographicLocation();
-            out[x].Node1.Location = baselines->At(x)->getNode1()->getLocation();
-            out[x].Node1.Geo = baselines->At(x)->getNode1()->GeographicCoordinates();
-            out[x].Node1.Stream = baselines->At(x)->getNode1()->getStream();
-            strcpy(out[x].Node1.Name, baselines->At(x)->getNode1()->getName());
-            out[x].Node1.Index = baselines->At(x)->getNode1()->getIndex();
-            out[x].Node2.GeographicLocation = baselines->At(x)->getNode2()->getGeographicLocation();
-            out[x].Node2.Location = baselines->At(x)->getNode2()->getLocation();
-            out[x].Node2.Geo = baselines->At(x)->getNode2()->GeographicCoordinates();
-            out[x].Node2.Stream = baselines->At(x)->getNode2()->getStream();
-            strcpy(out[x].Node2.Name, baselines->At(x)->getNode2()->getName());
-            out[x].Node2.Index = baselines->At(x)->getNode2()->getIndex();
+            out[x].Node1.GeographicLocation = baselines->At(x)->getNode(0)->getGeographicLocation();
+            out[x].Node1.Location = baselines->At(x)->getNode(0)->getLocation();
+            out[x].Node1.Geo = baselines->At(x)->getNode(0)->GeographicCoordinates();
+            out[x].Node1.Stream = baselines->At(x)->getNode(0)->getStream();
+            strcpy(out[x].Node1.Name, baselines->At(x)->getNode(0)->getName());
+            out[x].Node1.Index = baselines->At(x)->getNode(0)->getIndex();
+            out[x].Node2.GeographicLocation = baselines->At(x)->getNode(1)->getGeographicLocation();
+            out[x].Node2.Location = baselines->At(x)->getNode(1)->getLocation();
+            out[x].Node2.Geo = baselines->At(x)->getNode(1)->GeographicCoordinates();
+            out[x].Node2.Stream = baselines->At(x)->getNode(1)->getStream();
+            strcpy(out[x].Node2.Name, baselines->At(x)->getNode(1)->getName());
+            out[x].Node2.Index = baselines->At(x)->getNode(1)->getIndex();
             strcpy(out[x].Name, baselines->At(x)->getName());
             out[x].Stream = baselines->At(x)->getStream();
         }

@@ -28,6 +28,7 @@
 class VLBIBaseline
 {
 public:
+    VLBIBaseline(VLBINode **nodes, int nodes_count);
     VLBIBaseline(VLBINode *node1, VLBINode *node2);
     ~VLBIBaseline();
 
@@ -36,6 +37,7 @@ public:
     double Correlate(double time);
     double Correlate(double time1, double time2);
     double Correlate(int idx1, int idx2);
+    double Correlate(int *indexes);
     double getStartTime();
     double getEndTime();
 
@@ -60,13 +62,12 @@ public:
     inline void setRa(double ra) { Ra = ra; }
     inline void setDec(double dec) { Dec = dec; }
     inline void setDistance(double dist) { Dist = dist; }
-    inline void setTarget(double horiz, double vert, double dist = DBL_MAX) { Target[0] = horiz; Target[1] = vert; Target[2] = dist; memcpy(getStream()->target, Target, sizeof(double)*3); getNode1()->setTarget(Target); getNode2()->setTarget(Target); }
-    inline void setTarget(double *target) { memcpy(Target, target, sizeof(double)*3); memcpy(getStream()->target, Target, sizeof(double)*3); getNode1()->setTarget(Target); getNode2()->setTarget(Target); }
-    inline void setWaveLength(double wavelength) { WaveLength = wavelength; getStream()->wavelength = wavelength; getNode1()->setWaveLength(WaveLength); getNode2()->setWaveLength(WaveLength); }
-    inline void setSampleRate(double samplerate) { SampleRate = samplerate; getStream()->samplerate = samplerate; getNode1()->setSampleRate(SampleRate); getNode2()->setSampleRate(SampleRate); }
+    inline void setTarget(double horiz, double vert, double dist = DBL_MAX) { Target[0] = horiz; Target[1] = vert; Target[2] = dist; memcpy(getStream()->target, Target, sizeof(double)*3); for(int i = 0; i < nodes_count; i++) getNode(i)->setTarget((Target)); }
+    inline void setTarget(double *target) { memcpy(Target, target, sizeof(double)*3); memcpy(getStream()->target, Target, sizeof(double)*3); for(int i = 0; i < nodes_count; i++) getNode(i)->setTarget((Target)); }
+    inline void setWaveLength(double wavelength) { WaveLength = wavelength; getStream()->wavelength = wavelength; for(int i = 0; i < nodes_count; i++) getNode(i)->setWaveLength(WaveLength); }
+    inline void setSampleRate(double samplerate) { SampleRate = samplerate; getStream()->samplerate = samplerate; for(int i = 0; i < nodes_count; i++) getNode(i)->setSampleRate(SampleRate); }
 
-    inline VLBINode* getNode1() { return Node1; }
-    inline VLBINode* getNode2() { return Node2; }
+    inline VLBINode* getNode(int index) { return Nodes[index]; }
     inline dsp_stream_p getStream() { return Stream; }
     inline void setStream(dsp_stream_p stream)
     {
@@ -112,8 +113,8 @@ private:
     double WaveLength { 0 };
     double SampleRate { 0 };
     int max_threads { 0 };
-    VLBINode* Node1;
-    VLBINode* Node2;
+    VLBINode** Nodes;
+    int nodes_count;
     vlbi_func2_t dsp_correlation_delegate;
     char *Name;
     dsp_stream_p Stream;
