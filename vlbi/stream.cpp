@@ -97,7 +97,6 @@ void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, con
     char baseline[150];
     sprintf(baseline, "%s_%s", node1, node2);
     BaselineCollection *baselines = nodes->getBaselines();
-    baselines->setFrequency(1);
     baselines->setRa(Ra);
     baselines->setDec(Dec);
     baselines->setDistance(Distance);
