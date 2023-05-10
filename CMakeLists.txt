@@ -16,6 +16,8 @@ option(WITH_INDI_SERVER "Add INDI server for OpenVLBI" ON)
 option(WITH_DUMMY_SERVER "Add dummy server for OpenVLBI" ON)
 option(WITH_JSON_SERVER "Add JSON server for OpenVLBI" ON)
 
+set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_C_STANDARD 11)
 set (VLBI_VERSION_MAJOR 1)
 set (VLBI_VERSION_MINOR 23)
 set (VLBI_VERSION_RELEASE 6)
