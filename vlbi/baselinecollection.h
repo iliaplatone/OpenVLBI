@@ -37,7 +37,7 @@ class BaselineCollection : public VLBICollection
         VLBIBaseline * At(int index);
         bool Contains(const char *element);
         int IndexOf(VLBIBaseline *element);
-        void SetTarget(double *target);
+        void setTarget(double *target);
         void setRa(double ra);
         void setDec(double dec);
         void setDistance(double dist);
@@ -49,9 +49,9 @@ class BaselineCollection : public VLBICollection
         {
             return Dec;
         }
-        void SetFrequency(double frequency);
-        void SetSampleRate(double samplerate);
-        void SetDelegate(vlbi_func2_t delegate);
+        void setFrequency(double frequency);
+        void setSampleRate(double samplerate);
+        void setDelegate(vlbi_func2_t delegate);
         void setRelative(bool rel);
         inline void setStream(dsp_stream_p stream)
         {

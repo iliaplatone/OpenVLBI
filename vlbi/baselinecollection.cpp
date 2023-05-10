@@ -52,7 +52,7 @@ void BaselineCollection::Update()
     for(int i = 0; i < getNodes()->Count() * (getNodes()->Count() - 1) / 2; i++)
     {
         for(int o = 0; o < getCorrelationOrder(); o++) {
-            int idx = (i + o * ((1 + i) / getNodes()->Count())) % getNodes()->Count();
+            int idx = (i + o * (i / getNodes()->Count() + 1)) % getNodes()->Count();
             nodes[o] = getNodes()->At(idx);
         }
         VLBIBaseline *b = new VLBIBaseline(nodes, getCorrelationOrder());
@@ -94,7 +94,7 @@ bool BaselineCollection::Contains(const char* element)
     return VLBICollection::Contains(element);
 }
 
-void BaselineCollection::SetTarget(double *target)
+void BaselineCollection::setTarget(double *target)
 {
     memcpy(Stream->target, target, sizeof(double) * 3);
     for(int i = 0; i < Count(); i++)
@@ -130,7 +130,7 @@ void BaselineCollection:: setDistance(double dist)
     }
 }
 
-void BaselineCollection::SetFrequency(double frequency)
+void BaselineCollection::setFrequency(double frequency)
 {
     Stream->wavelength = vlbi_astro_mean_speed(0) / frequency;
     for(int i = 0; i < Count(); i++)
@@ -148,7 +148,7 @@ void BaselineCollection::setRelative(bool rel)
     }
 }
 
-void BaselineCollection::SetSampleRate(double samplerate)
+void BaselineCollection::setSampleRate(double samplerate)
 {
     Stream->samplerate = samplerate;
     for(int i = 0; i < Count(); i++)
@@ -157,7 +157,7 @@ void BaselineCollection::SetSampleRate(double samplerate)
     }
 }
 
-void BaselineCollection::SetDelegate(vlbi_func2_t delegate)
+void BaselineCollection::setDelegate(vlbi_func2_t delegate)
 {
     for(int i = 0; i < Count(); i++)
     {

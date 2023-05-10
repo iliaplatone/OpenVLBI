@@ -97,7 +97,7 @@ void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, con
     char baseline[150];
     sprintf(baseline, "%s_%s", node1, node2);
     BaselineCollection *baselines = nodes->getBaselines();
-    baselines->SetFrequency(1);
+    baselines->setFrequency(1);
     baselines->setRa(Ra);
     baselines->setDec(Dec);
     baselines->setDistance(Distance);
@@ -144,6 +144,7 @@ static void* fillplane(void *arg)
     {
         VLBIBaseline *b;
         NodeCollection *nodes;
+        BaselineCollection *baselines;
         bool moving_baseline;
         bool nodelay;
         int *stop;
@@ -158,7 +159,7 @@ static void* fillplane(void *arg)
     bool nodelay = argument->nodelay;
     NodeCollection *nodes = argument->nodes;
     if(nodes == nullptr)return nullptr;
-    BaselineCollection *baselines = nodes->getBaselines();
+    BaselineCollection *baselines = argument->baselines;
     if(baselines == nullptr)return nullptr;
     dsp_stream_p parent = baselines->getStream();
     if(parent == nullptr)return nullptr;
@@ -536,14 +537,14 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     dsp_buffer_set(parent->buf, parent->len, 0.0);
     baselines->setWidth(u);
     baselines->setHeight(v);
-    baselines->SetFrequency(freq);
-    baselines->SetSampleRate(sr);
+    baselines->setFrequency(freq);
+    baselines->setSampleRate(sr);
     baselines->setRa(target[0]);
     baselines->setDec(target[1]);
     baselines->setDistance(target[2]);
     parent->child_count = 0;
     pgarb("%ld nodes, %ld baselines\n", nodes->Count(), baselines->Count());
-    baselines->SetDelegate(delegate);
+    baselines->setDelegate(delegate);
     pthread_attr_t attr;
     pthread_attr_init(&attr);
     pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
@@ -554,6 +555,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     {
         VLBIBaseline *b;
         NodeCollection *nodes;
+        BaselineCollection *baselines;
         bool moving_baseline;
         bool nodelay;
         int *stop;
@@ -566,6 +568,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         if(b == nullptr)continue;
         argument[i].b = b;
         argument[i].nodes = nodes;
+        argument[i].baselines = baselines;
         argument[i].moving_baseline = moving_baseline;
         argument[i].nodelay = nodelay;
         argument[i].nthreads = &threads_running;
