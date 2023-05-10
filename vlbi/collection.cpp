@@ -123,6 +123,6 @@ void VLBICollection::Defrag()
             count ++;
         }
     }
-    Items = (VLBIElement*)realloc(Items, S * Count());
+    Items = (VLBIElement*)realloc(Items, S * count);
 }
 

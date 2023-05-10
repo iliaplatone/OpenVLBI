@@ -39,16 +39,15 @@ BaselineCollection::BaselineCollection(NodeCollection *nodes, int order) : VLBIC
 
 BaselineCollection::~BaselineCollection()
 {
-    for(int i = 0; i < Count(); i++)
-    {
-        At(i)->~VLBIBaseline();
-    }
+    dsp_stream_free_buffer(getStream());
+    dsp_stream_free(getStream());
+    this->Clear();
 }
 
 void BaselineCollection::Update()
 {
     this->Clear();
-    VLBINode** nodes = new VLBINode*[getCorrelationOrder()];
+    VLBINode** nodes = (VLBINode**)malloc(sizeof(VLBINode*) * getCorrelationOrder());
     for(int i = 0; i < getNodes()->Count() * (getNodes()->Count() - 1) / 2; i++)
     {
         for(int o = 0; o < getCorrelationOrder(); o++) {
@@ -73,10 +72,16 @@ void BaselineCollection::Add(VLBIBaseline * element)
 void BaselineCollection::Remove(const char* name)
 {
     VLBICollection::Remove(name);
+    Update();
 }
 
 void BaselineCollection::Clear()
 {
+    for(int i = 0; i < Count(); i++)
+    {
+        At(i)->~VLBIBaseline();
+    }
+    VLBICollection::Clear();
 }
 
 VLBIBaseline * BaselineCollection::Get(const char* name)

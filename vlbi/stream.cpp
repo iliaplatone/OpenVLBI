@@ -96,11 +96,11 @@ void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, con
     NodeCollection* nodes = (NodeCollection*)ctx;
     char baseline[150];
     sprintf(baseline, "%s_%s", node1, node2);
-    BaselineCollection *baselines = nodes->getBaselines();
-    baselines->setRa(Ra);
-    baselines->setDec(Dec);
-    baselines->setDistance(Distance);
-    VLBIBaseline *b = baselines->Get(baseline);
+    BaselineCollection *collection = new BaselineCollection(nodes);
+    collection->setRa(Ra);
+    collection->setDec(Dec);
+    collection->setDistance(Distance);
+    VLBIBaseline *b = collection->Get(baseline);
 
     if(b != nullptr) {
         double max_delay = 0;
@@ -121,7 +121,6 @@ void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, con
                 }
             }
         }
-        BaselineCollection *collection = baselines;
         VLBIBaseline *bl = nullptr;
         sprintf(baseline, "%s_%s", b->getNode(0)->getName(), nodes->At(farest)->getName());
         if(collection->Contains(baseline)) {
@@ -134,6 +133,7 @@ void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, con
             *offset2 = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
         }
     }
+    collection->~BaselineCollection();
 }
 
 static void* fillplane(void *arg)

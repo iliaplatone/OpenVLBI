@@ -41,18 +41,17 @@ VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
     dsp_stream_alloc_buffer(getStream(), getStream()->len);
     nodes_count = 2;
     Name = (char*)malloc(150);
-    Nodes = new VLBINode*[2] {node1, node2};
-    if(nodes_count > 0) {
-        sprintf(Name, "%s", getNode(0)->getName());
-        for(int i = 1; i < nodes_count; i++)
-            sprintf(Name, "%s_%s", Name, getNode(i)->getName());
-    }
+    Nodes = (VLBINode**)malloc(sizeof(VLBINode) * nodes_count);
+    Nodes[0] = node1;
+    Nodes[1] = node2;
+    sprintf(Name, "%s_%s", getNode(0)->getName(), getNode(1)->getName());
     setRelative(false);
 }
 
 VLBIBaseline::~VLBIBaseline()
 {
-    if(Stream->is_copy == 0)
+    free(Name);
+    if(Stream->is_copy > 0)
         freeStream();
 }
 
