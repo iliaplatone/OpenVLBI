@@ -1,0 +1,4 @@
+Tests: coverage raw idft
+Depends: openvlbi-bin
+Restriction: allow-stderr
+Tests-Directory: scripts/

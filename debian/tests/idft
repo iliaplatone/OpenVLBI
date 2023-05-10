@@ -1,0 +1,3 @@
+#!/bin/bash
+
+vlbi_server_json < scripts/idft.json
