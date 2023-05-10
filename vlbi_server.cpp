@@ -688,11 +688,14 @@ int main(int argc, char** argv)
                 exit(EXIT_FAILURE);
         }
     }
-    signal(SIGINT, sighandler);
-    signal(SIGKILL, sighandler);
+    signal(SIGTERM, sighandler);
     signal(SIGILL, sighandler);
+    signal(SIGINT, sighandler);
+#ifndef _WIN32
     signal(SIGSTOP, sighandler);
+    signal(SIGKILL, sighandler);
     signal(SIGQUIT, sighandler);
+#endif
     if(VLBI::server->Init(argc, argv))
     {
         while (is_running)

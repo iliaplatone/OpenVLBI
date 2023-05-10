@@ -5,6 +5,7 @@
 #include <vlbi.h>
 #include <fitsio2.h>
 #include <base64.h>
+#include "getline.h"
 #include "strings.h"
 #include "mjs.h"
 #include "json.h"
