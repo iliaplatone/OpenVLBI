@@ -7,6 +7,7 @@
 #include <signal.h>
 #include <vlbi/base64.h>
 #include <vlbi/instancecollection.h>
+#include "getline.h"
 
 static int is_running = 1;
 
