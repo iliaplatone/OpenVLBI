@@ -89,18 +89,21 @@ static double getDelay(double time, NodeCollection *nodes, VLBIBaseline *b, doub
     return delay;
 }
 
-void vlbi_get_offsets(vlbi_context ctx, double J200Time, const char* node1, const char* node2, double Ra, double Dec, double Distance,
+void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, const char* node2, double Ra, double Dec, double Distance,
                       double *offset1,
                       double *offset2)
 {
     NodeCollection* nodes = (NodeCollection*)ctx;
     char baseline[150];
     sprintf(baseline, "%s_%s", node1, node2);
-    VLBIBaseline *b = nodes->getBaselines()->Get(baseline);
+    BaselineCollection *baselines = nodes->getBaselines();
+    baselines->SetFrequency(1);
+    baselines->setRa(Ra);
+    baselines->setDec(Dec);
+    baselines->setDistance(Distance);
+    VLBIBaseline *b = baselines->Get(baseline);
+
     if(b != nullptr) {
-        b->setRa(Ra);
-        b->setDec(Dec);
-        b->setDistance(Distance);
         double max_delay = 0;
         int farest = 0, x, y;
         for (x = 0; x < nodes->Count(); x++)
@@ -108,7 +111,7 @@ void vlbi_get_offsets(vlbi_context ctx, double J200Time, const char* node1, cons
             for (y = x + 1; y < nodes->Count(); y++)
             {
                 sprintf(baseline, "%s_%s", nodes->At(x)->getName(), nodes->At(y)->getName());
-                double delay = getDelay(J200Time, nodes, b, nodes->getBaselines()->Get(baseline)->getRa(), nodes->getBaselines()->Get(baseline)->getDec(), nodes->getBaselines()->Get(baseline)->getDistance(), nodes->getBaselines()->Get(baseline)->getWaveLength());
+                double delay = getDelay(J2000Time, nodes, b, b->getRa(), b->getDec(), b->getDistance(), b->getWaveLength());
                 if(fabs(delay) > max_delay)
                 {
                     max_delay = fabs(delay);
@@ -119,17 +122,17 @@ void vlbi_get_offsets(vlbi_context ctx, double J200Time, const char* node1, cons
                 }
             }
         }
-        BaselineCollection *collection = nodes->getBaselines();
+        BaselineCollection *collection = baselines;
         VLBIBaseline *bl = nullptr;
         sprintf(baseline, "%s_%s", b->getNode(0)->getName(), nodes->At(farest)->getName());
         if(collection->Contains(baseline)) {
             bl = collection->Get(baseline);
-            *offset1 = getDelay(J200Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
+            *offset1 = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
         }
         sprintf(baseline, "%s_%s", b->getNode(1)->getName(), nodes->At(farest)->getName());
         if(collection->Contains(baseline)) {
             bl = collection->Get(baseline);
-            *offset2 = getDelay(J200Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
+            *offset2 = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
         }
     }
 }
@@ -579,6 +582,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         pthread_join(threads[i], nullptr);
     free(argument);
     free(threads);
+    free(baselines);
     pthread_attr_destroy(&attr);
     if(vlbi_has_model(ctx, name)) {
         dsp_stream_p model = vlbi_get_model(ctx, name);

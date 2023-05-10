@@ -34,6 +34,7 @@ BaselineCollection::BaselineCollection(NodeCollection *nodes, int order) : VLBIC
     setWidth(128);
     setHeight(128);
     dsp_buffer_set(getStream()->buf, getStream()->len, 0);
+    Update();
 }
 
 BaselineCollection::~BaselineCollection()

@@ -35,20 +35,22 @@ NodeCollection::~NodeCollection()
 
 BaselineCollection* NodeCollection::getBaselines(int order)
 {
-    baselines = new BaselineCollection(this, order);
+    BaselineCollection *baselines = new BaselineCollection(this, order);
+    for(int x = 0; x < baselines->Count(); x++)
+    {
+        memcpy(baselines->At(x)->stationLocation()->coordinates, station.coordinates, sizeof(dsp_location));
+    }
     return baselines;
 }
 
 void NodeCollection::Add(VLBINode * element)
 {
     VLBICollection::Add(element, element->getName());
-    baselines->Update();
 }
 
 void NodeCollection::Remove(const char* name)
 {
     VLBICollection::Remove(name);
-    baselines->Update();
 }
 
 VLBINode * NodeCollection::Get(const char* name)
@@ -74,10 +76,6 @@ void NodeCollection::setRelative(bool value)
         for(int x = 0; x < Count(); x++)
         {
             memcpy(At(x)->stationLocation().coordinates, station.coordinates, sizeof(dsp_location));
-        }
-        for(int x = 0; x < getBaselines()->Count(); x++)
-        {
-            memcpy(getBaselines()->At(x)->stationLocation()->coordinates, station.coordinates, sizeof(dsp_location));
         }
     }
 }

@@ -55,7 +55,6 @@ class NodeCollection : public VLBICollection
     private:
         bool relative;
         dsp_location station;
-        BaselineCollection *baselines;
         ModelCollection *models;
 };
 
