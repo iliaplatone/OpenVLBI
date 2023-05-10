@@ -18,13 +18,14 @@
 
 #include "baseline.h"
 
-VLBIBaseline::VLBIBaseline(VLBINode **nodes, int nodes_count)
+VLBIBaseline::VLBIBaseline(VLBINode **nodes, int num_nodes)
 {
     setStream(dsp_stream_new());
     dsp_stream_add_dim(getStream(), 1);
     dsp_stream_alloc_buffer(getStream(), getStream()->len);
     Name = (char*)malloc(150);
     Nodes = nodes;
+    nodes_count = num_nodes;
     if(nodes_count > 0) {
         sprintf(Name, "%s", getNode(0)->getName());
         for(int i = 1; i < nodes_count; i++)
