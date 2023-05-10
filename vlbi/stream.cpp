@@ -585,7 +585,6 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         pthread_join(threads[i], nullptr);
     free(argument);
     free(threads);
-    free(baselines);
     pthread_attr_destroy(&attr);
     if(vlbi_has_model(ctx, name)) {
         dsp_stream_p model = vlbi_get_model(ctx, name);

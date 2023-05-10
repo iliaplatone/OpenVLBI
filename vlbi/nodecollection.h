@@ -53,6 +53,7 @@ class NodeCollection : public VLBICollection
         void setRelative(bool value);
 
     private:
+        BaselineCollection *baselines;
         bool relative;
         dsp_location station;
         ModelCollection *models;

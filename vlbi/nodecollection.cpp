@@ -27,6 +27,7 @@ NodeCollection::NodeCollection() : VLBICollection::VLBICollection()
 {
     relative = false;
     models = new ModelCollection();
+    baselines = new BaselineCollection(this);
 }
 
 NodeCollection::~NodeCollection()
@@ -35,7 +36,7 @@ NodeCollection::~NodeCollection()
 
 BaselineCollection* NodeCollection::getBaselines(int order)
 {
-    BaselineCollection *baselines = new BaselineCollection(this, order);
+    baselines->setCorrelationOrder(order);
     for(int x = 0; x < baselines->Count(); x++)
     {
         memcpy(baselines->At(x)->stationLocation()->coordinates, station.coordinates, sizeof(dsp_location));
