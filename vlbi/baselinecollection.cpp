@@ -23,8 +23,9 @@
 #include "baselinecollection.h"
 
 
-BaselineCollection::BaselineCollection(NodeCollection *nodes) : VLBICollection::VLBICollection()
+BaselineCollection::BaselineCollection(NodeCollection *nodes, int order) : VLBICollection::VLBICollection()
 {
+    correlation_order = order;
     Nodes = nodes;
     Stream = dsp_stream_new();
     dsp_stream_add_dim(getStream(), 1);
@@ -46,16 +47,16 @@ BaselineCollection::~BaselineCollection()
 void BaselineCollection::Update()
 {
     this->Clear();
-    for(int i = 0; i < getNodes()->Count(); i++)
+    VLBINode** nodes = new VLBINode*[getCorrelationOrder()];
+    for(int i = 0; i < getNodes()->Count() * (getNodes()->Count() - 1) / 2; i++)
     {
-        for(int l = i + 1; l < getNodes()->Count(); l++)
-        {
-            VLBINode* node1 = getNodes()->At(i);
-            VLBINode* node2 = getNodes()->At(l);
-            VLBIBaseline *b = new VLBIBaseline(node1, node2);
-            b->getStream()->parent = Stream;
-            this->Add(b);
+        for(int o = 0; o < getCorrelationOrder(); o++) {
+            int idx = (i + o * ((1 + i) / getNodes()->Count())) % getNodes()->Count();
+            nodes[o] = getNodes()->At(idx);
         }
+        VLBIBaseline *b = new VLBIBaseline(nodes, getCorrelationOrder());
+        b->getStream()->parent = Stream;
+        this->Add(b);
     }
     setRelative(isRelative());
     setRa(getRa());

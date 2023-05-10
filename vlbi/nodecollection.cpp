@@ -26,12 +26,17 @@
 NodeCollection::NodeCollection() : VLBICollection::VLBICollection()
 {
     relative = false;
-    baselines = new BaselineCollection(this);
     models = new ModelCollection();
 }
 
 NodeCollection::~NodeCollection()
 {
+}
+
+BaselineCollection* NodeCollection::getBaselines(int order)
+{
+    baselines = new BaselineCollection(this, order);
+    return baselines;
 }
 
 void NodeCollection::Add(VLBINode * element)

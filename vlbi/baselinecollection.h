@@ -26,7 +26,7 @@
 class BaselineCollection : public VLBICollection
 {
     public:
-        BaselineCollection(NodeCollection *nodes);
+        BaselineCollection(NodeCollection *nodes, int order = 2);
         ~BaselineCollection();
         void Update();
         void Add(VLBIBaseline *element);
@@ -73,6 +73,15 @@ class BaselineCollection : public VLBICollection
         {
             return height;
         }
+        inline int getCorrelationOrder()
+        {
+            return correlation_order;
+        }
+        inline void setCorrelationOrder(int order)
+        {
+            correlation_order = order;
+            Update();
+        }
         inline void setWidth(int w)
         {
             width = w;
@@ -97,6 +106,7 @@ class BaselineCollection : public VLBICollection
         }
 
     protected:
+        int correlation_order;
         bool relative;
         double Ra, Dec, Dist;
         NodeCollection *Nodes;

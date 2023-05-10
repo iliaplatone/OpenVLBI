@@ -37,10 +37,7 @@ class NodeCollection : public VLBICollection
         VLBINode * At(int index);
         bool Contains(const char* element);
         int IndexOf(VLBINode *element);
-        inline BaselineCollection* getBaselines()
-        {
-            return baselines;
-        }
+        BaselineCollection* getBaselines(int order = 2);
         inline ModelCollection* getModels()
         {
             return models;
