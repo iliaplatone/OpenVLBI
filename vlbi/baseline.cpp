@@ -125,6 +125,7 @@ double *VLBIBaseline::getBaseline()
             double lat = getNode(i)->getGeographicLocation()[0];
             double lon = getNode(i)->getGeographicLocation()[1];
             double el = getNode(i)->getGeographicLocation()[2];
+            baseline.geographic.lat = (lat - baseline.geographic.lat);
             baseline.geographic.lon = (lon - baseline.geographic.lon);
             baseline.geographic.el = (el - baseline.geographic.el);
         }
@@ -132,10 +133,6 @@ double *VLBIBaseline::getBaseline()
             baseline.geographic.lon -= 360;
         while(baseline.geographic.lon < -180)
             baseline.geographic.lon += 360;
-        while(baseline.geographic.lat >= 90.0)
-            baseline.geographic.lat = 180.0 - baseline.geographic.lat;
-        while(baseline.geographic.lat < -90.0)
-            baseline.geographic.lat = -180.0 + baseline.geographic.lat;
         b = vlbi_matrix_calc_location(baseline.coordinates);
         memcpy(baseline.coordinates, b, sizeof(dsp_location));
         baseline.xyz.z -= getNode(1)->getGeographicLocation()[2];
@@ -188,10 +185,7 @@ void VLBIBaseline::setTime(double time)
         center.geographic.lat /= nodes_count;
         center.geographic.lon /= nodes_count;
         center.geographic.el /= nodes_count;
-        if(center.geographic.lon >= 360)
-            center.geographic.lon -= 360;
-        if(center.geographic.lon < 0)
-            center.geographic.lon += 360;
+        fmod(center.geographic.lon, 360.0);
         vlbi_astro_alt_az_from_ra_dec(time, Ra, Dec, center.geographic.lat, center.geographic.lon, &Alt, &Az);
     }
     else

@@ -99,7 +99,7 @@ install(TARGETS openvlbi LIBRARY DESTINATION ${LIB_INSTALL_DIR})
 install(TARGETS opendsp LIBRARY DESTINATION ${LIB_INSTALL_DIR})
 
 if(WITH_VLBI_SERVER)
-add_library(openvlbi_server STATIC ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server.cpp ${CMAKE_CURRENT_SOURCE_DIR}/getline.c ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/collection.cpp)
+add_library(openvlbi_server STATIC ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server.cpp ${CMAKE_CURRENT_SOURCE_DIR}/getline.c ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/collection.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/base64.c)
 install(TARGETS openvlbi_server ARCHIVE DESTINATION ${LIB_INSTALL_DIR})
 
 if(WITH_JSON_SERVER)
