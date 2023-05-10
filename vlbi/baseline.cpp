@@ -29,7 +29,7 @@ VLBIBaseline::VLBIBaseline(VLBINode **nodes, int num_nodes)
     if(nodes_count > 0) {
         sprintf(Name, "%s", getNode(0)->getName());
         for(int i = 1; i < nodes_count; i++)
-            sprintf(Name, "%s%s", Name, getNode(i)->getName());
+            sprintf(Name, "%s_%s", Name, getNode(i)->getName());
     }
     setRelative(false);
 }
