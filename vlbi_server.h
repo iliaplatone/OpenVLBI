@@ -22,6 +22,12 @@
 #include <vlbi.h>
 #include <dsp.h>
 
+#ifdef _WIN32
+#define restrict __restrict
+typedef long long ssize_t;
+extern ssize_t getdelim(char **restrict lineptr, size_t *restrict n, int delim, FILE *restrict stream);
+#endif
+
 namespace VLBI
 {
 
