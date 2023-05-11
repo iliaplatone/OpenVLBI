@@ -73,15 +73,6 @@ class BaselineCollection : public VLBICollection
         {
             return height;
         }
-        inline int getCorrelationOrder()
-        {
-            return correlation_order;
-        }
-        inline void setCorrelationOrder(int order)
-        {
-            correlation_order = order;
-            Update();
-        }
         inline void setWidth(int w)
         {
             width = w;
@@ -99,6 +90,15 @@ class BaselineCollection : public VLBICollection
             dsp_stream_set_dim(getStream(), 1, h);
             dsp_stream_alloc_buffer(getStream(), getStream()->len);
             dsp_buffer_set(getStream()->buf, getStream()->len, 0);
+        }
+        inline int getCorrelationOrder()
+        {
+            return correlation_order;
+        }
+        inline void setCorrelationOrder(int order)
+        {
+            correlation_order = order;
+            Update();
         }
         inline bool isRelative()
         {

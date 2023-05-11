@@ -7,7 +7,9 @@
 #include <signal.h>
 #include <vlbi/base64.h>
 #include <vlbi/instancecollection.h>
-#include "getline.h"
+#ifdef _WIN32
+#include "getline.c"
+#endif
 
 static int is_running = 1;
 

@@ -47,9 +47,9 @@ BaselineCollection::~BaselineCollection()
 void BaselineCollection::Update()
 {
     this->Clear();
-    VLBINode** nodes = (VLBINode**)malloc(sizeof(VLBINode*) * getCorrelationOrder());
     for(int i = 0; i < getNodes()->Count() * (getNodes()->Count() - 1) / 2; i++)
     {
+        VLBINode** nodes = (VLBINode**)malloc(sizeof(VLBINode*) * getCorrelationOrder());
         for(int o = 0; o < getCorrelationOrder(); o++) {
             int idx = (i + o * (i / getNodes()->Count() + 1)) % getNodes()->Count();
             nodes[o] = getNodes()->At(idx);

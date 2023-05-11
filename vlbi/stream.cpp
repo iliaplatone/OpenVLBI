@@ -95,22 +95,24 @@ void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, con
 {
     NodeCollection* nodes = (NodeCollection*)ctx;
     char baseline[150];
-    sprintf(baseline, "%s_%s", node1, node2);
     BaselineCollection *collection = new BaselineCollection(nodes);
     collection->setRa(Ra);
     collection->setDec(Dec);
     collection->setDistance(Distance);
-    VLBIBaseline *b = collection->Get(baseline);
-
-    if(b != nullptr) {
-        double max_delay = 0;
-        int farest = 0, x, y;
-        for (x = 0; x < nodes->Count(); x++)
+    collection->setFrequency(1);
+    VLBIBaseline *bl = nullptr;
+    double max_delay = 0;
+    int farest = 0, x, y;
+    for (x = 0; x < nodes->Count(); x++)
+    {
+        for (y = x + 1; y < nodes->Count(); y++)
         {
-            for (y = x + 1; y < nodes->Count(); y++)
-            {
-                sprintf(baseline, "%s_%s", nodes->At(x)->getName(), nodes->At(y)->getName());
-                double delay = getDelay(J2000Time, nodes, b, b->getRa(), b->getDec(), b->getDistance(), b->getWaveLength());
+            sprintf(baseline, "%s_%s", nodes->At(x)->getName(), nodes->At(y)->getName());
+            if(!collection->Contains(baseline))
+                sprintf(baseline, "%s_%s", nodes->At(y)->getName(), nodes->At(x)->getName());
+            if(collection->Contains(baseline)) {
+                bl = collection->Get(baseline);
+                double delay = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
                 if(fabs(delay) > max_delay)
                 {
                     max_delay = fabs(delay);
@@ -121,17 +123,22 @@ void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, con
                 }
             }
         }
-        VLBIBaseline *bl = nullptr;
-        sprintf(baseline, "%s_%s", b->getNode(0)->getName(), nodes->At(farest)->getName());
-        if(collection->Contains(baseline)) {
-            bl = collection->Get(baseline);
-            *offset1 = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
-        }
-        sprintf(baseline, "%s_%s", b->getNode(1)->getName(), nodes->At(farest)->getName());
-        if(collection->Contains(baseline)) {
-            bl = collection->Get(baseline);
-            *offset2 = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
-        }
+    }
+    bl = nullptr;
+    sprintf(baseline, "%s_%s", node1, nodes->At(farest)->getName());
+    if(!collection->Contains(baseline))
+        sprintf(baseline, "%s_%s", nodes->At(farest)->getName(), node1);
+    if(collection->Contains(baseline)) {
+        bl = collection->Get(baseline);
+        *offset1 = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
+    }
+    bl = nullptr;
+    sprintf(baseline, "%s_%s", node2, nodes->At(farest)->getName());
+    if(!collection->Contains(baseline))
+        sprintf(baseline, "%s_%s", nodes->At(farest)->getName(), node2);
+    if(collection->Contains(baseline)) {
+        bl = collection->Get(baseline);
+        *offset2 = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
     }
     collection->~BaselineCollection();
 }
@@ -208,7 +215,9 @@ static void* fillplane(void *arg)
         int V = (int)b->getV() + v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v)
         {
-            idx = (int)(U + V * u);
+            int *pos = new int[2] { U, V };
+            idx = dsp_stream_set_position(parent, pos);
+            free(pos);
             if(idx != oldidx)
             {
                 oldidx = idx;
@@ -484,7 +493,12 @@ void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, c
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     char name[150];
     sprintf(name, "%s_%s", node1, node2);
-    VLBIBaseline *b = nodes->getBaselines()->Get(name);
+    VLBIBaseline *b = nullptr;
+    BaselineCollection *collection = nodes->getBaselines();
+    if(!collection->Contains(name))
+        sprintf(name, "%s_%s", node2, node1);
+    if(collection->Contains(name))
+        collection->Get(name);
     if(b == nullptr) return;
     dsp_stream_set_dim(b->getStream(), 0, len);
     dsp_stream_alloc_buffer(b->getStream(), len);
@@ -497,7 +511,12 @@ void vlbi_set_baseline_stream(void *ctx, const char *node1, const char *node2, d
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     char name[150];
     sprintf(name, "%s_%s", node1, node2);
-    VLBIBaseline *b = nodes->getBaselines()->Get(name);
+    VLBIBaseline *b = nullptr;
+    BaselineCollection *collection = nodes->getBaselines();
+    if(!collection->Contains(name))
+        sprintf(name, "%s_%s", node2, node1);
+    if(collection->Contains(name))
+        collection->Get(name);
     if(b == nullptr) return;
     b->setStream(stream);
     b->Lock();
@@ -508,7 +527,12 @@ dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char *node1, const char *
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     char name[150];
     sprintf(name, "%s_%s", node1, node2);
-    VLBIBaseline *b = nodes->getBaselines()->Get(name);
+    VLBIBaseline *b = nullptr;
+    BaselineCollection *collection = nodes->getBaselines();
+    if(!collection->Contains(name))
+        sprintf(name, "%s_%s", node2, node1);
+    if(collection->Contains(name))
+        collection->Get(name);
     if(b == nullptr) return nullptr;
     return b->getStream();
 }
@@ -518,7 +542,12 @@ void vlbi_unlock_baseline(void *ctx, const char *node1, const char *node2)
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     char name[150];
     sprintf(name, "%s_%s", node1, node2);
-    VLBIBaseline *b = nodes->getBaselines()->Get(name);
+    VLBIBaseline *b = nullptr;
+    BaselineCollection *collection = nodes->getBaselines();
+    if(!collection->Contains(name))
+        sprintf(name, "%s_%s", node2, node1);
+    if(collection->Contains(name))
+        collection->Get(name);
     if(b == nullptr) return;
     b->Unlock();
 }

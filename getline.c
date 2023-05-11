@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #include <errno.h>
 
-#ifdef _WIN32
-
 // MSVC specific implementation
 static void fseterr(FILE *fp)
 {
@@ -34,7 +32,7 @@ ssize_t getdelim(char **restrict lineptr, size_t *restrict n, int delim, FILE *r
 
     if (*lineptr == NULL) {
         *n = 256;
-        *lineptr = malloc(*n);
+        *lineptr = (char*)malloc(*n);
         if (*lineptr == NULL) {
             fseterr(stream);
             errno = ENOMEM;
@@ -50,7 +48,7 @@ ssize_t getdelim(char **restrict lineptr, size_t *restrict n, int delim, FILE *r
         }
         if (nread >= *n - 1) {
             size_t newn = *n * 2;
-            char *newptr = realloc(*lineptr, newn);
+            char *newptr = (char*)realloc(*lineptr, newn);
             if (newptr == NULL) {
                 fseterr(stream);
                 errno = ENOMEM;
@@ -72,5 +70,3 @@ ssize_t getline(char **restrict lineptr, size_t *restrict n, FILE *restrict stre
 {
     return getdelim(lineptr, n, '\n', stream);
 }
-
-#endif

@@ -96,7 +96,7 @@ double VLBIBaseline::Correlate(int *indexes)
 double VLBIBaseline::getStartTime()
 {
     double starttime = 0.0;
-    for(int i = 1; i < nodes_count; i++)
+    for(int i = 0; i < nodes_count; i++)
         starttime = fmax(starttime, getNode(i)->getStartTime());
     return starttime;
 }
@@ -105,7 +105,7 @@ double VLBIBaseline::getEndTime()
 {
     double tau = 1.0 / getSampleRate();
     double endtime = DBL_MAX;
-    for(int i = 1; i < nodes_count; i++)
+    for(int i = 0; i < nodes_count; i++)
         endtime = getStartTime() + fmin(endtime, getNode(i)->getStream()->len) * tau;
     return endtime;
 }
