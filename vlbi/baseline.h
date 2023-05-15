@@ -37,6 +37,7 @@ public:
     double Correlate(double time);
     double Correlate(double time1, double time2);
     double Correlate(int idx1, int idx2);
+    double Correlate(double *times);
     double Correlate(int *indexes);
     double getStartTime();
     double getEndTime();
@@ -72,7 +73,6 @@ public:
     inline void setStream(dsp_stream_p stream)
     {
         Stream = stream;
-        Stream->is_copy ++;
         if(getStream()->dims < 2)
             dsp_stream_add_dim(getStream(), 1);
         if(Stream->magnitude == nullptr) {

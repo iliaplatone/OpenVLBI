@@ -89,13 +89,12 @@ static double getDelay(double time, NodeCollection *nodes, VLBIBaseline *b, doub
     return delay;
 }
 
-void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, const char* node2, double Ra, double Dec, double Distance,
-                      double *offset1,
-                      double *offset2)
+double vlbi_get_offset(vlbi_context ctx, double J2000Time, const char* node, double Ra, double Dec, double Distance)
 {
     NodeCollection* nodes = (NodeCollection*)ctx;
     char baseline[150];
-    BaselineCollection *collection = new BaselineCollection(nodes);
+    BaselineCollection *collection = new BaselineCollection(nodes, 2);
+    double offset = 0.0;
     collection->setRa(Ra);
     collection->setDec(Dec);
     collection->setDistance(Distance);
@@ -125,22 +124,15 @@ void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, con
         }
     }
     bl = nullptr;
-    sprintf(baseline, "%s_%s", node1, nodes->At(farest)->getName());
+    sprintf(baseline, "%s_%s", node, nodes->At(farest)->getName());
     if(!collection->Contains(baseline))
-        sprintf(baseline, "%s_%s", nodes->At(farest)->getName(), node1);
+        sprintf(baseline, "%s_%s", nodes->At(farest)->getName(), node);
     if(collection->Contains(baseline)) {
         bl = collection->Get(baseline);
-        *offset1 = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
-    }
-    bl = nullptr;
-    sprintf(baseline, "%s_%s", node2, nodes->At(farest)->getName());
-    if(!collection->Contains(baseline))
-        sprintf(baseline, "%s_%s", nodes->At(farest)->getName(), node2);
-    if(collection->Contains(baseline)) {
-        bl = collection->Get(baseline);
-        *offset2 = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
+        offset = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
     }
     collection->~BaselineCollection();
+    return offset;
 }
 
 static void* fillplane(void *arg)
@@ -179,8 +171,8 @@ static void* fillplane(void *arg)
     int e = 0;
     int s = 0;
     int i = 1;
-    double offset1;
-    double offset2;
+    int *pos = (int*)malloc(sizeof(int)*2);
+    double *offsets = (double*)malloc(sizeof(double)*baselines->getCorrelationOrder());
     int idx = 0;
     int oldidx = 0;
     int x;
@@ -200,14 +192,15 @@ static void* fillplane(void *arg)
                 nodes->At(x)->setLocation(0);
             }
         }
-        if(nodelay)
-        {
-            offset1 = 0.0;
-            offset2 = 0.0;
-        }
-        else
-        {
-            vlbi_get_offsets((void*)nodes, t, b->getNode(0)->getName(), b->getNode(1)->getName(), b->getRa(), b->getDec(), b->getDistance(), &offset1, &offset2);
+        for(int y = 0; y < baselines->getCorrelationOrder(); y++) {
+            if(nodelay)
+            {
+                offsets[y] = 0.0;
+            }
+            else
+            {
+                offsets[y] = t + vlbi_get_offset((void*)nodes, t, b->getNode(y)->getName(), b->getRa(), b->getDec(), b->getDistance());
+            }
         }
         b->setTime(t);
         b->getProjection();
@@ -215,13 +208,13 @@ static void* fillplane(void *arg)
         int V = (int)b->getV() + v / 2;
         if(U >= 0 && U < u && V >= 0 && V < v)
         {
-            int *pos = new int[2] { U, V };
+            pos[0] = U;
+            pos[1] = V;
             idx = dsp_stream_set_position(parent, pos);
-            free(pos);
             if(idx != oldidx)
             {
                 oldidx = idx;
-                val = b->Locked() ? b->Correlate(t) : b->Correlate(t + offset1, t + offset2);
+                val = b->Locked() ? b->Correlate(t) : b->Correlate(offsets);
                 if(mutex_initialized)
                 {
                     lock_mutex();
@@ -236,6 +229,8 @@ static void* fillplane(void *arg)
         s = l + 1;
         i = s - e;
     }
+    free(pos);
+    free(offsets);
     (*argument->nthreads)--;
     return nullptr;
 }
@@ -262,7 +257,6 @@ void vlbi_set_location(void *ctx, double lat, double lon, double el)
     nodes->stationLocation()->geographic.lon = lon;
     nodes->stationLocation()->geographic.el = el;
     nodes->setRelative(true);
-    nodes->getBaselines()->setRelative(true);
 }
 
 void vlbi_add_node(void *ctx, dsp_stream_p stream, const char *name, int geo)
@@ -447,6 +441,12 @@ void vlbi_del_model(void *ctx, const char *name)
     }
 }
 
+void vlbi_set_correlation_order(void *ctx, int order)
+{
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    nodes->setCorrelationOrder(order);
+}
+
 int vlbi_get_baselines(void *ctx, vlbi_baseline** output)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
@@ -456,6 +456,8 @@ int vlbi_get_baselines(void *ctx, vlbi_baseline** output)
         vlbi_baseline* out = (vlbi_baseline*)malloc(sizeof(vlbi_baseline) * baselines->Count());
         for(int x = 0; x < baselines->Count(); x++)
         {
+            out[x].nodes_count = baselines->getCorrelationOrder();
+            out[x].Nodes = (vlbi_node*)malloc(sizeof(vlbi_node)*out[x].nodes_count);
             out[x].relative = baselines->At(x)->isRelative();
             out[x].locked = baselines->At(x)->Locked();
             out[x].Target = baselines->At(x)->getTarget();
@@ -467,18 +469,14 @@ int vlbi_get_baselines(void *ctx, vlbi_baseline** output)
             out[x].delay = baselines->At(x)->getDelay();
             out[x].WaveLength = baselines->At(x)->getWaveLength();
             out[x].SampleRate = baselines->At(x)->getSampleRate();
-            out[x].Node1.GeographicLocation = baselines->At(x)->getNode(0)->getGeographicLocation();
-            out[x].Node1.Location = baselines->At(x)->getNode(0)->getLocation();
-            out[x].Node1.Geo = baselines->At(x)->getNode(0)->GeographicCoordinates();
-            out[x].Node1.Stream = baselines->At(x)->getNode(0)->getStream();
-            strcpy(out[x].Node1.Name, baselines->At(x)->getNode(0)->getName());
-            out[x].Node1.Index = baselines->At(x)->getNode(0)->getIndex();
-            out[x].Node2.GeographicLocation = baselines->At(x)->getNode(1)->getGeographicLocation();
-            out[x].Node2.Location = baselines->At(x)->getNode(1)->getLocation();
-            out[x].Node2.Geo = baselines->At(x)->getNode(1)->GeographicCoordinates();
-            out[x].Node2.Stream = baselines->At(x)->getNode(1)->getStream();
-            strcpy(out[x].Node2.Name, baselines->At(x)->getNode(1)->getName());
-            out[x].Node2.Index = baselines->At(x)->getNode(1)->getIndex();
+            for(int y = 0; y < out[x].nodes_count; y++) {
+                out[x].Nodes[y].GeographicLocation = baselines->At(x)->getNode(y)->getGeographicLocation();
+                out[x].Nodes[y].Location = baselines->At(x)->getNode(y)->getLocation();
+                out[x].Nodes[y].Geo = baselines->At(x)->getNode(y)->GeographicCoordinates();
+                out[x].Nodes[y].Stream = baselines->At(x)->getNode(y)->getStream();
+                strcpy(out[x].Nodes[y].Name, baselines->At(x)->getNode(y)->getName());
+                out[x].Nodes[y].Index = baselines->At(x)->getNode(y)->getIndex();
+            }
             strcpy(out[x].Name, baselines->At(x)->getName());
             out[x].Stream = baselines->At(x)->getStream();
         }
@@ -488,17 +486,33 @@ int vlbi_get_baselines(void *ctx, vlbi_baseline** output)
     return 0;
 }
 
-void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, complex_t *buffer, int len)
+void vlbi_free_baselines(vlbi_baseline** baselines, int num_baselines)
+{
+    for(int x = 0; x < num_baselines; x++) {
+        free(baselines[x]->Nodes);
+    }
+    free(baselines);
+}
+
+void vlbi_set_baseline_buffer(void *ctx, const char **names, complex_t *buffer, int len)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    char name[150];
-    sprintf(name, "%s_%s", node1, node2);
     VLBIBaseline *b = nullptr;
     BaselineCollection *collection = nodes->getBaselines();
-    if(!collection->Contains(name))
-        sprintf(name, "%s_%s", node2, node1);
-    if(collection->Contains(name))
-        collection->Get(name);
+    char name[150] = "";
+    for(int x = 0; x < nodes->getBaselines()->Count(); x++) {
+        for(int y = 0; y < nodes->getCorrelationOrder(); y++) {
+            int idx = (x + y * (x / nodes->Count() +1)) % nodes->Count();
+            if(y == 0)
+                sprintf(name, "%s", names[idx]);
+            else
+                sprintf(name, "%s_%s", name, names[idx]);
+        }
+        if(collection->Contains(name)) {
+            b = collection->Get(name);
+            break;
+        }
+    }
     if(b == nullptr) return;
     dsp_stream_set_dim(b->getStream(), 0, len);
     dsp_stream_alloc_buffer(b->getStream(), len);
@@ -506,48 +520,72 @@ void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, c
     b->Lock();
 }
 
-void vlbi_set_baseline_stream(void *ctx, const char *node1, const char *node2, dsp_stream_p stream)
+void vlbi_set_baseline_stream(void *ctx, const char **names, dsp_stream_p stream)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    char name[150];
-    sprintf(name, "%s_%s", node1, node2);
     VLBIBaseline *b = nullptr;
     BaselineCollection *collection = nodes->getBaselines();
-    if(!collection->Contains(name))
-        sprintf(name, "%s_%s", node2, node1);
-    if(collection->Contains(name))
-        collection->Get(name);
+    char name[150] = "";
+    for(int x = 0; x < nodes->getBaselines()->Count(); x++) {
+        for(int y = 0; y < nodes->getCorrelationOrder(); y++) {
+            int idx = (x + y * (x / nodes->Count() +1)) % nodes->Count();
+            if(y == 0)
+                sprintf(name, "%s", names[idx]);
+            else
+                sprintf(name, "%s_%s", name, names[idx]);
+        }
+        if(collection->Contains(name)) {
+            b = collection->Get(name);
+            break;
+        }
+    }
     if(b == nullptr) return;
     b->setStream(stream);
     b->Lock();
 }
 
-dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char *node1, const char *node2)
+dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char **names)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    char name[150];
-    sprintf(name, "%s_%s", node1, node2);
     VLBIBaseline *b = nullptr;
     BaselineCollection *collection = nodes->getBaselines();
-    if(!collection->Contains(name))
-        sprintf(name, "%s_%s", node2, node1);
-    if(collection->Contains(name))
-        collection->Get(name);
+    char name[150] = "";
+    for(int x = 0; x < nodes->getBaselines()->Count(); x++) {
+        for(int y = 0; y < nodes->getCorrelationOrder(); y++) {
+            int idx = (x + y * (x / nodes->Count() +1)) % nodes->Count();
+            if(y == 0)
+                sprintf(name, "%s", names[idx]);
+            else
+                sprintf(name, "%s_%s", name, names[idx]);
+        }
+        if(collection->Contains(name)) {
+            b = collection->Get(name);
+            break;
+        }
+    }
     if(b == nullptr) return nullptr;
     return b->getStream();
 }
 
-void vlbi_unlock_baseline(void *ctx, const char *node1, const char *node2)
+void vlbi_unlock_baseline(void *ctx, const char **names)
 {
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    char name[150];
-    sprintf(name, "%s_%s", node1, node2);
     VLBIBaseline *b = nullptr;
     BaselineCollection *collection = nodes->getBaselines();
-    if(!collection->Contains(name))
-        sprintf(name, "%s_%s", node2, node1);
-    if(collection->Contains(name))
-        collection->Get(name);
+    char name[150] = "";
+    for(int x = 0; x < nodes->getBaselines()->Count(); x++) {
+        for(int y = 0; y < nodes->getCorrelationOrder(); y++) {
+            int idx = (x + y * (x / nodes->Count() +1)) % nodes->Count();
+            if(y == 0)
+                sprintf(name, "%s", names[idx]);
+            else
+                sprintf(name, "%s_%s", name, names[idx]);
+        }
+        if(collection->Contains(name)) {
+            b = collection->Get(name);
+            break;
+        }
+    }
     if(b == nullptr) return;
     b->Unlock();
 }

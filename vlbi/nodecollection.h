@@ -37,7 +37,7 @@ class NodeCollection : public VLBICollection
         VLBINode * At(int index);
         bool Contains(const char* element);
         int IndexOf(VLBINode *element);
-        BaselineCollection* getBaselines(int order = 2);
+        BaselineCollection* getBaselines();
         inline ModelCollection* getModels()
         {
             return models;
@@ -51,8 +51,14 @@ class NodeCollection : public VLBICollection
             return relative;
         }
         void setRelative(bool value);
+        inline void setCorrelationOrder(int order)
+        {
+            correlation_order = fmax(order, 2);
+        }
+        inline int getCorrelationOrder() { return correlation_order; }
 
     private:
+        int  correlation_order {2};
         BaselineCollection *baselines;
         bool relative;
         dsp_location station;

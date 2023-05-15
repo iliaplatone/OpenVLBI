@@ -50,13 +50,19 @@ void BaselineCollection::Update()
     for(int i = 0; i < getNodes()->Count() * (getNodes()->Count() - 1) / 2; i++)
     {
         VLBINode** nodes = (VLBINode**)malloc(sizeof(VLBINode*) * getCorrelationOrder());
+        char name[150] = "";
         for(int o = 0; o < getCorrelationOrder(); o++) {
             int idx = (i + o * (i / getNodes()->Count() + 1)) % getNodes()->Count();
             nodes[o] = getNodes()->At(idx);
+            if(o == 0)
+                sprintf(name, "%s", nodes[o]->getName());
+            else
+                sprintf(name, "%s_%s", name, nodes[o]->getName());
         }
         VLBIBaseline *b = new VLBIBaseline(nodes, getCorrelationOrder());
         b->getStream()->parent = Stream;
-        this->Add(b);
+        if(!this->Contains(name))
+            this->Add(b);
     }
     setRelative(isRelative());
     setRa(getRa());

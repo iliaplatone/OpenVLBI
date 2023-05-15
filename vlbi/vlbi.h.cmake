@@ -120,10 +120,10 @@ typedef struct {
     double WaveLength;
 ///Samples per second
     double SampleRate;
-///Earlier node
-    vlbi_node Node1;
-///Latter node
-    vlbi_node Node2;
+///Number of nodes
+    int nodes_count;
+///Nodes
+    vlbi_node *Nodes;
 ///Baseline's name
     char *Name;
 ///Baseline's DSP stream
@@ -638,6 +638,13 @@ DLL_EXPORT void vlbi_filter_br_node(void *ctx, const char *name, const char *nod
 /**\{*/
 
 /**
+* \brief Set the correlation order the current OpenVLBI context.
+* \param ctx The OpenVLBI context
+* \param order The correlation order - number of nodes to be correlated into each single baseline
+*/
+DLL_EXPORT void vlbi_set_correlation_order(void *ctx, int order);
+
+/**
 * \brief List all baselines of the current OpenVLBI context.
 * \param ctx The OpenVLBI context
 * \param baselines The baselines array pointer to be filled
@@ -646,34 +653,38 @@ DLL_EXPORT void vlbi_filter_br_node(void *ctx, const char *name, const char *nod
 DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 
 /**
+* \brief Free a vlbi_baseline object previously allocated by vlbi_get_baselines.
+* \param baselines The baselines array pointer
+* \param baselines The number of elements into the baselines object
+*/
+DLL_EXPORT void vlbi_free_baselines(vlbi_baseline** baselines, int num_baselines);
+
+/**
 * \brief Fill the buffer of a single baseline with complex visibility data.
 * This function locks this baeline and the data passed here will overwrite the
 * correlated visibilities from its nodes.
 *
 * \param ctx The OpenVLBI context
-* \param node1 The name of the first node
-* \param node2 The name of the second node
+* \param nodes The names of the node - the array size must be the same as the correlation order
 * \param buffer The buffer with complex complex visibility data
 * \param len The length of the buffer
 */
-DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, const char *node1, const char *node2, complex_t *buffer, int len);
+DLL_EXPORT void vlbi_set_baseline_buffer(void *ctx, const char **nodes, complex_t *buffer, int len);
 
 /**
 * \brief Obtain the baseline dsp_stream structure containing the complex visibility data.
 * \param ctx The OpenVLBI context
-* \param node1 The name of the first node
-* \param node2 The name of the second node
+* \param nodes The names of the node - the array size must be the same as the correlation order
 * \return The dsp_stream structure pointer containing the visibility data
 */
-DLL_EXPORT dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char *node1, const char *node2);
+DLL_EXPORT dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char**nodes);
 
 /**
 * \brief Unlock the baseline and get visibility from its nodes correlations.
 * \param ctx The OpenVLBI context
-* \param node1 The name of the first node
-* \param node2 The name of the second node
+* \param nodes The names of the node - the array size must be the same as the correlation order
 */
-DLL_EXPORT void vlbi_unlock_baseline(void *ctx, const char *node1, const char *node2);
+DLL_EXPORT void vlbi_unlock_baseline(void *ctx, const char**nodes);
 
 /**
 * \brief Set the baseline dsp_stream structure containing the complex visibility data.
@@ -681,11 +692,10 @@ DLL_EXPORT void vlbi_unlock_baseline(void *ctx, const char *node1, const char *n
 * correlated visibilities from its nodes.
 *
 * \param ctx The OpenVLBI context
-* \param node1 The name of the first node
-* \param node2 The name of the second node
+* \param nodes The names of the node - the array size must be the same as the correlation order
 * \param stream The dsp_stream structure pointer containing the visibility data
 */
-DLL_EXPORT void vlbi_set_baseline_stream(void *ctx, const char *node1, const char *node2, dsp_stream_p stream);
+DLL_EXPORT void vlbi_set_baseline_stream(void *ctx, const char**nodes, dsp_stream_p stream);
 
 /**
 * \brief Set the location of the reference station.
@@ -697,18 +707,16 @@ DLL_EXPORT void vlbi_set_baseline_stream(void *ctx, const char *node1, const cha
 DLL_EXPORT void vlbi_set_location(void *ctx, double lat, double lon, double el);
 
 /**
-* \brief Get the offsets of a single baseline nodes to the farest node to the target.
+* \brief Get the offset of a single node to the farest node to the target.
 * \param ctx The OpenVLBI context
 * \param J2000Time The time of the calculation
-* \param node1 The name of the first node
-* \param node2 The name of the second node
+* \param node The name of the node
 * \param Ra The right ascension coordinate
 * \param Dec The declination coordinate
 * \param Distance The distance from the object
-* \param offset1 The offset calculated for the first node to the farest one
-* \param offset2 The offset calculated for the second node to the farest one
+* \return The offset calculated for the node to the farest one from the object
 */
-DLL_EXPORT void vlbi_get_offsets(vlbi_context ctx, double J2000Time, const char* node1, const char* node2, double Ra, double Dec, double Distance, double *offset1, double *offset2);
+DLL_EXPORT double vlbi_get_offset(vlbi_context ctx, double J2000Time, const char* node, double Ra, double Dec, double Distance);
 
 /**\}*/
 /**

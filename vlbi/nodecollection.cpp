@@ -34,9 +34,9 @@ NodeCollection::~NodeCollection()
 {
 }
 
-BaselineCollection* NodeCollection::getBaselines(int order)
+BaselineCollection* NodeCollection::getBaselines()
 {
-    baselines->setCorrelationOrder(order);
+    baselines->setCorrelationOrder(getCorrelationOrder());
     for(int x = 0; x < baselines->Count(); x++)
     {
         memcpy(baselines->At(x)->stationLocation()->coordinates, station.coordinates, sizeof(dsp_location));

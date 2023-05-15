@@ -20,17 +20,20 @@
 
 VLBIBaseline::VLBIBaseline(VLBINode **nodes, int num_nodes)
 {
-    setStream(dsp_stream_new());
-    dsp_stream_add_dim(getStream(), 1);
-    dsp_stream_alloc_buffer(getStream(), getStream()->len);
+    dsp_stream_p s = dsp_stream_new();
+    s->is_copy ++;
+    setStream(s);
     Name = (char*)malloc(150);
     Nodes = nodes;
     nodes_count = num_nodes;
     if(nodes_count > 0) {
         sprintf(Name, "%s", getNode(0)->getName());
-        for(int i = 1; i < nodes_count; i++)
+        for(int i = 1; i < nodes_count; i++) {
+            dsp_stream_add_dim(getStream(), 1);
             sprintf(Name, "%s_%s", Name, getNode(i)->getName());
+        }
     }
+    dsp_stream_alloc_buffer(getStream(), getStream()->len);
     setRelative(false);
 }
 
@@ -50,6 +53,7 @@ VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
 
 VLBIBaseline::~VLBIBaseline()
 {
+    free(Nodes);
     free(Name);
     if(Stream->is_copy > 0)
         freeStream();
@@ -79,6 +83,16 @@ double VLBIBaseline::Correlate(int idx1, int idx2)
     if(idx1 > 0 && idx2 > 0 && idx1 < getNode(0)->getStream()->len && idx2 < getNode(1)->getStream()->len)
         return dsp_correlation_delegate(getNode(0)->getStream()->buf[idx1], getNode(1)->getStream()->buf[idx2]);
     return 0.0;
+}
+
+double VLBIBaseline::Correlate(double *times)
+{
+    int *indexes = (int*)malloc(sizeof(int)*nodes_count);
+    for(int i = 1; i < nodes_count; i++)
+        indexes[i] = (times[i] - getStartTime()) / getSampleRate();
+    double val = Correlate(indexes);
+    free(indexes);
+    return val;
 }
 
 double VLBIBaseline::Correlate(int *indexes)
@@ -113,7 +127,7 @@ double VLBIBaseline::getEndTime()
 double *VLBIBaseline::getBaseline()
 {
     double *b;
-    dsp_location location1, location2, baseline;
+    dsp_location baseline;
     if (!isRelative())
     {
         baseline.geographic.lat = getNode(0)->getGeographicLocation()[0];
@@ -133,17 +147,23 @@ double *VLBIBaseline::getBaseline()
         while(baseline.geographic.lon < -180)
             baseline.geographic.lon += 360;
         b = vlbi_matrix_calc_location(baseline.coordinates);
-        memcpy(baseline.coordinates, b, sizeof(dsp_location));
-        baseline.xyz.z -= getNode(1)->getGeographicLocation()[2];
     }
     else
     {
-        memcpy(location1.coordinates, getNode(0)->getLocation(), sizeof(double) * 3);
-        memcpy(location2.coordinates, getNode(1)->getLocation(), sizeof(double) * 3);
-        b = (double*)malloc(sizeof(double) * 3);
-        b[0] = location1.xyz.x - location2.xyz.x;
-        b[1] = location1.xyz.y - location2.xyz.y;
-        b[2] = location1.xyz.z - location2.xyz.z;
+        b = (double*)malloc(sizeof(double)*3);
+        baseline.xyz.x = getNode(0)->getLocation()[0];
+        baseline.xyz.y = getNode(0)->getLocation()[1];
+        baseline.xyz.z = getNode(0)->getLocation()[2];
+        for(int i = 1; i < nodes_count; i++)
+        {
+            double x = getNode(i)->getLocation()[0];
+            double y = getNode(i)->getLocation()[1];
+            double z = getNode(i)->getLocation()[2];
+            baseline.xyz.x = (x - baseline.xyz.x);
+            baseline.xyz.y = (y - baseline.xyz.y);
+            baseline.xyz.z = (z - baseline.xyz.z);
+        }
+        memcpy(b, baseline.coordinates, sizeof(double)*3);
     }
     return b;
 }
