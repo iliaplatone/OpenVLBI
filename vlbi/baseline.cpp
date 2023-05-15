@@ -88,7 +88,7 @@ double VLBIBaseline::Correlate(int idx1, int idx2)
 double VLBIBaseline::Correlate(double *times)
 {
     int *indexes = (int*)malloc(sizeof(int)*nodes_count);
-    for(int i = 1; i < nodes_count; i++)
+    for(int i = 0; i < nodes_count; i++)
         indexes[i] = (times[i] - getStartTime()) / getSampleRate();
     double val = Correlate(indexes);
     free(indexes);
@@ -99,17 +99,19 @@ double VLBIBaseline::Correlate(int *indexes)
 {
     double val = 0.0;
     int i = 0;
-    if(indexes[i] > 0 && indexes[i] < getNode(i)->getStream()->len)
-        val = getNode(i)->getStream()->buf[indexes[i]];
-    for(int i = 1; i < nodes_count; i++)
+    if(indexes[i] > 0 && indexes[i] < getNode(i)->getStream()->len) {
         if(indexes[i] > 0 && indexes[i] < getNode(i)->getStream()->len)
-            val = dsp_correlation_delegate(val, getNode(i)->getStream()->buf[indexes[i]]);
+            val = getNode(i)->getStream()->buf[indexes[i]];
+        for(i = 1; i < nodes_count; i++)
+            if(indexes[i] > 0 && indexes[i] < getNode(i)->getStream()->len)
+                val = dsp_correlation_delegate(val, getNode(i)->getStream()->buf[indexes[i]]);
+    }
     return val;
 }
 
 double VLBIBaseline::getStartTime()
 {
-    double starttime = 0.0;
+    double starttime = DBL_MIN;
     for(int i = 0; i < nodes_count; i++)
         starttime = fmax(starttime, getNode(i)->getStartTime());
     return starttime;
