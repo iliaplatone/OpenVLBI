@@ -55,8 +55,11 @@
 #ifndef MJS_CORE_PUBLIC_H_
 #define MJS_CORE_PUBLIC_H_
 
-#if !defined(_MSC_VER) || _MSC_VER >= 1700
+#ifdef _WIN32
 #define _MSC_VER 1700
+#endif
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1700
 #include <stdint.h>
 #else
 typedef unsigned __int64 uint64_t;
