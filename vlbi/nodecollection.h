@@ -51,10 +51,7 @@ class NodeCollection : public VLBICollection
             return relative;
         }
         void setRelative(bool value);
-        inline void setCorrelationOrder(int order)
-        {
-            correlation_order = fmax(order, 2);
-        }
+        void setCorrelationOrder(int order);
         inline int getCorrelationOrder() { return correlation_order; }
 
     private:

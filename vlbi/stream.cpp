@@ -93,7 +93,7 @@ double vlbi_get_offset(vlbi_context ctx, double J2000Time, const char* node, dou
 {
     NodeCollection* nodes = (NodeCollection*)ctx;
     char baseline[150];
-    BaselineCollection *collection = new BaselineCollection(nodes, 2);
+    BaselineCollection *collection = nodes->getBaselines();
     double offset = 0.0;
     collection->setRa(Ra);
     collection->setDec(Dec);
@@ -131,7 +131,6 @@ double vlbi_get_offset(vlbi_context ctx, double J2000Time, const char* node, dou
         bl = collection->Get(baseline);
         offset = getDelay(J2000Time, nodes, bl, bl->getRa(), bl->getDec(), bl->getDistance(), bl->getWaveLength());
     }
-    collection->~BaselineCollection();
     return offset;
 }
 
@@ -142,6 +141,7 @@ static void* fillplane(void *arg)
     {
         VLBIBaseline *b;
         NodeCollection *nodes;
+        NodeCollection *nodes_2nd;
         BaselineCollection *baselines;
         bool moving_baseline;
         bool nodelay;
@@ -157,6 +157,8 @@ static void* fillplane(void *arg)
     bool nodelay = argument->nodelay;
     NodeCollection *nodes = argument->nodes;
     if(nodes == nullptr)return nullptr;
+    NodeCollection *nodes_2nd = argument->nodes_2nd;
+    if(nodes_2nd == nullptr)return nullptr;
     BaselineCollection *baselines = argument->baselines;
     if(baselines == nullptr)return nullptr;
     dsp_stream_p parent = baselines->getStream();
@@ -199,7 +201,7 @@ static void* fillplane(void *arg)
             }
             else
             {
-                offsets[y] = t + vlbi_get_offset((void*)nodes, t, b->getNode(y)->getName(), b->getRa(), b->getDec(), b->getDistance());
+                offsets[y] = t + vlbi_get_offset((void*)nodes_2nd, t, b->getNode(y)->getName(), b->getRa(), b->getDec(), b->getDistance());
             }
         }
         b->setTime(t);
@@ -598,6 +600,10 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     if(nodes == nullptr)return;
     BaselineCollection *baselines = nodes->getBaselines();
     if(baselines == nullptr)return;
+    NodeCollection *nodes_2nd = new NodeCollection();
+    for(int x = 0; x < nodes->Count(); x++)
+        nodes_2nd->Add(nodes->At(x));
+    nodes_2nd->setCorrelationOrder(2);
     int stop = 0;
     dsp_stream_p parent = baselines->getStream();
     dsp_buffer_set(parent->buf, parent->len, 0.0);
@@ -621,6 +627,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
     {
         VLBIBaseline *b;
         NodeCollection *nodes;
+        NodeCollection *nodes_2nd;
         BaselineCollection *baselines;
         bool moving_baseline;
         bool nodelay;
@@ -634,6 +641,7 @@ void vlbi_get_uv_plot(vlbi_context ctx, const char *name, int u, int v, double *
         if(b == nullptr)continue;
         argument[i].b = b;
         argument[i].nodes = nodes;
+        argument[i].nodes_2nd = nodes_2nd;
         argument[i].baselines = baselines;
         argument[i].moving_baseline = moving_baseline;
         argument[i].nodelay = nodelay;

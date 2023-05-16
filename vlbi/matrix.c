@@ -30,7 +30,7 @@ double vlbi_matrix_estimate_resolution(double resolution_zero, double baseline)
 
 double* vlbi_matrix_calc_3d_projection(double alt, double az, double *baseline)
 {
-    double* proj = (double*)calloc(sizeof(double), 3);
+    double* proj = (double*)malloc(sizeof(double) * 3);
     az *= M_PI / 180.0;
     alt *= M_PI / 180.0;
     double x = baseline[0];
@@ -44,7 +44,7 @@ double* vlbi_matrix_calc_3d_projection(double alt, double az, double *baseline)
 
 double* vlbi_matrix_calc_parametric_projection(double *target, double *baseline)
 {
-    double* proj = (double*)calloc(sizeof(double), 3);
+    double* proj = (double*)malloc(sizeof(double) * 3);
     target[0] *= M_PI / 180.0;
     target[1] *= M_PI / 180.0;
     double x = baseline[0];
@@ -59,7 +59,7 @@ double* vlbi_matrix_calc_parametric_projection(double *target, double *baseline)
 
 double* vlbi_matrix_calc_uv_coordinates(double *proj, double wavelength)
 {
-    double* uv = (double*)calloc(sizeof(double), 3);
+    double* uv = (double*)malloc(sizeof(double) * 3);
     uv[0] = proj[0] * AIRY / wavelength;
     uv[1] = proj[1] * AIRY / wavelength;
     uv[2] = proj[2] / vlbi_astro_mean_speed(0);
@@ -83,9 +83,9 @@ double* vlbi_matrix_calc_location(double *loc)
 
 double* vlbi_matrix_calc_baseline_center(double *loc1, double *loc2)
 {
-    double* center = (double*)calloc(sizeof(double), 3);
-    double* location1 = (double*)calloc(sizeof(double), 3);
-    double* location2 = (double*)calloc(sizeof(double), 3);
+    double* center = (double*)malloc(sizeof(double) * 3);
+    double* location1 = (double*)malloc(sizeof(double) * 3);
+    double* location2 = (double*)malloc(sizeof(double) * 3);
     location1[0] = loc1[0];
     location1[1] = loc1[1];
     location1[2] = loc1[2];
@@ -101,6 +101,8 @@ double* vlbi_matrix_calc_baseline_center(double *loc1, double *loc2)
     center[0] += location2[0];
     center[1] += location2[1];
     center[2] += location2[2];
+    free(location1);
+    free(location2);
     while(center[1] < 0.0)
         center[1] += 360.0;
     while(center[1] >= 360.0)

@@ -28,6 +28,7 @@ NodeCollection::NodeCollection() : VLBICollection::VLBICollection()
     relative = false;
     models = new ModelCollection();
     baselines = new BaselineCollection(this);
+    setCorrelationOrder(2);
 }
 
 NodeCollection::~NodeCollection()
@@ -36,7 +37,6 @@ NodeCollection::~NodeCollection()
 
 BaselineCollection* NodeCollection::getBaselines()
 {
-    baselines->setCorrelationOrder(getCorrelationOrder());
     for(int x = 0; x < baselines->Count(); x++)
     {
         memcpy(baselines->At(x)->stationLocation()->coordinates, station.coordinates, sizeof(dsp_location));
@@ -47,11 +47,13 @@ BaselineCollection* NodeCollection::getBaselines()
 void NodeCollection::Add(VLBINode * element)
 {
     VLBICollection::Add(element, element->getName());
+    setCorrelationOrder(getCorrelationOrder());
 }
 
 void NodeCollection::Remove(const char* name)
 {
     VLBICollection::Remove(name);
+    setCorrelationOrder(getCorrelationOrder());
 }
 
 VLBINode * NodeCollection::Get(const char* name)
@@ -79,4 +81,10 @@ void NodeCollection::setRelative(bool value)
             memcpy(At(x)->stationLocation().coordinates, station.coordinates, sizeof(dsp_location));
         }
     }
+}
+
+void NodeCollection::setCorrelationOrder(int order)
+{
+    correlation_order = fmax(order, 2);
+    baselines->setCorrelationOrder(order);
 }
