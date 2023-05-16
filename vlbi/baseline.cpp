@@ -23,23 +23,25 @@ VLBIBaseline::VLBIBaseline(VLBINode **nodes, int num_nodes)
     dsp_stream_p s = dsp_stream_new();
     s->is_copy ++;
     setStream(s);
+    dsp_stream_add_dim(getStream(), 1);
+    dsp_stream_alloc_buffer(getStream(), getStream()->len);
     Name = (char*)malloc(150);
     Nodes = nodes;
     nodes_count = num_nodes;
     if(nodes_count > 0) {
         sprintf(Name, "%s", getNode(0)->getName());
         for(int i = 1; i < nodes_count; i++) {
-            dsp_stream_add_dim(getStream(), 1);
             sprintf(Name, "%s_%s", Name, getNode(i)->getName());
         }
     }
-    dsp_stream_alloc_buffer(getStream(), getStream()->len);
     setRelative(false);
 }
 
 VLBIBaseline::VLBIBaseline(VLBINode *node1, VLBINode *node2)
 {
-    setStream(dsp_stream_new());
+    dsp_stream_p s = dsp_stream_new();
+    s->is_copy ++;
+    setStream(s);
     dsp_stream_add_dim(getStream(), 1);
     dsp_stream_alloc_buffer(getStream(), getStream()->len);
     nodes_count = 2;

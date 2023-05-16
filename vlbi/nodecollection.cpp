@@ -85,6 +85,6 @@ void NodeCollection::setRelative(bool value)
 
 void NodeCollection::setCorrelationOrder(int order)
 {
-    correlation_order = fmax(order, 2);
+    correlation_order = fmin(Count(), fmax(order, 2));
     baselines->setCorrelationOrder(order);
 }
