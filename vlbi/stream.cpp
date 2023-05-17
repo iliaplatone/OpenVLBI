@@ -197,7 +197,7 @@ static void* fillplane(void *arg)
         for(int y = 0; y < baselines->getCorrelationOrder(); y++) {
             if(nodelay)
             {
-                offsets[y] = 0.0;
+                offsets[y] = t;
             }
             else
             {
@@ -501,21 +501,19 @@ void vlbi_set_baseline_buffer(void *ctx, const char **names, complex_t *buffer, 
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     VLBIBaseline *b = nullptr;
     BaselineCollection *collection = nodes->getBaselines();
-    char name[150] = "";
-    for(int x = 0; x < nodes->getBaselines()->Count(); x++) {
-        for(int y = 0; y < nodes->getCorrelationOrder(); y++) {
-            int idx = (x + y * (x / nodes->Count() +1)) % nodes->Count();
-            if(y == 0)
-                sprintf(name, "%s", names[idx]);
-            else
-                sprintf(name, "%s_%s", name, names[idx]);
+    int x = 0;
+    for(x = 0; x < collection->Count(); x++) {
+        b = collection->At(x);
+        int match = 0;
+        for(int y = 0; y < collection->getCorrelationOrder(); y++) {
+            for(int z = 0; z < collection->getCorrelationOrder(); z++) {
+                if(!strcmp(b->getNode(y)->getName(), names[z])) match ++;
+            }
         }
-        if(collection->Contains(name)) {
-            b = collection->Get(name);
-            break;
-        }
+        if(match < collection->getCorrelationOrder()) continue;
+        break;
     }
-    if(b == nullptr) return;
+    if(b == nullptr || x == collection->Count()) return;
     dsp_stream_set_dim(b->getStream(), 0, len);
     dsp_stream_alloc_buffer(b->getStream(), len);
     b->getStream()->dft.pairs = buffer;
@@ -527,21 +525,19 @@ void vlbi_set_baseline_stream(void *ctx, const char **names, dsp_stream_p stream
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     VLBIBaseline *b = nullptr;
     BaselineCollection *collection = nodes->getBaselines();
-    char name[150] = "";
-    for(int x = 0; x < nodes->getBaselines()->Count(); x++) {
-        for(int y = 0; y < nodes->getCorrelationOrder(); y++) {
-            int idx = (x + y * (x / nodes->Count() +1)) % nodes->Count();
-            if(y == 0)
-                sprintf(name, "%s", names[idx]);
-            else
-                sprintf(name, "%s_%s", name, names[idx]);
+    int x = 0;
+    for(x = 0; x < collection->Count(); x++) {
+        b = collection->At(x);
+        int match = 0;
+        for(int y = 0; y < collection->getCorrelationOrder(); y++) {
+            for(int z = 0; z < collection->getCorrelationOrder(); z++) {
+                if(!strcmp(b->getNode(y)->getName(), names[z])) match ++;
+            }
         }
-        if(collection->Contains(name)) {
-            b = collection->Get(name);
-            break;
-        }
+        if(match < collection->getCorrelationOrder()) continue;
+        break;
     }
-    if(b == nullptr) return;
+    if(b == nullptr || x == collection->Count()) return;
     b->setStream(stream);
     b->Lock();
 }
@@ -551,21 +547,19 @@ dsp_stream_p vlbi_get_baseline_stream(void *ctx, const char **names)
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     VLBIBaseline *b = nullptr;
     BaselineCollection *collection = nodes->getBaselines();
-    char name[150] = "";
-    for(int x = 0; x < nodes->getBaselines()->Count(); x++) {
-        for(int y = 0; y < nodes->getCorrelationOrder(); y++) {
-            int idx = (x + y * (x / nodes->Count() +1)) % nodes->Count();
-            if(y == 0)
-                sprintf(name, "%s", names[idx]);
-            else
-                sprintf(name, "%s_%s", name, names[idx]);
+    int x = 0;
+    for(x = 0; x < collection->Count(); x++) {
+        b = collection->At(x);
+        int match = 0;
+        for(int y = 0; y < collection->getCorrelationOrder(); y++) {
+            for(int z = 0; z < collection->getCorrelationOrder(); z++) {
+                if(!strcmp(b->getNode(y)->getName(), names[z])) match ++;
+            }
         }
-        if(collection->Contains(name)) {
-            b = collection->Get(name);
-            break;
-        }
+        if(match < collection->getCorrelationOrder()) continue;
+        break;
     }
-    if(b == nullptr) return nullptr;
+    if(b == nullptr || x == collection->Count()) return nullptr;
     return b->getStream();
 }
 
@@ -574,21 +568,19 @@ void vlbi_unlock_baseline(void *ctx, const char **names)
     NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
     VLBIBaseline *b = nullptr;
     BaselineCollection *collection = nodes->getBaselines();
-    char name[150] = "";
-    for(int x = 0; x < nodes->getBaselines()->Count(); x++) {
-        for(int y = 0; y < nodes->getCorrelationOrder(); y++) {
-            int idx = (x + y * (x / nodes->Count() +1)) % nodes->Count();
-            if(y == 0)
-                sprintf(name, "%s", names[idx]);
-            else
-                sprintf(name, "%s_%s", name, names[idx]);
+    int x = 0;
+    for(x = 0; x < collection->Count(); x++) {
+        b = collection->At(x);
+        int match = 0;
+        for(int y = 0; y < collection->getCorrelationOrder(); y++) {
+            for(int z = 0; z < collection->getCorrelationOrder(); z++) {
+                if(!strcmp(b->getNode(y)->getName(), names[z])) match ++;
+            }
         }
-        if(collection->Contains(name)) {
-            b = collection->Get(name);
-            break;
-        }
+        if(match < collection->getCorrelationOrder()) continue;
+        break;
     }
-    if(b == nullptr) return;
+    if(b == nullptr || x == collection->Count()) return;
     b->Unlock();
 }
 

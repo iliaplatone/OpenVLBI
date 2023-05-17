@@ -101,11 +101,10 @@ double VLBIBaseline::Correlate(int *indexes)
 {
     double val = 0.0;
     int i = 0;
-    if(indexes[i] > 0 && indexes[i] < getNode(i)->getStream()->len) {
-        if(indexes[i] > 0 && indexes[i] < getNode(i)->getStream()->len)
-            val = getNode(i)->getStream()->buf[indexes[i]];
+    if(indexes[i] >= 0 && indexes[i] < getNode(i)->getStream()->len) {
+        val = getNode(i)->getStream()->buf[indexes[i]];
         for(i = 1; i < nodes_count; i++)
-            if(indexes[i] > 0 && indexes[i] < getNode(i)->getStream()->len)
+            if(indexes[i] >= 0 && indexes[i] < getNode(i)->getStream()->len)
                 val = dsp_correlation_delegate(val, getNode(i)->getStream()->buf[indexes[i]]);
     }
     return val;
