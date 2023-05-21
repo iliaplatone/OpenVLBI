@@ -97,7 +97,8 @@ class BaselineCollection : public VLBICollection
         }
         inline void setCorrelationOrder(int order)
         {
-            correlation_order = order;
+            correlation_order = fmax(order, fmin(getNodes()->Count(), 2));
+            if(getNodes()->Count() < correlation_order) return;
             Update();
         }
         inline bool isRelative()

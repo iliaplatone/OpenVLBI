@@ -25,7 +25,6 @@
 
 BaselineCollection::BaselineCollection(NodeCollection *nodes, int order) : VLBICollection::VLBICollection()
 {
-    correlation_order = order;
     Nodes = nodes;
     Stream = dsp_stream_new();
     dsp_stream_add_dim(getStream(), 1);
@@ -34,7 +33,7 @@ BaselineCollection::BaselineCollection(NodeCollection *nodes, int order) : VLBIC
     setWidth(128);
     setHeight(128);
     dsp_buffer_set(getStream()->buf, getStream()->len, 0);
-    Update();
+    setCorrelationOrder(order);
 }
 
 BaselineCollection::~BaselineCollection()
@@ -46,6 +45,7 @@ BaselineCollection::~BaselineCollection()
 
 void BaselineCollection::Update()
 {
+    if(getNodes()->Count() < 2) return;
     this->Clear();
     for(int i = 0; i < getNodes()->Count() * (getNodes()->Count() - 1) / 2; i++)
     {
@@ -60,9 +60,10 @@ void BaselineCollection::Update()
                 sprintf(name, "%s_%s", name, nodes[o]->getName());
         }
         VLBIBaseline *b = new VLBIBaseline(nodes, getCorrelationOrder());
-        b->getStream()->parent = Stream;
         if(!this->Contains(name))
             this->Add(b);
+        else
+            b->~VLBIBaseline();
     }
     setRelative(isRelative());
     setRa(getRa());
@@ -78,7 +79,7 @@ void BaselineCollection::Add(VLBIBaseline * element)
 void BaselineCollection::Remove(const char* name)
 {
     VLBICollection::Remove(name);
-    Update();
+    setCorrelationOrder(getCorrelationOrder());
 }
 
 void BaselineCollection::Clear()
