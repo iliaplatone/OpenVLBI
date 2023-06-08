@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <filesystem>
 #include <fcntl.h>
 #include <unistd.h>
 #include <signal.h>
@@ -48,7 +49,9 @@ static double coverage_delegate(double x, double y)
 void VLBI::Server::AddNode(const char *name, char *b64)
 {
     char filename[128];
-    strcpy(filename, "tmp_nodeXXXXXX");
+    char *tmpdir = (char*)std::filesystem::temp_directory_path().string().c_str();
+    strcpy(filename, tmpdir);
+    strcat(filename, "/tmp_nodeXXXXXX");
     int fd = mkstemp(filename);
     if(fd > -1)
     {
@@ -67,7 +70,9 @@ void VLBI::Server::AddNode(const char *name, char *b64)
 void VLBI::Server::AddNodes(const char *name, char *b64)
 {
     char filename[128];
-    strcpy(filename, "tmp_nodeXXXXXX");
+    char *tmpdir = (char*)std::filesystem::temp_directory_path().string().c_str();
+    strcpy(filename, tmpdir);
+    strcat(filename, "/tmp_nodeXXXXXX");
     int fd = mkstemp(filename);
     if(fd > -1)
     {
@@ -202,12 +207,14 @@ char* VLBI::Server::GetModel(const char *name, char *format)
     ssize_t outlen = 0;
     unsigned char *buf = nullptr;
     unsigned char *b64 = nullptr;
-    strcpy(filename, "tmp_modelXXXXXX");
+    char *tmpdir = (char*)std::filesystem::temp_directory_path().string().c_str();
+    strcpy(filename, tmpdir);
+    strcat(filename, "/tmp_modelXXXXXX");
+    fd = mkstemp(filename);
     dsp_stream_p model = vlbi_get_model(GetContext(), name);
     dsp_stream_p *stream = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(channels + 1));
     for(int c = 0; c <= channels; c++)
         stream[c] = model;
-    fd = mkstemp(filename);
     if(fd > -1)
     {
         close(fd);
