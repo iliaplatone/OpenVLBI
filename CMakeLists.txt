@@ -16,8 +16,8 @@ option(WITH_INDI_SERVER "Add INDI server for OpenVLBI" ON)
 option(WITH_DUMMY_SERVER "Add dummy server for OpenVLBI" ON)
 option(WITH_JSON_SERVER "Add JSON server for OpenVLBI" ON)
 
-set (CMAKE_CXX_STANDARD 11)
-set (CMAKE_C_STANDARD 11)
+set (CMAKE_CXX_STANDARD 17)
+set (CMAKE_C_STANDARD 17)
 set (VLBI_VERSION_MAJOR 1)
 set (VLBI_VERSION_MINOR 23)
 set (VLBI_VERSION_RELEASE 7)
@@ -25,6 +25,7 @@ set (VLBI_VERSION_STRING "${VLBI_VERSION_MAJOR}.${VLBI_VERSION_MINOR}.${VLBI_VER
 set(LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 set(DATA_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}")
 set(VLBI_CATALOG_PATH "${DATA_INSTALL_DIR}/OpenVLBI/cat/index.txt")
+set (CMAKE_CXX_FLAGS "-lstdc++fs -std=c++17")
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/README.md" README )
 string(REPLACE "[![CircleCi](https://circleci.com/gh/iliaplatone/OpenVLBI/tree/master.svg?style=shield)](https://circleci.com/gh/iliaplatone/OpenVLBI/?branch=master)" "" README "${README}")
