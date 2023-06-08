@@ -670,7 +670,7 @@ int main(int argc, char** argv)
     dsp_set_app_name(argv[0]);
     dsp_set_stdout(stderr);
     dsp_set_stderr(stderr);
-    while ((opt = getopt(argc, argv, "t:f:o:v")) != -1)
+    while ((opt = getopt(argc, argv, "t:f:o:vh")) != -1)
     {
         switch (opt)
         {
@@ -686,6 +686,7 @@ int main(int argc, char** argv)
             case 'v':
                 dsp_set_debug_level(dsp_get_debug_level()+1);
             break;
+            case 'h':
             default:
                 perr("Usage: %s [-t max_threads] [-f obs_file] [-o obs_file] [-v[v[v]]]\n", argv[0]);
                 exit(EXIT_FAILURE);
