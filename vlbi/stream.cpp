@@ -837,7 +837,7 @@ void vlbi_add_model_from_png(void *ctx, char *filename, const char *name)
                 vlbi_add_model(nodes, file[c], model);
             }
         }
-        vlbi_add_model(nodes, dsp_stream_copy(file[channels]), name);
+        vlbi_add_model(nodes, file[channels], name);
         free(file);
     }
 }
@@ -881,7 +881,7 @@ void vlbi_add_model_from_fits(void *ctx, char *filename, const char *name)
                 vlbi_add_model(nodes, file[c], model);
             }
         }
-        vlbi_add_model(nodes, dsp_stream_copy(file[channels]), name);
+        vlbi_add_model(nodes, file[channels], name);
         free(file);
     }
 }

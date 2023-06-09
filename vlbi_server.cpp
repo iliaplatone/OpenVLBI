@@ -211,13 +211,13 @@ char* VLBI::Server::GetModel(const char *name, char *format)
     strcpy(filename, tmpdir);
     strcat(filename, "/tmp_modelXXXXXX");
     fd = mkstemp(filename);
+    if(!vlbi_has_model(GetContext(), name)) return nullptr;
     dsp_stream_p model = vlbi_get_model(GetContext(), name);
     dsp_stream_p *stream = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(channels + 1));
     for(int c = 0; c <= channels; c++)
         stream[c] = model;
     if(fd > -1)
     {
-        close(fd);
         if(!strcmp(format, "jpeg"))
             dsp_file_write_jpeg_composite(filename, channels, 100, stream);
         if(!strcmp(format, "png"))
@@ -238,6 +238,7 @@ char* VLBI::Server::GetModel(const char *name, char *format)
         b64 = (unsigned char*)malloc((size_t)outlen);
         to64frombits(b64, buf, (int)len);
         free(buf);
+        close(fd);
         return (char*)b64;
     }
     return nullptr;
@@ -270,11 +271,13 @@ void VLBI::Server::AddModel(const char *name, char *format, char *b64)
     int fd = -1;
     size_t b64len = 0;
     char *buf = nullptr;
-    strcpy(filename, "tmp_modelXXXXXX");
+    char *tmpdir = (char*)std::filesystem::temp_directory_path().string().c_str();
+    strcpy(filename, tmpdir);
+    strcat(filename, "/tmp_modelXXXXXX");
+    fd = mkstemp(filename);
     b64len = strlen(b64);
     if(b64len > 0)
     {
-        fd = mkstemp(filename);
         if(fd > -1)
         {
             buf = (char*)malloc(b64len * 3 / 4 + 4);
