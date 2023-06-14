@@ -48,7 +48,6 @@ void VLBICollection::Add(void* el, const char* name)
         return;
     VLBIElement item;
     item.item = el;
-    item.name = (char*)malloc(strlen(name));
     strcpy(item.name, name);
     count++;
     Items = (VLBIElement*)realloc(Items, S * Count());

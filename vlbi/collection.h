@@ -29,7 +29,7 @@
 
 struct VLBIElement {
     void* item;
-    char *name;
+    char name[150];
 };
 
 class VLBICollection
