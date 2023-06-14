@@ -14,7 +14,7 @@ static char *js_code_str;
 
 static double js_callback(double a, double b) {
     struct mjs *mjs = mjs_create();
-    char *str = (char*)malloc(strlen(js_code_str)+100);
+    char *str = (char*)malloc(strlen(js_code_str) + 100);
     sprintf(str, "function callback(a, b) { %s }; callback(%lf, %lf);", js_code_str, a, b);
     mjs_val_t result;
     mjs_exec(mjs, str, &result);
@@ -44,19 +44,25 @@ bool JSONServer::CheckMask(unsigned long mask, int n)
 void JSONServer::Parse()
 {
     FILE* f = GetInput();
-    char *str = nullptr;
     json_value *v;
     char *n;
     size_t len = 0;
-    int err = getdelim(&str, &len, (int)'\0', f);
-    (void)err;
+    char *str = (char*)malloc(1);
+    while(true) {
+        str[len] = 0;
+        fread(&str[len], 1, 1, f);
+        if(str[len++] == 0) break;
+        str = (char*)realloc(str, len + 8);
+    }
     if(strlen(str) <= 0)
+        return;
+    if (len == 0)
         return;
     char error[json_error_max];
     json_settings settings;
     memset(&settings, 0, sizeof(json_settings));
     json_value *value = json_parse_ex (&settings,
-                                       str, len-2,
+                                       str, len,
                                        error);
     if(!value)
     {
@@ -324,8 +330,7 @@ void JSONServer::Parse()
             {
                 char *base64 = GetModel(name, format);
                 fprintf(GetOutput(),
-                        "{\n \"context\": \"%s\",\n \"model\": {\n  \"name\": \"%s\",\n  \"format\": \"%s\",\n  \"buffer\": \"%s\"\n }\n}\n",
-                        CurrentContext(), name, format, base64);
+                        "{\n \"context\": \"%s\",\n \"model\": {\n  \"name\": \"%s\",\n  \"format\": \"%s\",\n  \"buffer\": \"%s\"\n }\n}\n", CurrentContext(), name, format, base64);
                 free(base64);
             }
         }

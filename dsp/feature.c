@@ -19,7 +19,7 @@
 
 #include "dsp.h"
 
-void dsp_recons_align(dsp_stream_p stream, dsp_stream_p matrix)
+void dsp_feature_align(dsp_stream_p stream, dsp_stream_p matrix)
 {
     int z;
     dsp_fourier_dft(matrix, 1);

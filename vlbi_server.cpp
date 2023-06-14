@@ -200,6 +200,7 @@ dsp_stream_p VLBI::Server::GetModel(const char *name)
 
 char* VLBI::Server::GetModel(const char *name, char *format)
 {
+    if(!vlbi_has_model(GetContext(), name)) return nullptr;
     char filename[128];
     int channels = 1;
     int fd = -1;
@@ -211,11 +212,10 @@ char* VLBI::Server::GetModel(const char *name, char *format)
     strcpy(filename, tmpdir);
     strcat(filename, "/tmp_modelXXXXXX");
     fd = mkstemp(filename);
-    if(!vlbi_has_model(GetContext(), name)) return nullptr;
     dsp_stream_p model = vlbi_get_model(GetContext(), name);
     dsp_stream_p *stream = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(channels + 1));
     for(int c = 0; c <= channels; c++)
-        stream[c] = model;
+        stream[c] = dsp_stream_copy(model);
     if(fd > -1)
     {
         if(!strcmp(format, "jpeg"))
@@ -224,21 +224,19 @@ char* VLBI::Server::GetModel(const char *name, char *format)
             dsp_file_write_png_composite(filename, channels, 9, stream);
         if(!strcmp(format, "fits"))
             dsp_file_write_fits_composite(filename, channels, 16, stream);
-        FILE* f = fopen(filename, "r");
+        FILE* f = fdopen(fd, "rb+");
         fseek(f, 0, SEEK_END);
         len = ftell(f);
         rewind(f);
         len -= ftell(f);
         buf = (unsigned char*)malloc((size_t)len);
-        size_t nread = fread(buf, (size_t)len, 1, f);
-        (void)nread;
-        fclose(f);
-        unlink(filename);
-        outlen = len * 4 / 3 + 4;
+        size_t nread = fread(buf, 1, (size_t)len, f);
+        outlen = nread * 4 / 3 + 4;
         b64 = (unsigned char*)malloc((size_t)outlen);
-        to64frombits(b64, buf, (int)len);
+        to64frombits(b64, buf, (int)nread);
         free(buf);
         close(fd);
+        unlink(filename);
         return (char*)b64;
     }
     return nullptr;
@@ -267,6 +265,7 @@ void VLBI::Server::DelModel(const char *name)
 
 void VLBI::Server::AddModel(const char *name, char *format, char *b64)
 {
+    if(vlbi_has_model(GetContext(), name)) return;
     char filename[128];
     int fd = -1;
     size_t b64len = 0;
@@ -310,10 +309,14 @@ void VLBI::Server::Parse()
     char *cmd = nullptr;
     char *arg = nullptr;
     char *value = nullptr;
-    char *str = nullptr;
-    ssize_t ofs = getdelim(&str, &len, (int)'\n', f);
-    (void)ofs;
-    if(str == nullptr)
+    char *str = (char*)malloc(1);
+    while(true) {
+        str[len] = 0;
+        fread(&str[len], 1, 1, f);
+        if(str[len++] == 0) break;
+        str = (char*)realloc(str, len + 8);
+    }
+    if(strlen(str) <= 0)
         return;
     if (len == 0)
         return;
@@ -719,5 +722,6 @@ int main(int argc, char** argv)
             VLBI::server->Parse();
         }
     }
+    VLBI::server->~Server();
     return EXIT_SUCCESS;
 }
