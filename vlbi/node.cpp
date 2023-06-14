@@ -22,7 +22,6 @@
 VLBINode::VLBINode(dsp_stream_p stream, const char* name, int index, bool geographic_coordinates)
 {
     setStream(stream);
-    Name = (char*)calloc(150, 1);
     sprintf(Name, "%s", name);
     Index = index;
     setLocation(0);
@@ -31,7 +30,6 @@ VLBINode::VLBINode(dsp_stream_p stream, const char* name, int index, bool geogra
 
 VLBINode::~VLBINode()
 {
-    free(Name);
 }
 
 void VLBINode::setSampleRate(double samplerate)

@@ -148,7 +148,7 @@ class VLBINode
         double Location[3];
         bool Geo;
         dsp_stream_p Stream;
-        char *Name;
+        char Name[DSP_NAME_SIZE];
         int Index;
 };
 

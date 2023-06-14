@@ -116,7 +116,7 @@ private:
     VLBINode** Nodes;
     int nodes_count;
     vlbi_func2_t dsp_correlation_delegate;
-    char *Name;
+    char Name[DSP_NAME_SIZE];
     dsp_stream_p Stream;
 };
 

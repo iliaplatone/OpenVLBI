@@ -29,7 +29,7 @@
 
 struct VLBIElement {
     void* item;
-    char name[150];
+    char name[DSP_NAME_SIZE];
 };
 
 class VLBICollection

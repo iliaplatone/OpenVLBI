@@ -74,6 +74,7 @@ typedef double dsp_t;
 typedef double complex_t[2];
 #define dsp_t_max 255
 #define dsp_t_min -dsp_t_max
+#define DSP_NAME_SIZE 128
 
 /**
 * \brief get/set the maximum number of threads allowed
@@ -251,7 +252,7 @@ typedef struct dsp_star_t
     /// The deviation of the star
     double theta;
     /// The name of the star
-    char name[150];
+    char name[DSP_NAME_SIZE];
 } dsp_star;
 
 /**
@@ -374,7 +375,7 @@ typedef void *(*dsp_func_t) (void *, ...);
 typedef struct dsp_stream_t
 {
     /// Friendly name of the stream
-    char name[128];
+    char name[DSP_NAME_SIZE];
     /// Increments by one on the copied stream
     int is_copy;
     /// The buffers length
