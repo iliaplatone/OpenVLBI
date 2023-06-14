@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8...3.13)
+cmake_minimum_required(VERSION 3.14)
 
 PROJECT(OpenVLBI C CXX)
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
@@ -11,6 +11,7 @@ find_package(PNG REQUIRED)
 find_package(JPEG REQUIRED)
 find_package(FFTW3 REQUIRED)
 find_package(Threads REQUIRED)
+option(CMAKE_BUILD_RPATH_USE_ORIGIN "rpath issue fix" ON)
 option(WITH_VLBI_SERVER "Add OpenVLBI servers" ON)
 option(WITH_INDI_SERVER "Add INDI server for OpenVLBI" ON)
 option(WITH_DUMMY_SERVER "Add dummy server for OpenVLBI" ON)
