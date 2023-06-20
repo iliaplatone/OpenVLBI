@@ -26,14 +26,13 @@ VLBI::Server::Server()
     Bps = 8;
     w = 128;
     h = 128;
-    tmpdir = (char*)"";
-    if(!strcmp("", tmpdir))
+    if(nullptr == tmpdir)
         tmpdir = getenv("TMPDIR");
-    if(!strcmp("", tmpdir))
+    if(nullptr == tmpdir)
         tmpdir = getenv("TMP");
-    if(!strcmp("", tmpdir))
+    if(nullptr == tmpdir)
         tmpdir = getenv("TEMP");
-    if(!strcmp("", tmpdir))
+    if(nullptr == tmpdir)
         tmpdir = (char*)"/tmp";
     context = (char*)malloc(9);
     strcpy(context, "OpenVLBI\0");
