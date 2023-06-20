@@ -26,6 +26,15 @@ VLBI::Server::Server()
     Bps = 8;
     w = 128;
     h = 128;
+    tmpdir = (char*)"";
+    if(!strcmp("", tmpdir))
+        tmpdir = getenv("TMPDIR");
+    if(!strcmp("", tmpdir))
+        tmpdir = getenv("TMP");
+    if(!strcmp("", tmpdir))
+        tmpdir = getenv("TEMP");
+    if(!strcmp("", tmpdir))
+        tmpdir = (char*)"/tmp";
     context = (char*)malloc(9);
     strcpy(context, "OpenVLBI\0");
     contexts = new InstanceCollection();
@@ -49,7 +58,6 @@ static double coverage_delegate(double x, double y)
 void VLBI::Server::AddNode(const char *name, char *b64)
 {
     char filename[128];
-    char *tmpdir = (char*)std::filesystem::temp_directory_path().string().c_str();
     strcpy(filename, tmpdir);
     strcat(filename, "/tmp_nodeXXXXXX");
     int fd = mkstemp(filename);
@@ -70,7 +78,6 @@ void VLBI::Server::AddNode(const char *name, char *b64)
 void VLBI::Server::AddNodes(const char *name, char *b64)
 {
     char filename[128];
-    char *tmpdir = (char*)std::filesystem::temp_directory_path().string().c_str();
     strcpy(filename, tmpdir);
     strcat(filename, "/tmp_nodeXXXXXX");
     int fd = mkstemp(filename);
@@ -208,7 +215,6 @@ char* VLBI::Server::GetModel(const char *name, char *format)
     ssize_t outlen = 0;
     unsigned char *buf = nullptr;
     unsigned char *b64 = nullptr;
-    char *tmpdir = (char*)std::filesystem::temp_directory_path().string().c_str();
     strcpy(filename, tmpdir);
     strcat(filename, "/tmp_modelXXXXXX");
     fd = mkstemp(filename);
@@ -270,7 +276,6 @@ void VLBI::Server::AddModel(const char *name, char *format, char *b64)
     int fd = -1;
     size_t b64len = 0;
     char *buf = nullptr;
-    char *tmpdir = (char*)std::filesystem::temp_directory_path().string().c_str();
     strcpy(filename, tmpdir);
     strcat(filename, "/tmp_modelXXXXXX");
     fd = mkstemp(filename);

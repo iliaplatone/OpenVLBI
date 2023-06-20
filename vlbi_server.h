@@ -474,6 +474,7 @@ class Server
         int h;
         FILE *input, *output;
         char *context;
+        char *tmpdir;
 };
 extern VLBI::Server *server;
 /**\}*/
