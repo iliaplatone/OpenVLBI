@@ -92,34 +92,34 @@ class Server
         virtual void Parse(void);
 
         /**
-        * \brief Add a new OpenVLBI context by giving it a name. VLBI::Server has an internal context collection
+        * \brief add a new OpenVLBI context by giving it a name. VLBI::Server has an internal context collection
         * \param name The name of the new context
         */
-        void AddContext(const char *name);
+        void addContext(const char *name);
 
         /**
-        * \brief Delete an existing OpenVLBI context by name.
+        * \brief delete an existing OpenVLBI context by name.
         * \param name The name of the context to be deleted
         */
-        void DelContext(const char *name);
+        void delContext(const char *name);
 
         /**
-        * \brief Set the current OpenVLBI context by passing its name.
+        * \brief set the current OpenVLBI context by passing its name.
         * \param name The name of the context
         */
-        void SetContext(const char *name);
+        void setContext(const char *name);
 
         /**
         * \brief Obtain the current OpenVLBI context object.
         * \return The vlbi_context object representing the current context
         */
-        vlbi_context GetContext(void);
+        vlbi_context getContext(void);
 
         /**
         * \brief Obtain the name current OpenVLBI context.
         * \return The name of the current context
         */
-        inline char* CurrentContext(void)
+        inline char* currentContext(void)
         {
             return context;
         }
@@ -130,14 +130,14 @@ class Server
         * \param format The format of the new model, can be one of png, jpeg or fits
         * \param b64 The file buffer base64 encoded
         */
-        void AddModel(const char *name, char *format, char *b64);
+        void addModel(const char *name, char *format, char *b64);
 
         /**
         * \brief Obtain the dsp_stream_p object of a model by passing its name.
         * \param name The name of the model
         * \return The dsp_stream_p object representing the model
         */
-        dsp_stream_p GetModel(const char *name);
+        dsp_stream_p getModel(const char *name);
 
         /**
         * \brief Obtain the base64 encoded file buffer of a model by passing its name.
@@ -145,34 +145,34 @@ class Server
         * \param format The format of the picture exported, can be one of png, jpeg or fits
         * \return The file buffer base64 encoded
         */
-        char* GetModel(const char *name, char *format);
+        char* getModel(const char *name, char *format);
 
         /**
-        * \brief Delete from the current context an existing model by name.
+        * \brief delete from the current context an existing model by name.
         * \param name The name of the model to be deleted
         */
-        void DelModel(const char *name);
+        void delModel(const char *name);
 
         /**
-        * \brief Get the names of all the models of the current context.
+        * \brief get the names of all the models of the current context.
         * \param names The pointer of a char* array to be filled with the names of the models
         * \return The number of models in the current context
         */
-        int GetModels(char** names);
+        int getModels(char** names);
 
         /**
         * \brief Create a new node from a monodimensional image FITS file, give it a name and add it to the current context.
         * \param name The name of the new node
         * \param b64 The file buffer base64 encoded
         */
-        void AddNode(const char *name, char *b64);
+        void addNode(const char *name, char *b64);
 
         /**
         * \brief Create as many nodes as the rows number of an SDFITS file, give it a name and add it to the current context.
         * \param name The name of the new node
         * \param b64 The file buffer base64 encoded
         */
-        void AddNodes(const char *name, char *b64);
+        void addNodes(const char *name, char *b64);
 
         /**
         * \brief Create a new node from a its raw data, give it a name and add it to the current context.
@@ -183,13 +183,13 @@ class Server
         * \param starttime The UTC time of the first element
         * \param geo If 1, consider all elements of location as geographic coordinates, if 0 as relative to the current context' station location
         */
-        void AddNode(const char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo);
+        void addNode(const char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo);
 
         /**
-        * \brief Delete from the current context an existing node by name.
+        * \brief delete from the current context an existing node by name.
         * \param name The name of the node to be deleted
         */
-        void DelNode(const char *name);
+        void delNode(const char *name);
 
         /**
         * \brief Copy a node into another node
@@ -301,169 +301,175 @@ class Server
         void Shift(const char *name);
 
         /**
-        * \brief Set the target right ascension coordinate, do this before calling Plot()
+        * \brief set the target right ascension coordinate, do this before calling Plot()
         * \param value The RA coordinate in hours
         */
-        inline virtual void SetRa(double value)
+        inline virtual void setRa(double value)
         {
             Ra = value;
         }
 
         /**
-        * \brief Set the target declination coordinate, do this before calling Plot()
+        * \brief set the target declination coordinate, do this before calling Plot()
         * \param value The Declination coordinate in degrees
         */
-        inline virtual void SetDec(double value)
+        inline virtual void setDec(double value)
         {
             Dec = value;
         }
 
         /**
-        * \brief Set the frequency observed, do this before calling Plot()
+        * \brief set the frequency observed, do this before calling Plot()
         * \param value The frequency in Hz
         */
-        inline virtual void SetFreq(double value)
+        inline virtual void setFreq(double value)
         {
             Freq = value;
         }
 
         /**
-        * \brief Set the sampling frequency, do this before calling Plot()
+        * \brief set the sampling frequency, do this before calling Plot()
         * \param value The sample rate, in samples per second
         */
-        inline virtual void SetSampleRate(double value)
+        inline virtual void setSampleRate(double value)
         {
             SampleRate = value;
         }
 
         /**
-        * \brief Set the bytes per sample, do this before calling AddNode()
+        * \brief set the bytes per sample, do this before calling addNode()
         * \param value The word width in bytes
         */
-        inline virtual void SetBps(int value)
+        inline virtual void setBps(int value)
         {
             Bps = value;
         }
 
         /**
-        * \brief Set the plot width, do this before calling Plot()
+        * \brief set the plot width, do this before calling Plot()
         * \param value plot width in pixels
         */
-        inline virtual void SetWidth(int value)
+        inline virtual void setWidth(int value)
         {
             w = value;
         }
 
         /**
-        * \brief Set the plot height, do this before calling Plot()
+        * \brief set the plot height, do this before calling Plot()
         * \param value plot height in pixels
         */
-        inline virtual void SetHeight(int value)
+        inline virtual void setHeight(int value)
         {
             h = value;
         }
 
         /**
-        * \brief Get the current right ascension coordinate
+        * \brief get the current right ascension coordinate
         * \return The current right ascension in hours
         */
-        inline double GetRa(void)
+        inline double getRa(void)
         {
             return Ra;
         }
 
         /**
-        * \brief Get the current declination coordinate
+        * \brief get the current declination coordinate
         * \return The current declination in hours
         */
-        inline double GetDec(void)
+        inline double getDec(void)
         {
             return Dec;
         }
 
         /**
-        * \brief Get the current frequency
+        * \brief get the current frequency
         * \return The frequency in Hz
         */
-        inline double GetFreq(void)
+        inline double getFreq(void)
         {
             return Freq;
         }
 
         /**
-        * \brief Get the current sample rate
+        * \brief get the current sample rate
         * \return The sampling rate in sps
         */
-        inline double GetSampleRate(void)
+        inline double getSampleRate(void)
         {
             return SampleRate;
         }
 
         /**
-        * \brief Get the bytes per sample
+        * \brief set the current correlation order
+        * \param order The correlation order
+        */
+        void setCorrelationOrder(int order);
+
+        /**
+        * \brief get the bytes per sample
         * \return The word width in bytes
         */
-        inline double GetBps(void)
+        inline double getBps(void)
         {
             return Bps;
         }
 
         /**
-        * \brief Get the plot width
+        * \brief get the plot width
         * \return The plot width in pixels
         */
-        inline double GetWidth(void)
+        inline double getWidth(void)
         {
             return w;
         }
 
         /**
-        * \brief Get the plot height
+        * \brief get the plot height
         * \return The plot height in pixels
         */
-        inline double GetHeight(void)
+        inline double getHeight(void)
         {
             return h;
         }
 
         /**
-        * \brief Set the input stream
+        * \brief set the input stream
         * \param in The input stream file pointer
         */
-        void SetInput(FILE* in)
+        void setInput(FILE* in)
         {
             input = in;
         }
 
         /**
-        * \brief Get the input stream
+        * \brief get the input stream
         * \return The input stream file pointer
         */
-        inline FILE* GetInput()
+        inline FILE* getInput()
         {
             return input;
         }
 
         /**
-        * \brief Set the output stream
+        * \brief set the output stream
         * \param out The output stream file pointer
         */
-        void SetOutput(FILE* out)
+        void setOutput(FILE* out)
         {
             output = out;
         }
 
         /**
-        * \brief Get the output stream
+        * \brief get the output stream
         * \return The output stream file pointer
         */
-        inline FILE* GetOutput()
+        inline FILE* getOutput()
         {
             return output;
         }
 
         /**
-        * \brief Set the delegate function
+        * \brief set the delegate function
         * \param func The new delegate
         */
         inline void setDelegate(vlbi_func2_t func)
@@ -472,7 +478,7 @@ class Server
         }
 
         /**
-        * \brief Get the current delegate function
+        * \brief get the current delegate function
         * \return The current delegate
         */
         inline vlbi_func2_t getDelegate() { return delegate; }

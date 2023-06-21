@@ -28,29 +28,29 @@ ModelCollection::~ModelCollection()
 {
 }
 
-void ModelCollection::Add(dsp_stream_p element, const char *name)
+void ModelCollection::add(dsp_stream_p element, const char *name)
 {
     strcpy(element->name, name);
-    VLBICollection::Add(element, name);
+    VLBICollection::add(element, name);
 }
 
-void ModelCollection::Remove(const char* name)
+void ModelCollection::remove(const char* name)
 {
-    VLBICollection::Remove(name);
+    VLBICollection::remove(name);
 }
 
-dsp_stream_p ModelCollection::Get(const char* name)
+dsp_stream_p ModelCollection::get(const char* name)
 {
-    return (dsp_stream_p)VLBICollection::Get(name);
+    return (dsp_stream_p)VLBICollection::get(name);
 }
 
-dsp_stream_p  ModelCollection::At(int index)
+dsp_stream_p  ModelCollection::at(int index)
 {
-    return (dsp_stream_p )(VLBICollection::At(index));
+    return (dsp_stream_p )(VLBICollection::at(index));
 }
 
-bool ModelCollection::Contains(const char* element)
+bool ModelCollection::contains(const char* element)
 {
-    return VLBICollection::Contains(element);
+    return VLBICollection::contains(element);
 }
 

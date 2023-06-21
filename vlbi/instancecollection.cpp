@@ -28,29 +28,29 @@ InstanceCollection::~InstanceCollection()
 {
 }
 
-void InstanceCollection::Add(vlbi_context element, const char *name)
+void InstanceCollection::add(vlbi_context element, const char *name)
 {
-    VLBICollection::Add(element, name);
+    VLBICollection::add(element, name);
 }
 
-void InstanceCollection::Remove(const char* name)
+void InstanceCollection::remove(const char* name)
 {
-    VLBICollection::Remove(name);
+    VLBICollection::remove(name);
 }
 
-vlbi_context InstanceCollection::Get(const char* name)
+vlbi_context InstanceCollection::get(const char* name)
 {
-    return (vlbi_context)VLBICollection::Get(name);
+    return (vlbi_context)VLBICollection::get(name);
 }
 
-vlbi_context  InstanceCollection::At(int index)
+vlbi_context  InstanceCollection::at(int index)
 {
-    return (vlbi_context)VLBICollection::At(index);
+    return (vlbi_context)VLBICollection::at(index);
 }
 
-bool InstanceCollection::Contains(const char* element)
+bool InstanceCollection::contains(const char* element)
 {
-    return VLBICollection::Contains(element);
+    return VLBICollection::contains(element);
 }
 
 

@@ -22,7 +22,7 @@ VLBICollection::VLBICollection()
 {
     S = sizeof(VLBIElement);
     Items = (VLBIElement*)malloc(S);
-    count = 0;
+    Count = 0;
 }
 
 VLBICollection::~VLBICollection()
@@ -31,35 +31,35 @@ VLBICollection::~VLBICollection()
     Items = 0;
 }
 
-ssize_t VLBICollection::Count()
+ssize_t VLBICollection::count()
 {
-    return count;
+    return Count;
 }
 
-void VLBICollection::Clear()
+void VLBICollection::clear()
 {
     Items = (VLBIElement*)realloc(Items, sizeof(VLBIElement));
-    count = 0;
+    Count = 0;
 }
 
-void VLBICollection::Add(void* el, const char* name)
+void VLBICollection::add(void* el, const char* name)
 {
-    if(Contains(name))
+    if(contains(name))
         return;
     VLBIElement item;
     item.item = el;
     strcpy(item.name, name);
-    count++;
-    Items = (VLBIElement*)realloc(Items, S * Count());
-    Items[Count() - 1] = item;
+    Count++;
+    Items = (VLBIElement*)realloc(Items, S * count());
+    Items[count() - 1] = item;
 }
 
-void VLBICollection::Remove(const char* name)
+void VLBICollection::remove(const char* name)
 {
     if(!Items) return;
-    if(!Contains(name))
+    if(!contains(name))
         return;
-    for(int i = 0; i < Count(); i++)
+    for(int i = 0; i < count(); i++)
     {
         if(!strcmp(Items[i].name, name))
         {
@@ -67,13 +67,13 @@ void VLBICollection::Remove(const char* name)
             break;
         }
     }
-    Defrag();
+    defrag();
 }
 
-void* VLBICollection::Get(const char* name)
+void* VLBICollection::get(const char* name)
 {
     if(!Items) return nullptr;
-    for(int i = 0; i < Count(); i++)
+    for(int i = 0; i < count(); i++)
     {
         if(!strcmp(Items[i].name, name))
         {
@@ -83,10 +83,10 @@ void* VLBICollection::Get(const char* name)
     return nullptr;
 }
 
-void* VLBICollection::At(ssize_t index)
+void* VLBICollection::at(ssize_t index)
 {
     if(!Items) return nullptr;
-    if(index < 0 || index >= Count())
+    if(index < 0 || index >= count())
     {
         return nullptr;
     }
@@ -94,11 +94,11 @@ void* VLBICollection::At(ssize_t index)
 }
 
 
-bool VLBICollection::Contains(const char* name)
+bool VLBICollection::contains(const char* name)
 {
     if(!Items) return false;
     bool ret = false;
-    for(int i = 0; i < Count(); i++)
+    for(int i = 0; i < count(); i++)
     {
         if(!strcmp(name, Items[i].name))
         {
@@ -109,19 +109,19 @@ bool VLBICollection::Contains(const char* name)
     return ret;
 }
 
-void VLBICollection::Defrag()
+void VLBICollection::defrag()
 {
     if(!Items) return;
-    int n = Count();
-    count = 0;
+    int n = count();
+    Count = 0;
     for(int i = 0; i < n; i++)
     {
         if(Items[i].item != 0)
         {
-            Items[Count()] = Items[i];
-            count ++;
+            Items[count()] = Items[i];
+            Count ++;
         }
     }
-    Items = (VLBIElement*)realloc(Items, S * count);
+    Items = (VLBIElement*)realloc(Items, S * Count);
 }
 

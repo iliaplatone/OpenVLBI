@@ -26,13 +26,13 @@ class InstanceCollection : public VLBICollection
 public:
 	InstanceCollection();
 	~InstanceCollection();
-	void Add(vlbi_context element, const char *name = "");
-	vlbi_context Get(const char* name);
-    void Remove(const char* element);
-	void RemoveAt(int index);
-    vlbi_context  At(int index);
-    bool Contains(const char* element);
-    int IndexOf(vlbi_context element);
+    void add(vlbi_context element, const char *name = "");
+    vlbi_context get(const char* name);
+    void remove(const char* element);
+    void removeAt(int index);
+    vlbi_context  at(int index);
+    bool contains(const char* element);
+    int indexOf(vlbi_context element);
 };
 
 #endif //_INSTANCECOLLECTION_H

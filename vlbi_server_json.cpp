@@ -43,7 +43,7 @@ bool JSONServer::CheckMask(unsigned long mask, int n)
 
 void JSONServer::Parse()
 {
-    FILE* f = GetInput();
+    FILE* f = getInput();
     json_value *v;
     char *n;
     size_t len = 0;
@@ -84,8 +84,8 @@ void JSONServer::Parse()
         json_values values = (json_values)v->u.object.values;
         if(!strcmp(n, "context"))
         {
-            AddContext(v->u.string.ptr);
-            SetContext(v->u.string.ptr);
+            addContext(v->u.string.ptr);
+            setContext(v->u.string.ptr);
         }
         if(!strcmp(n, "location"))
         {
@@ -112,7 +112,7 @@ void JSONServer::Parse()
             if(CheckMask(mask, 3))
             {
                 relative = true;
-                vlbi_set_location(GetContext(), lat, lon, el);
+                vlbi_set_location(getContext(), lat, lon, el);
             }
         }
         if(!strcmp(n, "fits"))
@@ -135,7 +135,7 @@ void JSONServer::Parse()
             }
             if(CheckMask(mask, 2))
             {
-                AddNode(name, base64);
+                addNode(name, base64);
             }
         }
         if(!strcmp(n, "sdfits"))
@@ -158,7 +158,7 @@ void JSONServer::Parse()
             }
             if(CheckMask(mask, 2))
             {
-                AddNodes(name, base64);
+                addNodes(name, base64);
             }
         }
         if(!strcmp(n, "node"))
@@ -184,7 +184,7 @@ void JSONServer::Parse()
                 }
                 if(!strcmp(values[y].name, "bitspersample"))
                 {
-                    SetBps(atoi(values[y].value->u.string.ptr));
+                    setBps(atoi(values[y].value->u.string.ptr));
                     mask |= 1 << 2;
                 }
                 if(!strcmp(values[y].name, "buffer"))
@@ -206,7 +206,7 @@ void JSONServer::Parse()
             }
             if(CheckMask(mask, 5))
             {
-                AddNode(name, (dsp_location*)locations, buf, buflen, starttime, relative);
+                addNode(name, (dsp_location*)locations, buf, buflen, starttime, relative);
             }
         }
         if(!strcmp(n, "plot"))
@@ -227,24 +227,24 @@ void JSONServer::Parse()
                     {
                         if(!strcmp(values[y].value->u.object.values[z].name, "ra"))
                         {
-                            SetRa(atof(values[y].value->u.object.values[z].value->u.string.ptr));
+                            setRa(atof(values[y].value->u.object.values[z].value->u.string.ptr));
                             mask |= 1 << 1;
                         }
                         if(!strcmp(values[y].value->u.object.values[z].name, "dec"))
                         {
-                            SetDec(atof(values[y].value->u.object.values[z].value->u.string.ptr));
+                            setDec(atof(values[y].value->u.object.values[z].value->u.string.ptr));
                             mask |= 1 << 2;
                         }
                     }
                 }
                 if(!strcmp(values[y].name, "frequency"))
                 {
-                    SetFreq(atof(values[y].value->u.string.ptr));
+                    setFreq(atof(values[y].value->u.string.ptr));
                     mask |= 1 << 3;
                 }
                 if(!strcmp(values[y].name, "samplerate"))
                 {
-                    SetSampleRate(atof(values[y].value->u.string.ptr));
+                    setSampleRate(atof(values[y].value->u.string.ptr));
                     mask |= 1 << 3;
                 }
                 if(!strcmp(values[y].name, "resolution"))
@@ -253,12 +253,12 @@ void JSONServer::Parse()
                     {
                         if(!strcmp(values[y].value->u.object.values[z].name, "width"))
                         {
-                            SetWidth(atoi(values[y].value->u.object.values[z].value->u.string.ptr));
+                            setWidth(atoi(values[y].value->u.object.values[z].value->u.string.ptr));
                             mask |= 1 << 4;
                         }
                         if(!strcmp(values[y].value->u.object.values[z].name, "height"))
                         {
-                            SetHeight(atoi(values[y].value->u.object.values[z].value->u.string.ptr));
+                            setHeight(atoi(values[y].value->u.object.values[z].value->u.string.ptr));
                             mask |= 1 << 5;
                         }
                     }
@@ -328,9 +328,9 @@ void JSONServer::Parse()
             }
             if(CheckMask(mask, 2))
             {
-                char *base64 = GetModel(name, format);
-                fprintf(GetOutput(),
-                        "{\n \"context\": \"%s\",\n \"model\": {\n  \"name\": \"%s\",\n  \"format\": \"%s\",\n  \"buffer\": \"%s\"\n }\n}\n", CurrentContext(), name, format, base64);
+                char *base64 = getModel(name, format);
+                fprintf(getOutput(),
+                        "{\n \"context\": \"%s\",\n \"model\": {\n  \"name\": \"%s\",\n  \"format\": \"%s\",\n  \"buffer\": \"%s\"\n }\n}\n", currentContext(), name, format, base64);
                 free(base64);
             }
         }
@@ -360,7 +360,7 @@ void JSONServer::Parse()
             }
             if(CheckMask(mask, 3))
             {
-                AddModel(name, format, base64);
+                addModel(name, format, base64);
             }
         }
         if(!strcmp(n, "dft"))

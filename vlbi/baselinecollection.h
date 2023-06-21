@@ -28,15 +28,15 @@ class BaselineCollection : public VLBICollection
     public:
         BaselineCollection(NodeCollection *nodes, int order = 2);
         ~BaselineCollection();
-        void Update();
-        void Add(VLBIBaseline *element);
-        void RemoveAt(int index);
-        VLBIBaseline *Get(const char* name);
-        void Remove(const char* element);
-        void Clear();
-        VLBIBaseline * At(int index);
-        bool Contains(const char *element);
-        int IndexOf(VLBIBaseline *element);
+        void update();
+        void add(VLBIBaseline *element);
+        void removeAt(int index);
+        VLBIBaseline *get(const char* name);
+        void remove(const char* element);
+        void clear();
+        VLBIBaseline * at(int index);
+        bool contains(const char *element);
+        int indexOf(VLBIBaseline *element);
         void setTarget(double *target);
         void setRa(double ra);
         void setDec(double dec);
@@ -97,9 +97,9 @@ class BaselineCollection : public VLBICollection
         }
         inline void setCorrelationOrder(int order)
         {
-            correlation_order = fmax(order, fmin(getNodes()->Count(), 2));
-            if(getNodes()->Count() < correlation_order) return;
-            Update();
+            correlation_order = fmax(order, fmin(getNodes()->count(), 2));
+            if(getNodes()->count() < correlation_order) return;
+            update();
         }
         inline bool isRelative()
         {

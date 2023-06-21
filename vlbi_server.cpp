@@ -41,9 +41,9 @@ VLBI::Server::Server()
 
 VLBI::Server::~Server()
 {
-    if(GetContext() != nullptr)
+    if(getContext() != nullptr)
     {
-        vlbi_exit(GetContext());
+        vlbi_exit(getContext());
     }
 }
 
@@ -54,7 +54,7 @@ static double coverage_delegate(double x, double y)
     return 1.0;
 }
 
-void VLBI::Server::AddNode(const char *name, char *b64)
+void VLBI::Server::addNode(const char *name, char *b64)
 {
     char filename[128];
     strcpy(filename, tmpdir);
@@ -69,12 +69,12 @@ void VLBI::Server::AddNode(const char *name, char *b64)
         (void)written;
         free(buf);
         close(fd);
-        vlbi_add_node_from_fits(GetContext(), filename, name, true);
+        vlbi_add_node_from_fits(getContext(), filename, name, true);
         unlink(filename);
     }
 }
 
-void VLBI::Server::AddNodes(const char *name, char *b64)
+void VLBI::Server::addNodes(const char *name, char *b64)
 {
     char filename[128];
     strcpy(filename, tmpdir);
@@ -89,12 +89,12 @@ void VLBI::Server::AddNodes(const char *name, char *b64)
         (void)written;
         free(buf);
         close(fd);
-        vlbi_add_nodes_from_sdfits(GetContext(), filename, name, true);
+        vlbi_add_nodes_from_sdfits(getContext(), filename, name, true);
         unlink(filename);
     }
 }
 
-void VLBI::Server::AddNode(const char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
+void VLBI::Server::addNode(const char *name, dsp_location *locations, void *buf, int bytelen, timespec starttime, bool geo)
 {
     dsp_stream_p node = dsp_stream_new();
     int len = bytelen * 8 / abs(Bps);
@@ -125,12 +125,12 @@ void VLBI::Server::AddNode(const char *name, dsp_location *locations, void *buf,
     }
     node->location = locations;
     memcpy(&node->starttimeutc, &starttime, sizeof(timespec));
-    vlbi_add_node(GetContext(), node, name, geo);
+    vlbi_add_node(getContext(), node, name, geo);
 }
 
-void VLBI::Server::DelNode(const char *name)
+void VLBI::Server::delNode(const char *name)
 {
-    vlbi_del_node(GetContext(), name);
+    vlbi_del_node(getContext(), name);
 }
 
 void VLBI::Server::Plot(const char *name, int flags)
@@ -139,84 +139,89 @@ void VLBI::Server::Plot(const char *name, int flags)
     if((flags & plot_flags_custom_delegate) == 0) {
         setDelegate((flags & plot_flags_uv_coverage) != 0 ? coverage_delegate : vlbi_default_delegate);
     }
-    vlbi_get_uv_plot(GetContext(), name, w, h, coords, Freq, SampleRate, (flags & plot_flags_synced) != 0,
+    vlbi_get_uv_plot(getContext(), name, w, h, coords, Freq, SampleRate, (flags & plot_flags_synced) != 0,
                      (flags & plot_flags_moving_baseline) != 0,
                      getDelegate(), nullptr);
 }
 
 void VLBI::Server::Idft(const char *model, const char *magnitude, const char *phase)
 {
-    vlbi_get_ifft(GetContext(), model, magnitude, phase);
+    vlbi_get_ifft(getContext(), model, magnitude, phase);
 }
 
 void VLBI::Server::Dft(const char *model, const char *magnitude, const char *phase)
 {
-    vlbi_get_fft(GetContext(), model, magnitude, phase);
+    vlbi_get_fft(getContext(), model, magnitude, phase);
 }
 
 void VLBI::Server::Stack(const char *name, const char *model1, const char *model2)
 {
-    vlbi_stack_models(GetContext(), name, model1, model2);
+    vlbi_stack_models(getContext(), name, model1, model2);
 }
 
 void VLBI::Server::Diff(const char *name, const char *model1, const char *model2)
 {
-    vlbi_diff_models(GetContext(), name, model1, model2);
+    vlbi_diff_models(getContext(), name, model1, model2);
 }
 
 void VLBI::Server::Convolute(const char *name, const char *model1, const char *model2)
 {
-    vlbi_apply_convolution_matrix(GetContext(), name, model1, model2);
+    vlbi_apply_convolution_matrix(getContext(), name, model1, model2);
 }
 
 void VLBI::Server::Mask(const char *name, const char *model, const char *mask)
 {
-    vlbi_apply_mask(GetContext(), name, model, mask);
+    vlbi_apply_mask(getContext(), name, model, mask);
 }
 
 void VLBI::Server::Copy(const char *name, const char *model)
 {
-    vlbi_copy_model(GetContext(), name, model);
+    vlbi_copy_model(getContext(), name, model);
 }
 
 void VLBI::Server::CopyNode(const char *name, const char *node)
 {
-    vlbi_copy_model(GetContext(), name, node);
+    vlbi_copy_model(getContext(), name, node);
 }
 
 void VLBI::Server::Shift(const char *name)
 {
-    vlbi_shift(GetContext(), name);
+    vlbi_shift(getContext(), name);
 }
 
 void VLBI::Server::LowPass(const char *name, const char *node, double freq)
 {
-    vlbi_filter_lp_node(GetContext(), name, node, freq);
+    vlbi_filter_lp_node(getContext(), name, node, freq);
 }
 
 void VLBI::Server::HighPass(const char *name, const char *node, double freq)
 {
-    vlbi_filter_hp_node(GetContext(), name, node, freq);
+    vlbi_filter_hp_node(getContext(), name, node, freq);
 }
 
 void VLBI::Server::BandPass(const char *name, const char *node, double lofreq, double hifreq)
 {
-    vlbi_filter_bp_node(GetContext(), name, node, lofreq, hifreq);
+    vlbi_filter_bp_node(getContext(), name, node, lofreq, hifreq);
 }
 
 void VLBI::Server::BandReject(const char *name, const char *node, double lofreq, double hifreq)
 {
-    vlbi_filter_br_node(GetContext(), name, node, lofreq, hifreq);
+    vlbi_filter_br_node(getContext(), name, node, lofreq, hifreq);
 }
 
-dsp_stream_p VLBI::Server::GetModel(const char *name)
+dsp_stream_p VLBI::Server::getModel(const char *name)
 {
-    return vlbi_get_model(GetContext(), name);
+    return vlbi_get_model(getContext(), name);
 }
 
-char* VLBI::Server::GetModel(const char *name, char *format)
+void VLBI::Server::setCorrelationOrder(int order)
 {
-    if(!vlbi_has_model(GetContext(), name)) return nullptr;
+    vlbi_set_correlation_order(getContext(), order);
+}
+
+char* VLBI::Server::getModel(const char *name, char *format)
+{
+    if(!vlbi_has_model(getContext(), name)) return nullptr;
     char filename[128];
     int channels = 1;
     int fd = -1;
@@ -227,7 +232,7 @@ char* VLBI::Server::GetModel(const char *name, char *format)
     strcpy(filename, tmpdir);
     strcat(filename, "/tmp_modelXXXXXX");
     fd = mkstemp(filename);
-    dsp_stream_p model = vlbi_get_model(GetContext(), name);
+    dsp_stream_p model = vlbi_get_model(getContext(), name);
     dsp_stream_p *stream = (dsp_stream_p*)malloc(sizeof(dsp_stream_p) * (size_t)(channels + 1));
     for(int c = 0; c <= channels; c++)
         stream[c] = dsp_stream_copy(model);
@@ -257,10 +262,10 @@ char* VLBI::Server::GetModel(const char *name, char *format)
     return nullptr;
 }
 
-int VLBI::Server::GetModels(char** names)
+int VLBI::Server::getModels(char** names)
 {
     dsp_stream_p* models;
-    int len = vlbi_get_models(GetContext(), &models);
+    int len = vlbi_get_models(getContext(), &models);
     if(len > 0)
     {
         names = (char**)malloc(sizeof(char*) * (size_t)len);
@@ -273,14 +278,14 @@ int VLBI::Server::GetModels(char** names)
     return 0;
 }
 
-void VLBI::Server::DelModel(const char *name)
+void VLBI::Server::delModel(const char *name)
 {
-    vlbi_del_model(GetContext(), name);
+    vlbi_del_model(getContext(), name);
 }
 
-void VLBI::Server::AddModel(const char *name, char *format, char *b64)
+void VLBI::Server::addModel(const char *name, char *format, char *b64)
 {
-    if(vlbi_has_model(GetContext(), name)) return;
+    if(vlbi_has_model(getContext(), name)) return;
     char filename[128];
     int fd = -1;
     size_t b64len = 0;
@@ -301,15 +306,15 @@ void VLBI::Server::AddModel(const char *name, char *format, char *b64)
             close(fd);
             if(!strcmp(format, "fits"))
             {
-                vlbi_add_model_from_fits(GetContext(), filename, name);
+                vlbi_add_model_from_fits(getContext(), filename, name);
             }
             if(!strcmp(format, "jpeg"))
             {
-                vlbi_add_model_from_jpeg(GetContext(), filename, name);
+                vlbi_add_model_from_jpeg(getContext(), filename, name);
             }
             if(!strcmp(format, "png"))
             {
-                vlbi_add_model_from_png(GetContext(), filename, name);
+                vlbi_add_model_from_png(getContext(), filename, name);
             }
             unlink(filename);
         }
@@ -355,7 +360,7 @@ void VLBI::Server::Parse()
         {
             if(!strcmp(arg, "context"))
             {
-                SetContext(value);
+                setContext(value);
             }
             else if(!strcmp(arg, "mask"))
             {
@@ -418,7 +423,7 @@ void VLBI::Server::Parse()
                 lon = (int)atof(t);
                 t = strtok(nullptr, ",");
                 el = (int)atof(t);
-                vlbi_set_location(GetContext(), lat, lon, el);
+                vlbi_set_location(getContext(), lat, lon, el);
             }
         }
         else if(!strcmp(cmd, "get"))
@@ -426,7 +431,7 @@ void VLBI::Server::Parse()
             if(!strcmp(arg, "models"))
             {
                 dsp_stream_p* models;
-                int n = vlbi_get_models(GetContext(), &models);
+                int n = vlbi_get_models(getContext(), &models);
                 for(int x = 0; x < n; x++)
                 {
                     fprintf(f, "Model #%d: name:%s width:%d height:%d\n", x,
@@ -437,7 +442,7 @@ void VLBI::Server::Parse()
             if(!strcmp(arg, "nodes"))
             {
                 vlbi_node* nodes;
-                int n = vlbi_get_nodes(GetContext(), &nodes);
+                int n = vlbi_get_nodes(getContext(), &nodes);
                 for(int x = 0; x < n; x++)
                 {
                     fprintf(f, "Node #%d: name:%s relative?:%s x:%lf y:%lf z:%lf latitude:%lf longitude:%lf elevation:%lf\n", nodes[x].Index,
@@ -449,7 +454,7 @@ void VLBI::Server::Parse()
             else if(!strcmp(arg, "baselines"))
             {
                 vlbi_baseline* baselines;
-                int n = vlbi_get_baselines(GetContext(), &baselines);
+                int n = vlbi_get_baselines(getContext(), &baselines);
                 for(int x = 0; x < n; x++)
                 {
                     fprintf(f, "Baseline #%d: name:%s samplerate:%lf wavelength:%lf custom?:%s\n", x, baselines[x].Name,
@@ -471,7 +476,7 @@ void VLBI::Server::Parse()
                 {
                     return;
                 }
-                char *base64 = GetModel(name, format);
+                char *base64 = getModel(name, format);
                 fwrite(base64, 1, strlen(base64), output);
                 free(base64);
             }
@@ -480,7 +485,7 @@ void VLBI::Server::Parse()
         {
             if(!strcmp(arg, "context"))
             {
-                AddContext(value);
+                addContext(value);
             }
             else if(!strcmp(arg, "node"))
             {
@@ -518,7 +523,7 @@ void VLBI::Server::Parse()
                 location.geographic.el = el;
                 if(len > 0 && geo > 0)
                 {
-                    AddNode(name, &location, buf, (int)len, vlbi_time_string_to_timespec(date), geo == 1);
+                    addNode(name, &location, buf, (int)len, vlbi_time_string_to_timespec(date), geo == 1);
                 }
             }
             else if(!strcmp(arg, "plot"))
@@ -632,53 +637,53 @@ void VLBI::Server::Parse()
                 {
                     return;
                 }
-                AddModel(name, format, b64);
+                addModel(name, format, b64);
             }
         }
         else if(!strcmp(cmd, "del"))
         {
             if(!strcmp(arg, "node"))
             {
-                DelNode(value);
+                delNode(value);
             }
             else if(!strcmp(arg, "context"))
             {
-                DelContext(value);
+                delContext(value);
             }
             else if(!strcmp(arg, "model"))
             {
-                DelModel(value);
+                delModel(value);
             }
         }
     }
 }
 
-void VLBI::Server::AddContext(const char *name)
+void VLBI::Server::addContext(const char *name)
 {
-    if(!contexts->Contains(name)) contexts->Add(vlbi_init(), name);
+    if(!contexts->contains(name)) contexts->add(vlbi_init(), name);
 }
 
-void VLBI::Server::SetContext(const char *name)
+void VLBI::Server::setContext(const char *name)
 {
-    if(contexts->Contains(name))
+    if(contexts->contains(name))
     {
         context = (char*)realloc(context, strlen(name));
         strcpy(context, name);
     }
 }
 
-vlbi_context VLBI::Server::GetContext()
+vlbi_context VLBI::Server::getContext()
 {
-    if(contexts->Contains(context)) return contexts->Get(context);
+    if(contexts->contains(context)) return contexts->get(context);
     return nullptr;
 }
 
-void VLBI::Server::DelContext(const char *name)
+void VLBI::Server::delContext(const char *name)
 {
-    if(contexts->Contains(name))
+    if(contexts->contains(name))
     {
-        vlbi_context ctx = contexts->Get(name);
-        contexts->Remove(name);
+        vlbi_context ctx = contexts->get(name);
+        contexts->remove(name);
         vlbi_exit(ctx);
     }
 }
@@ -713,10 +718,10 @@ int main(int argc, char *argv[])
                 vlbi_max_threads((unsigned long)atol(optarg));
                 break;
             case 'f':
-                VLBI::server->SetInput(fopen (optarg, "rb+"));
+                VLBI::server->setInput(fopen (optarg, "rb+"));
                 break;
             case 'o':
-                VLBI::server->SetOutput(fopen (optarg, "a"));
+                VLBI::server->setOutput(fopen (optarg, "a"));
                 break;
             case 'v':
                 dsp_set_debug_level(dsp_get_debug_level()+1);
@@ -739,7 +744,7 @@ int main(int argc, char *argv[])
     {
         while (is_running)
         {
-            if(feof(VLBI::server->GetInput()))
+            if(feof(VLBI::server->getInput()))
                 break;
             VLBI::server->Parse();
         }

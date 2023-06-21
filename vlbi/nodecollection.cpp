@@ -37,38 +37,38 @@ NodeCollection::~NodeCollection()
 
 BaselineCollection* NodeCollection::getBaselines()
 {
-    for(int x = 0; x < baselines->Count(); x++)
+    for(int x = 0; x < baselines->count(); x++)
     {
-        memcpy(baselines->At(x)->stationLocation()->coordinates, station.coordinates, sizeof(dsp_location));
+        memcpy(baselines->at(x)->stationLocation()->coordinates, station.coordinates, sizeof(dsp_location));
     }
     return baselines;
 }
 
-void NodeCollection::Add(VLBINode * element)
+void NodeCollection::add(VLBINode * element)
 {
-    VLBICollection::Add(element, element->getName());
+    VLBICollection::add(element, element->getName());
     setCorrelationOrder(getCorrelationOrder());
 }
 
-void NodeCollection::Remove(const char* name)
+void NodeCollection::remove(const char* name)
 {
-    VLBICollection::Remove(name);
+    VLBICollection::remove(name);
     setCorrelationOrder(getCorrelationOrder());
 }
 
-VLBINode * NodeCollection::Get(const char* name)
+VLBINode * NodeCollection::get(const char* name)
 {
-    return (VLBINode *)VLBICollection::Get(name);
+    return (VLBINode *)VLBICollection::get(name);
 }
 
-VLBINode * NodeCollection::At(int index)
+VLBINode * NodeCollection::at(int index)
 {
-    return (VLBINode *)(VLBICollection::At(index));
+    return (VLBINode *)(VLBICollection::at(index));
 }
 
-bool NodeCollection::Contains(const char* element)
+bool NodeCollection::contains(const char* element)
 {
-    return VLBICollection::Contains(element);
+    return VLBICollection::contains(element);
 }
 
 void NodeCollection::setRelative(bool value)
@@ -76,16 +76,16 @@ void NodeCollection::setRelative(bool value)
     relative = value;
     if(value)
     {
-        for(int x = 0; x < Count(); x++)
+        for(int x = 0; x < count(); x++)
         {
-            memcpy(At(x)->stationLocation().coordinates, station.coordinates, sizeof(dsp_location));
+            memcpy(at(x)->stationLocation().coordinates, station.coordinates, sizeof(dsp_location));
         }
     }
 }
 
 void NodeCollection::setCorrelationOrder(int order)
 {
-    correlation_order = fmax(order, fmin(Count(), 2));
-    if(Count() < correlation_order) return;
+    correlation_order = fmax(order, fmin(count(), 2));
+    if(count() < correlation_order) return;
     baselines->setCorrelationOrder(order);
 }

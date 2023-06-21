@@ -30,13 +30,13 @@ class NodeCollection : public VLBICollection
     public:
         NodeCollection();
         ~NodeCollection();
-        void Add(VLBINode *element);
-        void RemoveAt(int index);
-        VLBINode *Get(const char* name);
-        void Remove(const char* element);
-        VLBINode * At(int index);
-        bool Contains(const char* element);
-        int IndexOf(VLBINode *element);
+        void add(VLBINode *element);
+        void removeAt(int index);
+        VLBINode *get(const char* name);
+        void remove(const char* element);
+        VLBINode * at(int index);
+        bool contains(const char* element);
+        int indexOf(VLBINode *element);
         BaselineCollection* getBaselines();
         inline ModelCollection* getModels()
         {

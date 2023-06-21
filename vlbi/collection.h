@@ -37,19 +37,19 @@ class VLBICollection
 public:
 	VLBICollection();
     ~VLBICollection();
-    void Add(void* element, const char *name = "");
-    void* Get(const char *name);
-    void Remove(const char* name);
-    void* At(ssize_t index);
-    bool Contains(const char* name);
-    ssize_t Count();
-    void Clear();
+    void add(void* element, const char *name = "");
+    void* get(const char *name);
+    void remove(const char* name);
+    void* at(ssize_t index);
+    bool contains(const char* name);
+    ssize_t count();
+    void clear();
 
 private:
     VLBIElement *Items;
     ssize_t S;
-    ssize_t count;
-    void Defrag();
+    ssize_t Count;
+    void defrag();
 };
 
 #endif //_COLLECTION_H
