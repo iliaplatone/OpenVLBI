@@ -192,6 +192,13 @@ class Server
         void DelNode(const char *name);
 
         /**
+        * \brief Copy a node into another node
+        * \param name The name of the new node
+        * \param node The name of the node to be copied
+        */
+        void CopyNode(const char *name, const char *node);
+
+        /**
         * \brief Plot the current observation into a new model.
         * \param name The name of the new model
         * \param flags The vlbi_plot_flags that characterize this observation
@@ -229,6 +236,13 @@ class Server
         * \param model2 The name of the second model to be stacked
         */
         void Stack(const char *name, const char *model1, const char *model2);
+
+        /**
+        * \brief Copy a model into another model
+        * \param name The name of the new model
+        * \param model The name of the model to be copied
+        */
+        void Copy(const char *name, const char *model);
 
         /**
         * \brief Diff a model with another model

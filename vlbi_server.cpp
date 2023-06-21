@@ -174,6 +174,16 @@ void VLBI::Server::Mask(const char *name, const char *model, const char *mask)
     vlbi_apply_mask(GetContext(), name, model, mask);
 }
 
+void VLBI::Server::Copy(const char *name, const char *model)
+{
+    vlbi_copy_model(GetContext(), name, model);
+}
+
+void VLBI::Server::CopyNode(const char *name, const char *node)
+{
+    vlbi_copy_model(GetContext(), name, node);
+}
+
 void VLBI::Server::Shift(const char *name)
 {
     vlbi_shift(GetContext(), name);
