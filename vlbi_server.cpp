@@ -681,8 +681,16 @@ static void sighandler(int signum)
     exit(0);
 }
 
-int main(int argc, char** argv)
+#ifdef _WIN32
+#include <windows.h>
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, INT nCmdShow)
 {
+    int argc = 0;
+    char **argv = {NULL};
+#else
+int main(int argc, char *argv[])
+{
+#endif
     int opt;
     dsp_set_app_name(argv[0]);
     dsp_set_stdout(stderr);
