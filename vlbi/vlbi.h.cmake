@@ -655,7 +655,7 @@ DLL_EXPORT int vlbi_get_baselines(void *ctx, vlbi_baseline** baselines);
 /**
 * \brief Free a vlbi_baseline object previously allocated by vlbi_get_baselines.
 * \param baselines The baselines array pointer
-* \param baselines The number of elements into the baselines object
+* \param num_baselines The number of elements into the baselines object
 */
 DLL_EXPORT void vlbi_free_baselines(vlbi_baseline** baselines, int num_baselines);
 
