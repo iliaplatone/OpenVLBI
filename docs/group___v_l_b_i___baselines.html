@@ -71,32 +71,73 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:gaa5efeda121167eeb486e09cc8dd3ba64"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gaa5efeda121167eeb486e09cc8dd3ba64">vlbi_set_correlation_order</a> (void *ctx, int order)</td></tr>
+<tr class="memdesc:gaa5efeda121167eeb486e09cc8dd3ba64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the correlation order the current OpenVLBI context.  <a href="group___v_l_b_i___baselines.html#gaa5efeda121167eeb486e09cc8dd3ba64">More...</a><br /></td></tr>
+<tr class="separator:gaa5efeda121167eeb486e09cc8dd3ba64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gad8463ac0e307bb75bcef9c293cc5bd92">vlbi_get_baselines</a> (void *ctx, <a class="el" href="structvlbi__baseline.html">vlbi_baseline</a> **baselines)</td></tr>
 <tr class="memdesc:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all baselines of the current OpenVLBI context.  <a href="group___v_l_b_i___baselines.html#gad8463ac0e307bb75bcef9c293cc5bd92">More...</a><br /></td></tr>
 <tr class="separator:gad8463ac0e307bb75bcef9c293cc5bd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaba2073d72d90a798ca0c5cfc15cea5be"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gaba2073d72d90a798ca0c5cfc15cea5be">vlbi_set_baseline_buffer</a> (void *ctx, const char *node1, const char *node2, complex_t *buffer, int len)</td></tr>
-<tr class="memdesc:gaba2073d72d90a798ca0c5cfc15cea5be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the buffer of a single baseline with complex visibility data. This function locks this baeline and the data passed here will overwrite the correlated visibilities from its nodes.  <a href="group___v_l_b_i___baselines.html#gaba2073d72d90a798ca0c5cfc15cea5be">More...</a><br /></td></tr>
-<tr class="separator:gaba2073d72d90a798ca0c5cfc15cea5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga058930f97d8bb278942494b21b96ac6e"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#ga058930f97d8bb278942494b21b96ac6e">vlbi_get_baseline_stream</a> (void *ctx, const char *node1, const char *node2)</td></tr>
-<tr class="memdesc:ga058930f97d8bb278942494b21b96ac6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the baseline dsp_stream structure containing the complex visibility data.  <a href="group___v_l_b_i___baselines.html#ga058930f97d8bb278942494b21b96ac6e">More...</a><br /></td></tr>
-<tr class="separator:ga058930f97d8bb278942494b21b96ac6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6bc41a2645fb08e2bae15805964d17aa"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#ga6bc41a2645fb08e2bae15805964d17aa">vlbi_unlock_baseline</a> (void *ctx, const char *node1, const char *node2)</td></tr>
-<tr class="memdesc:ga6bc41a2645fb08e2bae15805964d17aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlock the baseline and get visibility from its nodes correlations.  <a href="group___v_l_b_i___baselines.html#ga6bc41a2645fb08e2bae15805964d17aa">More...</a><br /></td></tr>
-<tr class="separator:ga6bc41a2645fb08e2bae15805964d17aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadcc6e481a93c80569fdb4ea5f33b2290"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gadcc6e481a93c80569fdb4ea5f33b2290">vlbi_set_baseline_stream</a> (void *ctx, const char *node1, const char *node2, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
-<tr class="memdesc:gadcc6e481a93c80569fdb4ea5f33b2290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the baseline dsp_stream structure containing the complex visibility data. This function locks this baeline and the data passed here will overwrite the correlated visibilities from its nodes.  <a href="group___v_l_b_i___baselines.html#gadcc6e481a93c80569fdb4ea5f33b2290">More...</a><br /></td></tr>
-<tr class="separator:gadcc6e481a93c80569fdb4ea5f33b2290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7079df240d131db528fe3b28160d5f1"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gaf7079df240d131db528fe3b28160d5f1">vlbi_free_baselines</a> (<a class="el" href="structvlbi__baseline.html">vlbi_baseline</a> **baselines, int num_baselines)</td></tr>
+<tr class="memdesc:gaf7079df240d131db528fe3b28160d5f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free a <a class="el" href="structvlbi__baseline.html" title="A single baseline, returned by vlbi_get_baselines into an array.">vlbi_baseline</a> object previously allocated by vlbi_get_baselines.  <a href="group___v_l_b_i___baselines.html#gaf7079df240d131db528fe3b28160d5f1">More...</a><br /></td></tr>
+<tr class="separator:gaf7079df240d131db528fe3b28160d5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2faf3b46865b23aa5a843913907b86c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gac2faf3b46865b23aa5a843913907b86c">vlbi_set_baseline_buffer</a> (void *ctx, const char **nodes, complex_t *buffer, int len)</td></tr>
+<tr class="memdesc:gac2faf3b46865b23aa5a843913907b86c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the buffer of a single baseline with complex visibility data. This function locks this baeline and the data passed here will overwrite the correlated visibilities from its nodes.  <a href="group___v_l_b_i___baselines.html#gac2faf3b46865b23aa5a843913907b86c">More...</a><br /></td></tr>
+<tr class="separator:gac2faf3b46865b23aa5a843913907b86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga828a88ff47e99f0ea1567a1ed81c3313"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#ga828a88ff47e99f0ea1567a1ed81c3313">vlbi_get_baseline_stream</a> (void *ctx, const char **nodes)</td></tr>
+<tr class="memdesc:ga828a88ff47e99f0ea1567a1ed81c3313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the baseline dsp_stream structure containing the complex visibility data.  <a href="group___v_l_b_i___baselines.html#ga828a88ff47e99f0ea1567a1ed81c3313">More...</a><br /></td></tr>
+<tr class="separator:ga828a88ff47e99f0ea1567a1ed81c3313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a13b4b55d43d0d37fca02f0cc7cce4f"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#ga6a13b4b55d43d0d37fca02f0cc7cce4f">vlbi_unlock_baseline</a> (void *ctx, const char **nodes)</td></tr>
+<tr class="memdesc:ga6a13b4b55d43d0d37fca02f0cc7cce4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlock the baseline and get visibility from its nodes correlations.  <a href="group___v_l_b_i___baselines.html#ga6a13b4b55d43d0d37fca02f0cc7cce4f">More...</a><br /></td></tr>
+<tr class="separator:ga6a13b4b55d43d0d37fca02f0cc7cce4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a89d4c092984229ba3e330aafe346a1"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#ga8a89d4c092984229ba3e330aafe346a1">vlbi_set_baseline_stream</a> (void *ctx, const char **nodes, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream)</td></tr>
+<tr class="memdesc:ga8a89d4c092984229ba3e330aafe346a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the baseline dsp_stream structure containing the complex visibility data. This function locks this baeline and the data passed here will overwrite the correlated visibilities from its nodes.  <a href="group___v_l_b_i___baselines.html#ga8a89d4c092984229ba3e330aafe346a1">More...</a><br /></td></tr>
+<tr class="separator:ga8a89d4c092984229ba3e330aafe346a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf57dbbb14efe53d31db2306389b0233c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gaf57dbbb14efe53d31db2306389b0233c">vlbi_set_location</a> (void *ctx, double lat, double lon, double el)</td></tr>
 <tr class="memdesc:gaf57dbbb14efe53d31db2306389b0233c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the location of the reference station.  <a href="group___v_l_b_i___baselines.html#gaf57dbbb14efe53d31db2306389b0233c">More...</a><br /></td></tr>
 <tr class="separator:gaf57dbbb14efe53d31db2306389b0233c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa663a7f2129960bcb0f5d5cc7713eba5"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#gaa663a7f2129960bcb0f5d5cc7713eba5">vlbi_get_offsets</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, double J2000Time, const char *node1, const char *node2, double Ra, double Dec, double *offset1, double *offset2)</td></tr>
-<tr class="memdesc:gaa663a7f2129960bcb0f5d5cc7713eba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the offsets of a single baseline nodes to the farest node to the target.  <a href="group___v_l_b_i___baselines.html#gaa663a7f2129960bcb0f5d5cc7713eba5">More...</a><br /></td></tr>
-<tr class="separator:gaa663a7f2129960bcb0f5d5cc7713eba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66c683aa970999c33752d0af99659f7c"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___baselines.html#ga66c683aa970999c33752d0af99659f7c">vlbi_get_offset</a> (<a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a> ctx, double J2000Time, const char *node, double Ra, double Dec, double Distance)</td></tr>
+<tr class="memdesc:ga66c683aa970999c33752d0af99659f7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the offset of a single node to the farest node to the target.  <a href="group___v_l_b_i___baselines.html#ga66c683aa970999c33752d0af99659f7c">More...</a><br /></td></tr>
+<tr class="separator:ga66c683aa970999c33752d0af99659f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga058930f97d8bb278942494b21b96ac6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga058930f97d8bb278942494b21b96ac6e">&#9670;&nbsp;</a></span>vlbi_get_baseline_stream()</h2>
+<a id="gaf7079df240d131db528fe3b28160d5f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf7079df240d131db528fe3b28160d5f1">&#9670;&nbsp;</a></span>vlbi_free_baselines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void vlbi_free_baselines </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structvlbi__baseline.html">vlbi_baseline</a> **&#160;</td>
+          <td class="paramname"><em>baselines</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_baselines</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">baselines</td><td>The baselines array pointer </td></tr>
+    <tr><td class="paramname">num_baselines</td><td>The number of elements into the baselines object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga828a88ff47e99f0ea1567a1ed81c3313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga828a88ff47e99f0ea1567a1ed81c3313">&#9670;&nbsp;</a></span>vlbi_get_baseline_stream()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -110,14 +151,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>node1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>node2</em>&#160;</td>
+          <td class="paramtype">const char **&#160;</td>
+          <td class="paramname"><em>nodes</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -129,8 +164,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
-    <tr><td class="paramname">node1</td><td>The name of the first node </td></tr>
-    <tr><td class="paramname">node2</td><td>The name of the second node </td></tr>
+    <tr><td class="paramname">nodes</td><td>The names of the node - the array size must be the same as the correlation order </td></tr>
   </table>
   </dd>
 </dl>
@@ -174,14 +208,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaa663a7f2129960bcb0f5d5cc7713eba5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa663a7f2129960bcb0f5d5cc7713eba5">&#9670;&nbsp;</a></span>vlbi_get_offsets()</h2>
+<a id="ga66c683aa970999c33752d0af99659f7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga66c683aa970999c33752d0af99659f7c">&#9670;&nbsp;</a></span>vlbi_get_offset()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">DLL_EXPORT void vlbi_get_offsets </td>
+          <td class="memname">DLL_EXPORT double vlbi_get_offset </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___v_l_b_i___types.html#ga50f883f7e834b395856676739fe83e0e">vlbi_context</a>&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -196,13 +230,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>node1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>node2</em>, </td>
+          <td class="paramname"><em>node</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -219,14 +247,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>offset1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>offset2</em>&#160;</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>Distance</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -239,20 +261,19 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
     <tr><td class="paramname">J2000Time</td><td>The time of the calculation </td></tr>
-    <tr><td class="paramname">node1</td><td>The name of the first node </td></tr>
-    <tr><td class="paramname">node2</td><td>The name of the second node </td></tr>
+    <tr><td class="paramname">node</td><td>The name of the node </td></tr>
     <tr><td class="paramname">Ra</td><td>The right ascension coordinate </td></tr>
     <tr><td class="paramname">Dec</td><td>The declination coordinate </td></tr>
-    <tr><td class="paramname">offset1</td><td>The offset calculated for the first node to the farest one </td></tr>
-    <tr><td class="paramname">offset2</td><td>The offset calculated for the second node to the farest one </td></tr>
+    <tr><td class="paramname">Distance</td><td>The distance from the object </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The offset calculated for the node to the farest one from the object </dd></dl>
 
 </div>
 </div>
-<a id="gaba2073d72d90a798ca0c5cfc15cea5be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaba2073d72d90a798ca0c5cfc15cea5be">&#9670;&nbsp;</a></span>vlbi_set_baseline_buffer()</h2>
+<a id="gac2faf3b46865b23aa5a843913907b86c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac2faf3b46865b23aa5a843913907b86c">&#9670;&nbsp;</a></span>vlbi_set_baseline_buffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -266,14 +287,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>node1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>node2</em>, </td>
+          <td class="paramtype">const char **&#160;</td>
+          <td class="paramname"><em>nodes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -297,8 +312,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
-    <tr><td class="paramname">node1</td><td>The name of the first node </td></tr>
-    <tr><td class="paramname">node2</td><td>The name of the second node </td></tr>
+    <tr><td class="paramname">nodes</td><td>The names of the node - the array size must be the same as the correlation order </td></tr>
     <tr><td class="paramname">buffer</td><td>The buffer with complex complex visibility data </td></tr>
     <tr><td class="paramname">len</td><td>The length of the buffer </td></tr>
   </table>
@@ -307,8 +321,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gadcc6e481a93c80569fdb4ea5f33b2290"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadcc6e481a93c80569fdb4ea5f33b2290">&#9670;&nbsp;</a></span>vlbi_set_baseline_stream()</h2>
+<a id="ga8a89d4c092984229ba3e330aafe346a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8a89d4c092984229ba3e330aafe346a1">&#9670;&nbsp;</a></span>vlbi_set_baseline_stream()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -322,14 +336,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>node1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>node2</em>, </td>
+          <td class="paramtype">const char **&#160;</td>
+          <td class="paramname"><em>nodes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -347,9 +355,43 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
-    <tr><td class="paramname">node1</td><td>The name of the first node </td></tr>
-    <tr><td class="paramname">node2</td><td>The name of the second node </td></tr>
+    <tr><td class="paramname">nodes</td><td>The names of the node - the array size must be the same as the correlation order </td></tr>
     <tr><td class="paramname">stream</td><td>The dsp_stream structure pointer containing the visibility data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa5efeda121167eeb486e09cc8dd3ba64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa5efeda121167eeb486e09cc8dd3ba64">&#9670;&nbsp;</a></span>vlbi_set_correlation_order()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT void vlbi_set_correlation_order </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>order</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
+    <tr><td class="paramname">order</td><td>The correlation order - number of nodes to be correlated into each single baseline </td></tr>
   </table>
   </dd>
 </dl>
@@ -405,8 +447,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga6bc41a2645fb08e2bae15805964d17aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6bc41a2645fb08e2bae15805964d17aa">&#9670;&nbsp;</a></span>vlbi_unlock_baseline()</h2>
+<a id="ga6a13b4b55d43d0d37fca02f0cc7cce4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6a13b4b55d43d0d37fca02f0cc7cce4f">&#9670;&nbsp;</a></span>vlbi_unlock_baseline()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -420,14 +462,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>node1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>node2</em>&#160;</td>
+          <td class="paramtype">const char **&#160;</td>
+          <td class="paramname"><em>nodes</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -439,8 +475,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>The OpenVLBI context </td></tr>
-    <tr><td class="paramname">node1</td><td>The name of the first node </td></tr>
-    <tr><td class="paramname">node2</td><td>The name of the second node </td></tr>
+    <tr><td class="paramname">nodes</td><td>The names of the node - the array size must be the same as the correlation order </td></tr>
   </table>
   </dd>
 </dl>
@@ -450,7 +485,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 22 2022 17:24:28 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 3 2023 17:20:29 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

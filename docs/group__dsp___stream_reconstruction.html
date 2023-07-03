@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Open source Very Long Baseline Interferometry: dsp_point_t Struct Reference</title>
+<title>Open source Very Long Baseline Interferometry: DSP API Stream reconstruction</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,6 +46,7 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,33 +61,59 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structdsp__point__t-members.html">List of all members</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">dsp_point_t Struct Reference<div class="ingroups"><a class="el" href="group___v_l_b_i.html">Very Long Baseline Interferometry API</a> &raquo; <a class="el" href="group___d_s_p.html">Digital Signal Processing API</a><a class="el" href="group___v_l_b_i.html">Very Long Baseline Interferometry API</a> &raquo; <a class="el" href="group___d_s_p.html">Digital Signal Processing API</a> &raquo;  &#124; <a class="el" href="group___d_s_p___types.html">DSP API types</a></div></div>  </div>
+<div class="title">DSP API Stream reconstruction<div class="ingroups"><a class="el" href="group___v_l_b_i.html">Very Long Baseline Interferometry API</a> &raquo; <a class="el" href="group___d_s_p.html">Digital Signal Processing API</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Indicates a dot or line inside a dsp_stream.  
- <a href="structdsp__point__t.html#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ga48786092544110623e9749601975f153"><td class="memItemLeft" align="right" valign="top">
-double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#ga48786092544110623e9749601975f153">location</a></td></tr>
-<tr class="memdesc:ga48786092544110623e9749601975f153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Center of the point. <br /></td></tr>
-<tr class="separator:ga48786092544110623e9749601975f153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabeb3de4b1edf8a454ea5a3d8685bbdb5"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#gabeb3de4b1edf8a454ea5a3d8685bbdb5">dims</a></td></tr>
-<tr class="memdesc:gabeb3de4b1edf8a454ea5a3d8685bbdb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions limit of the point. <br /></td></tr>
-<tr class="separator:gabeb3de4b1edf8a454ea5a3d8685bbdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga4b4252a46274e73bef338be3b7443eb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___stream_reconstruction.html#ga4b4252a46274e73bef338be3b7443eb8">dsp_recons_align</a> (<a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> stream, <a class="el" href="structdsp__stream__t.html">dsp_stream_p</a> matrix)</td></tr>
+<tr class="memdesc:ga4b4252a46274e73bef338be3b7443eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to reconstruct a stream from sub-stream matrices.  <a href="group__dsp___stream_reconstruction.html#ga4b4252a46274e73bef338be3b7443eb8">More...</a><br /></td></tr>
+<tr class="separator:ga4b4252a46274e73bef338be3b7443eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section see"><dt>See also</dt><dd><a class="el" href="group___d_s_p___types.html#gae48cfbf7c6f2fa3b617e939f311786b4" title="Contains a set of informations and data relative to a buffer and how to use it.">dsp_stream</a> </dd></dl>
-</div></div><!-- contents -->
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga4b4252a46274e73bef338be3b7443eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4b4252a46274e73bef338be3b7443eb8">&#9670;&nbsp;</a></span>dsp_recons_align()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsp_recons_align </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdsp__stream__t.html">dsp_stream_p</a>&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>the target DSP stream. </td></tr>
+    <tr><td class="paramname">matrix</td><td>the DSP stream with the matrices.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The matrix stream must have all dimensions and sizes of the target plus one, which is the number of matrices on to align. The aligned stream should replace the target stream. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Mon Jul 3 2023 17:20:29 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">

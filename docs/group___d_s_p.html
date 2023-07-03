@@ -95,6 +95,8 @@ Modules</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__dsp___signal_gen"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___signal_gen.html">DSP API Signal generation functions</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:group__dsp___stream_reconstruction"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___stream_reconstruction.html">DSP API Stream reconstruction</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__dsp___file_management"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___file_management.html">DSP API File read/write functions</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__dsp___fits_extensions"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__dsp___fits_extensions.html">DSP API FITS Extensions functions</a></td></tr>
@@ -132,10 +134,22 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#ga7e1b4c29aaa45b43c134214f8c92ca92">dsp_star_t::diameter</a></td></tr>
 <tr class="memdesc:ga7e1b4c29aaa45b43c134214f8c92ca92"><td class="mdescLeft">&#160;</td><td class="mdescRight">The diameter of the star. <br /></td></tr>
 <tr class="separator:ga7e1b4c29aaa45b43c134214f8c92ca92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9bd2faaa868d0420c3db136a734d4c3f"><td class="memItemLeft" align="right" valign="top"><a id="ga9bd2faaa868d0420c3db136a734d4c3f"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#ga9bd2faaa868d0420c3db136a734d4c3f">dsp_star_t::name</a> [150]</td></tr>
-<tr class="memdesc:ga9bd2faaa868d0420c3db136a734d4c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the star. <br /></td></tr>
-<tr class="separator:ga9bd2faaa868d0420c3db136a734d4c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4cf965e7a7a67a5c4f55d80498e4fcd"><td class="memItemLeft" align="right" valign="top"><a id="gad4cf965e7a7a67a5c4f55d80498e4fcd"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#gad4cf965e7a7a67a5c4f55d80498e4fcd">dsp_star_t::peak</a></td></tr>
+<tr class="memdesc:gad4cf965e7a7a67a5c4f55d80498e4fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The peak of the star. <br /></td></tr>
+<tr class="separator:gad4cf965e7a7a67a5c4f55d80498e4fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae95f0ce6167ae5150c531cfd10dfac53"><td class="memItemLeft" align="right" valign="top"><a id="gae95f0ce6167ae5150c531cfd10dfac53"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#gae95f0ce6167ae5150c531cfd10dfac53">dsp_star_t::flux</a></td></tr>
+<tr class="memdesc:gae95f0ce6167ae5150c531cfd10dfac53"><td class="mdescLeft">&#160;</td><td class="mdescRight">The flux of the star. <br /></td></tr>
+<tr class="separator:gae95f0ce6167ae5150c531cfd10dfac53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a079feca9dd26f37b4e5914d7fe93e8"><td class="memItemLeft" align="right" valign="top"><a id="ga3a079feca9dd26f37b4e5914d7fe93e8"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#ga3a079feca9dd26f37b4e5914d7fe93e8">dsp_star_t::theta</a></td></tr>
+<tr class="memdesc:ga3a079feca9dd26f37b4e5914d7fe93e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The deviation of the star. <br /></td></tr>
+<tr class="separator:ga3a079feca9dd26f37b4e5914d7fe93e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd52cfc2e2463924149cf9b44dfc5362"><td class="memItemLeft" align="right" valign="top"><a id="gabd52cfc2e2463924149cf9b44dfc5362"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#gabd52cfc2e2463924149cf9b44dfc5362">dsp_star_t::name</a> [DSP_NAME_SIZE]</td></tr>
+<tr class="memdesc:gabd52cfc2e2463924149cf9b44dfc5362"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the star. <br /></td></tr>
+<tr class="separator:gabd52cfc2e2463924149cf9b44dfc5362"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6642375ca84fcfcc354b28d1479ed73d"><td class="memItemLeft" align="right" valign="top"><a id="ga6642375ca84fcfcc354b28d1479ed73d"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#ga6642375ca84fcfcc354b28d1479ed73d">dsp_triangle_t::index</a></td></tr>
 <tr class="memdesc:ga6642375ca84fcfcc354b28d1479ed73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The index of the triangle. <br /></td></tr>
@@ -160,6 +174,10 @@ double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <a class="el" href="group___d_s_p___types.html#gaf93dd5cd3589db4649654b4976710670">dsp_star</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#ga6cabff9e9b92720abfb177b0e615d89e">dsp_triangle_t::stars</a></td></tr>
 <tr class="memdesc:ga6cabff9e9b92720abfb177b0e615d89e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The stars of the triangle. <br /></td></tr>
 <tr class="separator:ga6cabff9e9b92720abfb177b0e615d89e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga139b1271aac0a3a7ec90c742b3ad320b"><td class="memItemLeft" align="right" valign="top"><a id="ga139b1271aac0a3a7ec90c742b3ad320b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#ga139b1271aac0a3a7ec90c742b3ad320b">dsp_triangle_t::stars_count</a></td></tr>
+<tr class="memdesc:ga139b1271aac0a3a7ec90c742b3ad320b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of stars of the triangle. <br /></td></tr>
+<tr class="separator:ga139b1271aac0a3a7ec90c742b3ad320b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafac188d2d5726bda04185c1cdfc8c246"><td class="memItemLeft" align="right" valign="top"><a id="gafac188d2d5726bda04185c1cdfc8c246"></a>
 double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#gafac188d2d5726bda04185c1cdfc8c246">dsp_align_info_t::offset</a></td></tr>
 <tr class="memdesc:gafac188d2d5726bda04185c1cdfc8c246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translation offset. <br /></td></tr>
@@ -251,10 +269,10 @@ struct {</td></tr>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#ga8af8968a2c9a879a883fdd6498aa3c03">dsp_location_t::coordinates</a> [3]</td></tr>
 <tr class="memdesc:ga8af8968a2c9a879a883fdd6498aa3c03"><td class="mdescLeft">&#160;</td><td class="mdescRight">A 3d double array containing the location. <br /></td></tr>
 <tr class="separator:ga8af8968a2c9a879a883fdd6498aa3c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0b5f7589eb4066ad7e8cb17800f8ac54"><td class="memItemLeft" align="right" valign="top"><a id="ga0b5f7589eb4066ad7e8cb17800f8ac54"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#ga0b5f7589eb4066ad7e8cb17800f8ac54">dsp_stream_t::name</a> [128]</td></tr>
-<tr class="memdesc:ga0b5f7589eb4066ad7e8cb17800f8ac54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friendly name of the stream. <br /></td></tr>
-<tr class="separator:ga0b5f7589eb4066ad7e8cb17800f8ac54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga198a4e99ee4827a6c6a18e14466a0bd0"><td class="memItemLeft" align="right" valign="top"><a id="ga198a4e99ee4827a6c6a18e14466a0bd0"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#ga198a4e99ee4827a6c6a18e14466a0bd0">dsp_stream_t::name</a> [DSP_NAME_SIZE]</td></tr>
+<tr class="memdesc:ga198a4e99ee4827a6c6a18e14466a0bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Friendly name of the stream. <br /></td></tr>
+<tr class="separator:ga198a4e99ee4827a6c6a18e14466a0bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad5b94d84110e6e5488d524acb78b3af9"><td class="memItemLeft" align="right" valign="top"><a id="gad5b94d84110e6e5488d524acb78b3af9"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_s_p.html#gad5b94d84110e6e5488d524acb78b3af9">dsp_stream_t::is_copy</a></td></tr>
 <tr class="memdesc:gad5b94d84110e6e5488d524acb78b3af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments by one on the copied stream. <br /></td></tr>
@@ -393,7 +411,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 22 2022 17:24:28 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 3 2023 17:20:29 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

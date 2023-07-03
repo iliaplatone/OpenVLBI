@@ -77,6 +77,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga1c11cf57b53bcee81f2b36e08b898f13"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___matrix.html#ga1c11cf57b53bcee81f2b36e08b898f13">vlbi_matrix_calc_3d_projection</a> (double alt, double az, double *baseline)</td></tr>
 <tr class="memdesc:ga1c11cf57b53bcee81f2b36e08b898f13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return The 3d projection of the current observation.  <a href="group___v_l_b_i___matrix.html#ga1c11cf57b53bcee81f2b36e08b898f13">More...</a><br /></td></tr>
 <tr class="separator:ga1c11cf57b53bcee81f2b36e08b898f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d9f3426e9a1ca0f120d28d4d531814f"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___matrix.html#ga3d9f3426e9a1ca0f120d28d4d531814f">vlbi_matrix_calc_parametric_projection</a> (double *target, double *baseline)</td></tr>
+<tr class="memdesc:ga3d9f3426e9a1ca0f120d28d4d531814f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return The parametric projection of the current observation.  <a href="group___v_l_b_i___matrix.html#ga3d9f3426e9a1ca0f120d28d4d531814f">More...</a><br /></td></tr>
+<tr class="separator:ga3d9f3426e9a1ca0f120d28d4d531814f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf403da41e50ffd172760493ad376397d"><td class="memItemLeft" align="right" valign="top">DLL_EXPORT double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___v_l_b_i___matrix.html#gaf403da41e50ffd172760493ad376397d">vlbi_matrix_calc_uv_coordinates</a> (double *proj, double wavelength)</td></tr>
 <tr class="memdesc:gaf403da41e50ffd172760493ad376397d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return The UV coordinates of the current observation.  <a href="group___v_l_b_i___matrix.html#gaf403da41e50ffd172760493ad376397d">More...</a><br /></td></tr>
 <tr class="separator:gaf403da41e50ffd172760493ad376397d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,6 +199,42 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double* The xyz location. </dd></dl>
+
+</div>
+</div>
+<a id="ga3d9f3426e9a1ca0f120d28d4d531814f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3d9f3426e9a1ca0f120d28d4d531814f">&#9670;&nbsp;</a></span>vlbi_matrix_calc_parametric_projection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DLL_EXPORT double* vlbi_matrix_calc_parametric_projection </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>baseline</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>The alt/az/dist coordinates of the target into a 3 element vector. </td></tr>
+    <tr><td class="paramname">baseline</td><td>The current baseline in meters. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double* The 3d projection of the current observation. </dd></dl>
 
 </div>
 </div>
@@ -335,7 +374,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 22 2022 17:24:28 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 3 2023 17:20:29 for Open source Very Long Baseline Interferometry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

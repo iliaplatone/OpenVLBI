@@ -12,10 +12,12 @@ var searchData=
   ['complex_29',['complex',['../group___d_s_p.html#ga0e9317be51e2422d3213ab834d99005d',1,'dsp_complex']]],
   ['convolute_30',['Convolute',['../class_v_l_b_i_1_1_server.html#a51499f873f46e7b57d9db2c24260b650',1,'VLBI::Server']]],
   ['coordinates_31',['coordinates',['../group___d_s_p.html#ga8af8968a2c9a879a883fdd6498aa3c03',1,'dsp_location_t']]],
-  ['cos2sin_32',['cos2sin',['../group___v_l_b_i___defines.html#ga58f9af438635a2e70be97e316236193f',1,'vlbi.h']]],
-  ['cosmcos_33',['cosmcos',['../group___v_l_b_i___defines.html#ga5bbbb29a5e1fe16218f4c1ed547132b9',1,'vlbi.h']]],
-  ['cospcos_34',['cospcos',['../group___v_l_b_i___defines.html#ga42b3cb748f023f15d64cafb1b3eca2da',1,'vlbi.h']]],
-  ['cosxcos_35',['cosxcos',['../group___v_l_b_i___defines.html#ga78c2f1f27cc72b05a4d4eb8a6bf8b8c4',1,'vlbi.h']]],
-  ['currentcontext_36',['CurrentContext',['../class_v_l_b_i_1_1_server.html#a75183c5df719a95d1e4b6df962fdcaeb',1,'VLBI::Server']]],
-  ['core_20vlbi_20functions_37',['Core VLBI functions',['../group___v_l_b_i___functions.html',1,'']]]
+  ['copy_32',['Copy',['../class_v_l_b_i_1_1_server.html#a92a3221c50f7a5d91c2787facc98281a',1,'VLBI::Server']]],
+  ['copynode_33',['CopyNode',['../class_v_l_b_i_1_1_server.html#ade31db85ca9ea79236c63b0715159f11',1,'VLBI::Server']]],
+  ['cos2sin_34',['cos2sin',['../group___v_l_b_i___defines.html#ga58f9af438635a2e70be97e316236193f',1,'vlbi.h']]],
+  ['cosmcos_35',['cosmcos',['../group___v_l_b_i___defines.html#ga5bbbb29a5e1fe16218f4c1ed547132b9',1,'vlbi.h']]],
+  ['cospcos_36',['cospcos',['../group___v_l_b_i___defines.html#ga42b3cb748f023f15d64cafb1b3eca2da',1,'vlbi.h']]],
+  ['cosxcos_37',['cosxcos',['../group___v_l_b_i___defines.html#ga78c2f1f27cc72b05a4d4eb8a6bf8b8c4',1,'vlbi.h']]],
+  ['currentcontext_38',['currentContext',['../class_v_l_b_i_1_1_server.html#a966232ce8193f25659beecaf95e80d5f',1,'VLBI::Server']]],
+  ['core_20vlbi_20functions_39',['Core VLBI functions',['../group___v_l_b_i___functions.html',1,'']]]
 ];
