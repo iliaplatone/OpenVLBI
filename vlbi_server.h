@@ -253,12 +253,12 @@ class Server
         void Diff(const char *name, const char *model1, const char *model2);
 
         /**
-        * \brief Convolute a model with a convolution matrix model
+        * \brief Convolve a model with a convolution matrix model
         * \param name The name of the new model
         * \param model1 The name of the model
         * \param model2 The name of the model used as convolution matrix
         */
-        void Convolute(const char *name, const char *model1, const char *model2);
+        void Convolve(const char *name, const char *model1, const char *model2);
 
         /**
         * \brief Apply a low pass filter on a node buffer

@@ -453,7 +453,7 @@ void JSONServer::Parse()
                     mask |= 1 << 6;
                 }
             }
-            if(mask & 1)
+            if(CheckMask(mask, 1))
             {
                 if(CheckMask(mask, 2)) {
                     if(!strcmp(edit, "shift"))
@@ -474,9 +474,9 @@ void JSONServer::Parse()
                         {
                             Diff(name, model, arg);
                         }
-                        else if(!strcmp(edit, "convolute"))
+                        else if(!strcmp(edit, "convolve"))
                         {
-                            Convolute(name, model, arg);
+                            Convolve(name, model, arg);
                         }
                     }
                 }

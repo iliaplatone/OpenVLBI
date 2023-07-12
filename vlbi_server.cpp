@@ -164,7 +164,7 @@ void VLBI::Server::Diff(const char *name, const char *model1, const char *model2
     vlbi_diff_models(getContext(), name, model1, model2);
 }
 
-void VLBI::Server::Convolute(const char *name, const char *model1, const char *model2)
+void VLBI::Server::Convolve(const char *name, const char *model1, const char *model2)
 {
     vlbi_apply_convolution_matrix(getContext(), name, model1, model2);
 }

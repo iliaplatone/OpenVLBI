@@ -672,31 +672,24 @@ void vlbi_get_ifft(vlbi_context ctx, const char *name, const char *magnitude, co
         return;
     dsp_stream_p mag = vlbi_get_model(ctx, magnitude);
     dsp_stream_p phi = vlbi_get_model(ctx, phase);
-    int d = 0;
-    if(mag->dims == phi->dims)
-        for (d = 0; d < mag->dims && mag->sizes[d] == phi->sizes[d]; )
-            d++;
-    if(mag->dims == d)
-    {
-        dsp_stream_p ifft = nullptr;
-        if(vlbi_has_model(ctx, name))
-            ifft = vlbi_get_model(ctx, name);
-        else
-            ifft = dsp_stream_copy(mag);
-        ifft->phase = dsp_stream_copy(phi);
-        ifft->magnitude = dsp_stream_copy(mag);
-        dsp_buffer_stretch(ifft->phase->buf, ifft->phase->len, 0, PI * 2.0);
-        dsp_buffer_stretch(ifft->magnitude->buf, ifft->magnitude->len, 0, dsp_t_max);
-        dsp_buffer_set(ifft->buf, ifft->len, 0.0);
-        ifft->buf[0] = dsp_t_max;
-        dsp_fourier_idft(ifft);
-        dsp_stream_free_buffer(ifft->phase);
-        dsp_stream_free(ifft->phase);
-        dsp_stream_free_buffer(ifft->magnitude);
-        dsp_stream_free(ifft->magnitude);
-        if(!vlbi_has_model(ctx, name))
-            vlbi_add_model(ctx, ifft, name);
-    }
+    dsp_stream_p ifft = nullptr;
+    if(vlbi_has_model(ctx, name))
+        ifft = vlbi_get_model(ctx, name);
+    else
+        ifft = dsp_stream_copy(mag);
+    ifft->phase = dsp_stream_copy(phi);
+    ifft->magnitude = dsp_stream_copy(mag);
+    dsp_buffer_stretch(ifft->phase->buf, ifft->phase->len, 0, PI * 2.0);
+    dsp_buffer_stretch(ifft->magnitude->buf, ifft->magnitude->len, 0, dsp_t_max);
+    dsp_buffer_set(ifft->buf, ifft->len, 0.0);
+    ifft->buf[0] = dsp_t_max;
+    dsp_fourier_idft(ifft);
+    dsp_stream_free_buffer(ifft->phase);
+    dsp_stream_free(ifft->phase);
+    dsp_stream_free_buffer(ifft->magnitude);
+    dsp_stream_free(ifft->magnitude);
+    if(!vlbi_has_model(ctx, name))
+        vlbi_add_model(ctx, ifft, name);
 }
 
 void vlbi_get_fft(vlbi_context ctx, const char *name, const char *magnitude, const char *phase)
@@ -746,18 +739,18 @@ void vlbi_apply_convolution_matrix(vlbi_context ctx, const char *name, const cha
         return;
     if(!vlbi_has_model(ctx, matrix))
         return;
-    dsp_stream_p convoluted = dsp_stream_copy(nodes->getModels()->get(model));
+    dsp_stream_p convolved = dsp_stream_copy(nodes->getModels()->get(model));
     dsp_stream_p convolution = nodes->getModels()->get(matrix);
-    if(convoluted->dims == convolution->dims)
+    if(convolved->dims == convolution->dims)
     {
-        dsp_fourier_dft(convoluted, 1);
+        dsp_fourier_dft(convolved, 1);
         dsp_fourier_dft(convolution, 1);
-        dsp_convolution_convolution(convoluted, convolution);
-        vlbi_add_model(ctx, convoluted, name);
-        dsp_stream_free_buffer(convoluted->magnitude);
-        dsp_stream_free(convoluted->magnitude);
-        dsp_stream_free_buffer(convoluted->phase);
-        dsp_stream_free(convoluted->phase);
+        dsp_convolution_convolution(convolved, convolution);
+        vlbi_add_model(ctx, convolved, name);
+        dsp_stream_free_buffer(convolved->magnitude);
+        dsp_stream_free(convolved->magnitude);
+        dsp_stream_free_buffer(convolved->phase);
+        dsp_stream_free(convolved->phase);
         dsp_stream_free_buffer(convolution->magnitude);
         dsp_stream_free(convolution->magnitude);
         dsp_stream_free_buffer(convolution->phase);
