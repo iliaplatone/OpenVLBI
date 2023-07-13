@@ -1273,6 +1273,27 @@ DLL_EXPORT void dsp_stream_crop(dsp_stream_p stream);
 DLL_EXPORT void dsp_stream_rotate(dsp_stream_p stream);
 
 /**
+* \brief Sum a stream with another
+* \param stream The stream that will be summed
+* \param in The stream that will be summed to stream
+*/
+DLL_EXPORT void dsp_stream_sum(dsp_stream_p stream, dsp_stream_p in);
+
+/**
+* \brief Multiply a stream with another
+* \param stream The stream that will be multiplied
+* \param in The stream that will be multiplied to stream
+*/
+DLL_EXPORT void dsp_stream_multiply(dsp_stream_p stream, dsp_stream_p in);
+
+/**
+* \brief Subtract a stream to another
+* \param stream The original stream
+* \param in The stream that will be subtracted to the first argument
+*/
+DLL_EXPORT void dsp_stream_subtract(dsp_stream_p stream, dsp_stream_p in);
+
+/**
 * \brief Translate a stream
 * \param stream The stream that will be translated in-place
 */

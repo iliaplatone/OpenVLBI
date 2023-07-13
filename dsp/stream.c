@@ -751,3 +751,122 @@ void dsp_stream_rotate(dsp_stream_p in)
     dsp_stream_free_buffer(stream);
     dsp_stream_free(stream);
 }
+
+static double stack_delegate_multiply(double x, double y)
+{
+    return sqrt(x * y);
+}
+
+static double stack_delegate_sum(double x, double y)
+{
+    return (x + y) / 2.0;
+}
+
+static double stack_delegate_subtraction(double x, double y)
+{
+    return fmax(0.0, x - y);
+}
+
+static void* dsp_stream_stack_th(void* arg)
+{
+    struct {
+       int cur_th;
+       dsp_stream_p stream;
+       double(*delegate)(double, double);
+    } *arguments = arg;
+    double(*delegate)(double, double) = arguments->delegate;
+    dsp_stream_p stream = arguments->stream;
+    dsp_stream_p in = stream->parent;
+    int cur_th = arguments->cur_th;
+    int start = cur_th * stream->len / dsp_max_threads(0);
+    int end = start + stream->len / dsp_max_threads(0);
+    end = Min(stream->len, end);
+    int y;
+    for(y = start; y < end; y++)
+    {
+        int *pos = dsp_stream_get_position(stream, y);
+        int x = dsp_stream_set_position(in, pos);
+        free(pos);
+        if(x >= 0 && x < in->len)
+            stream->buf[y] = delegate(stream->buf[y], in->buf[x]);
+    }
+    return NULL;
+}
+
+void dsp_stream_sum(dsp_stream_p in, dsp_stream_p str)
+{
+    dsp_stream_p stream = dsp_stream_copy(in);
+    dsp_buffer_set(stream->buf, stream->len, 0);
+    stream->parent = str;
+    size_t y;
+    pthread_t *th = (pthread_t*)malloc(sizeof(pthread_t)*dsp_max_threads(0));
+    struct {
+       int cur_th;
+       dsp_stream_p stream;
+       double(*delegate)(double, double);
+    } thread_arguments[dsp_max_threads(0)];
+    for(y = 0; y < dsp_max_threads(0); y++) {
+        thread_arguments[y].cur_th = y;
+        thread_arguments[y].stream = stream;
+        thread_arguments[y].delegate = stack_delegate_sum;
+        pthread_create(&th[y], NULL, dsp_stream_stack_th, &thread_arguments[y]);
+    }
+    for(y = 0; y < dsp_max_threads(0); y++)
+        pthread_join(th[y], NULL);
+    free(th);
+    dsp_buffer_copy(stream->buf, in->buf, stream->len);
+    dsp_stream_free_buffer(stream);
+    dsp_stream_free(stream);
+}
+
+void dsp_stream_multiply(dsp_stream_p in, dsp_stream_p str)
+{
+    dsp_stream_p stream = dsp_stream_copy(in);
+    dsp_buffer_set(stream->buf, stream->len, 0);
+    stream->parent = str;
+    size_t y;
+    pthread_t *th = (pthread_t*)malloc(sizeof(pthread_t)*dsp_max_threads(0));
+    struct {
+       int cur_th;
+       dsp_stream_p stream;
+       double(*delegate)(double, double);
+    } thread_arguments[dsp_max_threads(0)];
+    for(y = 0; y < dsp_max_threads(0); y++) {
+        thread_arguments[y].cur_th = y;
+        thread_arguments[y].stream = stream;
+        thread_arguments[y].delegate = stack_delegate_multiply;
+        pthread_create(&th[y], NULL, dsp_stream_stack_th, &thread_arguments[y]);
+    }
+    for(y = 0; y < dsp_max_threads(0); y++)
+        pthread_join(th[y], NULL);
+    free(th);
+    dsp_buffer_copy(stream->buf, in->buf, stream->len);
+    dsp_stream_free_buffer(stream);
+    dsp_stream_free(stream);
+}
+
+void dsp_stream_subtract(dsp_stream_p in, dsp_stream_p str)
+{
+    dsp_stream_p stream = dsp_stream_copy(in);
+    dsp_buffer_set(stream->buf, stream->len, 0);
+    stream->parent = str;
+    size_t y;
+    pthread_t *th = (pthread_t*)malloc(sizeof(pthread_t)*dsp_max_threads(0));
+    struct {
+       int cur_th;
+       dsp_stream_p stream;
+       double(*delegate)(double, double);
+    } thread_arguments[dsp_max_threads(0)];
+    for(y = 0; y < dsp_max_threads(0); y++) {
+        thread_arguments[y].cur_th = y;
+        thread_arguments[y].stream = stream;
+        thread_arguments[y].delegate = stack_delegate_subtraction;
+        pthread_create(&th[y], NULL, dsp_stream_stack_th, &thread_arguments[y]);
+    }
+    for(y = 0; y < dsp_max_threads(0); y++)
+        pthread_join(th[y], NULL);
+    free(th);
+    dsp_buffer_copy(stream->buf, in->buf, stream->len);
+    dsp_stream_free_buffer(stream);
+    dsp_stream_free(stream);
+}

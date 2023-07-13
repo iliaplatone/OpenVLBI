@@ -716,19 +716,8 @@ void vlbi_apply_mask(vlbi_context ctx, const char *name, const char *stream, con
         return;
     dsp_stream_p masked = dsp_stream_copy(nodes->getModels()->get(stream));
     dsp_stream_p model = nodes->getModels()->get(mask);
-    int d = 0;
-    if(masked->dims == model->dims)
-    {
-        for (d = 0; d < masked->dims && masked->sizes[d] == model->sizes[d]; )
-            d++;
-        if(masked->dims == d)
-        {
-            dsp_buffer_stretch(model->buf, model->len, 0.0, 1.0);
-            dsp_buffer_mul(masked, model->buf, model->len);
-            vlbi_add_model(ctx, masked, name);
-            return;
-        }
-    }
+    dsp_stream_multiply(masked, model);
+    vlbi_add_model(ctx, masked, name);
 }
 
 void vlbi_apply_convolution_matrix(vlbi_context ctx, const char *name, const char *model, const char *matrix)
@@ -768,13 +757,8 @@ void vlbi_stack_models(vlbi_context ctx, const char *name, const char *model1, c
         return;
     dsp_stream_p stacked = dsp_stream_copy(nodes->getModels()->get(model1));
     dsp_stream_p model = nodes->getModels()->get(model2);
-    if(stacked->dims == model->dims)
-    {
-        dsp_buffer_div1(stacked, 2);
-        dsp_buffer_div1(model, 2);
-        dsp_buffer_sum(stacked, model->buf, fmin(stacked->len, model->len));
-        vlbi_add_model(ctx, stacked, name);
-    }
+    dsp_stream_sum(stacked, model);
+    vlbi_add_model(ctx, stacked, name);
 }
 
 void vlbi_diff_models(vlbi_context ctx, const char *name, const char *model1, const char *model2)
