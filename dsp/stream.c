@@ -796,7 +796,6 @@ static void* dsp_stream_stack_th(void* arg)
 void dsp_stream_sum(dsp_stream_p in, dsp_stream_p str)
 {
     dsp_stream_p stream = dsp_stream_copy(in);
-    dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = str;
     size_t y;
     pthread_t *th = (pthread_t*)malloc(sizeof(pthread_t)*dsp_max_threads(0));
@@ -822,7 +821,6 @@ void dsp_stream_sum(dsp_stream_p in, dsp_stream_p str)
 void dsp_stream_multiply(dsp_stream_p in, dsp_stream_p str)
 {
     dsp_stream_p stream = dsp_stream_copy(in);
-    dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = str;
     size_t y;
     pthread_t *th = (pthread_t*)malloc(sizeof(pthread_t)*dsp_max_threads(0));
@@ -848,7 +846,6 @@ void dsp_stream_multiply(dsp_stream_p in, dsp_stream_p str)
 void dsp_stream_subtract(dsp_stream_p in, dsp_stream_p str)
 {
     dsp_stream_p stream = dsp_stream_copy(in);
-    dsp_buffer_set(stream->buf, stream->len, 0);
     stream->parent = str;
     size_t y;
     pthread_t *th = (pthread_t*)malloc(sizeof(pthread_t)*dsp_max_threads(0));

@@ -757,7 +757,10 @@ void vlbi_stack_models(vlbi_context ctx, const char *name, const char *model1, c
         return;
     dsp_stream_p stacked = dsp_stream_copy(nodes->getModels()->get(model1));
     dsp_stream_p model = nodes->getModels()->get(model2);
+    dsp_t _min = dsp_stats_min(stacked->buf, stacked->len);
+    dsp_t _max = dsp_stats_max(stacked->buf, stacked->len);
     dsp_stream_sum(stacked, model);
+    dsp_buffer_stretch(stacked->buf, stacked->len, _min, _max);
     vlbi_add_model(ctx, stacked, name);
 }
 
