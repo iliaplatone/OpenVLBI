@@ -25,6 +25,7 @@ VLBIBaseline::VLBIBaseline(VLBINode **nodes, int num_nodes)
     setStream(s);
     dsp_stream_alloc_buffer(getStream(), getStream()->len);
     nodes_count = num_nodes;
+    Name = (char*)malloc(DSP_NAME_SIZE*num_nodes+num_nodes);
     if(nodes_count > 1) {
         Nodes = nodes;
         sprintf(Name, "%s", getNode(0)->getName());

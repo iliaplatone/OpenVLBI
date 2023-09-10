@@ -50,7 +50,7 @@ void BaselineCollection::update()
     for(int i = 0; i < getNodes()->count() * (getNodes()->count() - 1) / 2; i++)
     {
         VLBINode** nodes = (VLBINode**)malloc(sizeof(VLBINode*) * getCorrelationOrder());
-        char name[150] = "";
+        char name[DSP_NAME_SIZE * getCorrelationOrder() + getCorrelationOrder()];
         for(int o = 0; o < getCorrelationOrder(); o++) {
             int idx = (i + o * (i / getNodes()->count() + 1)) % getNodes()->count();
             nodes[o] = getNodes()->at(idx);
