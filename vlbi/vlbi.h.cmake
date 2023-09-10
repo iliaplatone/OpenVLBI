@@ -153,6 +153,8 @@ typedef struct timespec timespec_t;
 */
 /**\{*/
 
+#define VLBI_BASELINE_NAME_SIZE DSP_NAME_SIZE*2+1
+
 #ifndef Min
 ///if max() is not present you can use this one
 #define Min(a,b) \

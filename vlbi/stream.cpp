@@ -92,7 +92,7 @@ static double getDelay(double time, NodeCollection *nodes, VLBIBaseline *b, doub
 double vlbi_get_offset(vlbi_context ctx, double J2000Time, const char* node, double Ra, double Dec, double Distance)
 {
     NodeCollection* nodes = (NodeCollection*)ctx;
-    char baseline[150];
+    char baseline[VLBI_BASELINE_NAME_SIZE];
     BaselineCollection *collection = nodes->getBaselines();
     double offset = 0.0;
     collection->setRa(Ra);
