@@ -69,12 +69,24 @@ extern "C" {
  * \defgroup DSP_Defines DSP API defines
 */
 /**\{*/
+///max stars used in alignment
 #define DSP_MAX_STARS 200
+///libDSP base type
 typedef double dsp_t;
+///complex type
 typedef double complex_t[2];
+///max value in file conversion
 #define dsp_t_max 255
+///min value in file conversion
 #define dsp_t_min -dsp_t_max
+///Size of strings
 #define DSP_NAME_SIZE 128
+///Hypercomplex type
+typedef struct {
+    double real;
+    double *imaginary;
+    int dims;
+} hypercomplex_t;
 /**
 * \brief get/set the maximum number of threads allowed
 * \param value if greater than 1, set a maximum number of threads allowed
