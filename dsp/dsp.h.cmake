@@ -82,11 +82,11 @@ typedef double complex_t[2];
 ///Size of strings
 #define DSP_NAME_SIZE 128
 ///Hypercomplex type
-typedef struct {
+typedef struct hypercomplex_t{
+    int dims;
     double real;
     double *imaginary;
-    int dims;
-} hypercomplex_t;
+} hypercomplex;
 /**
 * \brief get/set the maximum number of threads allowed
 * \param value if greater than 1, set a maximum number of threads allowed
