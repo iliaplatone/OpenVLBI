@@ -56,8 +56,10 @@ void BaselineCollection::update()
             nodes[o] = getNodes()->at(idx);
             if(o == 0)
                 sprintf(name, "%s", nodes[o]->getName());
-            else
-                sprintf(name, "%s_%s", name, nodes[o]->getName());
+            else {
+                strcat(name, "*");
+                strcat(name, nodes[o]->getName());
+            }
         }
         VLBIBaseline *b = new VLBIBaseline(nodes, getCorrelationOrder());
         if(!this->contains(name))
