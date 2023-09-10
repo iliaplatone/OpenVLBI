@@ -276,7 +276,6 @@ void vlbi_astro_scan_spectrum(dsp_stream_p stream, int sample_size)
             star.diameter = dev-meandev;
             star.center.location[0] = x;
             dsp_stream_add_star(stream, star);
-            fprintf(stderr, "line %d: intensity=%lf wavelength=%lf\n", stream->stars_count, star.diameter, star.center.location[0]);
         }
     }
     free(star.center.location);
