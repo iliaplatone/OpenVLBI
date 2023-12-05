@@ -57,7 +57,6 @@ cs137.txt
 cs138.txt
 cu60.txt
 cu61.txt
-cu62.txt
 cu64.txt
 cu66.txt
 cu67.txt
@@ -73,7 +72,6 @@ eu155.txt
 eu156.txt
 fe52.txt
 fe53.txt
-fe55.txt
 fe59.txt
 ga66.txt
 ga67.txt
@@ -84,7 +82,6 @@ ga73.txt
 gd153.txt
 gd159.txt
 ge69.txt
-ge71.txt
 ge75.txt
 hf180m.txt
 hf181.txt
@@ -102,7 +99,6 @@ i134.txt
 i135.txt
 in111.txt
 in116m.txt
-index.txt
 ir192.txt
 ir194.txt
 k38.txt
@@ -124,7 +120,6 @@ mn52.txt
 mn54.txt
 mn56.txt
 mo101.txt
-mo93.txt
 na22.txt
 na24.txt
 na25.txt
@@ -156,7 +151,6 @@ pm145.txt
 pm149.txt
 pr140.txt
 pr142.txt
-pt193.txt
 pt199.txt
 pu238.txt
 pu240.txt
@@ -220,7 +214,6 @@ te119m.txt
 te129.txt
 te131.txt
 th228.txt
-th-Ore.txt
 ti44.txt
 ti45.txt
 ti51.txt
@@ -232,7 +225,6 @@ u233.txt
 u237.txt
 u238.txt
 u239.txt
-u-Ore.txt
 v48.txt
 v52.txt
 w185.txt
@@ -241,7 +233,6 @@ xe131m.txt
 xe135.txt
 y88.txt
 y90m.txt
-y91m.txt
 yb167.txt
 yb169.txt
 yb175.txt
