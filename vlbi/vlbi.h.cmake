@@ -489,7 +489,7 @@ inline double vlbi_magnitude_correlator_delegate(double x, double y) {
 * \return the phase cross-correlation
 */
 inline double vlbi_phase_correlator_delegate(double x, double y) {
-    return sinxsin(x, y);
+    return fmod(x+y, M_PI*2);
 }
 
 /**\}*/
