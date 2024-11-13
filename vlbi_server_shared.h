@@ -19,7 +19,7 @@
 #ifndef VLBI_SERVER_SHARED_H
 #define VLBI_SERVER_SHARED_H
 
-#include "vlbi_server.h"
+#include <vlbi.h>
 
 #ifdef  __cplusplus
 extern "C" {

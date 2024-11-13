@@ -22,6 +22,7 @@
 #include <signal.h>
 #include <vlbi.h>
 #include <fitsio2.h>
+#include "vlbi_server.h"
 #include "vlbi_server_shared.h"
 
 using namespace VLBI;
@@ -55,56 +56,56 @@ void SHAREDServer::Parse()
     VLBI::Server::Parse();
 }
 
-static Server *VLBI_Server = (Server*)new SHAREDServer();
+Server *VLBI::server = (Server*)new SHAREDServer();
 
-int VLBI_Server_Init(int argc, char** argv) { return VLBI_Server->Init(argc, argv); }
-void VLBI_Server_Parse() { VLBI_Server->Parse(); }
-void VLBI_Server_addContext(const char *name) { VLBI_Server->addContext(name); }
-void VLBI_Server_delContext(const char *name) { VLBI_Server->delContext(name); }
-void VLBI_Server_setContext(const char *name) { VLBI_Server->setContext(name); }
-vlbi_context VLBI_Server_getContext() { return VLBI_Server->getContext(); }
-char* VLBI_Server_currentContext() { return VLBI_Server->currentContext(); }
-void VLBI_Server_addModel(const char *name, char *format, char *b64) { VLBI_Server->addModel(name, format, b64); }
-dsp_stream_p VLBI_Server_getModel(const char *name) { return VLBI_Server->getModel(name); }
-char* VLBI_Server_getModel(const char *name, char *format) { return VLBI_Server->getModel(name, format); }
-void VLBI_Server_delModel(const char *name) { VLBI_Server->delModel(name); }
-int VLBI_Server_getModels(char** names) { return VLBI_Server->getModels(names); }
-void VLBI_Server_addNodeFromFits(const char *name, char *b64) { VLBI_Server->addNode(name, b64); }
-void VLBI_Server_addNodes(const char *name, char *b64) { VLBI_Server->addNodes(name, b64); }
-void VLBI_Server_addNode(const char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo) { VLBI_Server->addNode(name, locations, buf, len, starttime, geo); }
-void VLBI_Server_delNode(const char *name) { VLBI_Server->delNode(name); }
-void VLBI_Server_CopyNode(const char *name, const char *node) { VLBI_Server->CopyNode(name, node); }
-void VLBI_Server_Plot(const char *name, int flags) { VLBI_Server->Plot(name, flags); }
-void VLBI_Server_Idft(const char *name, const char *magnitude, const char *phase) { VLBI_Server->Idft(name, magnitude, phase); }
-void VLBI_Server_Dft(const char *name, const char *magnitude, const char *phase) { VLBI_Server->Dft(name, magnitude, phase); }
-void VLBI_Server_Mask(const char *name, const char *model, const char *mask) { VLBI_Server->Mask(name, model, mask); }
-void VLBI_Server_Stack(const char *name, const char *model1, const char *model2) { VLBI_Server->Stack(name, model1, model2); }
-void VLBI_Server_Copy(const char *name, const char *model) { VLBI_Server->Copy(name, model); }
-void VLBI_Server_Diff(const char *name, const char *model1, const char *model2) { VLBI_Server->Diff(name, model1, model2); }
-void VLBI_Server_Convolve(const char *name, const char *model1, const char *model2) { VLBI_Server->Convolve(name, model1, model2); }
-void VLBI_Server_LowPass(const char *name, const char *node, double freq) { VLBI_Server->LowPass(name, node, freq); }
-void VLBI_Server_HighPass(const char *name, const char *node, double freq) { VLBI_Server->HighPass(name, node, freq); }
-void VLBI_Server_BandPass(const char *name, const char *node, double lofreq, double hifreq) { VLBI_Server->BandPass(name, node, lofreq, hifreq); }
-void VLBI_Server_BandReject(const char *name, const char *node, double lofreq, double hifreq) { VLBI_Server->BandReject(name, node, lofreq, hifreq); }
-void VLBI_Server_Shift(const char *name) { VLBI_Server->Shift(name); }
-void VLBI_Server_setRa(double value) { VLBI_Server->setRa(value); }
-void VLBI_Server_setDec(double value) { VLBI_Server->setDec(value); }
-void VLBI_Server_setFreq(double value) { VLBI_Server->setFreq(value); }
-void VLBI_Server_setSampleRate(double value) { VLBI_Server->setSampleRate(value); }
-void VLBI_Server_setBps(int value) { VLBI_Server->setBps(value); }
-void VLBI_Server_setWidth(int value) { VLBI_Server->setWidth(value); }
-void VLBI_Server_setHeight(int value) { VLBI_Server->setHeight(value); }
-double VLBI_Server_getRa() { return VLBI_Server->getRa(); }
-double VLBI_Server_getDec() { return VLBI_Server->getDec(); }
-double VLBI_Server_getFreq() { return VLBI_Server->getFreq(); }
-double VLBI_Server_getSampleRate() { return VLBI_Server->getSampleRate(); }
-void VLBI_Server_setCorrelationOrder(int order) { VLBI_Server->setCorrelationOrder(order); }
-double VLBI_Server_getBps() { return VLBI_Server->getBps(); }
-double VLBI_Server_getWidth() { return VLBI_Server->getWidth(); }
-double VLBI_Server_getHeight() { return VLBI_Server->getHeight(); }
-void VLBI_Server_setInput(FILE* in) { VLBI_Server->setInput(in); }
-FILE* VLBI_Server_getInput() { return VLBI_Server->getInput(); }
-void VLBI_Server_setOutput(FILE* out) { VLBI_Server->setOutput(out); }
-FILE* VLBI_Server_getOutput() { return VLBI_Server->getOutput(); }
-void VLBI_Server_setDelegate(vlbi_func2_t func) { VLBI_Server->setDelegate(func); }
-vlbi_func2_t VLBI_Server_getDelegate() { return VLBI_Server->getDelegate(); }
+int VLBI_Server_Init(int argc, char** argv) { return VLBI::server->Init(argc, argv); }
+void VLBI_Server_Parse() { VLBI::server->Parse(); }
+void VLBI_Server_addContext(const char *name) { VLBI::server->addContext(name); }
+void VLBI_Server_delContext(const char *name) { VLBI::server->delContext(name); }
+void VLBI_Server_setContext(const char *name) { VLBI::server->setContext(name); }
+vlbi_context VLBI_Server_getContext() { return VLBI::server->getContext(); }
+char* VLBI_Server_currentContext() { return VLBI::server->currentContext(); }
+void VLBI_Server_addModel(const char *name, char *format, char *b64) { VLBI::server->addModel(name, format, b64); }
+dsp_stream_p VLBI_Server_getModel(const char *name) { return VLBI::server->getModel(name); }
+char* VLBI_Server_getModel(const char *name, char *format) { return VLBI::server->getModel(name, format); }
+void VLBI_Server_delModel(const char *name) { VLBI::server->delModel(name); }
+int VLBI_Server_getModels(char** names) { return VLBI::server->getModels(names); }
+void VLBI_Server_addNodeFromFits(const char *name, char *b64) { VLBI::server->addNode(name, b64); }
+void VLBI_Server_addNodes(const char *name, char *b64) { VLBI::server->addNodes(name, b64); }
+void VLBI_Server_addNode(const char *name, dsp_location *locations, void *buf, int len, timespec starttime, bool geo) { VLBI::server->addNode(name, locations, buf, len, starttime, geo); }
+void VLBI_Server_delNode(const char *name) { VLBI::server->delNode(name); }
+void VLBI_Server_CopyNode(const char *name, const char *node) { VLBI::server->CopyNode(name, node); }
+void VLBI_Server_Plot(const char *name, int flags) { VLBI::server->Plot(name, flags); }
+void VLBI_Server_Idft(const char *name, const char *magnitude, const char *phase) { VLBI::server->Idft(name, magnitude, phase); }
+void VLBI_Server_Dft(const char *name, const char *magnitude, const char *phase) { VLBI::server->Dft(name, magnitude, phase); }
+void VLBI_Server_Mask(const char *name, const char *model, const char *mask) { VLBI::server->Mask(name, model, mask); }
+void VLBI_Server_Stack(const char *name, const char *model1, const char *model2) { VLBI::server->Stack(name, model1, model2); }
+void VLBI_Server_Copy(const char *name, const char *model) { VLBI::server->Copy(name, model); }
+void VLBI_Server_Diff(const char *name, const char *model1, const char *model2) { VLBI::server->Diff(name, model1, model2); }
+void VLBI_Server_Convolve(const char *name, const char *model1, const char *model2) { VLBI::server->Convolve(name, model1, model2); }
+void VLBI_Server_LowPass(const char *name, const char *node, double freq) { VLBI::server->LowPass(name, node, freq); }
+void VLBI_Server_HighPass(const char *name, const char *node, double freq) { VLBI::server->HighPass(name, node, freq); }
+void VLBI_Server_BandPass(const char *name, const char *node, double lofreq, double hifreq) { VLBI::server->BandPass(name, node, lofreq, hifreq); }
+void VLBI_Server_BandReject(const char *name, const char *node, double lofreq, double hifreq) { VLBI::server->BandReject(name, node, lofreq, hifreq); }
+void VLBI_Server_Shift(const char *name) { VLBI::server->Shift(name); }
+void VLBI_Server_setRa(double value) { VLBI::server->setRa(value); }
+void VLBI_Server_setDec(double value) { VLBI::server->setDec(value); }
+void VLBI_Server_setFreq(double value) { VLBI::server->setFreq(value); }
+void VLBI_Server_setSampleRate(double value) { VLBI::server->setSampleRate(value); }
+void VLBI_Server_setBps(int value) { VLBI::server->setBps(value); }
+void VLBI_Server_setWidth(int value) { VLBI::server->setWidth(value); }
+void VLBI_Server_setHeight(int value) { VLBI::server->setHeight(value); }
+double VLBI_Server_getRa() { return VLBI::server->getRa(); }
+double VLBI_Server_getDec() { return VLBI::server->getDec(); }
+double VLBI_Server_getFreq() { return VLBI::server->getFreq(); }
+double VLBI_Server_getSampleRate() { return VLBI::server->getSampleRate(); }
+void VLBI_Server_setCorrelationOrder(int order) { VLBI::server->setCorrelationOrder(order); }
+double VLBI_Server_getBps() { return VLBI::server->getBps(); }
+double VLBI_Server_getWidth() { return VLBI::server->getWidth(); }
+double VLBI_Server_getHeight() { return VLBI::server->getHeight(); }
+void VLBI_Server_setInput(FILE* in) { VLBI::server->setInput(in); }
+FILE* VLBI_Server_getInput() { return VLBI::server->getInput(); }
+void VLBI_Server_setOutput(FILE* out) { VLBI::server->setOutput(out); }
+FILE* VLBI_Server_getOutput() { return VLBI::server->getOutput(); }
+void VLBI_Server_setDelegate(vlbi_func2_t func) { VLBI::server->setDelegate(func); }
+vlbi_func2_t VLBI_Server_getDelegate() { return VLBI::server->getDelegate(); }
