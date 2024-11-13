@@ -128,7 +128,7 @@ install(TARGETS vlbi_server_dummy RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bi
 endif(WITH_DUMMY_SERVER)
 
 if(WITH_SHARED_SERVER)
-add_library(vlbi_server SHARED ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_dummy.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_shared.cpp)
+add_library(vlbi_server SHARED ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_shared.cpp)
 target_link_libraries(vlbi_server openvlbi ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
 set_target_properties(vlbi_server PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
 install(TARGETS vlbi_server LIBRARY DESTINATION ${LIB_INSTALL_DIR})
