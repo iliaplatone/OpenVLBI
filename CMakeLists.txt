@@ -133,7 +133,7 @@ endif(WITH_DUMMY_SERVER)
 
 if(WITH_SHARED_SERVER)
 add_library(vlbi_server SHARED ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_shared.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/collection.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/base64.c)
-target_link_libraries(vlbi_server ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY} openvlbi opendsp)
+target_link_libraries(vlbi_server openvlbi opendsp ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
 set_target_properties(vlbi_server PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
 install(TARGETS vlbi_server LIBRARY DESTINATION ${LIB_INSTALL_DIR})
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
