@@ -49,17 +49,6 @@ typedef enum
     plot_flags_custom_delegate = 8,
 } vlbi_plot_flags;
 
-
-/**
-* \brief Create the instance of the OpenVLBI server
-*/
-DLL_EXPORT void VLBI_Server_Create(void);
-
-/**
-* \brief Destroy the previously created OpenVLBI server instance
-*/
-DLL_EXPORT void VLBI_Server_Destroy(void);
-
 /**
 * \brief Called immediately after main(), can be overriden to add your custom arguments
 * \param argc Non-negative value representing the number of arguments passed to the program from the environment in which the program is run.

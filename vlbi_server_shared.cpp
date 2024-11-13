@@ -1,8 +1,6 @@
 #include "vlbi_server_dummy.h"
 #include "vlbi_server_shared.h"
 
-void VLBI_Server_Create() { DUMMYServer *instance = new DUMMYServer(); }
-void VLBI_Server_Destroy() { VLBI::server->~Server(); }
 void VLBI_Server_Parse() { VLBI::server->Parse(); }
 void VLBI_Server_addContext(const char *name) { VLBI::server->addContext(name); }
 void VLBI_Server_delContext(const char *name) { VLBI::server->delContext(name); }
