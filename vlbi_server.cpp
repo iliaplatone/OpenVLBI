@@ -34,8 +34,8 @@ static int is_running = 1;
 static InstanceCollection *contexts;
 VLBI::Server::Server()
 {
-    input = stdin;
-    output = stdout;
+    setInput(stdin);
+    setOutput(stdout);
     Ra = 0;
     Dec = 0;
     Freq = 1420000000;
