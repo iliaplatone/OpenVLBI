@@ -39,7 +39,6 @@
 #include "base64.h"
 #include "base64_luts.h"
 #include <stdio.h>
-#include <dsp.h>
 
 /* convert inlen raw bytes at in to base64 string (NUL-terminated) at out. 
  * out size should be at least 4*inlen/3 + 4.

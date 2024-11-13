@@ -32,10 +32,14 @@ class BaselineCollection : public VLBICollection
         void add(VLBIBaseline *element);
         void removeAt(int index);
         VLBIBaseline *get(const char* name);
+        VLBIBaseline *get(const char** names);
+        VLBIBaseline *get(VLBINode **nodes);
         void remove(const char* element);
         void clear();
         VLBIBaseline * at(int index);
         bool contains(const char *element);
+        bool contains(const char** elements);
+        bool contains(VLBINode** elements);
         int indexOf(VLBIBaseline *element);
         void setTarget(double *target);
         void setRa(double ra);

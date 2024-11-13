@@ -1,19 +1,19 @@
 /*  OpenVLBI - Open Source Very Long Baseline Interferometry
-*   Copyright © 2017-2023  Ilia Platone
+*   Copyright © 2017-2022  Ilia Platone
 *
-*   This program is free software; you can redistribute it and/or modify
-*   it under the terms of the GNU General Public License as published by
-*   the Free Software Foundation; either version 2 of the License, or
-*   (at your option) any later version.
+*   This program is free software; you can redistribute it and/or
+*   modify it under the terms of the GNU Lesser General Public
+*   License as published by the Free Software Foundation; either
+*   version 3 of the License, or (at your option) any later version.
 *
 *   This program is distributed in the hope that it will be useful,
 *   but WITHOUT ANY WARRANTY; without even the implied warranty of
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*   GNU General Public License for more details.
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+*   Lesser General Public License for more details.
 *
-*   You should have received a copy of the GNU General Public License along
-*   with this program; if not, write to the Free Software Foundation, Inc.,
-*   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*   You should have received a copy of the GNU Lesser General Public License
+*   along with this program; if not, write to the Free Software Foundation,
+*   Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
 #include <cstdio>
@@ -50,16 +50,14 @@ void BaselineCollection::update()
     for(int i = 0; i < getNodes()->count() * (getNodes()->count() - 1) / 2; i++)
     {
         VLBINode** nodes = (VLBINode**)malloc(sizeof(VLBINode*) * getCorrelationOrder());
-        char name[DSP_NAME_SIZE * getCorrelationOrder() + getCorrelationOrder()];
+        char name[150] = "";
         for(int o = 0; o < getCorrelationOrder(); o++) {
             int idx = (i + o * (i / getNodes()->count() + 1)) % getNodes()->count();
             nodes[o] = getNodes()->at(idx);
             if(o == 0)
                 sprintf(name, "%s", nodes[o]->getName());
-            else {
-                strcat(name, "*");
-                strcat(name, nodes[o]->getName());
-            }
+            else
+                sprintf(name, "%s_%s", name, nodes[o]->getName());
         }
         VLBIBaseline *b = new VLBIBaseline(nodes, getCorrelationOrder());
         if(!this->contains(name))
@@ -106,6 +104,54 @@ VLBIBaseline * BaselineCollection::at(int index)
 bool BaselineCollection::contains(const char* element)
 {
     return VLBICollection::contains(element);
+}
+
+bool BaselineCollection::contains(const char** elements)
+{
+    return get(elements) != nullptr;
+}
+
+bool BaselineCollection::contains(VLBINode** elements)
+{
+    return get(elements) != nullptr;
+}
+
+VLBIBaseline *BaselineCollection::get(const char** elements)
+{
+    VLBIBaseline *b = nullptr;
+    int x = 0;
+    for(x = 0; x < count(); x++) {
+        b = at(x);
+        int match = 0;
+        for(int y = 0; y < getCorrelationOrder(); y++) {
+            for(int z = 0; z < getCorrelationOrder(); z++) {
+                if(!strcmp(b->getNode(y)->getName(), elements[z])) match ++;
+            }
+        }
+        if(match < getCorrelationOrder()) continue;
+        break;
+    }
+    if(x == count() || b == nullptr) return nullptr;
+    return b;
+}
+
+VLBIBaseline *BaselineCollection::get(VLBINode **nodes)
+{
+    VLBIBaseline *b = nullptr;
+    int x = 0;
+    for(x = 0; x < count(); x++) {
+        b = at(x);
+        int match = 0;
+        for(int y = 0; y < getCorrelationOrder(); y++) {
+            for(int z = 0; z < getCorrelationOrder(); z++) {
+                if(!strcmp(b->getNode(y)->getName(), nodes[z]->getName())) match ++;
+            }
+        }
+        if(match < getCorrelationOrder()) continue;
+        break;
+    }
+    if(x == count() || b == nullptr) return nullptr;
+    return b;
 }
 
 void BaselineCollection::setTarget(double *target)

@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202101-01
+      image: ubuntu-2004:current
     working_directory: ~/OpenVLBI
     steps:
       - checkout
