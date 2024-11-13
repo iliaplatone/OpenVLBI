@@ -71,6 +71,11 @@ static double coverage_delegate(double x, double y)
     return 1.0;
 }
 
+static double default_delegate(double x, double y)
+{
+    return x*y;
+}
+
 void VLBI::Server::addNode(const char *name, char *b64)
 {
     char filename[128];
@@ -154,7 +159,7 @@ void VLBI::Server::Plot(const char *name, int flags)
 {
     double coords[3] = { Ra, Dec, DBL_MAX };
     if((flags & plot_flags_custom_delegate) == 0) {
-        setDelegate((flags & plot_flags_uv_coverage) != 0 ? coverage_delegate : vlbi_default_delegate);
+        setDelegate((flags & plot_flags_uv_coverage) != 0 ? coverage_delegate : default_delegate);
     }
     vlbi_get_uv_plot(getContext(), name, w, h, coords, Freq, SampleRate, (flags & plot_flags_synced) != 0,
                      (flags & plot_flags_moving_baseline) != 0,

@@ -16,10 +16,6 @@
 *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <signal.h>
 #include <vlbi.h>
 #include <fitsio2.h>
 #include "vlbi_server.h"
