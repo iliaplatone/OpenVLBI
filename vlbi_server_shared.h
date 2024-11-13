@@ -33,8 +33,6 @@ extern "C" {
 #endif
 #endif
 
-typedef void* vlbi_server_instance;
-
 /**
 * \brief Flags that characterize a plot
 * \sa Server::Plot()
