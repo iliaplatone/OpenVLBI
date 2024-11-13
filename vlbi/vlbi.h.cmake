@@ -347,6 +347,10 @@ typedef struct timespec timespec_t;
 ///Electron charge
 #define ELECTRON 1.602176634E-19
 #endif
+#ifndef PROTON
+///Proton mass
+#define PROTON 1.67262192E-24
+#endif
 #ifndef CANDLE
 ///Standard candle (W)
 #define CANDLE 0.683
