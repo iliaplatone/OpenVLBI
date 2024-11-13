@@ -52,7 +52,7 @@ VLBI::Server::Server()
     if(nullptr == tmpdir)
         tmpdir = (char*)"/tmp";
     context = (char*)malloc(9);
-    strcpy(context, "OpenVLBI\0");
+    memcpy(context, "OpenVLBI\0", 9);
     contexts = new InstanceCollection();
 }
 
