@@ -34,8 +34,8 @@ static int is_running = 1;
 static InstanceCollection *contexts;
 VLBI::Server::Server()
 {
-    input = stdin;
-    output = stdout;
+    setInput(fdopen(0, "rb"));
+    setOutput(fdopen(1, "w+"));
     Ra = 0;
     Dec = 0;
     Freq = 1420000000;
@@ -52,7 +52,7 @@ VLBI::Server::Server()
     if(nullptr == tmpdir)
         tmpdir = (char*)"/tmp";
     context = (char*)malloc(9);
-    strcpy(context, "OpenVLBI\0");
+    memcpy(context, "OpenVLBI\0", 9);
     contexts = new InstanceCollection();
 }
 
@@ -725,8 +725,8 @@ int main(int argc, char *argv[])
 #endif
     int opt;
     dsp_set_app_name(argv[0]);
-    dsp_set_stdout(stderr);
-    dsp_set_stderr(stderr);
+    dsp_set_stdout(fdopen(2, "w+"));
+    dsp_set_stderr(fdopen(2, "w+"));
     while ((opt = getopt(argc, argv, "t:f:o:vh")) != -1)
     {
         switch (opt)
