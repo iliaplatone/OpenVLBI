@@ -54,7 +54,7 @@ typedef enum
 * \param argc Non-negative value representing the number of arguments passed to the program from the environment in which the program is run.
 * \param argv Pointer to the first element of an array of argc + 1 pointers, of which the last one is null and the previous ones, if any, point to strings that represent the arguments passed to the program from the host environment.
 */
-DLL_EXPORT int VLBI_Server_Init();
+DLL_EXPORT void VLBI_Server_Init();
 
 /**
 * \brief main() creates a loop that calls Parse(), you can use this one, which uses the standard syntax or override it with your own implementation
