@@ -24,7 +24,6 @@
 #include <unistd.h>
 #include <signal.h>
 #include <vlbi/base64.h>
-#include <vlbi/instancecollection.h>
 #ifdef _WIN32
 #include "getline.c"
 #endif
