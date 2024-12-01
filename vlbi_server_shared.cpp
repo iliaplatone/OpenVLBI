@@ -54,7 +54,7 @@ void SHAREDServer::Parse()
 
 Server *VLBI::server;
 
-int VLBI_Server_Init(int argc, char** argv) { VLBI::server = new SHAREDServer(); }
+void VLBI_Server_Init() { VLBI::server = new SHAREDServer(); }
 void VLBI_Server_Parse() { VLBI::server->Parse(); }
 void VLBI_Server_addContext(const char *name) { VLBI::server->addContext(name); }
 void VLBI_Server_delContext(const char *name) { VLBI::server->delContext(name); }
