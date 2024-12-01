@@ -737,13 +737,13 @@ int main(int argc, char *argv[])
         switch (opt)
         {
             case 't':
-                vlbi_max_threads((unsigned long)atol(optarg));
+                //vlbi_max_threads((unsigned long)atol(optarg));
                 break;
             case 'f':
-                VLBI::server->setInput(fopen (optarg, "rb+"));
+                //VLBI::server->setInput(fopen (optarg, "rb+"));
                 break;
             case 'o':
-                VLBI::server->setOutput(fopen (optarg, "a"));
+                //VLBI::server->setOutput(fopen (optarg, "a"));
                 break;
             case 'v':
                 dsp_set_debug_level(dsp_get_debug_level()+1);
