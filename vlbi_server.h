@@ -484,6 +484,7 @@ class Server
         inline vlbi_func2_t getDelegate() { return delegate; }
 
     private:
+        InstanceCollection *contexts;
         vlbi_func2_t delegate;
         double Ra;
         double Dec;
