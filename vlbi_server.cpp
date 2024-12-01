@@ -31,7 +31,6 @@
 
 static int is_running = 1;
 
-static InstanceCollection *contexts;
 VLBI::Server::Server()
 {
     setInput(fdopen(0, "rb"));
