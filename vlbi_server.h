@@ -21,6 +21,7 @@
 
 #include <vlbi.h>
 #include <dsp.h>
+#include <vlbi/instancecollection.h>
 
 #ifdef _WIN32
 #define restrict __restrict
