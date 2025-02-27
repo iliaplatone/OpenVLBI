@@ -77,16 +77,9 @@ static vector<DMatch> feature_filter(Mat stream, Mat matrix)
     return good_matches;
 }
 
-double vlbi_compare_models(vlbi_context ctx, const char *model1, const char *model2)
+double vlbi_stream_compare(dsp_stream_p stream1, dsp_stream_p stream2)
 {
     pfunc;
-    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
-    if(!vlbi_has_model(ctx, model1))
-        return 0;
-    if(!vlbi_has_model(ctx, model2))
-        return 0;
-    dsp_stream_p stream1 = nodes->getModels()->get(model1);
-    dsp_stream_p stream2 = nodes->getModels()->get(model2);
     unsigned int i;
     Mat cv_stream1 = feature_extract(stream1);
     if (cv_stream1.empty()) {
@@ -109,4 +102,40 @@ double vlbi_compare_models(vlbi_context ctx, const char *model1, const char *mod
     }
     score /= matches.size();
     return score;
+}
+
+double vlbi_compare_models(vlbi_context ctx, const char *model1, const char *model2)
+{
+    pfunc;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(!vlbi_has_model(ctx, model1))
+        return 0;
+    if(!vlbi_has_model(ctx, model2))
+        return 0;
+    dsp_stream_p stream1 = nodes->getModels()->get(model1);
+    dsp_stream_p stream2 = nodes->getModels()->get(model2);
+    return vlbi_stream_compare(stream1, stream2);
+}
+
+void vlbi_phase_generator(vlbi_context ctx, const char *name, const char *model1, const char *model2)
+{
+    pfunc;
+    int niterations = 10;
+    int i;
+    double best_score = 0;
+    NodeCollection *nodes = (ctx != nullptr) ? (NodeCollection*)ctx : vlbi_nodes;
+    if(!vlbi_has_model(ctx, model1))
+        return;
+    if(!vlbi_has_model(ctx, model2))
+        return;
+    dsp_stream_p stream1 = nodes->getModels()->get(model1);
+    dsp_stream_p stream2 = nodes->getModels()->get(model2);
+    dsp_stream_p stream = dsp_stream_copy(stream1);
+    for(i = 0; i < niterations; i ++) {
+        double score = vlbi_stream_compare(stream1, stream2);
+        if(score == 0) i --;
+        else if(score > best_score) best_score = score;
+    }
+    if(!vlbi_has_model(ctx, name))
+        vlbi_add_model(ctx, stream, name);
 }
