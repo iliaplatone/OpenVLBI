@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8...3.8)
 
 PROJECT(OpenVLBI C CXX)
+
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 
 include(GNUInstallDirs)
@@ -11,13 +12,14 @@ find_package(PNG REQUIRED)
 find_package(JPEG REQUIRED)
 find_package(FFTW3 REQUIRED)
 find_package(Threads REQUIRED)
-find_package( OpenCV REQUIRED )
+find_package(OpenCV REQUIRED)
 option(CMAKE_BUILD_RPATH_USE_ORIGIN "rpath issue fix" ON)
 option(WITH_VLBI_SERVER "Add OpenVLBI servers" ON)
 option(WITH_INDI_SERVER "Add INDI server for OpenVLBI" ON)
 option(WITH_SHARED_SERVER "Add shared server library for OpenVLBI" ON)
 option(WITH_DUMMY_SERVER "Add dummy server for OpenVLBI" ON)
 option(WITH_JSON_SERVER "Add JSON server for OpenVLBI" ON)
+option(WITH_CGI_SERVER "Add CGI server for OpenVLBI" ON)
 
 set (CMAKE_CXX_STANDARD 11)
 set (CMAKE_C_STANDARD 11)
@@ -37,7 +39,8 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dsp/dsp.h.cmake ${CMAKE_CURRENT_BINAR
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/vlbi/vlbi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
 
-include_directories( ${CFITSIO_INCLUDE_DIR})
+include_directories( ${CMAKE_INCLUDE_PATH} )
+include_directories( ${CFITSIO_INCLUDE_DIR} )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 include_directories( ${CMAKE_CURRENT_BINARY_DIR})
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/vlbi)
@@ -113,6 +116,19 @@ target_link_libraries(vlbi_server_json openvlbi ${CFITSIO_LIBRARIES} ${M_LIB} ${
 target_link_libraries(vlbi_server_json openvlbi_server)
 install(TARGETS vlbi_server_json RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(WITH_JSON_SERVER)
+
+if(WITH_CGI_SERVER)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+find_package(Qt5 COMPONENTS Core Network Sql Widgets REQUIRED)
+find_package(Threads REQUIRED)
+add_executable(vlbi_server_cgi ${CMAKE_CURRENT_SOURCE_DIR}/threads.h ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_cgi.cpp ${CMAKE_CURRENT_SOURCE_DIR}/QtCGI.cpp)
+target_link_libraries(vlbi_server_cgi openvlbi ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(vlbi_server_cgi openvlbi_server)
+target_link_libraries(vlbi_server_cgi Qt5::Core Qt5::Network Qt5::Sql Qt5::Widgets)
+install(TARGETS vlbi_server_cgi RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+endif(WITH_CGI_SERVER)
 
 if(WITH_INDI_SERVER)
 find_package(INDI 1.8.8)
