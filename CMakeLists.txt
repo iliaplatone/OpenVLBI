@@ -12,7 +12,6 @@ find_package(PNG REQUIRED)
 find_package(JPEG REQUIRED)
 find_package(FFTW3 REQUIRED)
 find_package(Threads REQUIRED)
-find_package(OpenCV REQUIRED)
 option(CMAKE_BUILD_RPATH_USE_ORIGIN "rpath issue fix" ON)
 option(WITH_VLBI_SERVER "Add OpenVLBI servers" ON)
 option(WITH_INDI_SERVER "Add INDI server for OpenVLBI" ON)
@@ -41,7 +40,6 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY
 
 include_directories( ${CMAKE_INCLUDE_PATH} )
 include_directories( ${CFITSIO_INCLUDE_DIR} )
-include_directories( ${OpenCV_INCLUDE_DIRS} )
 include_directories( ${CMAKE_CURRENT_BINARY_DIR})
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/vlbi)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/dsp)
@@ -56,7 +54,6 @@ set(vlbi_CXX_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/baselinecollection.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/modelcollection.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/node.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/feature.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/baseline.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/stream.cpp
     )
@@ -89,7 +86,7 @@ set_target_properties(opendsp PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSIO
 target_link_libraries(opendsp ${FFTW3_LIBRARIES} ${M_LIB} ${CFITSIO_LIBRARIES} ${JPEG_LIBRARIES} ${PNG_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
 add_library(openvlbi SHARED ${vlbi_C_SRCS} ${vlbi_CXX_SRCS})
 set_target_properties(openvlbi PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
-target_link_libraries(openvlbi opendsp ${M_LIB} ${OpenCV_LIBS} ${CFITSIO_LIBRARIES} ${JPEG_LIBRARIES} ${PNG_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(openvlbi opendsp ${M_LIB} ${CFITSIO_LIBRARIES} ${JPEG_LIBRARIES} ${PNG_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dsp.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
