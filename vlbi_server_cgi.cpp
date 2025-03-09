@@ -62,7 +62,7 @@ int CGIServer::Init(int argc, char** argv)
     });
     readThread->start();
     uiThread->start();
-    return VLBI::JSONServer::Init(argc, argv);
+    return JSONServer::Init(argc, argv);
 }
 
 void CGIServer::Parse()
@@ -71,7 +71,7 @@ void CGIServer::Parse()
         QString request = QtCGI::Instance()->GetParam("command");
         fwrite(request.toUtf8(), request.length(), 1, getInput());
     }
-    VLBI::JSONServer::Parse();
+    JSONServer::Parse();
 }
 
 Server *VLBI::server = (Server*)new CGIServer();
