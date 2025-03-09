@@ -19,7 +19,7 @@
 #ifndef VLBI_SERVER_CGI_H
 #define VLBI_SERVER_CGI_H
 
-#include "vlbi_server.h"
+#include "vlbi_server_json.h"
 #include "QtCGI.h"
 #include <QObject>
 #include <QWidget>
@@ -28,7 +28,7 @@
 
 using namespace VLBI;
 
-class CGIServer : public VLBI::Server
+class CGIServer : public VLBI::JSONServer
 {
     public:
         CGIServer();
