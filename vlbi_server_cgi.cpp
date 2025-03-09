@@ -74,4 +74,4 @@ void CGIServer::Parse()
     JSONServer::Parse();
 }
 
-Server *VLBI::server = (Server*)new CGIServer();
+VLBI::server = (Server*)new CGIServer();
