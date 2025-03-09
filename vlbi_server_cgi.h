@@ -28,7 +28,7 @@
 
 using namespace VLBI;
 
-class CGIServer : public VLBI::JSONServer
+class CGIServer : public JSONServer
 {
     public:
         CGIServer();
