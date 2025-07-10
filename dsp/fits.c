@@ -134,7 +134,7 @@ int dsp_fits_get_value(fitsfile *fptr, char* column, long rown, void **retval)
     if(column == NULL)
         goto err_return;
     fits_get_colname(fptr, 0, column, name, &n, &status);
-    if(status)
+    if(status != 0)
         goto err_return;
     fits_get_coltype(fptr, n, &typecode, &repeat, &width, &status);
     void *value = malloc(dsp_fits_get_element_size(typecode)*(size_t)(repeat*width));
@@ -153,7 +153,7 @@ int dsp_fits_check_column(fitsfile *fptr, char* column, char **expected, long ro
     if(column == NULL || expected == NULL)
         goto err_return;
     fits_get_colname(fptr, 0, column, name, &n, &status);
-    if(status)
+    if(status != 0)
         goto err_return;
     fits_get_coltype(fptr, n, &typecode, &repeat, &width, &status);
     if(typecode != TSTRING)
@@ -185,7 +185,7 @@ int dsp_fits_check_key(fitsfile *fptr, char* keyname, char **expected)
     if(keyname == NULL || expected == NULL)
         goto err_return;
     fits_read_key_str(fptr, keyname, value, NULL, &status);
-    if(status)
+    if(status != 0)
         goto err_return;
     for(y = 0; strcmp(expected[y], ""); y++) {
         if(!strcmp(value, expected[y])) {
@@ -314,7 +314,7 @@ dsp_fits_row* dsp_fits_read_sdfits(char *filename, long *num_rows, long *maxes, 
     }
 
     ffgkey(fptr, FITS_KEYWORD_EXTEND.name, value, comment, &status);
-    if(status || strcmp(value, FITS_KEYWORD_EXTEND.value))
+    if(status != 0 || strncmp(value, FITS_KEYWORD_EXTEND.value, strlen(value)))
     {
         goto fail;
     }
@@ -350,36 +350,36 @@ dsp_fits_row* dsp_fits_read_sdfits(char *filename, long *num_rows, long *maxes, 
     status = 0;
 
     fits_movabs_hdu(fptr, 1, &sdfits_hdu, &status);
-    if(status || sdfits_hdu != BINARY_TBL)
+    if(status != 0 || sdfits_hdu != BINARY_TBL)
     {
         goto fail;
     }
 
     fits_read_key_str(fptr, "EXTNAME", value, comment, &status);
-    if(status || strcmp(value, FITS_TABLE_SDFITS))
+    if(status != 0 || strncmp(value, FITS_TABLE_SDFITS, strlen(value)))
     {
         goto fail;
     }
 
     fits_read_key_str(fptr, EXTFITS_KEYWORD_NMATRIX.name, value, NULL, &status);
-    if(status || strcmp(value, EXTFITS_KEYWORD_NMATRIX.value)) {
+    if(status != 0 || strncmp(value, EXTFITS_KEYWORD_NMATRIX.value, strlen(value))) {
         goto fail;
     }
 
     fits_get_num_rows(fptr, &nrows, &status);
-    if(status)
+    if(status != 0)
     {
         goto fail;
     }
 
     fits_get_num_cols(fptr, &ncols, &status);
-    if(status)
+    if(status != 0)
     {
         goto fail;
     }
 
     fits_read_key_lng(fptr, EXTFITS_KEYWORD_NMATRIX.name, &nmatrix, NULL, &status);
-    if(status || nmatrix < 1)
+    if(status != 0 || nmatrix < 1)
     {
         goto fail;
     }
@@ -437,7 +437,7 @@ dsp_fits_row* dsp_fits_read_sdfits(char *filename, long *num_rows, long *maxes, 
                 int typecode;
                 long repeat, width;
                 fits_get_eqcoltype(fptr, n, &typecode, &repeat, &width, &status);
-                if(status) continue;
+                if(status != 0) continue;
                 if(dsp_fits_check_column(fptr, columns[k].name, columns[k].expected, r))
                     continue;
                 void *val = &columns[k].value;
@@ -450,13 +450,13 @@ dsp_fits_row* dsp_fits_read_sdfits(char *filename, long *num_rows, long *maxes, 
     *num_rows = nrows;
     status = 0;
     fits_close_file(fptr, &status);
-    if(status)
+    if(status != 0)
         goto fail;
     return rows;
 fail:
     free(rows);
     free(columns);
-    if(status)
+    if(status != 0)
     {
         fits_get_errstatus(status, error_status);
         perr("FITS Error: %s\n", error_status);
