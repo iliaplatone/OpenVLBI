@@ -314,7 +314,8 @@ dsp_fits_row* dsp_fits_read_sdfits(char *filename, long *num_rows, long *maxes, 
     }
 
     ffgkey(fptr, FITS_KEYWORD_EXTEND.name, value, comment, &status);
-    if(status || strcmp(value, (char*)FITS_KEYWORD_EXTEND.value))
+    char *extend_str = FITS_KEYWORD_EXTEND.value;
+    if(status || strcmp(value, extend_str))
     {
         goto fail;
     }
@@ -362,7 +363,8 @@ dsp_fits_row* dsp_fits_read_sdfits(char *filename, long *num_rows, long *maxes, 
     }
 
     fits_read_key_str(fptr, EXTFITS_KEYWORD_NMATRIX.name, value, NULL, &status);
-    if(status || strcmp(value, (char*)EXTFITS_KEYWORD_NMATRIX.value)) {
+    char *nmatrix_str = EXTFITS_KEYWORD_NMATRIX.value;
+    if(status || strcmp(value, nmatrix_str)) {
         goto fail;
     }
 
