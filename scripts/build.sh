@@ -26,4 +26,6 @@ if [ "$os" == "Debian" ] || [ "$os" == "Ubuntu" ]; then
   packages/libopenvlbi-dev_${version}_*.deb \
   packages/openvlbi-data_${version}_*.deb \
   packages/openvlbi-bin_${version}_*.deb
+else
+  rpmbuild -bi OpenVLBI.spec
 fi

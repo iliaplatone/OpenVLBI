@@ -1,0 +1,7 @@
+FROM fedora:latest
+
+WORKDIR /tmp
+
+RUN yum update && yum -y upgrade && yum install -y \
+    sudo git \
+    build-essential zlib1g-devel \
