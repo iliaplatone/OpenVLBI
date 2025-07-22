@@ -26,7 +26,7 @@ if [ "$os" == "Debian" ] || [ "$os" == "Ubuntu" ]; then
   packages/libopenvlbi-dev_${version}_*.deb \
   packages/openvlbi-data_${version}_*.deb \
   packages/openvlbi-bin_${version}_*.deb
-else if [ "$os" == "Fedora" ] then
+else if [ "$os" == "Fedora" ]; then
  version=$(head -n 1 debian/changelog | tr -d [a-z:\(:\):=:\;:\ ] | tr -d '\n')
  dnf install doxygen libindi-devel libnova-devel libfftw3-devel libcfitsio-devel cdbs cmake dpkg-devel debhelper libpng-devel libjpeg-devel build-essential fakeroot devscripts jq
  rpmbuild -bi OpenVLBI.spec
