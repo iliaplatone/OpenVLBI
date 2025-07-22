@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8...3.8)
 
 PROJECT(OpenVLBI C CXX)
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
@@ -11,9 +11,11 @@ find_package(PNG REQUIRED)
 find_package(JPEG REQUIRED)
 find_package(FFTW3 REQUIRED)
 find_package(Threads REQUIRED)
+find_package( OpenCV REQUIRED )
 option(CMAKE_BUILD_RPATH_USE_ORIGIN "rpath issue fix" ON)
 option(WITH_VLBI_SERVER "Add OpenVLBI servers" ON)
 option(WITH_INDI_SERVER "Add INDI server for OpenVLBI" ON)
+option(WITH_SHARED_SERVER "Add shared server library for OpenVLBI" ON)
 option(WITH_DUMMY_SERVER "Add dummy server for OpenVLBI" ON)
 option(WITH_JSON_SERVER "Add JSON server for OpenVLBI" ON)
 
@@ -36,6 +38,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/vlbi/vlbi.h.cmake ${CMAKE_CURRENT_BIN
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
 
 include_directories( ${CFITSIO_INCLUDE_DIR})
+include_directories( ${OpenCV_INCLUDE_DIRS} )
 include_directories( ${CMAKE_CURRENT_BINARY_DIR})
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/vlbi)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/dsp)
@@ -50,6 +53,7 @@ set(vlbi_CXX_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/baselinecollection.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/modelcollection.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/node.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/feature.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/baseline.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/stream.cpp
     )
@@ -71,7 +75,6 @@ SET(dsp_C_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stats.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/buffer.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/convolution.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/feature.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/signals.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/stream.c
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/fits.c
@@ -83,7 +86,7 @@ set_target_properties(opendsp PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSIO
 target_link_libraries(opendsp ${FFTW3_LIBRARIES} ${M_LIB} ${CFITSIO_LIBRARIES} ${JPEG_LIBRARIES} ${PNG_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
 add_library(openvlbi SHARED ${vlbi_C_SRCS} ${vlbi_CXX_SRCS})
 set_target_properties(openvlbi PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
-target_link_libraries(openvlbi opendsp ${M_LIB} ${CFITSIO_LIBRARIES} ${JPEG_LIBRARIES} ${PNG_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(openvlbi opendsp ${M_LIB} ${OpenCV_LIBS} ${CFITSIO_LIBRARIES} ${JPEG_LIBRARIES} ${PNG_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dsp.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
@@ -101,11 +104,13 @@ install(TARGETS opendsp LIBRARY DESTINATION ${LIB_INSTALL_DIR})
 
 if(WITH_VLBI_SERVER)
 add_library(openvlbi_server STATIC ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/collection.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/base64.c)
+target_link_libraries(openvlbi_server ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY} openvlbi opendsp)
 install(TARGETS openvlbi_server ARCHIVE DESTINATION ${LIB_INSTALL_DIR})
 
 if(WITH_JSON_SERVER)
 add_executable(vlbi_server_json ${CMAKE_CURRENT_SOURCE_DIR}/mjs.h ${CMAKE_CURRENT_SOURCE_DIR}/mjs.c ${CMAKE_CURRENT_SOURCE_DIR}/json.h ${CMAKE_CURRENT_SOURCE_DIR}/json.c ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_json.cpp)
-target_link_libraries(vlbi_server_json openvlbi_server openvlbi ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY} ${CMAKE_DL_LIBS})
+target_link_libraries(vlbi_server_json openvlbi ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY} ${CMAKE_DL_LIBS})
+target_link_libraries(vlbi_server_json openvlbi_server)
 install(TARGETS vlbi_server_json RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(WITH_JSON_SERVER)
 
@@ -115,14 +120,24 @@ if(INDI_LIBRARIES AND INDICLIENT_LIBRARIES)
 find_package(Nova REQUIRED)
 include_directories( ${INDI_INCLUDE_DIR})
 add_executable(vlbi_server_indi ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_indi.cpp)
-target_link_libraries(vlbi_server_indi openvlbi_server openvlbi indiclient stdc++fs ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
+target_link_libraries(vlbi_server_indi openvlbi indiclient stdc++fs ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
+target_link_libraries(vlbi_server_indi openvlbi_server)
 install(TARGETS vlbi_server_indi RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(INDI_LIBRARIES AND INDICLIENT_LIBRARIES)
 endif(WITH_INDI_SERVER)
 
 if(WITH_DUMMY_SERVER)
 add_executable(vlbi_server_dummy ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_dummy.cpp)
-target_link_libraries(vlbi_server_dummy openvlbi_server openvlbi ${M_LIB} ${ZLIB_LIBRARY})
+target_link_libraries(vlbi_server_dummy openvlbi ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
+target_link_libraries(vlbi_server_dummy openvlbi_server)
 install(TARGETS vlbi_server_dummy RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif(WITH_DUMMY_SERVER)
+
+if(WITH_SHARED_SERVER)
+add_library(vlbi_server SHARED ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server_shared.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/instancecollection.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/collection.cpp ${CMAKE_CURRENT_SOURCE_DIR}/vlbi/base64.c)
+target_link_libraries(vlbi_server openvlbi opendsp ${CFITSIO_LIBRARIES} ${M_LIB} ${ZLIB_LIBRARY})
+set_target_properties(vlbi_server PROPERTIES VERSION ${VLBI_VERSION_STRING} SOVERSION ${VLBI_VERSION_MAJOR})
+install(TARGETS vlbi_server LIBRARY DESTINATION ${LIB_INSTALL_DIR})
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/vlbi_server.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/OpenVLBI)
+endif(WITH_SHARED_SERVER)
 endif(WITH_VLBI_SERVER)

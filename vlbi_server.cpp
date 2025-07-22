@@ -34,8 +34,8 @@ static int is_running = 1;
 static InstanceCollection *contexts;
 VLBI::Server::Server()
 {
-    input = stdin;
-    output = stdout;
+    setInput(fdopen(0, "rb"));
+    setOutput(fdopen(1, "w+"));
     Ra = 0;
     Dec = 0;
     Freq = 1420000000;
@@ -52,7 +52,7 @@ VLBI::Server::Server()
     if(nullptr == tmpdir)
         tmpdir = (char*)"/tmp";
     context = (char*)malloc(9);
-    strcpy(context, "OpenVLBI\0");
+    memcpy(context, "OpenVLBI\0", 9);
     contexts = new InstanceCollection();
 }
 
@@ -69,6 +69,11 @@ static double coverage_delegate(double x, double y)
     (void)x;
     (void)y;
     return 1.0;
+}
+
+static double default_delegate(double x, double y)
+{
+    return x*y;
 }
 
 void VLBI::Server::addNode(const char *name, char *b64)
@@ -154,7 +159,7 @@ void VLBI::Server::Plot(const char *name, int flags)
 {
     double coords[3] = { Ra, Dec, DBL_MAX };
     if((flags & plot_flags_custom_delegate) == 0) {
-        setDelegate((flags & plot_flags_uv_coverage) != 0 ? coverage_delegate : vlbi_default_delegate);
+        setDelegate((flags & plot_flags_uv_coverage) != 0 ? coverage_delegate : default_delegate);
     }
     vlbi_get_uv_plot(getContext(), name, w, h, coords, Freq, SampleRate, (flags & plot_flags_synced) != 0,
                      (flags & plot_flags_moving_baseline) != 0,
@@ -725,8 +730,8 @@ int main(int argc, char *argv[])
 #endif
     int opt;
     dsp_set_app_name(argv[0]);
-    dsp_set_stdout(stderr);
-    dsp_set_stderr(stderr);
+    dsp_set_stdout(fdopen(2, "w+"));
+    dsp_set_stderr(fdopen(2, "w+"));
     while ((opt = getopt(argc, argv, "t:f:o:vh")) != -1)
     {
         switch (opt)
