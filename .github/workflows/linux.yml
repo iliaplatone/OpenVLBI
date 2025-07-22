@@ -9,7 +9,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        container: ["fedora"]
+        container: ["ubuntu", "fedora"]
+
+    container:
+      image: ghcr.io/indilib/${{ matrix.container }}
 
     steps:
       - name: Get Sources
