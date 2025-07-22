@@ -1,7 +1,7 @@
 %global forgeurl https://github.com/iliaplatone/openvlbi.git
 %define __cmake_in_source_build %{_vpath_builddir}
 
-Name: openvlbi
+Name: openvlbi-bin
 Version: 3.0.3.git
 Release: %(date -u +%%Y%%m%%d%%H%%M%%S)%{?dist}
 Summary: OpenVLBI Correlator
@@ -68,7 +68,7 @@ Static library needed to develop a %{name} application
 dnf install -y doxygen libindi-devel libnova-devel libfftw3-devel libcfitsio-devel cmake build-essential fakeroot devscripts jq
 mkdir -p build
 pushd build
- cmake -DCMAKE_INSTALL_PREFIX=/usr -DWITH_DOCS=Off -DWITH_DATA=Off DWITH_DSP=Off -DWITH_VLBI=On -DWITH_VLBI_SERVER=Off ..
+ cmake -DCMAKE_INSTALL_PREFIX=/usr -DWITH_DOCS=Off -DWITH_DSP=Off -DWITH_DATA=Off DWITH_VLBI=Off -DWITH_VLBI_SERVER=On ..
  make -j$(nproc)
 popd
 
