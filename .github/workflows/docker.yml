@@ -4,12 +4,12 @@ on:
 
 jobs:
   build:
-    runs-on: fedora-latest
+    runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
       matrix:
-        container: ["fedora"]
+        container: ["debian", "debian-i386", "ubuntu", "fedora"]
 
     steps:
       - name: Login to Registry

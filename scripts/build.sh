@@ -26,8 +26,9 @@ if [ "$os" == "Debian" ] || [ "$os" == "Ubuntu" ]; then
   packages/libopenvlbi-dev_${version}_*.deb \
   packages/openvlbi-data_${version}_*.deb \
   packages/openvlbi-bin_${version}_*.deb
-else
- rpm i doxygen libindi-devel libnova-devel libfftw3-devel libcfitsio-devel cdbs cmake dpkg-devel debhelper libpng-devel libjpeg-devel build-essential fakeroot devscripts jq
+else if [ "$os" == "Fedora" ] then
+ version=$(head -n 1 debian/changelog | tr -d [a-z:\(:\):=:\;:\ ] | tr -d '\n')
+ dnf install doxygen libindi-devel libnova-devel libfftw3-devel libcfitsio-devel cdbs cmake dpkg-devel debhelper libpng-devel libjpeg-devel build-essential fakeroot devscripts jq
  rpmbuild -bi OpenVLBI.spec
  mkdir -p packages
  mv ../libopendsp1_${version}_*.rpm packages/
@@ -36,7 +37,7 @@ else
  mv ../libopenvlbi-dev_${version}_*.rpm packages/
  mv ../openvlbi-bin_${version}_*.rpm packages/
  mv ../openvlbi-data_${version}_*.rpm packages/
- dpkg -i \
+ dnf install \
   packages/libopendsp1_${version}_*.rpm \
   packages/libopendsp-dev_${version}_*.rpm \
   packages/libopenvlbi1_${version}_*.rpm \

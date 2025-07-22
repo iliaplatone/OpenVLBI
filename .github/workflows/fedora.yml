@@ -8,6 +8,8 @@ jobs:
 
     strategy:
       fail-fast: false
+      matrix:
+        container: ["fedora"]
 
     steps:
       - name: Get Sources
