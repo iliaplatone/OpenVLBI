@@ -1,6 +1,13 @@
-
 name: Linux
-on: [push, pull_request, workflow_dispatch]
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+    branches:
+      - 'master'
 
 jobs:
   build:
@@ -8,6 +15,11 @@ jobs:
 
     strategy:
       fail-fast: false
+      matrix:
+        container: ["ubuntu", "debian", "debian-386", "fedora"]
+
+    container:
+      image: ghcr.io/iliaplatone/${{ matrix.container }}
 
     steps:
       - name: Get Sources
