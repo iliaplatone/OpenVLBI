@@ -1,0 +1,94 @@
+# This Python file uses the following encoding: utf-8
+import ctypes
+from ctypes import *
+
+class vlbi_server:
+    def __init__(self):
+        vlbi_server = CDLL("libvlbi_server.so")
+
+        Init = vlbi_server.VLBI_Server_Init
+        addContext.argtypes = [("argc", ctypes.c_int), ("argv", POINTER(ctypes.c_char_p))]
+        Init.restype = ctypes.c_int
+        Parse = vlbi_server.VLBI_Server_Parse
+        addContext = vlbi_server.VLBI_Server_addContext
+        addContext.argtypes = [("name", ctypes.c_char_p)]
+        delContext = vlbi_server.VLBI_Server_delContext
+        delContext.argtypes = [("name", ctypes.c_char_p)]
+        setContext = vlbi_server.VLBI_Server_setContext
+        setContext.argtypes = [("name", ctypes.c_char_p)]
+        getContext = vlbi_server.VLBI_Server_getContext()
+        getContext.restype = ctypes.c_void_p
+        currentContext = vlbi_server.VLBI_Server_currentContext()
+        currentContext.restype = ctypes.c_char_p
+        addModel = vlbi_server.VLBI_Server_addModel
+        addModel.argtypes = [("name", ctypes.c_char_p), ("format", ctypes.c_char_p), ("b64", ctypes.c_char_p)]
+        getModel = vlbi_server.VLBI_Server_getModel
+        getModel.argtypes = [("name", ctypes.c_char_p), ("format", ctypes.c_char_p)]
+        getModel.restype = ctypes.c_char_p
+        delModel = vlbi_server.VLBI_Server_delModel
+        delModel.argtypes = [("name", ctypes.c_char_p)]
+        addNodeFromFits = vlbi_server.VLBI_Server_addNodeFromFits
+        addNodeFromFits.argtypes = [("name", ctypes.c_char_p), ("b64", ctypes.c_char_p)]
+        addNodes = vlbi_server.VLBI_Server_addNodes
+        addNodes.argtypes = [("name", ctypes.c_char_p), ("b64", ctypes.c_char_p)]
+        delNode = vlbi_server.VLBI_Server_delNode
+        delNode.argtypes = [("name", ctypes.c_char_p)]
+        CopyNode = vlbi_server.VLBI_Server_CopyNode
+        CopyNode.argtypes = [("name", ctypes.c_char_p), ("node", ctypes.c_char_p)]
+        Plot = vlbi_server.VLBI_Server_Plot
+        Plot.argtypes = [("name", ctypes.c_char_p), ctypes.c_int flags)
+        Idft = vlbi_server.VLBI_Server_Idft
+        Idft.argtypes = [("name", ctypes.c_char_p), ("magnitude", ctypes.c_char_p), ("phase", ctypes.c_char_p)]
+        Dft = vlbi_server.VLBI_Server_Dft
+        Dft.argtypes = [("name", ctypes.c_char_p), ("magnitude", ctypes.c_char_p), ("phase", ctypes.c_char_p)]
+        Mask = vlbi_server.VLBI_Server_Mask
+        Mask.argtypes = [("name", ctypes.c_char_p), ("model", ctypes.c_char_p), ("mask", ctypes.c_char_p)]
+        Stack = vlbi_server.VLBI_Server_Stack
+        Stack.argtypes = [("name", ctypes.c_char_p), ("model1", ctypes.c_char_p), ("model2", ctypes.c_char_p)]
+        Copy = vlbi_server.VLBI_Server_Copy
+        Copy.argtypes = [("name", ctypes.c_char_p), ("model", ctypes.c_char_p)]
+        Diff = vlbi_server.VLBI_Server_Diff
+        Diff.argtypes = [("name", ctypes.c_char_p), ("model1", ctypes.c_char_p), ("model2", ctypes.c_char_p)]
+        Convolve = vlbi_server.VLBI_Server_Convolve
+        Convolve.argtypes = [("name", ctypes.c_char_p), ("model1", ctypes.c_char_p), ("model2", ctypes.c_char_p)]
+        LowPass = vlbi_server.VLBI_Server_LowPass
+        LowPass.argtypes = [("name", ctypes.c_char_p), ("node", ctypes.c_char_p), ("freq", ctypes.c_double)]
+        HighPass = vlbi_server.VLBI_Server_HighPass
+        HighPass.argtypes = [("name", ctypes.c_char_p), ("node", ctypes.c_char_p), ("freq", ctypes.c_double)]
+        BandPass = vlbi_server.VLBI_Server_BandPass
+        BandPass.argtypes = [("name", ctypes.c_char_p), ("node", ctypes.c_char_p), ("lofreq", ctypes.c_double), ("hifreq", ctypes.c_double)]
+        BandReject = vlbi_server.VLBI_Server_BandReject
+        BandReject.argtypes = [("name", ctypes.c_char_p), ("node", ctypes.c_char_p), ("lofreq", ctypes.c_double), ("hifreq", ctypes.c_double)]
+        Shift = vlbi_server.VLBI_Server_Shift
+        Shift.argtypes = [("name", ctypes.c_char_p)]
+        setRa = vlbi_server.VLBI_Server_setRa
+        setRa.argtypes = [("value", ctypes.c_double)]
+        setDec = vlbi_server.VLBI_Server_setDec
+        setDec.argtypes = [("value", ctypes.c_double)]
+        setFreq = vlbi_server.VLBI_Server_setFreq
+        setFreq.argtypes = [("value", ctypes.c_double)]
+        setSampleRate = vlbi_server.VLBI_Server_setSampleRate
+        setSampleRate.argtypes = [("value", ctypes.c_double)]
+        setBps = vlbi_server.VLBI_Server_setBps
+        setBps.argtypes = [("value", ctypes.c_int)]
+        setWidth = vlbi_server.VLBI_Server_setWidth
+        setWidth.argtypes = [("value", ctypes.c_int)]
+        setHeight = vlbi_server.VLBI_Server_setHeight
+        setHeight.argtypes = [("value", ctypes.c_int)]
+        getRa = vlbi_server.VLBI_Server_getRa
+        getRa.restype = ctypes.c_double
+        getDec = vlbi_server.VLBI_Server_getDec
+        getDec.restype = ctypes.c_double
+        getFreq = vlbi_server.VLBI_Server_getFreq
+        getFreq.restype = ctypes.c_double
+        getSampleRate = vlbi_server.VLBI_Server_getSampleRate
+        getSampleRate.restype = ctypes.c_double
+        setCorrelationOrder = vlbi_server.VLBI_Server_setCorrelationOrder
+        setCorrelationOrder.argtypes = [("order", ctypes.c_int)]
+        getBps = vlbi_server.VLBI_Server_getBps
+        getBps.restype = ctypes.c_double
+        getWidth = vlbi_server.VLBI_Server_getWidth
+        getWidth.restype = ctypes.c_double
+        getHeight = vlbi_server.VLBI_Server_getHeight
+        getHeight.restype = ctypes.c_double
+
