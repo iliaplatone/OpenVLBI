@@ -77,6 +77,51 @@ void dsp_fourier_2complex_t(dsp_stream_p stream)
     free(dft);
 }
 
+double* dsp_fourier_multicomplex_array_get_magnitude(dsp_multicomplex* in, int dims, int len)
+{
+    int i;
+    int d;
+    for(i = 0; i < len; i++)
+        if(in[i].dims != dims) return NULL;
+    double* out = (double*)malloc(sizeof(double) * len);
+    for(i = 0; i < len; i++) {
+        out[i] = pow(in[i].real, 2);
+        for(d = 0; d < in[i].dims; d++) {
+            out[i] += pow(in[i].imaginary[d], 2);
+        }
+        out[i] = sqrt(out[i]);
+    }
+    return out;
+}
+
+double* dsp_fourier_multicomplex_array_get_phase(dsp_multicomplex* in, int dims, int len)
+{
+    int i;
+    int d;
+    for(i = 0; i < len; i++)
+        if(in[i].dims != dims) return NULL;
+    double* out = (double*)malloc(sizeof(double) * len * dims);
+    double* magnitudes = dsp_fourier_multicomplex_array_get_magnitude(in, dims, len);
+    for(i = 0; i < len; i++) {
+        out [i] = 0;
+        if (in[i].real != 0) {
+            double real = in[i].real;
+            for(d = 0; d < dims; d++) {
+                double imaginary = in[i].imaginary[d];
+                double mag = magnitudes[i];
+                double rad = 0.0;
+                if(mag > 0.0) {
+                    rad = acos (imaginary / (mag > 0.0 ? mag : 1.0));
+                    if(real < 0 && rad != 0)
+                        rad = M_PI*2-rad;
+                }
+                out [i] = rad;
+            }
+        }
+    }
+    return out;
+}
+
 double* dsp_fourier_complex_array_get_magnitude(dsp_complex in, int len)
 {
     int i;

@@ -86,7 +86,7 @@ typedef struct multicomplex_t{
     int dims;
     double real;
     double *imaginary;
-} multicomplex;
+} dsp_multicomplex;
 /**
 * \brief get/set the maximum number of threads allowed
 * \param value if greater than 1, set a maximum number of threads allowed
@@ -399,6 +399,8 @@ typedef struct dsp_stream_t
     dsp_t* buf;
     /// Fourier transform
     dsp_complex dft;
+    /// Multicomplex fourier transform
+    dsp_multicomplex *mdft;
     /// Optional argument for the func() callback
     void *arg;
     /// The parent stream
@@ -435,6 +437,10 @@ typedef struct dsp_stream_t
     struct dsp_stream_t *magnitude;
     /// Fourier transform phase
     struct dsp_stream_t *phase;
+    /// Multicomplex fourier transform magnitudes
+    struct dsp_stream_t *magnitudes;
+    /// Multicomplex fourier transform phases
+    struct dsp_stream_t *phases;
     /// Regions of interest for each dimension
     dsp_region *ROI;
     /// Stars or objects identified into the buffers - TODO
@@ -507,6 +513,24 @@ DLL_EXPORT double* dsp_fourier_complex_array_get_magnitude(dsp_complex in, int l
 * \return the array filled with the phases
 */
 DLL_EXPORT double* dsp_fourier_complex_array_get_phase(dsp_complex in, int len);
+
+/**
+* \brief Obtain a multicomplex number's array magnitudes
+* \param in the input multicomplex number array.
+* \param dims the number of the imaginary parts.
+* \param len the input array length.
+* \return the array filled with the magnitudes
+*/
+DLL_EXPORT double* dsp_fourier_multicomplex_array_get_magnitude(dsp_multicomplex* in, int dims, int len);
+
+/**
+* \brief Obtain a multicomplex number's array phases
+* \param in the input multicomplex number array.
+* \param dims the number of the imaginary parts.
+* \param len the input array length.
+* \return the array filled with the phases
+*/
+DLL_EXPORT double* dsp_fourier_multicomplex_array_get_phase(dsp_multicomplex* in, int dims, int len);
 
 /**\}*/
 /**

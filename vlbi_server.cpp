@@ -29,6 +29,8 @@
 #include "getline.c"
 #endif
 
+using namespace VLBI;
+
 static int is_running = 1;
 
 static InstanceCollection *contexts;
@@ -718,6 +720,7 @@ static void sighandler(int signum)
     exit(0);
 }
 
+#ifndef VLBI_LIBRARY
 #ifdef _WIN32
 #include <windows.h>
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, INT nCmdShow)
@@ -774,3 +777,5 @@ int main(int argc, char *argv[])
     VLBI::server->~Server();
     return EXIT_SUCCESS;
 }
+#endif
+
