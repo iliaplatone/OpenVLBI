@@ -19,40 +19,12 @@
 #include <vlbi.h>
 #include <fitsio2.h>
 #include "vlbi_server.h"
+#include "vlbi_server_json.h"
 #include "vlbi_server_shared.h"
 
 using namespace VLBI;
 
-class SHAREDServer : public VLBI::Server
-{
-public:
-    SHAREDServer();
-    ~SHAREDServer();
-
-    int Init(int argc, char** argv);
-    void Parse();
-};
-
-SHAREDServer::SHAREDServer()
-    : VLBI::Server::Server()
-{
-}
-
-SHAREDServer::~SHAREDServer()
-{
-}
-
-int SHAREDServer::Init(int argc, char** argv)
-{
-    return VLBI::Server::Init(argc, argv);
-}
-
-void SHAREDServer::Parse()
-{
-    VLBI::Server::Parse();
-}
-
-Server *VLBI::server = (Server*)new SHAREDServer();
+Server *VLBI::server = (Server*)new JSONServer();
 
 int VLBI_Server_Init(int argc, char** argv) { return VLBI::server->Init(argc, argv); }
 void VLBI_Server_Parse() { VLBI::server->Parse(); }
