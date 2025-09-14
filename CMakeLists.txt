@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8...3.8)
+wcmake_minimum_required(VERSION 2.8...3.8)
 
 PROJECT(OpenVLBI C CXX)
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
@@ -39,6 +39,7 @@ string(REGEX REPLACE "\n\# \([a-z:A-Z:0-9]*\)" "\n\n\\\\page page_\\1 \\1" READM
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dsp/dsp.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/dsp.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/vlbi/vlbi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/vlbi.h )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/openvlbi.iss.cmake ${CMAKE_CURRENT_BINARY_DIR}/openvlbi.iss )
 
 include_directories( ${CFITSIO_INCLUDE_DIR})
 include_directories( ${OpenCV_INCLUDE_DIRS} )
