@@ -59,8 +59,8 @@ find_package_handle_standard_args(DSP
   FOUND_VAR
     DSP_FOUND
   REQUIRED_VARS
-    DSP_LIBRARY
-    DSP_INCLUDE_DIR
+    DSP_LIBRARIES
+    DSP_INCLUDE_DIRS
   VERSION_VAR
     DSP_VERSION
 )
