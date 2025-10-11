@@ -35,7 +35,7 @@
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #=============================================================================
 
-find_path(VLBI_INCLUDE_DIR
+find_path(VLBI_INCLUDE_DIRS
   NAMES
     vlbi.h
   HINTS
