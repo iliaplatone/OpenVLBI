@@ -26,7 +26,7 @@
 #include <base64.h>
 #include <thread>
 
-NodeCollection *vlbi_nodes = new NodeCollection();
+static NodeCollection *vlbi_nodes = new NodeCollection();
 static pthread_mutex_t mutex;
 static pthread_mutexattr_t mutexattr;
 static bool mutex_initialized = false;
