@@ -81,7 +81,6 @@ const char* vlbi_get_version()
 static double getDelay(double time, NodeCollection *nodes, VLBIBaseline *b, double Ra, double Dec, double Distance,
                        double wavelength)
 {
-    pfunc;
     double delay = 0.0;
     b->setRa(Ra);
     b->setDec(Dec);
