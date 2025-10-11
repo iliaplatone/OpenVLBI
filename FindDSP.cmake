@@ -44,9 +44,8 @@ find_path(DSP_INCLUDE_DIR
     OpenVLBI
 )
 
-find_library(DSP_LIBRARY
+find_library(DSP_LIBRARIES
   NAMES
-    ${DSP_LIBRARIES}
     opendsp
   HINTS
     ${DSP_LIBRARY_DIRS}

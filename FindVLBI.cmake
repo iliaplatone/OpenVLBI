@@ -44,9 +44,8 @@ find_path(VLBI_INCLUDE_DIR
     OpenVLBI
 )
 
-find_library(VLBI_LIBRARY
+find_library(VLBI_LIBRARIES
   NAMES
-    ${VLBI_LIBRARIES}
     openvlbi
   HINTS
     ${VLBI_LIBRARY_DIRS}
