@@ -18,7 +18,7 @@ Standards-Version: 3.9.5
 Homepage: http://iliaplatone.github.io/OpenVLBI/
 Vcs-Git: git://github.com/iliaplatone/OpenVLBI.git
 
-Package: libopendsp1
+Package: libopendsp
 Section: libs
 Architecture: any
 Multi-Arch: same
@@ -43,7 +43,7 @@ Description: OpenDSP signal processing library - development files
     It contains methods and routines for signal processing
     in imaging and radio astronomy.
 
-Package: libopenvlbi1
+Package: libopenvlbi
 Section: libs
 Architecture: any
 Multi-Arch: same
