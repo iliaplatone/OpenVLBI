@@ -16,6 +16,7 @@
 # The following variables will be defined for your use:
 #   - INDI_FOUND             : were all of your specified components found (include dependencies)?
 #   - INDI_WEBSOCKET         : was INDI compiled with websocket support?
+#   - INDI_JSONLIB           : was INDI compiled with bundled json library?
 #   - INDI_INCLUDE_DIR       : INDI include directory
 #   - INDI_DATA_DIR          : INDI include directory
 #   - INDI_LIBRARIES         : INDI libraries
@@ -199,18 +200,32 @@ else()
     SET(INDI_WEBSOCKET FALSE)
 endif()
 
+find_path(
+    BUNDLED_JSONLIB
+    indijson.hpp
+    PATH_SUFFIXES libindi
+    ${PC_INDI_INCLUDE_DIR}
+    ${_obIncDir}
+    ${GNUWIN32_DIR}/include
+)
+
+if (BUNDLED_JSONLIB)
+    SET(INDI_JSONLIB TRUE)
+else()
+    SET(INDI_JSONLIB FALSE)
+endif()
+
 find_path(${INDI_PUBLIC_VAR_NS}_DATA_DIR
     drivers.xml
     PATH_SUFFIXES share/indi
     DOC "Data directory for INDI"
     )
 
-SET(INDI_UPSTREAM TRUE)
 if(${INDI_PUBLIC_VAR_NS}_INCLUDE_DIR)
     if(EXISTS "${${INDI_PUBLIC_VAR_NS}_INCLUDE_DIR}/indiversion.h") # INDI >= 1.4
         file(READ "${${INDI_PUBLIC_VAR_NS}_INCLUDE_DIR}/indiversion.h" ${INDI_PRIVATE_VAR_NS}_VERSION_HEADER_CONTENTS)
     else()
-        SET(INDI_UPSTREAM FALSE)
+        message(FATAL_ERROR "INDI version header not found")
     endif()
 
     if(${INDI_PRIVATE_VAR_NS}_VERSION_HEADER_CONTENTS MATCHES ".*INDI_VERSION ([0-9]+).([0-9]+).([0-9]+)")
@@ -218,70 +233,68 @@ if(${INDI_PUBLIC_VAR_NS}_INCLUDE_DIR)
             set(${INDI_PUBLIC_VAR_NS}_MINOR_VERSION "${CMAKE_MATCH_2}")
             set(${INDI_PUBLIC_VAR_NS}_RELEASE_VERSION "${CMAKE_MATCH_3}")
     else()
-        SET(INDI_UPSTREAM FALSE)
+        message(FATAL_ERROR "failed to detect INDI version")
     endif()
-    if(INDI_UPSTREAM)
-        set(${INDI_PUBLIC_VAR_NS}_VERSION "${${INDI_PUBLIC_VAR_NS}_MAJOR_VERSION}.${${INDI_PUBLIC_VAR_NS}_MINOR_VERSION}.${${INDI_PUBLIC_VAR_NS}_RELEASE_VERSION}")
+    set(${INDI_PUBLIC_VAR_NS}_VERSION "${${INDI_PUBLIC_VAR_NS}_MAJOR_VERSION}.${${INDI_PUBLIC_VAR_NS}_MINOR_VERSION}.${${INDI_PUBLIC_VAR_NS}_RELEASE_VERSION}")
 
-        # Check libraries
-        foreach(${INDI_PRIVATE_VAR_NS}_COMPONENT ${${INDI_PUBLIC_VAR_NS}_FIND_COMPONENTS})
-            set(${INDI_PRIVATE_VAR_NS}_POSSIBLE_RELEASE_NAMES )
-            set(${INDI_PRIVATE_VAR_NS}_POSSIBLE_DEBUG_NAMES )
-            foreach(${INDI_PRIVATE_VAR_NS}_BASE_NAME ${${INDI_PRIVATE_VAR_NS}_COMPONENTS_${${INDI_PRIVATE_VAR_NS}_COMPONENT}})
-                list(APPEND ${INDI_PRIVATE_VAR_NS}_POSSIBLE_RELEASE_NAMES "${${INDI_PRIVATE_VAR_NS}_BASE_NAME}")
-                list(APPEND ${INDI_PRIVATE_VAR_NS}_POSSIBLE_DEBUG_NAMES "${${INDI_PRIVATE_VAR_NS}_BASE_NAME}d")
-                list(APPEND ${INDI_PRIVATE_VAR_NS}_POSSIBLE_RELEASE_NAMES "${${INDI_PRIVATE_VAR_NS}_BASE_NAME}${INDI_MAJOR_VERSION}${INDI_MINOR_VERSION}")
-                list(APPEND ${INDI_PRIVATE_VAR_NS}_POSSIBLE_DEBUG_NAMES "${${INDI_PRIVATE_VAR_NS}_BASE_NAME}${INDI_MAJOR_VERSION}${INDI_MINOR_VERSION}d")
-            endforeach(${INDI_PRIVATE_VAR_NS}_BASE_NAME)
+    # Check libraries
+    foreach(${INDI_PRIVATE_VAR_NS}_COMPONENT ${${INDI_PUBLIC_VAR_NS}_FIND_COMPONENTS})
+        set(${INDI_PRIVATE_VAR_NS}_POSSIBLE_RELEASE_NAMES )
+        set(${INDI_PRIVATE_VAR_NS}_POSSIBLE_DEBUG_NAMES )
+        foreach(${INDI_PRIVATE_VAR_NS}_BASE_NAME ${${INDI_PRIVATE_VAR_NS}_COMPONENTS_${${INDI_PRIVATE_VAR_NS}_COMPONENT}})
+            list(APPEND ${INDI_PRIVATE_VAR_NS}_POSSIBLE_RELEASE_NAMES "${${INDI_PRIVATE_VAR_NS}_BASE_NAME}")
+            list(APPEND ${INDI_PRIVATE_VAR_NS}_POSSIBLE_DEBUG_NAMES "${${INDI_PRIVATE_VAR_NS}_BASE_NAME}d")
+            list(APPEND ${INDI_PRIVATE_VAR_NS}_POSSIBLE_RELEASE_NAMES "${${INDI_PRIVATE_VAR_NS}_BASE_NAME}${INDI_MAJOR_VERSION}${INDI_MINOR_VERSION}")
+            list(APPEND ${INDI_PRIVATE_VAR_NS}_POSSIBLE_DEBUG_NAMES "${${INDI_PRIVATE_VAR_NS}_BASE_NAME}${INDI_MAJOR_VERSION}${INDI_MINOR_VERSION}d")
+        endforeach(${INDI_PRIVATE_VAR_NS}_BASE_NAME)
 
-            find_library(
-                ${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT}
-                NAMES ${${INDI_PRIVATE_VAR_NS}_POSSIBLE_RELEASE_NAMES}
-                HINTS ${${INDI_PRIVATE_VAR_NS}_ROOT}
-                PATH_SUFFIXES ${_INDI_LIB_SUFFIXES}
-                DOC "Release libraries for INDI"
-            )
-            find_library(
-                ${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}
-                NAMES ${${INDI_PRIVATE_VAR_NS}_POSSIBLE_DEBUG_NAMES}
-                HINTS ${${INDI_PRIVATE_VAR_NS}_ROOT}
-                PATH_SUFFIXES ${_INDI_LIB_SUFFIXES}
-                DOC "Debug libraries for INDI"
-            )
+        find_library(
+            ${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT}
+            NAMES ${${INDI_PRIVATE_VAR_NS}_POSSIBLE_RELEASE_NAMES}
+            HINTS ${${INDI_PRIVATE_VAR_NS}_ROOT}
+            PATH_SUFFIXES ${_INDI_LIB_SUFFIXES}
+            DOC "Release libraries for INDI"
+        )
+        find_library(
+            ${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}
+            NAMES ${${INDI_PRIVATE_VAR_NS}_POSSIBLE_DEBUG_NAMES}
+            HINTS ${${INDI_PRIVATE_VAR_NS}_ROOT}
+            PATH_SUFFIXES ${_INDI_LIB_SUFFIXES}
+            DOC "Debug libraries for INDI"
+        )
 
-            string(TOUPPER "${${INDI_PRIVATE_VAR_NS}_COMPONENT}" ${INDI_PRIVATE_VAR_NS}_UPPER_COMPONENT)
-            if(NOT ${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT} AND NOT ${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}) # both not found
-                set("${INDI_PUBLIC_VAR_NS}_${${INDI_PRIVATE_VAR_NS}_UPPER_COMPONENT}_FOUND" FALSE)
-                set("${INDI_PUBLIC_VAR_NS}_FOUND" FALSE)
-            else(NOT ${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT} AND NOT ${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}) # one or both found
-                set("${INDI_PUBLIC_VAR_NS}_${${INDI_PRIVATE_VAR_NS}_UPPER_COMPONENT}_FOUND" TRUE)
-                if(NOT ${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT}) # release not found => we are in debug
-                    set(${INDI_PRIVATE_VAR_NS}_LIB_${${INDI_PRIVATE_VAR_NS}_COMPONENT} "${${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}}")
-                elseif(NOT ${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}) # debug not found => we are in release
-                    set(${INDI_PRIVATE_VAR_NS}_LIB_${${INDI_PRIVATE_VAR_NS}_COMPONENT} "${${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT}}")
-                else() # both found
-                    set(
-                        ${INDI_PRIVATE_VAR_NS}_LIB_${${INDI_PRIVATE_VAR_NS}_COMPONENT}
-                        optimized ${${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT}}
-                        debug ${${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}}
-                    )
-                endif()
-                list(APPEND ${INDI_PUBLIC_VAR_NS}_LIBRARIES ${${INDI_PRIVATE_VAR_NS}_LIB_${${INDI_PRIVATE_VAR_NS}_COMPONENT}})
-            endif(NOT ${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT} AND NOT ${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT})
-        endforeach(${INDI_PRIVATE_VAR_NS}_COMPONENT)
+        string(TOUPPER "${${INDI_PRIVATE_VAR_NS}_COMPONENT}" ${INDI_PRIVATE_VAR_NS}_UPPER_COMPONENT)
+        if(NOT ${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT} AND NOT ${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}) # both not found
+            set("${INDI_PUBLIC_VAR_NS}_${${INDI_PRIVATE_VAR_NS}_UPPER_COMPONENT}_FOUND" FALSE)
+            set("${INDI_PUBLIC_VAR_NS}_FOUND" FALSE)
+        else(NOT ${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT} AND NOT ${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}) # one or both found
+            set("${INDI_PUBLIC_VAR_NS}_${${INDI_PRIVATE_VAR_NS}_UPPER_COMPONENT}_FOUND" TRUE)
+            if(NOT ${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT}) # release not found => we are in debug
+                set(${INDI_PRIVATE_VAR_NS}_LIB_${${INDI_PRIVATE_VAR_NS}_COMPONENT} "${${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}}")
+            elseif(NOT ${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}) # debug not found => we are in release
+                set(${INDI_PRIVATE_VAR_NS}_LIB_${${INDI_PRIVATE_VAR_NS}_COMPONENT} "${${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT}}")
+            else() # both found
+                set(
+                    ${INDI_PRIVATE_VAR_NS}_LIB_${${INDI_PRIVATE_VAR_NS}_COMPONENT}
+                    optimized ${${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT}}
+                    debug ${${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT}}
+                )
+            endif()
+            list(APPEND ${INDI_PUBLIC_VAR_NS}_LIBRARIES ${${INDI_PRIVATE_VAR_NS}_LIB_${${INDI_PRIVATE_VAR_NS}_COMPONENT}})
+        endif(NOT ${INDI_PRIVATE_VAR_NS}_LIB_RELEASE_${${INDI_PRIVATE_VAR_NS}_COMPONENT} AND NOT ${INDI_PRIVATE_VAR_NS}_LIB_DEBUG_${${INDI_PRIVATE_VAR_NS}_COMPONENT})
+    endforeach(${INDI_PRIVATE_VAR_NS}_COMPONENT)
 
-        # Check find_package arguments
-        include(FindPackageHandleStandardArgs)
-        if(${INDI_PUBLIC_VAR_NS}_FIND_REQUIRED AND NOT ${INDI_PUBLIC_VAR_NS}_FIND_QUIETLY)
-            find_package_handle_standard_args(
-                ${INDI_PUBLIC_VAR_NS}
-                REQUIRED_VARS ${INDI_PUBLIC_VAR_NS}_LIBRARIES ${INDI_PUBLIC_VAR_NS}_INCLUDE_DIR
-                VERSION_VAR ${INDI_PUBLIC_VAR_NS}_VERSION
-            )
-        else(${INDI_PUBLIC_VAR_NS}_FIND_REQUIRED AND NOT ${INDI_PUBLIC_VAR_NS}_FIND_QUIETLY)
-            find_package_handle_standard_args(${INDI_PUBLIC_VAR_NS} "INDI not found" ${INDI_PUBLIC_VAR_NS}_LIBRARIES ${INDI_PUBLIC_VAR_NS}_INCLUDE_DIR)
-        endif(${INDI_PUBLIC_VAR_NS}_FIND_REQUIRED AND NOT ${INDI_PUBLIC_VAR_NS}_FIND_QUIETLY)
-    endif(INDI_UPSTREAM)
+    # Check find_package arguments
+    include(FindPackageHandleStandardArgs)
+    if(${INDI_PUBLIC_VAR_NS}_FIND_REQUIRED AND NOT ${INDI_PUBLIC_VAR_NS}_FIND_QUIETLY)
+        find_package_handle_standard_args(
+            ${INDI_PUBLIC_VAR_NS}
+            REQUIRED_VARS ${INDI_PUBLIC_VAR_NS}_LIBRARIES ${INDI_PUBLIC_VAR_NS}_INCLUDE_DIR
+            VERSION_VAR ${INDI_PUBLIC_VAR_NS}_VERSION
+        )
+    else(${INDI_PUBLIC_VAR_NS}_FIND_REQUIRED AND NOT ${INDI_PUBLIC_VAR_NS}_FIND_QUIETLY)
+        find_package_handle_standard_args(${INDI_PUBLIC_VAR_NS} "INDI not found" ${INDI_PUBLIC_VAR_NS}_LIBRARIES ${INDI_PUBLIC_VAR_NS}_INCLUDE_DIR)
+    endif(${INDI_PUBLIC_VAR_NS}_FIND_REQUIRED AND NOT ${INDI_PUBLIC_VAR_NS}_FIND_QUIETLY)
 else(${INDI_PUBLIC_VAR_NS}_INCLUDE_DIR)
     set("${INDI_PUBLIC_VAR_NS}_FOUND" FALSE)
     if(${INDI_PUBLIC_VAR_NS}_FIND_REQUIRED AND NOT ${INDI_PUBLIC_VAR_NS}_FIND_QUIETLY)
