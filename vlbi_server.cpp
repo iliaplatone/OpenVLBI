@@ -730,7 +730,7 @@ int main(int argc, char *argv[])
 #endif
     int opt;
     dsp_set_app_name(argv[0]);
-    dsp_set_stdout(fdopen(2, "w+"));
+    dsp_set_stdout(fdopen(1, "w+"));
     dsp_set_stderr(fdopen(2, "w+"));
     while ((opt = getopt(argc, argv, "t:f:o:vh")) != -1)
     {
