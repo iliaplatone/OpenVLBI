@@ -36,9 +36,9 @@ jobs:
         run: |
             cd OpenVLBI
             mkdir -p tests
-            scripts/json_to_image.sh scripts/coverage.json tests/synthesis_delay_coverage
-            scripts/json_to_image.sh scripts/raw.json tests/synthesis_delay_raw
-            scripts/json_to_image.sh scripts/idft.json tests/synthesis_delay_idft
+            scripts/json_to_image.sh scripts/coverage.json
+            scripts/json_to_image.sh scripts/raw.json
+            scripts/json_to_image.sh scripts/idft.json
 
       - name: Debs
         uses: actions/upload-artifact@v4
