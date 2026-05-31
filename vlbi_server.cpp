@@ -260,11 +260,11 @@ char* VLBI::Server::getModel(const char *name, char *format)
         stream[c] = dsp_stream_copy(model);
     if(fd > -1)
     {
-        if(!strcmp(format, "jpeg"))
+        if(!strcmp(format, "jpeg") || !strcmp(format, "jpg") || !strcmp(format, "JPEG") || !strcmp(format, "JPG"))
             dsp_file_write_jpeg_composite(filename, channels, 100, stream);
-        if(!strcmp(format, "png"))
+        if(!strcmp(format, "png") || !strcmp(format, "PNG"))
             dsp_file_write_png_composite(filename, channels, 9, stream);
-        if(!strcmp(format, "fits"))
+        if(!strcmp(format, "fits") || !strcmp(format, "fit") || !strcmp(format, "FITS") || !strcmp(format, "FIT"))
             dsp_file_write_fits_composite(filename, channels, 16, stream);
         FILE* f = fdopen(fd, "rb+");
         fseek(f, 0, SEEK_END);
@@ -326,15 +326,15 @@ void VLBI::Server::addModel(const char *name, char *format, char *b64)
             (void)written;
             free(buf);
             close(fd);
-            if(!strcmp(format, "fits"))
+            if(!strcmp(format, "fits") || !strcmp(format, "fit") || !strcmp(format, "FITS") || !strcmp(format, "FIT"))
             {
                 vlbi_add_model_from_fits(getContext(), filename, name);
             }
-            if(!strcmp(format, "jpeg"))
+            if(!strcmp(format, "jpeg") || !strcmp(format, "jpg") || !strcmp(format, "JPEG") || !strcmp(format, "JPG"))
             {
                 vlbi_add_model_from_jpeg(getContext(), filename, name);
             }
-            if(!strcmp(format, "png"))
+            if(!strcmp(format, "png") || !strcmp(format, "PNG"))
             {
                 vlbi_add_model_from_png(getContext(), filename, name);
             }
